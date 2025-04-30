@@ -1,0 +1,77 @@
+.label {
+  font-size: 12px;
+
+  gap: 8px;
+  z-index: 10;
+}
+.label h1 {
+  font-size: 12px;
+  text-transform: capitalize;
+}
+ /* LTR direction */
+ html[dir="ltr"] .label h1  {
+  margin-left: 4px;
+}
+/* RTL direction */
+html[dir="rtl"] .label h1 {
+  margin-right: 4px;
+}
+
+.label input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: 100%;
+  padding:0 3px;
+  width: calc(100% - 45px);
+}
+/* LTR direction */
+html[dir="ltr"] .label input {
+  margin: 0 0px 0 10px;
+}
+
+/* RTL direction */
+html[dir="rtl"] .label input {
+  margin: 0 10px 0 0px;
+}
+
+
+.inputwrapper {
+  height: 45px;
+  padding-top: 1px;
+  width: 100%;
+  border-radius: 8px;
+  position: relative;
+  transition: 0.2s;
+
+}
+.icon {
+  position: absolute;
+  font-size: 18px;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+ /* LTR direction */
+ html[dir="ltr"] .icon  {
+  right: 12px;
+}
+/* RTL direction */
+html[dir="rtl"] .icon {
+  left: 12px;
+}
+.icon svg {
+  font-size: 18px;
+}
+
+
+.readOnly {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgb(23, 23, 234);
+  letter-spacing: 0.5px;
+}
+.readOnly svg { 
+  font-size: 11px;
+  margin: 0 2px;
+}

@@ -1,0 +1,18 @@
+.item {
+  margin: 5px 0;
+}
+.folder {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: max-content;
+  padding: 3px 6px;
+  border-radius: 8px;
+}
+.container {
+  position: relative;
+}
+.list {
+  transition: 0.4s;
+}
+.list.hide {
+  opacity: 0;
+}

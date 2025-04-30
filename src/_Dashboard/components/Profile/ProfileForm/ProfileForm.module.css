@@ -1,0 +1,20 @@
+.label {
+    width: 350px;
+    max-width: 100%;
+}
+
+.form {
+    width: 820px;
+    max-width: 100%;
+    margin:20px 0;
+    padding: 20px;
+    border-radius: 8px;
+}
+.btnsave {
+    border-radius: 5px;
+    width: 200px;
+    height: 38px;
+    margin:10px 15px;
+    padding-top: 3px;
+    border-width: 1px;
+}

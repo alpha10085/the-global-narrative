@@ -1,0 +1,62 @@
+.text {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  color: white;
+}
+
+.rippleContainer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to bottom, white, transparent);
+    mask-image: linear-gradient(to bottom, white, transparent);
+  }
+  
+  .circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    background: linear-gradient(50deg, #5d00ff, #3c00ff);
+    box-shadow: 0 0 15px rgba(93, 0, 255, 0.3);
+    transform: translate(-50%, -50%) scale(1);
+   
+    opacity: 0;
+    scale : (0.8);
+
+    animation: rippleAnimation 8s infinite ease-in-out;
+    animation: rippleAnimation 3s infinite ease-out;
+    animation-play-state: paused;
+  }
+  
+  @keyframes rippleAnimation {
+    0% {
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0.3;
+    }
+    15% {
+      transform: translate(-50%, -50%) scale(0.95);
+      opacity: 0.28;
+    }
+    30% {
+      transform: translate(-50%, -50%) scale(1.05);
+      opacity: 0.25;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.15);
+      opacity: 0.18;
+    }
+    75% {
+      transform: translate(-50%, -50%) scale(1.25);
+      opacity: 0.1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1.4);
+      opacity: 0;
+    }
+  }
+
+  

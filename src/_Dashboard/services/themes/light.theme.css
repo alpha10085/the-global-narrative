@@ -1,0 +1,281 @@
+/* start styles themes */
+/* light theme */
+.light-background {
+  background-color: #fff;
+}
+
+.light-overlay {
+  background-color: #ffffffd1;
+}
+
+.light-background-x {
+  background-color: #000;
+}
+
+.light-background-overlay {
+  background-color: rgb(255, 255, 255, 0.8);
+}
+
+.light-bg2 {
+  background-color: #f5f5f5;
+}
+
+.light-bg3 {
+  background-color: #fafafa;
+}
+
+.light-bg-Media {
+  background: repeating-conic-gradient(
+      #ffffffd1 0,
+      #ffffffd1 25%,
+      #eeeeee 0,
+      #eeeeee 50%
+    )
+    50% / 20px 20px;
+}
+
+.light-color {
+  color: #000000;
+}
+
+.light-button {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #e9e9e9;
+  border-style: solid;
+  cursor: pointer;
+}
+
+.light-button:hover {
+  border-color: #000000;
+}
+
+.light-btn20 {
+  background-color: #0e0e0e00;
+  color: #000000;
+  transition: 0.4s;
+}
+.light-btn20.active {
+  background-color: #0000000f;
+}
+
+.light-btn20:hover {
+  background-color: #0000000f;
+}
+
+.light-btn30 {
+  background-color: #f0f0f0;
+  color: #000000;
+  border-color: #b0b0b0;
+  border-style: solid;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.light-btn30:hover {
+  background-color: #e0e0e0;
+  color: #000000;
+  border-color: #d0d0d0;
+  border-style: solid;
+}
+
+.light-btn40 {
+  color: black;
+  background-color: #f5f5f5;
+}
+
+.light-btn40:hover {
+  color: #ffffff;
+  background-color: #a0a0a0;
+}
+
+.light-btn40.active {
+  background-color: #d0d0d0;
+  color: #000000;
+}
+
+.light-bord10 {
+  border: 1px solid #000000;
+}
+
+.light-bord10 {
+  border: 1px solid rgb(195, 195, 195);
+}
+
+.light-bord20 {
+  border: 1px solid #e9e9e9;
+}
+
+.light-input-focused {
+  border-color: #000000 !important;
+  box-shadow: 0 0 0 1px #00000057, 0 0 0 4px #00000029 !important;
+}
+
+.light-hover-bg10 {
+  background-color: #fff;
+}
+
+.light-hover-bg10:hover {
+  background-color: #f0f0f0;
+}
+
+.light-container-danger20 {
+  background-color: #f9d6d5;
+  color: #c40808;
+  border-color: #e0a3a2;
+  border-style: solid;
+}
+
+.light-swiper .swiper-pagination-bullets {
+  bottom: 0px !important;
+}
+
+.light-swiper .swiper-pagination-bullet {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  transition: 0.4s !important;
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  transform: scale(0.7);
+  border: 1px solid #d0d0d0;
+  opacity: 1;
+}
+
+.light-swiper .swiper-pagination-bullet:hover {
+  transform: scale(1);
+  background-color: #505050 !important;
+}
+
+.light-swiper .swiper-pagination-bullet-active {
+  transform: scale(1);
+  width: 25px;
+  background-color: #505050 !important;
+}
+
+.light-scroll::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.light-scroll::-webkit-scrollbar-track {
+  background: rgba(200, 200, 200, 0.5);
+  border-radius: 5px;
+}
+
+.light-scroll::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 5px;
+}
+
+.light-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 120, 0.9);
+}
+
+.light-danger10 {
+  background-color: #fbeaea;
+  color: #b00000;
+  border-color: #f5c6c6;
+  border-style: solid;
+}
+
+.light-danger10:hover {
+  background-color: #faa5a5;
+  color: #d20000;
+  border-color: #f5c6c6;
+  border-style: solid;
+}
+
+.light-hover-bg10:hover {
+  background-color: #0000000f;
+}
+
+.light-input-error {
+  border-color: hsl(358, 100%, 69%) !important;
+  /* border-width:3px !important ; */
+  box-shadow: 0 0 0 3px #ffaaad !important;
+}
+.light-bg4 {
+  background-color: rgba(0, 0, 0, 0.071);
+}
+
+.w-color-swatch {
+  --sketch-swatch-border-top: none;
+  padding-bottom: 10px;
+}
+
+.w-color-sketch input {
+  margin: 0 !important;
+}
+
+.w-color-swatch {
+  border-radius: 8px !important;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+  padding-left: 0 !important;
+}
+
+.w-color-sketchdiv [tabindex="0"] {
+  margin: 4px 2px !important;
+}
+
+.w-color-alpha-horizontal:nth-child(2) {
+  display: none;
+}
+
+.ColorPicker_label__OpAIP input {
+  border: none !important;
+  box-shadow: 0 0 0 white !important;
+}
+
+.react-datepicker-popper {
+  left: 19px !important;
+}
+
+.react-datepicker__day--today {
+  border-radius: 5px;
+}
+
+.light-mode .react-datepicker {
+  background-color: #fff;
+  color: #000;
+}
+
+.light-mode .react-datepicker__header {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #ddd;
+}
+
+.light-mode .react-datepicker__current-month,
+.light-mode .react-datepicker__day-name {
+  color: #000;
+}
+
+.light-mode .react-datepicker__day {
+  color: #333;
+}
+
+.light-mode .react-datepicker__day:hover {
+  background-color: #e6e6e6;
+  color: #000;
+}
+
+.light-mode .react-datepicker__day--selected,
+.light-mode .react-datepicker__day--keyboard-selected {
+  background-color: #000000;
+  color: #fff;
+}
+
+.light-mode .react-datepicker__day--today {
+  background-color: #e6e6e6;
+
+  transition: 0.2s;
+  color: #000;
+}
+
+.light-mode .react-datepicker__navigation--previous,
+.light-mode .react-datepicker__navigation--next {
+  border-color: #000;
+
+  transition: 0.2s;
+}

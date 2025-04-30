@@ -1,0 +1,65 @@
+.container {
+  margin-bottom: 5px;
+  width: 100%;
+}
+.list {
+  gap: 15px 15px;
+  margin: 15px 0 10px;
+}
+.item {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 4px 10px;
+  border-radius: 10px;
+  position: relative;
+}
+.label {
+  font-size: 14px;
+  margin: 10px 4px;
+}
+
+.btnremove {
+  background-color: white;
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  border-radius: 50%;
+width: 15px;
+height: 15px;
+  border: none;
+  cursor: pointer;
+}
+.btnremove svg {
+  font-size: 10px;
+}
+
+.containerAddNew {
+  margin-bottom: 10px;
+}
+.inputText {
+  width: 300px;
+  flex: 1;
+  margin: 0 2px 5px;
+}
+.btnSubmit {
+  height: 45px;
+  border-radius: 15px;
+  width: 100px;
+  font-weight: 600;
+
+  letter-spacing: 1px;
+  font-size: 16px;
+  border: none;
+  font-family: var(--font-geist);
+  cursor: pointer;
+  transition: 0.4s;
+  /* margin-bottom: 28px; */
+  margin-top: 27px;
+}
+
+.btnSubmit:disabled {
+  opacity: 0.5;
+  color: rgba(0, 0, 0, 0.479);
+  cursor: not-allowed;
+  background-color: white;
+}
+

@@ -1,0 +1,92 @@
+.PopupCart {
+  position: fixed;
+  height: 100dvh;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #00000094;
+  backdrop-filter: blur(2px) saturate(80%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.wrapper-popup {
+  width: 350px;
+  max-width: 90%;
+  max-height: 500px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid black;
+  gap: 20px;
+  text-align: center;
+  border-radius: 15px;
+}
+
+.wrapper-popup h1 {
+  font-size: 20px;
+  margin: 30px auto 0px auto;
+  text-transform: uppercase;
+}
+.wrapper-popup p {
+  font-size: 14px;
+  margin-bottom: 15px;
+
+  width: 90%;
+  color: gray;
+}
+.wrapper-popup .btn-box {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 15px;
+}
+.wrapper-popup .btn-box button {
+  width: 90%;
+  border: none;
+}
+.wrapper-popup .btn-box button a{
+  width: 100%;
+  height: 35px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 4px;
+  font-size: 15px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+}
+.wrapper-popup .btn-box button:nth-child(2) a{
+  background-color: black;
+  color: white;
+}
+
+.wrapper-popup .btn-box button svg {
+  width: 20px;
+  height: 20px;
+}
+@media (max-width: 402px) {
+  .wrapper-popup h1 {
+    font-size: 16px;
+    /* margin: 10px auto; */
+    text-transform: uppercase;
+  }
+  .wrapper-popup p {
+    font-size: 12px;
+    margin-bottom: 15px;
+  
+    width: 90%;
+    color: gray;
+  }
+}

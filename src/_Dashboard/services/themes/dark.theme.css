@@ -1,0 +1,326 @@
+/* --- Scrollbar Styles --- */
+.dark-scroll::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+.dark-scroll::-webkit-scrollbar-track {
+  background: rgba(62, 62, 62, 0.5);
+  border-radius: 5px;
+}
+
+.dark-scroll::-webkit-scrollbar-thumb {
+  background: rgb(255, 255, 255);
+  border-radius: 5px;
+}
+/* --- Background Styles --- */
+.dark-background {
+  background-color: #000000;
+}
+
+.dark-background-x {
+  background-color: white;
+}
+
+.dark-background-overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.dark-bg2 {
+  background-color: #080808;
+}
+
+.dark-bg3 {
+  background-color: #fcfcfc;
+}
+
+.dark-bg-Media {
+  background: repeating-conic-gradient(
+      rgb(16, 16, 16) 0%,
+      rgb(16, 16, 16) 25%,
+      transparent 0%,
+      transparent 50%
+    )
+    50% center / 20px 20px;
+  border: 1px solid #252525;
+}
+
+.dark-overlay {
+  background-color: #000000a8;
+}
+
+.dark-bg-danger10 {
+  background-color: #a3030342;
+}
+/* --- Text Color Styles --- */
+.dark-color {
+  color: #ffffff;
+}
+.dark-text-purple {
+  color: #c800ff;
+}
+/* --- Hover Background Styles --- */
+.dark-hover-bg10 {
+  background-color: #0000004d;
+}
+
+.dark-hover-bg10:hover {
+  background-color: #080808;
+}
+
+/* --- Input Styles --- */
+.dark-input-focused {
+  border-color: white !important;
+  box-shadow: 0 0 0 4px #ffffff24;
+}
+
+.dark-input-error {
+  border-color: hsl(358, 100%, 69%) !important;
+  box-shadow: 0 0 0 3px hsla(358, 90%, 23%, 0.479) !important;
+}
+
+/* --- Button Styles --- */
+.dark-button {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #ffffff24;
+  border-style: solid;
+  cursor: pointer;
+}
+.dark-btn20 {
+  background-color: #0e0e0e00;
+  color: #ffffff73;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.dark-btn30 {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #252525;
+  border-style: solid;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.dark-btn30:hover {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+  border-style: solid;
+}
+
+.dark-btn40 {
+  color: white;
+}
+
+.dark-btn40:hover {
+  color: rgb(0, 0, 0);
+}
+
+.dark-btn40.active {
+  background-color: #171717;
+  color: #ffffff;
+}
+
+.dark-btn20:hover {
+  background-color: #171717;
+  color: #ffffff;
+}
+
+.dark-btn20.active {
+  background-color: #171717;
+  color: #ffffff;
+}
+
+.dark-button:hover {
+  border-color: #ffffff;
+}
+.dark-bg-purple {
+  background-color: #43025590;
+}
+/* --- Danger Button Styles --- */
+.dark-danger10 {
+  background-color: #3a2221;
+  color: #d20000;
+  border-color: #570000;
+  border-style: solid;
+}
+
+.dark-danger10:hover {
+  background-color: #3a22212d;
+  color: #ff0000;
+  border-color: #3a2221;
+  border-style: solid;
+}
+
+.dark-container-danger20 {
+  background-color: #9316122d;
+  color: #c40808;
+  border-color: #3a2221;
+  border-style: solid;
+}
+
+.text-dark-danger {
+  color: #ff0000;
+}
+
+/* --- Border Styles --- */
+.dark-bord10 {
+  border: 1px solid #676767;
+}
+
+.dark-bord20 {
+  border: 1px solid #ffffff24;
+}
+/* --- Swiper Styles --- */
+.dark-swiper .swiper-pagination-bullets {
+  bottom: 0px !important;
+}
+
+.dark-swiper .swiper-pagination-bullet {
+  background-color: rgba(250, 250, 250, 0.44) !important;
+  transition: 0.4s !important;
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  transform: scale(0.7);
+  border: 1px solid black;
+  opacity: 1;
+}
+
+.dark-swiper .swiper-pagination-bullet:hover {
+  transform: scale(1);
+  background-color: white !important;
+}
+
+.dark-swiper .swiper-pagination-bullet-active {
+  transform: scale(1);
+  width: 25px;
+  background-color: white !important;
+}
+
+/* --- Custom Color Picker Styles --- */
+[data-color-mode*="dark"] .w-color-sketch {
+  --sketch-background: #080808 !important;
+}
+
+.w-color-swatch {
+  --sketch-swatch-border-top: none;
+  padding-bottom: 10px;
+}
+
+.w-color-sketch input {
+  margin: 0 !important;
+}
+
+.w-color-swatch {
+  border-radius: 8px !important;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+  padding-left: 0 !important;
+}
+
+.w-color-sketchdiv [tabindex="0"] {
+  margin: 4px 2px !important;
+}
+
+.w-color-alpha-horizontal:nth-child(2) {
+  display: none;
+}
+
+.ColorPicker_label__OpAIP input {
+  border: none !important;
+  box-shadow: 0 0 0 white !important;
+}
+
+[data-color-mode*="dark"] .w-color-block {
+  --block-background-color: #000000 !important;
+  --block-box-shadow: rgb(0 0 0 / 10%) 0 1px !important;
+}
+
+[data-color-mode*="dark"] .w-color-editable-input {
+  --editable-input-label-color: #757575 !important;
+  --editable-input-box-shadow: #616161 0px 0px 0px 1px inset !important;
+  --editable-input-color: #bbb !important;
+}
+
+[data-color-mode*="dark"] .w-color-github {
+  --github-border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  --github-background-color: #080808 !important;
+  --github-box-shadow: rgb(0 0 0 / 15%) 0px 3px 12px !important;
+  --github-arrow-border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-color-mode*="dark"] .w-color-compact {
+  --compact-background-color: #323232 !important;
+}
+
+[data-color-mode*="dark"] .w-color-material {
+  --material-background-color: #323232 !important;
+  --material-border-bottom-color: #707070 !important;
+}
+
+[data-color-mode*="dark"] .w-color-alpha {
+  --alpha-pointer-background-color: #6a6a6a !important;
+  --alpha-pointer-box-shadow: rgb(0 0 0 / 37%) 0px 1px 4px 0px !important;
+}
+
+/* --- React Datepicker Styles --- */
+.react-datepicker-popper {
+  left: 19px !important;
+}
+
+.react-datepicker__day--today {
+  border-radius: 5px;
+}
+
+.dark-mode .react-datepicker {
+  background-color: #080808;
+  color: #fff;
+  border-color: #252525;
+  transition: 0.2s;
+}
+
+.dark-mode .react-datepicker__header {
+  background-color: #080808;
+  border-bottom: 1px solid #252525;
+  transition: 0.2s;
+}
+
+.dark-mode .react-datepicker__current-month,
+.dark-mode .react-datepicker__day-name {
+  color: #fff;
+  transition: 0.2s;
+}
+
+.dark-mode .react-datepicker__day {
+  color: #ccc;
+  transition: 0.2s;
+}
+
+.dark-mode .react-datepicker__day:hover {
+  background-color: #444;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.dark-mode .react-datepicker__day--selected,
+.dark-mode .react-datepicker__day--keyboard-selected {
+  background-color: #fff;
+  color: #0c0c0c;
+  transition: 0.2s;
+}
+
+.dark-mode .react-datepicker__day--today {
+  background-color: #44444469;
+  color: #fff;
+  transition: 0.2s;
+}
+
+.dark-mode .react-datepicker__navigation--previous,
+.dark-mode .react-datepicker__navigation--next {
+  border-color: #cccccc44;
+  transition: 0.2s;
+}

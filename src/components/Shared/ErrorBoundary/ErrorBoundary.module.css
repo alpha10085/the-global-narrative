@@ -1,0 +1,101 @@
+/* General container settings */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #fff;
+  padding: 20px;
+}
+
+/* Centered content styling */
+.content {
+  text-align: center;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  color: #000;
+}
+
+/* Icon settings with animation */
+.iconContainer {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  font-size: 60px !important;
+  color: #000;
+  animation: spin 3s linear infinite; /* Infinite rotation */
+}
+
+/* Heading with a modern touch */
+.heading {
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: bold;
+  font-family: "Helvetica Neue", sans-serif;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+/* Message with a modern sans-serif font */
+.message {
+  font-size: 18px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+  line-height: 1.8;
+}
+
+/* Infinite spin animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive styles for tablet and below */
+@media (max-width: 768px) {
+  .content {
+    padding: 30px;
+    max-width: 400px;
+  }
+
+  .icon {
+    font-size: 48px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+
+  .message {
+    font-size: 16px;
+  }
+}
+
+/* Responsive styles for mobile phones */
+@media (max-width: 480px) {
+  .content {
+    padding: 20px;
+    max-width: 320px;
+  }
+
+  .icon {
+    font-size: 40px;
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+
+  .message {
+    font-size: 14px;
+  }
+}

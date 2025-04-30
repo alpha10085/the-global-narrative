@@ -1,0 +1,44 @@
+.mediaWrapper {
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+  transition: 0.6s;
+  opacity: 1;
+  border-radius: 30px;
+}
+
+.media {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (max-width: 1435px) {
+  .media {
+    height: 220px;
+
+  }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .media {
+    height: auto;
+  }
+  .mediaWrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .media, .container {
+    max-height: 520px;
+  }
+}
+
+@media (max-width: 580px) {
+  .media, .container {
+    max-height: 280px;
+  }
+}

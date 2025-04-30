@@ -1,0 +1,175 @@
+.consolePopup {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-family: monospace;
+  font-size: 14px;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  z-index: -1;
+  border: 1px solid rgba(255, 255, 255, 0.189);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(25px);
+  padding-top: 10px;
+  max-width: calc(100vw - 20px);
+  min-height: 150px;
+  max-height: calc(100vh - 20px);
+  mix-blend-mode: white;
+  font-family: var(--font-geist);
+ 
+  z-index: 999;
+}
+.title {
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+.consolePopup.active {
+  z-index: 1005;
+}
+
+.consoleContent {
+  flex-grow: 1;
+  overflow: auto;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+/* Target the entire scrollbar */
+.consoleContent::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Style the scrollbar track */
+.consoleContent::-webkit-scrollbar-track {
+  border-radius: 5px;
+  /* Set the track background color */
+  background-color: #171717;
+}
+
+/* Style the scrollbar thumb */
+.consoleContent::-webkit-scrollbar-thumb {
+  background-color: #6d6d6d;
+  /* Set the thumb background color */
+  border-radius: 5px;
+}
+
+.log {
+  color: rgb(255, 255, 255);
+}
+
+.warn {
+  color: yellow;
+}
+
+.error {
+  color: red;
+}
+
+.log {
+  background-color: hsl(214, 59%, 15%);
+
+  color: hsl(210, 100%, 66%);
+
+  border-color: hsla(210, 100%, 66%, 0.208);
+}
+.warn {
+  background-color: rgba(121, 79, 0, 0.3);
+  color: orange;
+
+  border-color: rgba(255, 166, 0, 0.2);
+}
+
+.error {
+  background-color: rgba(121, 0, 0, 0.3);
+  color: red;
+  border-color: rgba(255, 0, 0, 0.2);
+}
+.all {
+  background-color: rgba(46, 46, 46, 0.5);
+  color: rgb(255, 255, 255);
+  border-color: rgb(67, 67, 67);
+}
+.categoryLogType {
+  padding: 4px 10px 5px;
+  border-radius: 10px;
+  border-width: 1px;
+  border-style: solid;
+  text-transform: capitalize;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.4s;
+  position: relative;
+}
+.categoryLogType::before {
+  content: "";
+  z-index: 10;
+  position: absolute;
+  right: -2px;
+  top: -2px;
+  width: 8px;
+  border-radius: 50%;
+  height: 8px;
+  background-color: transparent;
+  transition: 0.2s;
+ }
+
+.log.haslog::before {
+  content: "";
+  background-color: hsl(210, 100%, 66%);
+}
+.error.haslog::before {
+  content: "";
+  background-color: red;
+}
+.warn.haslog::before {
+  content: "";
+  background-color: orange;
+}
+.categoryLogType.active {
+  opacity: 1;
+}
+.headIcons {
+  height: 30px;
+  border-radius: 25px;
+  background-color: rgb(209, 209, 209);
+  padding: 5px;
+  width: max-content;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  background: rgb(0, 0, 0);
+  border-radius: 50%;
+  padding: 5px;
+  background-color: rgba(255, 255, 255);
+  transition: 0.2s;
+  color: black;
+  cursor: pointer;
+}
+.resizer svg {
+  font-size: 18px;
+  transform: rotate(30deg) translate(-0.5px, 0px);
+  cursor: unset;
+}
+.resizer {
+  cursor: grab;
+}
+
+.closeIcon svg {
+  font-size: 12px;
+  cursor: unset;
+}
+.NotInterestedIcon svg {
+  font-size: 12px;
+}
+
+.emptyLogs {
+  height: 95%;
+  text-transform: capitalize;
+}

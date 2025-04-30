@@ -1,0 +1,32 @@
+.head {
+  margin: 10px 0 20px;
+}
+.left {
+  text-transform: capitalize;
+}
+.right {
+}
+.section {
+  width: 92%;
+  padding-top:30px;
+}
+.filterSystem {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.seacrBar {
+  width: 400px !important;
+  margin: 0 !important;
+  height: 40px !important;
+  max-width: 80%;
+}
+.seacrBar svg {
+  font-size: 20px !important;
+}
+@media (max-width:768px) {
+  .left h1 {
+    font-size: 18px;
+    text-transform: capitalize;
+  }
+}

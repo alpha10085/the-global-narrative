@@ -1,0 +1,29 @@
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  width: max-content;
+  text-transform: uppercase;
+  font-weight: bold;
+  
+  margin: 120px 0 0px;
+  font-size: 22px;
+  font-weight: 500;
+  width: max-content;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+.section {
+  min-height: 100dvh;
+}
+.wrapper {
+  margin: 60px 0;
+  width: 100%;
+}
+@media (max-width: 674px) {
+  .title {
+    padding-top: 35px;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 10px auto;
+  }
+}

@@ -1,0 +1,81 @@
+.optionSelected {
+  padding: 0 15px;
+  min-height: 60px;
+  font-size: 10px;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+.optionSelected svg {
+  font-size: 18px;
+  margin-top: 1px;
+}
+
+.optionSelected a {
+  font-size: 12px;
+  margin-top: 1px;
+  font-weight: 500;
+  flex-grow: 1;
+}
+.listOptionsSelected {
+  transition: 0.4s;
+}
+.listOptionsSelected.active {
+  opacity: 0.6;
+}
+.optionSelected .btnremove {
+  height: 100%;
+  cursor: pointer;
+}
+
+.btnReOrder {
+  padding: 5px;
+  border-radius: 10px;
+  z-index: 10;
+  border-width: 0;
+}
+
+.btnReOrder:disabled svg {
+  cursor: not-allowed !important;
+  opacity: 0.8;
+}
+
+.btnReOrder:disabled {
+  cursor: not-allowed !important;
+}
+
+.btnReOrder svg {
+  font-size: 15px;
+}
+
+.imageField {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.imageField img {
+  object-position: 50% 0 !important;
+}
+
+.left {
+  max-width: calc(100% - 90px);
+  /* flex-grow: 1; */
+}
+
+.content {
+  max-width: calc(100% - 50px);
+  padding: 5px 0;
+
+  height: max-content;
+  font-size: 12px;
+  margin: 10px 0;
+  word-wrap: break-word; /* Ensures long words or text wrap onto the next line */
+  overflow-wrap: break-word; /* Helps in wrapping the text when it's too long */
+  white-space: normal; /* Allows text to wrap naturally */
+}
+
+.optionVirtuoso {
+  padding: 2.5px 0;
+}

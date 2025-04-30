@@ -1,0 +1,36 @@
+{
+  "httpStatus": {
+    "Processing": "الخادم يعالج الطلب، لكن لا توجد استجابة متاحة حتى الآن.",
+    "OK": "تمت معالجة الطلب بنجاح.",
+    "Created": "تم الإنشاء بنجاح.",
+    "Forbidden": "ممنوع: يتطلب إعادة المصادقة.",
+    "unAuthorized": "غير مصرح.",
+    "badRequest": "طلب غير صالح.",
+    "NotFound": "{{key}} غير موجود",
+    "NotFoundCustom": "لم يتم العثور على {{key}}.",
+    "conflict": "موجود بالفعل.",
+    "conflictCustom": "{{key}} موجود بالفعل.",
+    "internalServerError": "حدث خطأ ما. حاول مرة أخرى لاحقًا.",
+    "sessionExpired": "انتهت صلاحية الجلسة.",
+    "Accepted": "تم القبول."
+  },
+  "updated": "تم التحديث بنجاح",
+  "serverError": "خطأ في الخادم الداخلي",
+  "Duplicate-translation-in-language": "تم العثور على ترجمة مكررة لهذا النموذج، اللغة، ومرجع.",
+  "Invalid-key-for-translation": "مفتاح الترجمة غير صالح.",
+  "Invalid-path-specified": "المسار المحدد غير صالح.",
+  "Duplicate-translation": "تم العثور على ترجمة مكررة لهذا النموذج.",
+  "Duplicate-translation-in-Value": "تم العثور على ترجمة مكررة لهذه القيمة.",
+  "validation-error": "خطأ في التحقق",
+  "incorrect-password": "البريد الإلكتروني أو كلمة المرور غير صحيحة",
+  "pages": {
+    "notFound": "الصفحة غير موجودة",
+    "exists": "الصفحة موجودة بالفعل بنفس العنوان",
+    "saved": "تم حفظ الصفحة بنجاح"
+  },
+  "user": "المستخدم",
+  "labels": {
+    "title": "العنوان",
+    "description": "الوصف"
+  }
+}

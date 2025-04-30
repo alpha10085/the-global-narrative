@@ -1,0 +1,155 @@
+.dropDown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.4s;
+  height: 45px;
+  cursor: pointer;
+  
+}
+
+.label {
+  z-index: 10;
+  position: relative;
+
+  gap: 8px;
+  max-width: 100%;
+}
+.label[open] {
+  z-index: 11000000;
+}
+
+.label[open] .options {
+  z-index: 200000;
+}
+.title {
+  font-size: 12px;
+  text-transform: capitalize;
+}
+/* LTR direction */
+html[dir="ltr"] .title {
+  margin-left: 4px;
+}
+/* RTL direction */
+html[dir="rtl"] .title {
+  margin-right: 4px;
+}
+
+.options {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 0px);
+  width: 100%;
+  min-height: 35px;
+  max-height: 150px;
+  overflow-y: scroll;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.214);
+  border-radius: 8px;
+}
+/* LTR direction */
+html[dir="ltr"] .options {
+  left: 0px;
+}
+/* RTL direction */
+html[dir="rtl"] .options {
+  right: 0px;
+}
+
+
+@keyframes showSmooth {
+  from {
+opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+.option {
+  padding: 12px 10px;
+  transition: 0.2s;
+  text-align: start;
+  font-size: 12px;
+  cursor: pointer;
+  text-transform: capitalize;
+  transform: translateY(5px);
+  opacity: 0;
+  animation: showSmooth 0.5s ease-in-out forwards;
+}
+
+.option:hover {
+  background-color: rgba(155, 155, 155, 0.1);
+}
+
+.placeholder {
+  margin: 1px 8px 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: gray;
+  padding: 0 4px;
+}
+.value {
+  margin: 1px 8px 0;
+  font-size: 13px;
+  font-weight: 400;
+  text-transform: capitalize;
+
+  padding: 0 4px;
+}
+
+.options::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Style the scrollbar track */
+.options::-webkit-scrollbar-track {
+  background: var(--color-fourth);
+  /* Set the track background color */
+}
+
+/* Style the scrollbar thumb */
+.options::-webkit-scrollbar-thumb {
+  background: var(--color-third);
+  /* Set the thumb background color */
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.icon svg {
+  font-size: 15px;
+
+  transition: 0.2s;
+}
+
+.label[open] svg {
+  position: relative;
+  transform: rotate(-90deg);
+}
+
+@media (max-width: 420px) {
+  .dropDown {
+    border-radius: 8px;
+    outline: none;
+    transition: 0.4s;
+    position: relative;
+    height: 38px;
+  }
+
+  .placeholder {
+    font-size: 10px;
+  }
+
+  .option {
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,28 @@
+.container {
+  width: 150px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  white-space: nowrap;
+}
+.container::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  height: 100%;
+  background: linear-gradient(to left, rgb(255, 255, 255), #00000000);
+  width: 20%;
+}
+/* LTR direction */
+html[dir="ltr"] .container::before {
+  right: -1px;
+}
+/* RTL direction */
+html[dir="rtl"] .container::before {
+  left: -1px;
+}
+
+.container.black::before {
+  background: linear-gradient(to left, rgb(0 0 0), #00000000);
+}

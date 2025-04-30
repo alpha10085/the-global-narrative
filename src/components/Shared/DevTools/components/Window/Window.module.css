@@ -1,0 +1,94 @@
+.container {
+  background-color: #0a0a0a;
+  width: 700px;
+  max-width: 95%;
+  max-height: 95vh;
+  height: 460px;
+  position: fixed;
+  left: 50%;
+  bottom: 120px;
+  transform: translate(-50%, 5%);
+  z-index: 1001;
+  border: 1px solid rgba(61, 61, 61, 0.6);
+  border-radius: 30px;
+  padding: 25px;
+  padding-right: 20px;
+  animation: intro 0.4s ease both;
+  overflow: hidden;
+  transition: 0.45s;
+}
+.container.scaleOnActive {
+  width: 900px;
+  height: 580px;
+  bottom: 85px;
+}
+.list {
+  overflow-y: scroll;
+  padding: 10px 15px 0px 0;
+  height: 92%;
+}
+
+/* Target the entire scrollbar */
+.list::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Style the scrollbar track */
+.list::-webkit-scrollbar-track {
+  border-radius: 5px;
+  /* Set the track background color */
+  background-color: #171717;
+}
+
+/* Style the scrollbar thumb */
+.list::-webkit-scrollbar-thumb {
+  background-color: #6d6d6d;
+  /* Set the thumb background color */
+  border-radius: 5px;
+}
+
+.blurbg {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  animation-duration: 0.4s;
+}
+.title {
+  font-size: 25px;
+  margin-left: 10px;
+  padding-bottom: 5px;
+  cursor: default;
+}
+.title_icon {
+
+}
+.title_icon svg {
+  width: 24px;
+  aspect-ratio: 4/4;
+  height: auto;
+  margin-top: 0px;
+  color: rgb(184, 184, 184);
+}
+
+@keyframes intro {
+  from {
+    transform: translate(-50%, 5%);
+    filter: blur(5px);
+  }
+  to {
+    transform: translate(-50%, 0%);
+
+    filter: blur(0px);
+  }
+}
+
+.list {
+  margin-top: 5px;
+  width: 100%;
+}

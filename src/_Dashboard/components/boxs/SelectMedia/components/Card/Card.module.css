@@ -1,0 +1,158 @@
+.card {
+  height: 200px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+
+  cursor: pointer;
+}
+
+.iamge {
+  height: 100%;
+  width: 100%;
+}
+
+.infoLayout {
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.681);
+  backdrop-filter: blur(4px);
+  width: 100%;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  border-radius: 10px;
+  height: 0;
+}
+ /* LTR direction */
+ html[dir="ltr"] .infoLayout {
+  left: 50%;
+}
+/* RTL direction */
+html[dir="rtl"] .infoLayout {
+  right: 50%;
+}
+
+.selectedlayout {
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  transition: 0.4s;
+}
+ /* LTR direction */
+ html[dir="ltr"] .selectedlayout {
+  left: 0;
+}
+/* RTL direction */
+html[dir="rtl"] .selectedlayout {
+  right: 0;
+}
+
+.selectedlayout svg {
+  font-size: 40px;
+}
+
+.info {
+
+  height: 500px;
+  width: 800px;
+  max-width: 90%;
+  z-index: 10;
+  border-radius: 10px;
+  transition: 0.4s;
+  transform: translateY(95vh);
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+}
+ /* LTR direction */
+ html[dir="ltr"] .info  {
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+/* RTL direction */
+html[dir="rtl"] .info {
+  right: 50%;
+  transform: translate(50%, 100%);
+}
+
+.left {
+  width: 400px;
+  height: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 50px;
+}
+
+.btnclose {
+  position: absolute;
+  top: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+ /* LTR direction */
+ html[dir="ltr"] .btnclose {
+  right: 15px;
+}
+/* RTL direction */
+html[dir="rtl"] .btnclose {
+  left: 15px;
+}
+
+.showLayout {
+  height: 100%;
+}
+
+ /* LTR direction */
+ html[dir="ltr"] .showinfo  {
+    transform: translate(-50%, -50%);
+
+}
+/* RTL direction */
+html[dir="rtl"] .showinfo {
+  transform: translate(50%, -50%);
+
+}
+
+.fileinfo {
+  position: absolute;
+  bottom: 5px;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  width: calc(100% - 10px);
+  padding: 10px 15px;
+  border-radius: 0 0 12px 6px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+ /* LTR direction */
+ html[dir="ltr"] .fileinfo  {
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* RTL direction */
+html[dir="rtl"] .fileinfo {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.fileinfo h1 {
+  cursor: default;
+  text-align: center;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  line-height: 150%;
+  width: max-content;
+  margin: auto;
+}
+
+@media (max-width: 347px) {
+  .card {
+    height: 100px;
+  }
+}

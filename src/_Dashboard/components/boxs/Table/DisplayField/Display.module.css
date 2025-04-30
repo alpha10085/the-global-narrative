@@ -1,0 +1,142 @@
+.main {
+    min-height: 500px;
+    border-radius: 10px;
+    overflow: auto;
+    margin: 10px 0 0;
+  }
+  
+  .header {
+    padding: 18px 0 18px 15px;
+    width: 100%;
+    min-width: 950px;
+    cursor: default;
+    border-width: 0 0 1px 0 !important;
+  }
+  
+  .header .field {
+    font-size: 13px;
+  }
+  .header .field:not(:first-child) {
+    /* text-align: center; */
+  }
+  
+  @keyframes showSmooth {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .item {
+    height: 65.5px;
+    border-width: 0 0 1px 0 !important;
+    padding: 0 0 0 15px;
+    animation: showSmooth 0.5s ease-in-out;
+    transition: 0.2s;
+  }
+  
+  .field {
+    width: 200px;
+    white-space: nowrap;
+    font-size: 15px;
+    margin: 0 10px;
+    padding-top: 3px;
+    overflow: hidden;
+    flex-grow: 1;
+  }
+  
+  .item .field {
+    font-size: 12px;
+  }
+  .item .field:not(:first-child) {
+    /* text-align: center; */
+  }
+  
+  .option {
+    width: 90px;
+    margin: 0 5px;
+    flex-grow: 0;
+    background: transparent;
+    border: 0;
+  }
+  
+  .option:disabled {
+    opacity: 0.5;
+    transition: 0.2s;
+  }
+  
+  .option svg {
+    font-size: 18px;
+  }
+  
+  .list {
+    width: max-content;
+    width: auto;
+    height: calc(100vh - 226px) !important;
+    width: 100%;
+    min-width: 950px;
+  }
+  
+  .loader {
+    padding: 10px 0 0px;
+    margin-top: 5px;
+    position: sticky;
+    left: 0;
+  }
+  
+  .tableMedia {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .media,
+  .color {
+    margin: 0 40px 0 0;
+    width: 80px;
+    flex-grow: 0;
+    justify-content: center;
+    display: flex;
+  }
+  .media .date {
+    width: 100px;
+  }
+  
+  .notfoundtext {
+    padding: 0 0 20px;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+    animation: intro 1s ease;
+  }
+  .colorBox {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  @keyframes intro {
+    0% {
+      opacity: 0;
+      transform: translateY(-150%);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .notfoundtext svg {
+    font-size: 18px;
+  }
+  
+  @media (max-width: 564px) {
+    .main {
+      margin: 0;
+    }
+  }
+  

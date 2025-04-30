@@ -1,0 +1,85 @@
+.dropDown {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropDown[open] {
+  z-index: 11000000;
+}
+
+.dropDown[open] .options {
+  z-index: 200000;
+}
+
+.options {
+  background-color: white;
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 8px);
+  left: 0px;
+  width: 100%;
+  min-height: 50px;
+  max-height: 150px;
+  overflow-y: scroll;
+  border: 1px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.214);
+}
+
+.title {
+  margin: 0 8px;
+  font-size: 14px;
+}
+
+.option {
+  padding: 5px 10px;
+  transition: 0.2s;
+}
+
+.option:hover {
+  background-color: rgba(155, 155, 155, 0.1);
+}
+
+.placeholder {
+  margin: 0 8px;
+  font-size: 11px !important;
+  font-weight: 200 !important;
+  color: gray;
+}
+
+.options::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Style the scrollbar track */
+.options::-webkit-scrollbar-track {
+  background: var(--color-fourth);
+  /* Set the track background color */
+}
+
+/* Style the scrollbar thumb */
+.options::-webkit-scrollbar-thumb {
+  background: var(--color-third);
+  /* Set the thumb background color */
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.icon svg {
+  font-size: 20px;
+  color: var(--color-third);
+  transition: 0.2s;
+}
+
+.icon[open] svg {
+  position: relative;
+  transform: rotate(-90deg);
+}

@@ -1,0 +1,93 @@
+.itemlist {
+  width: 100%;
+}
+
+.icon {
+  background-color: rgba(255, 255, 255, 0.11);
+  padding: 10px;
+  border-radius: 50%;
+  
+  transition: 0.5s;
+}
+.icon svg {
+  margin: 0 !important;
+  width: 22px;
+  height: 22px;
+  transition: 0.8s;
+}
+
+.itemlist {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 10px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.4s;
+  transition: 0.4s;
+  max-height: 62.5px;
+}
+.itemlist.open {
+  max-height: 470px;
+  cursor: default;
+}
+.itemlist:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.itemlist.open:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.arrowIcon {
+  margin-top: 5px !important;
+  padding: 0 5px;
+  transition: 0.2s;
+}
+
+.itemlist.open .arrowIcon {
+  transform: rotate(90deg);
+}
+.wrapper {
+  opacity: 0;
+  transition: 0.4s;
+  overflow-y: scroll;
+  margin: 10px 5px 10px 10px;
+  max-height: 0;
+}
+.wrapper.show {
+  opacity: 1;
+  max-height: 325px;
+}
+
+/* Target the entire scrollbar */
+.wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Style the scrollbar track */
+.wrapper::-webkit-scrollbar-track {
+  border-radius: 5px;
+  /* Set the track background color */
+  background-color: #171717;
+}
+
+/* Style the scrollbar thumb */
+.wrapper::-webkit-scrollbar-thumb {
+  background-color: #6d6d6d;
+  /* Set the thumb background color */
+  border-radius: 5px;
+}
+
+.head {
+  position: relative;
+  text-transform: capitalize;
+  
+}
+.head::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: -10px;
+  height: calc(100% + 20px);
+  width: calc(100% + 20px);
+  z-index: 10;
+  background-color: transparent;
+  cursor: pointer;
+}

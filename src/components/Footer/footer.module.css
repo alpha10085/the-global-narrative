@@ -1,0 +1,9 @@
+/* Footer styles */
+.footer {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  z-index: 10;
+  background-color: black;
+  position: relative;
+
+}

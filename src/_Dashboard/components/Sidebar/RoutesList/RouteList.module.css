@@ -1,0 +1,72 @@
+.title {
+  width: 100%;
+  margin: 10px 10px;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: default;
+  max-width: 90%;
+  border-radius: 6px;
+  transition: 0.4s;
+}
+.title svg {
+  font-size: 18px;
+  margin: 0 5px 0 5px;
+  transform: translate(0, -1px);
+}
+.title .linkeffect {
+  font-weight: 400;
+  opacity: 50%;
+  transition: 0.2s;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.title.active .linkeffect {
+  opacity: 100%;
+}
+
+.ul {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 190px;
+  min-height: 0px;
+  max-height: 150px;
+  margin: 0;
+  transition: 0.4s;
+}
+
+.link {
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  text-transform: capitalize;
+  font-size: 11px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+}
+
+.li {
+  width: calc(95% - 40px);
+}
+
+/* LTR direction */
+html[dir="ltr"] .li {
+  margin: 5px 0 5px 45px;
+}
+
+/* RTL direction */
+html[dir="rtl"] .li {
+  margin: 5px 45px 5px 0px;
+}
+
+@media (max-width: 1024px) {
+   .linkeffect {
+    opacity: 0 !important;
+  }
+
+  .activeSidebar .linkeffect {
+    opacity: 100% !important;
+  }
+}

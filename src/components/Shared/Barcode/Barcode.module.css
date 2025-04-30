@@ -1,0 +1,27 @@
+.barcode {
+    width: 100%;
+    height: auto;
+    height: 100%;
+    width: 700px;
+    /* Control the maximum width of the barcode */
+    max-width: 100%;
+  }
+  
+
+  .hide {
+    display: none;
+  }
+  
+
+  .container {
+    border-radius: 10px;
+  }
+  
+
+
+  @media (max-width: 768px) {
+  
+    .wrapper button svg {
+      font-size: 16px;
+    }
+  }

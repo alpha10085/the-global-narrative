@@ -1,0 +1,15 @@
+.spinner {
+  width: 18px;
+  height: 18px;
+  margin: 0 6px 0 0;
+  border: 2px solid var(--bg20);
+  border-top-color: var(--color30);
+}
+.AsyncButton {
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.AsyncButton:disabled {
+  cursor: not-allowed;
+}

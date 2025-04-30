@@ -1,0 +1,106 @@
+.btnSubmit {
+  padding: 10px 30px 10px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.4s;
+  border-width: 1px;
+}
+
+.btnSubmit:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.info {
+  width: 300px;
+  padding: 20px;
+  max-width: calc(100vw - 64px);
+  border-radius: 10px;
+  transition: 0.8s;
+
+  flex-grow: 1;
+  position: sticky;
+  top: 40px;
+  z-index: 10;
+}
+
+.title {
+  text-transform: capitalize;
+  letter-spacing: 0.8px;
+  width: 100%;
+  border: none;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #8c8c8c64;
+}
+
+.info .ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.info .ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info .ul li svg {
+  font-size: 11px;
+}
+
+/* LTR direction */
+html[dir="ltr"] .info .ul li svg {
+  transform: translate(3px, -6px);
+}
+
+/* RTL direction */
+html[dir="rtl"] .info .ul li svg {
+  transform: translate(-3px, -4px) rotate(270deg);
+}
+
+.info .ul li h1 {
+  font-size: 12px;
+}
+
+.info .ul li p,
+.info .ul li a {
+  font-size: 11px;
+  letter-spacing: 0;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+.deleteButton {
+  padding: 10px 30px 10px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.4s;
+  border-width: 1px;
+}
+
+.dropDown {
+  width: 100%;
+  height: 38px !important;
+}
+
+.dropDown .ul {
+  margin: 0;
+}
+
+.localeTile {
+  text-align: start;
+  width: 100%;
+  font-size: 14px;
+}

@@ -1,0 +1,55 @@
+.body {
+  height: 35px;
+  width: 150px;
+  padding: 0 15px;
+  font-size: 12px;
+  text-transform: uppercase;
+  position: relative;
+}
+.state {
+  width: 45px;
+  position: absolute;
+  height: 24px;
+  top: 5px;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  mix-blend-mode: difference;
+  transition: 0.4s;
+  cursor: pointer;
+}
+ /* LTR direction */
+ html[dir="ltr"] .state  {
+  left: 5px;
+  transform: translateX(95px);
+}
+/* RTL direction */
+html[dir="rtl"] .state {
+  right: 5px;
+  transform: translateX(-95px);
+}
+
+.text {
+  position: relative;
+  z-index: 10;
+  color: rgb(255, 255, 255);
+  mix-blend-mode: difference;
+  cursor: pointer;
+  width: 20px;
+  margin: auto 0;
+}
+.null {
+  opacity: 0;
+}
+ /* LTR direction */
+ html[dir="ltr"] .null  {
+  transform: translateX(48px);
+}
+/* RTL direction */
+html[dir="rtl"] .null {
+  transform: translateX(-48px);
+}
+
+.true {
+  transform: translateX(0px);
+  transition: 0.4s;
+}

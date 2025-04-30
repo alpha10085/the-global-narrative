@@ -1,0 +1,62 @@
+.fallBack {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap:  40px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .skPoster {
+    /* border-radius: 10px; */
+    height: 220px;
+    width: 100%;
+  }
+  .skCradTitle {
+    width: 50%;
+    height: 18px;
+  }
+  .skCradDesc {
+    width: 80%;
+    height: 15px;
+  }
+
+  .bottom {
+    margin-top:15px;
+    gap:10px;
+    min-height: 70px;
+  }
+
+    @media (max-width: 1278px) {
+  
+      .card {
+        max-height: 550px;
+      }
+    }
+    
+    
+    @media (max-width: 650px) {
+      .fallBack {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(95%, 1fr));
+        gap: 20px;
+      }
+      .skPoster {
+        height: 160px;
+      }
+    .skCradTitle {
+      width: 50%;
+      height: 13px;
+    }
+    .skCradDesc {
+      width: 80%;
+      height: 13px;
+
+    }
+    .bottom {
+      margin-top:8px;
+      gap:8px;
+      align-items:center;
+    }
+  }
+  

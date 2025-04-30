@@ -1,0 +1,26 @@
+.layout {
+  position: fixed;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.281);
+  backdrop-filter: blur(3px);
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  border-radius: 10px;
+  height: 0;
+}
+/* LTR direction */
+html[dir="ltr"] .layout {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* RTL direction */
+html[dir="rtl"] .layout {
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.showlayout {
+  height: 100%;
+}

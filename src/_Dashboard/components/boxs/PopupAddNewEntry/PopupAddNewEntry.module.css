@@ -1,0 +1,128 @@
+.layout {
+  position: fixed;
+  top: 0;
+  width: calc(100% - var(--sidebarWidth));
+  height: 100dvh;
+  z-index: 100;
+}
+
+/* LTR direction */
+html[dir="ltr"] .layout {
+  left: var(--sidebarWidth);
+}
+
+/* RTL direction */
+html[dir="rtl"] .layout {
+  right: var(--sidebarWidth);
+}
+
+.BgBlur {
+  background-color: rgba(0, 0, 0, 0.281);
+  backdrop-filter: blur(3px);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.formlayout {
+  position: relative;
+  width: 800px;
+  height: 78vh;
+  z-index: 2;
+  border-radius: 10px;
+  max-width: 95%;
+  overflow: hidden;
+  margin: 0 auto;
+  animation: intro 0.3s ease-in-out;
+}
+
+@keyframes intro {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.loaderLayout {
+  width: 100%;
+  min-height: 450px;
+  max-height: 85vh;
+}
+
+.form {
+  width: 100%;
+  z-index: 2;
+  gap: 20px 10px;
+  padding: 20px 20px 130px;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  overflow-y: auto;
+}
+
+.btnclose {
+  top: 20px;
+  position: absolute;
+  /* cursor: pointer; */
+  transform: translateY(-3px);
+}
+
+/* LTR direction */
+html[dir="ltr"] .btnclose {
+  right: 20px;
+}
+
+/* RTL direction */
+html[dir="rtl"] .btnclose {
+  left: 20px;
+}
+
+.label {
+  width: 300px;
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+.btnSubmit {
+  margin: 20px;
+  padding: 10px 30px 10px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 400px;
+  max-width: 100%;
+  cursor: pointer;
+  transition: 0.4s;
+  border-width: 1px;
+}
+.btnSubmit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.boxbtnsubmit {
+  position: absolute;
+  bottom: 0;
+  height: 55px;
+  z-index: 20;
+  border-bottom-width: 0;
+
+  border-left-width: 0;
+
+  border-right-width: 0;
+}
+
+.head {
+  padding: 10px 20px 7px;
+  border-width: 0 0 1px 0;
+}
+
+.head h1 {
+  text-transform: capitalize;
+  margin: 10px 5px;
+}

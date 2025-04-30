@@ -1,0 +1,57 @@
+.container {
+  width: calc(100% - 10px);
+  background-color: rgba(255, 255, 255, 0.05);
+  z-index: 100;
+  animation: intro 0.5s ease both;
+  border-radius: 15px;
+  margin: 5px 0;
+
+  padding: 15px 20px;
+}
+
+@keyframes intro {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.componentOption {
+  width: 100%;
+}
+
+
+.controls {
+  transition: 0.4s;
+}
+.submitBtn {
+  display: block;
+  width: 60%;
+  margin: 0 auto;
+  padding: 12px 10px 10px;
+  border-radius: 10px;
+  border: none;
+  text-transform: capitalize;
+  letter-spacing: 0.54px;
+  font-weight: 500;
+  font-family: sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  height: 40px;
+}
+.componentOption {
+  border-radius:20px;
+  border: 1px solid rgba(255, 255, 255, 0.182);
+  padding: 4px  10px 4px 15px;
+}
+.PageStrategy {
+  width: 100%;
+} 
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}

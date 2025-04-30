@@ -1,0 +1,71 @@
+.list {
+  border-radius: 8px;
+  overflow-y: auto;
+  min-height: 0;
+  z-index: 5;
+  width: 100%;
+  transition: all 0.2s ease;
+  border-width: 0;
+  opacity: 0;
+  max-height: 150px;
+}
+
+.list.open {
+  margin-top: 5px;
+  min-height: 167px;
+  border-width: 1px;
+  opacity: 1;
+}
+.list.open.mode-1 {
+  min-height: 55px !important;
+}
+.list.open.mode-2 {
+  min-height: 115px !important;
+}
+.list.empty {
+  min-height: 50px;
+  border-width: 1px;
+}
+
+.option {
+  min-height: 55px;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 150%;
+  border-width: 0 0 1px 0px;
+  padding: 5px 15px;
+}
+.imageField {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+ 
+}
+.right {
+  flex: 1;
+}
+
+.imageField img {
+  object-position: 50% 0 !important;
+}
+/* LTR direction */
+html[dir="ltr"] .layout input {
+  margin-left: 10px;
+}
+
+/* RTL direction */
+html[dir="rtl"] .layout input {
+  margin-right: 10px;
+}
+
+.notfoundtext {
+  padding: 16px 15px;
+  font-size: 12px;
+}
+
+.loader {
+  padding: 10px 0;
+  margin-bottom: 5px;
+}

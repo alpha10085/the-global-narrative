@@ -1,0 +1,161 @@
+.container {
+  width: 100%;
+  position: relative;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  left: -11px;
+  top: 0px;
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  z-index: 10;
+  border-radius: 0 0 0 70%;
+  border: 1px solid #5c5c5c;
+  border-width: 0 0 1px 1px;
+}
+.new {
+  padding: 2px 5px;
+  background-color: rgba(0, 195, 255, 0.1);
+  color: rgb(101, 175, 255);
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.head .icon svg {
+  width: 28px;
+  height: 28px;
+  padding: 5px 2px;
+  border-radius: 10px;
+  z-index: 10;
+}
+.pageIcon {
+  width: 20px;
+  height: 20px;
+  z-index: 10;
+}
+.head {
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+.name {
+  font-size: 15px;
+  font-weight: 400;
+}
+.list {
+  max-height: 0;
+  transition: 0.4s;
+  opacity: 0;
+  position: relative;
+  padding-left: 11px;
+  margin: 0px 5px 0 14px;
+  transform: translateY(-10px);
+
+
+}
+
+.list::before {
+  content: "";
+  left: 0px;
+  background-color: #5c5c5c;
+  height: calc(100%);
+  width: 1px;
+  top: -20px;
+  position: absolute;
+}
+.list.open {
+  opacity: 1;
+  max-height: 10000px;
+  margin: 0px 5px 10px 14px;
+  transform: translateY(0px);
+}
+.arrowIcon {
+  transform: translate(-6px , 1px);
+  transition: 0.2s;
+}
+.arrowIcon.open {
+  transform: translate(-6px , 1px) rotate(90deg);
+}
+.arrowIcon svg {
+  opacity: 0.8;
+  font-size: 20px;
+}
+.addIcon {
+  width: calc(100% - 40px);
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+.addIcon::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: -2px;
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  z-index: 10;
+  border-radius: 0 0 0 70%;
+  border: 1px solid #5c5c5c;
+  border-width: 0 0 1px 1px;
+}
+
+.addIcon.top {
+  width: max-content;
+}
+.addIcon span {
+  background-color: rgba(255, 255, 255, 0.09);
+  border-radius: 4px;
+  padding: 3px 10px 3.5px 5px;
+  transition: 0.2s;
+  font-size: 12px;
+}
+.addIcon.top::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: -2px;
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  z-index: 10;
+  border-radius: 0 0 0 70%;
+  border: 1px solid #5c5c5c;
+  border-width: 0 0 1px 1px;
+  opacity: 0;
+}
+
+.addIcon.top span {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  padding: 0;
+}
+.addIcon.top span svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 70%;
+  height: 70%;
+  transform: translate(-50%,-50%);
+}
+
+.addIcon span:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.addIcon svg {
+  font-size: 14px;
+}
+
+.addIcon.top span svg {
+  font-size: 13px;
+}
+
+

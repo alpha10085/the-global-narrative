@@ -1,0 +1,41 @@
+.container {
+    margin: 20px auto 15px;
+    width: 94%;
+}
+
+.breadcrumb {
+    transform: 0.2s;
+
+}
+
+.breadcrumb svg {
+    font-size: 13px;
+    transform: translate(1px);
+    margin:0 5px;
+    
+}
+
+.breadcrumb a {
+    font-size: 16px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    transform: 1.8s;
+
+}
+
+.breadcrumb {
+    opacity: 0.5;
+    text-transform: lowercase;
+}
+
+
+.breadcrumb:last-child a {
+    font-size:14px;
+}
+.breadcrumb:first-child svg {
+    display: none;
+}
+
+.breadcrumb.active {
+    opacity: 1;
+}

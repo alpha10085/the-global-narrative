@@ -1,0 +1,46 @@
+
+.CopyableText {
+  position: relative;
+  cursor: pointer;
+}
+.window {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -210%;
+  opacity: 0;
+  transition: 0.4s;
+
+}
+
+.body {
+  transition: 0.2s;
+  background-color: white;
+  color: black;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  width: max-content;
+  position: relative;
+}
+.body::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  z-index: 10;
+
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  
+  border-top: 10px solid rgb(255, 255, 255);
+
+
+
+}
+.window.enabled {
+  opacity: 1;
+}

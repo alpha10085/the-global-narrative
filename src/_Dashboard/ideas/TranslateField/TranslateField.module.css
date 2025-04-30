@@ -1,0 +1,91 @@
+.label {
+  font-size: 12px;
+  margin: 0;
+  gap: 8px;
+  z-index: 10;
+  max-width: 100%;
+}
+
+.label h1 {
+  font-size: 12px;
+  text-transform: capitalize;
+  margin-left: 4px;
+}
+
+.label input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: 100%;
+  margin: 0 0px 0 10px;
+  padding: 0 3px;
+  width: calc(100% - 45px);
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+.inputwrapper {
+  height: 45px;
+  padding-top: 1px;
+  width: 100%;
+  border-radius: 8px;
+  position: relative;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.icon {
+  position: absolute;
+  right: 12px;
+  font-size: 18px;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.icon svg {
+  font-size: 18px;
+}
+
+.errormsg {
+  margin-top: 2px !important;
+}
+
+.readOnly {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgb(23, 23, 234);
+}
+
+.readOnly svg {
+  font-size: 11px;
+  margin: 0 2px;
+}
+
+.svgwrapper {
+  padding: 0 10px 0px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.svgwrapper svg {
+  opacity: 0.5;
+  transition: 0.4s;
+  margin-bottom: 2px;
+}
+
+.inputwrapper:hover svg {
+  opacity: 1;
+}
+
+.svgwrapper h1 {
+  text-transform: unset;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.arrowIcon {
+  padding: 10px;
+  transform: translateY(2px);
+}

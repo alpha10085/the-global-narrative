@@ -1,0 +1,76 @@
+.section {
+  width: 100%;
+  border-radius: 13px;
+
+  max-width: 100%;
+  padding-bottom: 10px;
+}
+
+.layout {
+  margin: 20px 0;
+  padding: 20px;
+  width: 450px;
+  border-radius: 13px;
+  min-height: 10px;
+  max-width: 100%;
+}
+
+.labeltheme {
+  /* width: 150px; */
+  transition: 0.4s;
+}
+
+.labelDropDwon {
+  width: 200px;
+  border-radius: 13px;
+}
+
+.localsTitle {
+  font-size: 13px;
+  margin: 1px;
+  text-transform: capitalize;
+}
+
+.title {
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+.labelDropDwon,
+.labeltheme {
+  max-width: 45%;
+}
+
+@media (max-width: 1000px) {
+  .section {
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .layout {
+    width: 100%;
+    min-height: 110px;
+    margin: 5px;
+  }
+}
+
+@media (max-width: 720px) {
+  .labelDropDwon,
+  .labeltheme {
+    width: 150px;
+  }
+}
+
+@media (max-width: 450px) {
+  .labelDropDwon,
+  .labeltheme {
+    width: 130px;
+  }
+}
+
+@media (max-width: 400px) {
+  .labelDropDwon,
+  .labeltheme {
+    width: 90px;
+  }
+}

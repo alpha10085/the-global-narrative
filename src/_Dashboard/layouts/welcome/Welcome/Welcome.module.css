@@ -1,0 +1,153 @@
+.layout {
+  width: 100%;
+  overflow: hidden
+}
+.title {
+  animation: intro 1s ease;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 5px;
+  object-fit: contain;
+  text-transform: uppercase;
+  transition: 0.4s;
+  font-weight: bold;
+  user-select: none;
+}
+
+.titleBox {
+  height: 30px;
+  overflow: hidden;
+  margin: 5px 0;
+}
+
+.titleBox:nth-child(2) .title {
+  color: #9400be;
+}
+
+.desc {
+  font-size: 14px;
+}
+
+.section {
+  height: 115px;
+}
+
+@keyframes intro {
+  0% {
+    transform: translateY(150%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+.Card {
+  max-width: 90%;
+  width: 700px;
+  padding: 10px;
+  background-color: #8080800a;
+  border-radius: 10px;
+}
+.Card.light{
+  background-color: #fff;
+}
+
+.Card:nth-child(1) .left {
+  background: #30003d;
+}
+
+.Card:nth-child(1) .left svg {
+  color: #c60bfb;
+}
+
+.Card:nth-child(2) .left {
+  background-color: #4d3700;
+}
+
+.Card:nth-child(2) .left svg {
+  color: #fbba0b;
+}
+
+.Card:nth-child(3) .left {
+  background-color: #00444d;
+}
+
+.Card:nth-child(3) .left svg {
+  color: #0bfbee;
+}
+
+.Card:nth-child(4) .left {
+  background-color: #4d0000a6;
+}
+
+.Card:nth-child(4) .left svg {
+  color: #fb0b0b;
+}
+
+.Card.light:nth-child(1) .left {
+  background: #81139f57;
+}
+
+.Card.light:nth-child(1) .left svg {
+  color: #48005c;
+}
+
+.Card.light:nth-child(2) .left {
+  background-color: #d69b095c;
+}
+
+.Card.light:nth-child(2) .left svg {
+  color: #916a03;
+}
+
+.Card.light:nth-child(3) .left {
+  background-color: #0498ac5c;
+}
+
+.Card.light:nth-child(3) .left svg {
+  color: #02746d;
+}
+
+.Card.light:nth-child(4) .left {
+  background-color: #ac03034f;
+}
+
+.Card.light:nth-child(4) .left svg {
+  color: #970000;
+}
+
+.left {
+  border-radius: 50%;
+
+  width: 35px;
+  height: 35px;
+}
+
+.left svg {
+  font-size: 16px;
+}
+
+.right h1 {
+  font-size: 18px;
+  text-transform: capitalize;
+}
+
+.top {
+  margin-bottom: 10px;
+}
+
+.bottom {
+  padding: 2px 5px;
+}
+
+.bottom p {
+  font-size: 13px;
+}
+
+@media (max-width: 450px) {
+  .title {
+    animation: intro 1s ease;
+    font-size: 15px;
+  }
+}

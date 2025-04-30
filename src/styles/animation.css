@@ -1,0 +1,164 @@
+@keyframes showSmooth {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideTitle {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes blurFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+@keyframes blurSlideIn {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(20px);
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes intro_title {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: scale(1.5);
+  }
+  50% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Utility Classes */
+.showSmooth {
+  animation: showSmooth 0.5s ease-in-out;
+}
+.showSmooth_c {
+  animation-name: showSmooth;
+}
+
+.fadeSlideDown {
+  animation: fadeSlideDown 0.5s ease-in-out;
+}
+
+.fadeSlideDown_c {
+  animation-name: fadeSlideDown;
+}
+
+.fadeSlideTitle {
+  animation: fadeSlideTitle 0.5s ease-in-out;
+}
+
+.blurFadeIn {
+  animation: blurFadeIn 1s ease-in-out;
+}
+
+.blurSlideIn {
+  animation: blurSlideIn 1s ease-in-out;
+}
+
+.blurSlideIn_c {
+  animation-name: blurSlideIn;
+}
+.intro_title {
+  animation: intro_title 1s ease-in-out forwards;
+}
+.anim_forward {
+  animation-fill-mode: forwards;
+}
+
+.anim_reverse {
+  animation-fill-mode: backwards;
+}
+
+.anim_alternate {
+  animation-fill-mode: alternate;
+}
+
+.anim_alternate_reverse {
+  animation-fill-mode: alternate-reverse;
+}
+
+.anim_infinite {
+  animation-iteration-count: infinite;
+}
+
+/* custom animations */
+@keyframes intro_List {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.intro_List_c {
+  transform: translateY(100px);
+  opacity: 0;
+  animation: intro_List 0.8s ease-in-out forwards;
+  animation-delay: 0.6s;
+}
+
+.intro_list_card {
+  transform: translateY(30px);
+  opacity: 0;
+  animation: intro_list_card 0.4s ease-in-out forwards;
+}
+
+@keyframes intro_list_card {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

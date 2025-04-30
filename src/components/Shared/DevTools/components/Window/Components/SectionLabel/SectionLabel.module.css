@@ -1,0 +1,33 @@
+.options {
+  width: 100%;
+  margin: 10px 0 10px 30px;
+  position: relative;
+  font-size: 16px;
+  text-transform: capitalize;
+  font-weight: 600;
+  width: calc(100% - 30px);
+}
+.options::before {
+  content: "";
+  left: -19.5px;
+  top: 50.5%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 3.5px;
+  height: 3.5px;
+  background-color: white;
+  z-index: 2;
+  position: absolute;
+}
+.options::after {
+  content: "";
+  left: -28.5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  z-index: 2;
+  position: absolute;
+}

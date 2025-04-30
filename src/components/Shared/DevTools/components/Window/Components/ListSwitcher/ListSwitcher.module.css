@@ -1,0 +1,9 @@
+.list {
+  transition: 0.4s;
+  max-height: 1000px;
+  max-width: calc(100% - 10px);
+}
+.notallowed {
+  max-height: 0;
+  overflow: hidden;
+}

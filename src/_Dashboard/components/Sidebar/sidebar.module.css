@@ -1,0 +1,402 @@
+.slider {
+  width: var(--sidebarWidth);
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.wrapper {
+  width: var(--sidebarWidth);
+  height: 100dvh;
+  position: fixed;
+  transition: width 250ms;
+  z-index: 100;
+  overflow-y: auto;
+}
+/* LTR direction */
+html[dir="ltr"] .wrapper {
+  left: 0;
+  border-right: 1px solid #6e6e6e75;
+}
+
+/* RTL direction */
+html[dir="rtl"] .wrapper {
+  right: 0;
+  border-left: 1px solid #6e6e6e75;
+}
+.head {
+  width: 90%;
+  margin: auto;
+  height: 80px;
+  overflow: hidden;
+}
+
+.head h1 {
+  font-size: 12px;
+}
+
+.head p {
+  font-size: 8px;
+  transition: 0.4s;
+  white-space: nowrap;
+}
+
+.title {
+  width: 100%;
+  margin: 10px 10px 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+  cursor: default;
+
+  max-width: 90%;
+  border-radius: 6px;
+  transition: 0.4s;
+}
+
+.title .linkeffect {
+  font-weight: 400;
+  opacity: 50%;
+  transition: 0.2s;
+}
+
+.title.active .linkeffect {
+  opacity: 100%;
+}
+
+.title svg {
+  font-size: 18px;
+  margin: 0 5px 0 5px;
+  transform: translate(0, -1px);
+}
+
+.cutomSvg svg {
+  font-size: 17px;
+}
+/* LTR direction */
+html[dir="ltr"] .cutomSvg svg {
+  padding-right: 2px;
+  transform: translate(2px, -1px);
+}
+
+/* RTL direction */
+html[dir="rtl"] .cutomSvg svg {
+  padding-left: 2px;
+  transform: translate(-2px, -1px);
+}
+
+.title h1,
+.title a {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.customtitle {
+  margin: 10px 10px 15px;
+  transition: 0.4s;
+}
+
+.ul {
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 190px;
+  min-height: 0px;
+  max-height: 150px;
+  margin: 0;
+  transition: 0.4s;
+}
+
+.link {
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  text-transform: capitalize;
+  font-size: 12px;
+  letter-spacing: 0.6s;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+}
+
+.link svg {
+  font-size: 19px;
+  transform: translate(0, 0px);
+}
+
+.li {
+  width: calc(95% - 40px);
+}
+/* LTR direction */
+html[dir="ltr"] .li {
+  margin: 5px 0 5px 45px;
+}
+/* RTL direction */
+html[dir="rtl"] .li {
+  margin: 5px 45px 5px 0px;
+}
+
+.bottombox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+/* LTR direction */
+html[dir="ltr"] .bottombox {
+  margin-right: 10px;
+}
+
+/* RTL direction */
+html[dir="rtl"] .bottombox {
+  margin-left: 10px;
+}
+
+.bottomwrapper {
+  width: 200px;
+  margin-top: 14px;
+  margin: 0 12px;
+}
+
+.wrapperul {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+/* LTR direction */
+html[dir="ltr"] .wrapperul {
+  padding-right: 20px;
+}
+/* RTL direction */
+html[dir="rtl"] .wrapperul {
+  padding-left: 20px;
+}
+
+.profPic {
+  width: 28px;
+  padding: 14px 15px 15px 15px;
+  border-radius: 50%;
+  height: 28px;
+  mix-blend-mode: difference;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  margin: 5px;
+  transform: translateY(-2px);
+}
+
+.bottombox p {
+  font-size: 11px;
+
+  letter-spacing: 0.5px;
+  transition: 0.4s;
+  width: max-content;
+  text-transform: capitalize;
+}
+
+.profPic p {
+  font-size: 14px;
+  font-weight: bold;
+}
+/* LTR direction */
+html[dir="ltr"] .profPic p {
+  margin-left: 1px;
+}
+/* RTL direction */
+html[dir="rtl"] .profPic p {
+  margin-right: 1px;
+}
+
+.logo {
+  width: max-content;
+  aspect-ratio: 4/1.1;
+  height: 22px;
+  overflow: hidden;
+
+  margin-bottom: 4px;
+  transition: 0.6s;
+}
+
+.logoimg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.silderbarOpen .wrapper {
+  width: 200px;
+}
+
+.silderbarOpen .head p {
+  opacity: 1;
+}
+
+.silderbarOpen .username {
+  opacity: 1;
+}
+
+.toggleBtn {
+  position: absolute;
+  border-radius: 6px;
+  display: none;
+  bottom: 85px;
+  z-index: 1;
+}
+/* LTR direction */
+html[dir="ltr"] .toggleBtn {
+  right: 10px;
+  padding: 5px 4px 2px 6px;
+}
+/* RTL direction */
+html[dir="rtl"] .toggleBtn {
+  left: 10px;
+  padding: 5px 6px 2px 4px;
+}
+
+.toggleBtn svg {
+  font-size: 13px;
+}
+/* RTL direction */
+html[dir="rtl"] .toggleBtn svg {
+  transform: rotate(180deg);
+}
+
+.popupbottom {
+  position: absolute;
+  bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 160px;
+  z-index: 2;
+  /*hhandle animation*/
+  padding: 8px 10px;
+  backdrop-filter: blur(30px);
+}
+/* LTR direction */
+html[dir="ltr"] .popupbottom {
+  left: 50%;
+  transform: translateX(-50%);
+  animation: intro-ltr 0.2s ease-in-out;
+}
+
+/* RTL direction */
+html[dir="rtl"] .popupbottom {
+  right: 50%;
+  transform: translateX(50%);
+  animation: intro-rtl 0.2s ease-in-out;
+}
+
+.btnprofile {
+  padding: 10px 10px;
+  border: none;
+  font-size: 13px;
+  text-transform: capitalize;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.2s;
+  background-color: transparent;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.btnprofile svg {
+  font-size: 20px;
+}
+
+.btnprofile:hover {
+  opacity: 1;
+}
+
+/* LTR Animation */
+@keyframes intro-ltr {
+  0% {
+    transform: translateX(-50%) translateY(-5px) scale(0.95);
+  }
+
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* RTL Animation */
+@keyframes intro-rtl {
+  0% {
+    transform: translateX(50%) translateY(-5px) scale(0.95);
+  }
+
+  100% {
+    transform: translateX(50%) scale(1);
+  }
+}
+
+.wrapperforuls {
+  height: calc(100dvh - 80px);
+}
+
+@media (max-width: 1024px) {
+  /* LTR direction */
+  html[dir="ltr"] .bottomwrapper {
+    margin-left: 5px;
+  }
+
+  /* RTL direction */
+  html[dir="rtl"] .bottomwrapper {
+    margin-right: 5px;
+  }
+  .slider .title .linkeffect {
+    opacity: 0;
+  }
+
+  .slider.silderbarOpen .title .linkeffect {
+    opacity: 50%;
+    transition: 0.2s;
+  }
+
+  .slider.silderbarOpen .title.active .linkeffect {
+    opacity: 100%;
+  }
+
+  .title {
+    width: 100%;
+    margin: 10px 10px 10px;
+  }
+
+  .slider .customtitle {
+    margin: 15px 10px 20px;
+  }
+
+  .username {
+    opacity: 0;
+  }
+
+  .toggleBtn {
+    display: inline;
+  }
+
+  .wrapper {
+    width: 50px;
+  }
+
+  .head p {
+    opacity: 0;
+  }
+
+  .slider ul {
+    max-height: 0;
+  }
+
+  .slider.silderbarOpen ul {
+    max-height: 150px;
+  }
+  .slider {
+    width: 50px;
+  }
+  .logo {
+    height: 12px;
+  }
+  .silderbarOpen .logo {
+    height: 18px;
+
+  }
+}

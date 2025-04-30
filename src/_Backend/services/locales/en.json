@@ -1,0 +1,42 @@
+{
+  "httpStatus": {
+    "Processing": "The server is processing the request, but no response is available yet.",
+    "OK": "The request has succeeded.",
+    "Created": "Created successfully.",
+    "Forbidden": "Forbidden: requires re-authentication.",
+    "unAuthorized": "Unauthorized.",
+    "badRequest": "Bad request.",
+    "NotFound": "{{key}} Not found.",
+    "conflict": "{{key}} Already exists.",
+    "internalServerError": "Something went wrong. Try again later.",
+    "sessionExpired": "Session expired.",
+    "Accepted": "Accepted."
+  },
+  "updated": "Updated Sucessfully",
+  "serverError": "Internal Server Error",
+  "Duplicate-translation-in-language": "Duplicate translation found for this model, language, and ref.",
+  "Invalid-key-for-translation": "Invalid key for translation.",
+  "Invalid-path-specified": "Invalid path specified.",
+  "Duplicate-translation": "Duplicate translation found for this model",
+  "Duplicate-translation-in-Value": "Duplicate translation found for this value",
+  "validation-error": "validation error",
+  "password-badRequest": "current password wrong.",
+  "password-conflict": "The password can't be changed as it's the same as the current one.",
+  "incorrect-password": "Incorrect email or password",
+  "user": "User",
+  "email": "email",
+  "pages": {
+    "notFound": "Page is not found",
+    "exists": "Page already exists",
+    "saved": "Page saved successfully"
+  },
+  "component": {
+    "notFound": "component is not found",
+    "exists": "component already exists ",
+    "saved": "component saved successfully"
+  },
+  "labels": {
+    "title": "title",
+    "description": "description"
+  }
+}

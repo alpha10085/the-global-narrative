@@ -1,0 +1,162 @@
+.card {
+  width: 100%;
+  height: max-content;
+  text-align: start !important;
+  position: relative;
+  border-width: 0 0 1px 0 !important;
+  border: none;
+}
+
+.card:nth-child(1) {
+  border-width: 0 0 0 0 !important;
+}
+
+.btnDelete {
+  padding: 5px;
+  border-radius: 10px;
+  border-width: 2px;
+  transition: 0.4s;
+}
+
+.btnDelete svg {
+  font-size: 15px;
+}
+
+.headerLeft {
+  overflow: hidden;
+  height: 100%;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.header {
+  padding: 0 20px;
+  transition: 0.2s;
+  width: 100%;
+  height: 55px;
+  border-width: 1px 0 0 0 !important;
+}
+
+.card:nth-child(1) .header {
+  border-width: 0 0 0 0 !important;
+}
+.card.open .header {
+  border-width: 1px 0 1px 0 !important;
+}
+.card.open:nth-child(1) .header {
+  border-width: 0 0 1px 0 !important;
+}
+
+.headerLeft svg {
+  transition: 0.2s;
+  font-size: 15px;
+  opacity: 0.5;
+}
+
+.headerLeft.open svg {
+  transform: rotate(90deg);
+}
+
+.headerTitle {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btnReOrder {
+  padding: 6px;
+  border-radius: 10px;
+  z-index: 10;
+  border-width: 2px;
+  transition: 0.4s;
+}
+
+.btnReOrder:disabled svg {
+  cursor: not-allowed !important;
+  opacity: 0.2;
+}
+
+.btnReOrder:disabled {
+  cursor: not-allowed !important;
+}
+
+.btnReOrder svg {
+  font-size: 15px;
+}
+
+.list {
+  position: relative;
+  width: 100%;
+  padding: 0 20px;
+  overflow: hidden;
+  transition: height 0.4s ease, padding 0.6s ease;
+  max-height: 0;
+  opacity: 0;
+  gap: 20px 10px;
+}
+
+.list.open {
+  max-height: max-content;
+  opacity: 1;
+  padding: 20px;
+}
+
+.btnoptions {
+  display: none !important;
+}
+
+@media (max-width: 500px) {
+  .btnDelete svg {
+    font-size: 13px;
+  }
+
+  .header {
+    padding: 13px 10px 13px;
+  }
+
+  .list {
+    padding: 0 5px;
+  }
+
+  .list.open {
+    padding: 10px 5px;
+  }
+
+  .buttonList {
+    gap: 10px !important;
+  }
+  /* LTR direction */
+  html[dir="ltr"] .buttonList {
+    margin-right: 10px;
+  }
+  /* RTL direction */
+  html[dir="rtl"] .buttonList {
+    margin-left: 10px;
+  }
+
+  .headerTitle {
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .btnoptions {
+    display: flex !important;
+  }
+
+  .buttonList {
+    display: none !important;
+  }
+
+  .buttonList.open {
+    display: flex !important;
+    position: absolute;
+  }
+  /* LTR direction */
+  html[dir="ltr"] .buttonList.open {
+    right: 0;
+  }
+  /* RTL direction */
+  html[dir="rtl"] .buttonList.open {
+    left: 0;
+  }
+}

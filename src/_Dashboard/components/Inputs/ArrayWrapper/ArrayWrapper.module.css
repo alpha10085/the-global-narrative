@@ -1,0 +1,49 @@
+.ArrayWrapper {
+  margin-top: 10px;
+}
+
+.list {
+  min-height: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.emptylayout {
+  width: 100%;
+  height: 55px;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+  transform: translateY(-1px);
+}
+
+.emptylayout svg {
+  font-size: 20px;
+}
+
+.emptyArray {
+  height: 30px;
+}
+
+.addbewbtn {
+  position: absolute;
+  top: 18px;
+  padding: 6px 15px;
+  border-radius: 8px;
+}
+/* LTR direction */
+html[dir="ltr"] .addbewbtn {
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+/* RTL direction */
+html[dir="rtl"] .addbewbtn {
+  right: 50%;
+  transform: translate(50%, 0);
+}
+
+@media (max-width: 500px) {
+  .label {
+    font-size: 12px;
+  }
+}

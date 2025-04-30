@@ -1,0 +1,63 @@
+.input {
+  width: 235px;
+  height: 38px;
+  margin: 5px 0 0 0;
+  border-radius: 7px;
+  max-width: calc(100%);
+}
+
+.input span {
+  height: 100%;
+  margin-top: 1px;
+  cursor: pointer;
+  width: max-content;
+  width: 50px;
+}
+
+.input svg {
+  font-size: 18px;
+}
+/* LTR direction */
+html[dir="ltr"] .input svg {
+  margin-left: 10px;
+}
+
+/* RTL direction */
+html[dir="rtl"] .input svg {
+  margin-right: 10px;
+}
+
+.input input {
+  width: 100px;
+  flex-grow: 1;
+  background-color: transparent;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding-top: 2px;
+}
+/* LTR direction */
+html[dir="ltr"] .input input {
+  margin-left: 5px;
+}
+
+/* RTL direction */
+html[dir="rtl"] .input input {
+  margin-right: 5px;
+}
+
+.input input::placeholder {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+@media (max-width: 400px) {
+  .input {
+    height: 30px;
+  }
+  .input svg {
+    font-size: 15px;
+  }
+  .input input {
+    font-size: 12px;
+  }
+}

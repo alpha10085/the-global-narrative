@@ -1,0 +1,45 @@
+
+.notFound  h1 {
+    font-size: 40px;
+   
+}
+
+.notFound  h2 {
+    font-size: 30px;
+}
+
+.notFound  h3 {
+    font-weight: 500;
+    color: rgb(150, 150, 150);
+    mix-blend-mode: difference;
+}
+.notFound {
+    padding-top: 20px;
+}
+.btn {
+    padding:12px 25px 12px  35px;
+    margin: 10px 0;
+    border: 1px solid black;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    background-color: black;
+    color: white;
+    /* mix-blend-mode: difference; */
+}
+.btn svg {
+    font-size:16px;
+    transition: 0.4s;
+}
+.btn:hover svg {
+    transform: translateX(4px) scale(1.1) ;
+}
+@media(max-width:472px){
+    .notFound .left h1 {
+        font-size: 30px;
+    }
+    .notFound .left h2 {
+        font-size: 20px;
+    }
+}
+

@@ -1,0 +1,29 @@
+.btnCreate {
+    padding: 12px 30px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    text-transform: capitalize;
+    z-index: 10;
+    position: relative;
+    transition: 0.4s;
+    gap: 8px;
+}
+
+.btnCreate svg {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .btnCreate {
+        padding: 8px 20px;
+        height: 40px ;
+    }
+
+    .hideonmobile {
+        display: none;
+    }
+
+    .btnCreate svg {
+        display: inline-block;
+    }
+}

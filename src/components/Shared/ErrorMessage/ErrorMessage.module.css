@@ -1,0 +1,16 @@
+.mesage {
+    /*handle add animtion*/
+    overflow: hidden;
+    animation: intro 0.5s ease-in-out;
+    transition: 1s;
+    opacity: 1;
+    max-height: 100px;
+    margin: 0 6px;
+    text-align: start;
+    line-height: 150%;
+}
+
+.mesage.close {
+    opacity: 0;
+    max-height: 0;
+}

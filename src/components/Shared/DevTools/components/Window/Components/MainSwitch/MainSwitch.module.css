@@ -1,0 +1,16 @@
+.list {
+  transition: 0.4s;
+  max-height: 300px;
+}
+.notallowed {
+  max-height: 0;
+  overflow: hidden;
+}
+.mainOption {
+  padding: 5px 10px 5px 15px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: calc(100% - 10px);
+}

@@ -1,0 +1,100 @@
+.barcode {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  width: 700px;
+  /* Control the maximum width of the barcode */
+  max-width: 100%;
+}
+
+.barcode.rotatemode {
+  max-width: 90vh;
+}
+
+.hide {
+  display: none;
+}
+
+.label {
+  width: 100%;
+  text-align: start;
+  margin: 10px 0;
+}
+
+.label h1 {
+  font-size: 16px;
+}
+/* LTR direction */
+html[dir="ltr"] .label h1  {
+  margin: 0 0 0 5px;
+}
+/* RTL direction */
+html[dir="rtl"] .label h1  {
+  margin: 0 5px 0 0px;
+}
+
+.container {
+  width: calc(100%);
+  height: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  transition:0.4s;
+}
+.container.full {
+height:150px;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper button {
+  padding: 8px 10px 3px;
+  border-radius: 10px;
+}
+
+.wrapper.popupmode {
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100dvh;
+  top: 50%;
+  background: #00000069;
+  padding: 20px;
+}
+ /* LTR direction */
+ html[dir="ltr"] .wrapper.popupmode  {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* RTL direction */
+html[dir="rtl"] .wrapper.popupmode  {
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.rotatewrapper {
+  transition: 0.2s;
+}
+
+.rotatewrapper.rotatemode {
+  transform: rotate(90deg);
+  width: 80vh;
+  height: 90vw;
+}
+
+.btn {}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .wrapper button svg {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox {
+  min-width: 20px;
+  min-height: 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.label {
+  font-size: 14px;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+}

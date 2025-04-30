@@ -1,0 +1,164 @@
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.btndelete {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.266);
+  backdrop-filter: blur(1px);
+  z-index: 1;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.bgoverlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  backdrop-filter: blur(1px);
+  transition: 0.2s;
+  border-radius: 10px;
+  z-index: 10;
+}
+  /* LTR direction */
+  html[dir="ltr"] .btndelete, .bgoverlay {
+    left: 0;
+  }
+  /* RTL direction */
+  html[dir="rtl"] .btndelete, .bgoverlay {
+    right: 0;
+  }
+
+.bgoverlay h1 {
+  font-size: 11px;
+}
+
+.btndelete:hover {
+  opacity: 1;
+}
+
+.btndelete svg {
+  color: rgb(90, 90, 90);
+  font-size: 25px;
+}
+
+.image {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  overflow: hidden;
+}
+.loader {
+  width: 100%;
+  height: 100%;
+}
+.progressBar {
+  width: 70%;
+  height: 5px;
+  display: flex;
+
+  text-align: center;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.progressBarValue {
+  transition: 1s;
+  border-radius: 5px;
+}
+
+
+.progressValue {
+  font-size: 10px;
+  /* margin: 8px 0; */
+  text-transform: capitalize;
+  line-height: 140%;
+  font-weight: bold;
+  margin-top: 6px;
+}
+
+.iconSeccuess {
+  color: rgb(83, 218, 34);
+}
+
+.iconError {
+  color: #ff0900;
+
+}
+
+.iconError svg {
+  margin: 4px 0;
+  font-size: 20px;
+}
+
+.iconSeccuess {
+  max-width: 80%;
+}
+
+.fileinfo {
+  position: absolute;
+  bottom: 6px;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+  width: calc(100% - 12px);
+  padding: 10px 15px;
+  overflow: hidden;
+  border-radius: 10px; 
+}
+  /* LTR direction */
+  html[dir="ltr"] .fileinfo {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  /* RTL direction */
+  html[dir="rtl"] .fileinfo {
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+.fileinfo h1 {
+  cursor: default;
+  text-align: center;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  line-height: 150%;
+  width: max-content;
+  margin: auto;
+}
+.abortBtn {
+  position: absolute;
+  top: 10px;
+  z-index: 10;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  backdrop-filter: blur(4px);
+}
+  /* LTR direction */
+  html[dir="ltr"] .abortBtn {
+    right: 10px;
+  }
+  /* RTL direction */
+  html[dir="rtl"] .abortBtn {
+    left: 10px;
+  }
+
+.abortBtn svg {
+font-size: 18px;
+}
+
+

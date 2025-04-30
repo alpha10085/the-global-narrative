@@ -1,0 +1,88 @@
+.label {
+  font-size: 12px;
+
+
+  gap: 8px;
+  z-index: 10;
+  max-width: 50%;
+}
+.label.open {
+
+  z-index: 20;
+}
+.label h1 {
+  font-size: 12px;
+  text-transform: capitalize;
+}
+ /* LTR direction */
+ html[dir="ltr"] .label h1  {
+  margin-left: 4px;
+}
+/* RTL direction */
+html[dir="rtl"] .label h1  {
+  margin-right: 4px;
+}
+ /* LTR direction */
+ html[dir="ltr"] .label   {
+}
+/* RTL direction */
+html[dir="rtl"] .label   {
+ 
+}
+
+
+.label input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  height: 42px !important;
+  padding: 0 3px;
+  width: calc(100% - 45px);
+}
+/* LTR direction */
+html[dir="ltr"] .label input {
+  margin: 0 0px 0 10px;
+}
+
+/* RTL direction */
+html[dir="rtl"] .label input {
+  margin: 0 10px 0 0px;
+}
+
+.inputwrapper {
+  height: 45px;
+  padding-top: 1px;
+  width: 100%;
+  border-radius: 8px;
+  position: relative;
+}
+.icon {
+  position: absolute;
+  font-size: 18px;
+  top: 50%;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+.icon svg {
+  font-size: 18px;
+}
+.dateFormated {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+}
+
+.dateFormated svg {
+  font-size: 18px;
+}
+
+ /* LTR direction */
+ html[dir="ltr"]  .dateFormated  {
+   right: 12px;
+  }
+  /* RTL direction */
+  html[dir="rtl"]   .dateFormated {
+    left: 12px;
+}
+

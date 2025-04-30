@@ -1,0 +1,146 @@
+.login {
+  max-width: 90%;
+  width: 450px;
+
+  display: flex;
+
+}
+
+.login button {
+  padding: 12px 30px;
+  border: none;
+  width: 300px;
+  max-width: 80%;
+  margin: 5px 0;
+}
+
+.remomberMeSpan {
+  font-size: 12px;
+  color: #777;
+  margin: 0px 0;
+}
+
+.login span input {
+  width: 14px;
+  height: 12px;
+  margin: 3px 4px;
+}
+
+.termsSpan p {
+  margin: 5px 3px 0px;
+  letter-spacing: 0.2px;
+  font-weight: bold;
+  font-size: 11px;
+  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.termsSpan p:nth-child(2) {
+  font-size: 12px;
+  position: relative;
+  transform: translateY(-2px);
+}
+
+.forgetPasswordBtn {
+  margin: 0px 0 20px;
+}
+
+.forgetPasswordBtn a {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  text-transform: capitalize;
+  margin: 0 2px;
+  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.termsSpan {
+  margin: 5px 0 10px;
+}
+
+.registerationTitleSec {
+  font-size: 14px;
+  text-transform: capitalize;
+  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+}
+
+.lineBetween {
+  height: 22px;
+  position: relative;
+  background-color: white;
+  width: 30px;
+  border-radius: 0;
+  font-size: 14px;
+  color: rgb(164, 164, 164);
+  letter-spacing: 1px;
+  display: inline-block;
+  text-transform: capitalize;
+}
+
+.lineBetween::before {
+  content: "";
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 50%);
+  z-index: -10;
+  position: absolute;
+  width: 200px;
+  height: 1px;
+  background-color: rgb(210, 210, 210);
+}
+
+
+.loginLabel {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.bottombox {
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 10px 30px 10px;
+  border: none;
+  width: 300px;
+  max-width: 80%;
+  color: rgb(0, 0, 0);
+  border: 1px solid white;
+  text-transform: uppercase;
+}
+
+@media (max-width:674px) {}
+
+@media (max-width: 400px) {
+  .boxBottom {
+    margin: 15px 0;
+  }
+
+  .termsSpan {
+    margin: 5px 0 10px;
+    font-size: 15px;
+  }
+
+  .termsSpan p {
+    font-size: 9px;
+  }
+
+  .termsSpan p:nth-child(2) {
+    font-size: 10px;
+  }
+
+  .forgetPasswordBtn a {
+    font-size: 10px;
+  }
+
+  .remomberMeSpan {
+    font-size: 10px;
+  }
+
+}

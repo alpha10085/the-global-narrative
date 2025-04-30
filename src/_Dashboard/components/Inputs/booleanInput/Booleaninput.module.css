@@ -1,0 +1,96 @@
+.body {
+  height: 45px;
+  width: 150px !important;
+  padding: 0 18px !important;
+  font-size: 12px;
+  text-transform: uppercase;
+  position: relative;
+  transition: 0.4s;
+  border-radius: 8px;
+}
+ /* LTR direction */
+ html[dir="ltr"] .body {
+  margin: 3px 40px 0 0;
+}
+/* RTL direction */
+html[dir="rtl"] .body {
+  margin: 3px 0px 0 40px;
+}
+
+.state {
+  width: 45px;
+  position: absolute;
+  height: 30px;
+  top: 50%;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 255);
+  mix-blend-mode: difference;
+  transition: 0.4s;
+  cursor: pointer;
+}
+ /* LTR direction */
+ html[dir="ltr"] .state {
+  left: 4.5px;
+  transform: translate(92px, -50%);
+}
+/* RTL direction */
+html[dir="rtl"] .state {
+  right: 4.5px;
+  transform: translate(-92px, -50%);
+
+}
+
+.text {
+  position: relative;
+  z-index: 10;
+  color: rgb(255, 255, 255);
+  mix-blend-mode: difference;
+  cursor: pointer;
+  width: 20px;
+  margin: auto 0;
+  padding-top: 1px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  font-size: 10px;
+}
+
+.null {
+  opacity: 0;
+}
+ /* LTR direction */
+ html[dir="ltr"] .null {
+  transform: translate(48px, -50%);
+}
+/* RTL direction */
+html[dir="rtl"] .null {
+  transform: translate(-48px, -50%);
+}
+
+.title {
+  font-size: 12px;
+  text-transform: capitalize;
+}
+ /* LTR direction */
+ html[dir="ltr"] .title {
+  margin: 0 20px 0 4px;
+  margin-left: 4px;
+}
+/* RTL direction */
+html[dir="rtl"] .title {
+  margin: 0 4px 0 20px;
+  margin-right: 4px;
+}
+
+.true {
+  transition: 0.4s;
+}
+ /* LTR direction */
+ html[dir="ltr"] .true {
+  transform: translate(1.5px, -50%);
+
+}
+/* RTL direction */
+html[dir="rtl"] .true {
+  transform: translate(-1.5px, -50%);
+
+}

@@ -1,0 +1,144 @@
+.dropDown {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dropDown[open] {
+  z-index: 11000000;
+}
+
+.dropDown[open] .options {
+  z-index: 200000;
+  animation: intro 0.3s ease-in-out;
+}
+
+@keyframes intro {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+}
+
+.options {
+  position: absolute;
+  z-index: 1;
+  top: calc(100% + 8px);
+  width: 100%;
+  min-height: 35px;
+  max-height: 150px;
+  overflow-y: scroll;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+/* LTR direction */
+html[dir="ltr"] .options {
+  left: 0px;
+}
+
+/* RTL direction */
+html[dir="rtl"] .options {
+  right: 0px;
+}
+
+.title {
+  margin: 0 10px;
+  font-size: 12px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.option {
+  padding: 12px 10px;
+  transition: 0.2s;
+  text-align: start;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: rgba(155, 155, 155, 0.1);
+}
+
+.placeholder {
+
+  color: gray;
+  padding: 0 4px;
+  margin: 0 10px;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.options::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Style the scrollbar track */
+.options::-webkit-scrollbar-track {
+  background: var(--color-fourth);
+  /* Set the track background color */
+}
+
+/* Style the scrollbar thumb */
+.options::-webkit-scrollbar-thumb {
+  background: var(--color-third);
+  /* Set the thumb background color */
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px;
+}
+
+.icon svg {
+  font-size: 15px;
+
+  transition: 0.2s;
+}
+
+.icon[open] svg {
+  position: relative;
+  transform: rotate(-90deg);
+}
+
+.dropDown,
+.dropDown-search {
+  border-radius: 8px;
+  outline: none;
+  /* transition: 0.4s border; */
+  position: relative;
+  height: 45px;
+}
+
+.dropDown .options,
+.dropDown-search .options {
+  border-radius: 8px;
+}
+
+@media (max-width: 420px) {
+  .dropDown {
+    border-radius: 8px;
+    outline: none;
+    transition: 0.4s;
+    position: relative;
+    height: 38px;
+  }
+
+  .placeholder {
+    font-size: 10px;
+  }
+
+  .option {
+    font-size: 10px;
+  }
+}

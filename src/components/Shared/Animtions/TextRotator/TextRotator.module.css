@@ -1,0 +1,22 @@
+.textRotator {
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.textRotator h1 {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.fadeInUp {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.fadeOutDown {
+  opacity: 0;
+  transform: translateY(40px);
+}

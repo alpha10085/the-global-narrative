@@ -1,0 +1,16 @@
+.wrapper {
+  width: 100vw;
+
+  height: 320px;
+  position: absolute;
+  bottom: -140px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.darkshadow {
+  width: 130%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  filter: blur(40px);
+}

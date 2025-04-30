@@ -1,0 +1,153 @@
+.section {
+  min-height: 20vh;
+  margin: 10px 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.poster img {
+  object-fit: contain !important;
+  margin: auto;
+  width: 120px !important;
+  height: auto !important;
+  cursor: pointer;
+}
+
+.poster {
+  width: 220px;
+  height: 120px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.large img {
+  transform: scale(1.4);
+}
+
+.top {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.title {
+  text-transform: uppercase;
+  margin: 50px auto;
+  width: max-content;
+  color: var(--col-t0);
+  font-size: 30px;
+  font-style: bold;
+}
+
+.logos {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  background: white;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  content: "";
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0),
+    rgb(255, 255, 255)
+  );
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgb(255, 255, 255)
+  );
+}
+
+@keyframes scrollRtl {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrollLtr {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.itemsSlide {
+  transition: 0.2s;
+  animation-name: scrollRtl;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  width: min-content;
+  background-color: var(--root-color);
+}
+
+.itemsSlide2 {
+  width: min-content;
+  transition: 0.2s;
+  animation-name: scrollLtr;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.Items:hover .itemsSlide,
+.Items:hover .itemsSlide2 {
+  animation-play-state: paused;
+}
+
+.poster:hover {
+  transform: scale(1.2);
+
+}
+
+.logos:hover .poster:not(:hover) {
+  filter: grayscale(100);
+  /* -webkit-filter: grayscale(100); */
+  opacity: 0.6;
+}
+
+@media (max-width: 568px) {
+  .title {
+    text-transform: uppercase;
+    margin: 50px auto;
+    width: max-content;
+    color: var(--col-t0);
+    font-size: 20px;
+    font-style: bold;
+  }
+}
+
+@media (max-width: 468px) {
+  .title {
+    text-transform: uppercase;
+    margin: 50px auto;
+    width: max-content;
+    color: var(--col-t0);
+    font-size: 18px;
+    font-style: bold;
+  }
+}

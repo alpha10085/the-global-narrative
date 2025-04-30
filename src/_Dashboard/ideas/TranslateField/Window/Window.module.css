@@ -1,0 +1,172 @@
+.layout {
+  width: calc(100vw - var(--sidebarWidth));
+  height: 100vh;
+  position: fixed;
+  left: var(--sidebarWidth);
+  top: 50%;
+  transform: translate(0%, -50%);
+  z-index: 100;
+}
+
+.overlayBg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.2;
+  background-color: black;
+  z-index: 99;
+  transition: 0.5s;
+}
+
+.overlayBg.darkMode {
+  opacity: 0.8;
+}
+
+.layout.close .overlayBg {
+  opacity: 0;
+}
+
+.window {
+  width: 800px;
+  max-width: 95%;
+  max-height: 80vh;
+  height: 510px;
+  position: fixed;
+  top: 50%;
+  z-index: 100;
+  border-radius: 30px;
+  padding: 25px 0 0;
+  overflow: hidden;
+  transition: 0.6s;
+}
+/* LTR direction */
+html[dir="ltr"] .window {
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: intro-ltr 0.6s ease-in-out;
+}
+/* RTL direction */
+html[dir="rtl"] .window {
+  right: 50%;
+  transform: translate(50%, -50%);
+  animation: intro-rtl 0.6s ease-in-out;
+}
+
+/* LTR Animation */
+@keyframes intro-ltr {
+  0% {
+    transform: translate(-50%, 20%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+/* RTL Animation */
+@keyframes intro-rtl {
+  0% {
+    transform: translate(50%, 20%); 
+    opacity: 0;
+  }
+
+  100% {
+    transform: translate(50%, -50%); 
+    opacity: 1;
+  }
+}
+
+
+.listInputs {
+  width: calc(100%);
+  overflow-y: scroll;
+  height: calc(100% - 30px);
+  padding: 15px 30px 20px;
+}
+
+.head {
+  padding: 0 30px 20px 30px;
+  border-width: 0 0 1px 0 !important;
+  cursor: default;
+  text-transform: capitalize;
+}
+
+.head h1 {
+  font-size: 14px;
+}
+
+.midline {
+  opacity: 0.25;
+}
+
+.head svg {
+  cursor: default;
+}
+
+.head .title {
+  padding: 5px 12px;
+  background-color: rgba(0, 0, 0, 0.071);
+  border-radius: 5px;
+}
+
+.btnclose {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  opacity: 0.8;
+}
+
+.btnclose svg {
+  cursor: pointer;
+
+}
+
+.btnclose:hover {
+  opacity: 1;
+}
+
+.layout.close .window {
+  transform: translate(-50%, 70%);
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .window {
+    padding: 15px 0;
+    border-radius: 20px;
+  }
+
+  .head {
+    padding: 0 20px 10px 20px;
+    border-width: 0 0 1px 0 !important;
+    cursor: default;
+  }
+
+  .head h1 {
+    font-size: 14px;
+  }
+
+  .btnclose {
+    right: 15px;
+    top: 12px;
+    width: 30px;
+    height: 30px;
+
+  }
+
+  .btnclose svg {
+    font-size: 16px;
+  }
+
+  .listInputs {
+
+    padding: 15px 15px;
+  }
+}

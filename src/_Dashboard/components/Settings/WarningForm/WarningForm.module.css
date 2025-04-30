@@ -1,0 +1,59 @@
+.section {
+  margin: 20px 0;
+
+  padding:20px;
+  width: 650px;
+  border-radius: 13px;
+  min-height: 250px;
+  max-width: 100%;
+}
+
+.descarption {
+  margin: 10px 5px;
+  font-size: 12px;
+  line-height: 200%;
+  position: relative;
+  color:gray;
+  max-width: 80%;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+/* LTR direction */
+html[dir="ltr"] .descarption {
+  margin-left: 30px;
+}
+/* RTL direction */
+html[dir="rtl"] .descarption {
+  margin-right: 30px;
+}
+
+.descarption svg {
+  font-size: 16px;
+  transform: translateY(3px);
+  position: absolute;
+}
+/* LTR direction */
+html[dir="ltr"] .descarption svg {
+  left: -25px;
+}
+/* RTL direction */
+html[dir="rtl"] .descarption svg {
+  right: -25px;
+}
+
+
+.label {
+  width: 300px;
+  max-width: 100%;
+}
+.btn {
+  padding: 10px 30px 10px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 150px;
+  cursor: pointer;
+  transition: 0.4s;
+}

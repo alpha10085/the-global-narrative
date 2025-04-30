@@ -1,0 +1,52 @@
+.title {
+  font-size: 22px;
+  font-weight: 500;
+  width: max-content;
+  margin: 25vh 0 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.lineor {
+  margin: 10px 0;
+  position: relative;
+  z-index: 10;
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  color: white;
+}
+.lineor::before {
+  content: '';
+  width: 30px;
+  height: 20px;
+  background-color: rgb(0, 0, 0);
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+.lineor::after {
+  content: '';
+  width: 150px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  z-index: -5;
+  transform: translate(-50%, -50%);
+}
+.link {
+  text-transform: uppercase;
+  font-weight: 500;
+  color: white;
+}
+@media (max-width: 674px) {
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}

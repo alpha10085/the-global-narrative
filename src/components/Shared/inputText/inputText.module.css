@@ -1,0 +1,165 @@
+.label {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.label input,
+.label textarea {
+  padding: 1px 5px 0 19px;
+  width: calc(100%);
+  position: relative;
+  z-index: 2;
+  height: 45px;
+  font-size: 13px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  margin-top: 3px;
+  border: 1px solid rgb(195, 195, 195);
+  outline: none;
+}
+html[dir="rtl"] .label input,
+.label textarea {
+  padding: 1px 19px 0 5px;
+}
+.label textarea {
+  padding: 10px;
+}
+.label input,
+.label textarea:focus {
+  border: 1px solid rgb(79, 79, 79);
+}
+
+.label input,
+.label textarea.error {
+  border: 1px solid red;
+}
+.placeholder {
+  cursor: pointer;
+}
+.placeholder.hide {
+  opacity: 0;
+}
+
+.placeholder.focus {
+  position: absolute;
+  top: -5.5px;
+  left: 13px;
+  font-size: 11px;
+  font-weight: 600;
+  z-index: 5;
+}
+html[dir="rtl"] .placeholder.focus {
+  right: 13px;
+  left: unset;
+}
+
+.placeholder {
+  transition: 0.1s;
+  color: rgb(118, 118, 118);
+  position: absolute;
+  top: 17px;
+  left: 15px;
+  font-size: 13px;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 6px 0px;
+  z-index: 5;
+  text-transform: capitalize;
+}
+html[dir="rtl"] .placeholder {
+  right: 15px;
+  left: unset;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.passwordIcon {
+  position: absolute;
+  right: 5%;
+  z-index: 2;
+  bottom: 50%;
+  transform: translateY(60%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+html[dir="rtl"] .passwordIcon {
+  right: unset;
+  left: 5%;
+}
+
+.passwordIcon svg {
+  font-size: 19px;
+}
+
+.label.light .placeholder {
+  background-color: white;
+}
+
+.label.dark .placeholder {
+  background-color: rgb(0, 0, 0) !important;
+}
+
+.label.light input {
+  background-color: white;
+}
+
+.label.dark input,
+.label.dark textarea {
+  background-color: rgb(0, 0, 0) !important;
+}
+
+.label.dark input:-webkit-autofill,
+.label.dark input:-webkit-autofill:hover,
+.label.dark input:-webkit-autofill:focus,
+.label.dark input:-webkit-autofill:active,
+.label.dark textarea:-webkit-autofill,
+.label.dark textarea:-webkit-autofill:hover,
+.label.dark textarea:-webkit-autofill:focus,
+.label.dark textarea:-webkit-autofill:active {
+  -webkit-text-fill-color: #000000;
+  -webkit-box-shadow: 0 0 0 30px rgb(0, 0, 0) inset !important;
+  -webkit-text-fill-color: white !important; /* Ensure text remains white */
+  caret-color: rgb(255, 255, 255); /* Change to any color you want */
+}
+
+.label.light svg {
+  color: rgb(0, 0, 0) !important;
+}
+
+.label.dark svg {
+  color: white;
+}
+
+.label.light .placeholder.focus {
+  color: rgb(45, 45, 45);
+}
+
+.label.dark .placeholder.focus {
+  color: white;
+}
+
+.label.dark input {
+  border: 1px solid rgba(255, 255, 255, 0.329);
+}
+.label.dark input {
+  color: white;
+}
+.label.dark textarea {
+  border: 1px solid rgba(255, 255, 255, 0.329);
+}
+.label.dark textarea {
+  color: white;
+}
+
+.label.dark .placeholder.errorplaceholder,
+label.light .placeholder.errorplaceholder {
+  color: red;
+}

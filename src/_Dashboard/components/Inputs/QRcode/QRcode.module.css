@@ -1,0 +1,50 @@
+.hide {
+  display: none;
+}
+
+.label {
+  width: 100%;
+  text-align: start;
+  margin: 10px 0;
+}
+
+.label h1 {
+  font-size: 16px;
+}
+/* LTR direction */
+html[dir="ltr"] .label h1 {
+  margin: 0 0 0 5px;
+}
+
+/* RTL direction */
+html[dir="rtl"] .label h1 {
+  margin: 0 5px 0 0px;
+}
+
+
+.container {
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  height: 20px;
+  transition:0.4s;
+}
+.container.full {
+  height: 250px;
+}
+.QRCodesvg {
+  cursor: default;
+}
+.QRCode {
+  transform: scale(1.4);
+  cursor: default;
+  background-color: white;
+  padding:10px;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+}

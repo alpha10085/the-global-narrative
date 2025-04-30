@@ -1,0 +1,131 @@
+/* components/sendEmail/SendEmail.module.css */
+
+.sendEmail {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  .sendEmail h1 {
+    color: var(--main-color-alt);
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px; 
+  }
+  
+  .sendEmail .box-content {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .sendEmail .box-content-otp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .sendEmail svg {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: var(--bg-overlay);
+    color: var(--main-color-alt);
+    border-radius: 10px;
+  }
+  
+  .sendEmail input {
+    padding: 10px;
+    height: 40px;
+    border: 1px solid #cccccc52;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 15px;
+    font-size: 16px; 
+  }
+  
+  .btn {
+    border-radius: 5px;
+    background-color: rgb(0, 0, 0);
+    padding: 10px 30px 10px;
+    border: none;
+    width: 300px;
+    max-width: 80%;
+    color:white;
+    border: 1px solid black;
+  }
+  
+  .Passwordabel {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .desc {
+    font-size: 14px;
+    line-height: 180%;
+    width: 450px ;
+    max-width: 100%;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .sendEmail {
+      width: 95%;
+      padding: 15px;
+    }
+  
+    .sendEmail h1 {
+      font-size: 22px; 
+    }
+  
+    .sendEmail svg {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+  
+    .sendEmail input,
+    .sendEmail button {
+      font-size: 14px; 
+    }
+  
+    .sendEmail button {
+      padding: 10px 20px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sendEmail {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    .sendEmail h1 {
+      font-size: 16px; 
+    }
+  
+    .sendEmail svg {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 8px;
+    }
+  
+    .sendEmail input,
+    .sendEmail button {
+      font-size: 12px; 
+    }
+  
+    .sendEmail button {
+      padding: 8px 16px;
+    }
+  }
+  

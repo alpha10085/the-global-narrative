@@ -1,0 +1,25 @@
+.container {
+  padding: 10px 0;
+  cursor: pointer;
+  width: calc(50% - 15px);
+  flex-grow: 1;
+  display: flex;
+  min-height: 50px;
+}
+.container h1 {
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+.container p {
+  color: rgb(131, 131, 131);
+  font-weight: 300;
+  font-size: 13px;
+  margin-left: 28px;
+}
+
+.componentOption {
+  border-radius: 15px;
+  border: 1px solid white;
+}
+

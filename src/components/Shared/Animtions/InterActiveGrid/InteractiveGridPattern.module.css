@@ -1,0 +1,18 @@
+.grid {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.square {
+  stroke: rgba(156, 163, 175, 0.3); /* stroke-gray-400/30 */
+  fill: transparent;
+  transition: fill 100ms ease-in-out;
+}
+
+.square:hover,
+.hovered, .square.hovered {
+  fill: var(--purple);
+  transition-duration: 1000ms;
+}

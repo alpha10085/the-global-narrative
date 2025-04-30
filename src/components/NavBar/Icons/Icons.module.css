@@ -1,0 +1,98 @@
+/*burgerIcon */
+.burgerIcon {
+  width: 35px;
+  height: 10px;
+  margin-top: 2px;
+  direction: rtl;
+  cursor: pointer;
+  z-index: 100 !important;
+}
+
+.burgerIcon__line {
+  background-color: rgb(255, 255, 255);
+  height: 2.5px;
+  width: 25px;
+  border-radius: 1px;
+  transition: .2s;
+}
+
+.burgerIcon__line:nth-child(2) {
+  height: 2px;
+  width: 40px;
+}
+
+.burgerIcon.active .burgerIcon__line:nth-child(1) {
+  width: 25px;
+  transform: rotate(-45deg)translate(-3px, 1px);
+}
+
+.burgerIcon.active .burgerIcon__line:nth-child(2) {
+  width: 25px;
+  transform: rotate(45deg)translate(-4px, -2.8px);
+}
+
+/*ProfileIcon */
+.ProfileIcon {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.ProfileIcon svg {
+  width: 25px;
+  height: 25px;
+  padding: 0;
+}
+
+.ProfileIcon svg path {
+  stroke: white;
+
+}
+
+.ProfileIcon svg circle {
+  stroke: white;
+
+}
+
+.activeProfileicon {
+  position: relative;
+}
+
+.activeProfileicon::before {
+  position: absolute;
+  content: "";
+  right: -2.3px;
+  top: -4px;
+  background-color: #ad24ed;
+  width: 7px;
+  height: 7.3px;
+  border-radius: 50%;
+}
+.activeProfileicon::after {
+  position: absolute;
+  content: "";
+  right: -2px;
+  top: -4px;
+  background-color: #ad24ed;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  animation: onlineEffect 2s infinite;
+}
+
+@keyframes onlineEffect {
+  0% {
+   transform: scale(0);
+  }
+  50% {
+    transform: scale(2.5);
+    /* opacity: 0.8; */
+  }
+  100% {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+  
+}

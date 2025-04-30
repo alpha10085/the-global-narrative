@@ -1,0 +1,86 @@
+{
+  "fields": [
+    {
+      "name": "fullName",
+      "type": "text",
+      "required": true,
+      "label": "fullName"
+    },
+    {
+      "name": "email",
+      "type": "text",
+      "label": "email"
+    },
+    {
+      "name": "password",
+      "type": "password",
+      "label": "password"
+    },
+    {
+      "name": "passwordChangedAt",
+      "type": "text",
+      "label": "passwordChangedAt",
+      "readOnly": true
+    },
+    {
+      "name": "phone",
+      "type": "text",
+      "label": "phone"
+    },
+    {
+      "name": "role",
+      "type": "enum",
+      "options": [
+        {
+          "value": "admin",
+          "label": "super admin"
+        }
+      ],
+      "label": "role"
+    },
+    {
+      "name": "confirmEmail",
+      "type": "boolean",
+      "label": "confirmEmail"
+    },
+    {
+      "name": "isActive",
+      "type": "boolean",
+      "readOnly": true,
+      "label": "isActive"
+    },
+    {
+      "name": "isblocked",
+      "type": "boolean",
+      "readOnly": true,
+      "label": "isBlocked"
+    }
+  ],
+ 
+  "options": {
+    "roles": {
+      "view": true,
+      "create": true,
+      "update": true,
+      "delete": true,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": true
+    },
+    "cache": {
+      "duration": "5m",
+      "tags": []
+    }
+  },
+  "view": [
+    "fullName",
+    "email",
+    "isActive",
+    "phone",
+    "confirmEmail",
+    "isblocked",
+    "passwordChangedAt",
+    "createdAt"
+  ]
+}

@@ -1,0 +1,79 @@
+.item {
+  margin: 5px 0;
+}
+.folder {
+  background-color: rgba(255, 255, 255, 0.1);
+  width: max-content;
+  padding: 3px 6px;
+  border-radius: 8px;
+}
+.wrapper {
+  position: relative;
+  margin-left: 20px;
+}
+
+.wrapper::before {
+  content: "";
+  left: -11px;
+  background-color: #5c5c5c;
+  height: calc(100% - 20px);
+  width: 1px;
+  top: 0;
+  position: absolute;
+}
+.list {
+  transition: 0.4s;
+}
+.list.hide {
+  opacity: 0;
+}
+
+.addIcon {
+  width: calc(100% - 40px);
+  display: flex;
+  justify-content: flex-start;
+  margin: 0 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  position: relative;
+}
+.addIcon.top {
+  width: max-content;
+}
+.addIcon span {
+  background-color: rgba(255, 255, 255, 0.09);
+  border-radius: 6px;
+  
+  padding: 3px 10px 3.5px 8px;
+  transition: 0.2s;
+  font-size: 13px;
+}
+
+.addIcon::before {
+  content: "";
+  position: absolute;
+  left: -16px;
+  top: 0px;
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  z-index: 10;
+  border-radius: 0 0 0 70%;
+  border: 1px solid #5c5c5c;
+  border-width: 0 0 1px 1px;
+}
+
+.addIcon.top span {
+  width: 20px;
+}
+
+.addIcon span:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.addIcon svg {
+  font-size: 14px;
+}
+
+.addIcon.top span svg {
+  font-size: 13px;
+}

@@ -1,0 +1,33 @@
+
+.head {
+    margin: 0 0 10px;
+  }
+   .title {
+    font-size: 23px;
+    font-weight: 700;
+  }
+  .midline {
+    font-size: 14px;
+    opacity: 0.6;
+  }
+  .titleId {
+    margin: 10px 0;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: default;
+  }
+
+  @media (max-width: 500px) {
+  
+    .head {
+      padding: 10px;
+      margin-bottom: 0;
+      gap: 5px !important;
+    }
+    .titleId {
+        font-size: 12px;
+        margin: 5px 0;
+      }
+
+  }
+  

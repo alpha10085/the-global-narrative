@@ -1,0 +1,337 @@
+/* normalize styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /* user-select: none; */
+}
+
+/* start roots styles */
+:root {
+  --main-color: #000000;
+  --main-bg: #000000;
+  --overlay-bg: #0000006d;
+  --p: #a9a9a9;
+  --fw-m: 500;
+  --fw-l: 600;
+  --bg-transparent: hsla(0, 0%, 22%, 0.02);
+  --bg-transparent100: hsla(269, 100%, 92%, 0.028);
+  --bg-transparent200: hsla(0, 0%, 22%, 0.03);
+  --bg-transparent300: hsla(0, 0%, 22%, 0.04);
+  --bg-transparent400: hsla(0, 0%, 22%, 0.11);
+  --bg-transparent500: hsla(0, 0%, 22%, 0.2);
+  --bg-transparent600: hsla(0, 0%, 22%, 0.3);
+  --green: #10b981;
+  --yellow: #937f18;
+  --red: #ff4040;
+  --aqua: #40ffd9;
+  --purple: #8927f2;
+  --purple200: #8927f2a8;
+  --purple300: #8927f277;
+  --orange: #ff9c2c;
+  --white: #d2d2d2;
+  --blue: #1fc6fd;
+  --blue400: #6fe7ff;
+  --black: #000000;
+  --bord-c2: rgba(128, 128, 128, 0.1);
+  --bord-c1: rgba(128, 128, 128, 0.15);
+  --shadow-c1: rgba(128, 128, 128, 0.1);
+  --shadow-c2: rgba(128, 128, 128, 0.1);
+  --color-scroll-thumb: #000000;
+  --color-scroll-track: #eef6f7;
+}
+
+/* end roots styles */
+body {
+  width: 100%;
+  letter-spacing: 1px;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  font-family: var(--font-main);
+}
+
+textarea {
+  resize: none;
+}
+
+.no-focus-outline:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: inherit;
+  /* Maintain the original background color */
+}
+
+/* Direction-based styles */
+html[dir="ltr"] body {
+  direction: ltr;
+  text-align: left;
+}
+
+html[dir="rtl"] .svg-dir {
+  transform: rotate(270deg);
+  /* Flips to point left */
+}
+
+html[dir="rtl"] body {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Adjust margins/padding for different directions */
+html[dir="ltr"] .section {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html[dir="rtl"] .section {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Adjusting specific elements for RTL */
+html[dir="rtl"] ul {
+  list-style-position: inside;
+}
+
+html[dir="rtl"] input,
+html[dir="rtl"] textarea {
+  text-align: right;
+}
+
+html[dir="rtl"] .main-btn {
+  padding: 10px 20px 10px 10px;
+  /* Example for adjusting button padding */
+}
+
+svg {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Target the entire scrollbar */
+html::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Style the scrollbar track */
+html::-webkit-scrollbar-track {
+  /* Set the track background color */
+  background: var(--color-scroll-track);
+}
+
+/* Style the scrollbar thumb */
+html::-webkit-scrollbar-thumb {
+  /* Set the thumb background color */
+  background: var(--color-scroll-thumb);
+}
+
+/* Target the entire scrollbar */
+.main-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Style the scrollbar track */
+.main-scrollbar::-webkit-scrollbar-track {
+  /* Set the track background color */
+  background: var(--color-scroll-track);
+}
+
+/* Style the scrollbar thumb */
+.main-scrollbar::-webkit-scrollbar-thumb {
+  /* Set the thumb background color */
+  background: var(--color-scroll-thumb);
+}
+
+/* start custom classes */
+/* Error Message style */
+.error-message-validation {
+  width: 90%;
+  font-weight: 600;
+  color: rgb(199, 4, 4);
+  font-size: 10px;
+  letter-spacing: 0.2px;
+}
+
+/* start buttons */
+.main-btn {
+  text-transform: capitalize;
+  background-color: white;
+  color: #000000;
+  font-weight: 700;
+  border-radius: 5px;
+}
+
+/* end buttons */
+
+/* margin for handle spaces  */
+.coverHeader {
+  width: 100%;
+  height: 64px;
+}
+
+/* main effect for images */
+.blurring-image {
+  opacity: 0;
+  filter: blur(5px);
+  /* Initial blur (optional) */
+  transition: filter 0.5s ease-in-out;
+  transition: opacity 1s ease-in-out;
+  /* Smooth transition */
+}
+
+.blurring-image[data-loaded] {
+  opacity: 1;
+  filter: none;
+}
+
+/* main class for images */
+.cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* global classes */
+.page {
+  max-width: 90%;
+  width: 1200px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.input,
+.select {
+  padding: 11px 10px 10px 10px;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.4s;
+  position: relative;
+}
+
+.input-file {
+  text-align: start;
+}
+
+.input[type="file"]::file-selector-button {
+  color: var(--color-main);
+  background-color: transparent;
+  border: none;
+}
+
+/* start setup dropdowns */
+.dropDown,
+.dropDown-search {
+  border-radius: 8px;
+
+  background-color: var(--color-background-overlay);
+  outline: none;
+  transition: 0.4s;
+  position: relative;
+
+  height: 38px;
+  color: var(--text-color);
+  box-shadow: 0 0 5px rgba(128, 128, 128, 0.073);
+}
+
+.dropDown[open],
+.dropDown-search[open] {
+  box-shadow: 0px 0px 10px var(--color-shadow);
+}
+
+.input:focus {
+  box-shadow: 0px 0px 10px var(--color-shadow);
+}
+
+.dropDown .options,
+.dropDown-search .options {
+  border-radius: 8px;
+
+  color: var(--text-color);
+}
+
+/* end  setup dropdowns*/
+
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: black !important;
+}
+
+input {
+  /* Reset default styling */
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Target autofill state for input elements */
+input:-webkit-autofill {
+  /* Customize background and text color to match your design */
+  -webkit-text-fill-color: #333;
+  /* Text color */
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  /* Background color */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    transparent 55%,
+    var(--color-background) 100%
+  );
+  /* Adjust opacity as needed */
+}
+
+.text-p-l {
+  font-size: clamp(12px, 20px, 2vw);
+  color: var(--p);
+}
+
+.section {
+  width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+}
+
+.MuiChartsAxis-directionY,
+.MuiChartsAxis-directionX,
+.MuiMarkElement-root {
+  display: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  /* -webkit-text-fill-color: #000000;
+  -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important; */
+}
+
+@media (max-width: 767px) {
+  .coverHeader {
+    height: 45px;
+  }
+}

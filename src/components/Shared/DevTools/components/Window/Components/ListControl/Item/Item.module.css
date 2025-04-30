@@ -1,0 +1,114 @@
+.item {
+  padding: 18px 20px 15px;
+
+  background-color: #0a0a0abb;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: 0.4s;
+  max-height: 344px;
+}
+.item.deleteState {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 20px;
+  overflow: hidden;
+  border: 0;
+}
+.item:first-child {
+  border-radius: 15px 15px 0 0;
+}
+.item.lastElement {
+  border-radius: 0 0 15px 15px;
+}
+.item.oneItem {
+  border-radius: 15px;
+}
+.keyValue {
+  text-transform: capitalize;
+  font-size: 14px;
+}
+.keyType {
+  text-transform: capitalize;
+  color: gray;
+  font-size: 12px;
+  width: fit-content;
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.value {
+  font-size: 14px;
+}
+.keyType.server {
+  color: rgb(80, 138, 255);
+  background-color: rgba(0, 0, 255, 0.2);
+}
+.icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  padding-top: 1px;
+  margin-bottom: 2px;
+  padding-left: 1px;
+  transition: 0.2s;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: white;
+  position: relative;
+}
+.cantUpdate {
+    opacity: 0.2;
+    cursor: not-allowed;
+}
+.cantUpdate svg  {
+    
+    cursor: not-allowed;
+}
+.icon.active {
+  background: rgba(255, 255, 255, 0.13);
+}
+.icon:hover {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.body {
+  height: 0px;
+  transition: 0.4s;
+  overflow: hidden;
+}
+.body.active {
+  height: 260px;
+}
+.wrapper {
+  margin: 15px 5px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding-top: 10px;
+}
+.btns button {
+  padding: 8px 15px;
+  background-color: rgba(30, 30, 30, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  font-family: var(--font-geist);
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.btns button:hover {
+  background-color: rgb(38, 38, 38);
+}
+.btns button:nth-child(1) {
+  background-color: rgba(250, 0, 0, 0.2);
+  color: red;
+  border-color: rgba(255, 0, 0, 0.137);
+}
+.btns button:nth-child(1):hover {
+  background-color: rgba(250, 0, 0, 0.3);
+}
+.btns button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

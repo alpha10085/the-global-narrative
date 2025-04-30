@@ -1,0 +1,91 @@
+.wrapper {
+  position: relative;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-position: 50% 10%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  z-index: 6;
+}
+.thume {
+  width: 100%;
+  height: 100%;
+  object-position: 50% 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+}
+.thume img {
+  object-position: 0%;
+}
+.buttonPlay {
+  object-position: 50% 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  padding: 5px;
+  border-radius: 50%;
+  border: 0;
+  max-width: 50%;
+}
+
+.buttonPlay svg {
+  font-size: 35px;
+  max-width: 100%;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  z-index: 70;
+}
+
+/* LTR direction */
+.thume,
+.buttonPlay,
+.video,
+.loader {
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+}
+.video  {
+  object-position: 0% 0% !important; 
+}
+.blurring {
+  filter: blur(3px);
+  opacity: 0;
+
+  /* Initial blur (optional) */
+  transition: filter 0.3s ease-in-out, opacity 0.2s ease-in-out;
+  /* Smooth transition */
+}
+
+.blurring[data-loaded] {
+  opacity: 1;
+  filter: blur(0px);
+}
+
+.skImage {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+/* LTR direction */
+html[dir="ltr"] .skImage {
+  left: 0;
+}
+/* RTL direction */
+html[dir="rtl"] .skImage {
+  left: 0;
+}
+
+.buttonPlay svg {
+}

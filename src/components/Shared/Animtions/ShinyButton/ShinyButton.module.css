@@ -1,0 +1,46 @@
+.shinyButton {
+    position: relative;
+    border-radius: 8px;
+    padding: 8px 24px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    transition: box-shadow 300ms ease-in-out;
+  }
+  
+  .shinyButton:hover {
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .shinyButton.dark {
+    background: radial-gradient(circle at 50% 0%, hsl(var(--primary)/10%) 0%, transparent 60%);
+  }
+  
+  .shinyButton:hover .dark {
+    box-shadow: 0 0 20px hsl(var(--primary)/10%);
+  }
+  
+  .buttonText {
+    position: relative;
+    display: block;
+    height: 100%;
+    width: 100%;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(0, 0, 0, 0.65);
+  }
+  
+  .buttonText.dark {
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    border-radius: inherit;
+    background: linear-gradient(-75deg, hsl(var(--primary)/10%) calc(var(--x) + 20%), hsl(var(--primary)/50%) calc(var(--x) + 25%), hsl(var(--primary)/10%) calc(var(--x) + 100%));
+    padding: 1px;
+  }
+  

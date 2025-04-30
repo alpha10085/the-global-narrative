@@ -1,0 +1,44 @@
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80dvh;
+    text-align: center;
+    color: black; /* Text color */
+  }
+  
+  .message {
+    font-size: 24px;
+    margin-bottom: 16px;
+  }
+  
+  .section svg{
+    font-size: 50px;
+    margin-bottom: 16px;
+  }
+  
+  .success {
+    color: green;
+  }
+  
+  .failure {
+    color: red;
+  }
+  
+  .link {
+    margin: 20px 0;
+    padding: 11px 35px 9px;
+    border: 1px solid #666;
+    background-color: white;
+    color: #000;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .link:hover {
+    background-color: #000;
+    color: white;
+  }

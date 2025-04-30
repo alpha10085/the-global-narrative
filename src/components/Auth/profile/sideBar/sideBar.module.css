@@ -1,0 +1,120 @@
+.section {
+  width: 200px;
+  height: max-content;
+  position: sticky;
+  top: 120px;
+  margin-bottom: 50px;
+}
+.head h1 {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.head p {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.left {
+  height: 80px;
+}
+.list {
+  display: flex;
+  margin-inline: 15px;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 50px 0;
+}
+
+.list a {
+  font-size: 15px;
+  font-weight: bold;
+  color: gray;
+  text-transform: capitalize;
+}
+.active a {
+  color: black;
+}
+.btnLogOut {
+  text-transform: uppercase;
+  padding: 7px 20px 7px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;
+  width: 140px;
+  background: rgb(0, 0, 0);
+  color: white;
+  height: max-content;
+  border: 1px solid black;
+  transform: translateX(-4px);
+}
+.showOntablet {
+  display: none;
+}
+
+.skTitle {
+  width: 100px;
+  height: 20px;
+}
+.skTitlebig {
+  width: 160px;
+  height: 20px;
+}
+
+.skTbtnLogOut {
+  width: 80px;
+  height: 30px;
+}
+.skul {
+  width: 145px;
+  height: 20px;
+}
+.skbtnLogOutbig {
+  width: 135px;
+  height: 30px;
+}
+@media (max-width: 850px) {
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    list-style: none;
+    padding: 0;
+    margin: 40px 0;
+    gap: 20px;
+  }
+
+  .list li {
+    flex: 0 0 auto;
+    padding: 10px;
+  }
+  .section {
+    width: 100%;
+    height: max-content;
+    position: relative;
+    top: 0;
+    margin-bottom: 10px;
+  }
+  .hideOntablet {
+    display: none;
+  }
+  .showOntablet {
+    display: inline;
+  }
+  .head {
+    width: 100%;
+  }
+  .btnLogOut {
+    width: 80px;
+    padding: 7px 5px 7px;
+  }
+  .list {
+    margin: 10px 0;
+  }
+  .left {
+    height: auto;
+  }
+}

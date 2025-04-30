@@ -1,0 +1,15 @@
+.container {
+  padding: 6px 15px;
+  background-color: rgba(28, 28, 28, 0.5);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  text-align: center;
+  
+  transition: 0.2s;
+  letter-spacing: 1px;
+  height: 45px;
+  min-width: 100px;
+}
+
+

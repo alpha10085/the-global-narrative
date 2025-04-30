@@ -1,0 +1,30 @@
+.wordDisplay {
+  height: auto;
+  overflow: hidden;
+}
+
+.wordDisplay h1 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  /* Space between words */
+}
+
+.inView {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-50px);
+  animation: fadeIn 1.2s forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

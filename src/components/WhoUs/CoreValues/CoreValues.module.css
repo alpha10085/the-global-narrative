@@ -1,0 +1,164 @@
+/* SECTION STYLES */
+.section {
+  padding: 100px 0 10px;
+  text-align: center;
+}
+
+/* CONTAINER */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.background {
+  rotate: 0;
+  opacity: 0.3;
+  height: 15% !important;
+  top: 45%;
+  left: 10% !important;
+  bottom: unset !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 10;
+  width: 150%;
+  max-width: unset !important;
+}
+
+.diagramContainer {
+  position: sticky;
+  height: 100vh;
+  top: 10%;
+  width: 60%;
+}
+
+/* LIST */
+.valuesList {
+  padding: 60px 0 110px 100px;
+  width: 50%;
+  text-align: left;
+}
+
+
+/* VALUE ITEMS */
+.valueItem {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 15px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+/* ANIMATIONS */
+.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.text h3 {
+  font-size: 60px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.text p {
+  font-size: 25px;
+  line-height: 1.5;
+  color: #666;
+}
+
+.number {
+  transform: translateX(-65px);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border: 2px solid #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.popup {
+  display: none;
+  position: sticky;
+  bottom: 5%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+  .container {
+    width: 90%;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .valuesList {
+    width: 100%;
+    padding: 0;
+    text-align: start;
+  }
+  .diagramContainer {
+    display: none;
+  }
+
+  .section,
+  .container,
+  .wrapper {
+    position: relative;
+  }
+  .wrapper {
+    padding-top: 80px;
+  }
+  .popup {
+    display: block;
+  }
+  .valuesList h1 {
+    font-size: 40px;
+  }
+
+  .valuesList h2 {
+    font-size: 28px;
+  }
+
+  .text h3 {
+    font-size: 40px;
+  }
+
+  .text p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 80px 10px 10px;
+    text-align: start;
+  }
+  .valuesList h1 {
+    font-size: 32px;
+  }
+
+  .valuesList h2 {
+    font-size: 24px;
+  }
+
+  .text h3 {
+    font-size: 30px;
+  }
+
+  .text p {
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  position: relative;
+  margin: 10px 0;
+}
+
+.container .option {
+  padding: 10px 15px;
+  border-radius: 15px;
+  text-transform: capitalize;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.container .option.active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+.close {
+    position: absolute;
+    right: -5px;
+    top: -12px;
+    background-color: rgb(83, 83, 83);
+   
+    border-radius: 50%;
+    padding: 2px;
+}
+.close svg {
+      font-size: 18px;
+
+  }

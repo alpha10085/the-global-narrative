@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 4px; /* Adjust the space between characters */
+}
+
+.character {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Example of a drop shadow */
+  /* Add more styles if needed */
+}

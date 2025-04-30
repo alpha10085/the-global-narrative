@@ -1,0 +1,36 @@
+.deletebutton {
+  padding: 0 10px;
+  border-radius: 7px;
+  height: 38px;
+  margin: 5px 0 0 0;
+  opacity: 60%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.deletebutton:hover {
+  opacity: 100%;
+
+}
+
+.deletebutton h1 {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.deletebutton svg {
+  font-size: 18px;
+}
+
+.list {
+  z-index: 10;
+}
+
+@media (max-width:400px) {
+  .deletebutton {
+    font-size: 10px;
+    height: 30px;
+    font-size: 15px;
+  }
+
+}

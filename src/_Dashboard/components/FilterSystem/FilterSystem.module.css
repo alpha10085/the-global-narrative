@@ -1,0 +1,128 @@
+.body {
+  width: 45px;
+  height: 40px;
+
+  text-transform: capitalize;
+  margin: 5px 0 0 0;
+  border-radius: 8px;
+  position: relative;
+}
+
+.body span {
+  cursor: pointer;
+}
+
+.body span h1 {
+  margin-top: 1px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.8px;
+}
+
+.body span svg {
+  font-size: 21px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 250px;
+  min-height: 100px;
+  max-height: 250px;
+  padding: 20px 5px;
+  top: 45px;
+  position: absolute;
+  z-index: 110;
+  border-radius: 10px;
+}
+/* LTR direction */
+html[dir="ltr"] .options {
+  left: 0;
+}
+
+/* RTL direction */
+html[dir="rtl"] .options {
+  right: 0;
+}
+
+.button {
+  width: 90%;
+  height: 35px;
+  border-radius: 5px;
+  transition: 0.4s;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.label {
+  width: 90%;
+  height: 45px;
+}
+
+/* LTR direction */
+html[dir="ltr"] .BooleanInput {
+  margin-right: 0 !important;
+}
+
+/* RTL direction */
+html[dir="rtl"] .BooleanInput {
+  margin-left: 0 !important;
+}
+
+.seacrBar {
+  width: 400px !important;
+  height: 40px !important;
+  max-width: calc(100% - 60px) !important;
+}
+
+@media (max-width: 768px) {
+  .options {
+    width: 300px;
+  }
+    /* LTR direction */
+    html[dir="ltr"] .options {
+      left: auto;
+      right: 0;
+    }
+  
+    /* RTL direction */
+    html[dir="rtl"] .options {
+      right: auto;
+      left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+  .options {
+    width: 250px;
+  }
+
+  .label {
+    width: 90%;
+    height: 38px;
+  }
+
+  .metadata {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .body {
+    width: 50px;
+    height: 38px;
+  }
+
+  .body span h1 {
+    font-size: 10px;
+    display: none;
+  }
+
+  .body span svg {
+    font-size: 18px;
+  }
+}

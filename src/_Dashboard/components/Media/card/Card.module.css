@@ -1,0 +1,198 @@
+.card {
+  height: 250px;
+  width: 100%;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: 0.4s;
+  scroll-snap-align: start;
+}
+
+.hide {
+  border: none !important;
+  width: 0;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+}
+
+.infoLayout {
+  position: fixed;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.681);
+  backdrop-filter: blur(4px);
+  width: 100%;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  border-radius: 10px;
+  height: 0;
+}
+/* LTR direction */
+html[dir="ltr"] .infoLayout {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/* RTL direction */
+html[dir="rtl"] .infoLayout {
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.info {
+  height: 500px;
+  width: 800px;
+  max-width: 90%;
+  z-index: 10;
+  border-radius: 10px;
+  transition: 0.4s;
+  transform: translateY(95vh);
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+}
+/* LTR direction */
+html[dir="ltr"] .info {
+  left: 50%;
+  transform: translate(-50%, 100%);
+}
+/* RTL direction */
+html[dir="rtl"] .info {
+  right: 50%;
+  transform: translate(50%, 100%);
+}
+
+.left {
+  width: 400px;
+  height: 400px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 50px;
+}
+
+.media {
+}
+.btnclose {
+  position: absolute;
+  top: 15px;
+  padding: 5px;
+  cursor: pointer;
+}
+/* LTR direction */
+html[dir="ltr"] .btnclose {
+  right: 15px;
+}
+/* RTL direction */
+html[dir="rtl"] .btnclose {
+  left: 15px;
+}
+
+.showLayout {
+  height: 100%;
+}
+
+/* LTR direction */
+html[dir="ltr"] .showinfo {
+  transform: translate(-50%, -50%);
+}
+/* RTL direction */
+html[dir="rtl"] .showinfo {
+  transform: translate(50%, -50%);
+}
+
+.fileinfo {
+  position: absolute;
+  bottom: 5px;
+  z-index: 5;
+  backdrop-filter: blur(6px);
+  width: calc(100% - 10px);
+  padding: 10px 15px;
+  border-radius: 0 0 12px 6px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+/* LTR direction */
+html[dir="ltr"] .fileinfo {
+  left: 50%;
+  transform: translateX(-50%);
+}
+/* RTL direction */
+html[dir="rtl"] .fileinfo {
+  right: 50%;
+  transform: translate(50%);
+}
+
+.fileinfo h1 {
+  cursor: default;
+  text-align: center;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  line-height: 150%;
+  width: max-content;
+  margin: auto;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+  top: 10px;
+  z-index: 7;
+}
+/* LTR direction */
+html[dir="ltr"] .actions {
+  right: 10px;
+}
+/* RTL direction */
+html[dir="rtl"] .actions {
+  left: 10px;
+}
+.infoButton {
+  border-radius: 10px;
+  padding: 4px;
+}
+.infoButton svg {
+  font-size: 20px;
+}
+
+.checkbox {
+  appearance: none; /* Hide default checkbox */
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+
+/* Checkmark (✔) Styling */
+.checkbox::after {
+  content: "✔";
+  font-size: 18px;
+  color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.checkbox:checked::after {
+  opacity: 1;
+}
+.checkdark::after {
+  color: white;
+}
+
+@media (max-width: 760px) {
+  .card {
+    height: 200px;
+  }
+}
