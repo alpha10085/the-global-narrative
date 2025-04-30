@@ -8,7 +8,7 @@ import { useQueryParams } from "@/hooks/useQueryParams";
 import SearchIcon from "@mui/icons-material/Search";
 import lodash from "lodash";
 import { scrollToElement } from "@/utils/document";
-import { getFakeNews } from "@/app/[locale]/(routes)/news/data.test";
+import { getFakeNews } from "@/app/(routes)/news/data.test";
 const List = ({ page = {}, categories = [] }) => {
   const { title = "" } = page;
   const { clearOne, clearQuery, multiple, searchParams, singleValue } =
