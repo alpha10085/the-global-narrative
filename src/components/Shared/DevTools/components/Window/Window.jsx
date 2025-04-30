@@ -104,14 +104,14 @@ const Window = ({ onClose, show }) => {
     <>
       <div onClick={onClose} className={` showSmooth_c ${styles.blurbg}`} />
       <div
+        style={{
+          color: "white",
+        }}
         className={`${styles.container} ${activeScale && styles.scaleOnActive} 
         ${show ? styles.show : styles.hide}
         `}
       >
-        <h1 className={`${styles.title} flex al-i-c gap10`}>
-
-          Tools
-        </h1>
+        <h1 className={`${styles.title} flex al-i-c gap10`}>Tools</h1>
         <div ref={containerRef} className={`${styles.list} flex column gap10`}>
           {list?.map((val) => (
             <Item

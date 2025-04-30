@@ -4,12 +4,13 @@
   bottom: 30px;
   transform: translateX(-50%);
   background-color: #0a0a0a;
-  z-index: 10000000000000000000;
+  z-index: 1000000000;
   border: 2px solid rgb(42, 42, 42);
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.4s;
+  color: white;
 }
 .logo:hover {
   background-color: #1d1c1c;
