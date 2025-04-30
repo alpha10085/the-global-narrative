@@ -35,7 +35,7 @@ const List = ({ page = {}, categories = [] }) => {
 
   const searchQuery = (searchParams?.search || "").toLocaleLowerCase();
 
-  const data = { pages: getFakeNews(6) }; // mocking pages as an array
+  const data = { pages: getFakeNews(6) };
   const isLoading = false;
   const hasNextPage = false;
   const fetchNextPage = () => {};
@@ -59,21 +59,21 @@ const List = ({ page = {}, categories = [] }) => {
         removeIfExists: false,
       });
     }, 600),
-    [singleValue] // Empty array to make sure it is created only once
+    [singleValue]
   );
 
-  dataAfterFiltered = dataAfterFiltered?.sort(
+  const latestNews = data?.pages?.sort(
     (a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)
   );
 
   return (
     <div id="news-Categories" className={styles.newsContainer}>
-      {dataAfterFiltered?.length >= 3 && (
+      {latestNews?.length >= 3 && (
         <div className={styles.headSection}>
           <h1 className={styles.headingTitle}>{title}</h1>
           <div className={`${styles.latestCards}`}>
-            {dataAfterFiltered?.slice(0, 3)?.map((item) => (
-              <Card key={item._id} product={item} latest={true}/>
+            {latestNews?.slice(0, 3)?.map((item) => (
+              <Card key={item._id} product={item} latest={true} />
             ))}
           </div>
         </div>
