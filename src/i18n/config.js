@@ -1,4 +1,3 @@
-
 export const getlanguagesMap = (translations = {}) => {
   return [
     {
@@ -13,7 +12,7 @@ export const getlanguagesMap = (translations = {}) => {
 };
 
 const config = {
-  route: true,
+  route: false,
   getlanguagesMap,
   locales: ["en", "ar"],
   defaultLocale: "en",

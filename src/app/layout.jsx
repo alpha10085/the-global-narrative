@@ -14,6 +14,8 @@ import DevToolsWrapper from "@/components/Shared/DevTools/DevToolsWrapper";
 import { getLocale } from "next-intl/server";
 import interceptor from "@/utils/consoleProxy";
 import { isProductionMode } from "@/config/main";
+import { NextIntlClientProvider } from "next-intl";
+import { ValidateLocale } from "@/i18n/request";
 
 // If loading a variable font, you don't need to specify the font weight
 const geist = Geist({
@@ -51,14 +53,21 @@ export default async function RootLayout({ children }) {
     ar: tajawal,
   };
   const selectedFont = fonts[locale] || fonts.en;
+
+  const messages = (
+    await import(`../i18n/locales/${ValidateLocale(locale, true)}.json`)
+  ).default;
+
   return (
     <ReactQuery>
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
         <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
           <DevToolsWrapper>
-            <ErrorBoundary boundary={boundary}>
-              <AuthProvider locale={locale}>{children}</AuthProvider>
-            </ErrorBoundary>
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              <ErrorBoundary boundary={boundary}>
+                <AuthProvider locale={locale}>{children}</AuthProvider>
+              </ErrorBoundary>
+            </NextIntlClientProvider>
           </DevToolsWrapper>
         </body>
       </html>
