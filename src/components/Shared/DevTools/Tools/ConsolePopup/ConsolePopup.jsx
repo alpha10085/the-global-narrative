@@ -256,6 +256,7 @@ const ConsolePopup = ({ logStore, onMouned }) => {
       style={{
         width: `${state.size?.width}px`,
         height: `${state.size?.height}px`,
+        color: "white",
       }}
       className={`${styles.consolePopup}
 

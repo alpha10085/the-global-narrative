@@ -47,9 +47,7 @@ body {
   width: 100%;
   letter-spacing: 1px;
   min-height: 100vh;
-  background-color: white;
-  color: #000;
-  font-family: var(--font-main);
+  font-family: var(--font-geist);
 }
 
 textarea {

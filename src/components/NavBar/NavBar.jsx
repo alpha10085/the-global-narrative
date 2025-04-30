@@ -16,24 +16,12 @@ const NavBar = () => {
   const BurgerBtnRef = useRef(null);
   const links = {
     right: [
-      {
-        href: "/sign-up",
-        text: "sign up",
-      },
-      {
-        href: "/log-in",
-        text: "log in",
-      },
+      // {
+      //   href: "/sign-up",
+      //   text: "sign up",
+      // },
     ],
     left: [
-      {
-        href: "/",
-        text: "Home",
-      },
-      {
-        href: "/dashboard",
-        text: "dashboard",
-      },
     ],
   };
   return (
@@ -50,27 +38,8 @@ const NavBar = () => {
               </li>
             ))}
           </ul>
-          <Link className={styles.logoLink} href="/">
-            <Img
-              theme="dark"
-              url={"/dashboard/logo-dark.png"}
-              alt="logo"
-              className={styles.logo}
-            />
-          </Link>
-          <ul className={`flex al-i-c just-fe ${styles.rightUl}`}>
-            {isLoading ? (
-              ""
-            ) : session ? (
-              <ProfileIcon session={session} />
-            ) : (
-              links?.right?.map((val) => (
-                <li key={val?.text}>
-                  <Link href={val?.href}>{val?.text}</Link>
-                </li>
-              ))
-            )}
-          </ul>
+   
+
           <BurgerIcon
             ref={BurgerBtnRef}
             className={styles.burgerIcon}
