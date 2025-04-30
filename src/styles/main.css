@@ -9,9 +9,9 @@
 
 /* start roots styles */
 :root {
-  --main-color: #000000;
-  --main-bg: #000000;
-  --overlay-bg: #0000006d;
+  --main-color: white;
+  --main-bg: white;
+  --overlay-bg: white;
   --p: #a9a9a9;
   --fw-m: 500;
   --fw-l: 600;
@@ -47,8 +47,8 @@ body {
   width: 100%;
   letter-spacing: 1px;
   min-height: 100vh;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: #000;
   font-family: var(--font-main);
 }
 
