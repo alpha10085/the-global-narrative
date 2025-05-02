@@ -8,13 +8,14 @@ import { useQueryParams } from "@/hooks/useQueryParams";
 import SearchIcon from "@mui/icons-material/Search";
 import lodash from "lodash";
 import { scrollToElement } from "@/utils/document";
-import { getFakeNews } from "@/app/(routes)/news/data.test";
+import { getFakeMediaCenter } from "@/app/(routes)/media-center/data.test";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
+
 const List = ({ page = {}, categories = [] }) => {
   const { title = "" } = page;
   const { clearOne, clearQuery, multiple, searchParams, singleValue } =
     useQueryParams({
-      scrollTo: "#news-Categories",
+      scrollTo: "#media-center-Categories",
       offset: 100,
     });
 
@@ -28,15 +29,15 @@ const List = ({ page = {}, categories = [] }) => {
   //   fetchNextPage,
   //   hasNextPage,
   // } = useInfinityQuery({
-  //   Key: ["news", { ...filters }],
-  //   next: getNewsData,
+  //   Key: ["media-center", { ...filters }],
+  //   next: getMediaCenterData,
   // });
 
   const categoriesQuery = searchParams?.categories?.split(",") || [];
 
   const searchQuery = (searchParams?.search || "").toLocaleLowerCase();
 
-  const data = { pages: getFakeNews(6) };
+  const data = { pages: getFakeMediaCenter(6) };
   const isLoading = false;
   const hasNextPage = false;
   const fetchNextPage = () => {};
@@ -52,7 +53,8 @@ const List = ({ page = {}, categories = [] }) => {
     );
   }
 
-  const scrollToMainSection = () => scrollToElement("#news-Categories", 100);
+  const scrollToMainSection = () =>
+    scrollToElement("#media-center-Categories", 100);
   const debouncedFetch = useCallback(
     lodash?.debounce((value) => {
       scrollToMainSection();
@@ -63,33 +65,11 @@ const List = ({ page = {}, categories = [] }) => {
     [singleValue]
   );
 
-  const latestNews = data?.pages?.sort(
-    (a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)
-  );
-
+  
   return (
-    <div id="news-Categories" className={styles.newsContainer}>
-      {latestNews?.length >= 3 && (
-        <>
-          <div className={styles.headSection}>
-            <h1 className={styles.headingTitle}>{title}</h1>
-          </div>
-          <div className={`${styles.latestCards}`}>
-            {latestNews?.slice(0, 3)?.map((item, index) => (
-              <Aos
-                className={styles.fadeInUp}
-                activeClassName={styles.active}
-                delay={index * 50}
-                key={item?._id}
-              >
-                <Card product={item} latest={true} />
-              </Aos>
-            ))}
-          </div>
-        </>
-      )}
-
+    <div id="media-center-Categories" className={styles.mediaCenterContainer}>
       <div className={`${styles.headerContainer} flex column gap20 just-sb`}>
+        <h1 className={styles.headingTitle}>{title}</h1>
         <div className={`${styles.filters} flex  gap20 just-sb`}>
           <div className={styles.categories}>
             <span
@@ -136,13 +116,8 @@ const List = ({ page = {}, categories = [] }) => {
         }}
         overscan={300}
         itemContent={(index, item) => (
-          <Aos
-            className={styles.fadeInUp}
-            activeClassName={styles.active}
-            delay={index * 50}
-            key={item?._id}
-          >
-            <Card product={item} />
+          <Aos className={styles.fadeInUp} activeClassName={styles.active} delay={index * 50}>
+            <Card key={item?._id} product={item} />
           </Aos>
         )}
         listClassName={styles.gridList}

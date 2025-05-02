@@ -1,11 +1,6 @@
-.card {
+.card , .latestCard{
   position: relative;
   width: 100%;
-}
-
-.latestCard {
-  position: relative;
-  width: calc(33.33% - 20px);
 }
 
 .card .top,
@@ -103,7 +98,7 @@
   font-weight: 600;
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .latestCard {
     width: calc(50% - 20px);
   }
@@ -113,4 +108,4 @@
   .latestCard {
     width: 100%;
   }
-}
+} */

@@ -4,7 +4,7 @@ import Img from "@/components/Shared/img/Img";
 
 const Card = ({ product = {}, className = "", latest = false }) => {
   return (
-    <div className={`${latest ? styles.latestCard : styles.card}`}>
+    <div className={`${latest ? styles.latestCard : styles.card} ${className}`}>
       <div className={styles.top}>
         <div className={styles.cardOverlay}> </div>
         <Img url={product?.poster?.url} className={styles.image} />
