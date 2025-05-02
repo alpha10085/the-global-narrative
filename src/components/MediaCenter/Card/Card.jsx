@@ -6,11 +6,38 @@ import styles from "./Card.module.css";
 import Img from "@/components/Shared/img/Img";
 
 const Card = ({ product = {}, className = "" }) => {
-  const videoRef = useRef(null);
   const hoverTimeoutRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
   const [showPoster, setShowPoster] = useState(false);
-  const [shouldLoadVideo, setShouldLoadVideo] = useState(false); // for lazy loading
+  const [shouldLoadVideo, setShouldLoadVideo] = useState(false);
+  const isPlayingRef = useRef(false);
+  const videoRef = useRef(null);
+
+  const setVideoRef = (node) => {
+    if (!node) return;
+    videoRef.current = node;
+
+    node.onplaying = () => (isPlayingRef.current = true);
+    node.onpause = () => (isPlayingRef.current = false);
+  };
+
+  const playVideo = async () => {
+    const video = videoRef.current;
+    if (video && video.paused && !isPlayingRef.current) {
+      try {
+        await video.play();
+      } catch (err) {
+        console.error("Video play failed:", err);
+      }
+    }
+  };
+
+  const pauseVideo = () => {
+    const video = videoRef.current;
+    if (video && !video.paused && isPlayingRef.current) {
+      video.pause();
+    }
+  };
 
   const handleMouseEnter = () => {
     clearTimeout(hoverTimeoutRef.current);
@@ -18,12 +45,8 @@ const Card = ({ product = {}, className = "" }) => {
       setShowPoster(false);
       setIsHovering(true);
       setShouldLoadVideo(true);
-
-      const video = videoRef.current;
-      if (video) {
-        video.play().catch((err) => console.error("Video play failed:", err));
-      }
-    }, 150); // debounce delay
+      playVideo();
+    }, 150);
   };
 
   const handleMouseLeave = () => {
@@ -31,11 +54,7 @@ const Card = ({ product = {}, className = "" }) => {
     setIsHovering(false);
     setShowPoster(true);
     setShouldLoadVideo(false);
-
-    // Only pause if the video is currently playing or about to play
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
+    pauseVideo();
   };
 
   const handleFullscreen = () => {
@@ -63,7 +82,7 @@ const Card = ({ product = {}, className = "" }) => {
         )}
 
         <video
-          ref={videoRef}
+          ref={setVideoRef}
           className={`${styles.video} ${showPoster ? styles.hidden : ""}`}
           poster={product?.poster?.url}
           preload="none"
