@@ -1,3 +1,4 @@
+"use client"
 import { generateInitialize } from "@/_Dashboard/lib/dashboard";
 import {
   collectErrorPaths,

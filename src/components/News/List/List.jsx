@@ -82,7 +82,7 @@ const List = ({ page = {}, categories = [] }) => {
                 delay={index * 50}
                 key={item?._id}
               >
-                <Card product={item} latest={true} />
+                <Card New={item} latest={true} />
               </Aos>
             ))}
           </div>
@@ -142,7 +142,7 @@ const List = ({ page = {}, categories = [] }) => {
             delay={index * 50}
             key={item?._id}
           >
-            <Card product={item} />
+            <Card New={item} />
           </Aos>
         )}
         listClassName={styles.gridList}
@@ -150,7 +150,7 @@ const List = ({ page = {}, categories = [] }) => {
       />
       {!isLoading && !data?.pages?.length && (
         <div className={`${styles.emptydata} ShowSmoothEffect flex-c`}>
-          No products found
+          No News found
         </div>
       )}
       {isLoading && (

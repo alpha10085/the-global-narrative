@@ -1,23 +1,24 @@
 import { formatDate } from "@/utils/date";
 import styles from "./Card.module.css";
 import Img from "@/components/Shared/img/Img";
+import Link from "next/link";
 
-const Card = ({ product = {}, className = "", latest = false }) => {
+const Card = ({ New = {}, className = "", latest = false }) => {
   return (
-    <div className={`${latest ? styles.latestCard : styles.card} ${className}`}>
+    <Link className={`${styles.card} ${className}`} href={`/news/${New?.slug}`}>
       <div className={styles.top}>
         <div className={styles.cardOverlay}> </div>
-        <Img url={product?.poster?.url} className={styles.image} />
+        <Img url={New?.poster?.url} className={styles.image} />
         <div className={styles.text}>
-          <p className={styles.date}>{formatDate(product?.createdAt)}</p>
-          <h1 className={styles.cardTitle}> {product?.title}</h1>
+          <p className={styles.date}>{formatDate(New?.createdAt)}</p>
+          <h1 className={styles.cardTitle}> {New?.title}</h1>
         </div>
       </div>
 
       <div className={styles.cardDetails}>
-        <h2>{product?.description}</h2>
+        <h2>{New?.description?.slice(0, 40)}...</h2>{" "}
       </div>
-    </div>
+    </Link>
   );
 };
 
