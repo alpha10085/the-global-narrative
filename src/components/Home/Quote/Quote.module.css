@@ -1,0 +1,40 @@
+.container {
+  min-height: 60vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.pointBg {
+  background-color: rgba(0, 0, 0, 0.15);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  margin: 20px 0;
+  transition: 0.6s;
+}
+.main {
+}
+
+.content {
+  position: absolute;
+  right: 5%;
+  bottom: 50%;
+  transform: translateY(50%) translateX(-15px);
+  width: 800px;
+
+  padding: 20px 30px;
+  background-color: white;
+}
+.text {
+  line-height: 1.5;
+  font-size: 24px;
+  font-weight: 600;
+  color: black !important;
+}
+
+.pointBg.active {
+  background-color: blue;
+  transform: scale(3);
+  box-shadow: 0 0 10px blue;
+}

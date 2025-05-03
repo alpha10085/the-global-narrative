@@ -9,6 +9,7 @@ export default async function RootLayout({ children }) {
     <main
       style={{
         fontFamily: "var(--font-inter)",
+      
       }}
       className="ShowSmoothEffectShortDelay"
     >

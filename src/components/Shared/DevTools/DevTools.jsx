@@ -25,19 +25,29 @@ const DevTools = ({ logStore, children }) => {
     const handleKeyDown = (event) => {
       if (event.ctrlKey && event.key.toLowerCase() === "y") {
         event.preventDefault(); // prevent default Ctrl+Y behavior (redo in some browsers/editors)
-        createOrUpdate({
-          ...data,
-          enabled: true,
-        });
-        setState({
-          enable_window: true,
-        });
+        if (!state.enable_window) {
+          createOrUpdate({
+            ...data,
+            enabled: true,
+          });
+          setState({
+            enable_window: true,
+          });
+        } else {
+          createOrUpdate({
+            ...data,
+            enabled: false,
+          });
+          setState({
+            enable_window: false,
+          });
+        }
       }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [state.enable_window]);
   if (isLoading) return null;
 
   const displayIcon = data?.enabled || typeof data?.enabled !== "boolean";

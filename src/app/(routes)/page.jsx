@@ -1,10 +1,22 @@
-import WordPullUp from "@/components/Shared/Animtions/WordPullUp/WordPullUp";
 import styles from "./page.module.css";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import { ArrowForwardIosIcon } from "@/components/Home/icons";
+import { getHomePage } from "./data.test";
+import Hero from "@/components/Home/Hero/Hero";
+import Quote from "@/components/Home/Quote/Quote";
+import AboutUs from "@/components/Home/AboutUs/AboutUs";
 
 const Home = async () => {
-  return <div className={styles.layout}></div>;
+  const {
+    heroSection = [],
+    aboutUsSection = {},
+    quoteSection = {},
+  } = getHomePage();
+  return (
+    <div className={styles.layout}>
+      <Hero data={heroSection} />
+      <AboutUs data={aboutUsSection} />
+      <Quote data={quoteSection} />
+    </div>
+  );
 };
 
 export default Home;

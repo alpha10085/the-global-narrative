@@ -1,6 +1,10 @@
 import { cookies } from "next/headers";
 import ReactQuery from "@/providers/reactQuery";
-import { Tajawal, Geist } from "next/font/google";
+import { Tajawal, Geist,
+  
+   
+  Urbanist
+ } from "next/font/google";
 import "../styles/main.css";
 import "../styles/framework.css";
 import "../styles/swiper.css";
@@ -22,6 +26,11 @@ const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
 });
+const UrbanistFont = Urbanist({
+  subsets: ["latin"],
+  variable: "--font-Urbanist",
+});
+
 
 const tajawal = Tajawal({
   subsets: ["latin"],
@@ -49,7 +58,7 @@ export default async function RootLayout({ children }) {
   const locale = await getLocale();
   const boundary = cookieStore?.get("boundary")?.value;
   const fonts = {
-    en: geist,
+    en: UrbanistFont,
     ar: tajawal,
   };
   const selectedFont = fonts[locale] || fonts.en;

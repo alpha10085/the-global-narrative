@@ -40,6 +40,7 @@
   --shadow-c2: rgba(128, 128, 128, 0.1);
   --color-scroll-thumb: #000000;
   --color-scroll-track: #eef6f7;
+  --headerHeight: 100px
 }
 
 /* end roots styles */
@@ -50,6 +51,23 @@ body {
   font-family: var(--font-geist);
 }
 
+.imageoverlay { 
+  position: relative;
+}
+.imageoverlay::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 1)
+  );
+  z-index: 2;
+}
 textarea {
   resize: none;
 }

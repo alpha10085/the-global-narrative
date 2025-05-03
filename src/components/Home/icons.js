@@ -1,3 +1,5 @@
-"use client";
-import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
-export const ArrowForwardIosIcon = ArrowForwardIos;
+"use client"
+// Add icon imports here
+import ArrowOutward from '@mui/icons-material/ArrowOutward';
+
+export const ArrowOutwardIcon =ArrowOutward

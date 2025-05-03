@@ -1,0 +1,99 @@
+.container {
+  height: calc(100vh);
+  width: 100%;
+}
+.wrapper {
+}
+
+.swiper,
+.swiperSlide,
+.slide,
+.media {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.media img {
+  object-position: 0 16% !important;
+}
+
+.titleBox {
+  position: absolute;
+  left: 5%;
+  bottom: 20%;
+  width: 300px;
+  height: 300px;
+  z-index: 10;
+}
+
+.titleBox .title {
+  color: white;
+  text-transform: uppercase;
+  text-align: start;
+  font-size: clamp(20px, 5vw, 100px);
+  width: 700px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.controlBox {
+  position: absolute;
+  bottom: 50px;
+
+  left: 50%;
+  transform: translateX(-50%);
+  height: 40px;
+  z-index: 10;
+  color: white;
+  backdrop-filter: blur(15px);
+}
+
+.controlBox span {
+  width: 45px;
+  height: 45px;
+  border-radius: 30px;
+  border: 1px solid rgb(255, 255, 255);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.controlBox span svg {
+  font-size: 20px;
+}
+
+.controlBox .arrow.left svg {
+  transform: translateX(-1px);
+}
+.controlBox .arrow.right svg {
+  transform: translateX(1px);
+}
+
+.points {
+  margin: 0 25px;
+}
+
+.point {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.147);
+  border-radius: 50%;
+  transition: 0.6s;
+  cursor: pointer;
+}
+
+.point:nth-child(3) {
+  background-color: white;
+  transform: scale(1.4);
+}
+.point:hover {
+  background-color: rgba(255, 255, 255, 0.7);
+  color: black;
+  transform: scale(1.2);
+}
+
+.arrow:hover {
+  background-color: white;
+  color: black;
+  transform: scale(1.2);
+}
