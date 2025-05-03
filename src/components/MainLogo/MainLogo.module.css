@@ -1,5 +1,19 @@
-.logo {
-  width: auto;
+.wrapper {
+  position: relative;
   min-height: 20px;
+  width: auto;
   aspect-ratio: 2/1.03;
+  display: flex;
+}
+.logo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+}
+
+.logo.active {
+  opacity: 1;
 }

@@ -23,7 +23,6 @@ const Img = ({
   onLoad = () => {},
 }) => {
 
-  console.log(className,url);
   
   const [hasErrorImg, setHasErrorImg] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -58,6 +57,9 @@ const Img = ({
     }
   }, [url]);
 
+
+  url  =url?.toString() 
+  
   const formattedSrc =
   !url || hasErrorImg
     ? "/"
