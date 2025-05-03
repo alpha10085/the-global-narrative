@@ -4,6 +4,7 @@ import ServicesList from "@/components/Services/ServicesList/ServicesList";
 import MarqueeLogos from "@/components/Services/Marquee/Marquee";
 import Link from "next/link";
 import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 // import { metadataHandler } from "@/utils/metadata";
 // import { getPage } from "@/lib/pages";
 
@@ -13,15 +14,20 @@ const Page = async () => {
   return (
     <section className={styles.container}>
       {/* Hero  */}
-      <TemplateHero title={data?.title} description={data?.description} poster={data?.poster} />
+      <TemplateHero
+        title={data?.title}
+        description={data?.description}
+        poster={data?.poster}
+      />
 
       {/* Service List */}
       <ServicesList data={data} />
 
       {/* MarqueeLogos */}
       <div className={styles.logosSection}>
-        <div className=" flex just-sb al-i-c wrap w-90 m-auto">
-          <h1 className={styles.logosTitle}>Our Partners</h1>
+        <div className={`${styles.logoWrapper} flex just-sb al-i-c w-90 m-auto`}>
+          <SectionTitle title="Our Partners" className={styles.logosTitle} />
+
           <Link className={styles.logoLink} href="/clients">
             See all <span className={styles.arrow}>→</span>
           </Link>
@@ -31,7 +37,10 @@ const Page = async () => {
 
       {/* FAQ List */}
       <div className={styles.faqSection}>
-        <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+        <SectionTitle
+          title="Frequently Asked Questions"
+          className={styles.faqTitle}
+        />
         <div className={styles.faqList}>
           {data?.faqs?.map((faq, index) => (
             <details key={index} className={styles.faqItem}>

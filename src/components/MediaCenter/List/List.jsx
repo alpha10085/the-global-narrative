@@ -10,6 +10,7 @@ import lodash from "lodash";
 import { scrollToElement } from "@/utils/document";
 import { getFakeMediaCenter } from "@/app/(routes)/media-center/data.test";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 
 const List = ({ page = {}, categories = [] }) => {
   const { title = "" } = page;
@@ -65,11 +66,10 @@ const List = ({ page = {}, categories = [] }) => {
     [singleValue]
   );
 
-  
   return (
     <div id="media-center-Categories" className={styles.mediaCenterContainer}>
       <div className={`${styles.headerContainer} flex column gap20 just-sb`}>
-        <h1 className={styles.headingTitle}>{title}</h1>
+        <SectionTitle title={title} className={styles.headingTitle} />
         <div className={`${styles.filters} flex  gap20 just-sb`}>
           <div className={styles.categories}>
             <span
@@ -116,7 +116,11 @@ const List = ({ page = {}, categories = [] }) => {
         }}
         overscan={300}
         itemContent={(index, item) => (
-          <Aos className={styles.fadeInUp} activeClassName={styles.active} delay={index * 50}>
+          <Aos
+            className={styles.fadeInUp}
+            activeClassName={styles.active}
+            delay={index * 50}
+          >
             <Card key={item?._id} product={item} />
           </Aos>
         )}

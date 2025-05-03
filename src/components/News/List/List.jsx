@@ -10,6 +10,7 @@ import lodash from "lodash";
 import { scrollToElement } from "@/utils/document";
 import { getFakeNews } from "@/app/(routes)/news/data.test";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 const List = ({ page = {}, categories = [] }) => {
   const { title = "" } = page;
   const { clearOne, clearQuery, multiple, searchParams, singleValue } =
@@ -66,11 +67,11 @@ const List = ({ page = {}, categories = [] }) => {
   );
 
   return (
-    <div  className={styles.newsContainer}>
+    <div className={styles.newsContainer}>
       {latestNews?.length >= 3 && (
         <>
           <div className={styles.headSection}>
-            <h1 className={styles.headingTitle}>{title}</h1>
+            <SectionTitle title={title} className={styles.headingTitle} />
           </div>
           <div className={`${styles.latestCards}`}>
             {latestNews?.slice(0, 3)?.map((item, index) => (
@@ -87,9 +88,10 @@ const List = ({ page = {}, categories = [] }) => {
         </>
       )}
 
-      <div 
-      id="news-Categories"
-      className={`${styles.headerContainer} flex column gap20 just-sb`}>
+      <div
+        id="news-Categories"
+        className={`${styles.headerContainer} flex column gap20 just-sb`}
+      >
         <div className={`${styles.filters} flex  gap20 just-sb`}>
           <div className={styles.categories}>
             <span

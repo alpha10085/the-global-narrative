@@ -1,12 +1,11 @@
 .container {
-
   height: 100vh;
   width: 100%;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .title {
-  font-size: clamp(20px,6vw,60px);
+  font-size: clamp(30px, 6vw, 60px) !important;
 }
 .poster {
   width: 46%;
@@ -19,4 +18,28 @@
 }
 .description {
   line-height: 1.5;
+}
+
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    padding: 100px 5% 40px;
+  }
+
+  .left,
+  .posterWrapper {
+    width: 100%;
+    padding: 0;
+  }
+
+  .posterWrapper {
+    aspect-ratio: 3 / 2;
+    margin-bottom: 20px;
+  }
+
+  .poster {
+    border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
+  }
 }
