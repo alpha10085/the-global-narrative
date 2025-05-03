@@ -1,0 +1,50 @@
+"use client";
+import { useState } from "react";
+import styles from "./ServicesList.module.css";
+import FormatText from "@/components/Shared/FormatText/FormatText";
+
+const ServicesList = ({ data = {} }) => {
+  const [expanded, setExpanded] = useState({});
+
+  const toggleExpand = (index) => {
+    setExpanded((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
+  return (
+    <div className={styles.servicesList}>
+      {data?.services?.map((service, index) => {
+        const isOpen = expanded[index];
+
+        return (
+          <div key={index} className={styles.serviceCard}>
+            <h3 className={styles.serviceTitle}>{service?.title}</h3>
+            <p className={styles.serviceIntro}>{service?.intro}</p>
+
+            <div
+              className={`${styles.descriptionWrapper} ${
+                isOpen ? styles.expanded : ""
+              }`}
+            >
+              <FormatText
+                className={styles.serviceDescription}
+                text={service?.description}
+              />
+            </div>
+
+            <button
+              onClick={() => toggleExpand(index)}
+              className={styles.toggleButton}
+            >
+              {isOpen ? "Read less" : "Read more"}
+            </button>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default ServicesList;

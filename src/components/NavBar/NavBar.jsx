@@ -27,8 +27,8 @@ const NavBar = () => {
       href: "/about-us",
     },
     {
-      text: "Blog",
-      href: "/blog",
+      text: "News",
+      href: "/news",
     },
     {
       text: "clients",
