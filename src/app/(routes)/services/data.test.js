@@ -1,8 +1,9 @@
 export const getpage = () => {
   return {
     title: "Our Services",
-    description: "Strategic Public Relations solutions tailored to amplify your brand globally.",
-    services : [
+    description:
+      "Strategic Public Relations solutions tailored to amplify your brand globally.",
+    services: [
       {
         _id: "1",
         title: "Media Relations",
@@ -13,19 +14,29 @@ export const getpage = () => {
       {
         _id: "2",
         title: "Crisis Management",
-        intro: "Guiding your brand through turbulent times with clarity and control.",
+        intro:
+          "Guiding your brand through turbulent times with clarity and control.",
         description:
           "Protect your brand reputation with rapid, strategic response. In today’s fast-paced world, crises unfold quickly—and our experienced team helps you respond even faster. We assess risks, develop contingency plans, and craft transparent communication across all channels. Whether facing public backlash, legal issues, or internal challenges, we help you maintain trust, minimize damage, and restore your public image with calm authority.",
       },
       {
         _id: "3",
         title: "Digital PR & Social Media",
-        intro: "Driving engagement and awareness through strategic digital storytelling.",
+        intro:
+          "Driving engagement and awareness through strategic digital storytelling.",
+        description:
+          "Engage audiences and enhance visibility through digital campaigns. We blend PR expertise with social media savvy to position your brand where it matters most—online. From influencer partnerships and branded content to reputation monitoring and real-time engagement, we ensure your message resonates across platforms. Our digital PR strategies are data-driven, creative, and always aligned with your brand’s voice and goals.",
+      },
+      {
+        _id: "4",
+        title: "Digital PR",
+        intro:
+          "Driving engagement and awareness through strategic digital storytelling.",
         description:
           "Engage audiences and enhance visibility through digital campaigns. We blend PR expertise with social media savvy to position your brand where it matters most—online. From influencer partnerships and branded content to reputation monitoring and real-time engagement, we ensure your message resonates across platforms. Our digital PR strategies are data-driven, creative, and always aligned with your brand’s voice and goals.",
       },
     ],
-    
+
     faqs: [
       {
         _id: "2",
@@ -50,6 +61,33 @@ export const getpage = () => {
         question: "Can you handle crisis situations?",
         answer:
           "Absolutely. We specialize in real-time crisis communication and reputation control.",
+      },
+    ],
+
+    partners: [
+      {
+        _id: "tahyamisr",
+        logo: {
+          url: "https://cc-plus.com/wp-content/uploads/2019/12/clients-57-photo.png",
+        },
+      },
+      {
+        _id: "qnb",
+        logo: {
+          url: "https://cc-plus.com/wp-content/uploads/2019/12/clients-60-photo.jpg",
+        },
+      },
+      {
+        _id: "telecom-egypt",
+        logo: {
+          url: "https://cc-plus.com/wp-content/uploads/2019/12/clients-40-photo.png",
+        },
+      },
+      {
+        _id: "elsewedy-electric",
+        logo: {
+          url: "https://cc-plus.com/wp-content/uploads/2019/12/clients-37-photo.jpg",
+        },
       },
     ],
   };
