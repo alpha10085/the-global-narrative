@@ -24,7 +24,9 @@
 }
 .subtitle {
   line-height: 1.3;
-  font-size: clamp(12px, 3vw, 20px);
+  font-size: clamp(14px, 3vw, 24px);
+  margin-bottom: 12px;
+  color: #555;
 }
 
 .arrowTag {
