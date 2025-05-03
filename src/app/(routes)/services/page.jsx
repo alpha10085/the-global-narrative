@@ -1,8 +1,7 @@
-import Services from "@/components/Services/Services/Services";
 import { getpage } from "./data.test";
 import styles from "./styles.module.css";
-import Img from "@/components/Shared/img/Img";
 import ServicesList from "@/components/Services/ServicesList/ServicesList";
+import Hero from "@/components/Services/Hero/Hero";
 // import { metadataHandler } from "@/utils/metadata";
 // import { getPage } from "@/lib/pages";
 
@@ -11,22 +10,8 @@ const Page = async () => {
   const data = await getpage("services");
   return (
     <section className={styles.container}>
-      {/* <Services/> */}
-
-
-     {/* Hero  */}
-      <div className={styles.hero}>
-        <h1 className={styles.title}>{data?.title}</h1>
-        <p className={styles.subtitle}>{data?.description}</p>
-
-        <Img
-          alt="Services"
-          className={styles.poster}
-          url={
-            "https://res.cloudinary.com/dsed1slaz/image/upload/v1746235167/pexels-padrinan-2882669_vvtl5x.jpg"
-          }
-        />
-      </div>
+      {/* Hero  */}
+      <Hero data={data} />
 
       {/* Service List */}
       <ServicesList data={data} />
