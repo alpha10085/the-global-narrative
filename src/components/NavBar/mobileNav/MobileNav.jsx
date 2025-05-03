@@ -31,7 +31,7 @@ const MobileNav = forwardRef(({ isOpen, SetOpen ,pathname }, BtnRemoteRef) => {
             </Link>
           </li>
           {links.map((val, i) => (
-            <li key={val?._id}>
+            <li key={i}>
               <Link className={`flex-c gap5  ${val.href === pathname && styles.active}`} href={val.href} key={i}>
                 {val?.text}
                 {val?.icon && val?.icon}

@@ -1,0 +1,48 @@
+.container {
+  width: calc(100vw / 3.7);
+  min-width: 300px;
+}
+.cover {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 450/500;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.cover img {
+  transition: 0.6s;
+}
+.container:hover .cover img {
+transform: scale(1.05)
+}
+
+.date {
+  font-size: 14px;
+  color: gray;
+}
+
+.title {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.right {
+  /* background-color: rgba(0, 0, 0, 0.158); */
+  /* color: white; */
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.147);
+  transition: 0.6s;
+}
+.right svg {
+  font-size: 15px;
+}
+.container:hover 
+.right {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  transform: scale(1.2);
+}
+
+

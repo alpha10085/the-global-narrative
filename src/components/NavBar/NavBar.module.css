@@ -5,7 +5,7 @@
 
 .nav {
   width: 100%;
-  padding: 20px 5%;
+  padding: 15px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,6 +15,13 @@
   top: 0;
   z-index: 100;
   overflow: hidden;
+  transition: 0.2s;
+}
+
+.nav.active {
+  background-color: white;
+  color: black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
 }
 
 .burgerIcon {
@@ -51,7 +58,11 @@
   padding: 10px 0;
   text-shadow: 0 0 5px black;
 }
+.nav.active .link {
+  color: black;
 
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0);
+}
 @keyframes intro {
   from {
     transform: translateY(20px);
@@ -80,4 +91,11 @@
 .link:hover::before {
   background-color: rgb(255, 255, 255);
   transform: translateY(-50%) scale(1.2);
+}
+.nav.active .link::before {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.nav.active .link.active::before,
+.nav.active .link:hover::before {
+  background-color: rgb(0, 0, 0);
 }

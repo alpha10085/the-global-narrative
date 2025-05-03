@@ -1,0 +1,4 @@
+.title {
+    font-size: clamp(16px, 6vw, 50px);
+    text-transform: capitalize;
+  }
