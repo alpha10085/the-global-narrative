@@ -53,7 +53,7 @@ const Footer = ({ data = {} }) => {
       <div className={`${styles.top} flex al-i-c just-sb`}>
         <div className={`${styles.left}  `}>
           <MainLogo theme="dark" classNameWrapper={styles.logo} />
-          <div className={`${styles.ScoialLinks} flex gap30 al-i-c`}>
+          <div className={`${styles.ScoialLinks} flex gap40 al-i-c`}>
             {ScoialLinks?.map((val, i) => (
               <Link
                 key={i}
