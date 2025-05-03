@@ -1,0 +1,16 @@
+.container {
+
+    padding: 30px;
+    background-color: #e8e8e8;
+    width: calc(50% - 10px);
+    border-radius: 30px;
+}
+.title {
+    font-size: 40px;
+    color: gray;
+}
+.description {
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 18px;
+}

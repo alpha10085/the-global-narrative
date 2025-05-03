@@ -1,0 +1,21 @@
+.container {
+}
+
+.poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+}
+
+.poster img {
+  object-position: 50% 0%;
+}
+
+.jobTitle {
+  font-size: 15px;
+  color: gray;
+}
+
+.name {
+  margin: 10px 0;
+}
