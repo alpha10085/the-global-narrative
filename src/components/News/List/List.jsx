@@ -52,10 +52,8 @@ const List = ({ page = {}, categories = [] }) => {
     );
   }
 
-  const scrollToMainSection = () => scrollToElement("#news-Categories", 100);
   const debouncedFetch = useCallback(
     lodash?.debounce((value) => {
-      scrollToMainSection();
       singleValue("search", value, {
         removeIfExists: false,
       });
@@ -68,7 +66,7 @@ const List = ({ page = {}, categories = [] }) => {
   );
 
   return (
-    <div id="news-Categories" className={styles.newsContainer}>
+    <div  className={styles.newsContainer}>
       {latestNews?.length >= 3 && (
         <>
           <div className={styles.headSection}>
@@ -89,7 +87,9 @@ const List = ({ page = {}, categories = [] }) => {
         </>
       )}
 
-      <div className={`${styles.headerContainer} flex column gap20 just-sb`}>
+      <div 
+      id="news-Categories"
+      className={`${styles.headerContainer} flex column gap20 just-sb`}>
         <div className={`${styles.filters} flex  gap20 just-sb`}>
           <div className={styles.categories}>
             <span

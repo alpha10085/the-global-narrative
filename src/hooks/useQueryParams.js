@@ -1,92 +1,107 @@
 "use client";
+import { scrollToElement } from "@/utils/document";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useMemo } from "react";
 
-export const useQueryParams = () => {
+export const useQueryParams = ({ scrollTo = null, offset = 0 } = {}) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const current = new URLSearchParams(Array.from(searchParams?.entries()));
+
   const formatVal = (val) => val?.toString()?.trim();
+
   const multiple = useCallback(
     (name, value, scroll = false) => {
-      try {
-        value = formatVal(value);
-        if (!value || !name) return;
-        let query = searchParams.get(name) || "";
-        query = query.split(",").filter((i) => i);
-        if (query.includes(value)) {
-          query = query?.filter((i) => i !== value);
-        } else {
-          query = [...query, value];
-        }
-        if (current.has(name)) {
-          if (!query.length) {
-            current.delete(name);
-          } else {
-            current.set(name, query.join(","));
-          }
-        } else {
-          current.append(name, query.join(","));
-        }
-        router.push(
-          `${pathname}?${current.toString()}`,
-          { scroll },
-          {
-            shallow: true,
-          }
-        );
-      } catch (error) {}
+      if (!name) return;
+      value = formatVal(value);
+      if (!value) return;
+
+      const current = new URLSearchParams(Array.from(searchParams.entries()));
+      let query =
+        searchParams
+          .get(name)
+          ?.split(",")
+          .map((v) => v.trim()) || [];
+
+      if (query.includes(value)) {
+        query = query.filter((i) => i !== value);
+      } else {
+        query.push(value);
+      }
+
+      if (query.length) {
+        current.set(name, query.join(","));
+      } else {
+        current.delete(name);
+      }
+
+      router.push(`${pathname}?${current.toString()}`, {
+        scroll: false,
+        shallow: true,
+      });
+      if (scroll && scrollTo) {
+        scrollToElement(scrollTo, offset);
+      }
     },
-    [searchParams, current, router, pathname]
+    [router, pathname, searchParams]
   );
 
   const singleValue = useCallback(
     (name, value, scroll = false) => {
       if (!name) return;
-      value = formatVal(value);
-      try {
-        if (value) {
-          if (current.has(name)) {
-            if (searchParams?.get(name) !== value) {
-              current.set(name, value);
-            } else {
-              current.delete(name);
-            }
-          } else {
-            current.append(name, value);
-          }
-        } else {
-          current.delete(name);
-        }
-        router.push(
-          `${pathname}?${current.toString()}`,
-          { scroll },
-          {
-            shallow: true,
-          }
-        );
-      } catch (error) {}
+
+      const formatted = formatVal(value);
+      const currentValue = searchParams?.get(name);
+      const current = new URLSearchParams(Array.from(searchParams.entries()));
+
+      // Nothing changed
+      if (formatted === currentValue) return;
+
+      if (formatted) {
+        current.set(name, formatted);
+      } else {
+        current.delete(name);
+      }
+
+      router.push(
+        `${pathname}?${current.toString()}`,
+        { scroll: false },
+        { shallow: true }
+      );
+      if (scroll && scrollTo) {
+        scrollToElement(scrollTo, offset);
+      }
     },
-    [router, pathname, current, searchParams]
+    [router, pathname, searchParams]
   );
 
   const clearOne = useCallback(
     (name) => {
-      try {
-        if (!name) return;
-        current.delete(name);
-        router.push(`${pathname}?${current.toString()}`, undefined, {
-          shallow: true,
-        });
-      } catch (error) {}
+      if (!name) return;
+      const current = new URLSearchParams(Array.from(searchParams.entries()));
+      current.delete(name);
+      router.push(
+        `${pathname}?${current.toString()}`,
+        {
+          scroll: false,
+        },
+        { shallow: true }
+      );
+      if (scrollTo) {
+        scrollToElement(scrollTo, offset);
+      }
     },
-    [current, router, pathname]
+    [router, pathname, searchParams]
   );
 
   const clearQuery = useCallback(() => {
-    router.push(pathname, undefined, { shallow: true });
-  }, [pathname, router]);
+    router.push(`${pathname}?`, {
+      scroll:false
+    });
+    if (scrollTo) {
+      scrollToElement(scrollTo, offset);
+    }
+  }, [router, pathname]);
 
   const allParamsObject = useMemo(
     () => Object.fromEntries(searchParams.entries()),
@@ -95,9 +110,9 @@ export const useQueryParams = () => {
 
   return {
     multiple,
-    clearQuery,
     singleValue,
     clearOne,
+    clearQuery,
     searchParams: allParamsObject,
   };
 };
