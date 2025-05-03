@@ -1,5 +1,5 @@
 import Img from "@/components/Shared/img/Img";
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionTitle from "../../SectionTitle/SectionTitle";
 import styles from "./GetInTouch.module.css";
 import Link from "@/components/Shared/LocalizedLink/Link";
 import { ArrowForwardIosIcon, ArrowOutwardIcon } from "../icons";

@@ -15,34 +15,42 @@ import { links } from "./Links";
 const NavBar = () => {
   const { session = null, isLoading = true } = {};
   const [openMobil, setOpenMobile] = useState(false);
-  const [navMode, setNavMode] = useState(false);
   const BurgerBtnRef = useRef(null);
+  const [navMode, setNavMode] = useState({
+    transparent: true,
+    darkMode: true,
+  });
   const { pathname, pathes } = usePathname();
-  const transparentPathes = [
-    "/",
-    "/podcast",
-    // "/priority-region"
-  ];
-  const darkModePathes = [
-    //  "/priority-region"
-  ];
+  const transparentPathes = ["/", ];
+  const darkModePathes = [];
 
   const targetScroll = 250;
   useEffect(() => {
-    const listenScrollEvent = (event) => {
+    const isTransparentPath = transparentPathes.includes(pathname);
+    const isDarkModePath = darkModePathes.includes(pathname);
+
+    const updateNavModeOnScroll = () => {
       if (window.scrollY > targetScroll) {
-        return setNavMode(true);
+        setNavMode({
+          transparent: false,
+          darkMode: true,
+        });
       } else {
-        return setNavMode(false);
+        setNavMode({
+          transparent: isTransparentPath,
+          darkMode: isDarkModePath || !isTransparentPath,
+        });
       }
     };
-    if (!transparentPathes?.includes(pathname)) {
-      setNavMode(true);
-    } else {
-      setNavMode(false);
-      window.addEventListener("scroll", listenScrollEvent);
-    }
-    return () => window.removeEventListener("scroll", listenScrollEvent);
+
+    // Set initial nav mode (in case scroll listener doesn't fire immediately)
+    updateNavModeOnScroll();
+
+    window.addEventListener("scroll", updateNavModeOnScroll);
+
+    return () => {
+      window.removeEventListener("scroll", updateNavModeOnScroll);
+    };
   }, [pathname]);
 
   return (
@@ -50,18 +58,18 @@ const NavBar = () => {
       <div className={styles.wrapperHeader}>
         <nav
           className={`${styles.nav} ${
-            navMode ? styles.active : ""
-          } flex just-sb gap15`}
+            navMode.transparent ? styles.transparent : ""
+          }
+          ${navMode.darkMode ? styles.darkMode : ""}
+          flex just-sb gap15`}
         >
           <MainLogo
-            theme={!navMode ? "dark" : "light"}
+            theme={!navMode.darkMode ? "dark" : "light"}
             classNameWrapper={styles.logo}
           />
           <ul className={`flex al-i-c gap40 ${styles.rightUl}`}>
             {links?.map((val, index) => (
-              <li
-              key={index}
-            >
+              <li key={index}>
                 <Link
                   style={{
                     animationDelay: `${index * 200 + 500}ms`,

@@ -1,4 +1,4 @@
-import SectionTitle from "../SectionTitle/SectionTitle";
+import SectionTitle from "../../SectionTitle/SectionTitle";
 import Card from "./Card/Card";
 import styles from "./News.module.css";
 
