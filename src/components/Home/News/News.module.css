@@ -1,10 +1,9 @@
 .container {
   min-height: 80vh;
   width: 100%;
-  margin: 50px auto 150px;
+  margin: 50px auto ;
   overflow: hidden;
-  padding-left: 5% ;
-  
+  padding-left: 5%;
 }
 
 .title {
@@ -13,6 +12,5 @@
 }
 
 .list {
-    width: max-content;
-
+  width: max-content;
 }
