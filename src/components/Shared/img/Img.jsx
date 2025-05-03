@@ -22,6 +22,9 @@ const Img = ({
   delayLoad = 0,
   onLoad = () => {},
 }) => {
+
+  console.log(className,url);
+  
   const [hasErrorImg, setHasErrorImg] = useState(false);
   const [loading, setLoading] = useState(true);
   const [retryCount, setRetryCount] = useState(0);

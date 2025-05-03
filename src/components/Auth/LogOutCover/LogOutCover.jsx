@@ -5,7 +5,7 @@ import { extractPath } from "@/utils/data";
 import { usePathname } from "@/hooks/useTranslations";
 
 const LogOutCover = ({ OnFinish }) => {
-  const pathName = usePathname();
+  const {pathName} = usePathname();
   useEffect(() => {
     if (["/", "/log-in"].includes(pathName)) OnFinish();
   }, [pathName]);

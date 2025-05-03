@@ -28,10 +28,18 @@ export const useTranslations = (key = null, schema = []) => {
 };
 
 export const usePathname = () => {
-  const pathName = usePathname_next();
+  let pathname = usePathname_next();
   if (translation.route) {
-    return extractPath(pathName);
+    pathname = extractPath(pathname);
   }
-  return pathName;
+
+  const pathes = pathname
+    ?.split("/")
+    .filter(Boolean)
+    .map((val) => `/${val}`);
+  if (!pathes?.length) {
+    pathes.push("/");
+  }
+  return { pathname, pathes };
 };
 export default useTranslations;

@@ -27,7 +27,7 @@ function extractLastPathSegment(url = "") {
 const Sidebar = () => {
   const { session } = useAuth();
   const { theme = {} } = useTheme();
-  const pathname = usePathname();
+  const { pathname } = usePathname();
   const linkPathName = extractLastPathSegment(pathname);
   const {
     collections,
