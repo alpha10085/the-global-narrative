@@ -26,7 +26,9 @@ const ServicesList = ({ data = {} }) => {
             delay={index * 50}
             key={index}
           >
-            <h3 className={styles.serviceTitle}>&ldquo;{service?.title}&rdquo;</h3>
+            <h3 className={styles.serviceTitle}>
+              &ldquo;{service?.title}&rdquo;
+            </h3>
             <p className={styles.serviceIntro}>{service?.intro}</p>
 
             <div
@@ -42,9 +44,11 @@ const ServicesList = ({ data = {} }) => {
 
             <button
               onClick={() => toggleExpand(index)}
-              className={styles.toggleButton}
+              className={`flex gap5 al-i-c ${styles.toggleButton}`}
             >
-              {isOpen ? "Read less" : "Read more"}
+              <span className={`${styles.contnet} flex al-i-c`}>
+                {isOpen ? "Read less" : "Read more"}
+              </span>
             </button>
           </Aos>
         );
