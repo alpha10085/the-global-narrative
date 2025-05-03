@@ -6,6 +6,7 @@ import Img from "@/components/Shared/img/Img";
 import WordPullUp from "@/components/Shared/Animtions/WordPullUp/WordPullUp";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 const Hero = ({ data = {} }) => {
   return (
     <div className={styles.container}>
@@ -27,8 +28,9 @@ const Hero = ({ data = {} }) => {
                 className={`${styles.media} imageoverlay`}
               />
               <div className={styles.titleBox}>
-                <WordPullUp
-                  duration={0.4}
+                <WordPullUpV2
+                  duration={0.6}
+                  delay={500}
                   className={styles.title}
                   text={val?.title}
                 />
