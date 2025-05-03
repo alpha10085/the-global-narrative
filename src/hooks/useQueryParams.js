@@ -95,7 +95,7 @@ export const useQueryParams = ({ scrollTo = null, offset = 0 } = {}) => {
   );
 
   const clearQuery = useCallback(() => {
-    router.push(`${pathname}?`, {
+    router.push(`${pathname}`, {
       scroll:false
     });
     if (scrollTo) {
