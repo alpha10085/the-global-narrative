@@ -3,6 +3,7 @@ import SectionTitle from "../../SectionTitle/SectionTitle";
 import styles from "./GetInTouch.module.css";
 import Link from "@/components/Shared/LocalizedLink/Link";
 import { ArrowForwardIosIcon, ArrowOutwardIcon } from "../icons";
+import MainLink from "@/components/MainLink/MainLink";
 
 const GetInTouch = ({ data = {} }) => {
   return (
@@ -12,14 +13,16 @@ const GetInTouch = ({ data = {} }) => {
         <p className={styles.description}>{data?.description}</p>
         <div className="flex gap10 al-i-c">
 
-        <Link className={`${styles.link} flex gap5 al-i-c`} href={"/contact-us"} >
+
+        <MainLink text="Contact us" href={"/contact-us"} />
+        {/* <Link className={`${styles.link} flex gap5 al-i-c`} href={"/contact-us"} >
         <span className={`${styles.contnet} flex al-i-c`}>
         contact us
         </span>
         <span className={`${styles.arrow} flex-c`}>
           <ArrowOutwardIcon />
         </span>    
-        </Link>
+        </Link> */}
     
         </div>
       </div>

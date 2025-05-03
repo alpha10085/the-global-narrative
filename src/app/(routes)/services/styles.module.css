@@ -1,44 +1,12 @@
 .container {
   margin: 0 auto;
 }
-.servicesList {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 96px;
-}
 
-.serviceCard {
-  width: 100%;
-  padding: 32px;
-  background: #dddddd;
-  border-bottom: 1px solid #444;
-}
-
-.serviceTitle {
-  width: 800px;
-  line-height: 1.3;
-  font-size: clamp(20px, 6vw, 80px) !important;
-  margin-bottom: 12px;
-}
-
-.serviceIntro {
-  width: 800px;
-  line-height: 1.3;
-  font-size: clamp(12px, 3vw, 20px) !important;
-  margin-bottom: 16px;
-}
-
-.serviceDescription {
-  width: 800px;
-  line-height: 1.3;
-  font-size: clamp(12px, 3vw, 20px);
-  color: #333;
-}
-
+/* MarqueeLogos  */
 .logosSection {
   margin: 100px auto;
 }
-.logoWrapper{
+.logoWrapper {
   margin-bottom: 40px;
 }
 .logosTitle {
@@ -69,9 +37,10 @@
   transform: translateX(5px);
 }
 
+/* Faq  */
 .faqSection {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 50px auto;
 }
 
 .faqTitle {
@@ -106,9 +75,40 @@
   font-size: 15px;
 }
 
+/* Get in touch */
+.getInTouchSection {
+  width: 90%;
+  margin: 0px auto;
+  border-radius: 12px;
+  background: linear-gradient(to right, #2c3e50, #2c3e50, #4ca1af);
+  padding: 60px 20px;
+  color: white;
+}
 
-@media(max-width: 476px){
-  .logoWrapper{
+.getInTouchContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.getInTouchTitle {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.getInTouchText {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+
+
+@media (max-width: 476px) {
+  .logoWrapper {
     flex-direction: column;
     align-items: start;
     gap: 20px;
