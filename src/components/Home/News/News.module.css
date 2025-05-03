@@ -1,3 +1,18 @@
 .container {
+  min-height: 80vh;
+  width: 100%;
+  margin: 50px auto 150px;
+  overflow: hidden;
+  padding-left: 5% ;
+  
+}
+
+.title {
+  font-size: clamp(16px, 6vw, 50px);
+  text-transform: capitalize;
+}
+
+.list {
+    width: max-content;
 
 }

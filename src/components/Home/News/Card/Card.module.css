@@ -1,0 +1,10 @@
+.container {
+  width: 450px;
+  height: 500px;
+}
+.cover {
+  width: 450px;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+}
