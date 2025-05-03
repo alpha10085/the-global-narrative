@@ -22,7 +22,6 @@
   will-change: transform, opacity;
 }
 
-
 .poster {
   position: absolute;
   inset: 0;
@@ -65,20 +64,20 @@
 }
 
 .subtitle {
-  font-size: 0.75rem;
+  font-size: 12px;
   opacity: 0.85;
 }
 
 .title {
-  font-size: 1.1rem;
+  font-size: 17.6px; 
   font-weight: 600;
-  margin-top: 0.25rem;
+  margin-top: 4px;
 }
 
 .playButton {
   position: absolute;
-  bottom: 1rem;
-  right: 1rem;
+  bottom: 16px; 
+  right: 16px; 
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(5px);
   border-radius: 50%;
@@ -88,16 +87,18 @@
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 1.2rem;
+  font-size: 19.2px;
   border: none;
   cursor: pointer;
   z-index: 3;
   transition: 0.3s ease;
 }
+
 .playButton svg {
   width: 30px;
   height: 30px;
 }
+
 .playButton:hover {
   background: rgba(255, 255, 255, 0.5);
 }
