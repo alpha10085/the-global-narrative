@@ -1,11 +1,15 @@
-import ShadowBg from "@/components/ShadowBg/ShadowBg";
+import Img from "@/components/Shared/img/Img";
 import styles from "./TemplateHero.module.css";
-const TemplateHero = ({ color = "white", data = {} }) => {
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
+const TemplateHero = ({ title, description, poster, children }) => {
   return (
-    <div className={`${styles.hero} showSmooth flex-c column`}>
-      <ShadowBg className={styles.ShadowBg} color={color} />
-      <h1 className={styles.titlepage}>{data.title}</h1>
-      <p className={` ${styles.description}`}>{data.description}</p>
+    <div className={`${styles.container} flex al-i-c gap20 just-sb`}>
+      <div className={`${styles.left} flex mt-50 gap30 column`}>
+        <SectionTitle title={title} className={styles.title} />
+        <p className={styles.description}>{description}</p>
+        {children}
+      </div>
+      {poster?.url && <Img className={styles.poster} url={poster.url} />}
     </div>
   );
 };
