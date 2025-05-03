@@ -3,6 +3,9 @@ export const getpage = () => {
     title: "Our Services",
     description:
       "Strategic Public Relations solutions tailored to amplify your brand globally.",
+    poster : {
+      url : "https://res.cloudinary.com/dsed1slaz/image/upload/v1746294755/Edge-108_xthmz1.jpg"
+    },
     services: [
       {
         _id: "1",

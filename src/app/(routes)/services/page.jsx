@@ -1,9 +1,9 @@
 import { getpage } from "./data.test";
 import styles from "./styles.module.css";
 import ServicesList from "@/components/Services/ServicesList/ServicesList";
-import Hero from "@/components/Services/Hero/Hero";
 import MarqueeLogos from "@/components/Services/Marquee/Marquee";
 import Link from "next/link";
+import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
 // import { metadataHandler } from "@/utils/metadata";
 // import { getPage } from "@/lib/pages";
 
@@ -13,7 +13,7 @@ const Page = async () => {
   return (
     <section className={styles.container}>
       {/* Hero  */}
-      <Hero data={data} />
+      <TemplateHero title={data?.title} description={data?.description} poster={data?.poster} />
 
       {/* Service List */}
       <ServicesList data={data} />
