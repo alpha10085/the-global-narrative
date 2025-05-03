@@ -2,6 +2,7 @@
 import { useState } from "react";
 import styles from "./ServicesList.module.css";
 import FormatText from "@/components/Shared/FormatText/FormatText";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const ServicesList = ({ data = {} }) => {
   const [expanded, setExpanded] = useState({});
@@ -19,8 +20,13 @@ const ServicesList = ({ data = {} }) => {
         const isOpen = expanded[index];
 
         return (
-          <div key={index} className={styles.serviceCard}>
-            <h3 className={styles.serviceTitle}>{service?.title}</h3>
+          <Aos
+            className={styles.serviceCard}
+            activeClassName={styles.active}
+            delay={index * 50}
+            key={index}
+          >
+            <h3 className={styles.serviceTitle}>&ldquo;{service?.title}&rdquo;</h3>
             <p className={styles.serviceIntro}>{service?.intro}</p>
 
             <div
@@ -40,7 +46,7 @@ const ServicesList = ({ data = {} }) => {
             >
               {isOpen ? "Read less" : "Read more"}
             </button>
-          </div>
+          </Aos>
         );
       })}
     </div>

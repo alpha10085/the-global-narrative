@@ -14,12 +14,11 @@
   line-height: 1.3;
   font-size: clamp(20px, 6vw, 80px);
   max-width: 95%;
-  margin-bottom: 24px;
 }
 
 .headerContainer {
   width: 90%;
-  margin: 0 auto 40px;
+  margin: 20px auto 40px;
   padding: 10px 0;
 }
 
@@ -49,7 +48,7 @@
   color: #000;
 }
 .filters {
-  align-items: baseline;
+  align-items: center;
 }
 .categories {
   width: calc(100% - 300px);

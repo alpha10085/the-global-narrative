@@ -24,6 +24,13 @@ export const getpage = () => {
         description:
           "Engage audiences and enhance visibility through digital campaigns. We blend PR expertise with social media savvy to position your brand where it matters most—online. From influencer partnerships and branded content to reputation monitoring and real-time engagement, we ensure your message resonates across platforms. Our digital PR strategies are data-driven, creative, and always aligned with your brand’s voice and goals.",
       },
+      {
+        _id: "4",
+        title: "Digital PR",
+        intro: "Driving engagement and awareness through strategic digital storytelling.",
+        description:
+          "Engage audiences and enhance visibility through digital campaigns. We blend PR expertise with social media savvy to position your brand where it matters most—online. From influencer partnerships and branded content to reputation monitoring and real-time engagement, we ensure your message resonates across platforms. Our digital PR strategies are data-driven, creative, and always aligned with your brand’s voice and goals.",
+      },
     ],
     
     faqs: [
