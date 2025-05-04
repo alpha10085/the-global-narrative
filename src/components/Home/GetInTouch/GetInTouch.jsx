@@ -4,6 +4,7 @@ import styles from "./GetInTouch.module.css";
 import Link from "@/components/Shared/LocalizedLink/Link";
 import { ArrowForwardIosIcon, ArrowOutwardIcon } from "../icons";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import MainLink from "@/components/MainLink/MainLink";
 
 const GetInTouch = ({ data = {} }) => {
   return (
@@ -18,26 +19,19 @@ const GetInTouch = ({ data = {} }) => {
           activeClassName={styles.active}
           className={`${styles.aos} flex gap10 al-i-c`}
         >
-          <Link
-            className={`${styles.link} flex gap5 al-i-c`}
-            href={"/contact-us"}
-          >
-            <span className={`${styles.contnet} flex al-i-c`}>contact us</span>
-            <span className={`${styles.arrow} flex-c`}>
-              <ArrowOutwardIcon />
-            </span>
-          </Link>
+            <MainLink text="Contact us" href={"/contact-us"} />
         </Aos>
       </div>
       <Aos
-          delay={800}
-          activeClassName={styles.active}
-          className={`${styles.aosPoster} `}
-        >
-      <Img className={styles.poster} url={data?.poster?.url} />
-        </Aos>
+        delay={800}
+        activeClassName={styles.active}
+        className={`${styles.aosPoster} `}
+      >
+        <Img className={styles.poster} url={data?.poster?.url} />
+      </Aos>
     </div>
   );
 };
 
 export default GetInTouch;
+
