@@ -28,8 +28,8 @@ const AboutUs = ({ data = {} }) => {
         delay={800}
       >
         <Link href={"/about-us"} className={`${styles.link} flex-c   column`}>
-          <span> explore</span>
-          <span> Who US</span>
+          <span> About</span>
+          <span> US</span>
 
           <div className={styles.arrowWrapper}>
             <span className={`${styles.arrow} flex-c`}>

@@ -40,7 +40,7 @@ export const getAboutUSPage = () => {
         {
           _id: "1",
           name: "Lamia Kamel",
-          jobTitle: "Founder and Executive Chairman",
+          jobTitle: "Co-founder of The Global Narrative",
           description:
             "Lamia established CC Plus in 2006 and also served as Assistant Minister of Tourism and Antiquities for Promotion. She founded the Narrative PR Summit and manages Flair Magazine.",
           image: {

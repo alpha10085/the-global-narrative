@@ -11,7 +11,6 @@ const Page = async (props) => {
   return (
     <section className={`${styles.container} `}>
       <TemplateHero title={hero?.title} description={hero?.description} poster={hero?.poster} />
-      {/* <Hero data={hero} /> */}
       <OurValues data={ourValueSection} />
       <WhoUsSection data={whoUsSectionSection} />
     </section>
