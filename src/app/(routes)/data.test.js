@@ -12,10 +12,17 @@ export const getHomePage = () => {
         },
       },
       {
-        title: "We’re built for the era of earned",
+        title: "Delivering value in a volatile world ",
         media: {
           mimetype: "image",
-          url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1746230310/Edge-81_vghfyo.jpg",
+          url: "https://webershandwick.com/_next/image?url=https%3A%2F%2Fcms.webershandwick.com%2Fwp-content%2Fuploads%2F2025%2F01%2Fresize_csuite_cover.jpg&w=1920&q=75",
+        },
+      },
+      {
+        title: "Delivering value in a volatile world ",
+        media: {
+          mimetype: "image",
+          url: "https://webershandwick.com/_next/image?url=https%3A%2F%2Fcms.webershandwick.com%2Fwp-content%2Fuploads%2F2025%2F04%2Fgoingup_sitehero.jpg&w=1920&q=75",
         },
       },
     ],
