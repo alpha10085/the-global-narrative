@@ -1,6 +1,6 @@
 .container {
   width: calc(100vw / 3.7);
-  min-width: 300px;
+  min-width: 250px;
 
   background-color: #f3f3f3a1;
   border-radius: 30px;
@@ -8,12 +8,17 @@
   padding-bottom: 20px;
   position: relative;
   overflow: hidden;
+  height: auto;
+  aspect-ratio: 4/4;
+  text-align: start;
+  z-index: 10;
+  flex-grow: 1;
+  max-width: 100%;
 }
 .head {
-
+  height: max-content;
 }
 .left {
-
   max-width: 60%;
 }
 .jobtitle {
@@ -22,12 +27,14 @@
   font-weight: 500;
 }
 .author {
-font-size: 20px;
+  font-size: 20px;
 }
 
 .poster {
-  width: 170px;
-  height: 170px;
+  width: 45%;
+  max-width: 170px;
+  height: auto;
+  aspect-ratio: 1/1;
   position: absolute;
   right: -30px;
   top: -30px;
@@ -45,7 +52,7 @@ font-size: 20px;
 .content {
   font-weight: 600;
   line-height: 1.5;
-  font-size: 17px;
+  font-size: clamp(12px, 3.5vw, 17px);
 }
 .triangle {
   width: 30px;
@@ -54,7 +61,15 @@ font-size: 20px;
 }
 
 .triangles {
-  position: absolute;
-  bottom: 10px;
+  /* position: absolute;
+  bottom: 10px; */
+  margin-bottom: 10px;
 }
 
+
+@media (max-width:550px) {
+  .container {
+    aspect-ratio: unset;
+    height: 420px;
+  }
+}

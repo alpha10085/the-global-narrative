@@ -1,13 +1,19 @@
 .container {
   min-height: 80vh;
   width: 100%;
-  margin: 0 auto 50px;
+  margin: 0 auto;
+  padding: 50px 0 80px;
   overflow: hidden;
-  padding-left: 5%;
+
+  
+  overflow: hidden;
 }
 
 .list {
-  width: max-content;
+width: 100%;
+}
+.title {
+  padding-left: 5%;
 }
 
 .card {
@@ -17,6 +23,11 @@
 
 .list.active .card {
   animation: introCard 0.8s ease forwards;
+}
+
+.swiper {
+  width: 100%;
+  padding-left: 5%;
 }
 
 @keyframes introCard {
@@ -29,3 +40,5 @@
     transform: translate(0);
   }
 }
+
+

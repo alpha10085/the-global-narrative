@@ -21,9 +21,9 @@ const Home = async () => {
       {/* <Hero data={heroSection} /> */}
       {/* <AboutUs data={aboutUsSection} /> */}
       {/* <Quote data={quoteSection} /> */}
-      <News data={newsSection} />
-      {/* <Testimonials data={testimonialSection} />
-      <GetInTouch  data={getInTouchSection} /> */}
+      {/* <News data={newsSection} /> */}
+      <Testimonials data={testimonialSection} />
+      {/* <GetInTouch  data={getInTouchSection} /> */}
     </div>
   );
 };

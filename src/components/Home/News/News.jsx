@@ -8,12 +8,8 @@ import { Autoplay } from "swiper/modules";
 import { useRef, useState, useEffect } from "react";
 
 const News = ({ data = {} }) => {
-  const [swiperSection, setSwiperSection] = useState(0);
   const swiperRef = useRef(null);
 
-  const slideTo = (i = 0) => {
-    swiperRef.current?.swiper?.slideTo(i);
-  };
 
   // 👇 Stop autoplay if screen width <= 550px
   useEffect(() => {
@@ -45,7 +41,6 @@ const News = ({ data = {} }) => {
       >
         <Swiper
           ref={swiperRef}
-          onSlideChange={(e) => setSwiperSection(e.realIndex)}
           className={styles.swiper}
           autoplay={{
             delay: 2000,
