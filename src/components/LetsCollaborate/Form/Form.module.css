@@ -1,15 +1,12 @@
-.main {
-  width: calc(50% - 20px);
-  flex-grow: 1;
-  margin: 0 auto;
-  max-width: 750px;
-}
+
 .title {
   font-size: 24px;
   margin-bottom: 10px;
 }
 .form {
-  width: 100%;
+  max-width: 100%;
+  width: 700px;
+  margin: 0 auto;
   z-index: 10;
 }
 .label {
