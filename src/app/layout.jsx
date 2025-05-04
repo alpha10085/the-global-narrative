@@ -48,6 +48,10 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
+  other: {
+    'color-scheme': 'light dark',
+    'supported-color-schemes': 'light',
+  },
 };
 
 export default async function RootLayout({ children }) {
