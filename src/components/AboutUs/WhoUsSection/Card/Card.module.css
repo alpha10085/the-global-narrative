@@ -14,8 +14,9 @@
 }
 
 .jobTitle {
-  font-size: 15px;
-  color: gray;
+  font-weight: 500;
+  font-size: clamp(16px, 3vw, 15px);
+  color: #333333;
 }
 
 .name {
