@@ -3,3 +3,26 @@ min-height: 60vh;
 width: 90%;
 margin: 50px auto;
 }
+
+.card {
+    transform: translateY(30%);
+    opacity: 0;
+  }
+  
+  .list.active .card {
+    animation: introCard 0.8s ease forwards;
+  }
+  
+
+  
+  @keyframes introCard {
+    from {
+      transform: translateY(30%);
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+      transform: translate(0);
+    }
+  }
+  

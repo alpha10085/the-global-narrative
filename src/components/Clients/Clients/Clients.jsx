@@ -1,5 +1,5 @@
 "use client"
-import { useInView } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import styles from "./Clients.module.css";
 import Img from "@/components/Shared/img/Img";
 
