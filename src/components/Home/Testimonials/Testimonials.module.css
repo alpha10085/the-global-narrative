@@ -46,8 +46,9 @@ width: 100%;
 
 @media (max-width:550px) {
   .container {
-    padding:  40px  0 20px;
-  
-  
+    padding:  40px  0 30px;
+  }
+  .list{
+    margin-top: 10px;
   }
 }

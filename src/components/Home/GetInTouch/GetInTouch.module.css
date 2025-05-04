@@ -13,8 +13,9 @@
 }
 .description {
   line-height: 1.5;
-  font-size: clamp(12px, 3vw, 18px);
-  font-weight: 600;
+  font-weight: 500;
+  font-size: clamp(16px, 3vw, 18px);
+  color: #333333;
 }
 
 .poster {
