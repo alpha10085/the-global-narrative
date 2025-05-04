@@ -24,12 +24,7 @@ const MobileNav = forwardRef(({ isOpen, SetOpen ,pathname }, BtnRemoteRef) => {
     >
       <div className={styles.MobileNav}>
         <ul onClick={close} className={`${styles.navList} flex column gap10`}>
-          <li>
-            <Link className={`flex-c gap5  ${"/" === pathname && styles.active}`} href={"/"}>
-              Home
-              {links?.[1].icon}
-            </Link>
-          </li>
+
           {links.map((val, i) => (
             <li key={i}>
               <Link className={`flex-c gap5  ${val.href === pathname && styles.active}`} href={val.href} key={i}>

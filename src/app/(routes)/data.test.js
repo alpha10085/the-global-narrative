@@ -9,6 +9,13 @@ export const getHomePage = () => {
           url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1746230310/Edge-81_vghfyo.jpg",
         },
       },
+      {
+        title: "We’re built for the era of earned",
+        media: {
+          mimetype: "image",
+          url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1746230310/Edge-81_vghfyo.jpg",
+        },
+      },
     ],
     aboutUsSection: {
       title: "WHERE VISION MEETS STRUCTURE",

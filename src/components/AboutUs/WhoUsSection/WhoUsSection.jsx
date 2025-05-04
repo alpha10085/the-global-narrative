@@ -8,7 +8,7 @@ const WhoUsSection = ({ data = {} }) => {
       <SectionTitle title={data?.title} className={styles.title} />
       <div className={`${styles.list} mt-20`}>
         {data?.members?.map((val) => (
-          <Card data={val} />
+          <Card data={val} key={val?._id} />
         ))}
       </div>
     </div>

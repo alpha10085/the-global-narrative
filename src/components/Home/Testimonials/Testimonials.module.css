@@ -1,13 +1,31 @@
 .container {
-    min-height: 80vh;
-    width: 100%;
-    margin: 80px auto 30px;
-    overflow: hidden;
-    padding-left: 5%;
-    
+  min-height: 80vh;
+  width: 100%;
+  margin: 0 auto 50px;
+  overflow: hidden;
+  padding-left: 5%;
 }
 
 .list {
-    width: max-content;
+  width: max-content;
+}
+
+.card {
+  transform: translateY(30%);
+  opacity: 0;
+}
+
+.list.active .card {
+  animation: introCard 0.8s ease forwards;
+}
+
+@keyframes introCard {
+  from {
+    transform: translateY(30%);
+    opacity: 0;
   }
-  
+  to {
+    opacity: 1;
+    transform: translate(0);
+  }
+}

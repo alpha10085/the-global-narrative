@@ -34,13 +34,15 @@
 }
 
 .navList a:hover {
-  background-color: rgba(221, 0, 255, 0.1);
-  color: rgb(255, 0, 255);
+  
+  background-color: rgba(164, 250, 253, 0.6);
+  color: rgb(0, 195, 255);
 }
 
 .navList a.active {
-  background-color: rgba(221, 0, 255, 0.1);
-  color: rgb(255, 0, 255);
+  
+  background-color: rgba(164, 250, 253, 0.6);
+  color: rgb(0, 195, 255);
 }
 
 .nav:has(a:hover) a.active:not(:hover) {
@@ -55,11 +57,11 @@
   z-index: 99;
   width: 90%;
   height: 100vh;
-  background-color: black;
+  background-color: rgb(255, 255, 255);
   transition: 0.3s;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-right: 1px solid #ffffff24;
-  background-color: rgba(0, 0, 0, 0.701);
+  background-color: rgb(255, 255, 255);
   backdrop-filter: blur(15px);
 }
 
