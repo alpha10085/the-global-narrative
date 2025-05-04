@@ -1,0 +1,23 @@
+.label {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 5px;
+}
+.labeltitle {
+font-size: 14px;
+
+text-transform: capitalize;
+}
+.input {
+    width: 100%;
+    margin: 10px 0;
+padding:15px ;
+border: none;
+outline: none;
+border-bottom: 2px solid rgb(220, 220, 220);
+}
+.input::placeholder {
+   text-transform: capitalize;
+   font-weight: 400;
+}

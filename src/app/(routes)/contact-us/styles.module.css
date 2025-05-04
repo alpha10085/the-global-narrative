@@ -1,0 +1,26 @@
+.section {
+  min-height: 90dvh;
+  max-width: 90%;
+  margin: 130px auto 0;
+  width: 800px;
+}
+.top {
+}
+.title {
+  font-size: clamp(30px, 3.5vw, 4vw);
+}
+.description {
+  margin: 15px 0;
+  font-size: clamp(12px, 1.2vw, 3vw);
+  color: gray;
+  line-height: 170%;
+}
+.AnimtionWrap {
+  transform: translateY(100%);
+  opacity: 0;
+  transition: 0.3s;
+}
+.AnimtionWrap.event {
+  transform: translateY(0);
+  opacity: 1;
+}

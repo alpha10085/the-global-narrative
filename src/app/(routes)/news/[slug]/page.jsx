@@ -1,7 +1,7 @@
 import Img from "@/components/Shared/img/Img";
 import { getFakeOneNews } from "../data.test";
 import styles from "./styles.module.css";
-import SideBar from "./SideBar";
+import FormatText from "@/components/Shared/FormatText/FormatText";
 
 const Page = async (props) => {
   const { slug = "" } = await props.params;
@@ -19,24 +19,12 @@ const Page = async (props) => {
       </div>
 
       {/* Bottom Section */}
-      <div className={styles.content}>
-        {/* Left: Sticky Nav */}
-        <SideBar data={data} />
-
-        {/* Right: Description Sections */}
-        <main className={styles.main}>
-          <p className="mb-15">{data?.description}</p>
-          {data?.content?.map((section, index) => (
-            <section
-              key={index}
-              id={`section-${index}`}
-              className={styles.section}
-            >
-              <h2>{section?.title}</h2>
-              <p>{section?.description}</p>
-            </section>
-          ))}
-        </main>
+      <div className={`${styles.content} flex gap20 column`}>
+        <h1>{data?.title}</h1>
+        <FormatText
+          className={`${styles.cardDescription}`}
+          text={data?.content}
+        />
       </div>
     </section>
   );

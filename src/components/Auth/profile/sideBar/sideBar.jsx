@@ -3,7 +3,7 @@ import Link from "@/components/Shared/LocalizedLink/Link";
 import styles from "./sideBar.module.css";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/AuthProvider";
-import Skeleton from "../../shared/Skeleton/skeleton";
+import Skeleton from "../../Shared/Skeleton/skeleton";
 const SideBar = () => {
   const { session, logOut, isLoading } = useAuth();
   let isSeller =

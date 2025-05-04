@@ -2,7 +2,7 @@ import useDynamicState from "@/hooks/useDynamicState";
 import styles from "./AddNewComponentControl.module.css";
 import Input from "../../Components/Input/Input";
 import { useMemo } from "react";
-import AsyncButton from "@/components/shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
 
 import { createComponent } from "@/lib/tools";
 import { validateComponentName } from "./helpers";

@@ -1,13 +1,14 @@
-
 .layout {
-    margin-top: 150px;
+  margin-top: 150px;
+  width: 90%;
+  margin: 150px auto 50px;
 }
-.Aos{
-    transform: translateY(20px);
-    transition: 0.6s;
-    opacity: 0;
+.Aos {
+  transform: translateY(20px);
+  transition: 0.6s;
+  opacity: 0;
 }
 .Aos.active {
-    transform: translate(0);
-    opacity: 1;
+  transform: translate(0);
+  opacity: 1;
 }

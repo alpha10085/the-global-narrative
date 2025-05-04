@@ -307,7 +307,14 @@ export const getFakeNews = () => {
       createdAt: new Date("2023-08-02T00:00:00Z"),
     },
   ];
-  return news;
+  const updatedNews = news.map(item => ({
+    ...item,
+    content: item.content
+      .map(block => `${block.title}\n${block.description}`)
+      .join('\n\n') // Use double newlines to separate sections
+  }));
+
+  return updatedNews
 };
 
 export const getFakeOneNews = (slug) => {
