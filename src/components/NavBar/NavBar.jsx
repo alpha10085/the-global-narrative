@@ -13,7 +13,6 @@ import MainLogo from "../MainLogo/MainLogo";
 import { usePathname } from "@/hooks/useTranslations";
 import { links } from "./Links";
 const NavBar = () => {
-  const { session = null, isLoading = true } = {};
   const [openMobil, setOpenMobile] = useState(false);
   const BurgerBtnRef = useRef(null);
   const [navMode, setNavMode] = useState({
@@ -21,7 +20,7 @@ const NavBar = () => {
     darkMode: true,
   });
   const { pathname, pathes } = usePathname();
-  const transparentPathes = ["/", ];
+  const transparentPathes = [];
   const darkModePathes = [];
 
   const targetScroll = 250;
@@ -96,6 +95,7 @@ const NavBar = () => {
       <MobileNav
         ref={BurgerBtnRef}
         isOpen={openMobil}
+        pathname={pathname}
         SetOpen={setOpenMobile}
       />
     </header>

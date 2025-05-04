@@ -102,3 +102,14 @@
 .nav.darkMode .link:hover::before {
   background-color: rgb(0, 0, 0);
 }
+
+
+@media (max-width:930px) {
+  .rightUl {
+    display: none !important;
+  }
+
+  .burgerIcon {
+    display: flex !important;
+  }
+}
