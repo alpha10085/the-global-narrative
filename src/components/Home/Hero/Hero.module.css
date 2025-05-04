@@ -51,7 +51,7 @@
   width: 35px;
   height: 35px;
   border-radius: 30px;
-  
+
   background-color: rgba(255, 255, 255, 0.07);
   cursor: pointer;
   transition: 0.3s;
@@ -83,20 +83,25 @@
   cursor: pointer;
 }
 
-.point:nth-child(3) {
+.point.active {
   background-color: white;
   transform: scale(1.4);
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.337);
 }
-.point:hover {
+.point:hover:not(.point.active) {
   background-color: rgba(255, 255, 255, 0.7);
   color: black;
   transform: scale(1.2);
 }
 
-.arrow:hover {
+.arrow:hover:not(.arrow.disabled) {
   background-color: white;
   color: black;
   transform: scale(1.2);
-  
+}
+.arrow.disabled {
+  border: 1px dashed white;
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
 }

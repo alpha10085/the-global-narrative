@@ -1,9 +1,14 @@
 import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
 
-const Card = ({ data }) => {
+const Card = ({ delay = 0, className = "", data }) => {
   return (
-    <div className={styles.container}>
+    <div
+      style={{
+        animationDelay: `${delay}s`,
+      }}
+      className={`${styles.container}  ${className}`}
+    >
       <div className={styles.head}>
         <div className={`${styles.left} gap5 flex column`}>
           <h1 className={styles.author}>@{data?.author}</h1>

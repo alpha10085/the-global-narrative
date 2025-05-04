@@ -4,10 +4,17 @@ import Link from "@/components/Shared/LocalizedLink/Link";
 import { formatDate } from "@/utils/date";
 import { customText } from "@/utils/text";
 import { ArrowOutwardIcon } from "../../icons";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
-const Card = ({ data = {} }) => {
+const Card = ({ delay = 0, className = "", data = {} }) => {
   return (
-    <Link href={`/news/${data?.slug}`} className={styles.container}>
+    <Link
+      style={{
+        animationDelay: `${delay}s`,
+      }}
+      href={`/news/${data?.slug}`}
+      className={`${styles.container} ${className}`}
+    >
       <Img className={styles.cover} url={data?.cover?.url} />
       <div className={`${styles.content} flex  al-i-c  w-100 just-sb mt-10`}>
         <div className={`${styles.left} flex column gap5 `}>

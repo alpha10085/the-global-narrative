@@ -2,6 +2,7 @@ import Link from "@/components/Shared/LocalizedLink/Link";
 import styles from "./AboutUs.module.css";
 import { ArrowOutwardIcon } from "../icons";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const AboutUs = ({ data = {} }) => {
   return (
@@ -12,18 +13,31 @@ const AboutUs = ({ data = {} }) => {
         className={`${styles.title} `}
         text={data?.title}
       />
-      <p className={styles.description}> {data?.description}</p>
+      <Aos
+        activeClassName={styles.active}
+        className={styles.aos}
+        triggerOnce
+        delay={800}
+      >
+        <p className={styles.description}> {data?.description}</p>
+      </Aos>
+      <Aos
+        activeClassName={styles.active}
+        className={styles.aosBtn}
+        triggerOnce
+        delay={800}
+      >
+        <Link href={"/about-us"} className={`${styles.link} flex-c   column`}>
+          <span> explore</span>
+          <span> Who US</span>
 
-      <Link href={"/about-us"} className={`${styles.link} flex-c   column`}>
-        <span> explore</span>
-        <span> Who US</span>
-
-        <div className={styles.arrowWrapper}>
-          <span className={`${styles.arrow} flex-c`}>
-            <ArrowOutwardIcon />
-          </span>
-        </div>
-      </Link>
+          <div className={styles.arrowWrapper}>
+            <span className={`${styles.arrow} flex-c`}>
+              <ArrowOutwardIcon />
+            </span>
+          </div>
+        </Link>
+      </Aos>
     </div>
   );
 };
