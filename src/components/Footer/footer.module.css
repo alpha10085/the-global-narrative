@@ -5,26 +5,22 @@
   z-index: 10;
   background-color: black;
   position: relative;
-  /* min-height: 50vh; */
   border-radius: 50px 50px 0 0;
   padding: 50px 5%;
   color: white;
 }
-
 
 .logo {
   height: 100px;
 }
 .right {
   width: 50%;
-
 }
 .list {
   width: 100%;
 }
 
 .link {
-  padding: 5px 15px ;
   font-size: 20px;
 }
 
@@ -32,6 +28,42 @@
   margin-top: 50px;
 }
 
-.ScoialLinks svg {
-  font-size: 40px;
+.ScoialLinks svg:not(.TikTokLogo) {
+  width: 40px;
+  height: 40px;
+  color: white;
+}
+.TikTokLogo {
+  width: auto !important;
+  height: 38px !important;
+  aspect-ratio: 3.5/4;
+  margin-bottom: 10px;
+}
+
+
+@media (max-width: 768px) {
+  .top,
+  .left {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .list {
+    flex-direction: row !important;
+    margin: 20px 0 !important;
+    justify-content: center;
+  }
+  .ScoialLinks {
+    gap: 20px !important;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  .logo {
+    height: 20vw;
+    max-height: 90px;
+  }
+
 }

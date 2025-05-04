@@ -18,13 +18,13 @@ const Home = async () => {
   } = getHomePage();
   return (
     <div className={styles.layout}>
-      <Hero data={heroSection} />
+      {/* <Hero data={heroSection} /> */}
       <AboutUs data={aboutUsSection} />
-      <Quote data={quoteSection} />
-      <News data={newsSection} />
-      <Testimonials data={testimonialSection} />
+      {/* <Quote data={quoteSection} /> */}
+      {/* <News data={newsSection} /> */}
+      {/* <Testimonials data={testimonialSection} /> */}
 
-      <GetInTouch  data={getInTouchSection} />
+      {/* <GetInTouch  data={getInTouchSection} /> */}
     </div>
   );
 };

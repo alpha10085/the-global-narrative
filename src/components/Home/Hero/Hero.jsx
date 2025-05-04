@@ -20,10 +20,10 @@ const Hero = ({ data = {} }) => {
         ref={swiperRef}
         onSlideChange={(e) => setSwiperSection(e.realIndex)}
         className={`${styles.swiper}   `}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
+        // autoplay={{
+        //   delay: 2000,
+        //   disableOnInteraction: false,
+        // }}
         speed={1000}
         loop={true}
         modules={[Autoplay]}

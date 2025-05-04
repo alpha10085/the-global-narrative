@@ -12,11 +12,11 @@ export default async function RootLayout({ children }) {
       }}
       className="ShowSmoothEffectShortDelay"
     >
-      <NavBar />
-      {/* <div style={{ minHeight: "100vh" }}>{children}</div> */}
+      {/* <NavBar /> */}
+      <div style={{ minHeight: "100vh" }}>{children}</div>
       <Toaster />
       <DashPopup />
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 }
