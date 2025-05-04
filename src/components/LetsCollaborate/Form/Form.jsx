@@ -45,8 +45,6 @@ const Form = () => {
   };
 
   return (
-    <div className={styles.main}>
-      <h1 className={styles.title}>Personal Details</h1>
 
       <form
         onSubmit={handleSubmit(handleClick)}
@@ -95,7 +93,6 @@ const Form = () => {
           send
         </button>
       </form>
-    </div>
   );
 };
 
