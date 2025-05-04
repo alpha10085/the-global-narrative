@@ -24,7 +24,7 @@ const Hero = ({ data = {} }) => {
           disableOnInteraction: false,
         }}
         speed={1000}
-        loop={true}
+        loop={false}
         modules={[Autoplay]}
       >
         {data?.map((val, index) => (
