@@ -5,32 +5,62 @@ import Card from "./Card/Card";
 import styles from "./News.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 const News = ({ data = {} }) => {
   const swiperRef = useRef(null);
+  const containerRef = useRef(null);
 
-
-  // 👇 Stop autoplay if screen width <= 550px
   useEffect(() => {
+    const swiperInstance = swiperRef.current?.swiper;
+    if (!swiperInstance) return;
+
+    // Stop autoplay initially
+    swiperInstance.autoplay?.stop();
+
+    // Use IntersectionObserver to start autoplay when section is in view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (window.innerWidth > 550) {
+            swiperInstance.autoplay?.start();
+          }
+          observer.disconnect(); // Optional: Only trigger once
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    // Handle screen resize
     const handleResize = () => {
-      const swiperInstance = swiperRef.current?.swiper;
-      if (!swiperInstance || !swiperInstance.autoplay) return;
+      if (!swiperInstance.autoplay) return;
 
       if (window.innerWidth <= 550) {
         swiperInstance.autoplay.stop();
-      } else {
+      } else if (containerRef.current && isInViewport(containerRef.current)) {
         swiperInstance.autoplay.start();
       }
     };
 
-    handleResize(); // Run on mount
+    const isInViewport = (el) => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom >= 0;
+    };
+
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      observer.disconnect();
+    };
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={containerRef}>
       <div className={styles.title}>
         <SectionTitle title={data?.title} />
       </div>
@@ -51,26 +81,11 @@ const News = ({ data = {} }) => {
           slidesPerView={1.1}
           spaceBetween={10}
           breakpoints={{
-            550: {
-              slidesPerView: 2,
-              spaceBetween: 10,
-            },
-            768: {
-              slidesPerView: 2.5,
-              spaceBetween: 10,
-            },
-            990: {
-              slidesPerView: 3,
-              spaceBetween: 10,
-            },
-            1100: {
-              slidesPerView: 3.4,
-              spaceBetween: 10,
-            },
-            1300: {
-              slidesPerView: 3.4,
-              spaceBetween: 10,
-            },
+            550: { slidesPerView: 2, spaceBetween: 10 },
+            768: { slidesPerView: 2.5, spaceBetween: 10 },
+            990: { slidesPerView: 3, spaceBetween: 10 },
+            1100: { slidesPerView: 3.4, spaceBetween: 10 },
+            1300: { slidesPerView: 3.4, spaceBetween: 10 },
           }}
           modules={[Autoplay]}
         >

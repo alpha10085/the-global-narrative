@@ -3,6 +3,8 @@
   text-transform: uppercase;
   font-weight: 600;
   font-size: 18px;
+
+
 }
 
 .link .contnet {
@@ -37,4 +39,11 @@
 
 .link:hover .arrow {
   transform: translate(-5px, -15px);
+}
+
+
+@media (max-width:768px) {
+  .link {
+    transform: translateX(15px);
+  }
 }
