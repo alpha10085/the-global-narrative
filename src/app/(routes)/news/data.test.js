@@ -28,7 +28,6 @@ const categories = [
   },
 ];
 
-
 export const getpage = () => {
   return {
     title: "Latest News",
@@ -218,134 +217,95 @@ export const getFakeNews = () => {
       category: categories?.[4],
       createdAt: new Date("2025-05-04T14:00:00Z"),
     },
-    [
-      {
-        _id: "59596",
-        slug: "5-Steps-to-Mastering-PR-Events-Learn-from-Our-Success-Stories",
-        title: "5 Steps to Mastering PR Events: Learn from Our Success Stories",
-        poster: {
-          url: "https://cc-plus.com/wp-content/uploads/2023/02/50d18d43-29c9-4680-8525-5e0319d2d978.jpg",
-        },
-        description:
-          "Discover how to elevate your public relations events with actionable steps inspired by our most successful case studies.",
-        content: [
-          {
-            title: "Step 1: Set Clear Objectives",
-            description:
-              "Begin with a focused vision and KPIs to guide your PR event planning and execution.",
-          },
-          {
-            title: "Step 2: Craft a Compelling Narrative",
-            description:
-              "Align messaging with brand values and audience interests to capture attention.",
-          },
-          {
-            title: "Step 3: Choose the Right Venue and Timing",
-            description:
-              "Ensure your location and scheduling complement your goals and audience preferences.",
-          },
-          {
-            title: "Step 4: Engage Through Storytelling",
-            description:
-              "Leverage visual, experiential, and digital elements to enhance storytelling.",
-          },
-          {
-            title: "Step 5: Measure Impact and Iterate",
-            description:
-              "Use post-event metrics and feedback to optimize future campaigns.",
-          },
-        ],
-        category: categories?.[4],
-        createdAt: new Date("2023-08-02T00:00:00Z"),
+
+    {
+      _id: "59596",
+      slug: "5-Steps-to-Mastering-PR-Events-Learn-from-Our-Success-Stories",
+      title: "5 Steps to Mastering PR Events: Learn from Our Success Stories",
+      poster: {
+        url: "https://cc-plus.com/wp-content/uploads/2023/02/50d18d43-29c9-4680-8525-5e0319d2d978.jpg",
       },
-      {
-        _id: "595960",
-        slug: "pr-theater-two-sides-of-the-same-coin",
-        title: "PR & Theater: Two Sides of The Same Coin",
-        poster: {
-          url: "https://cc-plus.com/wp-content/uploads/2023/03/adcb7d5c-3b55-4b03-b359-c6e228e858c9.jpg",
+      description:
+        "Discover how to elevate your public relations events with actionable steps inspired by our most successful case studies.",
+      content: [
+        {
+          title: "Step 1: Set Clear Objectives",
+          description:
+            "Begin with a focused vision and KPIs to guide your PR event planning and execution.",
         },
-        description:
-          "Explore how the worlds of public relations and theater intersect to influence audience perception and storytelling.",
-        content: [
-          {
-            title: "Shared Elements of Storytelling",
-            description:
-              "Both PR and theater rely on emotional arcs and audience engagement to deliver messages effectively.",
-          },
-          {
-            title: "Role of Timing and Performance",
-            description:
-              "Strategic timing and delivery in PR mimic theatrical performance techniques to maximize impact.",
-          },
-        ],
-        category: categories?.[0],
-        createdAt: new Date("2023-08-02T00:00:00Z"),
-      },
-      {
-        _id: "59526",
-        slug: "cop27-breathes-new-life-into-sharm-el-sheikh-after-covid-19-paralysis",
-        title:
-          "COP27 Breathes New Life Into Sharm El Sheikh After Covid-19 Paralysis",
-        poster: {
-          url: "https://cc-plus.com/wp-content/uploads/2022/11/314894091_494549482705912_8007404359689407650_n-1.jpg",
+        {
+          title: "Step 2: Craft a Compelling Narrative",
+          description:
+            "Align messaging with brand values and audience interests to capture attention.",
         },
-        description:
-          "The global climate summit repositions Sharm El Sheikh as a hub of diplomacy, sustainability, and tourism post-pandemic.",
-        content: [
-          {
-            title: "COP27's Economic Impact",
-            description:
-              "The summit generated momentum in hospitality, tourism, and infrastructure sectors in Sharm El Sheikh.",
-          },
-          {
-            title: "Global Spotlight on Sustainability",
-            description:
-              "Egypt seized the moment to lead climate conversations and showcase its green transition strategy.",
-          },
-        ],
-        category: categories?.[2],
-        createdAt: new Date("2023-08-02T00:00:00Z"),
-      },
-      {
-        _id: "99596",
-        slug: "5-Steps-to-Mastering-PR-Events-Learn-from-Our-Success-Stories",
-        title: "5 Steps to Mastering PR Events: Learn from Our Success Stories",
-        poster: {
-          url: "https://cc-plus.com/wp-content/uploads/2022/11/314894091_494549482705912_8007404359689407650_n-1.jpg",
+        {
+          title: "Step 3: Choose the Right Venue and Timing",
+          description:
+            "Ensure your location and scheduling complement your goals and audience preferences.",
         },
-        description:
-          "Learn from successful case studies to master your approach to public relations events with five key strategies.",
-        content: [
-          {
-            title: "Step 1: Set Clear Objectives",
-            description:
-              "Define what success looks like before planning begins.",
-          },
-          {
-            title: "Step 2: Craft a Compelling Narrative",
-            description:
-              "Make your messaging resonate deeply with the audience.",
-          },
-          {
-            title: "Step 3: Choose the Right Venue and Timing",
-            description:
-              "Location and timing play a critical role in turnout and experience.",
-          },
-          {
-            title: "Step 4: Engage Through Storytelling",
-            description: "Use authentic storytelling to connect and inspire.",
-          },
-          {
-            title: "Step 5: Measure Impact and Iterate",
-            description:
-              "Always learn from data and improve the next initiative.",
-          },
-        ],
-        category: categories?.[1],
-        createdAt: new Date("2023-08-02T00:00:00Z"),
+        {
+          title: "Step 4: Engage Through Storytelling",
+          description:
+            "Leverage visual, experiential, and digital elements to enhance storytelling.",
+        },
+        {
+          title: "Step 5: Measure Impact and Iterate",
+          description:
+            "Use post-event metrics and feedback to optimize future campaigns.",
+        },
+      ],
+      category: categories?.[4],
+      createdAt: new Date("2023-08-02T00:00:00Z"),
+    },
+    {
+      _id: "595960",
+      slug: "pr-theater-two-sides-of-the-same-coin",
+      title: "PR & Theater: Two Sides of The Same Coin",
+      poster: {
+        url: "https://cc-plus.com/wp-content/uploads/2023/03/adcb7d5c-3b55-4b03-b359-c6e228e858c9.jpg",
       },
-    ],
+      description:
+        "Explore how the worlds of public relations and theater intersect to influence audience perception and storytelling.",
+      content: [
+        {
+          title: "Shared Elements of Storytelling",
+          description:
+            "Both PR and theater rely on emotional arcs and audience engagement to deliver messages effectively.",
+        },
+        {
+          title: "Role of Timing and Performance",
+          description:
+            "Strategic timing and delivery in PR mimic theatrical performance techniques to maximize impact.",
+        },
+      ],
+      category: categories?.[0],
+      createdAt: new Date("2023-08-02T00:00:00Z"),
+    },
+    {
+      _id: "59526",
+      slug: "cop27-breathes-new-life-into-sharm-el-sheikh-after-covid-19-paralysis",
+      title:
+        "COP27 Breathes New Life Into Sharm El Sheikh After Covid-19 Paralysis",
+      poster: {
+        url: "https://cc-plus.com/wp-content/uploads/2022/11/314894091_494549482705912_8007404359689407650_n-1.jpg",
+      },
+      description:
+        "The global climate summit repositions Sharm El Sheikh as a hub of diplomacy, sustainability, and tourism post-pandemic.",
+      content: [
+        {
+          title: "COP27's Economic Impact",
+          description:
+            "The summit generated momentum in hospitality, tourism, and infrastructure sectors in Sharm El Sheikh.",
+        },
+        {
+          title: "Global Spotlight on Sustainability",
+          description:
+            "Egypt seized the moment to lead climate conversations and showcase its green transition strategy.",
+        },
+      ],
+      category: categories?.[2],
+      createdAt: new Date("2023-08-02T00:00:00Z"),
+    },
   ];
   return news;
 };

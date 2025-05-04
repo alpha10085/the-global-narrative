@@ -15,7 +15,7 @@ const Card = ({ delay = 0, className = "", data = {} }) => {
       href={`/news/${data?.slug}`}
       className={`${styles.container} ${className}`}
     >
-      <Img className={styles.cover} url={data?.cover?.url} />
+      <Img className={styles.cover} url={data?.poster?.url} />
       <div className={`${styles.content} flex  al-i-c  w-100 just-sb mt-10`}>
         <div className={`${styles.left} flex column gap5 `}>
           <h3 className={styles.date}>{formatDate(data?.date)}</h3>

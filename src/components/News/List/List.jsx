@@ -36,8 +36,9 @@ const List = ({ page = {}, categories = [] }) => {
   const categoriesQuery = searchParams?.categories?.split(",") || [];
 
   const searchQuery = (searchParams?.search || "").toLocaleLowerCase();
+  const ogData = getFakeNews(5)
 
-  const data = { pages: getFakeNews(6) };
+  const data = { pages: ogData };
   const isLoading = false;
   const hasNextPage = false;
   const fetchNextPage = () => {};

@@ -67,7 +67,7 @@ const Testimonials = ({ data = {} }) => {
         <SectionTitle title={data?.title} />
       </div>
       <Aos
-        delay={500}
+        delay={200}
         activeClassName={styles.active}
         className={`${styles.list} flex mt-30 gap20 al-i-c`}
       >
