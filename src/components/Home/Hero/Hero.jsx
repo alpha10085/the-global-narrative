@@ -2,7 +2,6 @@
 import styles from "./Hero.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Img from "@/components/Shared/img/Img";
-import WordPullUp from "@/components/Shared/Animtions/WordPullUp/WordPullUp";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
@@ -20,10 +19,10 @@ const Hero = ({ data = {} }) => {
         ref={swiperRef}
         onSlideChange={(e) => setSwiperSection(e.realIndex)}
         className={`${styles.swiper}   `}
-        // autoplay={{
-        //   delay: 2000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         speed={1000}
         loop={true}
         modules={[Autoplay]}

@@ -1,6 +1,8 @@
 .container {
   width: calc(100vw / 3.7);
-  min-width: 300px;
+  min-width: 250px;
+  flex-grow: 1;
+  max-width: 95%;
   transition: 0.8s;
 }
 .cover {
@@ -28,8 +30,6 @@
 }
 
 .right {
-  /* background-color: rgba(0, 0, 0, 0.158); */
-  /* color: white; */
   border-radius: 50%;
   width: 25px;
   height: 25px;
@@ -43,4 +43,25 @@
   background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
   transform: scale(1.2);
+}
+
+
+@media (max-width:550px) {
+  .right {
+    display: none !important;
+  }
+  .content {
+    justify-content: center;
+    text-align: center;
+  }
+  .cover {
+    border-radius: 15px;
+  }
+  .date {
+    font-size: 12px;
+  }
+  .title {
+    font-size: 12px;
+  }
+
 }
