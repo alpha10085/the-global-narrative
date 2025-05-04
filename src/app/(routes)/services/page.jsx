@@ -7,6 +7,7 @@ import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import MainLink from "@/components/MainLink/MainLink";
 import { customers } from "../clients/data.test";
+import FAQItem from "@/components/Services/FAQItem/FAQItem";
 // import { metadataHandler } from "@/utils/metadata";
 // import { getPage } from "@/lib/pages";
 
@@ -62,20 +63,22 @@ const Page = async () => {
       </div> */}
 
       {/* FAQ List */}
-      <div className={styles.faqSection}>
-        <SectionTitle
-          title="Frequently Asked Questions"
-          className={styles.faqTitle}
-        />
-        <div className={styles.faqList}>
-          {faqs?.map((faq, index) => (
-            <details key={index} className={styles.faqItem}>
-              <summary>{faq?.question}</summary>
-              <p>{faq?.answer}</p>
-            </details>
-          ))}
+        <div className={styles.faqSection}>
+          <SectionTitle
+            title="Frequently Asked Questions"
+            className={styles.faqTitle}
+          />
+          <div className={styles.faqList}>
+            {faqs?.map((faq, index) => (
+              <FAQItem
+                key={index}
+                question={faq?.question}
+                answer={faq?.answer}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+    
     </section>
   );
 };

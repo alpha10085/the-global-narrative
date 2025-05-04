@@ -58,27 +58,6 @@ display: flex;
   gap: 24px;
 }
 
-.faqItem {
-  background: #f1f1f1;
-  padding: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.4s;
-}
-
-.faqItem summary {
-  font-weight: bold;
-  font-size: 16px;
-  
-  transition: 0.4s;
-}
-
-.faqItem p {
-  margin-top: 8px;
-  color: #444;
-  font-size: 15px;
-}
-
 /* Get in touch */
 .getInTouchSection {
   max-width: 90%;
