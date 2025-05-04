@@ -7,6 +7,10 @@
   flex-direction: column;
 }
 
+.main {
+  flex-grow: 1;
+}
+
 .poster {
   border-radius: 12px;
   overflow: hidden;
@@ -62,17 +66,6 @@
 }
 
 @media (max-width: 1024px) {
-  .content {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .sidebar {
-    width: 100%;
-    position: static;
-    margin-bottom: 24px;
-  }
-
   .sidebar ul {
     margin: 20px 0;
     display: flex;
