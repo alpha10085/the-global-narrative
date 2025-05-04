@@ -47,16 +47,16 @@ export const getAboutUSPage = () => {
             url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1746310288/14-819x1024_kxu7hj.png",
           },
         },
-        {
-          _id: "2",
-          name: "Ahmed Abdul Naby",
-          jobTitle: "Chief Financial Officer (CFO)",
-          description:
-            "Ahmed brings extensive executive experience to CC Plus, overseeing the company's financial strategies and operations.",
-          image: {
-            url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1746310280/WhatsApp-Image-2020-05-17-at-10.50.15-AM_zqt7yo.webp",
-          },
-        },
+        // {
+        //   _id: "2",
+        //   name: "Ahmed Abdul Naby",
+        //   jobTitle: "Chief Financial Officer (CFO)",
+        //   description:
+        //     "Ahmed brings extensive executive experience to CC Plus, overseeing the company's financial strategies and operations.",
+        //   image: {
+        //     url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1746310280/WhatsApp-Image-2020-05-17-at-10.50.15-AM_zqt7yo.webp",
+        //   },
+        // },
         {
           _id: "3",
           name: "Dalia Kamal Ahmed",

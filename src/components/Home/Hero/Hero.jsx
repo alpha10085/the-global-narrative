@@ -82,7 +82,9 @@ const Hero = ({ data = {} }) => {
 
 const Media = (props = {}) => {
   const { mimetype = "image" } = props;
-  if (mimetype === "image") return <Img {...props} />;
+  if (mimetype === "image") return <Img 
+  disableSkeleton
+  {...props} />;
   if (mimetype === "video") return <div>video player</div>;
   return null;
 };
