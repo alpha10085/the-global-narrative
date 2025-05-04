@@ -11,18 +11,22 @@ import MainLink from "@/components/MainLink/MainLink";
 
 // export const generateMetadata = metadataHandler(getPage, `services`);
 const Page = async () => {
-  const data = await getpage("services");
+  const {
+    title = "",
+    description = "",
+    poster = {},
+    services = [],
+    contactSection = {},
+    faqs = [],
+    partners = [],
+  } = await getpage("services");
   return (
     <section className={styles.container}>
       {/* Hero  */}
-      <TemplateHero
-        title={data?.title}
-        description={data?.description}
-        poster={data?.poster}
-      />
+      <TemplateHero title={title} description={description} poster={poster} />
 
       {/* Service List */}
-      <ServicesList data={data} />
+      <ServicesList data={services} />
 
       {/* MarqueeLogos */}
       <div className={styles.logosSection}>
@@ -35,22 +39,24 @@ const Page = async () => {
             See all <span className={styles.arrow}>→</span>
           </Link>
         </div>
-        <MarqueeLogos data={data?.partners} />
+        <MarqueeLogos data={partners} />
       </div>
 
       {/* getInTouch Subscription */}
       <div className={styles.getInTouchSection}>
         <div className={styles.getInTouchContent}>
-          <div>
-            <h2 className={styles.getInTouchTitle}>Get In Touch</h2>
+          <div className=" mb-20">
+            <h2 className={styles.getInTouchTitle}>{contactSection?.title}</h2>
             <p className={styles.getInTouchText}>
-              We’d love to hear from you every great story starts with a simple
-              hello. Reach out and let’s create something meaningful together at
-              the global Narrative .
+              {contactSection?.description}
             </p>
           </div>
 
-          <MainLink text="Contact us" href={"/contact-us"} className={styles.getLink} />
+          <MainLink
+            text="Contact us"
+            href={"/contact-us"}
+            className={styles.getLink}
+          />
         </div>
       </div>
 
@@ -61,7 +67,7 @@ const Page = async () => {
           className={styles.faqTitle}
         />
         <div className={styles.faqList}>
-          {data?.faqs?.map((faq, index) => (
+          {faqs?.map((faq, index) => (
             <details key={index} className={styles.faqItem}>
               <summary>{faq?.question}</summary>
               <p>{faq?.answer}</p>
