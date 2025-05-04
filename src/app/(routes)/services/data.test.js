@@ -3,8 +3,8 @@ export const getpage = () => {
     title: "Our Services",
     description:
       "Strategic Public Relations solutions tailored to amplify your brand globally.",
-    poster : {
-      url : "https://res.cloudinary.com/dsed1slaz/image/upload/v1746294755/Edge-108_xthmz1.jpg"
+    poster: {
+      url: "https://res.cloudinary.com/dsed1slaz/image/upload/v1746294755/Edge-108_xthmz1.jpg",
     },
     services: [
       {
@@ -39,6 +39,13 @@ export const getpage = () => {
           "Engage audiences and enhance visibility through digital campaigns. We blend PR expertise with social media savvy to position your brand where it matters most—online. From influencer partnerships and branded content to reputation monitoring and real-time engagement, we ensure your message resonates across platforms. Our digital PR strategies are data-driven, creative, and always aligned with your brand’s voice and goals.",
       },
     ],
+
+    contactSection: {
+      title: "Get In Touch",
+      description: ` We’d love to hear from you every great story starts with a simple
+              hello. Reach out and let’s create something meaningful together at
+              the global Narrative .`,
+    },
 
     faqs: [
       {

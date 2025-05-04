@@ -4,7 +4,7 @@ import styles from "./ServicesList.module.css";
 import FormatText from "@/components/Shared/FormatText/FormatText";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
-const ServicesList = ({ data = {} }) => {
+const ServicesList = ({ data = [] }) => {
   const [expanded, setExpanded] = useState({});
 
   const toggleExpand = (index) => {
@@ -16,7 +16,7 @@ const ServicesList = ({ data = {} }) => {
 
   return (
     <div className={styles.servicesList}>
-      {data?.services?.map((service, index) => {
+      {data?.map((service, index) => {
         const isOpen = expanded[index];
 
         return (

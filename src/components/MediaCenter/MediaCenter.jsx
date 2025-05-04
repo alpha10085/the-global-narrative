@@ -5,6 +5,6 @@ const MediaCenter = async ({ page = {}, categories = [] }) => {
 };
 
 export const FallBack = () => {
-  return <div>Loading...</div>;
+  return <div className=" h-100">Loading...</div>;
 };
 export default MediaCenter;
