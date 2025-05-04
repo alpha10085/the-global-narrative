@@ -1,11 +1,11 @@
 import styles from "./styles.module.css";
-import { metadataHandler } from "@/utils/metadata";
-import { getPage } from "@/lib/pages";
+// import { metadataHandler } from "@/utils/metadata";
+// import { getPage } from "@/lib/pages";
 import Clients from "@/components/Clients/Clients/Clients";
 import { searchAndReplace } from "@/utils/text";
 import { customers } from "./data.test";
 
-export const generateMetadata = metadataHandler(getPage, `clients`);
+// export const generateMetadata = metadataHandler(getPage, `clients`);
 const Page = async (props) => {
   // const {
   //   title = "",
