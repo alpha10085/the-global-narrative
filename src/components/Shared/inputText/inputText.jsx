@@ -12,7 +12,7 @@ const InputText = ({
   onChange = () => {},
   name,
   placeholder,
-  showError,
+  showError = false,
   errors,
   className = "",
   type = "text",
@@ -21,6 +21,7 @@ const InputText = ({
   autoComplete = false,
   errorClassName = "",
   focus: triggerFocus = false,
+  inputClassName = "",
 }) => {
   const [focus, setFocus] = useState(false);
   const [hide, sethide] = useState(true);
@@ -28,7 +29,7 @@ const InputText = ({
   const inputRef = useRef(null);
   const currentval = watch(name);
   const isEmpty = !!currentval?.length;
-  const errormsg = JoiGetNestedError(errors, name);
+  const errormsg = JoiGetNestedError(errors, name) || null;
   const toggleHideText = () => {
     sethide(!hide);
   };
@@ -76,9 +77,10 @@ const InputText = ({
         {type === "textarea" ? (
           <textarea
             disabled={pending}
-            className={`${styles.input} ${
-              errormsg || showError ? styles.error : ""
-            }`}
+            className={`${styles.input} 
+            ${inputClassName}
+            ${styles.input}
+            ${errormsg || showError ? styles.error : ""}`}
             onFocus={handleFoucssClick}
             onBlur={autoComplete ? () => {} : onClickOutside}
             ref={inputRef}
@@ -91,7 +93,11 @@ const InputText = ({
             onBlur={autoComplete ? () => {} : onClickOutside}
             disabled={pending}
             type={type === "password" ? (hide ? "Password" : "text") : type}
-            className={`${styles.input} ${
+            className={`${styles.input}
+            
+            ${styles.input}
+            ${inputClassName}
+            ${
               errormsg || showError ? styles.error : ""
             }`}
             onChange={({ target }) => onChange(name, target?.value)}

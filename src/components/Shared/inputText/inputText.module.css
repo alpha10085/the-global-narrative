@@ -4,9 +4,8 @@
   position: relative;
 }
 
-.label input,
-.label textarea {
-  padding: 1px 5px 0 19px;
+.label .input {
+  padding: 6px 5px 0 18px;
   width: calc(100%);
   position: relative;
   z-index: 2;
@@ -19,20 +18,15 @@
   border: 1px solid rgb(195, 195, 195);
   outline: none;
 }
-html[dir="rtl"] .label input,
-.label textarea {
-  padding: 1px 19px 0 5px;
+html[dir="rtl"] .label .input {
+  padding: 6px 18px 0 5px;
 }
-.label textarea {
-  padding: 10px;
-}
-.label input,
-.label textarea:focus {
+
+.label .input:focus {
   border: 1px solid rgb(79, 79, 79);
 }
 
-.label input,
-.label textarea.error {
+.label .input.error {
   border: 1px solid red;
 }
 .placeholder {
@@ -107,23 +101,18 @@ html[dir="rtl"] .passwordIcon {
   background-color: rgb(0, 0, 0) !important;
 }
 
-.label.light input {
+.label.light .input {
   background-color: white;
 }
 
-.label.dark input,
-.label.dark textarea {
+.label.dark .input{
   background-color: rgb(0, 0, 0) !important;
 }
 
-.label.dark input:-webkit-autofill,
-.label.dark input:-webkit-autofill:hover,
-.label.dark input:-webkit-autofill:focus,
-.label.dark input:-webkit-autofill:active,
-.label.dark textarea:-webkit-autofill,
-.label.dark textarea:-webkit-autofill:hover,
-.label.dark textarea:-webkit-autofill:focus,
-.label.dark textarea:-webkit-autofill:active {
+.label.dark .input:-webkit-autofill,
+.label.dark .input:-webkit-autofill:hover,
+.label.dark .input:-webkit-autofill:focus,
+.label.dark .input:-webkit-autofill:active{
   -webkit-text-fill-color: #000000;
   -webkit-box-shadow: 0 0 0 30px rgb(0, 0, 0) inset !important;
   -webkit-text-fill-color: white !important; /* Ensure text remains white */
@@ -146,18 +135,13 @@ html[dir="rtl"] .passwordIcon {
   color: white;
 }
 
-.label.dark input {
+.label.dark .input {
   border: 1px solid rgba(255, 255, 255, 0.329);
 }
-.label.dark input {
+.label.dark .input {
   color: white;
 }
-.label.dark textarea {
-  border: 1px solid rgba(255, 255, 255, 0.329);
-}
-.label.dark textarea {
-  color: white;
-}
+
 
 .label.dark .placeholder.errorplaceholder,
 label.light .placeholder.errorplaceholder {

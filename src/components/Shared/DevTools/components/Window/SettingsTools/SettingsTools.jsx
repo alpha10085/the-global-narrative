@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import { isValidDomainFormat, validatePageName } from "./helpers";
 import { validateComponentName } from "../ComponentTools/AddNewComponentControl/helpers";
 import { isEqual } from "lodash";
-import AsyncButton from "@/components/shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
 import ListControl from "../Components/ListControl/ListControl";
 import Loading from "../Loading/Loading";
 const SettingsTools = () => {

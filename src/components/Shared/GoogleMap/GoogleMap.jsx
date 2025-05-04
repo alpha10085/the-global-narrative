@@ -30,14 +30,15 @@ const GoogleMap = ({
           height="450"
           frameBorder="0"
           src={url}
-          loading="lazy"
+          loading="eager"
+
           onLoad={handleLoad}
           allowFullScreen={false}
           className={`main-component-image ${
             withEffect ? "blurring-image" : ""
           }`}
           img-loaded={loading ? undefined : "true"}
-          referrerPolicy="no-referrer-when-downgrade"
+       //   referrerPolicy="no-referrer-when-downgrade"
         />
       )}
       {loading && withEffect ? (

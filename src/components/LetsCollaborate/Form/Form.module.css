@@ -1,0 +1,55 @@
+.main {
+  width: calc(50% - 20px);
+  flex-grow: 1;
+  margin: 0 auto;
+  max-width: 750px;
+}
+.title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.form {
+  width: 100%;
+  z-index: 10;
+}
+.label {
+  min-width: 250px;
+  flex-grow: 1;
+}
+.labelinput {
+  border-radius: 10px !important;
+}
+.btnsubmut {
+  width: 250px;
+  padding: 12.5px 30px 10px;
+  margin: 0px auto;
+  background: transparent;
+  color: black;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.166);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.btnsubmut:hover {
+  background-color: #f5f5f5;
+
+  border: 1px solid rgba(0, 0, 0);
+}
+
+.messageInput {
+  height: 120px !important;
+}
+
+@media (max-width: 800px) {
+  .main {
+    width: 100%;
+    flex-grow: 1;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
