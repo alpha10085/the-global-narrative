@@ -10,7 +10,7 @@ const Card = ({ New = {}, className = "", latest = false }) => {
         <div className={styles.cardOverlay}> </div>
         <Img url={New?.poster?.url} className={styles.image} />
         <div className={styles.text}>
-          <p className={styles.date}>{formatDate(New?.createdAt)}</p>
+          <p className={styles.date}>{formatDate(New?.date)}</p>
           <h1 className={styles.cardTitle}> {New?.title}</h1>
         </div>
       </div>

@@ -70,7 +70,7 @@ export const getFakeNews = () => {
         },
       ],
       category: categories?.[0],
-      createdAt: new Date("2025-05-29T10:00:00Z"),
+      date: new Date("2025-05-29T10:00:00Z"),
     },
     {
       _id: "news-2",
@@ -105,7 +105,7 @@ export const getFakeNews = () => {
         },
       ],
       category: categories?.[0],
-      createdAt: new Date("2025-05-30T10:00:00Z"),
+      date: new Date("2025-05-30T10:00:00Z"),
     },
     {
       _id: "news-3",
@@ -140,7 +140,7 @@ export const getFakeNews = () => {
         },
       ],
       category: categories?.[0],
-      createdAt: new Date("2025-05-01T10:00:00Z"),
+      date: new Date("2025-05-01T10:00:00Z"),
     },
     {
       _id: "news-4",
@@ -175,7 +175,7 @@ export const getFakeNews = () => {
         },
       ],
       category: categories?.[2],
-      createdAt: new Date("2025-05-03T14:00:00Z"),
+      date: new Date("2025-05-03T14:00:00Z"),
     },
     {
       _id: "news-5",
@@ -215,7 +215,7 @@ export const getFakeNews = () => {
         },
       ],
       category: categories?.[4],
-      createdAt: new Date("2025-05-04T14:00:00Z"),
+      date: new Date("2025-05-04T14:00:00Z"),
     },
 
     {
@@ -255,7 +255,7 @@ export const getFakeNews = () => {
         },
       ],
       category: categories?.[4],
-      createdAt: new Date("2023-08-02T00:00:00Z"),
+      date: new Date("2023-08-02T00:00:00Z"),
     },
     {
       _id: "595960",
@@ -279,7 +279,7 @@ export const getFakeNews = () => {
         },
       ],
       category: categories?.[0],
-      createdAt: new Date("2023-08-02T00:00:00Z"),
+      date: new Date("2023-08-02T00:00:00Z"),
     },
     {
       _id: "59526",
@@ -304,7 +304,7 @@ export const getFakeNews = () => {
         },
       ],
       category: categories?.[2],
-      createdAt: new Date("2023-08-02T00:00:00Z"),
+      date: new Date("2023-08-02T00:00:00Z"),
     },
   ];
   const updatedNews = news.map(item => ({
