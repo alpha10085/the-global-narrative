@@ -121,7 +121,7 @@ const List = ({ page = {}, categories = [] }) => {
             activeClassName={styles.active}
             delay={index * 50}
           >
-            <Card key={item?._id} product={item} />
+            <Card key={item?._id} val={item} />
           </Aos>
         )}
         listClassName={styles.gridList}
