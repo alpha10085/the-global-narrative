@@ -4,6 +4,8 @@ import styles from "./styles.module.css";
 import Clients from "@/components/Clients/Clients/Clients";
 import { searchAndReplace } from "@/utils/text";
 import { customers } from "./data.test";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 // export const generateMetadata = metadataHandler(getPage, `clients`);
 const Page = async (props) => {
@@ -19,13 +21,13 @@ const Page = async (props) => {
   const sectionTitle = `${searchAndReplace(title, " ", "-")}-main`;
   return (
     <main className={`${styles.layout} ShowSmoothEffect`}>
-      <div className={styles.wrapper}>
-        <div className={`${styles.headerContainer} flex-c column `}>
-          <h1>{title}</h1>
+      <div className={`${styles.head} flex-c column gap5`}>
+        <SectionTitle title={title} />
+        <Aos delay={400} activeClassName={styles.active} className={styles.Aos}>
           <p>{description}</p>
-        </div>
-        <Clients sectionTitle={sectionTitle} data={customers || []} />
+        </Aos>
       </div>
+      <Clients sectionTitle={sectionTitle} data={customers || []} />
     </main>
   );
 };
