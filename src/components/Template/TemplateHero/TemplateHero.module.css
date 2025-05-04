@@ -83,6 +83,15 @@
   height: 25px;
   transition: 0.6s;
 }
+.aosBtn {
+  transform: translateY(50px);
+  opacity: 0;
+  transition: 0.6s;
+}
+.aosBtn.active {
+  transform: translateY(0);
+  opacity: 1;
+}
 .btn svg {
   font-size: 15.5px;
 }
