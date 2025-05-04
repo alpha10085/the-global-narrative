@@ -1,104 +1,83 @@
 .card {
-  position: relative;
-  border-radius: 12px;
+  width: 100%;
+  border-radius: 10px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
+}
+
+.card.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.YouTubeEmbed {
+  width: 100%;
+  height: calc(100vw / 6);
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  cursor: pointer;
 }
 
-.videoWrapper {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
+.cardBottom {
+  max-width: 100%;
 }
 
-.video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  border-radius: 12px;
-  will-change: transform, opacity;
-}
-
-.poster {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
-}
-
-.hidden {
-  display: none;
-}
-
-.cardOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.08),
-    rgba(0, 0, 0, 0.25)
-  );
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 20px;
-  color: white;
-  z-index: 2;
-}
-
-.text {
-  color: #fff;
-  position: absolute;
-  text-align: start;
-  bottom: 20px;
-  left: 20px;
-  z-index: 2;
-}
-
-.subtitle {
-  font-size: 12px;
-  opacity: 0.85;
+.cardBottom svg {
+  color: #c5c5c5;
 }
 
 .title {
-  font-size: 17.6px;
-  font-weight: 600;
-  margin-top: 4px;
+  font-size: 16px;
 }
 
-.playButton {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(5px);
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 19.2px;
-  border: none;
-  cursor: pointer;
-  z-index: 3;
-  transition: 0.3s ease;
+.description {
+  line-height: 150%;
+  color: gray;
 }
 
-.playButton svg {
-  width: 30px;
-  height: 30px;
+@media (max-width: 1025px) {
+
+
+  .title {
+    font-size: 15px;
+    margin: 10px 0;
+  }
+
+  .description {
+    line-height: 150%;
+    color: gray;
+    font-size: 12px;
+  }
+
+  .YouTubeEmbed {
+    width: 100%;
+    height: calc(100vw / 4);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
 }
 
-.playButton:hover {
-  background: rgba(255, 255, 255, 0.5);
+
+@media (max-width: 600px) {
+  .YouTubeEmbed {
+    width: 100%;
+    height: calc(100vw / 2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .card {
+    margin: 10px 0;
+  }
+  .title {
+    font-size: 12px;
+    margin: 0;
+    max-width:92%;
+  }
+  .cardBottom {
+    
+  }
+  .cardBottom svg {
+    font-size: 20px;
+  }
 }
