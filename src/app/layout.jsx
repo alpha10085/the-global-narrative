@@ -20,6 +20,7 @@ import interceptor from "@/utils/consoleProxy";
 import { isProductionMode } from "@/config/main";
 import { NextIntlClientProvider } from "next-intl";
 import { ValidateLocale } from "@/i18n/request";
+import SamsungPatch from "@/components/Shared/Pervent/Pervent";
 
 // If loading a variable font, you don't need to specify the font weight
 const geist = Geist({
@@ -80,6 +81,7 @@ export default async function RootLayout({ children }) {
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
         <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
           <DevToolsWrapper>
+            <SamsungPatch />
             <NextIntlClientProvider locale={locale} messages={messages}>
               <ErrorBoundary boundary={boundary}>
                 <AuthProvider locale={locale}>{children}</AuthProvider>

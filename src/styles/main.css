@@ -346,6 +346,12 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important; */
 }
 
+@media (prefers-color-scheme: dark) {
+  html, body {
+    background-color: #fff !important;
+    color: #000 !important;
+  }
+}
 @media (max-width: 767px) {
   .coverHeader {
     height: 45px;
