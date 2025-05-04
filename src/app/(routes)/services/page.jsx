@@ -43,8 +43,8 @@ const Page = async () => {
       </div>
 
       {/* getInTouch Subscription */}
-      <div className={styles.getInTouchSection}>
-        <div className={styles.getInTouchContent}>
+      {/* <div className={styles.getInTouchSection}>
+        <div className={`${styles.getInTouchContent} flex-c column`}>
           <div className=" mb-20">
             <h2 className={styles.getInTouchTitle}>{contactSection?.title}</h2>
             <p className={styles.getInTouchText}>
@@ -58,7 +58,7 @@ const Page = async () => {
             className={styles.getLink}
           />
         </div>
-      </div>
+      </div> */}
 
       {/* FAQ List */}
       <div className={styles.faqSection}>
