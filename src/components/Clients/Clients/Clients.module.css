@@ -18,7 +18,7 @@
   }
   
   .logo {
-    border-radius: 50%;
+    border-radius: 20px;
     overflow: hidden;
   
     height: 250px;
