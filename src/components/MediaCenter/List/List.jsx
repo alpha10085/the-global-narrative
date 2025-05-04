@@ -70,8 +70,8 @@ const List = ({ page = {}, categories = [] }) => {
     <div id="media-center-Categories" className={styles.mediaCenterContainer}>
       <div className={`${styles.headerContainer} flex column gap20 just-sb`}>
         <SectionTitle title={title} className={styles.headingTitle} />
-        <div className={`${styles.filters} flex  gap20 just-sb`}>
-          <div className={styles.categories}>
+        <div className={`${styles.filters} flex al-i-c  gap20 just-sb`}>
+          <div className={`${styles.categories} flex gap30`}>
             <span
               onClick={() => clearOne("categories")}
               key={"all-main"}

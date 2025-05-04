@@ -44,7 +44,7 @@
   width: calc(100% - 300px);
 }
 .search {
-  transform: translateY(5px);
+  transform: translateY(-5px);
 }
 .categories .list {
   width: 100%;

@@ -12,9 +12,7 @@ const Card = ({ val, index }) => {
 
   return (
     <div
-      className={`${styles.card} ${
-        show && styles?.active
-      } flex f-column gap15 `}
+      className={`${styles.card} ${show && styles?.active} flex column gap15 `}
     >
       <div className={styles.cardTop}>
         <YouTubeEmbed
