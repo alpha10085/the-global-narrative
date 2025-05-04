@@ -1,28 +1,27 @@
 .container {
-  min-height: 50vh;
+  min-height: 20vh;
   width: 90%;
   margin: 50px auto;
   position: relative;
   overflow: hidden;
 }
 
-.container {
-}
-
 .title {
-  width: 800px;
   line-height: 1.3;
   font-size: clamp(20px, 6vw, 80px);
 }
 
 .description {
-  width: 800px;
   line-height: 1.3;
   font-size: clamp(12px, 3vw, 20px);
 }
+.title,
+.description {
+  width: 800px;
+  max-width: 70%;
+}
 
 .link {
-
   padding: 42px 40px 40px;
   text-transform: uppercase;
   border-radius: 50%;
@@ -41,30 +40,97 @@
   border-radius: 50%;
   width: 30px;
   height: 30px;
+  transition: 0.6s;
 }
 .arrow svg {
   color: white;
   font-size: 18px;
 }
 
-
 .aos {
-    opacity: 0;
-    transition: 0.8s;
+  opacity: 0;
+  transition: 0.8s;
 }
 .aos.active {
-    opacity: 1;
+  opacity: 1;
 }
 .aosBtn {
-    position: absolute;
-    right: 5%;
-    transform: translateX(100%);
-    opacity: 0;
-    transition: 0.6s;
+  position: absolute;
+  right: 5%;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: 0.6s;
 }
 
 .aosBtn.active {
-    transform: translate(0);
-    opacity: 1;
+  transform: translate(0);
+  opacity: 1;
+}
 
+@media (max-width: 768px) {
+  .title,
+  .description {
+    text-align: center;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .aosBtn {
+    position: relative;
+    right: unset;
+    width: max-content;
+    margin: auto;
+  }
+
+  .link {
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 40px;
+    border: 1px solid black;
+    height: 50px;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  .arrow svg {
+    color: white;
+    font-size: 18px;
+  }
+
+  .link:hover .arrow {
+    right: -20px;
+    top: -20px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 450px) {
+  .link {
+    padding-top: 10px;
+    text-transform: uppercase;
+    border-radius: 40px;
+    border: 1px solid black;
+    height: 40px;
+    width: 120px;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .arrow {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    transition: 0.6s;
+  }
+  .arrow svg {
+    color: white;
+    font-size: 15px;
+  }
 }

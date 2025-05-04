@@ -20,7 +20,7 @@ const NavBar = () => {
     darkMode: true,
   });
   const { pathname, pathes } = usePathname();
-  const transparentPathes = [];
+  const transparentPathes = ["/"];
   const darkModePathes = [];
 
   const targetScroll = 250;

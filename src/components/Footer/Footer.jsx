@@ -53,22 +53,22 @@ const Footer = ({ data = {} }) => {
       <div className={`${styles.top} flex al-i-c just-sb`}>
         <div className={`${styles.left}  `}>
           <MainLogo theme="dark" classNameWrapper={styles.logo} />
-          <div className={`${styles.ScoialLinks} flex gap40 al-i-c`}>
+          <div
+            className={`${styles.ScoialLinks} flex gap40 wrap just-c al-i-c`}
+          >
             {ScoialLinks?.map((val, i) => (
               <Link
                 key={i}
                 className={styles.ScoialLink}
                 href={`/${val?.herf}`}
               >
-               {
-                val?.icon
-               }
+                {val?.icon}
               </Link>
             ))}
           </div>
         </div>
         <div className={styles.right}>
-          <ul className={`${styles.list} flex column gap15 `}>
+          <ul className={`${styles.list} flex column gap15 wrap`}>
             {links?.map((val, i) => (
               <li key={i}>
                 <Link className={styles.link} href={val?.href}>
@@ -83,18 +83,13 @@ const Footer = ({ data = {} }) => {
   );
 };
 const TikTokLogo = () => (
-  <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-    <g>
-      <path fill="#25F4EE" d="M20 8v26a6 6 0 1 1-6-6" />
-      <path
-        fill="#FE2C55"
-        d="M26 8a6 6 0 0 0 6 6v4a10 10 0 0 1-6-2v14a12 12 0 1 1-12-12"
-      />
-      <path
-        fill="#000000"
-        d="M24 6v2c0 3.3 2.7 6 6 6h2v4a10 10 0 0 1-6-2v14a12 12 0 1 1-12-12v-4a6 6 0 0 0 6 6V8h4z"
-      />
-    </g>
+  <svg
+    className={styles.TikTokLogo}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 256"
+    fill="white"
+  >
+    <path d="M224 72c-26.51 0-48-21.49-48-48h-40v168a40 40 0 1 1-40-40v-40a80 80 0 1 0 80 80V88.47A87.9 87.9 0 0 0 224 96Z" />
   </svg>
 );
 

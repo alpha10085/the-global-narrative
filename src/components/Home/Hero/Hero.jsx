@@ -2,7 +2,6 @@
 import styles from "./Hero.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Img from "@/components/Shared/img/Img";
-import WordPullUp from "@/components/Shared/Animtions/WordPullUp/WordPullUp";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
