@@ -2,6 +2,8 @@ import Img from "@/components/Shared/img/Img";
 import styles from "./TemplateHero.module.css";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import { ArrowOutwardIcon } from "@/components/Home/icons";
+import ButtonScroll from "./Client";
 const TemplateHero = ({ title, description, poster }) => {
   return (
     <div className={`${styles.container} flex al-i-c gap20 just-sb`}>
@@ -13,6 +15,13 @@ const TemplateHero = ({ title, description, poster }) => {
           delay={600}
         >
           <p className={styles.description}>{description}</p>
+        </Aos>
+        <Aos
+          activeClassName={styles.active}
+          className={styles.aosBtn}
+          delay={800}
+        >
+          <ButtonScroll />
         </Aos>
       </div>
       <Aos

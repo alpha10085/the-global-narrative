@@ -5,7 +5,9 @@ import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const OurValues = ({ data = {} }) => {
   return (
-    <div className={styles.container}>
+    <div
+        id="templateSection"
+    className={styles.container}>
       <SectionTitle title={data?.title} className={styles.title} />
       <Aos
         delay={500}
