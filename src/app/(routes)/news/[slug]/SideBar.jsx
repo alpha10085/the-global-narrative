@@ -6,7 +6,7 @@ import { scrollTo } from "@/utils/Scroll";
 const SideBar = ({data = {}}) => {
   return (
     <aside className={styles.sidebar}>
-      <ul>
+      <ul className=" p-relative w-100">
         {data?.content?.map((section, index) => (
           <li key={index}>
             <h1
