@@ -73,32 +73,5 @@ export const getpage = () => {
           "Absolutely. We specialize in real-time crisis communication and reputation control.",
       },
     ],
-
-    partners: [
-      {
-        _id: "tahyamisr",
-        logo: {
-          url: "https://cc-plus.com/wp-content/uploads/2019/12/clients-57-photo.png",
-        },
-      },
-      {
-        _id: "qnb",
-        logo: {
-          url: "https://cc-plus.com/wp-content/uploads/2019/12/clients-60-photo.jpg",
-        },
-      },
-      {
-        _id: "telecom-egypt",
-        logo: {
-          url: "https://cc-plus.com/wp-content/uploads/2019/12/clients-40-photo.png",
-        },
-      },
-      {
-        _id: "elsewedy-electric",
-        logo: {
-          url: "https://cc-plus.com/wp-content/uploads/2019/12/clients-37-photo.jpg",
-        },
-      },
-    ],
   };
 };

@@ -6,6 +6,7 @@ import Link from "next/link";
 import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import MainLink from "@/components/MainLink/MainLink";
+import { customers } from "../clients/data.test";
 // import { metadataHandler } from "@/utils/metadata";
 // import { getPage } from "@/lib/pages";
 
@@ -39,7 +40,7 @@ const Page = async () => {
             See all <span className={styles.arrow}>→</span>
           </Link>
         </div>
-        <MarqueeLogos data={partners} />
+        <MarqueeLogos data={customers} />
       </div>
 
       {/* getInTouch Subscription */}
