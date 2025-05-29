@@ -18,7 +18,7 @@ const ServicesList = ({ data = [] }) => {
   return (
     <div 
     id="templateSection"
-    className="">
+    className={styles.container}>
       <div className={styles.head}>
         <SectionTitle title={"our values"} />
       </div>

@@ -276,7 +276,6 @@ html::-webkit-scrollbar-thumb {
 .dropDown .options,
 .dropDown-search .options {
   border-radius: 8px;
-
   color: var(--text-color);
 }
 
