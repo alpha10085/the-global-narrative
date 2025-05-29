@@ -27,7 +27,7 @@
 }
 .text {
   line-height: 1.5;
-  font-size: clamp(15px, 3vw, 24px);
+  font-size: clamp(12px, 3vw, 24px);
   font-weight: 600;
   color: black !important;
 }
@@ -35,7 +35,7 @@
 .pointBg.active {
   background-color: blue;
   transform: scale(3);
-  
+
   box-shadow: 0 0 10px blue;
 }
 

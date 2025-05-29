@@ -69,7 +69,7 @@ const Testimonials = ({ data = {} }) => {
       <Aos
         delay={200}
         activeClassName={styles.active}
-        className={`${styles.list} flex mt-30 gap20 al-i-c`}
+        className={`${styles.list} flex  gap20 al-i-c`}
       >
         <Swiper
           ref={swiperRef}

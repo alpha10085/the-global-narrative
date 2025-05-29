@@ -7,7 +7,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import { useRef, useState } from "react";
 import { Autoplay } from "swiper/modules";
-const Hero = ({ data = {} }) => {
+const Hero = ({ data = [] }) => {
   const [swiperSection, setSwiperSection] = useState(0);
   const swiperRef = useRef(null);
   const slideTo = (i = 0) => {

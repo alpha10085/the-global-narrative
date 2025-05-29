@@ -17,14 +17,14 @@ const Home = async () => {
     getInTouchSection = {}
   } = getHomePage();
   return (
-    <div className={styles.layout}>
+    <section className={styles.layout}>
       <Hero data={heroSection} />
       <AboutUs data={aboutUsSection} />
       <Quote data={quoteSection} />
       <News data={newsSection} />
       <Testimonials data={testimonialSection} />
       <GetInTouch  data={getInTouchSection} />
-    </div>
+    </section>
   );
 };
 

@@ -113,3 +113,9 @@
     display: flex !important;
   }
 }
+
+@media (max-width:768px) {
+  .logo {
+  height: 45px;
+}
+}
