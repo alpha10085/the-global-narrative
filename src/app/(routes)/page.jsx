@@ -6,6 +6,7 @@ import AboutUs from "@/components/Home/AboutUs/AboutUs";
 import News from "@/components/Home/News/News";
 import Testimonials from "@/components/Home/Testimonials/Testimonials";
 import GetInTouch from "@/components/Home/GetInTouch/GetInTouch";
+import Intro from "@/components/Intro/Intro";
 
 const Home = async () => {
   const {
@@ -14,16 +15,17 @@ const Home = async () => {
     quoteSection = {},
     newsSection = {},
     testimonialSection = {},
-    getInTouchSection = {}
+    getInTouchSection = {},
   } = getHomePage();
   return (
     <section className={styles.layout}>
+       <Intro />
       <Hero data={heroSection} />
       <AboutUs data={aboutUsSection} />
       <Quote data={quoteSection} />
       <News data={newsSection} />
       <Testimonials data={testimonialSection} />
-      <GetInTouch  data={getInTouchSection} />
+      <GetInTouch data={getInTouchSection} />
     </section>
   );
 };

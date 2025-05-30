@@ -1,7 +1,7 @@
 "use client";
 import Skeleton from "@/components/Shared/Skeleton/skeleton";
 import "./Img.css";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, forwardRef } from "react";
 import Image from "next/image";
 import { delay } from "@/utils/time";
 
@@ -21,7 +21,7 @@ const Img = ({
   maxRetryCount = 3,
   delayLoad = 0,
   onLoad = () => {},
-}) => {
+},ref) => {
 
   
   const [hasErrorImg, setHasErrorImg] = useState(false);
@@ -69,6 +69,7 @@ const Img = ({
 
   return (
     <div
+    ref={ref}
       key={url}
       onClick={onClick}
       className={`${className} ${!loading && onLoadClassName} p-relative`}
@@ -98,4 +99,4 @@ const Img = ({
   );
 };
 
-export default Img;
+export default forwardRef(Img)

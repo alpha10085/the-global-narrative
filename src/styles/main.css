@@ -71,7 +71,9 @@ body {
 textarea {
   resize: none;
 }
-
+[data-cursor-label] {
+cursor: pointer;
+}
 .no-focus-outline:focus {
   outline: none;
   box-shadow: none;

@@ -12,6 +12,9 @@ const Card = ({ delay = 0, className = "", data = {} }) => {
       style={{
         animationDelay: `${delay}s`,
       }}
+
+             data-cursor-label="← DRAG →"
+ 
       href={`/news/${data?.slug}`}
       className={`${styles.container} ${className}`}
     >

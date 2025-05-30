@@ -5,6 +5,7 @@ import { customText } from "@/utils/text";
 const Card = ({ delay = 0, className = "", data }) => {
   return (
     <div
+      data-cursor-label="← DRAGv2 →"
       style={{
         animationDelay: `${delay}s`,
       }}
@@ -13,7 +14,7 @@ const Card = ({ delay = 0, className = "", data }) => {
       <div className={`${styles.head} flex column just-sb`}>
         <div className={`${styles.left} gap5 flex column`}>
           <h1 className={styles.author}>@{data?.author}</h1>
-          <p className={styles.jobtitle}>{customText(data?.jobTitle,40)}</p>
+          <p className={styles.jobtitle}>{customText(data?.jobTitle, 40)}</p>
         </div>
         <Img className={styles.poster} url={data?.poster?.url} />
         <div className={`${styles.triangles} flex gap5`}>

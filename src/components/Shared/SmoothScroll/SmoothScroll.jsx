@@ -1,14 +1,55 @@
 "use client";
+import { delay } from "@/utils/delay";
+import eventBus from "@/utils/eventBus";
 import Lenis from "lenis";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const SmoothScroll = () => {
+const SmoothScroll = ({
+  duration=0.9
+}) => {
+  const [enable, setEnable] = useState(true);
   const pathname = usePathname();
+  const startLenis = () => setEnable(true);
+  const stopLenis = () => {
+    setEnable(false);
+  };
+  useEffect(() => {
+    const handler = (newval) => {
+      if (newval) {
+        startLenis();
+      } else {
+        stopLenis();
+      }
+    };
+
+    eventBus.on("lenis", handler);
+
+    return () => {
+      eventBus.off("lenis", handler); // cleanup
+    };
+  }, []);
+
+  useEffect(() => {
+    stopLenis();
+    delay(150).then(() => {
+      window.scrollTo(0, 0);
+      startLenis();
+    });
+  }, [pathname]);
+
+  return enable ? <LenisComponent duration={duration} /> : null;
+};
+
+export default SmoothScroll;
+
+const LenisComponent = ({
+  duration
+}) => {
   const lenisRef = useRef(null);
 
   useEffect(() => {
-    const lenis = new Lenis({ duration: 0.9 });
+    const lenis = new Lenis({ duration });
     lenisRef.current = lenis;
 
     const update = (time) => {
@@ -24,11 +65,5 @@ const SmoothScroll = () => {
     };
   }, []);
 
-  useEffect(() => {
-    // lenisRef.current?.scrollTo(0, { immediate: true });
-  }, [pathname]);
-
   return null;
 };
-
-export default SmoothScroll;
