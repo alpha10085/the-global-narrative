@@ -1,5 +1,4 @@
 .staticContainer {
-  background-color: rgba(0, 89, 124, 0.5);
 
   backdrop-filter: blur(25px);
   z-index: 11;
@@ -7,4 +6,11 @@
   transition: 0.6s;
   border-radius: 50px 50px 0 0;
   position: relative;
+}
+
+.staticContainer.active {
+  background-color: rgba(5, 0, 78, 0.464);
+}
+.staticContainer.unActive {
+  background-color: rgba(5, 0, 78, 1);
 }

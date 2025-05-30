@@ -8,6 +8,9 @@ import Testimonials from "@/components/Home/Testimonials/Testimonials";
 import GetInTouch from "@/components/Home/GetInTouch/GetInTouch";
 import Intro from "@/components/Intro/Intro";
 import WaveLines from "@/components/Shared/WaveLines/WaveLines";
+import StaticSection, {
+  CSRSection,
+} from "@/components/Home/StaticSection/StaticSection";
 
 const Home = async () => {
   const {
@@ -22,17 +25,18 @@ const Home = async () => {
     <section className={styles.layout}>
       <Intro />
       <Hero enableAutoPlay={false} data={heroSection} />
-      <div id="home-staticContainer" className={styles.staticContainer}>
+      <CSRSection>
         <AboutUs data={aboutUsSection} />
         <WaveLines />
         <Quote data={quoteSection} />
-          <WaveLines />
-
+          <StaticSection />
+        <WaveLines />
         <div className={styles.childTwo}>
           <News data={newsSection} />
+          <StaticSection mode="down" />
           <Testimonials data={testimonialSection} />
         </div>
-      </div>
+      </CSRSection>
       <GetInTouch data={getInTouchSection} />
     </section>
   );
