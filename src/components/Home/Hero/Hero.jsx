@@ -125,7 +125,7 @@ const Hero = ({ data = [] }) => {
           onClick={() => scrollByVh("90vh")}
           className={`${styles.scrollBox} flex-c column`}
         >
-          <div className={`${styles.line} flex `}>
+          <div className={`${styles.line} flex-c `}>
             <div className={`${styles.progress}`}></div>
           </div>
           <h1 className={styles.label}>scroll to continue</h1>
