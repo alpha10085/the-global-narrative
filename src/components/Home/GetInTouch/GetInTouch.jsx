@@ -10,9 +10,9 @@ import WaveLines from "@/components/Shared/WaveLines/WaveLines";
 const GetInTouch = ({ data = {} }) => {
   return (
     <div className={styles.wrapper}>
-      <div className={`${styles.container} flex-c al-i-c`}>
-        <div className={`${styles.left} flex-c column gap20`}>
-          <SectionTitle title={data?.title} />
+      <div className={`${styles.container} flex-c column al-i-c`}>
+<div className={`${styles.top} flex-c column gap20`}>
+            <SectionTitle title={data?.title} />
           <Aos
             delay={400}
             activeClassName={styles.active}
@@ -27,17 +27,11 @@ const GetInTouch = ({ data = {} }) => {
           >
             <MainLink text="Contact us" href={"/contact-us"} />
           </Aos>
+     </div>
           <div className={styles.waves}>
             <WaveLines />
-          </div>
+     
         </div>
-        {/* <Aos
-        delay={800}
-        activeClassName={styles.active}
-        className={`${styles.aosPoster} `}
-      >
-        <Img className={styles.poster} url={data?.poster?.url} />
-      </Aos> */}
       </div>
     </div>
   );

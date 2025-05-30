@@ -38,4 +38,5 @@ export const scrollToElement = (key, headerOffset = 0) => {
       top: pixels,
       behavior: "smooth",
     });
+    
   };

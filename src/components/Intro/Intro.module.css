@@ -7,26 +7,38 @@
   top: 50%;
   z-index: 1000;
   transform: translate(-50%, -50%);
-  transition: 0.9s;
+  transition: 0.5s;
 }
 
 .poster {
-  width: 500px;
+  width: 600px;
 
-  aspect-ratio: 650/365;
+  aspect-ratio: 600/410;
   margin-bottom: 20px;
   transition: transform 0.2s ease-out;
   will-change: transform;
   transform-style: preserve-3d;
-  transition: 0.9s;
+  
+  transform: scale(1);
 }
 
 .container.show {
   transform: translate(-50%, -50%);
 }
 .container.hide .poster {
-  opacity: 0;
+  transition: transform 1.2s, opacity 0.2s;
+  transform: scale(30) translateY(-20px) !important;
 }
+
 .container.hide {
+  background-color: transparent;
+}
+
+.container.hideFull {
   transform: translate(150%, -50%);
+  display: none;
+}
+
+
+.container.hideFull .poster {
 }

@@ -4,11 +4,13 @@ import Img from "../Shared/img/Img";
 import styles from "./Intro.module.css";
 import useDisableScroll from "@/hooks/useDisableScroll";
 import eventBus from "@/utils/eventBus";
+import useDynamicState from "@/hooks/useDynamicState";
+import { delay } from "@/utils/delay";
 
 const Intro = () => {
   const logoRef = useRef();
-  const [event, setEvent] = useState(true);
-
+  const [state, setState] = useDynamicState({ event: true, hide: false });
+  const { event, hide } = state;
   const ToggleDisableScroll = useDisableScroll();
 
   const handleMouseMove = (e) => {
@@ -20,8 +22,8 @@ const Intro = () => {
     const offsetY = e.clientY - centerY;
 
     // control intensity
-    const rotateY = (offsetX / centerX) * 30; // max 10deg left/right
-    const rotateX = (-offsetY / centerY) * 30; // max 10deg up/down
+    const rotateY = (offsetX / centerX) * 10; // max 10deg left/right
+    const rotateX = (-offsetY / centerY) * 10; // max 10deg up/down
     const scale = 1.05;
 
     // slight skew for bending effect
@@ -52,12 +54,17 @@ const Intro = () => {
     }
   };
 
-  const handleHide = () => {
+  const handleHide = async () => {
     resetTransform();
     ToggleDisableScroll();
-    setEvent(false);
-
+    setState({
+      event: false,
+    });
     eventBus.emit("intro-event", false);
+    await delay(200);
+    setState({
+      hide: true,
+    });
   };
 
   useEffect(() => {
@@ -65,25 +72,30 @@ const Intro = () => {
     return () => {};
   }, [event]);
 
+  // if (hide) return null
+
   return (
     <div
       // data-cursor-label="← DRAG →"
       data-cursor-label="Enter →"
+      data-cursor-onClick="hide"
       // data-cursor-color="#5D27FF"
-
       onClick={handleHide}
       onMouseMove={handleMouseMove}
       //  onMouseLeave={resetTransform}
       className={`flex-c ${styles.container}
-      
       ${event ? styles.show : styles.hide}
+
+      ${hide ? styles.hideFull : ""}
+
+      
       `}
     >
       <Img
         disableSkeleton
         ref={logoRef}
         className={styles.poster}
-        url="/main-logo-white.png"
+        url="/main-logo-full-white.png"
       />
     </div>
   );

@@ -13,7 +13,7 @@ const Card = ({ delay = 0, className = "", data = {} }) => {
         animationDelay: `${delay}s`,
       }}
 
-             data-cursor-label="← DRAG →"
+             data-cursor-label="Read More →"
  
       href={`/news/${data?.slug}`}
       className={`${styles.container} ${className}`}

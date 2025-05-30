@@ -5,7 +5,7 @@ import { customText } from "@/utils/text";
 const Card = ({ delay = 0, className = "", data }) => {
   return (
     <div
-      data-cursor-label="← DRAGv2 →"
+      data-cursor-label="← DRAG →"
       style={{
         animationDelay: `${delay}s`,
       }}

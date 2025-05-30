@@ -29,11 +29,12 @@ const Home = async () => {
         <AboutUs data={aboutUsSection} />
         <WaveLines />
         <Quote data={quoteSection} />
-          <StaticSection />
+        
         <WaveLines />
         <div className={styles.childTwo}>
-          <News data={newsSection} />
           <StaticSection mode="down" />
+          <News data={newsSection} />
+           <WaveLines />
           <Testimonials data={testimonialSection} />
         </div>
       </CSRSection>

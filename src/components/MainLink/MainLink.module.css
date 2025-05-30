@@ -4,6 +4,9 @@
   font-weight: 600;
   font-size: 18px;
 
+  z-index: 110000;
+  position: relative;
+
 
 }
 

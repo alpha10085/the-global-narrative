@@ -44,12 +44,7 @@ const Hero = ({ data = [] }) => {
     }
   };
   useEffect(() => {
-    //    stopAutoplay();
-    // test
-    swiperRef.current?.swiper?.autoplay?.stop();
-    setSwiperState({
-      autoPlay: true,
-    });
+        stopAutoplay();
     eventBus.on("intro-event", handleAutoPlay);
     return () => eventBus.off("intro-event", handleAutoPlay);
   }, []);

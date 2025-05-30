@@ -141,10 +141,42 @@ const DynamicCursor = () => {
         } flex-c`}
         style={{ backgroundColor: cursorData.color }}
       >
-        {cursorData.label}
+         <AnimatedLabel label={cursorData?.label} />
       </div>
     </div>
   );
 };
+
+
+export  function AnimatedLabel({ label }) {
+  const [prevLabel, setPrevLabel] = useState("");
+  const [currentLabel, setCurrentLabel] = useState(label);
+  const [animating, setAnimating] = useState(false);
+
+  useEffect(() => {
+    if (label !== currentLabel) {
+      setPrevLabel(currentLabel);
+      setCurrentLabel(label);
+      setAnimating(true);
+
+      const timeout = setTimeout(() => setAnimating(false), 300);
+      return () => clearTimeout(timeout);
+    }
+  }, [label]);
+
+  return (
+    <div className={styles.labelContainer}>
+      {animating && (
+        <span className={`${styles.label} ${styles.prev} ${styles.animateOut}`}>
+          {prevLabel}
+        </span>
+      )}
+      <span className={`${styles.label} ${animating ? styles.animateIn : ""}`}>
+        {currentLabel}
+      </span>
+    </div>
+  );
+}
+
 
 export default DynamicCursor;

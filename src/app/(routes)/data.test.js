@@ -33,11 +33,11 @@ export const getHomePage = () => {
     },
     quoteSection: {
       content: `
-      Welcome to today’s Hill & Knowlton.
+      Welcome to today’s the Global Narrative.
 
 The original strategic communications consultancy, we were born a public relations pacesetter.
 
-Nearly a century later, Hill & Knowlton is built for purpose...
+Nearly a century later, the Global Narrative is built for purpose...
 
 Bringing together new combinations of people and intelligence.
 
