@@ -3,10 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./NavBar.module.css";
 import MobileNav from "./mobileNav/MobileNav";
-import { useAuth } from "@/contexts/AuthProvider";
-import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
-import Img from "../Shared/img/Img";
 import { BurgerIcon, ProfileIcon } from "./Icons/Icons";
 import Link from "../Shared/LocalizedLink/Link";
 import MainLogo from "../MainLogo/MainLogo";
@@ -23,7 +20,7 @@ const NavBar = () => {
   const transparentPathes = ["/"];
   const darkModePathes = [];
 
-  const targetScroll = 250;
+  const targetScroll = 3000;
   useEffect(() => {
     const isTransparentPath = transparentPathes.includes(pathname);
     const isDarkModePath = darkModePathes.includes(pathname);

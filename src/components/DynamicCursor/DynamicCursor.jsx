@@ -1,17 +1,20 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./DynamicCursor.module.css";
+import useDynamicState from "@/hooks/useDynamicState";
+import { delay } from "@/utils/delay";
 
 const DynamicCursor = () => {
   const wrapperRef = useRef(null);
-  const targetPos = useRef({ x: 0, y: 0 });
-  const currentPos = useRef({ x: 0, y: 0 });
+  const targetPos = useRef({ x: -1, y: 0 });
+  const currentPos = useRef({ x: -1, y: 0 });
   const animationRef = useRef(null);
 
-  const [cursorData, setCursorData] = useState({
+  const [cursorData, setCursorData] = useDynamicState({
     visible: false,
     label: "",
     color: "#000",
+    isDetected: false,
   });
 
   console.log(cursorData);
@@ -19,11 +22,19 @@ const DynamicCursor = () => {
   useEffect(() => {
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
+      if (cursorData.visible) {
+        delay(100).then(() => {
+          setCursorData({
+            isDetected: true,
+          });
+        });
+      }
     };
+    // Initialize cursor positions once the component is mounted in the browser
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [cursorData.visible]);
 
   useEffect(() => {
     const lerp = (start, end, factor) => start + (end - start) * factor;
@@ -56,12 +67,13 @@ const DynamicCursor = () => {
       const el = e.target.closest("[data-cursor-label]");
       if (el) {
         const label = el.getAttribute("data-cursor-label");
-        setCursorData({ visible: true, label });
+
+        const color = el.getAttribute("data-cursor-color") || "#84e6ff";
+        setCursorData({ visible: true, label, color });
       }
     };
 
-    const handleLeave = () =>
-      setCursorData((prev) => ({ ...prev, visible: false }));
+    const handleLeave = () => setCursorData({ visible: false });
 
     const addListeners = (el) => {
       el.addEventListener("mouseenter", handleEnter);
@@ -89,7 +101,9 @@ const DynamicCursor = () => {
             if (node.matches?.("[data-cursor-label]")) {
               addListeners(node);
             }
-            node.querySelectorAll?.("[data-cursor-label]").forEach(addListeners);
+            node
+              .querySelectorAll?.("[data-cursor-label]")
+              .forEach(addListeners);
           }
         });
         mutation.removedNodes.forEach((node) => {
@@ -97,7 +111,9 @@ const DynamicCursor = () => {
             if (node.matches?.("[data-cursor-label]")) {
               removeListeners(node);
             }
-            node.querySelectorAll?.("[data-cursor-label]").forEach(removeListeners);
+            node
+              .querySelectorAll?.("[data-cursor-label]")
+              .forEach(removeListeners);
           }
         });
       });
@@ -115,12 +131,13 @@ const DynamicCursor = () => {
     };
   }, []);
 
-
   return (
     <div ref={wrapperRef} className={`${styles.wrappercursor} flex-c`}>
       <div
         className={`${styles.cursor} ${
-          cursorData.visible ? styles.visible : styles.unVisible
+          cursorData.visible && cursorData.isDetected
+            ? styles.visible
+            : styles.unVisible
         } flex-c`}
         style={{ backgroundColor: cursorData.color }}
       >

@@ -83,16 +83,22 @@ const WaveLines = ({
   }, [lineCount, pointCount, amplitude, frequency, speed, colors, height]);
 
   return (
-    <canvas
+ <div 
+ style={{
+     width: '100%',
+        overflow:"hidden",
+ }}
+ >
+     <canvas
       ref={canvasRef}
       style={{
         width: '100%',
         overflow:"hidden",
         height: `${height}px`,
-        backgroundColor: '#06003d',
         display: 'block',
       }}
     />
+ </div>
   );
 };
 

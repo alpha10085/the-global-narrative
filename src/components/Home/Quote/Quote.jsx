@@ -4,6 +4,13 @@ import styles from "./Quote.module.css";
 import TextRevealByWord from "@/components/Shared/Animtions/TextRevealByWord/TextRevealByWord";
 import WordDisplay from "@/components/Shared/Animtions/WordRotate/WordRotate";
 import WordFadeIn from "@/components/Shared/Animtions/WordFadeIn/WordFadeIn";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
+function splitContentToLines(content) {
+  return content
+    .split("\n") // Split by newline
+    .map((line) => line.trim()) // Remove leading/trailing spaces
+    .filter((line) => line); // Remove empty lines
+}
 
 const Quote = ({ data = {} }) => {
   const [numbers, setNumbers] = useState([null, null]);
@@ -22,10 +29,11 @@ const Quote = ({ data = {} }) => {
 
     return () => clearInterval(interval);
   }, []);
+  const lines = splitContentToLines(data?.content);
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.main} flex column just-sb`}>
+      {/* <div className={`${styles.main} flex column just-sb`}>
         {Array.from({ length: 11 }).map((_, lineIndex) => (
           <LinePFPoints
             key={lineIndex}
@@ -33,10 +41,30 @@ const Quote = ({ data = {} }) => {
             activeNumbers={numbers}
           />
         ))}
-      </div>
+      </div> */}
 
-      <div className={styles.content}>
-        <WordFadeIn mode="dark" className={styles.text} text={data?.content} />
+      <div className={`${styles.content} flex column`}>
+        {lines.slice(0, lines?.length - 1)?.map((val, i) => (
+          <Aos
+            key={i}
+            className={styles.line}
+            activeClassName={styles.active}
+            triggerOnce={false}
+            threshold={1}
+          >
+            <h1 className={styles.text}>{val}</h1>
+          </Aos>
+        ))}
+
+         <Aos
+            key={lines?.length - 1}
+            className={`${styles.line} `}
+            activeClassName={styles.active}
+            triggerOnce={false}
+            threshold={1}
+          >
+            <h1 className={styles.text}>{lines[lines?.length - 1]}</h1>
+          </Aos>
       </div>
     </div>
   );

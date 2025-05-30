@@ -1,8 +1,9 @@
 "use client";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Img from "../Shared/img/Img";
 import styles from "./Intro.module.css";
 import useDisableScroll from "@/hooks/useDisableScroll";
+import eventBus from "@/utils/eventBus";
 
 const Intro = () => {
   const logoRef = useRef();
@@ -19,8 +20,8 @@ const Intro = () => {
     const offsetY = e.clientY - centerY;
 
     // control intensity
-    const rotateY = (offsetX / centerX) * 20; // max 10deg left/right
-    const rotateX = (-offsetY / centerY) * 20; // max 10deg up/down
+    const rotateY = (offsetX / centerX) * 30; // max 10deg left/right
+    const rotateX = (-offsetY / centerY) * 30; // max 10deg up/down
     const scale = 1.05;
 
     // slight skew for bending effect
@@ -55,7 +56,14 @@ const Intro = () => {
     resetTransform();
     ToggleDisableScroll();
     setEvent(false);
+
+    eventBus.emit("intro-event", false);
   };
+
+  useEffect(() => {
+    eventBus.emit("intro-event", event);
+    return () => {};
+  }, [event]);
 
   return (
     <div

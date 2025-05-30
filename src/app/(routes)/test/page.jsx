@@ -5,7 +5,7 @@ import Intro from "@/components/Intro/Intro";
 const Page = async (props) => {
   return (
     <section className={`${styles.container} flex-c`}>
-      {/* <WaveLines /> */}
+      <WaveLines />
       <Intro />
     </section>
   );

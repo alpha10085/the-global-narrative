@@ -29,3 +29,13 @@ export const scrollToElement = (key, headerOffset = 0) => {
     });
   }
 };
+
+  export const scrollByVh = (vhValue) => {
+    const number = parseFloat(vhValue);
+    const pixels = (window.innerHeight * number) / 100;
+
+    window.scrollBy({
+      top: pixels,
+      behavior: "smooth",
+    });
+  };

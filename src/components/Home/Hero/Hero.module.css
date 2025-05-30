@@ -1,7 +1,15 @@
-.container {
+.staticWrappper {
   height: calc(100vh);
   width: 100%;
 }
+.container {
+  height: calc(100vh);
+  width: 100%;
+  position: fixed;
+
+  z-index: 10;
+}
+
 .swiper,
 .swiperSlide,
 .slide,
@@ -37,7 +45,7 @@
 
 .controlBox {
   position: absolute;
-  bottom: 50px;
+  bottom: 60px;
 
   left: 50%;
   transform: translateX(-50%);
@@ -105,6 +113,51 @@
   cursor: not-allowed;
 }
 
+.scrollBox {
+  position: absolute;
+  bottom: 15px;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10;
+  cursor: pointer;
+  color: white;
+}
+
+.scrollBox .label {
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.scrollBox .line {
+  width: 1px;
+  border-radius: 10px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.441);
+  overflow: hidden;
+}
+.scrollBox .progress {
+  width: 100%;
+  height: 35%;
+  background-color: rgba(255, 255, 255, 1);
+  transition: 0.4s;
+
+  animation: scrollEffect 2s infinite;
+}
+
+@keyframes scrollEffect {
+  0% {
+    transform: translateY(-100%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(350%);
+  }
+}
 @media (max-width: 768px) {
   .titleBox {
     left: 50%;

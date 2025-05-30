@@ -25,6 +25,7 @@ const News = ({ data = {} }) => {
           if (window.innerWidth > 550) {
             swiperInstance.autoplay?.start();
           }
+
           observer.disconnect(); // Optional: Only trigger once
         }
       },

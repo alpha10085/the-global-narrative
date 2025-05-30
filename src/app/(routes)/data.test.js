@@ -32,10 +32,21 @@ export const getHomePage = () => {
         "We create architectural masterpieces that blend creativity, functionality, and purpose. From concept to construction",
     },
     quoteSection: {
-      content: `At the global Narrative, we blend deep industry insight with strategic creativity to craft compelling narratives that elevate your brand.
+      content: `
+      Welcome to today’s Hill & Knowlton.
 
-Through innovative communications, media outreach, and reputation management, we deliver impactful results that drive trust, visibility, and lasting engagement.`,
-    },
+The original strategic communications consultancy, we were born a public relations pacesetter.
+
+Nearly a century later, Hill & Knowlton is built for purpose...
+
+Bringing together new combinations of people and intelligence.
+
+Addressing today’s grand challenges.
+
+Expanding our clients’ possibilities and success.
+
+We are the global strategic communications leader for transformation, helping clients communicate to lead.
+      `   },
     newsSection: {
       title: "Highlighted news",
       posts: getFakeNews(),
