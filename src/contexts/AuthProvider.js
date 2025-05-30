@@ -138,7 +138,7 @@ export const AuthProvider = ({ children, locale = "en" }) => {
         destroySession(event?.data?.path);
       }
     };
-    verfiySession();
+   // verfiySession();
     return () => {
       // Clean up: Close the channel when the component unmounts
       channel.close();
