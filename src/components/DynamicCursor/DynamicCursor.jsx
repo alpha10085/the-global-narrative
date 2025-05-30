@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./DynamicCursor.module.css";
 import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
@@ -17,20 +17,15 @@ const DynamicCursor = () => {
     isDetected: false,
   });
 
-  console.log(cursorData);
-
   useEffect(() => {
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
       if (cursorData.visible) {
         delay(100).then(() => {
-          setCursorData({
-            isDetected: true,
-          });
+          setCursorData({ isDetected: true });
         });
       }
     };
-    // Initialize cursor positions once the component is mounted in the browser
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
@@ -40,16 +35,8 @@ const DynamicCursor = () => {
     const lerp = (start, end, factor) => start + (end - start) * factor;
 
     const animate = () => {
-      currentPos.current.x = lerp(
-        currentPos.current.x,
-        targetPos.current.x,
-        0.15
-      );
-      currentPos.current.y = lerp(
-        currentPos.current.y,
-        targetPos.current.y,
-        0.15
-      );
+      currentPos.current.x = lerp(currentPos.current.x, targetPos.current.x, 0.15);
+      currentPos.current.y = lerp(currentPos.current.y, targetPos.current.y, 0.15);
 
       if (wrapperRef.current) {
         wrapperRef.current.style.left = `${currentPos.current.x}px`;
@@ -62,18 +49,33 @@ const DynamicCursor = () => {
     animationRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationRef.current);
   }, []);
+
   useEffect(() => {
+    const handleClick = () => {
+      setCursorData({ visible: false, label: "", isDetected: false });
+    };
+
     const handleEnter = (e) => {
       const el = e.target.closest("[data-cursor-label]");
       if (el) {
         const label = el.getAttribute("data-cursor-label");
-
         const color = el.getAttribute("data-cursor-color") || "#84e6ff";
         setCursorData({ visible: true, label, color });
+
+        el.addEventListener("click", handleClick);
+        el.__hasClickHandler = true;
+ 
       }
     };
 
-    const handleLeave = () => setCursorData({ visible: false });
+    const handleLeave = (e) => {
+      const el = e.target.closest("[data-cursor-label]");
+      if (el && el.__hasClickHandler) {
+        el.removeEventListener("click", handleClick);
+        delete el.__hasClickHandler;
+      }
+      setCursorData({ visible: false });
+    };
 
     const addListeners = (el) => {
       el.addEventListener("mouseenter", handleEnter);
@@ -83,9 +85,12 @@ const DynamicCursor = () => {
     const removeListeners = (el) => {
       el.removeEventListener("mouseenter", handleEnter);
       el.removeEventListener("mouseleave", handleLeave);
+      if (el.__hasClickHandler) {
+        el.removeEventListener("click", handleClick);
+        delete el.__hasClickHandler;
+      }
     };
 
-    // Initial binding
     const bindListeners = () => {
       const targets = document.querySelectorAll("[data-cursor-label]");
       targets.forEach(addListeners);
@@ -93,36 +98,24 @@ const DynamicCursor = () => {
 
     bindListeners();
 
-    // Observer for dynamically added/removed elements
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === 1) {
-            if (node.matches?.("[data-cursor-label]")) {
-              addListeners(node);
-            }
-            node
-              .querySelectorAll?.("[data-cursor-label]")
-              .forEach(addListeners);
+            if (node.matches?.("[data-cursor-label]")) addListeners(node);
+            node.querySelectorAll?.("[data-cursor-label]").forEach(addListeners);
           }
         });
         mutation.removedNodes.forEach((node) => {
           if (node.nodeType === 1) {
-            if (node.matches?.("[data-cursor-label]")) {
-              removeListeners(node);
-            }
-            node
-              .querySelectorAll?.("[data-cursor-label]")
-              .forEach(removeListeners);
+            if (node.matches?.("[data-cursor-label]")) removeListeners(node);
+            node.querySelectorAll?.("[data-cursor-label]").forEach(removeListeners);
           }
         });
       });
     });
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-    });
+    observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       const targets = document.querySelectorAll("[data-cursor-label]");
@@ -141,42 +134,10 @@ const DynamicCursor = () => {
         } flex-c`}
         style={{ backgroundColor: cursorData.color }}
       >
-         <AnimatedLabel label={cursorData?.label} />
+        {cursorData.label}
       </div>
     </div>
   );
 };
-
-
-export  function AnimatedLabel({ label }) {
-  const [prevLabel, setPrevLabel] = useState("");
-  const [currentLabel, setCurrentLabel] = useState(label);
-  const [animating, setAnimating] = useState(false);
-
-  useEffect(() => {
-    if (label !== currentLabel) {
-      setPrevLabel(currentLabel);
-      setCurrentLabel(label);
-      setAnimating(true);
-
-      const timeout = setTimeout(() => setAnimating(false), 300);
-      return () => clearTimeout(timeout);
-    }
-  }, [label]);
-
-  return (
-    <div className={styles.labelContainer}>
-      {animating && (
-        <span className={`${styles.label} ${styles.prev} ${styles.animateOut}`}>
-          {prevLabel}
-        </span>
-      )}
-      <span className={`${styles.label} ${animating ? styles.animateIn : ""}`}>
-        {currentLabel}
-      </span>
-    </div>
-  );
-}
-
 
 export default DynamicCursor;

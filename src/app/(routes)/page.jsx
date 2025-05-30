@@ -11,6 +11,7 @@ import WaveLines from "@/components/Shared/WaveLines/WaveLines";
 import StaticSection, {
   CSRSection,
 } from "@/components/Home/StaticSection/StaticSection";
+import { ssrApi } from "@/utils/api";
 
 const Home = async () => {
   const {
@@ -21,6 +22,7 @@ const Home = async () => {
     testimonialSection = {},
     getInTouchSection = {},
   } = getHomePage();
+
   return (
     <section className={styles.layout}>
       <Intro />
@@ -29,12 +31,12 @@ const Home = async () => {
         <AboutUs data={aboutUsSection} />
         <WaveLines />
         <Quote data={quoteSection} />
-        
+
         <WaveLines />
         <div className={styles.childTwo}>
           <StaticSection mode="down" />
           <News data={newsSection} />
-           <WaveLines />
+          <WaveLines />
           <Testimonials data={testimonialSection} />
         </div>
       </CSRSection>
@@ -44,8 +46,3 @@ const Home = async () => {
 };
 
 export default Home;
-
-{
-  /* <News data={newsSection} />
-  <Testimonials data={testimonialSection} /> */
-}
