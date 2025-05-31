@@ -7,8 +7,15 @@ import { getpage } from "./data.test";
 //   await pageMetadataHandler(getpage, "");
 
 const page = async () => {
-  const data = await getpage("")  
-  return <List page={data} categories={data?.categories} />;
+  const data = await getpage("");
+  return (
+    <section
+      // className={styles}
+      id="news-Categories"
+    >
+      <List page={data} categories={data?.categories} />
+    </section>
+  );
 };
 
 export default page;

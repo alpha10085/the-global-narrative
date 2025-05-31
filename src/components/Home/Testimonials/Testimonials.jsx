@@ -88,15 +88,15 @@ const Testimonials = ({ data = {} }) => {
               spaceBetween: 20,
             },
             922: {
-              slidesPerView: 2,
+              slidesPerView: 1.8,
               spaceBetween: 20,
             },
             1150: {
-              slidesPerView: 2.5,
+              slidesPerView: 2.2,
               spaceBetween: 20,
             },
             1300: {
-              slidesPerView: 3,
+              slidesPerView: 3.2,
               spaceBetween: 20,
             },
           }}
@@ -107,7 +107,7 @@ const Testimonials = ({ data = {} }) => {
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <Card
                   className={styles.card}
-                  delay={index * 0.2 + 0.2}
+                  delay={index * 0.2 + 0.4}
                   data={item}
                 />
               </SwiperSlide>

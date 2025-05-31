@@ -12,22 +12,22 @@ const Card = ({ delay = 0, className = "", data = {} }) => {
       style={{
         animationDelay: `${delay}s`,
       }}
-
-             data-cursor-label="Read More →"
- 
+      data-cursor-label="Read More →"
       href={`/news/${data?.slug}`}
       className={`${styles.container} ${className}`}
     >
       <Img className={styles.cover} url={data?.poster?.url} />
-      <div className={`${styles.content} flex  al-i-c  w-100 just-sb mt-10`}>
-        <div className={`${styles.left} flex column gap5 `}>
+      <div className={`${styles.content} flex   w-100 column mt-20`}>
+        <div className={`${styles.left} flex just-sb  gap5 `}>
           <h3 className={styles.date}>{formatDate(data?.date)}</h3>
-          <h1 className={styles.title}>{customText(data?.title, 40)}</h1>
+          {/* <div className={`${styles.right} flex-c `}>
+            <ArrowOutwardIcon />
+          </div> */}
         </div>
 
-        <div className={`${styles.right} flex-c `}>
-          <ArrowOutwardIcon />
-        </div>
+        <h1 className={`${styles.title} mt-5 `}>
+          {customText(data?.title, 50)}
+        </h1>
       </div>
     </Link>
   );

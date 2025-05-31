@@ -23,7 +23,7 @@ const News = ({ data = {} }) => {
       ([entry]) => {
         if (entry.isIntersecting) {
           if (window.innerWidth > 550) {
-            swiperInstance.autoplay?.start();
+            //  swiperInstance.autoplay?.start();
           }
 
           observer.disconnect(); // Optional: Only trigger once
@@ -61,12 +61,18 @@ const News = ({ data = {} }) => {
   }, []);
 
   return (
-    <div className={styles.container} ref={containerRef}>
+    <div
+      id="active-section"
+      data-offset="0"
+      className={styles.container}
+      ref={containerRef}
+    >
       <div className={styles.title}>
         <SectionTitle title={data?.title} />
       </div>
       <Aos
         delay={200}
+        threshold={0.5}
         activeClassName={styles.active}
         className={`${styles.list} flex  gap20 al-i-c`}
       >
@@ -80,13 +86,13 @@ const News = ({ data = {} }) => {
           speed={1000}
           loop={true}
           slidesPerView={1.1}
-          spaceBetween={10}
+          spaceBetween={80}
           breakpoints={{
             550: { slidesPerView: 2, spaceBetween: 10 },
-            768: { slidesPerView: 2.5, spaceBetween: 10 },
-            990: { slidesPerView: 3, spaceBetween: 10 },
-            1100: { slidesPerView: 3.4, spaceBetween: 10 },
-            1300: { slidesPerView: 3.4, spaceBetween: 10 },
+            768: { slidesPerView: 2.2, spaceBetween: 10 },
+            990: { slidesPerView: 2.8, spaceBetween: 10 },
+            1100: { slidesPerView: 3.2, spaceBetween: 10 },
+            1300: { slidesPerView: 3.2, spaceBetween: 50 },
           }}
           modules={[Autoplay]}
         >
@@ -95,7 +101,7 @@ const News = ({ data = {} }) => {
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <Card
                   className={styles.card}
-                  delay={index * 0.2 + 0.2}
+                  delay={index * 0.2 + 0.4}
                   data={item}
                 />
               </SwiperSlide>

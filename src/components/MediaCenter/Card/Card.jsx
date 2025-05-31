@@ -8,7 +8,8 @@ const Card = ({ val, index }) => {
   useEffect(() => {
     setTimeout(() => setShow(true), index * 150); // Change 5000 to your desired delay in milliseconds.
   }, []);
-  const channelPicture = "/main-logo-black.png";
+  const channelPicture =
+    "https://yt3.ggpht.com/7JjfCHjHReIEZXW8ksufTYjKXChdx-Gp_iQJIWOD72xqF3YdyJsWqAPtCPfacWrMgabWpBvODBw=s88-c-k-c0x00ffffff-no-rj";
 
   return (
     <div

@@ -1,19 +1,19 @@
-"use client"
-import React, { useRef, useEffect } from 'react';
+"use client";
+import React, { useRef, useEffect } from "react";
 const WaveLines = ({
   lineCount = 3,
   pointCount = 7,
   amplitude = 70,
   frequency = 0.02,
   speed = 0.9,
-  colors = ['#ffffff', '#00eaff', '#ff00d4'],
+  colors = ["#ffffff", "#00eaff", "#ff00d4"],
   height = 300,
 }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     const dpr = window.devicePixelRatio || 1;
 
     // Set high-resolution canvas size
@@ -44,7 +44,9 @@ const WaveLines = ({
           const x = (i / (pointCount - 1)) * width;
           const y =
             centerY +
-            Math.sin(time * (speed / 1000) + wave.offset + x * frequency * Math.PI) *
+            Math.sin(
+              time * (speed / 1000) + wave.offset + x * frequency * Math.PI
+            ) *
               amplitude;
           points.push({ x, y });
         }
@@ -78,27 +80,27 @@ const WaveLines = ({
       width = canvas.width / dpr;
     };
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [lineCount, pointCount, amplitude, frequency, speed, colors, height]);
 
   return (
- <div 
- style={{
-     width: '100%',
-        overflow:"hidden",
- }}
- >
-     <canvas
-      ref={canvasRef}
+    <div
       style={{
-        width: '100%',
-        overflow:"hidden",
-        height: `${height}px`,
-        display: 'block',
+        width: "100%",
+        overflow: "hidden",
       }}
-    />
- </div>
+    >
+      <canvas
+        ref={canvasRef}
+        style={{
+          width: "100%",
+          overflow: "hidden",
+          height: `${height}px`,
+          display: "block",
+        }}
+      />
+    </div>
   );
 };
 

@@ -36,7 +36,7 @@ const List = ({ page = {}, categories = [] }) => {
   const categoriesQuery = searchParams?.categories?.split(",") || [];
 
   const searchQuery = (searchParams?.search || "").toLocaleLowerCase();
-  const ogData = getFakeNews(5)
+  const ogData = getFakeNews(5);
 
   const data = { pages: ogData };
   const isLoading = false;
@@ -68,31 +68,8 @@ const List = ({ page = {}, categories = [] }) => {
   );
 
   return (
-    <div className={styles.newsContainer}>
-      {latestNews?.length >= 3 && (
-        <>
-          <div className={styles.headSection}>
-            <SectionTitle title={title} className={styles.headingTitle} />
-          </div>
-          <div className={`${styles.latestCards}`}>
-            {latestNews?.slice(0, 3)?.map((item, index) => (
-              <Aos
-                className={styles.fadeInUp}
-                activeClassName={styles.active}
-                delay={index * 50}
-                key={item?._id}
-              >
-                <Card New={item} latest={true} />
-              </Aos>
-            ))}
-          </div>
-        </>
-      )}
-
-      <div
-        id="news-Categories"
-        className={`${styles.headerContainer} flex column gap20 just-sb`}
-      >
+    <div id="news-Categories" className={styles.newsContainer}>
+      <div className={`${styles.headerContainer} flex column gap20 just-sb`}>
         <div className={`${styles.filters} flex  gap20 just-sb`}>
           <div className={styles.categories}>
             <span
@@ -106,7 +83,7 @@ const List = ({ page = {}, categories = [] }) => {
             </span>
             {categories?.map((category, idx) => (
               <span
-                onClick={() => multiple("categories", category?.slug, true)}
+                onClick={() => singleValue("categories", category?.slug, true)}
                 key={category?._id}
                 className={`${styles.categoryItem} ${
                   categoriesQuery?.includes(category?.slug)

@@ -8,16 +8,14 @@ const Card = ({ New = {}, className = "", latest = false }) => {
     <Link className={`${styles.card} ${className}`} href={`/news/${New?.slug}`}>
       <div className={styles.top}>
         <div className={styles.cardOverlay}> </div>
-        <Img url={New?.poster?.url} className={styles.image} />
+        <Img url={New?.poster?.url} className={`${styles.image} `} />
         <div className={styles.text}>
           <p className={styles.date}>{formatDate(New?.date)}</p>
           <h1 className={styles.cardTitle}> {New?.title}</h1>
         </div>
       </div>
 
-      <div className={styles.cardDetails}>
-        <h2>{New?.description?.slice(0, 40)}...</h2>{" "}
-      </div>
+    
     </Link>
   );
 };

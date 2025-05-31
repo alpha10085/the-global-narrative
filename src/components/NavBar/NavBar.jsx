@@ -4,29 +4,43 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./NavBar.module.css";
 import MobileNav from "./mobileNav/MobileNav";
 
-import { BurgerIcon, ProfileIcon } from "./Icons/Icons";
+import { BurgerIcon } from "./Icons/Icons";
 import Link from "../Shared/LocalizedLink/Link";
 import MainLogo from "../MainLogo/MainLogo";
 import { usePathname } from "@/hooks/useTranslations";
 import { links } from "./Links";
+
 const NavBar = () => {
   const [openMobil, setOpenMobile] = useState(false);
   const BurgerBtnRef = useRef(null);
+  const navRef = useRef(null);
   const [navMode, setNavMode] = useState({
     transparent: true,
     darkMode: true,
   });
   const { pathname, pathes } = usePathname();
+
   const transparentPathes = ["/"];
   const darkModePathes = [];
 
-  const targetScroll = 3000;
   useEffect(() => {
     const isTransparentPath = transparentPathes.includes(pathname);
     const isDarkModePath = darkModePathes.includes(pathname);
 
     const updateNavModeOnScroll = () => {
-      if (window.scrollY > targetScroll) {
+      const section = document.getElementById("active-section");
+      const navbar = navRef.current;
+      if (!section || !navbar) return;
+
+      const offset = parseInt(section.dataset.offset) || 0;
+      const sectionTop =
+        section.getBoundingClientRect().top + window.scrollY - offset;
+      const navbarHeight = navbar.offsetHeight;
+      const scrollPosition = window.scrollY;
+
+      const shouldActivate = scrollPosition + navbarHeight >= sectionTop;
+
+      if (shouldActivate) {
         setNavMode({
           transparent: false,
           darkMode: true,
@@ -39,40 +53,36 @@ const NavBar = () => {
       }
     };
 
-    // Set initial nav mode (in case scroll listener doesn't fire immediately)
-    updateNavModeOnScroll();
-
+    updateNavModeOnScroll(); // initial check
     window.addEventListener("scroll", updateNavModeOnScroll);
-
-    return () => {
-      window.removeEventListener("scroll", updateNavModeOnScroll);
-    };
+    return () => window.removeEventListener("scroll", updateNavModeOnScroll);
   }, [pathname]);
 
   return (
     <header className={styles.header}>
       <div className={styles.wrapperHeader}>
         <nav
-          className={`${styles.nav} ${
-            navMode.transparent ? styles.transparent : ""
-          }
-          ${navMode.darkMode ? styles.darkMode : ""}
-          flex just-sb gap15`}
+          ref={navRef}
+          className={`
+            ${styles.nav}
+            ${navMode.transparent ? styles.transparent : ""}
+            ${navMode.darkMode ? styles.darkMode : ""}
+            flex just-sb gap15
+          `}
         >
           <MainLogo
             theme={!navMode.darkMode ? "dark" : "light"}
             classNameWrapper={styles.logo}
           />
+
           <ul className={`flex al-i-c gap40 ${styles.rightUl}`}>
             {links?.map((val, index) => (
               <li key={index}>
                 <Link
-                  style={{
-                    animationDelay: `${index * 200 + 500}ms`,
-                  }}
+                  style={{ animationDelay: `${index * 200 + 500}ms` }}
                   className={`${styles.link} 
-                  ${pathes?.[0] === val?.href ? styles.active : ""}
-                  flex-c`}
+                    ${pathes?.[0] === val?.href ? styles.active : ""}
+                    flex-c`}
                   href={val?.href}
                 >
                   {val?.text}
@@ -89,6 +99,7 @@ const NavBar = () => {
           />
         </nav>
       </div>
+
       <MobileNav
         ref={BurgerBtnRef}
         isOpen={openMobil}

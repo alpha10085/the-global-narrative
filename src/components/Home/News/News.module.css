@@ -17,10 +17,12 @@
 }
 
 .card {
-  transform: translateY(30%);
+
   opacity: 0;
 }
-
+.swiperSlide:nth-child(even) {
+  transform: translateY(50px) ;
+}
 .list.active .card {
   animation: introCard 0.8s ease forwards;
 }
@@ -28,16 +30,15 @@
 .swiper {
   width: 100%;
   padding-left: 5%;
+  padding-bottom: 50px;
 }
 
 @keyframes introCard {
   from {
-    transform: translateY(30%);
     opacity: 0;
   }
   to {
     opacity: 1;
-    transform: translate(0);
   }
 }
 

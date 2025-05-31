@@ -19,7 +19,7 @@
 }
 
 .card .top {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 4 / 4;
 }
 
 .latestCard .top {
@@ -50,6 +50,22 @@
   transition: transform 0.3s ease;
   width: 100%;
   height: 100%;
+}
+
+.image::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 40%;
+  width: 100%;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgb(0, 0, 0)
+  );
+  /* bottom: -100px; */
+  z-index: 2;
 }
 
 .image img {
@@ -84,6 +100,12 @@
 .date {
   font-size: clamp(10px, 2vw, 12px);
   margin-bottom: 8px;
+  padding: 4px 10px;
+  background-color: rgba(174, 174, 174, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  width: max-content;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
 }
 
 .cardDetails {
