@@ -1,8 +1,6 @@
-.bottom {
+.floated {
   position: relative;
   z-index: 2;
-  will-change: transform;
+  will-change: margin-top;
   transition: box-shadow 0.3s ease;
-
-  margin-bottom: -300px;
 }

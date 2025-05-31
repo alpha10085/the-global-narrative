@@ -7,7 +7,7 @@
   position: relative;
   color: white;
   
-  background-color: rgba(5, 0, 78);
+  /* background-color: rgba(5, 0, 78); */
   
 }
 
@@ -44,7 +44,6 @@
 .top {
   border-radius: 50px 50px 0 0;
   padding: 50px 5%;
-  transform: translateY(300px);
   background-color: #385cf5;
   
 

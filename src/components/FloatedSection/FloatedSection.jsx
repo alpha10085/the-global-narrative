@@ -14,8 +14,8 @@ const FloatedSection = ({ children }) => {
       const rect = el.getBoundingClientRect();
       const windowHeight = window.innerHeight;
 
-      const start = windowHeight * 1.5; // when animation starts
-      const end = windowHeight * 0.1; // when it's fully translated
+      const start = windowHeight * 1.5;
+      const end = windowHeight * 0.1;
 
       const rawProgress = (start - rect.top) / (start - end);
       const clamped = Math.min(1, Math.max(0, rawProgress));
@@ -27,14 +27,14 @@ const FloatedSection = ({ children }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const translateY = progress * 300; // from 0 → 100px as user scrolls
+  const translateY = progress * 300;
 
   return (
     <section
       ref={sectionRef}
-      className={styles.bottom}
+      className={styles.floated}
       style={{
-        transform: `translateY(${-translateY}px)`,
+        marginTop: `-${translateY}px`,
       }}
     >
       {children}
