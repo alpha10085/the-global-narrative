@@ -10,9 +10,9 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 const page = async () => {
   const data = await getpage("");
   return (
-    <section className={styles.layout} id="news-Categories">
+    <section className={`${styles.layout} showSmooth`} id="news-Categories">
       <div className={styles.header}>
-        <p className={`${styles.subTitle} showSmooth`}>{data?.subTitle}</p>
+        <p className={`${styles.subTitle} `}>{data?.subTitle}</p>
         {/* <h1 className={styles.title}>{data?.title}</h1> */}
         <SectionTitle className={styles.title} title={data?.title} />
       </div>

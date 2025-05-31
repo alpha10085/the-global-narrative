@@ -14,7 +14,7 @@ const Page = async (props) => {
   const data = getFakeOneNews(slug);
 
   return (
-    <section className={styles.container}>
+    <section className={`${styles.container} showSmooth`}>
       {/* header */}
       <div className={styles.header}>
         <div className={`${styles.left} flex al-i-c gap15`}>

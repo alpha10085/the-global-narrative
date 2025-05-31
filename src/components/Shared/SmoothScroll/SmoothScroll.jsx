@@ -15,6 +15,7 @@ const SmoothScroll = ({ duration = 0.9 }) => {
   useEffect(() => {
     const handler = async (newval) => {
       await delay(155);
+      console.log("🚀 ~ handler ~ newval:", newval);
       if (newval) {
         startLenis();
       } else {
@@ -29,15 +30,6 @@ const SmoothScroll = ({ duration = 0.9 }) => {
     };
   }, []);
 
-  useEffect(() => {
-  
-    stopLenis();
-    delay(150).then(() => {
-      window.scrollTo(0, 0);
-      startLenis();
-    });
-  }, [pathname]);
-
   return enable ? <LenisComponent duration={duration} /> : null;
 };
 
@@ -45,6 +37,7 @@ export default SmoothScroll;
 
 const LenisComponent = ({ duration }) => {
   const lenisRef = useRef(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const lenis = new Lenis({ duration });
@@ -61,7 +54,17 @@ const LenisComponent = ({ duration }) => {
       cancelAnimationFrame(animationFrame);
       lenis.destroy();
     };
-  }, []);
+  }, [duration]);
+
+  // 👇 Scroll to top when pathname changes
+  useEffect(() => {
+    if (lenisRef.current) {
+      // Use a small delay to ensure DOM has mounted the new page
+      setTimeout(() => {
+        lenisRef.current.scrollTo(-100, { immediate: true }); // or `{ offset: 0, immediate: true }`
+      }, 100);
+    }
+  }, [pathname]);
 
   return null;
 };
