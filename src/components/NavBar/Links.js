@@ -14,10 +14,10 @@ export const links = [
     text: "News",
     href: "/news",
   },
-  {
-    text: "clients",
-    href: "/clients",
-  },
+  // {
+  //   text: "clients",
+  //   href: "/clients",
+  // },
   {
     text: "services",
     href: "/services",

@@ -21,9 +21,7 @@ const DynamicCursor = () => {
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
       if (cursorData.visible) {
-        delay(100).then(() => {
-          setCursorData({ isDetected: true });
-        });
+        delay(100).then(() => setCursorData({ isDetected: true }));
       }
     };
 
@@ -62,9 +60,10 @@ const DynamicCursor = () => {
         const color = el.getAttribute("data-cursor-color") || "#84e6ff";
         setCursorData({ visible: true, label, color });
 
-        el.addEventListener("click", handleClick);
-        el.__hasClickHandler = true;
- 
+        if (!el.__hasClickHandler) {
+          el.addEventListener("click", handleClick);
+          el.__hasClickHandler = true;
+        }
       }
     };
 
@@ -96,7 +95,24 @@ const DynamicCursor = () => {
       targets.forEach(addListeners);
     };
 
+    const manuallyTriggerIfHovered = () => {
+      const hovered = document.elementFromPoint(targetPos.current.x, targetPos.current.y);
+      if (!hovered) return;
+      const el = hovered.closest("[data-cursor-label]");
+      if (el) {
+        const label = el.getAttribute("data-cursor-label");
+        const color = el.getAttribute("data-cursor-color") || "#84e6ff";
+        setCursorData({ visible: true, label, color });
+
+        if (!el.__hasClickHandler) {
+          el.addEventListener("click", handleClick);
+          el.__hasClickHandler = true;
+        }
+      }
+    };
+
     bindListeners();
+    manuallyTriggerIfHovered(); // 🧠 fix: check if user is already hovering
 
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -118,8 +134,7 @@ const DynamicCursor = () => {
     observer.observe(document.body, { childList: true, subtree: true });
 
     return () => {
-      const targets = document.querySelectorAll("[data-cursor-label]");
-      targets.forEach(removeListeners);
+      document.querySelectorAll("[data-cursor-label]").forEach(removeListeners);
       observer.disconnect();
     };
   }, []);
@@ -127,11 +142,7 @@ const DynamicCursor = () => {
   return (
     <div ref={wrapperRef} className={`${styles.wrappercursor} flex-c`}>
       <div
-        className={`${styles.cursor} ${
-          cursorData.visible 
-            ? styles.visible
-            : styles.unVisible
-        } flex-c`}
+        className={`${styles.cursor} ${cursorData.visible ? styles.visible : styles.unVisible} flex-c`}
         style={{ backgroundColor: cursorData.color }}
       >
         {cursorData.label}

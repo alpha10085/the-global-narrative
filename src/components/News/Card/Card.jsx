@@ -2,6 +2,7 @@ import { formatDate } from "@/utils/date";
 import styles from "./Card.module.css";
 import Img from "@/components/Shared/img/Img";
 import Link from "next/link";
+import { customText } from "@/utils/text";
 
 const Card = ({ New = {}, className = "", latest = false }) => {
   return (
@@ -11,7 +12,7 @@ const Card = ({ New = {}, className = "", latest = false }) => {
         <Img url={New?.poster?.url} className={`${styles.image} `} />
         <div className={styles.text}>
           <p className={styles.date}>{formatDate(New?.date)}</p>
-          <h1 className={styles.cardTitle}> {New?.title}</h1>
+          <h1 className={styles.cardTitle}> {customText(New?.title,80)}</h1>
         </div>
       </div>
 
