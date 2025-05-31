@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import styles from "./DynamicCursor.module.css";
 import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
@@ -18,12 +19,12 @@ const DynamicCursor = () => {
   });
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
       delay(100).then(() => {
-        setCursorData({
-          isDetected: true,
-        });
+        setCursorData({ isDetected: true });
       });
     };
 
@@ -31,9 +32,7 @@ const DynamicCursor = () => {
       targetPos.current = { x: e.clientX, y: e.clientY };
       window.removeEventListener("mouseenter", handleInitialMouseDetect);
       delay(100).then(() => {
-        setCursorData({
-          isDetected: true,
-        });
+        setCursorData({ isDetected: true });
       });
     };
 
@@ -50,16 +49,8 @@ const DynamicCursor = () => {
     const lerp = (start, end, factor) => start + (end - start) * factor;
 
     const animate = () => {
-      currentPos.current.x = lerp(
-        currentPos.current.x,
-        targetPos.current.x,
-        0.15
-      );
-      currentPos.current.y = lerp(
-        currentPos.current.y,
-        targetPos.current.y,
-        0.15
-      );
+      currentPos.current.x = lerp(currentPos.current.x, targetPos.current.x, 0.15);
+      currentPos.current.y = lerp(currentPos.current.y, targetPos.current.y, 0.15);
 
       if (wrapperRef.current) {
         wrapperRef.current.style.left = `${currentPos.current.x}px`;
@@ -73,7 +64,9 @@ const DynamicCursor = () => {
     return () => cancelAnimationFrame(animationRef.current);
   }, []);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    if (typeof document === "undefined") return;
+
     const handleClick = () => {
       setCursorData({ visible: false, label: "" });
     };
@@ -125,17 +118,14 @@ const DynamicCursor = () => {
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === 1) {
             if (node.matches?.("[data-cursor-label]")) addListeners(node);
-            node
-              .querySelectorAll?.("[data-cursor-label]")
-              .forEach(addListeners);
+            node.querySelectorAll?.("[data-cursor-label]").forEach(addListeners);
           }
         });
+
         mutation.removedNodes.forEach((node) => {
           if (node.nodeType === 1) {
             if (node.matches?.("[data-cursor-label]")) removeListeners(node);
-            node
-              .querySelectorAll?.("[data-cursor-label]")
-              .forEach(removeListeners);
+            node.querySelectorAll?.("[data-cursor-label]").forEach(removeListeners);
           }
         });
       });
