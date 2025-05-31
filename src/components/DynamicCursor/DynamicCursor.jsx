@@ -80,6 +80,10 @@ const DynamicCursor = () => {
 
         el.addEventListener("click", handleClick);
         el.__hasClickHandler = true;
+      delay(100).then(() => {
+        setCursorData({ isDetected: true });
+      });
+
       }
     };
 
