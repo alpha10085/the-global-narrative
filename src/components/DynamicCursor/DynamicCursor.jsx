@@ -20,14 +20,30 @@ const DynamicCursor = () => {
   useEffect(() => {
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
-        delay(100).then(() => {
-          setCursorData({ isDetected: true });
+      delay(100).then(() => {
+        setCursorData({
+          isDetected: true,
         });
+      });
+    };
 
+    const handleInitialMouseDetect = (e) => {
+      targetPos.current = { x: e.clientX, y: e.clientY };
+      window.removeEventListener("mouseenter", handleInitialMouseDetect);
+      delay(100).then(() => {
+        setCursorData({
+          isDetected: true,
+        });
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mouseenter", handleInitialMouseDetect);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("mouseenter", handleInitialMouseDetect);
+    };
   }, []);
 
   useEffect(() => {
@@ -59,7 +75,7 @@ const DynamicCursor = () => {
 
   useEffect(() => {
     const handleClick = () => {
-      setCursorData({ visible: false, label: "", isDetected: false });
+      setCursorData({ visible: false, label: "" });
     };
 
     const handleEnter = (e) => {
