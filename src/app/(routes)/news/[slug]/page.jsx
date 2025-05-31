@@ -2,6 +2,11 @@ import Img from "@/components/Shared/img/Img";
 import { getFakeOneNews } from "../data.test";
 import styles from "./styles.module.css";
 import FormatText from "@/components/Shared/FormatText/FormatText";
+import FloatedSection from "@/components/FloatedSection/FloatedSection";
+import { ArrowBackIosIcon } from "@/components/NewsDetails/icons";
+import { formatDate } from "@/utils/date";
+import { calcReadingTime } from "@/components/NewsDetails/helpers";
+import Link from "@/components/Shared/LocalizedLink/Link";
 
 const Page = async (props) => {
   const { slug = "" } = await props.params;
@@ -9,7 +14,17 @@ const Page = async (props) => {
 
   return (
     <section className={styles.container}>
-      {/* Top Poster */}
+      {/* header */}
+      <div className={styles.header}>
+        <div className={`${styles.left} flex al-i-c gap15`}>
+          <Link href={"/news"} className={`${styles.arrow} flex-c`}>
+            <ArrowBackIosIcon />
+          </Link>
+          <span>Back</span>
+        </div>
+        <div className={styles.right}></div>
+      </div>
+      {/*  Poster */}
       <div className={styles.poster}>
         <Img
           url={data?.poster?.url}
@@ -17,15 +32,38 @@ const Page = async (props) => {
           className={styles.image}
         />
       </div>
+      {/*  details */}
+      <div className={styles.details}>
+        <div className={`${styles.top} flex gap10`}>
+          <div className="flex column gap5">
+            <span className={styles.label}>date</span>
+            <span className={styles.date}>{formatDate(data?.date)}</span>
+          </div>
+          <div className="flex column gap5">
+            <span className={styles.label}>Reading time</span>
+            <span className={styles.date}>
+              {calcReadingTime(data?.content)}
+            </span>
+          </div>
+        </div>
+        <h2>{data?.title}</h2>
+      </div>
 
       {/* Bottom Section */}
-      <div className={`${styles.content} flex gap20 column`}>
-        <h1>{data?.title}</h1>
-        <FormatText
-          className={`${styles.cardDescription}`}
-          text={data?.content}
-        />
-      </div>
+      <FloatedSection>
+        <div
+          id="active-section"
+          className={`${styles.content} flex gap20 column`}
+        >
+          <FormatText
+            className={`${styles.cardDescription}`}
+            text={data?.content}
+          />
+        </div>
+      </FloatedSection>
+      {/* <div className={styles.bottomspace}>
+
+      </div> */}
     </section>
   );
 };

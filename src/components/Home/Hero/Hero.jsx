@@ -65,7 +65,7 @@ const Hero = ({ data = [] }) => {
             // pauseOnMouseEnter: true,
           }}
           speed={1000}
-          loop={true}
+          loop={false}
           modules={[Autoplay]}
         >
           {data?.map((val, index) => (

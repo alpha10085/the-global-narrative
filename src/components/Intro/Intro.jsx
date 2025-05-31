@@ -78,7 +78,7 @@ const Intro = () => {
     <div
       // data-cursor-label="← DRAG →"
       data-cursor-label="Enter →"
-      data-cursor-onClick="hide"
+
       // data-cursor-color="#5D27FF"
       onClick={handleHide}
       onMouseMove={handleMouseMove}

@@ -13,6 +13,7 @@ import StaticSection, {
 } from "@/components/Home/StaticSection/StaticSection";
 import { ssrApi } from "@/utils/api";
 import AnimatedBorderSection from "@/components/AnimatedBorderSection/AnimatedBorderSection";
+import FloatedSection from "@/components/FloatedSection/FloatedSection";
 
 const Home = async () => {
   const {
@@ -32,17 +33,18 @@ const Home = async () => {
         <AboutUs data={aboutUsSection} />
         <WaveLines />
         <Quote data={quoteSection} />
-
         <WaveLines />
-
-        <div className={styles.childTwo}>
-        <AnimatedBorderSection>
-          <StaticSection mode="down" />
-          <News data={newsSection} />
-          <WaveLines  colors={["#8927f2a8", "#00eaff", "#ff00d4"]}  />
-          <Testimonials data={testimonialSection} />
-        </AnimatedBorderSection>
-        </div>
+        <div className={styles.spaceSection}></div>
+        <FloatedSection>
+          <div className={styles.childTwo}>
+            <AnimatedBorderSection>
+              <StaticSection mode="down" />
+              <News data={newsSection} />
+              <WaveLines colors={["#8927f2a8", "#00eaff", "#ff00d4"]} />
+              <Testimonials data={testimonialSection} />
+            </AnimatedBorderSection>
+          </div>
+        </FloatedSection>
       </CSRSection>
       <GetInTouch data={getInTouchSection} />
     </section>

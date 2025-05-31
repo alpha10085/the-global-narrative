@@ -20,25 +20,37 @@ const NavBar = () => {
   });
   const { pathname, pathes } = usePathname();
 
-  const transparentPathes = ["/"];
+  const transparentPathes = ["/", "/news/*"];
   const darkModePathes = [];
 
   useEffect(() => {
-    const isTransparentPath = transparentPathes.includes(pathname);
-    const isDarkModePath = darkModePathes.includes(pathname);
+    const matchPath = (pattern, path) => {
+      const regexPattern = pattern
+        .replace(/[-/\\^$+?.()|[\]{}]/g, "\\$&")
+        .replace(/\*/g, ".*");
+      const regex = new RegExp(`^${regexPattern}$`);
+      return regex.test(path);
+    };
+
+    const isPathInPatterns = (patterns, path) => {
+      return patterns.some((pattern) => matchPath(pattern, path));
+    };
+
+    const isTransparentPath = isPathInPatterns(transparentPathes, pathname);
+    const isDarkModePath = isPathInPatterns(darkModePathes, pathname);
 
     const updateNavModeOnScroll = () => {
       const section = document.getElementById("active-section");
       const navbar = navRef.current;
-      if (!section || !navbar) return;
 
-      const offset = parseInt(section.dataset.offset) || 0;
+      const offset = parseInt(section?.dataset?.offset) || 0;
       const sectionTop =
-        section.getBoundingClientRect().top + window.scrollY - offset;
+        section?.getBoundingClientRect()?.top + window.scrollY - offset;
       const navbarHeight = navbar.offsetHeight;
       const scrollPosition = window.scrollY;
 
-      const shouldActivate = scrollPosition + navbarHeight >= sectionTop;
+      const shouldActivate =
+        isTransparentPath && scrollPosition + navbarHeight >= sectionTop;
 
       if (shouldActivate) {
         setNavMode({
@@ -57,6 +69,12 @@ const NavBar = () => {
     window.addEventListener("scroll", updateNavModeOnScroll);
     return () => window.removeEventListener("scroll", updateNavModeOnScroll);
   }, [pathname]);
+
+  //   useEffect(() => {
+  //       stopAutoplay();
+  //   eventBus.on("intro-event", handleAutoPlay);
+  //   return () => eventBus.off("intro-event", handleAutoPlay);
+  // }, []);
 
   return (
     <header className={styles.header}>

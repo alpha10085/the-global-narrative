@@ -2,12 +2,13 @@
 .footer {
   font-family: Arial, sans-serif;
   font-size: 14px;
-  z-index: 10;
-  background-color: black;
+  z-index: 100;
+  
   position: relative;
-  border-radius: 20px 20px 0 0;
-  padding: 50px 5%;
   color: white;
+  
+  background-color: rgba(5, 0, 78);
+  
 }
 
 .logo {
@@ -40,6 +41,14 @@
   margin-bottom: 10px;
 }
 
+.top {
+  border-radius: 50px 50px 0 0;
+  padding: 50px 5%;
+  transform: translateY(300px);
+  background-color: #385cf5;
+  
+
+}
 
 @media (max-width: 768px) {
   .top,
@@ -65,8 +74,8 @@
     height: 20vw;
     max-height: 90px;
   }
-  
-.footer {
-  border-radius: 7% 7% 0 0;}
 
+  .footer {
+    border-radius: 7% 7% 0 0;
+  }
 }

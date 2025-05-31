@@ -11,8 +11,8 @@ const GetInTouch = ({ data = {} }) => {
   return (
     <div className={styles.wrapper}>
       <div className={`${styles.container} flex-c column al-i-c`}>
-<div className={`${styles.top} flex-c column gap20`}>
-            <SectionTitle title={data?.title} />
+        <div className={`${styles.top} flex-c column gap20`}>
+          <SectionTitle title={data?.title} />
           <Aos
             delay={400}
             activeClassName={styles.active}
@@ -27,10 +27,9 @@ const GetInTouch = ({ data = {} }) => {
           >
             <MainLink text="Contact us" href={"/contact-us"} />
           </Aos>
-     </div>
-          <div className={styles.waves}>
-            <WaveLines />
-     
+        </div>
+        <div className={styles.waves}>
+          <WaveLines />
         </div>
       </div>
     </div>

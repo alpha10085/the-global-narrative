@@ -9,5 +9,9 @@
   width: 100%;
   margin: auto;
   padding: 0 2%;
-  transform: translateY(0px);
+}
+
+
+.spaceSection {
+  height: 50px;
 }

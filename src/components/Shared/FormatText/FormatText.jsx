@@ -1,8 +1,8 @@
 "use client";
-import { formatText ,customText } from "@/utils/text";
+import { formatText, customText } from "@/utils/text";
 import React, { memo } from "react";
-const FormatText = ({ text =null, max = null, className = "" }) => {
-  if (!text || typeof text !== "string" ) return null 
+const FormatText = ({ text = null, max = null, className = "" }) => {
+  if (!text || typeof text !== "string") return null;
   return (
     <p
       className={className}
