@@ -1,14 +1,13 @@
 "use client";
-
-import React, { useEffect, useLayoutEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./DynamicCursor.module.css";
 import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
 
 const DynamicCursor = () => {
   const wrapperRef = useRef(null);
-  const targetPos = useRef({ x: -100, y: 0 });
-  const currentPos = useRef({ x: -100, y: 0 });
+  const targetPos = useRef({ x: -1, y: 0 });
+  const currentPos = useRef({ x: -1, y: 0 });
   const animationRef = useRef(null);
 
   const [cursorData, setCursorData] = useDynamicState({
@@ -19,31 +18,18 @@ const DynamicCursor = () => {
   });
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
-      delay(100).then(() => {
-        setCursorData({ isDetected: true });
-      });
-    };
-
-    const handleInitialMouseDetect = (e) => {
-      targetPos.current = { x: e.clientX, y: e.clientY };
-      window.removeEventListener("mouseenter", handleInitialMouseDetect);
-      delay(100).then(() => {
-        setCursorData({ isDetected: true });
-      });
+      if (cursorData.visible) {
+        delay(100).then(() => {
+          setCursorData({ isDetected: true });
+        });
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseenter", handleInitialMouseDetect);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseenter", handleInitialMouseDetect);
-    };
-  }, []);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, [cursorData.visible]);
 
   useEffect(() => {
     const lerp = (start, end, factor) => start + (end - start) * factor;
@@ -64,11 +50,9 @@ const DynamicCursor = () => {
     return () => cancelAnimationFrame(animationRef.current);
   }, []);
 
-  useLayoutEffect(() => {
-    if (typeof document === "undefined") return;
-
+  useEffect(() => {
     const handleClick = () => {
-      setCursorData({ visible: false, label: "" });
+      setCursorData({ visible: false, label: "", isDetected: false });
     };
 
     const handleEnter = (e) => {
@@ -80,10 +64,7 @@ const DynamicCursor = () => {
 
         el.addEventListener("click", handleClick);
         el.__hasClickHandler = true;
-      delay(100).then(() => {
-        setCursorData({ isDetected: true });
-      });
-
+ 
       }
     };
 
@@ -125,7 +106,6 @@ const DynamicCursor = () => {
             node.querySelectorAll?.("[data-cursor-label]").forEach(addListeners);
           }
         });
-
         mutation.removedNodes.forEach((node) => {
           if (node.nodeType === 1) {
             if (node.matches?.("[data-cursor-label]")) removeListeners(node);
@@ -148,7 +128,7 @@ const DynamicCursor = () => {
     <div ref={wrapperRef} className={`${styles.wrappercursor} flex-c`}>
       <div
         className={`${styles.cursor} ${
-          cursorData.visible
+          cursorData.visible 
             ? styles.visible
             : styles.unVisible
         } flex-c`}
