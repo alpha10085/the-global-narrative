@@ -6,8 +6,8 @@ import { delay } from "@/utils/delay";
 
 const DynamicCursor = () => {
   const wrapperRef = useRef(null);
-  const targetPos = useRef({ x: -1, y: 0 });
-  const currentPos = useRef({ x: -1, y: 0 });
+  const targetPos = useRef({ x: -100, y: 0 });
+  const currentPos = useRef({ x: -100, y: 0 });
   const animationRef = useRef(null);
 
   const [cursorData, setCursorData] = useDynamicState({
@@ -72,14 +72,6 @@ const DynamicCursor = () => {
 
         el.addEventListener("click", handleClick);
         el.__hasClickHandler = true;
-
-        if (!isDetected) {
-          delay(100).then(() => {
-            setCursorData({
-              isDetected: true,
-            });
-          });
-        }
       }
     };
 
