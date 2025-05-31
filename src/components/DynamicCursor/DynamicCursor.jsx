@@ -35,8 +35,16 @@ const DynamicCursor = () => {
     const lerp = (start, end, factor) => start + (end - start) * factor;
 
     const animate = () => {
-      currentPos.current.x = lerp(currentPos.current.x, targetPos.current.x, 0.15);
-      currentPos.current.y = lerp(currentPos.current.y, targetPos.current.y, 0.15);
+      currentPos.current.x = lerp(
+        currentPos.current.x,
+        targetPos.current.x,
+        0.15
+      );
+      currentPos.current.y = lerp(
+        currentPos.current.y,
+        targetPos.current.y,
+        0.15
+      );
 
       if (wrapperRef.current) {
         wrapperRef.current.style.left = `${currentPos.current.x}px`;
@@ -64,7 +72,14 @@ const DynamicCursor = () => {
 
         el.addEventListener("click", handleClick);
         el.__hasClickHandler = true;
- 
+
+        if (!isDetected) {
+          delay(100).then(() => {
+            setCursorData({
+              isDetected: true,
+            });
+          });
+        }
       }
     };
 
@@ -103,13 +118,17 @@ const DynamicCursor = () => {
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === 1) {
             if (node.matches?.("[data-cursor-label]")) addListeners(node);
-            node.querySelectorAll?.("[data-cursor-label]").forEach(addListeners);
+            node
+              .querySelectorAll?.("[data-cursor-label]")
+              .forEach(addListeners);
           }
         });
         mutation.removedNodes.forEach((node) => {
           if (node.nodeType === 1) {
             if (node.matches?.("[data-cursor-label]")) removeListeners(node);
-            node.querySelectorAll?.("[data-cursor-label]").forEach(removeListeners);
+            node
+              .querySelectorAll?.("[data-cursor-label]")
+              .forEach(removeListeners);
           }
         });
       });
@@ -139,6 +158,5 @@ const DynamicCursor = () => {
     </div>
   );
 };
-
 
 export default DynamicCursor;
