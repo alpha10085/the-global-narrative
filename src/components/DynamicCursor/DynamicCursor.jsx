@@ -20,16 +20,15 @@ const DynamicCursor = () => {
   useEffect(() => {
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
-      if (cursorData.visible) {
         delay(100).then(() => {
           setCursorData({ isDetected: true });
         });
-      }
+
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [cursorData.visible]);
+  }, []);
 
   useEffect(() => {
     const lerp = (start, end, factor) => start + (end - start) * factor;
