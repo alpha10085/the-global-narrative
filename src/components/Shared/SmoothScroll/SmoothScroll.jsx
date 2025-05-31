@@ -5,9 +5,7 @@ import Lenis from "lenis";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
-const SmoothScroll = ({
-  duration=0.9
-}) => {
+const SmoothScroll = ({ duration = 0.9 }) => {
   const [enable, setEnable] = useState(true);
   const pathname = usePathname();
   const startLenis = () => setEnable(true);
@@ -15,7 +13,8 @@ const SmoothScroll = ({
     setEnable(false);
   };
   useEffect(() => {
-    const handler = (newval) => {
+    const handler = async (newval) => {
+      await delay(155);
       if (newval) {
         startLenis();
       } else {
@@ -43,9 +42,7 @@ const SmoothScroll = ({
 
 export default SmoothScroll;
 
-const LenisComponent = ({
-  duration
-}) => {
+const LenisComponent = ({ duration }) => {
   const lenisRef = useRef(null);
 
   useEffect(() => {

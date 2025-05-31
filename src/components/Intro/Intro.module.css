@@ -1,13 +1,15 @@
 .container {
   width: 101%;
   height: 101%;
-  background-color: #1e0159;
+  background-color: #1e015975;
   position: fixed;
   left: 50%;
   top: 50%;
   z-index: 1000;
   transform: translate(-50%, -50%);
   transition: 0.5s;
+  /* opacity: 0.5; */
+  backdrop-filter: blur(80px);
 }
 
 .poster {
@@ -40,5 +42,3 @@
 }
 
 
-.container.hideFull .poster {
-}

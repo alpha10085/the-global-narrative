@@ -30,7 +30,8 @@ const categories = [
 
 export const getpage = () => {
   return {
-    title: "Latest News",
+    title: "New insights and analysis, from where we stand.",
+    subTitle:"Perspectives",
     categories,
   };
 };

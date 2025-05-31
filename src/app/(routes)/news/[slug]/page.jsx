@@ -7,6 +7,7 @@ import { ArrowBackIosIcon } from "@/components/NewsDetails/icons";
 import { formatDate } from "@/utils/date";
 import { calcReadingTime } from "@/components/NewsDetails/helpers";
 import Link from "@/components/Shared/LocalizedLink/Link";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const Page = async (props) => {
   const { slug = "" } = await props.params;
@@ -25,15 +26,23 @@ const Page = async (props) => {
         <div className={styles.right}></div>
       </div>
       {/*  Poster */}
-      <div className={styles.poster}>
+      <Aos 
+      delay={400}
+      activeClassName={styles.aosActive}
+      className={styles.poster}>
         <Img
+          disableSkeleton
           url={data?.poster?.url}
           alt={data?.title}
           className={styles.image}
         />
-      </div>
+      </Aos>
       {/*  details */}
-      <div className={styles.details}>
+      <Aos
+      
+      delay={400}
+        activeClassName={styles.aosActive}
+      className={styles.details}>
         <div className={`${styles.top} flex gap10`}>
           <div className="flex column gap5">
             <span className={styles.label}>date</span>
@@ -47,7 +56,7 @@ const Page = async (props) => {
           </div>
         </div>
         <h2>{data?.title}</h2>
-      </div>
+      </Aos>
 
       {/* Bottom Section */}
       <FloatedSection>

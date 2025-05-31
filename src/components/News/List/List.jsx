@@ -67,6 +67,8 @@ const List = ({ page = {}, categories = [] }) => {
     (a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)
   );
 
+
+
   return (
     <div id="news-Categories" className={styles.newsContainer}>
       <div className={`${styles.headerContainer} flex column gap20 just-sb`}>
@@ -85,6 +87,7 @@ const List = ({ page = {}, categories = [] }) => {
               <span
                 onClick={() => singleValue("categories", category?.slug, true)}
                 key={category?._id}
+                style={{ animationDelay: `${idx * 200 + 500}ms` }}
                 className={`${styles.categoryItem} ${
                   categoriesQuery?.includes(category?.slug)
                     ? styles.active
@@ -95,7 +98,11 @@ const List = ({ page = {}, categories = [] }) => {
               </span>
             ))}
           </div>
-          <div className={`${styles.search} flex-c gap5`}>
+          <Aos
+            delay={1000}
+            activeClassName={styles.active}
+            className={`${styles.search} flex-c gap5`}
+          >
             <SearchIcon />
             <input
               className={styles.searchInput}
@@ -104,42 +111,48 @@ const List = ({ page = {}, categories = [] }) => {
               defaultValue={searchQuery}
               onChange={(e) => debouncedFetch(e.target.value)}
             />
-          </div>
+          </Aos>
         </div>
       </div>
-      <VirtuosoGrid
-        useWindowScroll
-        className={`${styles.list} `}
-        data={dataAfterFiltered}
-        endReached={() => {
-          if (hasNextPage) fetchNextPage();
-        }}
-        overscan={300}
-        itemContent={(index, item) => (
-          <Aos
-            className={styles.fadeInUp}
-            activeClassName={styles.active}
-            delay={index * 50}
-            key={item?._id}
-          >
-            <Card New={item} />
-          </Aos>
+      <Aos
+        delay={1500}
+        activeClassName={styles.active}
+        className={styles.listWapper}
+      >
+        <VirtuosoGrid
+          useWindowScroll
+          className={`${styles.list} `}
+          data={dataAfterFiltered}
+          endReached={() => {
+            if (hasNextPage) fetchNextPage();
+          }}
+          overscan={300}
+          itemContent={(index, item) => (
+            <Aos
+              className={styles.fadeInUp}
+              activeClassName={styles.active}
+              delay={index * 50}
+              key={item?._id}
+            >
+              <Card New={item} />
+            </Aos>
+          )}
+          listClassName={styles.gridList}
+          itemClassName={styles.gridItem}
+        />
+        {!isLoading && !data?.pages?.length && (
+          <div className={`${styles.emptydata} ShowSmoothEffect flex-c`}>
+            No News found
+          </div>
         )}
-        listClassName={styles.gridList}
-        itemClassName={styles.gridItem}
-      />
-      {!isLoading && !data?.pages?.length && (
-        <div className={`${styles.emptydata} ShowSmoothEffect flex-c`}>
-          No News found
-        </div>
-      )}
-      {isLoading && (
-        <div className={styles.skeletonGrid}>
-          {Array.from({ length: 8 }).map((_, index) => (
-            <Skeleton key={index} className={styles.skeletonCard} />
-          ))}
-        </div>
-      )}
+        {isLoading && (
+          <div className={styles.skeletonGrid}>
+            {Array.from({ length: 8 }).map((_, index) => (
+              <Skeleton key={index} className={styles.skeletonCard} />
+            ))}
+          </div>
+        )}
+      </Aos>
     </div>
   );
 };

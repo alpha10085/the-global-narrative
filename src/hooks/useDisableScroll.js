@@ -26,7 +26,7 @@ const useDisableScroll = (disable = true) => {
   useEffect(() => {
     if (disable) {
       isLockedRef.current = true;
-      delay(0).then(() => {
+      delay(50).then(() => {
         updateScrollLock(true);
       });
     } else {

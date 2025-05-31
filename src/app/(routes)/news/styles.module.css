@@ -1,0 +1,19 @@
+.layout {
+  margin-top: 100px;
+}
+.header {
+  margin-left: 5%;
+  width: 90%;
+  padding: 40px 0;
+  width: 900px;
+  max-width: 95%;
+}
+.subTitle {
+  font-weight: 200;
+}
+
+.title {
+  color: #06003d;
+  font-weight: 500;
+  font-size: clamp(20px, 6vw, 60px);
+}
