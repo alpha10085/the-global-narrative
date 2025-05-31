@@ -30,6 +30,7 @@ const SmoothScroll = ({ duration = 0.9 }) => {
   }, []);
 
   useEffect(() => {
+  
     stopLenis();
     delay(150).then(() => {
       window.scrollTo(0, 0);

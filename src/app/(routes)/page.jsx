@@ -27,7 +27,7 @@ const Home = async () => {
 
   return (
     <section className={styles.layout}>
-      {/* <Intro /> */}
+      <Intro />
       <Hero enableAutoPlay={false} data={heroSection} />
       <CSRSection>
         <AboutUs data={aboutUsSection} />
