@@ -148,7 +148,7 @@ const DynamicCursor = () => {
     <div ref={wrapperRef} className={`${styles.wrappercursor} flex-c`}>
       <div
         className={`${styles.cursor} ${
-          cursorData.visible && cursorData.isDetected
+          cursorData.visible
             ? styles.visible
             : styles.unVisible
         } flex-c`}
