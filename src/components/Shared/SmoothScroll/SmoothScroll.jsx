@@ -15,7 +15,6 @@ const SmoothScroll = ({ duration = 0.9 }) => {
   useEffect(() => {
     const handler = async (newval) => {
       await delay(155);
-      console.log("🚀 ~ handler ~ newval:", newval);
       if (newval) {
         startLenis();
       } else {
@@ -40,7 +39,13 @@ const LenisComponent = ({ duration }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    const lenis = new Lenis({ duration });
+    const lenis = new Lenis({
+      duration,
+      smooth: true,
+      gestureDirection: "vertical",
+      mouseMultiplier: 1,
+      smoothTouch: false,
+    });
     lenisRef.current = lenis;
 
     const update = (time) => {
