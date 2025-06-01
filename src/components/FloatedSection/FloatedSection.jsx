@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./FloatedSection.module.css";
 
-const FloatedSection = ({children}) = children
+const FloatedSection = ({children})  => children
 
 
 const ss = ({ children }) => {
