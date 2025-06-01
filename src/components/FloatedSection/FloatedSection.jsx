@@ -25,8 +25,9 @@ const FloatedSection = ({ children }) => {
           progressRef.current = clamped;
 
           // Apply transform directly (better performance)
-          (el.style.marginTop = `-${clamped * 300}px`),
-            (tickingRef.current = false);
+          el.style.transform = `translateY(-${clamped * 300}px)`;
+
+          tickingRef.current = false;
         });
         tickingRef.current = true;
       }
