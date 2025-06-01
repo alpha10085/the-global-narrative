@@ -60,8 +60,7 @@ const Intro = () => {
     setState({
       event: false,
     });
-    eventBus.emit("intro-event", false);
-    await delay(200);
+    await delay(600);
     setState({
       hide: true,
     });
