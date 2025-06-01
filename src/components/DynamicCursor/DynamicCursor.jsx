@@ -147,7 +147,7 @@ const DynamicCursor = () => {
           setCursorData({ visible: true, label, color });
         }
       }
-    }, 300);
+    }, 500);
 
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
