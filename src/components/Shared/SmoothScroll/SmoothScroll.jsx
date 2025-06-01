@@ -14,7 +14,7 @@ const SmoothScroll = ({ duration = 0.9 }) => {
   };
   useEffect(() => {
     const handler = async (newval) => {
-      await delay(155);
+      await delay(105);
       if (newval) {
         startLenis();
       } else {
