@@ -1,10 +1,6 @@
 import { cookies } from "next/headers";
 import ReactQuery from "@/providers/reactQuery";
-import { Tajawal, Geist,
-  
-   
-  Urbanist
- } from "next/font/google";
+import { Tajawal, Geist, Urbanist } from "next/font/google";
 import "../styles/main.css";
 import "../styles/framework.css";
 import "../styles/swiper.css";
@@ -12,7 +8,7 @@ import "../styles/animation.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import 'lenis/dist/lenis.css'
+// import "lenis/dist/lenis.css";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX";
 import { AuthProvider } from "@/contexts/AuthProvider";
 import DevToolsWrapper from "@/components/Shared/DevTools/DevToolsWrapper";
@@ -33,7 +29,6 @@ const UrbanistFont = Urbanist({
   variable: "--font-Urbanist",
 });
 
-
 const tajawal = Tajawal({
   subsets: ["latin"],
   variable: "--font-tajawal",
@@ -44,8 +39,8 @@ export const metadata = {
   title: process.env.NEXT_PUBLIC_project_name,
   description: "Welcome",
   other: {
-    'color-scheme': 'light dark',
-    'supported-color-schemes': 'light',
+    "color-scheme": "light dark",
+    "supported-color-schemes": "light",
   },
 };
 
@@ -55,8 +50,8 @@ export const viewport = {
   maximumScale: 1,
   userScalable: false,
   other: {
-    'color-scheme': 'light dark',
-    'supported-color-schemes': 'light',
+    "color-scheme": "light dark",
+    "supported-color-schemes": "light",
   },
 };
 
