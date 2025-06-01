@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./DynamicCursor.module.css";
 import useDynamicState from "@/hooks/useDynamicState";
+import { delay } from "@/utils/delay";
 
 const DynamicCursor = () => {
   const wrapperRef = useRef(null);
@@ -20,12 +21,14 @@ const DynamicCursor = () => {
   useEffect(() => {
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
-      setCursorData({ isDetected: true });
+      if (!cursorData.isDetected) {
+        delay(150).then(() => setCursorData({ isDetected: true }));
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  }, [cursorData.isDetected]);
 
   // Animate cursor position
   useEffect(() => {
@@ -179,13 +182,13 @@ const DynamicCursor = () => {
     <div ref={wrapperRef} className={`${styles.wrappercursor} flex-c`}>
       <div
         className={`${styles.cursor} ${
-          cursorData.visible && cursorData.isDetected
+          cursorData?.visible && cursorData?.isDetected
             ? styles.visible
             : styles.unVisible
         } flex-c`}
-        style={{ backgroundColor: cursorData.color }}
+        style={{ backgroundColor: cursorData?.color }}
       >
-        {cursorData.label}
+        {cursorData?.label}
       </div>
     </div>
   );
