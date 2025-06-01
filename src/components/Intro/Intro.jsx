@@ -9,8 +9,8 @@ import { delay } from "@/utils/delay";
 
 const Intro = () => {
   const logoRef = useRef();
-  const [state, setState] = useDynamicState({ event: true, hide: false });
-  const { event, hide } = state;
+  const [state, setState] = useDynamicState({ event: true, hide: false , loaded:false });
+  const { event, hide, loaded } = state;
   const ToggleDisableScroll = useDisableScroll();
 
   const handleMouseMove = (e) => {
@@ -71,6 +71,15 @@ const Intro = () => {
     return () => {};
   }, [event]);
 
+  useEffect(() => {
+    delay(300).then(() => {
+      setState({
+        loaded:true
+      })
+    })
+  }, [])
+
+
   // if (hide) return null
 
   return (
@@ -79,6 +88,10 @@ const Intro = () => {
       data-cursor-label="Enter →"
       // data-cursor-color="#5D27FF"
       onClick={handleHide}
+
+      style={{
+        pointerEvents:loaded ? "unset" :"none"
+      }}
       onMouseMove={handleMouseMove}
       //  onMouseLeave={resetTransform}
       className={`flex-c ${styles.container}
@@ -89,14 +102,13 @@ const Intro = () => {
       
       `}
     >
-      <div className="">
+     
         <Img
           disableSkeleton
           ref={logoRef}
           className={styles.poster}
           url="/main-logo-full-white.png"
         />
-      </div>
     </div>
   );
 };
