@@ -12,6 +12,7 @@ import "../styles/animation.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import 'lenis/dist/lenis.css'
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX";
 import { AuthProvider } from "@/contexts/AuthProvider";
 import DevToolsWrapper from "@/components/Shared/DevTools/DevToolsWrapper";
