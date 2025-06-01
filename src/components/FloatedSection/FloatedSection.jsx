@@ -1,39 +1,41 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./FloatedSection.module.css";
 
 const FloatedSection = ({ children }) => {
   const sectionRef = useRef(null);
-  const progressRef = useRef(0);
-  const tickingRef = useRef(false);
+  const [heightStyle, setHeightStyle] = useState({});
+
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    // Measure the section height
+    const height = sectionRef.current.offsetHeight;
+
+    // Subtract 300px for the transform offset
+    setHeightStyle({ height: `${height - 300}px` });
+
+  }, [children]); // run on mount and when children change (optional)
 
   useEffect(() => {
     const handleScroll = () => {
       if (!sectionRef.current) return;
 
-      if (!tickingRef.current) {
-        window.requestAnimationFrame(() => {
-          const el = sectionRef.current;
-          const rect = el.getBoundingClientRect();
-          const windowHeight = window.innerHeight;
+      window.requestAnimationFrame(() => {
+        const el = sectionRef.current;
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-          const start = windowHeight * 1.5;
-          const end = windowHeight * 0.1;
+        const start = windowHeight * 1.5;
+        const end = windowHeight * 0.1;
 
-          const rawProgress = (start - rect.top) / (start - end);
-          const clamped = Math.min(1, Math.max(0, rawProgress));
-          progressRef.current = clamped;
+        const rawProgress = (start - rect.top) / (start - end);
+        const clamped = Math.min(1, Math.max(0, rawProgress));
 
-          // Apply transform directly (better performance)
-          el.style.transform = `translateY(-${clamped * 300}px)`;
-
-          tickingRef.current = false;
-        });
-        tickingRef.current = true;
-      }
+        el.style.transform = `translateY(-${clamped * 300}px)`;
+      });
     };
 
-    // Initial call in case section is already in viewport on mount
     handleScroll();
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -41,7 +43,11 @@ const FloatedSection = ({ children }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.floated}>
+    <section
+      ref={sectionRef}
+      className={styles.floated}
+      style={heightStyle}
+    >
       {children}
     </section>
   );
