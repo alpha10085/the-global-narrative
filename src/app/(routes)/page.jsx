@@ -38,10 +38,12 @@ const Home = async () => {
         <FloatedSection>
           <div className={styles.childTwo}>
             <AnimatedBorderSection>
-              <StaticSection mode="down" />
+              <StaticSection mode="down" >
+
               <News data={newsSection} />
               <WaveLines colors={["#8927f2a8", "#00eaff", "#ff00d4"]} />
               <Testimonials data={testimonialSection} />
+              </StaticSection>
             </AnimatedBorderSection>
           </div>
         </FloatedSection>

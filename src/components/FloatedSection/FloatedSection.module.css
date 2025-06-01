@@ -1,6 +1,5 @@
 .floated {
   position: relative;
-  z-index: 2;
-  will-change: margin-top;
-  transition: box-shadow 0.3s ease;
+  width: 100%;
+  will-change: transform;
 }

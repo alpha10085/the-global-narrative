@@ -3,7 +3,9 @@ import { useSectionObserver } from "@/hooks/useSectionObserver";
 import styles from "./StaticSection.module.css";
 import { useEffect, useState } from "react";
 import eventBus from "@/utils/eventBus";
-const StaticSection = ({ mode = "up" }) => {
+const StaticSection = ({
+  children,
+  mode = "up" }) => {
   const { isInside, sectionRef } = useSectionObserver({
     threshold: 0.2,
   });
@@ -14,7 +16,7 @@ const StaticSection = ({ mode = "up" }) => {
     }
   }, [isInside]);
 
-  return <div ref={sectionRef}></div>;
+  return <div ref={sectionRef}>{children}</div>;
 };
 
 export default StaticSection;

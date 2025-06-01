@@ -1,42 +1,46 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./FloatedSection.module.css";
 
 const FloatedSection = ({ children }) => {
   const sectionRef = useRef(null);
-  const [progress, setProgress] = useState(0); // 0 → 1
+  const progressRef = useRef(0);
+  const tickingRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const el = sectionRef.current;
-      if (!el) return;
+      if (!sectionRef.current) return;
 
-      const rect = el.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
+      if (!tickingRef.current) {
+        window.requestAnimationFrame(() => {
+          const el = sectionRef.current;
+          const rect = el.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
 
-      const start = windowHeight * 1.5;
-      const end = windowHeight * 0.1;
+          const start = windowHeight * 1.5;
+          const end = windowHeight * 0.1;
 
-      const rawProgress = (start - rect.top) / (start - end);
-      const clamped = Math.min(1, Math.max(0, rawProgress));
+          const rawProgress = (start - rect.top) / (start - end);
+          const clamped = Math.min(1, Math.max(0, rawProgress));
+          progressRef.current = clamped;
 
-      setProgress(clamped);
+          // Apply transform directly (better performance)
+          (el.style.marginTop = `-${clamped * 300}px`),
+            (tickingRef.current = false);
+        });
+        tickingRef.current = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Initial call in case section is already in viewport on mount
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const translateY = progress * 300;
-
   return (
-    <section
-      ref={sectionRef}
-      className={styles.floated}
-      style={{
-        marginTop: `-${translateY}px`,
-      }}
-    >
+    <section ref={sectionRef} className={styles.floated}>
       {children}
     </section>
   );
