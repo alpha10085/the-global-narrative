@@ -78,7 +78,6 @@ const Intro = () => {
     <div
       // data-cursor-label="← DRAG →"
       data-cursor-label="Enter →"
-
       // data-cursor-color="#5D27FF"
       onClick={handleHide}
       onMouseMove={handleMouseMove}
@@ -91,12 +90,14 @@ const Intro = () => {
       
       `}
     >
-      <Img
-        disableSkeleton
-        ref={logoRef}
-        className={styles.poster}
-        url="/main-logo-full-white.png"
-      />
+      <div className="">
+        <Img
+          disableSkeleton
+          ref={logoRef}
+          className={styles.poster}
+          url="/main-logo-full-white.png"
+        />
+      </div>
     </div>
   );
 };

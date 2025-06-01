@@ -139,10 +139,12 @@ const DynamicCursor = () => {
     };
   }, []);
 
+  console.log("🚀 ~ DynamicCursor ~ cursorData:", cursorData)
+
   return (
     <div ref={wrapperRef} className={`${styles.wrappercursor} flex-c`}>
       <div
-        className={`${styles.cursor} ${cursorData.visible ? styles.visible : styles.unVisible} flex-c`}
+        className={`${styles.cursor} ${cursorData?.visible && cursorData?.isDetected ? styles.visible : styles.unVisible} flex-c`}
         style={{ backgroundColor: cursorData.color }}
       >
         {cursorData.label}
