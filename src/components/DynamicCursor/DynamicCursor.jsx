@@ -2,12 +2,11 @@
 import React, { useEffect, useRef } from "react";
 import styles from "./DynamicCursor.module.css";
 import useDynamicState from "@/hooks/useDynamicState";
-import { delay } from "@/utils/delay";
 
 const DynamicCursor = () => {
   const wrapperRef = useRef(null);
-  const targetPos = useRef({ x: -1, y: 0 });
-  const currentPos = useRef({ x: -1, y: 0 });
+  const targetPos = useRef({ x: -100, y: 0 });
+  const currentPos = useRef({ x: -100, y: 0 });
   const animationRef = useRef(null);
 
   const [cursorData, setCursorData] = useDynamicState({
@@ -17,18 +16,18 @@ const DynamicCursor = () => {
     isDetected: false,
   });
 
+  // Track mouse position
   useEffect(() => {
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
-      delay(100).then(() => setCursorData({ isDetected: true }));
+      setCursorData({ isDetected: true });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
-    return () =>
-      window.removeEventListener("addEventListener", handleMouseMove);
-  }, [cursorData.visible]);
-
+  // Animate cursor position
   useEffect(() => {
     const lerp = (start, end, factor) => start + (end - start) * factor;
 
@@ -56,6 +55,7 @@ const DynamicCursor = () => {
     return () => cancelAnimationFrame(animationRef.current);
   }, []);
 
+  // Handle hover and visibility logic
   useEffect(() => {
     const handleClick = () => {
       setCursorData({ visible: false, label: "", isDetected: false });
@@ -86,18 +86,14 @@ const DynamicCursor = () => {
 
     const addListeners = (el) => {
       el.addEventListener("mouseenter", handleEnter);
-
       el.addEventListener("mouseup", handleEnter);
-
       el.addEventListener("mousedown", handleEnter);
       el.addEventListener("mouseleave", handleLeave);
     };
 
     const removeListeners = (el) => {
-         el.removeEventListener("mouseenter", handleEnter);
-
+      el.removeEventListener("mouseenter", handleEnter);
       el.removeEventListener("mouseup", handleEnter);
-
       el.removeEventListener("mousedown", handleEnter);
       el.removeEventListener("mouseleave", handleLeave);
       if (el.__hasClickHandler) {
@@ -111,27 +107,44 @@ const DynamicCursor = () => {
       targets.forEach(addListeners);
     };
 
-    const manuallyTriggerIfHovered = () => {
+    bindListeners();
+
+    // Trigger hover detection if user is already hovering
+    requestAnimationFrame(() => {
       const hovered = document.elementFromPoint(
         targetPos.current.x,
         targetPos.current.y
       );
-      if (!hovered) return;
-      const el = hovered.closest("[data-cursor-label]");
-      if (el) {
-        const label = el.getAttribute("data-cursor-label");
-        const color = el.getAttribute("data-cursor-color") || "#84e6ff";
-        setCursorData({ visible: true, label, color });
+      if (hovered) {
+        const el = hovered.closest("[data-cursor-label]");
+        if (el) {
+          const label = el.getAttribute("data-cursor-label");
+          const color = el.getAttribute("data-cursor-color") || "#84e6ff";
+          setCursorData({ visible: true, label, color });
 
-        if (!el.__hasClickHandler) {
-          el.addEventListener("click", handleClick);
-          el.__hasClickHandler = true;
+          if (!el.__hasClickHandler) {
+            el.addEventListener("click", handleClick);
+            el.__hasClickHandler = true;
+          }
         }
       }
-    };
+    });
 
-    bindListeners();
-    manuallyTriggerIfHovered(); // 🧠 fix: check if user is already hovering
+    // Optional: retry after hydration
+    setTimeout(() => {
+      const hovered = document.elementFromPoint(
+        targetPos.current.x,
+        targetPos.current.y
+      );
+      if (hovered) {
+        const el = hovered.closest("[data-cursor-label]");
+        if (el) {
+          const label = el.getAttribute("data-cursor-label");
+          const color = el.getAttribute("data-cursor-color") || "#84e6ff";
+          setCursorData({ visible: true, label, color });
+        }
+      }
+    }, 300);
 
     const observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
@@ -162,13 +175,11 @@ const DynamicCursor = () => {
     };
   }, []);
 
-  console.log("🚀 ~ DynamicCursor ~ cursorData:", cursorData);
-
   return (
     <div ref={wrapperRef} className={`${styles.wrappercursor} flex-c`}>
       <div
         className={`${styles.cursor} ${
-          cursorData?.visible && cursorData?.isDetected
+          cursorData.visible && cursorData.isDetected
             ? styles.visible
             : styles.unVisible
         } flex-c`}
