@@ -41,7 +41,7 @@ const FloatedSection = ({ children }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.floated}>
+    <section  className={styles.floated}>
       {children}
     </section>
   );
