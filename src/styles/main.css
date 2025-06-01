@@ -71,7 +71,7 @@ body {
   letter-spacing: 1px;
   min-height: 100vh;
   font-family: var(--font-geist);
-  scroll-behavior: smooth;
+ scroll-behavior: auto; /* disable built-in smooth scroll */
 }
 
 .imageoverlay { 
