@@ -20,21 +20,29 @@ const DynamicCursor = () => {
   useEffect(() => {
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
-      if (cursorData.visible) {
-        delay(100).then(() => setCursorData({ isDetected: true }));
-      }
+      delay(100).then(() => setCursorData({ isDetected: true }));
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+
+    return () =>
+      window.removeEventListener("addEventListener", handleMouseMove);
   }, [cursorData.visible]);
 
   useEffect(() => {
     const lerp = (start, end, factor) => start + (end - start) * factor;
 
     const animate = () => {
-      currentPos.current.x = lerp(currentPos.current.x, targetPos.current.x, 0.15);
-      currentPos.current.y = lerp(currentPos.current.y, targetPos.current.y, 0.15);
+      currentPos.current.x = lerp(
+        currentPos.current.x,
+        targetPos.current.x,
+        0.15
+      );
+      currentPos.current.y = lerp(
+        currentPos.current.y,
+        targetPos.current.y,
+        0.15
+      );
 
       if (wrapperRef.current) {
         wrapperRef.current.style.left = `${currentPos.current.x}px`;
@@ -78,11 +86,19 @@ const DynamicCursor = () => {
 
     const addListeners = (el) => {
       el.addEventListener("mouseenter", handleEnter);
+
+      el.addEventListener("mouseup", handleEnter);
+
+      el.addEventListener("mousedown", handleEnter);
       el.addEventListener("mouseleave", handleLeave);
     };
 
     const removeListeners = (el) => {
-      el.removeEventListener("mouseenter", handleEnter);
+         el.removeEventListener("mouseenter", handleEnter);
+
+      el.removeEventListener("mouseup", handleEnter);
+
+      el.removeEventListener("mousedown", handleEnter);
       el.removeEventListener("mouseleave", handleLeave);
       if (el.__hasClickHandler) {
         el.removeEventListener("click", handleClick);
@@ -96,7 +112,10 @@ const DynamicCursor = () => {
     };
 
     const manuallyTriggerIfHovered = () => {
-      const hovered = document.elementFromPoint(targetPos.current.x, targetPos.current.y);
+      const hovered = document.elementFromPoint(
+        targetPos.current.x,
+        targetPos.current.y
+      );
       if (!hovered) return;
       const el = hovered.closest("[data-cursor-label]");
       if (el) {
@@ -119,13 +138,17 @@ const DynamicCursor = () => {
         mutation.addedNodes.forEach((node) => {
           if (node.nodeType === 1) {
             if (node.matches?.("[data-cursor-label]")) addListeners(node);
-            node.querySelectorAll?.("[data-cursor-label]").forEach(addListeners);
+            node
+              .querySelectorAll?.("[data-cursor-label]")
+              .forEach(addListeners);
           }
         });
         mutation.removedNodes.forEach((node) => {
           if (node.nodeType === 1) {
             if (node.matches?.("[data-cursor-label]")) removeListeners(node);
-            node.querySelectorAll?.("[data-cursor-label]").forEach(removeListeners);
+            node
+              .querySelectorAll?.("[data-cursor-label]")
+              .forEach(removeListeners);
           }
         });
       });
@@ -139,12 +162,16 @@ const DynamicCursor = () => {
     };
   }, []);
 
-  console.log("🚀 ~ DynamicCursor ~ cursorData:", cursorData)
+  console.log("🚀 ~ DynamicCursor ~ cursorData:", cursorData);
 
   return (
     <div ref={wrapperRef} className={`${styles.wrappercursor} flex-c`}>
       <div
-        className={`${styles.cursor} ${cursorData?.visible && cursorData?.isDetected ? styles.visible : styles.unVisible} flex-c`}
+        className={`${styles.cursor} ${
+          cursorData?.visible && cursorData?.isDetected
+            ? styles.visible
+            : styles.unVisible
+        } flex-c`}
         style={{ backgroundColor: cursorData.color }}
       >
         {cursorData.label}
