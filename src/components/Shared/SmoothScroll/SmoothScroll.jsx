@@ -1,7 +1,8 @@
 "use client";
 import { delay } from "@/utils/delay";
 import eventBus from "@/utils/eventBus";
-import Lenis from "lenis";
+import Lenis from "@studio-freight/lenis";
+
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
@@ -24,8 +25,7 @@ const SmoothScroll = ({ duration = 0.9 }) => {
 
     eventBus.on("lenis", handler);
 
-
-    delay((300)).then(() => setEnable(true))
+    delay(300).then(() => setEnable(true));
     return () => {
       eventBus.off("lenis", handler); // cleanup
     };
@@ -41,14 +41,14 @@ const LenisComponent = ({ duration }) => {
   const pathname = usePathname();
 
   useEffect(() => {
-
-
     const lenis = new Lenis({
       duration,
-      smooth: true,
       gestureDirection: "vertical",
       mouseMultiplier: 1,
       smoothTouch: false,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // default
+      smooth: true,
+    
     });
     lenisRef.current = lenis;
 
