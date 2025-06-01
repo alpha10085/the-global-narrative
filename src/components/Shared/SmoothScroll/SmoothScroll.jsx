@@ -62,14 +62,14 @@ const LenisComponent = ({ duration }) => {
   }, [duration]);
 
   // 👇 Scroll to top when pathname changes
-  useEffect(() => {
-    if (lenisRef.current) {
-      // Use a small delay to ensure DOM has mounted the new page
-      setTimeout(() => {
-        lenisRef.current.scrollTo(-100, { immediate: true }); // or `{ offset: 0, immediate: true }`
-      }, 100);
-    }
-  }, [pathname]);
+  // useEffect(() => {
+  //   if (lenisRef.current) {
+  //     // Use a small delay to ensure DOM has mounted the new page
+  //     setTimeout(() => {
+  //       lenisRef.current.scrollTo(-100, { immediate: true }); // or `{ offset: 0, immediate: true }`
+  //     }, 100);
+  //   }
+  // }, [pathname]);
 
   return null;
 };
