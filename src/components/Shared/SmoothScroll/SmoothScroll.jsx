@@ -38,6 +38,8 @@ const SmoothScroll = ({ duration = 0.9 }) => {
     };
   }, []);
 
+  
+
   return enable ? <LenisComponent duration={duration} /> : null;
 };
 
@@ -60,7 +62,7 @@ const LenisComponent = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
 
     const lenis = new Lenis({
       duration,
-
+      prevent: (node) => node.id === "modal",
       smoothWheel: true,
       smoothTouch: false, // Disable on touch devices for better performance & UX
       direction: "vertical",
@@ -112,4 +114,4 @@ const LenisComponent = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
   return null;
 };
 
-export default LenisComponent;
+export default SmoothScroll;

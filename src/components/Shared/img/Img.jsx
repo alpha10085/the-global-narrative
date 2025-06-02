@@ -1,139 +1,113 @@
 "use client";
-import Skeleton from "@/components/Shared/Skeleton/skeleton";
+import Skeleton from "@/components/shared/Skeleton/skeleton";
 import "./Img.css";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useCallback, forwardRef } from "react";
 import Image from "next/image";
-import { delay } from "@/utils/time";
-function getClosestStandardRatio(width, height) {
-  const standardRatios = [
-    { label: "1/1", value: 1 },
-    { label: "4/3", value: 4 / 3 },
-    { label: "3/2", value: 3 / 2 },
-    { label: "16/10", value: 16 / 10 },
-    { label: "16/9", value: 16 / 9 },
-    { label: "21/9", value: 21 / 9 },
-    { label: "2/1", value: 2 / 1 },
-  ];
+import { delay } from "@/utils/delay"; // Match the original import
+import { handleUrl } from "./helpers";
 
-  const actualRatio = width / height;
-  let closest = standardRatios[0];
-
-  for (const ratio of standardRatios) {
-    if (
-      Math.abs(actualRatio - ratio.value) <
-      Math.abs(actualRatio - closest.value)
-    ) {
-      closest = ratio;
-    }
-  }
-
-  return closest.label;
-}
-
-const Img = ({
-  url = null,
-  alt = "",
-  withEffect = true,
-  disableSkeleton = false,
-  className = "",
-  mainClassName = "",
-  onLoadClassName = "",
-  errorImg = null,
-  children,
-  AsyncLoading = false,
-  onClick = () => {},
-  theme = "light",
-  maxRetryCount = 3,
-  delayLoad = 0,
-  onLoad = () => {},
-}) => {
-  const wrapperRef = useRef(null);
+const Img = (
+  {
+    url = "",
+    alt = "",
+    withEffect = true,
+    className = "",
+    mainClassName = "",
+    errorImg = null,
+    children,
+    AsyncLoading = false,
+    onClick = () => {},
+    theme = "light",
+    maxRetryCount = 3,
+    delayLoad = 0,
+    classNameOnload = "",
+    unoptimized = false,
+    disableSkeleton = false,
+  },
+  ref
+) => {
+  const baseSrc = handleUrl(url);
   const [hasErrorImg, setHasErrorImg] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [retryCount, setRetryCount] = useState(0);
-  const [ratio, setRatio] = useState(null);
-  const handleRetry = useCallback(() => {
-    setRetryCount((prev) => prev + 1);
-  }, []);
 
-  const handleOnErrorImg = useCallback(() => {
-    if (retryCount < maxRetryCount && url) {
+  const handleOnErrorImg = useCallback(
+    (payload) => {
       setHasErrorImg(true);
       setLoading(true);
-      handleRetry();
-    }
-  }, [retryCount, maxRetryCount, url, handleRetry]);
+    },
+    [maxRetryCount]
+  );
 
-  const updateRatio = () => {
-    const div = wrapperRef.current;
-    if (div) {
-      const { width, height } = div.getBoundingClientRect();
-      if (width && height) {
-        setRatio(getClosestStandardRatio(width, height));
-      }
-    }
-  };
-  const handleLoad = useCallback(async () => {
-    await delay(delayLoad);
-    setLoading(false);
-    onLoad();
-    updateRatio();
-  }, [delayLoad, onLoad]);
+  const handleLoad = useCallback(
+    async (payload) => {
+      await delay(delayLoad);
+      setLoading(false);
+    },
+    [delayLoad]
+  );
+
   useEffect(() => {
     if (url) {
       setLoading(true);
-      setRetryCount(0);
       setHasErrorImg(false);
     }
   }, [url]);
 
-  const formattedSrc =
-    !url || hasErrorImg
-      ? "/"
-      : url.startsWith("http") ||
-        url.startsWith("data") ||
-        url.startsWith("blob:")
-      ? url
-      : `/media${url}`;
+  if (hasErrorImg && maxRetryCount > 0)
+    return (
+      <Img
+        ref={ref}
+        url={url}
+        alt={alt}
+        withEffect={withEffect}
+        className={className}
+        mainClassName={mainClassName}
+        errorImg={errorImg}
+        AsyncLoading={AsyncLoading}
+        onClick={onClick}
+        theme={theme}
+        maxRetryCount={maxRetryCount > 0 ? maxRetryCount - 1 : 0}
+        delayLoad={delayLoad}
+        classNameOnload={classNameOnload}
+        unoptimized={true}
+        disableSkeleton={disableSkeleton}
+      >
+        {children}
+      </Img>
+    );
 
   return (
-    <div
-      ref={wrapperRef}
-      key={url}
-      onClick={onClick}
-      className={`${className} ${!loading && onLoadClassName} p-relative`}
-    >
-      {/* <div className={`flex-c ratio-title`}>
+    <>
+      <div
+        ref={ref}
+        onClick={onClick}
+        className={`${className} p-relative ${!loading && classNameOnload} p-relative`}
+      >
+        {!AsyncLoading && (
+          <Image
+            key={`${baseSrc}-${hasErrorImg ? "unopt" : "opt"}`}
+            alt={alt}
+            quality={100}
+            fill
+            unoptimized={unoptimized}
+            style={{ objectFit: "cover" }}
+            loading="lazy"
+            onLoad={handleLoad}
+            src={baseSrc}
+            className={`main-component-image ${mainClassName} blurring-image`}
+            onError={handleOnErrorImg}
+            img-loaded={!loading ? "true" : undefined}
+            sizes="(max-width: 640px) 400px, (max-width: 768px) 600px,100vw"
+          />
+        )}
 
-      {ratio}
-    </div> */}
-      {!AsyncLoading && url && (
-        <Image
-          key={`${formattedSrc}-${retryCount}-${hasErrorImg ? "unopt" : "opt"}`}
-          alt={alt}
-          quality={100}
-          fill
-          unoptimized={hasErrorImg}
-          style={{ objectFit: "cover" }}
-          loading="lazy"
-          onLoad={handleLoad}
-          src={formattedSrc}
-          className={`main-component-image ${mainClassName} ${
-            withEffect ? "blurring-image" : ""
-          }`}
-          onError={handleOnErrorImg}
-          img-loaded={!loading ? "true" : undefined}
-          sizes="(max-width: 640px) 400px, (max-width: 768px) 600px,100vw"
-        />
-      )}
-
-      {(loading || (!errorImg && hasErrorImg)) && !disableSkeleton && (
-        <Skeleton theme={theme} className="skImage" type="image" />
-      )}
-
+        {loading && !disableSkeleton ? (
+          <Skeleton theme={theme} className="skImage" type="image" />
+        ) : null}
+      </div>
       {!loading && children}
-    </div>
+    </>
   );
 };
 
-export default Img;
+export default forwardRef(Img);

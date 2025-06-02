@@ -65,7 +65,6 @@ function hasTrueValue(obj) {
 }
 
 const Window = ({ onClose = () => {}, show }) => {
-
   const toggleScrollBar = useDisableScroll();
   const [state, setState] = useDynamicState(
     list?.reduce((prev, cur, i) => {
@@ -88,8 +87,10 @@ const Window = ({ onClose = () => {}, show }) => {
   };
 
   const activeScale = hasTrueValue(state);
+  console.log("🚀 ~ Window ~ activeScale:", activeScale , "state : " , state )
 
   const onFoucs = (value, val) => {
+    
     setState({
       [val?.key]: value ? val?.scaleOnActive : false,
     });
@@ -97,7 +98,8 @@ const Window = ({ onClose = () => {}, show }) => {
       delay(250).then(() => scrollToElement(val?.key));
     }
   };
-  const onUnFoucs = (val) => {
+  const onUnFoucs = async (val) => {
+    await delay(350)
     setState({
       [val?.key]: false,
     });
@@ -121,13 +123,17 @@ const Window = ({ onClose = () => {}, show }) => {
             onClick={onClose}
             className={`${styles.dashboardLink} flex-c t-ca gap5`}
           >
-           {"to Dashboard"}
+            {" Dashboard"}
             <span className="flex-c">
               <ArrowOutwardIcon />
             </span>
           </Link>
         </div>
-        <div ref={containerRef} className={`${styles.list} flex column gap10`}>
+        <div
+          id="modal"
+          ref={containerRef}
+          className={`${styles.list} flex column gap10`}
+        >
           {list?.map((val) => (
             <Item
               id={val?.key}

@@ -11,8 +11,9 @@
 .blurring-image {
   filter: blur(3px);
   opacity: 0;
+
   /* Initial blur (optional) */
-  transition: filter 0.6s ease-in-out, opacity 0.8s ease-in-out;
+  transition: filter 0.4s ease-in-out, opacity 0.4s ease-in-out;
   /* Smooth transition */
 }
 
@@ -28,16 +29,4 @@
   height: 100%;
   z-index: 2;
   border-radius: 0 !important;
-}
-
-.ratio-title {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-z-index: 10;
-transform: translate(-50%,-50%);
-background-color: rgba(0, 208, 255, 0.216);
- font-size: 40px; 
- padding: 5px 20px;
- color: blue;
 }

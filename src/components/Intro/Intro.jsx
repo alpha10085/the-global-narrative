@@ -49,21 +49,20 @@ const Intro = () => {
         rotateY(0deg)
         skewX(0deg)
         skewY(0deg)
-        scale(1)
       `;
     }
   };
 
   const handleHide = async () => {
     resetTransform();
-    ToggleDisableScroll();
     setState({
       event: false,
     });
-    await delay(600);
+     await delay(800);
+    ToggleDisableScroll();
     setState({
-      hide: true,
-    });
+        hide: true,
+      });
   };
 
   useEffect(() => {
@@ -80,8 +79,6 @@ const Intro = () => {
     })
   }, [])
 
-
-  // if (hide) return null
 
   return (
     <div
