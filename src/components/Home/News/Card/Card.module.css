@@ -29,7 +29,7 @@
 }
 
 .title {
-  font-size: 25px;
+  font-size: clamp(12px,3vw,25px);
   line-height: 1.5;
   color: #06003d;
 }

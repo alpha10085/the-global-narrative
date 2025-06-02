@@ -24,8 +24,6 @@ const Home = async () => {
     testimonialSection = {},
     getInTouchSection = {},
   } = getHomePage();
-  console.log(heroSection);
-  
 
   return (
     <section className={styles.layout}>

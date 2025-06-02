@@ -16,14 +16,14 @@ const GetInTouch = ({ data = {} }) => {
           <Aos
             delay={400}
             activeClassName={styles.active}
-            className={styles.aos}
+            className={`${styles.aos} flex-c`}
           >
             <p className={styles.description}>{data?.description}</p>
           </Aos>
           <Aos
             delay={800}
             activeClassName={styles.active}
-            className={`${styles.aos} flex gap10 al-i-c`}
+            className={`${styles.aos} flex-c gap10 al-i-c`}
           >
             <MainLink text="Contact us" href={"/contact-us"} />
           </Aos>

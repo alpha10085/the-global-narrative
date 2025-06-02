@@ -22,6 +22,13 @@
   border-radius: 20px;
 }
 
+.poster,.details , .cardDescription {
+  width: 1200px;
+  max-width: 90%;
+  margin-left:auto ;
+  margin-right:auto ;
+}
+
 
 
 .header {
@@ -58,12 +65,11 @@
   display: flex;
   padding: 32px 0;
   background-color: white;
-  padding: 50px 10%;
-  padding-bottom: 140px;
+  padding: 20px 0% 140px;
+  width: 100%;
 }
 
 .details {
-  width: 1200px;
   margin: 20px auto 250px;
 }
 
@@ -110,7 +116,6 @@
 }
 
 .content p {
-  max-width: 100%;
   line-height: 1.5;
   font-size: clamp(14px, 2.5vw, 20px);
   color: #333;
@@ -123,55 +128,25 @@
   /* transform: translateY(-290px); */
 }
 .poster,.details {
-  transform:
-  translateY(50px);
+  transform:translateY(50px);
   opacity: 0;
   transition: 0.8s;
 }
 .aosActive {
-
   opacity: 1;
   transform: translate(0);
 }
-@media (max-width: 1024px) {
-  .sidebar ul {
-    margin: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
 
-  .sidebar li {
-    margin: 0;
-  }
 
-  .sidebar a {
-    padding: 8px 12px;
-    background-color: #f3f3f3;
-    border-radius: 8px;
-    font-size: 14px;
-    white-space: nowrap;
-    text-decoration: none;
-    color: #333;
-    transition: background-color 0.2s;
-  }
 
-  .sidebar a:hover {
-    background-color: #ddd;
-  }
-}
 
-@media (max-width: 480px) {
-  .container {
-    width: 95%;
-  }
+@media (max-width: 768px) {
 
   .poster {
     height: 250px;
   }
 
   .content {
-    padding: 16px;
     gap: 16px;
   }
 

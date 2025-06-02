@@ -67,16 +67,15 @@
   margin-bottom: 10px;
 }
 
-
-@media (max-width:550px) {
+@media (max-width: 550px) {
   .container {
     aspect-ratio: unset;
-    height: 420px;
+    height: 440px;
   }
   .jobtitle {
-  font-size: 14px;
-}
-.author {
-  font-size: 18px;
-}
+    font-size: 14px;
+  }
+  .author {
+    font-size: 18px;
+  }
 }

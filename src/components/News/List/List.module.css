@@ -188,7 +188,7 @@
 }
 @media (max-width: 768px) {
   .headerContainer {
-    margin: 25px auto;
+    margin: 0px auto 20px;
   }
   .filters {
     flex-direction: column-reverse;
@@ -196,10 +196,14 @@
   }
   .categories {
     width: 100%;
-  }
-  .search {
     max-width: 100%;
   }
+  .search {
+    width: 100%;
+    justify-content: start ;
+  }
+
+
 }
 
 @media (max-width: 478px) {

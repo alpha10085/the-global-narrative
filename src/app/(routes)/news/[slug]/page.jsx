@@ -71,9 +71,7 @@ const Page = async (props) => {
           />
         </div>
       </FloatedSection>
-      {/* <div className={styles.bottomspace}>
-
-      </div> */}
+ 
     </section>
   );
 };
