@@ -38,6 +38,25 @@ export const getpage = () => {
 
 export const getFakeNews = () => {
   const news = [
+        {
+      _id: "news-1",
+      slug: "the-global-narrative-a-bold-vision-for-regional-storytelling",
+      title: "the Global Narrative: A Bold Vision for Regional Storytelling",
+      poster: {
+        url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1748824551/499498873_1202408518562769_7290105171184954584_n_nlyzpp.jpg",
+      },
+      content: `
+      What comes after the applause? For Lamia Kamel and Hania Amr Moussa, it’s a bold new beginning. Introducing The Global Narrative—a strategic communications firm with heart, heritage, and a mission to redefine how Egypt and the region are seen on the world stage.
+
+With offices in Cairo and Riyadh, the platform goes beyond traditional PR, diving into purposeful storytelling, executive positioning, and nation branding.
+
+Built on the legacy of the Narrative Summit, this new chapter champions stories that matter—those rooted in culture, innovation, diplomacy, and impact.
+
+It’s not just about crafting messages—it’s about curating identity. And for Egypt, that story is only just beginning
+      `,
+      category: categories?.[0],
+      date: new Date("2025-05-29T10:00:00Z"),
+    },
     {
       _id: "news-1",
       slug: "the-global-narrative-lamia-kamel-and-hania-amr-moussa-launch-a-bold-vision-for-regional-storytelling",
@@ -67,25 +86,7 @@ In many ways, Global Narrative carries forward the founding vision of the Narrat
       date: new Date("2025-05-29T10:00:00Z"),
     },
 
-    {
-      _id: "news-1",
-      slug: "the-global-narrative-a-bold-vision-for-regional-storytelling",
-      title: "the Global Narrative: A Bold Vision for Regional Storytelling",
-      poster: {
-        url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1748824551/499498873_1202408518562769_7290105171184954584_n_nlyzpp.jpg",
-      },
-      content: `
-      What comes after the applause? For Lamia Kamel and Hania Amr Moussa, it’s a bold new beginning. Introducing The Global Narrative—a strategic communications firm with heart, heritage, and a mission to redefine how Egypt and the region are seen on the world stage.
 
-With offices in Cairo and Riyadh, the platform goes beyond traditional PR, diving into purposeful storytelling, executive positioning, and nation branding.
-
-Built on the legacy of the Narrative Summit, this new chapter champions stories that matter—those rooted in culture, innovation, diplomacy, and impact.
-
-It’s not just about crafting messages—it’s about curating identity. And for Egypt, that story is only just beginning
-      `,
-      category: categories?.[0],
-      date: new Date("2025-05-29T10:00:00Z"),
-    },
 
     {
       _id: "news-1",

@@ -16,7 +16,7 @@ export default async function RootLayout({ children }) {
       className="ShowSmoothEffectShortDelay"
     >
       <NavBar />
-      <SmoothScroll  />
+      <SmoothScroll duration={2}  />
       <DynamicCursor />
       <div style={{ minHeight: "100vh" }}>{children}</div>
       <Toaster />

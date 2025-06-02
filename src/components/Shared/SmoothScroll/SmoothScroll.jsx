@@ -2,17 +2,16 @@
 import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
 import eventBus from "@/utils/eventBus";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 const SmoothScroll = ({ duration = 0.9 }) => {
   const [state, setState] = useDynamicState({
     enable: true,
-    mounted: false,
   });
-  const { enable, mounted } = state;
+  const { enable } = state;
   const startLenis = () =>
     setState({
       enable: true,
@@ -34,13 +33,12 @@ const SmoothScroll = ({ duration = 0.9 }) => {
 
     eventBus.on("lenis", handler);
 
-    delay(300).then(() => setState({ mounted: true }));
     return () => {
       eventBus.off("lenis", handler); // cleanup
     };
   }, []);
 
-  return mounted && enable ? <LenisComponent duration={duration} /> : null;
+  return enable ? <LenisComponent duration={duration} /> : null;
 };
 
 export default SmoothScroll;
@@ -52,23 +50,20 @@ const LenisComponent = ({ duration }) => {
   useEffect(() => {
     const lenis = new Lenis({
       duration,
-      gestureDirection: "vertical",
-      mouseMultiplier: 1,
-      smoothTouch: false,
+         autoRaf: true,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // default
-      smooth: true,
     });
     lenisRef.current = lenis;
 
-    const update = (time) => {
-      lenis.raf(time);
-      requestAnimationFrame(update);
-    };
+    // const update = (time) => {
+    //   lenis.raf(time);
+    //   requestAnimationFrame(update);
+    // };
 
-    const animationFrame = requestAnimationFrame(update);
+    // const animationFrame = requestAnimationFrame(update);
 
     return () => {
-      cancelAnimationFrame(animationFrame);
+      //  cancelAnimationFrame(animationFrame);
       lenis.destroy();
     };
   }, [duration]);
