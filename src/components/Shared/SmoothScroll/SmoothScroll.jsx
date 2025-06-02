@@ -75,7 +75,7 @@ const LenisComponent = ({ duration = 1.2 }) => {
       lenisRef.current?.destroy();
       lenisRef.current = null;
     };
-  }, [duration, lerp, smooth]);
+  }, [duration]);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
