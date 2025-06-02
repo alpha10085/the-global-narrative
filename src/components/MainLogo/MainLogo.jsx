@@ -16,14 +16,14 @@ const MainLogo = ({
         className={`${styles.logo} ${
           theme === "light" ? styles.active : ""
         } ${classNameImg}`}
-        url={`/main-logo-f-black.png?`}
+        url={`/main-logo-fu-black.png`}
       />
       <Img
         disableSkeleton
         className={`${styles.logo} ${
           theme === "dark" ? styles.active : ""
         } ${classNameImg}`}
-        url={`/main-logo-f-white.png?`}
+        url={`/main-logo-fu-white.png`}
       />
     </Link>
   );
