@@ -50,20 +50,18 @@ const LenisComponent = ({ duration }) => {
   useEffect(() => {
     const lenis = new Lenis({
       duration,
-         autoRaf: true,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // default
     });
     lenisRef.current = lenis;
 
-    // const update = (time) => {
-    //   lenis.raf(time);
-    //   requestAnimationFrame(update);
-    // };
+    const update = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(update);
+    };
 
-    // const animationFrame = requestAnimationFrame(update);
+    const animationFrame = requestAnimationFrame(update);
 
     return () => {
-      //  cancelAnimationFrame(animationFrame);
+        cancelAnimationFrame(animationFrame);
       lenis.destroy();
     };
   }, [duration]);
