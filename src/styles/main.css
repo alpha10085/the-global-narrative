@@ -7,41 +7,17 @@
   /* user-select: none; */
 }
 
-
 /* start roots styles */
 :root {
   --main-color: white;
-  --main-bg: white;
   --overlay-bg: white;
   --p: #a9a9a9;
   --fw-m: 500;
   --fw-l: 600;
-  --bg-transparent: hsla(0, 0%, 22%, 0.02);
-  --bg-transparent100: hsla(269, 100%, 92%, 0.028);
-  --bg-transparent200: hsla(0, 0%, 22%, 0.03);
-  --bg-transparent300: hsla(0, 0%, 22%, 0.04);
-  --bg-transparent400: hsla(0, 0%, 22%, 0.11);
-  --bg-transparent500: hsla(0, 0%, 22%, 0.2);
-  --bg-transparent600: hsla(0, 0%, 22%, 0.3);
-  --green: #10b981;
-  --yellow: #ffe047;
-  --red: #ff4040;
-  --aqua: #40ffd9;
-  --purple: #8927f2;
-  --purple200: #8927f2a8;
-  --purple300: #8927f277;
-  --orange: #ffa237;
-  --white: #d2d2d2;
-  --blue: #1fc6fd;
-  --blue400: #6fe7ff;
-  --black: #000000;
-  --bord-c2: rgba(128, 128, 128, 0.1);
-  --bord-c1: rgba(128, 128, 128, 0.15);
-  --shadow-c1: rgba(128, 128, 128, 0.1);
-  --shadow-c2: rgba(128, 128, 128, 0.1);
+  --main-bg: rgba(5, 0, 78, 1);
   --color-scroll-thumb: #000000;
   --color-scroll-track: #eef6f7;
-  --headerHeight: 100px
+  --headerHeight: 100px;
 }
 
 /* end roots styles */
@@ -50,10 +26,9 @@ body {
   letter-spacing: 1px;
   min-height: 100vh;
   font-family: var(--font-geist);
- 
 }
 
-.imageoverlay { 
+.imageoverlay {
   position: relative;
 }
 .imageoverlay::before {
@@ -74,7 +49,7 @@ textarea {
   resize: none;
 }
 [data-cursor-label] {
-cursor: pointer;
+  cursor: pointer;
 }
 .no-focus-outline:focus {
   outline: none;
@@ -350,7 +325,8 @@ input:-webkit-autofill:active {
 }
 
 @media (prefers-color-scheme: dark) {
-  html, body {
+  html,
+  body {
     background-color: #fff !important;
     color: #000 !important;
   }
