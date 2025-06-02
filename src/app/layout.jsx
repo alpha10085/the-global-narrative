@@ -8,7 +8,6 @@ import "../styles/animation.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
- import "lenis/dist/lenis.css";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX";
 import { AuthProvider } from "@/contexts/AuthProvider";
 import DevToolsWrapper from "@/components/Shared/DevTools/DevToolsWrapper";
@@ -18,6 +17,7 @@ import { isProductionMode } from "@/config/main";
 import { NextIntlClientProvider } from "next-intl";
 import { ValidateLocale } from "@/i18n/request";
 import SamsungPatch from "@/components/Shared/Pervent/Pervent";
+
 
 // If loading a variable font, you don't need to specify the font weight
 const geist = Geist({
