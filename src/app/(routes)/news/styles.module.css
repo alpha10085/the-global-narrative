@@ -4,11 +4,21 @@
 .header {
   margin: auto;
   width: 90%;
-  padding: 40px 0;
+  padding: 40px 0 0;
 
   max-width: 95%;
   text-align: start;
   align-items: start;
+}
+
+.headerInterviews {
+   margin: auto;
+  width: 90%;
+  padding: 0 0 0;
+
+  max-width: 95%;
+  text-align: start;
+  align-items: start; 
 }
 .subTitle {
   font-weight: 200;

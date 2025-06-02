@@ -4,6 +4,8 @@ import { getPage } from "@/lib/pages";
 import { getpage } from "./data.test";
 import styles from "./styles.module.css";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import ListInterviews from "@/components/MediaCenter/List/List";
+
 // export const generateMetadata = async () =>
 //   await pageMetadataHandler(getpage, "");
 
@@ -13,10 +15,14 @@ const page = async () => {
     <section className={`${styles.layout} showSmooth`} id="news-Categories">
       <div className={styles.header}>
         <p className={`${styles.subTitle} `}>{data?.subTitle}</p>
-        {/* <h1 className={styles.title}>{data?.title}</h1> */}
+
         <SectionTitle className={styles.title} title={data?.title} />
       </div>
       <List page={data} categories={data?.categories} />
+      <div className={styles.headerInterviews}>
+        <SectionTitle className={styles.title} title={"Interviews"} />
+      </div>
+      <ListInterviews />
     </section>
   );
 };

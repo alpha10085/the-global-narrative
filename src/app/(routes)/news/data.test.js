@@ -1,31 +1,31 @@
 import { notFound } from "next/navigation";
 
 const categories = [
-  {
-    _id: "1",
-    slug: "public",
-    title: "Public",
-  },
-  {
-    _id: "2",
-    slug: "communication",
-    title: "Communication",
-  },
-  {
-    _id: "3",
-    slug: "sustainability",
-    title: "Sustainability",
-  },
-  {
-    _id: "4",
-    slug: "business",
-    title: "Business",
-  },
-  {
-    _id: "5",
-    slug: "event",
-    title: "Event",
-  },
+  // {
+  //   _id: "1",
+  //   slug: "public",
+  //   title: "Public",
+  // },
+  // {
+  //   _id: "2",
+  //   slug: "communication",
+  //   title: "Communication",
+  // },
+  // {
+  //   _id: "3",
+  //   slug: "sustainability",
+  //   title: "Sustainability",
+  // },
+  // {
+  //   _id: "4",
+  //   slug: "business",
+  //   title: "Business",
+  // },
+  // {
+  //   _id: "5",
+  //   slug: "event",
+  //   title: "Event",
+  // },
 ];
 
 export const getpage = () => {

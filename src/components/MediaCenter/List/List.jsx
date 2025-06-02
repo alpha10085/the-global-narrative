@@ -12,8 +12,8 @@ import { getFakeMediaCenter } from "@/app/(routes)/media-center/data.test";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 
-const List = ({ page = {}, categories = [] }) => {
-  const { title = "" } = page;
+const List = ({ }) => {
+
   const { clearOne, clearQuery, multiple, searchParams, singleValue } =
     useQueryParams({
       scrollTo: "#media-center-Categories",
@@ -34,25 +34,12 @@ const List = ({ page = {}, categories = [] }) => {
   //   next: getMediaCenterData,
   // });
 
-  const categoriesQuery = searchParams?.categories?.split(",") || [];
-
-  const searchQuery = (searchParams?.search || "").toLocaleLowerCase();
 
   const data = { pages: getFakeMediaCenter(6) };
   const isLoading = false;
   const hasNextPage = false;
   const fetchNextPage = () => {};
-  let dataAfterFiltered = categoriesQuery?.length
-    ? data?.pages.filter((val) =>
-        categoriesQuery?.includes(val?.category?.slug)
-      )
-    : data?.pages;
 
-  if (searchQuery?.length) {
-    dataAfterFiltered = dataAfterFiltered.filter((val) =>
-      val?.title?.toLocaleLowerCase().includes(searchQuery)
-    );
-  }
 
   const scrollToMainSection = () =>
     scrollToElement("#media-center-Categories", 100);
@@ -67,8 +54,11 @@ const List = ({ page = {}, categories = [] }) => {
   );
 
   return (
-    <div id="media-center-Categories" className={styles.mediaCenterContainer}>
-      <div className={`${styles.headerContainer} flex column gap20 just-sb`}>
+    <div 
+    
+    // id="media-center-Categories" 
+     className={styles.mediaCenterContainer}>
+      {/* <div className={`${styles.headerContainer} flex column gap20 just-sb`}>
         <SectionTitle title={title} className={styles.headingTitle} />
         <div className={`${styles.filters} flex al-i-c  gap20 just-sb`}>
           <div className={`${styles.categories} flex gap30`}>
@@ -106,11 +96,11 @@ const List = ({ page = {}, categories = [] }) => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
       <VirtuosoGrid
         useWindowScroll
         className={`${styles.list} `}
-        data={dataAfterFiltered}
+        data={data?.pages}
         endReached={() => {
           if (hasNextPage) fetchNextPage();
         }}
@@ -129,7 +119,7 @@ const List = ({ page = {}, categories = [] }) => {
       />
       {!isLoading && !data?.pages?.length && (
         <div className={`${styles.emptydata} ShowSmoothEffect flex-c`}>
-          No products found
+          No interviews found
         </div>
       )}
       {isLoading && (

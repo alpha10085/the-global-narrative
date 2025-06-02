@@ -12,22 +12,7 @@ export const getHomePage = () => {
         title: "Crafting Narratives That Resonate Globally",
         media: {
           mimetype: "image",
-          url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1746230310/Edge-81_vghfyo.jpg", // You can replace with a better image if needed
-        },
-      },
-      {
-        title: "Shaping Stories Across Borders",
-        media: {
-          mimetype: "image",
-          url: "https://webershandwick.com/_next/image?url=https%3A%2F%2Fcms.webershandwick.com%2Fwp-content%2Fuploads%2F2025%2F01%2Fresize_csuite_cover.jpg&w=1920&q=75",
-        },
-      },
-      {
-        title: "Clarity, Strategy, Purpose",
-        media: {
-          mimetype: "image",
-          url: "https://webershandwick.com/_next/image?url=https%3A%2F%2Fcms.webershandwick.com%2Fwp-content%2Fuploads%2F2025%2F04%2Fgoingup_sitehero.jpg&w=1920&q=75",
-        },
+          url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1748873436/Picsart_25-06-02_17-08-52-858_mulygf.jpg"        },
       },
     ],
     aboutUsSection: {

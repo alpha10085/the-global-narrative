@@ -2,6 +2,7 @@ import YouTubeEmbed from "@/components/Shared/YoutubeEmded/YoutubeEmded";
 import styles from "./Card.module.css";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { useEffect, useState } from "react";
+import { customText } from "@/utils/text";
 
 const Card = ({ val, index }) => {
   const [show, setShow] = useState(false);
@@ -24,7 +25,7 @@ const Card = ({ val, index }) => {
         />
       </div>
       <div className={`${styles.cardBottom} just-sb flex `}>
-        <h1 className={styles.title}>{val?.title}</h1>
+        <h1 className={styles.title}>{customText(val?.title,60)}</h1>
         <ArrowOutwardIcon />
       </div>
     </div>
