@@ -1,0 +1,54 @@
+{
+  "fields": [
+    {
+      "name": "heading",
+      "type": "text",
+      "label": "heading"
+    },
+    {
+      "name": "description",
+      "type": "textarea",
+      "label": "description"
+    },
+    {
+      "name": "buttonText",
+      "type": "text",
+      "label": "buttonText"
+    },
+     {
+          "name": "socialLinks",
+          "type": "array",
+          "label": "socialLinks",
+          "max": 3,
+          "fields": [
+            {
+              "name": "url",
+              "type": "text",
+              "label": "url"
+            },
+            {
+              "name": "link",
+              "type": "textarea",
+              "label": "link"
+            }
+          ]
+        }
+  ],
+  "options": {
+    "translation": false,
+    "roles": {
+      "view": true,
+      "create": false,
+      "update": true,
+      "delete": false,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": false
+    },
+    "cache": {
+      "duration": "10m",
+      "tags": []
+    }
+  }
+}

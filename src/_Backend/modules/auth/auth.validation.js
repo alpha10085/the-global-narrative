@@ -32,6 +32,7 @@ export const updateVal = Joi.object({
   email: Joi.string().email(),
   age: Joi.number().integer().min(10).max(80),
   phone: Joi.string().max(14).optional(),
+  
   address: Joi.object({
     street: Joi.string().optional(),
     gevoremnt: Joi.string().optional(),

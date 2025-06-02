@@ -205,7 +205,7 @@ const Slider = ({
               clickable: true,
               dynamicBullets: false,
             }}
-            mousewheel={!single}
+           
             keyboard={true}
             navigation={false}
             modules={[Navigation, Pagination, Mousewheel]}

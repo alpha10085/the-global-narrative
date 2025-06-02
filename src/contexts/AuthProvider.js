@@ -10,7 +10,6 @@ import React, {
 } from "react";
 import toast from "react-hot-toast";
 import LogOutCover from "@/components/Auth/LogOutCover/LogOutCover";
-import { useErrorBoundary } from "./ErrorBoundryCTX";
 import Cookies from "js-cookie";
 import { useQueryClient } from "@tanstack/react-query";
 import { isAdmin } from "@/config/auth";
@@ -30,7 +29,6 @@ const AuthContext = createContext("AuthContext");
  */
 export const AuthProvider = ({ children, locale = "en" }) => {
   const [session, setSession] = useState(null);
-  const { showBoundary } = useErrorBoundary();
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
   const router = useRouter();
@@ -103,8 +101,6 @@ export const AuthProvider = ({ children, locale = "en" }) => {
       } catch (error) {
         if (error?.logout) {
           logOut();
-        } else if (error?.errorBoundary) {
-          showBoundary();
         } else {
           throw error?.message;
         }
@@ -122,11 +118,9 @@ export const AuthProvider = ({ children, locale = "en" }) => {
       const { profile = null } = await getProfile();
       setSession(profile);
     } catch (error) {
-      if (error?.errorBoundary) {
-        showBoundary();
-      }
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -138,7 +132,7 @@ export const AuthProvider = ({ children, locale = "en" }) => {
         destroySession(event?.data?.path);
       }
     };
-   // verfiySession();
+    verfiySession();
     return () => {
       // Clean up: Close the channel when the component unmounts
       channel.close();

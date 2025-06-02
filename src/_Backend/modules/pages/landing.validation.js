@@ -6,72 +6,57 @@ import {
 import { joiText } from "@/_Backend/utils/JoiHandlers";
 
 import Joi from "joi";
-import { projectValidationUpdate } from "../project/project.validation";
-import { BlogPostValidationUpdate } from "../BlogPost/BlogPost.validation";
-
+import { productValidationRelation } from "../product/product.validation";
+import { categoryValidationRelation } from "../category/category.validation";
+const mainCard = {
+  title: joiText({ min: 2, max: 1000, required: true }),
+  description: joiText({ min: 2, max: 20000, required: true }),
+  poster: fileVal.required(),
+  ...CommonsVal,
+};
 const heroSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
+  mediaSection: Joi.object({
+    poster: fileVal.required(),
+    title: joiText({ min: 2, max: 1000, required: true }),
+    subTitle: joiText({ min: 2, max: 20000, required: true }),
+    ...CommonsVal,
+  }).required(),
   ...CommonsVal,
 });
-const globeSection = Joi.object({
+const qualitySection = Joi.object(mainCard);
+
+const categoriesSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
-  poster: fileVal.required(),
-  boxes: Joi.array().items(
-    Joi.object({
-      title: joiText({ min: 2, max: 500, required: true }),
-      description: joiText({ min: 2, max: 500, required: true }),
-      ...CommonsVal,
-    })
-  ),
+  largeCard: categoryValidationRelation.required(),
+  smallCards: Joi.array()
+    .items(categoryValidationRelation)
+    .length(3)
+    .required(),
   ...CommonsVal,
 });
-const whyUsSection = Joi.object({
+const locationSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
-  description: joiText({ min: 2, max: 20000, required: true }),
-  boxes: Joi.array().items(
-    Joi.object({
-      title: joiText({ min: 2, max: 500, required: true }),
-      points: joiText({ min: 2, max: 500, required: true }),
-      ...CommonsVal,
-    })
-  ),
-  sections: Joi.array().items(
-    Joi.object({
-      title: joiText({ min: 2, max: 1000, required: true }),
-      description: joiText({ min: 2, max: 20000, required: true }),
-      media: fileVal.required(),
-      ...CommonsVal,
-    })
-  ),
+  address: joiText({ min: 2, max: 1000, required: true }),
+  location_url: joiText({ min: 2, max: 1000, required: true }),
+  map_url: joiText({ min: 2, max: 1000, required: true }),
   ...CommonsVal,
 });
-const worksSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
-  description: joiText({ min: 2, max: 20000, required: true }),
-  projects: Joi.array().items(projectValidationUpdate.min(1)).required(),
-  ...CommonsVal,
-});
-const contactUsSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
-  ...CommonsVal,
-});
-const blogSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
-  description: joiText({ min: 2, max: 20000, required: true }),
-  posts: Joi.array().items(BlogPostValidationUpdate.min(1)).required(),
-  ...CommonsVal,
-});
+
+const featuredProducts = Joi.array().items(productValidationRelation);
 // Validation for creating landing page
 export const LandingValCreate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
   heroSection: heroSection.required(),
-  globeSection: globeSection.required(),
-  whyUsSection: whyUsSection.required(),
-  worksSection: worksSection.required(),
-  contactUsSection: contactUsSection.required(),
-  blogSection: blogSection.required(),
+
+  locationSection: locationSection.required(),
+
+  categoriesSection: categoriesSection.required(),
+
+  qualitySection: qualitySection.required(),
+  featuredProducts: featuredProducts.required(),
   ...CommonsVal,
 });
 // Validation for updating landing page
@@ -79,10 +64,9 @@ export const LandingValUpdate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
   heroSection,
-  globeSection,
-  whyUsSection,
-  worksSection,
-  contactUsSection,
-  blogSection,
+  locationSection,
+  categoriesSection,
+  qualitySection,
+  featuredProducts: featuredProducts,
   ...CommonsVal,
 });

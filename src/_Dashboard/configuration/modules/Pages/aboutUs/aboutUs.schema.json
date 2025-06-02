@@ -1,0 +1,181 @@
+{
+  "fields": [
+    {
+      "type": "dynamicZone",
+      "key": "metadata"
+    },
+    {
+      "name": "heroSection",
+      "type": "object",
+      "label": "heroSection",
+      "fields": [
+        {
+          "name": "left",
+          "type": "object",
+          "label": "left",
+          "fields": [
+            {
+              "name": "title",
+              "type": "text",
+              "label": "title"
+            },
+            {
+              "name": "description",
+              "type": "textarea",
+              "label": "description"
+            },
+            {
+              "name": "poster",
+              "type": "media",
+              "allowedTypes": ["image"],
+              "single": true,
+              "label": "poster"
+            }
+          ]
+        },
+        {
+          "name": "right",
+          "type": "object",
+          "label": "right",
+          "fields": [
+            {
+              "name": "title",
+              "type": "text",
+              "label": "title"
+            },
+            {
+              "name": "description",
+              "type": "textarea",
+              "label": "description"
+            },
+            {
+              "name": "poster",
+              "type": "media",
+              "allowedTypes": ["image"],
+              "single": true,
+              "label": "poster"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "aboutSection",
+      "type": "object",
+      "label": "aboutSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "description",
+          "type": "textarea",
+          "label": "description"
+        },
+        {
+          "name": "poster",
+          "type": "media",
+          "allowedTypes": ["image"],
+          "single": true,
+          "label": "poster"
+        }
+      ]
+    },
+    {
+      "name": "ourServicesSection",
+      "type": "object",
+      "label": "ourServicesSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "description",
+          "type": "textarea",
+          "label": "description"
+        },
+        {
+          "name": "poster",
+          "type": "media",
+          "allowedTypes": ["image"],
+          "single": true,
+          "label": "poster"
+        },
+        {
+          "name": "services",
+          "type": "array",
+          "label": "services",
+          "max": 10,
+          "fields": [
+            {
+              "name": "title",
+              "type": "text",
+              "label": "title"
+            },
+            {
+              "name": "description",
+              "type": "textarea",
+              "label": "description"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "whyUsSection",
+      "type": "object",
+      "label": "whyUsSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "description",
+          "type": "textarea",
+          "label": "description"
+        },
+        {
+          "name": "cards",
+          "type": "array",
+          "label": "cards",
+          "max": 8,
+          "fields": [
+            {
+              "name": "title",
+              "type": "text",
+              "label": "title"
+            },
+            {
+              "name": "description",
+              "type": "textarea",
+              "label": "description"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "options": {
+    "translation": false,
+    "roles": {
+      "view": true,
+      "create": false,
+      "update": true,
+      "delete": false,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": false
+    },
+    "cache": {
+      "duration": "10m",
+      "tags": []
+    }
+  }
+}

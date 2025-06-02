@@ -56,7 +56,7 @@ export const joiNumber = ({
   let schema = Joi.number()
     .min(min)
     .max(max)
-    .messages(messagesHandlers({ type: "number", label, min, max, locale }));
+    .messages(messagesHandlers({ type: "number", min, max, locale }));
 
   if (integer) schema = schema.integer();
   if (positive) schema = schema.positive();

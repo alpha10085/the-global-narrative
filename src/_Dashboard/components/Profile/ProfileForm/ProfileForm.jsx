@@ -5,11 +5,11 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
-import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/shared/AsyncButton/AsyncButton";
 import { UpdateVal } from "./schema";
 import TextInput from "../../Inputs/textInput/textInput";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import Spinner from "@/components/Shared/Spinner/Spinner";
+import Spinner from "@/components/shared/Spinner/Spinner";
 import { updateProfile } from "@/lib/auth";
 import { isEqual } from "lodash";
 //updatePassword

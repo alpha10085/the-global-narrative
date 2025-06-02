@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import styles from './TextDisplay.module.css'
 import axios from 'axios';
-import Spinner from '@/components/Shared/Spinner/Spinner';
+import Spinner from '@/components/shared/Spinner/Spinner';
 import { delay } from '@/utils/time';
-import Skeleton from '@/components/Shared/Skeleton/skeleton';
+import Skeleton from '@/components/shared/Skeleton/skeleton';
 import { useTheme } from "@/_Dashboard/context/ThemeCTX"
 function FileDisplay({ url = '', }) {
     const [fileContent, setFileContent] = useState('');

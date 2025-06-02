@@ -8,7 +8,6 @@ import "../styles/animation.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX";
 import { AuthProvider } from "@/contexts/AuthProvider";
 import DevToolsWrapper from "@/components/Shared/DevTools/DevToolsWrapper";
 import { getLocale } from "next-intl/server";
@@ -17,6 +16,7 @@ import { isProductionMode } from "@/config/main";
 import { NextIntlClientProvider } from "next-intl";
 import { ValidateLocale } from "@/i18n/request";
 import SamsungPatch from "@/components/Shared/Pervent/Pervent";
+import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX/ErrorBoundryCTX";
 
 
 // If loading a variable font, you don't need to specify the font weight
@@ -54,7 +54,10 @@ export const viewport = {
     "supported-color-schemes": "light",
   },
 };
-
+const fonts = {
+  en: UrbanistFont,
+  ar: tajawal,
+};
 export default async function RootLayout({ children }) {
   if (!isProductionMode) {
     interceptor.intercept(); // only in server-side
@@ -62,10 +65,6 @@ export default async function RootLayout({ children }) {
   const cookieStore = await cookies();
   const locale = await getLocale();
   const boundary = cookieStore?.get("boundary")?.value;
-  const fonts = {
-    en: UrbanistFont,
-    ar: tajawal,
-  };
   const selectedFont = fonts[locale] || fonts.en;
 
   const messages = (

@@ -65,21 +65,17 @@ export class ApiFetcher {
   }
   // Sort method
   sort() {
-    try {
-      if (this.searchQuery.sort) {
-        const sortBy = `${this.searchQuery?.sort},_id:asc`
-          ?.split(",")
-          ?.reduce((acc, field) => {
-            const [key, order] = field.split(":");
-            acc[key] = order === "desc" ? -1 : 1;
-            return acc;
-          }, {});
-        this.pipeline.push({ $sort: sortBy });
-      } else {
-        this.pipeline.push({ $sort: { _id: -1 } }); // Default sort order
-      }
-    } catch (error) {
-      console.log("🚀 ~ ApiFetcher ~ sort ~ error:", error);
+    if (this.searchQuery.sort) {
+      const sortBy = `${this.searchQuery?.sort},_id:asc`
+        ?.split(",")
+        ?.reduce((acc, field) => {
+          const [key, order] = field.split(":");
+          acc[key] = order === "desc" ? -1 : 1;
+          return acc;
+        }, {});
+      this.pipeline.push({ $sort: sortBy });
+    } else {
+      this.pipeline.push({ $sort: { _id: -1 } }); // Default sort order
     }
     return this;
   }
@@ -100,34 +96,42 @@ export class ApiFetcher {
           }, {});
 
         this.pipeline.push({ $project: parsedFields });
-      } catch (error) {
-        console.log("🚀 ~ ApiFetcher ~ select ~ error:", error);
-      }
+      } catch (error) {}
     }
 
     return this;
   }
   // Search method
   search() {
-    try {
-      if (this.searchQuery.search) {
-        const indexQueries = (this?.options?.searchfields || [])?.map(
-          (key) => ({
-            [key]: { $regex: this.searchQuery.search, $options: "i" },
-          })
-        );
-        if (indexQueries.length) {
-          this.pipeline.push({ $match: { $or: indexQueries } });
-        }
+    if (this.searchQuery.search) {
+      const indexQueries = (this?.options?.searchfields || [])?.map((key) => ({
+        [key]: { $regex: this.searchQuery.search, $options: "i" },
+      }));
+      if (indexQueries.length) {
+        
+        this.pipeline.push({ $match: { $or: indexQueries } });
       }
-    } catch (error) {
-      console.log("🚀 ~ ApiFetcher ~ search ~ error:", error);
     }
-
+    
     return this;
   }
   // Populate method
-  populate() {
+  populate(populateArray) {
+    if (Array.isArray(populateArray) && populateArray.length) {
+      populateArray.forEach((pop) => {
+        this.pipeline.push({
+          $lookup: {
+            from: pop.from,
+            localField: pop.localField,
+            foreignField: pop.foreignField,
+            as: pop.as,
+          },
+        });
+        if (pop.unwind) {
+          this.pipeline.push({ $unwind: `$${pop.as}` });
+        }
+      });
+    }
     return this;
   }
   // Method to get total count of documents after applying filters

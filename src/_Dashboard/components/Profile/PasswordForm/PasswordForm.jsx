@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
-import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/shared/AsyncButton/AsyncButton";
 import { PasswordFormVal } from "./schema";
 import TextInput from "../../Inputs/textInput/textInput";
 import { updatePassword } from "@/lib/auth";

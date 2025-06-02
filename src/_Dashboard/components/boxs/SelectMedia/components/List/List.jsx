@@ -4,7 +4,7 @@ import useInfinityQuery from "@/hooks/useInfinityQuery";
 import styles from "./List.module.css";
 import { getFiles } from "@/_Dashboard/lib/dashboard";
 import { VirtuosoGrid } from "react-virtuoso";
-import Spinner from "@/components/Shared/Spinner/Spinner";
+import Spinner from "@/components/shared/Spinner/Spinner";
 import Card from "../Card/Card";
 import SearchInput from "@/_Dashboard/components/Inputs/searchInput/searchInput";
 

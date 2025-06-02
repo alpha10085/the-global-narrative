@@ -1,0 +1,75 @@
+{
+  "fields": [
+    {
+      "name": "name",
+      "type": "text",
+      "label": "name",
+      "placeholder": "Enter name"
+    },
+    {
+      "name": "email",
+      "type": "text",
+      "label": "email",
+      "placeholder": "Enter email"
+    },
+    {
+      "name": "phone",
+      "type": "text",
+      "label": "phone",
+      "placeholder": "Enter phone"
+    },
+    {
+      "name": "message",
+      "type": "textarea",
+      "label": "message",
+      "placeholder": "Enter message"
+    },
+    {
+      "name": "total",
+      "type": "number",
+      "label": "total",
+      "placeholder": "Enter total"
+    },
+    {
+      "name": "items",
+      "type": "array",
+      "label": "items",
+      "fields": [
+        {
+          "name": "product",
+          "type": "relation",
+          "ref": "products",
+          "select": ["_id", "poster", "title"],
+          "imageField": "poster",
+          "displayField": "title",
+          "label": "items",
+          "single": true
+        },
+        {
+          "name": "quantity",
+          "type": "number",
+          "label": "quantity",
+          "placeholder": "Enter quantity"
+        }
+      ]
+    }
+  ],
+  "options": {
+    "translation": false,
+    "roles": {
+      "view": true,
+      "create": true,
+      "update": true,
+      "delete": true,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": true
+    },
+    "cache": {
+      "duration": "0s",
+      "tags": []
+    }
+  },
+  "view": ["name", "email", "phone", "message", "createdAt", "updatedAt"]
+}

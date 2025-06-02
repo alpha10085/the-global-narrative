@@ -210,7 +210,7 @@ html[dir="rtl"] .profPic p {
 
 .logo {
   width: max-content;
-  aspect-ratio: 4/1.1;
+  aspect-ratio: 5/1.1;
   height: 22px;
   overflow: hidden;
 
@@ -393,7 +393,7 @@ html[dir="rtl"] .popupbottom {
     width: 50px;
   }
   .logo {
-    height: 12px;
+    height: 9px;
   }
   .silderbarOpen .logo {
     height: 18px;

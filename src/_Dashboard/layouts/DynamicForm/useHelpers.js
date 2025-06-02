@@ -86,6 +86,13 @@ const useHelpers = ({
     resolver,
     mode: "all",
   });
+
+
+  console.log("Eorooorr", errors);
+  console.log("valuess",getValues);
+  
+  
+
   // Access theme context
   const { theme } = useTheme();
   // Router and location utilities
@@ -147,11 +154,13 @@ const useHelpers = ({
   };
   const { removalFields = {}, translationKeys = {} } =
     useMemo(() => handleDynamicFields(schema), [slug]) || {};
+
   const translations = useTranslations("Dashboard", [
     ...translationKeys,
     ...translationStaticKeys,
     `displaynames.${displayName}`,
   ]);
+
   // Handle form submission
   const submit = async (formdata) => {
     setState({ loading: true });
@@ -300,12 +309,11 @@ const useHelpers = ({
     language,
     translations,
     removeTranslation,
-    getValues:getValues_form,
+    getValues: getValues_form,
   };
-
+  // console.log("From-current-Data", currentData);
   if (process.env.NEXT_PUBLIC_MODE === "dev") {
     console.log(`❌ Form-errors`, errors);
-    // console.log("From-current-Data", currentData);
     console.log("From-getValues", getValues);
   }
 

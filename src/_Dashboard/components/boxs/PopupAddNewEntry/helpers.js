@@ -1,4 +1,3 @@
-"use client"
 import { generateInitialize } from "@/_Dashboard/lib/dashboard";
 import {
   collectErrorPaths,
@@ -6,7 +5,7 @@ import {
 } from "@/_Dashboard/utils/handleData";
 import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/time";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 
 
@@ -19,25 +18,27 @@ export const useFetch = (slug) => {
 
   const { isLoading, error, data } = state;
 
+  const fetchData = useCallback(async () => {
+    setState({ isLoading: true, error: null, data: null });
+    try {
+      const response = await generateInitialize({
+        queryKey: ["", slug],
+      });
+      setState({ isLoading: false, error: null, data: response });
+    } catch (err) {
+      setState({ isLoading: false, error, data: null });
+    }
+  }, [slug]);
+
   useEffect(() => {
-    const fetchData = async () => {
-      setState({ isLoading: true, error: null, data: null });
-      try {
-        const response = await generateInitialize({
-          queryKey: ["", slug],
-        });
-        setState({ isLoading: false, error: null, data: response });
-      } catch (err) {
-        setState({ isLoading: false, error: err, data: null });
-      }
-    };
     if (slug) {
       fetchData();
     }
-  }, []); // Ensure updates occur when slug or setState changes
+  }, [fetchData, slug]);
 
-  return { isLoading, error, data };
+  return { isLoading, error, data, refetch: fetchData };
 };
+
 export const scrollToSection = (id) => {
   const container = document.querySelector("#popupaddnewmain");
   const section = document.querySelector(id);

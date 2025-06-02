@@ -1,0 +1,48 @@
+.children,.offlineBanner {
+  transition: opacity 0.4s ;
+  opacity: 1;
+}
+
+
+.offlineBanner {
+  width: 500px;
+  height: 500px;
+  left: 50%;
+  top: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  animation: intro 0.4s ease ;
+  cursor: default;
+  z-index: 10000000000000000000000;
+}
+
+.icon {
+  background-color: rgb(240, 240, 240);
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.icon svg {
+  font-size: 60px;
+  cursor: default;
+}
+
+.offlineBanner p {
+  line-height: 1.7;
+  cursor: default;
+}
+.hide {
+  opacity: 0;
+}
+
+
+@keyframes intro {
+  from {
+    opacity: 0;
+
+}
+to {
+    opacity: 1;
+
+  }
+}

@@ -8,7 +8,10 @@ export const handleQuerySlugOrid = (val) => {
 };
 export const convrtQueryToIn = (val) => {
   if (typeof val === "string" && val?.includes(",")) {
-    val = { $in: val?.split(",").filter(Boolean) };
+    val = val?.split(",").filter(Boolean);
+  }
+  if (Array.isArray(val) && val?.length) {
+    val = { $in: val };
   }
   return val;
 };
@@ -22,9 +25,11 @@ export const handleFilterwithLookUp = (filters = [], searchQuery = {}) => {
         localField = "",
         foreignField = "",
         matchField = "",
+        target = "",
         unwind = false, // Set this to true when you want the field to be an object
       } = val;
-      if (searchQuery?.filters?.[field]) {
+
+      if (searchQuery?.filters?.[target || field]) {
         pipeline.push({
           $lookup: {
             from: fromCollection,
@@ -40,16 +45,17 @@ export const handleFilterwithLookUp = (filters = [], searchQuery = {}) => {
         pipeline.push({
           $match: {
             [`${field}.${matchField}`]: convrtQueryToIn(
-              searchQuery?.filters[field]
+              searchQuery?.filters[target || field]
             ),
           },
         });
-        delete searchQuery.filters[field];
+        delete searchQuery.filters[target || field];
       }
     });
   } catch (e) {
     console.error(e);
   }
+
   return pipeline;
 };
 export const handleArrayInQuery = (obj = {}, remove = []) => {
@@ -112,4 +118,3 @@ export const handleSearchParams = (input = {}) => {
 
   return result;
 };
-

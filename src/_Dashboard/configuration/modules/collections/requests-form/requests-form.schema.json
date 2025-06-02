@@ -1,0 +1,46 @@
+{
+  "fields": [
+    {
+      "name": "name",
+      "type": "text",
+      "label": "name",
+      "placeholder": "Enter name"
+    },
+    {
+      "name": "email",
+      "type": "text",
+      "label": "email",
+      "placeholder": "Enter email"
+    },
+    {
+      "name": "phone",
+      "type": "text",
+      "label": "phone",
+      "placeholder": "Enter phone"
+    },
+    {
+      "name": "message",
+      "type": "textarea",
+      "label": "message",
+      "placeholder": "Enter message"
+    }
+  ],
+  "options": {
+    "translation": false,
+    "roles": {
+      "view": true,
+      "create": false,
+      "update": false,
+      "delete": true,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": true
+    },
+    "cache": {
+      "duration": "0s",
+      "tags": []
+    }
+  },
+  "view": ["name", "email", "phone", "message", "createdAt", "updatedAt"]
+}

@@ -1,4 +1,4 @@
-import { useErrorBoundary } from "@/contexts/ErrorBoundryCTX";
+
 import { decodestringtoObject } from "@/utils/data";
 import { csrApi } from "@/utils/api";
 import { useEffect, useState } from "react";
@@ -8,17 +8,15 @@ const ErrorPage = ({
   reset = () => {},
   Component = () => <div >something wrong</div>,
 }) => {
-  const { showBoundary } = useErrorBoundary();
   const errorMSg = decodestringtoObject(error?.message);
 
   // Trigger error boundary if the condition is met
   useEffect(() => {
     if (errorMSg?.errorBoundary) {
-      showBoundary();
     } else {
       sendErrorToServer(errorMSg);
     }
-  }, [errorMSg, showBoundary]);
+  }, [errorMSg]);
 
   // If the error boundary is triggered, avoid rendering
   if (errorMSg?.errorBoundary) {

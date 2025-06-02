@@ -5,6 +5,8 @@ import {
 import { delay } from "@/utils/time";
 import { scrollToElement } from "@/utils/document";
 import { isEqual } from "lodash";
+import dynamicZone_config from "@/_Dashboard/configuration/dynamicZone/config";
+
 
 export const generateTranslationKeys = (
   target = "inputs",
@@ -106,7 +108,14 @@ export const handleDynamicFields = (val, path = "") => {
   let hasRelatedFields = false;
 
   val?.fields?.forEach((field) => {
+    if (field.type === "dynamicZone" && dynamicZone_config?.[field.key]) {
+      field = dynamicZone_config?.[field.key]
+    }
     // Handle nested fields recursively
+    
+
+
+
     if (!field?.label) return;
     if (field?.fields) {
       const nestedVal = handleDynamicFields(

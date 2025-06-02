@@ -19,6 +19,7 @@ export const CommonsVal = {
   _id: objectIdVal,
   __v: Joi.number(),
   key: Joi.string(),
+  slug: Joi.string().max(2000),
   createdAt: Joi.string().isoDate(),
   createdBy: Joi.string().length(24).hex(),
   updatedAt: Joi.string().isoDate(),
@@ -87,6 +88,6 @@ export const pageMetadataTranslatedVal = {
 export const CardVal = {
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
-  media: fileVal,
-  ...CommonsVal
+  poster: fileVal.required(),
+  ...CommonsVal,
 };

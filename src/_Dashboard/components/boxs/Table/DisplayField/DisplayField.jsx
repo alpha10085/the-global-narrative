@@ -1,4 +1,4 @@
-import Img from "@/components/Shared/img/Img";
+import Img from "@/components/shared/img/Img";
 import { getNestedProperty } from "@/utils/object";
 import styles from "./Display.module.css";
 import { customText } from "@/utils/text";

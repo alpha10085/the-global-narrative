@@ -1,10 +1,10 @@
 import styles from './MSViewer.module.css'
 
 
-import Img from '@/components/Shared/img/Img';
+import Img from '@/components/shared/img/Img';
 import { useMemo } from 'react';
 import { getFileExtension } from '@/_Dashboard/utils/fileUploadHelper';
-import DownloaderButton from '@/components/Shared/DownloaderButton/DownloaderButton';
+import DownloaderButton from '@/components/shared/DownloaderButton/DownloaderButton';
 
 
 const word = '/_dashboard/Microsoft_Office_Word_Logo_512px-removebg-preview.png'

@@ -1,5 +1,5 @@
 "use client";
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/shared/LocalizedLink/Link";
 import style from "./sidebar.module.css";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import AppsIcon from "@mui/icons-material/Apps";
@@ -9,7 +9,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import Img from "@/components/Shared/img/Img";
+import Img from "@/components/shared/img/Img";
 import { useAuth } from "@/contexts/AuthProvider";
 import Popup from "./popup";
 import { useClickOut } from "@/hooks/useClickout";
@@ -27,7 +27,7 @@ function extractLastPathSegment(url = "") {
 const Sidebar = () => {
   const { session } = useAuth();
   const { theme = {} } = useTheme();
-  const { pathname } = usePathname();
+  const pathname = usePathname();
   const linkPathName = extractLastPathSegment(pathname);
   const {
     collections,

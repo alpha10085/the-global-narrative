@@ -4,6 +4,8 @@
   z-index: 10;
   position: relative;
   height: max-content;
+  width: 100%;
+
 
 }
 
@@ -61,7 +63,7 @@ html[dir="rtl"] .layout input {
   text-transform: capitalize;
   transform: translateX(5px);
   gap: 8px;
-  margin-bottom: 4px;
+margin-bottom: 8px;
 }
 
 .list {

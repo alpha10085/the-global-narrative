@@ -1,0 +1,38 @@
+{
+  "fields": [
+    {
+      "name": "title",
+      "type": "text",
+      "label": "title"
+    },
+    {
+      "name": "description",
+      "type": "textarea",
+      "label": "description"
+    },
+    {
+      "name": "poster",
+      "type": "media",
+      "allowedTypes": ["image"],
+      "single": true,
+      "label": "poster"
+    }
+  ],
+  "options": {
+    "translation": false,
+    "roles": {
+      "view": true,
+      "create": false,
+      "update": true,
+      "delete": false,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": false
+    },
+    "cache": {
+      "duration": "10m",
+      "tags": []
+    }
+  }
+}

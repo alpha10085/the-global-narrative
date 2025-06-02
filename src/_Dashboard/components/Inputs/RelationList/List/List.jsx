@@ -1,7 +1,7 @@
 import { Virtuoso } from "react-virtuoso";
 import styles from "./List.module.css";
 import { getNestedProperty } from "@/utils/object";
-import Img from "@/components/Shared/img/Img";
+import Img from "@/components/shared/img/Img";
 import Loader from "../Loader/Loader";
 import  themes  from "@/_Dashboard/services/themes/themes";
 

@@ -1,4 +1,4 @@
-import Img from "@/components/Shared/img/Img";
+import Img from "@/components/shared/img/Img";
 import VideoPlayer from "./VideoPlayback/VideoPlayback";
 import MSViewer from "./MSViewer/MSViewer";
 import FileDisplay from "./TextDisplay/TextDisplay";

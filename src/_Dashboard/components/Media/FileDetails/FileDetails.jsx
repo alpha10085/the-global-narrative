@@ -7,7 +7,7 @@ import { customText } from "@/utils/text";
 import DisplayMedia from "../DisplayMedia/DisplayMedia";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import { useState, useTransition } from "react";
-import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/shared/AsyncButton/AsyncButton";
 import { delay } from "@/utils/time";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import useDisableScroll from "@/hooks/useDisableScroll";

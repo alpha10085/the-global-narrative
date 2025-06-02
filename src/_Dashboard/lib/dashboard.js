@@ -1,4 +1,5 @@
-import { csrApi, AsyncHandler } from "@/utils/api";
+
+import { AsyncHandler, csrApi } from "@/utils/api";
 import { revalidateTagAfterAction } from "./actions";
 const tableAPI = async ({
   pageParam = 1,
@@ -13,10 +14,8 @@ const tableAPI = async ({
   return data;
 };
 const GetSingleEntry = AsyncHandler(
-  async ({ queryKey: [id = "", { slug } = {}, language = null] = [] }) => {
-    return await csrApi.get(
-      `/${slug}/${id}${language ? `?language=${language}` : ""}`
-    );
+  async ({ queryKey: [id = "", { slug } = {}, language] = [] }) => {
+    return await csrApi.get(`/${slug}/${id}?language=${language}`);
   }
 );
 const deleteOneEntry = AsyncHandler(async (slug, id, { tags = [] } = {}) => {
@@ -54,8 +53,10 @@ const getFiles = async ({
   return await csrApi.get(`/files?${formatQuery}`);
 };
 const deleteOneFile = async (id) => {
+  try {
     const data = await csrApi.delete(`/files/${id}`);
     return data;
+  } catch (error) {}
 };
 const deleteMultipleFiles = async (ids) => {
   try {
@@ -68,6 +69,7 @@ const deleteMultipleFiles = async (ids) => {
     throw error;
   }
 };
+
 const relationOptionsAPi = async ({
   pageParam = 1,
   queryKey: [slug = "", query = {}, language = "en"] = [],

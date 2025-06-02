@@ -7,9 +7,6 @@ import PasswordForm from "@/_Dashboard/components/Profile/PasswordForm/PasswordF
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import useTranslationsDashboard from "@/_Dashboard/hooks/useTranslationsDashboard";
 const Page = () => {
-
-
-  return null
   const translations = useTranslationsDashboard(
     [],
     [

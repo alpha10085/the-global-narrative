@@ -1,6 +1,5 @@
 "use client";
 
-import { useErrorBoundary } from "@/contexts/ErrorBoundryCTX";
 import { timeToMillis } from "@/utils/time";
 import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
@@ -15,7 +14,7 @@ export const useInfinityQuery = ({
   cache = "0s",
 }) => {
   const cacheTime = useMemo(() => timeToMillis(cache), [cache]);
-  const { showBoundary } = useErrorBoundary();
+
   const {
     data = { pages: ([] = []), metadata: ({} = {}) },
     isLoading,
@@ -48,9 +47,7 @@ export const useInfinityQuery = ({
 
   const handleError = () => {
     const { errorBoundary = false, logout = false } = error;
-    if (errorBoundary) {
-      showBoundary();
-    } else {
+    if (!errorBoundary) {
       onError(error);
     }
   };

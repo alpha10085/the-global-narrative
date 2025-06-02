@@ -6,6 +6,8 @@ import i18next from "i18next";
  * Utility function to handle validation errors
  */
 const handleValidationError = (error) => {
+  console.log(error.details);
+  
   const details = error.details.reduce((prev, curr, i) => {
     const key = curr?.path?.join(".");
     prev[key] = curr?.message?.replace(`"${key}" `, "");

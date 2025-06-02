@@ -1,19 +1,15 @@
-
 import styles from "./PopupAddNewEntry.module.css";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
-import { useCallback, useMemo,  } from "react";
+import { useCallback, useMemo } from "react";
 import FieldManager from "../../FieldManger/FieldManger";
 import toast from "react-hot-toast";
-import {
-  handleDynamicFormApi,
-} from "@/_Dashboard/lib/dashboard";
+import { handleDynamicFormApi } from "@/_Dashboard/lib/dashboard";
 import {
   getChangedFields,
   handleDetecteErrorTranslations,
-  
 } from "@/_Dashboard/layouts/DynamicForm/helpers";
-import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/shared/AsyncButton/AsyncButton";
 import { useQueryClient } from "@tanstack/react-query";
 import { scrollToErrorElemntry, scrollToSection, useFetch } from "./helpers";
 import ErrorLayOut from "../../ErrorLayOut/ErrorLayOut";
@@ -27,6 +23,7 @@ const Form = ({
   data,
   theme,
   type,
+  refetch,
   translations,
   language,
   handleSelect,
@@ -160,6 +157,8 @@ const Form = ({
       console.error("error", error);
     }
   };
+  console.log(errors);
+  
 
   if (error) return <ErrorLayOut callBack={refetch} />;
   return (
@@ -186,13 +185,12 @@ const Form = ({
       >
         <AsyncButton
           loading={loading}
-          error={disableSubmit ? translations?.inputs?.duplicationError  : null }
+          error={disableSubmit ? translations?.inputs?.duplicationError : null}
           onClick={handleSubmit(submit, scrollToErrorElemntry)}
           className={`${styles.btnSubmit} ${theme?.background} ${theme?.btn30}`}
           theme={theme.name}
           text={translations?.createNew}
           onLoading=" "
-
         />
       </div>
     </>

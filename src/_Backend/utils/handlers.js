@@ -349,6 +349,7 @@ export const FindAll = ({
               mode: "soft",
             })
         : () => model.aggregate(apiFetcher.pipeline);
+        
 
       const [data, total] = await Promise.all([
         queryFN(),

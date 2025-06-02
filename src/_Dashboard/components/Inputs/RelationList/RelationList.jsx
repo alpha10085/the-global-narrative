@@ -185,7 +185,7 @@ const RelationList = ({
         open={open}
         className={`${
           styles.layout
-        } showSmooth  ${className} flex gap5 column
+        } showSmooth  ${className} flex  column
         
         ${!single ? styles.fullwidth : ""}
         `}

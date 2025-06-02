@@ -8,9 +8,10 @@ import useDisableScroll from "@/hooks/useDisableScroll";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 
 import useTranslations from "@/hooks/useTranslations";
-import Spinner from "@/components/Shared/Spinner/Spinner";
+import Spinner from "@/components/shared/Spinner/Spinner";
 
 import Form from "./Form";
+import { useFetch } from "./helpers";
 
 const PopupAddNewEntry = ({
   slug = "",
@@ -26,7 +27,7 @@ const PopupAddNewEntry = ({
   validation,
   displayName = "",
 }) => {
-  const { data, error, isLoading } = useFetch(slug);
+  const { data, error, isLoading, refetch } = useFetch(slug);
   const { theme } = useTheme();
   const thisSchemaTranslations = useTranslations("Dashboard", [
     ...translationKeys,
@@ -74,6 +75,7 @@ const PopupAddNewEntry = ({
             handleSelect={handleSelect}
             isLoading={isLoading}
             language={language}
+            refetch={refetch}
             locale={locale}
             theme={theme}
             translations={translations}

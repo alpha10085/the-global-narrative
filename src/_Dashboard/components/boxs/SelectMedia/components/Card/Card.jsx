@@ -1,6 +1,6 @@
 import React, { memo, useState } from "react";
 import styles from "./Card.module.css";
-import Img from "@/components/Shared/img/Img";
+import Img from "@/components/shared/img/Img";
 import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
 import DisplayMedia from "@/_Dashboard/components/Media/DisplayMedia/DisplayMedia";
 import { customText } from "@/utils/text";

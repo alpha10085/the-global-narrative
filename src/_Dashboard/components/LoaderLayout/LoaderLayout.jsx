@@ -1,5 +1,5 @@
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import Spinner from "@/components/Shared/Spinner/Spinner";
+import Spinner from "@/components/shared/Spinner/Spinner";
 
 const LoaderLayout = ({ style, secondBackground =false }) => {
   const { theme } = useTheme();

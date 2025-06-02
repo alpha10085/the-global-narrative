@@ -7,6 +7,7 @@ export const allFormates = {
     "image/gif": [".gif"],
     "image/svg+xml": [".svg"],
     "image/webp": [".webp"],
+    "image/avif":[".avif"]
   },
 
   // Video files

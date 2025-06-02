@@ -1,4 +1,4 @@
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/shared/LocalizedLink/Link";
 import styles from "./RouteList.module.css";
 
 const RouteList = ({

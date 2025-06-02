@@ -65,7 +65,7 @@ export const useQueryParams = ({ scrollTo = null, offset = 0 } = {}) => {
 
       router.push(
         `${pathname}?${current.toString()}`,
-        { scroll: false },
+        { scroll:false },
         { shallow: true }
       );
       if (scroll && scrollTo) {
@@ -80,13 +80,7 @@ export const useQueryParams = ({ scrollTo = null, offset = 0 } = {}) => {
       if (!name) return;
       const current = new URLSearchParams(Array.from(searchParams.entries()));
       current.delete(name);
-      router.push(
-        `${pathname}?${current.toString()}`,
-        {
-          scroll: false,
-        },
-        { shallow: true }
-      );
+      router.push(`${pathname}?${current.toString()}`, { shallow: true });
       if (scrollTo) {
         scrollToElement(scrollTo, offset);
       }
@@ -95,9 +89,7 @@ export const useQueryParams = ({ scrollTo = null, offset = 0 } = {}) => {
   );
 
   const clearQuery = useCallback(() => {
-    router.push(`${pathname}`, {
-      scroll:false
-    });
+    router.push(pathname, { shallow: true });
     if (scrollTo) {
       scrollToElement(scrollTo, offset);
     }

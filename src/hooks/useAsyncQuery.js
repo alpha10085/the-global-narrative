@@ -3,7 +3,6 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useEffect, useMemo, useState } from "react";
 import { timeToMillis } from "@/utils/time";
-import { useErrorBoundary } from "@/contexts/ErrorBoundryCTX";
 
 const useAsyncQuery = ({
   queryKey = [],
@@ -15,7 +14,7 @@ const useAsyncQuery = ({
   cache = "1s",
 }) => {
   const cacheTime = useMemo(() => timeToMillis(cache), [cache]);
-  const { showBoundary } = useErrorBoundary();
+
   const { data, error, isFetching, isPending, isLoading, refetch } = useQuery({
     queryKey,
     queryFn,
@@ -27,9 +26,7 @@ const useAsyncQuery = ({
   });
   const handleError = () => {
     const { errorBoundary = false, logout = false } = error;
-    if (errorBoundary) {
-      showBoundary();
-    } else {
+    if (!errorBoundary) {
       onError(error);
     }
   };

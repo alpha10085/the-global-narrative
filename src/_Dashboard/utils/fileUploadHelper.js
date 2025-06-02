@@ -13,6 +13,8 @@ const imageTypes = [
   "image/tiff", // TIFF images
   "image/heif", // HEIF images
   "svg",
+  "avif",
+  "image/avif",
 ];
 
 // Video file types
@@ -65,11 +67,3 @@ export const getfileType = (file = {}, retry = true) => {
   }
   return retry ? getfileType(file, false) : "unknown"; // Return "unknown" for unsupported file types
 };
-
-
-
-
-
-
-
-
