@@ -69,8 +69,10 @@
     height: 20vw;
     max-height: 90px;
   }
-
+  .top {
+    border-radius: 5% 5% 0 0;
+  }
   .footer {
-    border-radius: 7% 7% 0 0;
+    margin-top: 120px;
   }
 }
