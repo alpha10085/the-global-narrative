@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import UserModel from "@/_Backend/database/models/user.model";
+import UserModel from "@/_Backend/database/models/constant/user.model";
 import { validation } from "@/_Backend/middlewares/globels/validation";
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";

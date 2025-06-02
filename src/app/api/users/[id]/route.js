@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import UserModel from "@/_Backend/database/models/user.model";
+import UserModel from "@/_Backend/database/models/constant/user.model";
 import { validation } from "@/_Backend/middlewares/globels/validation";
 import { AppError } from "@/_Backend/utils/AppError";
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";

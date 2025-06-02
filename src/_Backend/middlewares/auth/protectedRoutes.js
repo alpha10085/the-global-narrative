@@ -1,4 +1,4 @@
-import UserModel from "@/_Backend/database/models/user.model";
+import UserModel from "@/_Backend/database/models/constant/user.model";
 
 import jwt from "jsonwebtoken";
 import { AppError } from "@/_Backend/utils/AppError";

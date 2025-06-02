@@ -1,6 +1,5 @@
 "use client";
 import useDynamicState from "@/hooks/useDynamicState";
-import styles from "./DevTools.module.css";
 import Icon from "./components/Icon/Icon";
 import Window from "./components/Window/Window";
 import useLocalStorage from "@/hooks/useLocalStorage";
@@ -50,10 +49,11 @@ const DevTools = ({ logStore, children }) => {
       />
       {enable_window && <Window onClose={closeWindow} />}
 
-        <Icon
+      <Icon
         enebaled={displayIcon}
-        onClick={() => setState({ enable_window: !enable_window })} />
-     
+        onClick={() => setState({ enable_window: !enable_window })}
+      />
+
       {state?.isClient && children}
     </>
   );

@@ -18,7 +18,6 @@ import { ValidateLocale } from "@/i18n/request";
 import SamsungPatch from "@/components/Shared/Pervent/Pervent";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX/ErrorBoundryCTX";
 
-
 // If loading a variable font, you don't need to specify the font weight
 const geist = Geist({
   subsets: ["latin"],
@@ -75,14 +74,13 @@ export default async function RootLayout({ children }) {
     <ReactQuery>
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
         <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
-          <DevToolsWrapper>
-            <SamsungPatch />
-            <NextIntlClientProvider locale={locale} messages={messages}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            <DevToolsWrapper>
               <ErrorBoundary boundary={boundary}>
                 <AuthProvider locale={locale}>{children}</AuthProvider>
               </ErrorBoundary>
-            </NextIntlClientProvider>
-          </DevToolsWrapper>
+            </DevToolsWrapper>
+          </NextIntlClientProvider>
         </body>
       </html>
     </ReactQuery>

@@ -16,7 +16,7 @@
 
 .remomberMeSpan {
   font-size: 12px;
-  color: #777;
+  color: #000000;
   margin: 0px 0;
 }
 
@@ -31,8 +31,8 @@
   letter-spacing: 0.2px;
   font-weight: bold;
   font-size: 11px;
-  color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .termsSpan p:nth-child(2) {
@@ -51,20 +51,21 @@
   letter-spacing: 0.2px;
   text-transform: capitalize;
   margin: 0 2px;
-  color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   cursor: pointer;
 }
 
 .termsSpan {
   margin: 5px 0 10px;
+ 
 }
 
 .registerationTitleSec {
   font-size: 14px;
   text-transform: capitalize;
-  color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   text-decoration: underline;
 }
 
@@ -75,7 +76,7 @@
   width: 30px;
   border-radius: 0;
   font-size: 14px;
-  color: rgb(164, 164, 164);
+  color: rgb(0, 0, 0);
   letter-spacing: 1px;
   display: inline-block;
   text-transform: capitalize;
@@ -90,7 +91,7 @@
   position: absolute;
   width: 200px;
   height: 1px;
-  background-color: rgb(210, 210, 210);
+  background-color: rgb(0, 0, 0);
 }
 
 
@@ -110,9 +111,10 @@
   border: none;
   width: 300px;
   max-width: 80%;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   border: 1px solid white;
   text-transform: uppercase;
+  background-color: black;
 }
 
 @media (max-width:674px) {}

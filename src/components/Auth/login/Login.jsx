@@ -47,7 +47,7 @@ const Login = ({ translations = {} }) => {
             showError={errorG}
             className={styles.loginLabel}
             watch={watch}
-            theme="dark"
+            theme="light"
             errors={errors}
             name="email"
             type="text"
@@ -60,7 +60,7 @@ const Login = ({ translations = {} }) => {
             showError={errorG}
             className={styles.loginLabel}
             watch={watch}
-            theme="dark"
+            theme="light"
             errors={errors}
             name="password"
             type="password"

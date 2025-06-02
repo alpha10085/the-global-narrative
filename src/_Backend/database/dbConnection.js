@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 // constant models
-import UserModel from "./models/user.model";
+import UserModel from "./models/constant/user.model";
 import { SingleTypeModel } from "./models/constant/singleType";
 import fileModel from "./models/constant/file.model";
 import { errorLogModel } from "./models/constant/errorLog.model";

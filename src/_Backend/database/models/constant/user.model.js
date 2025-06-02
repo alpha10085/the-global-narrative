@@ -1,6 +1,6 @@
 import mongoose, { Schema, model, models } from "mongoose";
 import bcrypt from "bcrypt";
-import { enumRoles } from "../../assets/enums/Roles_permissions";
+import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
 const ObjectId = mongoose.Schema.Types.ObjectId;
 
 const schema = new Schema(

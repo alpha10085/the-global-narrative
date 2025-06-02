@@ -1,4 +1,4 @@
-import UserModel from "@/_Backend/database/models/user.model";
+import UserModel from "@/_Backend/database/models/constant/user.model";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import { validation } from "@/_Backend/middlewares/globels/validation";

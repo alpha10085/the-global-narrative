@@ -17,9 +17,8 @@ import { delay } from "@/utils/delay";
 import useDynamicState from "@/hooks/useDynamicState";
 import ConsoleTools from "./ConsoleTools/ConsoleTools";
 import SettingsTools from "./SettingsTools/SettingsTools";
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/shared/LocalizedLink/Link";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import { useAuth } from "@/contexts/AuthProvider";
 const list = [
   {
     key: "page",
