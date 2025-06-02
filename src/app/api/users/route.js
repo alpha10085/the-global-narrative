@@ -5,7 +5,7 @@ import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
 import { FindAll } from "@/_Backend/utils/handlers";
 import { removeSpecificText } from "@/_Backend/utils/handletypes";
-import { insertUserVal } from "@/_Backend/modules/user/user.validation";
+import { insertUserVal } from "@/_Backend/modules/_constant/user/user.validation";
 import httpStatus from "@/_Backend/assets/messages/httpStatus";
 
 export const GET = FindAll({

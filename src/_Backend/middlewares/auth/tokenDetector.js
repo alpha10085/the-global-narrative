@@ -1,5 +1,5 @@
 import httpStatus from "@/_Backend/assets/messages/httpStatus";
-import { getUserAndVerify } from "@/_Backend/modules/auth/auth.services";
+import { getUserAndVerify } from "@/_Backend/modules/_constant/auth/auth.services";
 import { HttpStatusCode } from "axios";
 
 /**

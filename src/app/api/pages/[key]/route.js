@@ -1,6 +1,6 @@
 import { pageValidation } from "@/_Backend/middlewares/globels/validation";
 import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
-import { SingleTypeModel } from "@/_Backend/database/models/singleType";
+import { SingleTypeModel } from "@/_Backend/database/models/constant/singleType";
 import { AppError } from "@/_Backend/utils/AppError";
 
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";

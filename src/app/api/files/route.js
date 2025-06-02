@@ -1,11 +1,11 @@
-import fileModel from "@/_Backend/database/models/file.model";
+import fileModel from "@/_Backend/database/models/constant/file.model";
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import { validation } from "@/_Backend/middlewares/globels/validation";
 import { FindAll, insertOne } from "@/_Backend/utils/handlers";
 
 import { deleteFileCloudinary } from "@/_Backend/utils/cloudinary";
 import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
-import { fileUploadTicketSchema } from "@/_Backend/modules/files/files.vaildtion";
+import { fileUploadTicketSchema } from "@/_Backend/modules/_constant/files/files.vaildtion";
 
 const flashAll = AsyncHandler(async (req, res) => {
   const files = await fileModel.find().lean();

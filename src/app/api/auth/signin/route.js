@@ -8,8 +8,8 @@ import SetCookie from "@/_Backend/utils/SetCookie";
 
  
 import httpStatus from "@/_Backend/assets/messages/httpStatus";
-import { signinSchemaVal } from "@/_Backend/modules/auth/auth.validation";
-import { creatJwt } from "@/_Backend/modules/auth/auth.services";
+import { signinSchemaVal } from "@/_Backend/modules/_constant/auth/auth.validation";
+import { creatJwt } from "@/_Backend/modules/_constant/auth/auth.services";
 export const POST = AsyncHandler(async (req, res, next) => {
   const { email, password } = req?.body;
 

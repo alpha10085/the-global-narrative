@@ -1,5 +1,5 @@
 import cloudinary from "cloudinary";
-import fileModel from "@/_Backend/database/models/file.model";
+import fileModel from "@/_Backend/database/models/constant/file.model";
 import { AppError } from "@/_Backend/utils/AppError";
 import { validation } from "@/_Backend/middlewares/globels/validation";
 

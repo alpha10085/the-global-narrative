@@ -9,7 +9,7 @@ import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
 import httpStatus from "@/_Backend/assets/messages/httpStatus";
 
 import { paramsIdVal } from "@/_Backend/commons/validation";
-import { updateUserVal } from "@/_Backend/modules/user/user.validation";
+import { updateUserVal } from "@/_Backend/modules/_constant/user/user.validation";
 
 export const GET = AsyncHandler(
   async (req, res, next) => {

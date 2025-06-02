@@ -1,12 +1,12 @@
 import { Schema, models } from "mongoose";
-import { SingleTypeModel } from "../singleType";
+import { SingleTypeModel } from "../constant/singleType";
 import {
   pageMetadataPopulate,
   pageMetadata,
   mongtext,
   mainCard,
   populateCommons,
-} from "../Commons";
+} from "../constant/Commons";
 
 const heroSection = new Schema({
   left: mainCard,

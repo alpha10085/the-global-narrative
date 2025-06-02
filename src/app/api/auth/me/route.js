@@ -11,7 +11,7 @@ import SetCookie from "@/_Backend/utils/SetCookie";
 import { cookies } from "next/headers";
 
  
-import { updatePasswordVal, updateVal } from "@/_Backend/modules/auth/auth.validation";
+import { updatePasswordVal, updateVal } from "@/_Backend/modules/_constant/auth/auth.validation";
 import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
 
 export const GET = AsyncHandler(

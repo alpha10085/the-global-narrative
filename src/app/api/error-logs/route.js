@@ -1,7 +1,7 @@
 import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
-import { errorLogModel } from "@/_Backend/database/models/errorLog.model";
+import { errorLogModel } from "@/_Backend/database/models/constant/errorLog.model";
 import { FindAll, insertOne } from "@/_Backend/utils/handlers";
-import { errorLogValidationCreate } from "@/_Backend/modules/errorLogs/error-logs.validation";
+import { errorLogValidationCreate } from "@/_Backend/modules/_constant/errorLogs/error-logs.validation";
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 
 const config = {

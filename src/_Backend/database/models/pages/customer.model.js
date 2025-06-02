@@ -1,12 +1,12 @@
 import { Schema, models } from "mongoose";
-import { SingleTypeModel } from "../singleType";
+import { SingleTypeModel } from "../constant/singleType";
 import {
   poster,
   pageMetadataPopulate,
   pageMetadata,
   mongtext,
   mainCard,
-} from "../Commons";
+} from "../constant/Commons";
 
 // Main schema for customerPage page
 const customerPageSchema = new Schema({

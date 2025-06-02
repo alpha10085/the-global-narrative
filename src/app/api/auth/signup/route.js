@@ -5,8 +5,8 @@ import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import SetCookie from "@/_Backend/utils/SetCookie";
 import { cookies } from "next/headers";
 
-import { signupschemaVal } from "@/_Backend/modules/auth/auth.validation";
-import { creatJwt } from "@/_Backend/modules/auth/auth.services";
+import { signupschemaVal } from "@/_Backend/modules/_constant/auth/auth.validation";
+import { creatJwt } from "@/_Backend/modules/_constant/auth/auth.services";
 import httpStatus from "@/_Backend/assets/messages/httpStatus";
 export const POST = AsyncHandler(async (req, res, next) => {
   const { email } = req?.body;

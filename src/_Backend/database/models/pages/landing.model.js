@@ -1,5 +1,5 @@
 import { Schema, models } from "mongoose";
-import { SingleTypeModel } from "../singleType";
+import { SingleTypeModel } from "../constant/singleType";
 import {
   poster,
   pageMetadataPopulate,
@@ -8,7 +8,7 @@ import {
   mainCard,
   ObjectId,
   populateCommons,
-} from "../Commons";
+} from "../constant/Commons";
 import { categoryModel } from "../category.model";
 import { productModel } from "../product.model";
 const heroSection = new Schema({
