@@ -32,10 +32,11 @@ const Home = async () => {
       <CSRSection>
         <AboutUs data={aboutUsSection} />
         <WaveLines />
+        <FloatedSection>
         <Quote data={quoteSection} />
         <WaveLines />
+        </FloatedSection>
         <div className={styles.spaceSection}></div>
-        <FloatedSection>
           <div className={styles.childTwo}>
             <AnimatedBorderSection>
               <StaticSection mode="down" >
@@ -45,7 +46,6 @@ const Home = async () => {
               </StaticSection>
             </AnimatedBorderSection>
           </div>
-        </FloatedSection>
       </CSRSection>
       <GetInTouch data={getInTouchSection} />
     </section>

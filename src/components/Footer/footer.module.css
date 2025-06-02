@@ -6,7 +6,7 @@
 
   position: relative;
   color: white;
-  padding-top: 80px;
+  background-color: #385cf5;
 }
 
 .logo {
@@ -41,8 +41,9 @@
 
 .top {
   border-radius: 50px 50px 0 0;
-  padding: 50px 5%;
+  padding: 50px 5% 0;
   background-color: #385cf5;
+  transform: translateY(-50px);
 }
 
 @media (max-width: 768px) {

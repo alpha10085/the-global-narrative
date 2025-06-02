@@ -15,63 +15,63 @@ const Page = async (props) => {
 
   return (
     <section className={`${styles.container} showSmooth`}>
-      {/* header */}
-      <div className={styles.header}>
-        <div className={`${styles.left} flex al-i-c gap15`}>
-          <Link href={"/news"} className={`${styles.arrow} flex-c`}>
-            <ArrowBackIosIcon />
-          </Link>
-          <span>Back</span>
-        </div>
-        <div className={styles.right}></div>
-      </div>
-      {/*  Poster */}
-      <Aos
-        delay={400}
-        activeClassName={styles.aosActive}
-        className={styles.poster}
-      >
-        <Img
-          disableSkeleton
-          url={data?.poster?.url}
-          alt={data?.title}
-          className={styles.image}
-        />
-      </Aos>
-      {/*  details */}
-      <Aos
-        delay={400}
-        activeClassName={styles.aosActive}
-        className={styles.details}
-      >
-        <div className={`${styles.top} flex gap10`}>
-          <div className="flex column gap5">
-            <span className={styles.label}>date</span>
-            <span className={styles.date}>{formatDate(data?.date)}</span>
+      <FloatedSection>
+        {/* header */}
+        <div className={styles.header}>
+          <div className={`${styles.left} flex al-i-c gap15`}>
+            <Link href={"/news"} className={`${styles.arrow} flex-c`}>
+              <ArrowBackIosIcon />
+            </Link>
+            <span>Back</span>
           </div>
-          <div className="flex column gap5">
-            <span className={styles.label}>Reading time</span>
-            <span className={styles.date}>
-              {calcReadingTime(data?.content)}
-            </span>
-          </div>
+          <div className={styles.right}></div>
         </div>
-        <h2>{data?.title}</h2>
-      </Aos>
+        {/*  Poster */}
+        <Aos
+          delay={400}
+          activeClassName={styles.aosActive}
+          className={styles.poster}
+        >
+          <Img
+            disableSkeleton
+            url={data?.poster?.url}
+            alt={data?.title}
+            className={styles.image}
+          />
+        </Aos>
+        {/*  details */}
+        <Aos
+          delay={400}
+          activeClassName={styles.aosActive}
+          className={styles.details}
+        >
+          <div className={`${styles.top} flex gap10`}>
+            <div className="flex column gap5">
+              <span className={styles.label}>date</span>
+              <span className={styles.date}>{formatDate(data?.date)}</span>
+            </div>
+            <div className="flex column gap5">
+              <span className={styles.label}>Reading time</span>
+              <span className={styles.date}>
+                {calcReadingTime(data?.content)}
+              </span>
+            </div>
+          </div>
+          <h2>{data?.title}</h2>
+        </Aos>
+      </FloatedSection>
 
       {/* Bottom Section */}
-      <FloatedSection>
-        <div
-          id="active-section"
-          className={`${styles.content} flex gap20 column`}
-        >
-          <FormatText
-            className={`${styles.cardDescription}`}
-            text={data?.content}
-          />
-        </div>
-      </FloatedSection>
- 
+
+      <div
+        id="active-section"
+        className={`${styles.content} flex gap20 column`}
+      >
+        <FormatText
+          className={`${styles.cardDescription}`}
+          text={data?.content}
+        />
+      </div>
     </section>
   );
 };

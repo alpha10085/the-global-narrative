@@ -51,7 +51,7 @@ const Footer = ({ data = {} }) => {
   ];
   return (
     <footer id="footer-container" className={styles.footer}>
-      <FloatedSection>
+     
         <div className={`${styles.top} flex al-i-c just-sb`}>
           <div className={`${styles.left}  `}>
             <MainLogo theme="dark" classNameWrapper={styles.logo} />
@@ -81,7 +81,6 @@ const Footer = ({ data = {} }) => {
             </ul>
           </div>
         </div>
-      </FloatedSection>
     </footer>
   );
 };
