@@ -26,10 +26,11 @@ const Page = async (props) => {
         <div className={styles.right}></div>
       </div>
       {/*  Poster */}
-      <Aos 
-      delay={400}
-      activeClassName={styles.aosActive}
-      className={styles.poster}>
+      <Aos
+        delay={400}
+        activeClassName={styles.aosActive}
+        className={styles.poster}
+      >
         <Img
           disableSkeleton
           url={data?.poster?.url}
@@ -39,10 +40,10 @@ const Page = async (props) => {
       </Aos>
       {/*  details */}
       <Aos
-      
-      delay={400}
+        delay={400}
         activeClassName={styles.aosActive}
-      className={styles.details}>
+        className={styles.details}
+      >
         <div className={`${styles.top} flex gap10`}>
           <div className="flex column gap5">
             <span className={styles.label}>date</span>
