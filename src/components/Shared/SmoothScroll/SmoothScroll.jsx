@@ -41,73 +41,67 @@ const SmoothScroll = ({ duration = 0.9 }) => {
   return enable ? <LenisComponent duration={duration} /> : null;
 };
 
-const LenisComponent = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
+const LenisComponent = ({ duration = 1.2, }) => {
   const lenisRef = useRef(null);
   const rafRef = useRef(null);
   const pathname = usePathname();
-  const [ready, setReady] = useState(false);
+  const [lenisActive, setLenisActive] = useState(false);
 
-  // Force browser repaint helper
-  const forceRepaint = () => {
-    document.body.style.display = "none";
-    void document.body.offsetHeight; // trigger reflow
-    document.body.style.display = "";
-  };
-
-  // Init Lenis ASAP but start RAF only after idle or delay
+  // Handler to enable Lenis after user scrolls for first time
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (lenisActive) return;
+
+    const onUserScroll = () => {
+      setLenisActive(true);
+      window.removeEventListener("scroll", onUserScroll);
+    };
+
+    window.addEventListener("scroll", onUserScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onUserScroll);
+    };
+  }, [lenisActive]);
+
+  // Initialize Lenis only when activated
+  useEffect(() => {
+    if (!lenisActive) return;
 
     const lenis = new Lenis({
       duration,
-
       smoothWheel: true,
       smoothTouch: false, // Disable on touch devices for better performance & UX
       direction: "vertical",
-      wheelMultiplier: 0.7, // Adjust scroll sensitivity if needed
+      wheelMultiplier: 0.8, // Adjust scroll sensitivity if needed
       lerp: 0.02, // control interpolation (0 to 1)
     });
     lenisRef.current = lenis;
 
-    // Sync scroll position immediately
     lenis.scrollTo(window.scrollY || 0, { immediate: true });
 
-    // Wait for idle time or 200ms delay before starting RAF loop
-    const startAnimation = () => {
-      forceRepaint(); // fix repaint glitches
-
-      const update = (time) => {
-        lenis.raf(time);
-        rafRef.current = requestAnimationFrame(update);
-      };
+    const update = (time) => {
+      lenis.raf(time);
       rafRef.current = requestAnimationFrame(update);
-      setReady(true);
     };
-
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(startAnimation, { timeout: 200 });
-    } else {
-      const timer = setTimeout(startAnimation, 200);
-      return () => clearTimeout(timer);
-    }
+    rafRef.current = requestAnimationFrame(update);
 
     return () => {
       cancelAnimationFrame(rafRef.current);
-      lenisRef.current?.destroy();
+      lenis.destroy();
       lenisRef.current = null;
     };
-  }, [duration, lerp, smooth]);
+  }, [lenisActive, duration]);
 
-  // Scroll to top smoothly on route change
+  // Scroll to top on route change if Lenis active
   useEffect(() => {
-    if (!ready) return;
+    if (lenisActive) {
+      const timeout = setTimeout(() => {
+        lenisRef.current?.scrollTo(0, { immediate: true });
+      }, 100);
 
-    const timeout = setTimeout(() => {
-      lenisRef.current?.scrollTo(0, { immediate: true });
-    }, 100);
-
-    return () => clearTimeout(timeout);
-  }, [pathname, ready]);
+      return () => clearTimeout(timeout);
+    }
+  }, [pathname, lenisActive]);
 
   return null;
 };
