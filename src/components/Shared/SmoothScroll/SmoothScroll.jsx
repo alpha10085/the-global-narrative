@@ -41,40 +41,45 @@ const SmoothScroll = ({ duration = 0.9 }) => {
   return enable ? <LenisComponent duration={duration} /> : null;
 };
 
-export default SmoothScroll;
-
-const LenisComponent = ({ duration }) => {
+const LenisComponent = ({ duration = 1.2 }) => {
   const lenisRef = useRef(null);
+  const rafRef = useRef(null);
   const pathname = usePathname();
 
   useEffect(() => {
     const lenis = new Lenis({
       duration,
+      smoothWheel: true,
+      smoothTouch: false, // Disable on touch devices for better performance & UX
+      direction: "vertical",
+      wheelMultiplier: 0.8, // Adjust scroll sensitivity if needed
+      lerp: 0.02, // control interpolation (0 to 1)
     });
+
     lenisRef.current = lenis;
 
     const update = (time) => {
       lenis.raf(time);
-      requestAnimationFrame(update);
+      rafRef.current = requestAnimationFrame(update);
     };
 
-    const animationFrame = requestAnimationFrame(update);
+    rafRef.current = requestAnimationFrame(update);
 
     return () => {
-        cancelAnimationFrame(animationFrame);
+      cancelAnimationFrame(rafRef.current);
       lenis.destroy();
     };
   }, [duration]);
 
-  // 👇 Scroll to top when pathname changes
   useEffect(() => {
-    if (lenisRef.current) {
-      // Use a small delay to ensure DOM has mounted the new page
-      setTimeout(() => {
-        lenisRef.current.scrollTo(-100, { immediate: true }); // or `{ offset: 0, immediate: true }`
-      }, 100);
-    }
+    const timeout = setTimeout(() => {
+      lenisRef.current?.scrollTo(0, { immediate: true });
+    }, 100); // Delay for DOM readiness
+
+    return () => clearTimeout(timeout);
   }, [pathname]);
 
   return null;
 };
+
+export default LenisComponent;
