@@ -29,3 +29,15 @@
   z-index: 2;
   border-radius: 0 !important;
 }
+
+.ratio-title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+z-index: 10;
+transform: translate(-50%,-50%);
+background-color: rgba(0, 208, 255, 0.216);
+ font-size: 40px; 
+ padding: 5px 20px;
+ color: blue;
+}

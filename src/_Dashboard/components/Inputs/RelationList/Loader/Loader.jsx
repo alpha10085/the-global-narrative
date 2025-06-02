@@ -1,4 +1,4 @@
-import Spinner from "@/components/shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 
 const Loader = ({ theme = {}, className }) => {
     return (

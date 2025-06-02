@@ -3,11 +3,11 @@ import React, { useRef, useState, useEffect } from "react";
 import styles from "./VideoPlayback.module.css";
 
 import { delay } from "@/utils/time";
-import Img from "@/components/shared/img/Img";
+import Img from "@/components/Shared/img/Img";
 import { useClickOut } from "@/hooks/useClickout";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import Spinner from "@/components/shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 const VideoPlayer = ({
   url = "",
   poster = "",

@@ -8,7 +8,7 @@ import useDisableScroll from "@/hooks/useDisableScroll";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 
 import useTranslations from "@/hooks/useTranslations";
-import Spinner from "@/components/shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 
 import Form from "./Form";
 import { useFetch } from "./helpers";

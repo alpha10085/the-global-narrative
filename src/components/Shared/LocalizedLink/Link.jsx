@@ -6,7 +6,9 @@ import config from "@/i18n/config";
 import { useMemo } from "react";
 import NextLink from "next/link";
 
-const Link = ({ href, children, className, ...props }) => {
+const Link = ({
+  onClick = () => {},
+  href, children, className, ...props }) => {
   const locale = useLocale() || config.defaultLocale;
 
   const localizedHref = config.route
@@ -22,6 +24,8 @@ const Link = ({ href, children, className, ...props }) => {
         ) {
           e.preventDefault();
         }
+
+        onClick()
       }}
       href={localizedHref}
       className={className}

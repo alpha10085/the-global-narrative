@@ -3,7 +3,7 @@ import { handleReplaceDot } from "@/_Dashboard/utils/handleData";
 import styles from "./QRcode.module.css";
 import { useEffect, useRef, useState } from "react";
 import { delay } from "@/utils/time";
-import Spinner from "@/components/shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 // import { QRCodeSVG } from "qrcode.react";
 
 const QRcode = ({

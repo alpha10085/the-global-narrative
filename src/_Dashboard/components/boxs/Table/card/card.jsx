@@ -1,6 +1,6 @@
 import React, { memo, useState } from "react";
 import style from "../Table.module.css";
-import Link from "@/components/shared/LocalizedLink/Link";
+import Link from "@/components/Shared/LocalizedLink/Link";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import { deleteOneEntry } from "@/_Dashboard/lib/dashboard";

@@ -6,8 +6,7 @@ const LoadingLayout = ({ color = "black", className='', style = {} }) => {
       style={{
         height: "calc(100% - 100px)",
         ...style,
-      }}
-      className={` flex-c  showSmooth ${className}`}
+      }}      className={` flex-c  showSmooth ${className}`}
     >
       <Spinner size={40} color={color} />
     </div>

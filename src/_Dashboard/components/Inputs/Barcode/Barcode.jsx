@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import CloseIcon from "@mui/icons-material/Close";
 import ScreenRotationAltIcon from "@mui/icons-material/ScreenRotationAlt";
 import { delay } from "@/utils/time";
-import Spinner from "@/components/shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";
 const Barcode = ({
   onChange = () => "",

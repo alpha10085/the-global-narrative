@@ -17,6 +17,9 @@ import { delay } from "@/utils/delay";
 import useDynamicState from "@/hooks/useDynamicState";
 import ConsoleTools from "./ConsoleTools/ConsoleTools";
 import SettingsTools from "./SettingsTools/SettingsTools";
+import Link from "@/components/Shared/LocalizedLink/Link";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import { useAuth } from "@/contexts/AuthProvider";
 const list = [
   {
     key: "page",
@@ -62,7 +65,8 @@ function hasTrueValue(obj) {
   return Object.values(obj).includes(true);
 }
 
-const Window = ({ onClose, show }) => {
+const Window = ({ onClose = () => {}, show }) => {
+
   const toggleScrollBar = useDisableScroll();
   const [state, setState] = useDynamicState(
     list?.reduce((prev, cur, i) => {
@@ -111,7 +115,19 @@ const Window = ({ onClose, show }) => {
         ${show ? styles.show : styles.hide}
         `}
       >
-        <h1 className={`${styles.title} flex al-i-c gap10`}>Tools</h1>
+        <div className="flex just-sb al-i-c">
+          <h1 className={`${styles.title}`}>Tools</h1>
+          <Link
+            href={"/dashboard"}
+            onClick={onClose}
+            className={`${styles.dashboardLink} flex-c t-ca gap5`}
+          >
+           {"to Dashboard"}
+            <span className="flex-c">
+              <ArrowOutwardIcon />
+            </span>
+          </Link>
+        </div>
         <div ref={containerRef} className={`${styles.list} flex column gap10`}>
           {list?.map((val) => (
             <Item

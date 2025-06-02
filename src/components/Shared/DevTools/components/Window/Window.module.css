@@ -65,8 +65,28 @@
   padding-bottom: 5px;
   cursor: default;
 }
-.title_icon {
+.dashboardLink {
+  margin-right: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 400;
+  padding: 8px 10px 8px 15px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.197);
+  position: relative;
 
+}
+
+.dashboardLink  span {
+/* right: ;
+  transform: translate(-8px, -7px);
+  position: absolute; */
+}
+.dashboardLink svg {
+  font-size: 20px;
+}
+.title_icon {
 }
 .title_icon svg {
   width: 24px;

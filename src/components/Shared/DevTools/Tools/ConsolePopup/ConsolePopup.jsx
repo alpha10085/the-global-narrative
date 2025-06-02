@@ -13,6 +13,8 @@ import DoNotDisturbOnIcon from "@mui/icons-material/DoNotDisturbOn";
 import ObjectID from "bson-objectid";
 import { isEqual } from "lodash";
 import { delay } from "@/utils/delay";
+const deepClone = (val) => JSON.parse(JSON.stringify(val));
+
 const ConsolePopup = ({ logStore, onMouned }) => {
   const { data, isLoading = {} } = useLocalStorage("dev-tools-console");
   const [state, updateState, resetState, setState] = useDynamicState({
@@ -131,15 +133,15 @@ const ConsolePopup = ({ logStore, onMouned }) => {
 
     console.log = (...args) => {
       originalLog(...args);
-      addMessage("log", args);
+      addMessage("log", deepClone(args));
     };
     console.warn = (...args) => {
       originalWarn(...args);
-      addMessage("warn", args);
+      addMessage("warn", deepClone(args));
     };
     console.error = (...args) => {
       originalError(...args);
-      addMessage("error", args);
+      addMessage("error", deepClone(args));
     };
 
     onMouned();

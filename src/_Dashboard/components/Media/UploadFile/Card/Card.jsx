@@ -1,14 +1,14 @@
-import Img from "@/components/shared/img/Img";
+import Img from "@/components/Shared/img/Img";
 import React, { memo } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Spinner from "@/components/shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ErrorIcon from "@mui/icons-material/Error";
 import styles from "./Card.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import { customText } from "@/utils/text";
 import DisplayMedia from "../../DisplayMedia/DisplayMedia";
-import Skeleton from "@/components/shared/Skeleton/skeleton";
+import Skeleton from "@/components/Shared/Skeleton/skeleton";
 
 const Card = ({ file, theme = {}, callBack = () => {}, index }) => {
   const { uploading = false, _id: response, progress, error } = file || {};  

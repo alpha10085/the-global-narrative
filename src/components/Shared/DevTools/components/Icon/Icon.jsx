@@ -1,6 +1,8 @@
 import styles from "./Icon.module.css";
 
-const Icon = ({ onClick = () => {} }) => {
+const Icon = ({ enebaled = true, onClick = () => {} }) => {
+
+  if (!enebaled) return null;
   return (
     <div onClick={onClick} className={`${styles.logo} flex-c`}>
       <svg

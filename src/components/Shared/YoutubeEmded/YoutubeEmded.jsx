@@ -42,13 +42,12 @@ const YouTubeEmbed = ({
           onClick={handleShowVideo}
           className={`${styles.videoPoster} w-100`}
         >
-          <div className={`${styles.head} flex al-i-c gap10 w-100 `}>
+          <div className={`${styles.head} flex al-i-c gap10 w-100`}>
             {channelPicture && (
               <Img className={styles.channelPicture} url={channelPicture} />
             )}
             {title && <p>{customText(title, 38)}</p>}
           </div>
-          
           <Img url={thumbnail} className={`${styles.overlay} ${className}`} />
           <button className={styles.youtubeIcon}>
             {showVideo ? (

@@ -1,0 +1,19 @@
+.typingText {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: top;
+    border-right: 2px solid currentColor;
+    animation: blinkCaret 0.75s step-end infinite;
+  }
+  
+  @keyframes blinkCaret {
+    from,
+    to {
+      border-color: transparent;
+    }
+    50% {
+      border-color: currentColor;
+    }
+  }
+  

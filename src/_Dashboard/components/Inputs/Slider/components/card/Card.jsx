@@ -1,4 +1,4 @@
-import Img from "@/components/shared/img/Img";
+import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { SwiperSlide } from "swiper/react";

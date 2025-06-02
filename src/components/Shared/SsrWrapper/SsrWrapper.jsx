@@ -1,19 +1,25 @@
-import React from "react";
-
 const SsrWrapper = ({
-  params: params_enable = true,
-  searchParams: searchParams_enable = true,
+  params: enableParams = true,
+  searchParams: enableSearchParams = true,
   Component,
   QueryFN = null,
-  Querykey= []
+  Querykey = [],
 }) => {
   return async ({ params, searchParams }) => {
-    const data = !QueryFN ? {} : await QueryFN(...Querykey);
-
+    const [resolvedParams, resolvedSearchParams] = await Promise.all([
+      enableParams ? params : {},
+      enableSearchParams ? searchParams : {},
+    ]);
+    const data = QueryFN
+      ? await QueryFN(...Querykey, {
+          params,
+          searchParams,
+        })
+      : {};
     return (
       <Component
-        searchParams={searchParams_enable ? await searchParams : {}}
-        params={params_enable ? await params : {}}
+        params={resolvedParams}
+        searchParams={resolvedSearchParams}
         data={data}
       />
     );

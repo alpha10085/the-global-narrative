@@ -1,9 +1,20 @@
 "use client";
 import Skeleton from "@/components/Shared/Skeleton/skeleton";
 import styles from "./GoogleMap.module.css";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import { delay } from "@/utils/time";
+
+
+const extractSrcFromIframe = (input = "") => {
+  // If input is already a valid Google Maps embed link, return it as-is
+  if (input.startsWith("https://www.google.com/maps/embed?")) return input;
+
+  // Otherwise try to extract from iframe string
+  const match = input.match(/src="([^"]+)"/);
+  return match ? match[1] : "";
+};
+
 const GoogleMap = ({
   url = "",
   alt = "",
@@ -21,6 +32,10 @@ const GoogleMap = ({
     await delay(200)
     setLoading(false)
   };
+
+  // Memoize extracted URL to avoid recalculating every render
+  const extractedUrl = useMemo(() => extractSrcFromIframe(url), [url]);
+
   return (
     <div ref={ref} className={`${styles.wrapper} ${className}`}>
       {(lazyLoad ? inView : true) && (
@@ -29,16 +44,15 @@ const GoogleMap = ({
           width="600"
           height="450"
           frameBorder="0"
-          src={url}
-          loading="eager"
-
+          src={extractedUrl}
+          loading="lazy"
           onLoad={handleLoad}
           allowFullScreen={false}
           className={`main-component-image ${
             withEffect ? "blurring-image" : ""
           }`}
           img-loaded={loading ? undefined : "true"}
-       //   referrerPolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
         />
       )}
       {loading && withEffect ? (

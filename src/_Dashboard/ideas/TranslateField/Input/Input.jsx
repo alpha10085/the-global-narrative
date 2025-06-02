@@ -3,7 +3,7 @@ import React, { memo, useState } from "react";
 import styles from "./Input.module.css";
 import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
 import { useClickOut } from "@/hooks/useClickout";
-import AsyncButton from "@/components/shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
 import { upsertOneTranslation } from "@/_Dashboard/lib/dashboard";
 import toast from "react-hot-toast";
 import { delay } from "@/utils/time";

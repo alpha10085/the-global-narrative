@@ -9,7 +9,7 @@ import {
   getChangedFields,
   handleDetecteErrorTranslations,
 } from "@/_Dashboard/layouts/DynamicForm/helpers";
-import AsyncButton from "@/components/shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
 import { useQueryClient } from "@tanstack/react-query";
 import { scrollToErrorElemntry, scrollToSection, useFetch } from "./helpers";
 import ErrorLayOut from "../../ErrorLayOut/ErrorLayOut";

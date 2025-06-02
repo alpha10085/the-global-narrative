@@ -27,7 +27,7 @@ const InputText = ({
   const [hide, sethide] = useState(true);
   const [pending, setPending] = useState(false);
   const inputRef = useRef(null);
-  const currentval = watch(name);
+  const currentval = watch(name) || ""
   const isEmpty = !!currentval?.length;
   const errormsg = JoiGetNestedError(errors, name) || null;
   const toggleHideText = () => {
@@ -59,6 +59,7 @@ const InputText = ({
       inputRef.current?.focus();
     }
   }, [triggerFocus]);
+
   return (
     <div
       ref={ref}
@@ -76,6 +77,7 @@ const InputText = ({
       <div className={styles.inputWrapper}>
         {type === "textarea" ? (
           <textarea
+            value={currentval}
             disabled={pending}
             className={`${styles.input} 
             ${inputClassName}
@@ -89,6 +91,7 @@ const InputText = ({
         ) : (
           <input
             ref={inputRef}
+            value={currentval}
             onFocus={handleFoucssClick}
             onBlur={autoComplete ? () => {} : onClickOutside}
             disabled={pending}
@@ -97,9 +100,7 @@ const InputText = ({
             
             ${styles.input}
             ${inputClassName}
-            ${
-              errormsg || showError ? styles.error : ""
-            }`}
+            ${errormsg || showError ? styles.error : ""}`}
             onChange={({ target }) => onChange(name, target?.value)}
           />
         )}
