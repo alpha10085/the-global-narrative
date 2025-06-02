@@ -68,6 +68,7 @@ const Intro = () => {
 
   useEffect(() => {
     eventBus.emit("intro-event", event);
+
     return () => {};
   }, [event]);
 

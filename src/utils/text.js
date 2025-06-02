@@ -3,7 +3,6 @@ export const formatText = (
   { br = true, bold = true, link = true } = {}
 ) => {
 
-  console.log(text);
   
   // Replace .with new lines with <br/>
   let formattedText = text;

@@ -4,18 +4,6 @@ import styles from "./FloatedSection.module.css";
 
 const FloatedSection = ({ children }) => {
   const sectionRef = useRef(null);
-  const [heightStyle, setHeightStyle] = useState({});
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    // Measure the section height
-    const height = sectionRef.current.offsetHeight;
-
-    // Subtract 300px for the transform offset
-    setHeightStyle({ height: `${height - 300}px` });
-
-  }, [children]); // run on mount and when children change (optional)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +20,7 @@ const FloatedSection = ({ children }) => {
         const rawProgress = (start - rect.top) / (start - end);
         const clamped = Math.min(1, Math.max(0, rawProgress));
 
-        el.style.transform = `translateY(-${clamped * 300}px)`;
+        el.style.marginTop = `-${clamped * 300}px`;
       });
     };
 
@@ -43,11 +31,7 @@ const FloatedSection = ({ children }) => {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      style={heightStyle}
-      className={styles.floated}
-    >
+    <section ref={sectionRef} className={styles.floated}>
       {children}
     </section>
   );

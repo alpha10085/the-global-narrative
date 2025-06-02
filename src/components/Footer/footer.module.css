@@ -3,11 +3,10 @@
   font-family: Arial, sans-serif;
   font-size: 14px;
   z-index: 100;
-  
+
   position: relative;
   color: white;
   padding-top: 80px;
-   
 }
 
 .logo {
@@ -44,8 +43,6 @@
   border-radius: 50px 50px 0 0;
   padding: 50px 5%;
   background-color: #385cf5;
-  
-
 }
 
 @media (max-width: 768px) {

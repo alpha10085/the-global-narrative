@@ -2,24 +2,28 @@ import { getFakeNews } from "./news/data.test";
 
 export const getHomePage = () => {
   return {
-    metadata: {},
+    metadata: {
+      title: "The Global Narrative – Strategic Communications",
+      description:
+        "High-level public relations, branding, and strategic communication with offices in Cairo and Riyadh.",
+    },
     heroSection: [
       {
-        title: "We’re built for the era of earned",
+        title: "Crafting Narratives That Resonate Globally",
         media: {
           mimetype: "image",
-          url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1746230310/Edge-81_vghfyo.jpg",
+          url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1746230310/Edge-81_vghfyo.jpg", // You can replace with a better image if needed
         },
       },
       {
-        title: "Delivering value in a volatile world ",
+        title: "Shaping Stories Across Borders",
         media: {
           mimetype: "image",
           url: "https://webershandwick.com/_next/image?url=https%3A%2F%2Fcms.webershandwick.com%2Fwp-content%2Fuploads%2F2025%2F01%2Fresize_csuite_cover.jpg&w=1920&q=75",
         },
       },
       {
-        title: "Delivering value in a volatile world ",
+        title: "Clarity, Strategy, Purpose",
         media: {
           mimetype: "image",
           url: "https://webershandwick.com/_next/image?url=https%3A%2F%2Fcms.webershandwick.com%2Fwp-content%2Fuploads%2F2025%2F04%2Fgoingup_sitehero.jpg&w=1920&q=75",
@@ -28,25 +32,27 @@ export const getHomePage = () => {
     ],
     aboutUsSection: {
       title: "WHERE VISION MEETS STRUCTURE",
-      description:
-        "We create architectural masterpieces that blend creativity, functionality, and purpose. From concept to construction",
+      description: `We craft clear, purposeful stories that connect global leaders and communities. From strategy to lasting impact.`,
     },
     quoteSection: {
       content: `
-      Welcome to today’s the Global Narrative.
+Our Services
 
-The original strategic communications consultancy, we were born a public relations pacesetter.
+Nation Branding & Regional Operations
+We build impactful national and regional brand images for governments and private sectors.
 
-Nearly a century later, the Global Narrative is built for purpose...
+Executive & Personal Branding
+We shape leaders’ profiles and messaging for consistent, relatable public presence.
 
-Bringing together new combinations of people and intelligence.
+Strategic Communications & Media Relations
+We design communication strategies and handle media to deliver the right messages.
 
-Addressing today’s grand challenges.
+Crisis Communication & Reputation Repair
+We guide clients through crises with clear, careful communication to restore trust.
 
-Expanding our clients’ possibilities and success.
-
-We are the global strategic communications leader for transformation, helping clients communicate to lead.
-      `   },
+Event & Summit Planning
+We organize purposeful events that connect people and support strategic goals.     `,
+    },
     newsSection: {
       title: "Highlighted news",
       posts: getFakeNews(),
@@ -103,6 +109,7 @@ We are the global strategic communications leader for transformation, helping cl
       title: "Get In Touch",
       description: `We’d love to hear from you  every great story starts with a simple hello.
 Reach out and let’s create something meaningful together at the global Narrative .`,
+
       poster: {
         url: "https://narrativesummit.com/wp-content/uploads/2023/08/dji_fly_20230423_174802_65_1682264964438_photo-opt.jpg",
       },

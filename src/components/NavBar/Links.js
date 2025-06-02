@@ -22,8 +22,8 @@ export const links = [
     text: "services",
     href: "/services",
   },
-  {
-    text: "media center",
-    href: "/media-center",
-  },
+  // {
+  //   text: "media center",
+  //   href: "/media-center",
+  // },
 ];

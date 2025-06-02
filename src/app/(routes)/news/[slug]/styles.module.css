@@ -51,7 +51,7 @@
 .image,
 .image img {
   object-fit: cover;
-  object-position: 0 0 !important;
+  object-position: 0 18% !important;
 }
 
 .content {

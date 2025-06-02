@@ -22,8 +22,6 @@ const DynamicCursor = () => {
     const handleMouseMove = (e) => {
       targetPos.current = { x: e.clientX, y: e.clientY };
       if (!cursorData.isDetected) {
-        console.log("runned isDetected");
-        
         delay(150).then(() => setCursorData({ isDetected: true }));
       }
     };

@@ -18,9 +18,7 @@ const Page = async () => {
     description = "",
     poster = {},
     services = [],
-    contactSection = {},
     faqs = [],
-    partners = [],
   } = await getpage("services");
   return (
     <section className={styles.container}>
@@ -30,37 +28,9 @@ const Page = async () => {
       {/* Service List */}
       <ServicesList data={services} />
 
-      {/* MarqueeLogos */}
-      <div className={styles.logosSection}>
-        <div
-          className={`${styles.logoWrapper} flex just-sb al-i-c w-90 m-auto`}
-        >
-          <SectionTitle title="Our Partners" className={styles.logosTitle} />
 
-          <Link className={styles.logoLink} href="/clients">
-            See all <span className={styles.arrow}>→</span>
-          </Link>
-        </div>
-        <MarqueeLogos data={customers} />
-      </div>
 
-      {/* getInTouch Subscription */}
-      {/* <div className={styles.getInTouchSection}>
-        <div className={`${styles.getInTouchContent} flex-c column`}>
-          <div className=" mb-20">
-            <h2 className={styles.getInTouchTitle}>{contactSection?.title}</h2>
-            <p className={styles.getInTouchText}>
-              {contactSection?.description}
-            </p>
-          </div>
 
-          <MainLink
-            text="Contact us"
-            href={"/contact-us"}
-            className={styles.getLink}
-          />
-        </div>
-      </div> */}
 
       {/* FAQ List */}
         <div className={styles.faqSection}>

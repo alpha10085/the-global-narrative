@@ -44,7 +44,7 @@ const Hero = ({ data = [] }) => {
     }
   };
   useEffect(() => {
-        stopAutoplay();
+    stopAutoplay();
     eventBus.on("intro-event", handleAutoPlay);
     return () => eventBus.off("intro-event", handleAutoPlay);
   }, []);

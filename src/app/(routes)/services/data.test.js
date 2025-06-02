@@ -12,7 +12,7 @@ export const getpage = () => {
         title: "Media Relations",
         intro: "Crafting impactful narratives for the global media landscape.",
         description:
-          "Build and maintain strong relationships with global media outlets. Our team ensures your brand gains consistent, positive exposure across newspapers, TV, magazines, and online platforms. We craft compelling press releases, organize media events, and prepare spokespeople for interviews to position you as a trusted leader in your industry. With a deep network and proven results, we deliver media strategies that elevate your presence and credibility.",
+          "We build strong media relationships to ensure your brand gains positive exposure across all channels. From press releases to media training, we position you as a trusted industry leader.",
       },
       {
         _id: "2",
@@ -20,7 +20,7 @@ export const getpage = () => {
         intro:
           "Guiding your brand through turbulent times with clarity and control.",
         description:
-          "Protect your brand reputation with rapid, strategic response. In today’s fast-paced world, crises unfold quickly—and our experienced team helps you respond even faster. We assess risks, develop contingency plans, and craft transparent communication across all channels. Whether facing public backlash, legal issues, or internal challenges, we help you maintain trust, minimize damage, and restore your public image with calm authority.",
+          "Our rapid-response team helps protect your reputation with clear, strategic communication during crises. We minimize damage and restore trust with expert planning and execution.",
       },
       {
         _id: "3",
@@ -28,25 +28,20 @@ export const getpage = () => {
         intro:
           "Driving engagement and awareness through strategic digital storytelling.",
         description:
-          "Engage audiences and enhance visibility through digital campaigns. We blend PR expertise with social media savvy to position your brand where it matters most—online. From influencer partnerships and branded content to reputation monitoring and real-time engagement, we ensure your message resonates across platforms. Our digital PR strategies are data-driven, creative, and always aligned with your brand’s voice and goals.",
+          "We combine PR expertise with social media tactics to elevate your brand online. From influencer partnerships to real-time engagement, we ensure your message connects and resonates.",
       },
       {
         _id: "4",
-        title: "Digital PR",
-        intro:
-          "Driving engagement and awareness through strategic digital storytelling.",
+        title: "Strategic Partnerships",
+        intro: "Building meaningful alliances to expand your impact.",
         description:
-          "Engage audiences and enhance visibility through digital campaigns. We blend PR expertise with social media savvy to position your brand where it matters most—online. From influencer partnerships and branded content to reputation monitoring and real-time engagement, we ensure your message resonates across platforms. Our digital PR strategies are data-driven, creative, and always aligned with your brand’s voice and goals.",
+          "We facilitate strategic collaborations with governmental and industry partners, helping you grow influence and achieve long-term goals through tailored partnership strategies.",
       },
     ],
-
     contactSection: {
       title: "Get In Touch",
-      description: ` We’d love to hear from you every great story starts with a simple
-              hello. Reach out and let’s create something meaningful together at
-              the global Narrative .`,
+      description: `We’d love to hear from you. Every great story starts with a simple hello. Reach out and let’s create something meaningful together at The Global Narrative.`,
     },
-
     faqs: [
       {
         _id: "2",

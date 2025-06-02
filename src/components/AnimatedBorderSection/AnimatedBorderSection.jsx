@@ -12,10 +12,10 @@ const AnimatedBorderSection = ({ children }) => {
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          observer.unobserve(entry.target); // Stop observing once triggered
+          // observer.unobserve(entry.target); // Stop observing once triggered
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0 }
     );
 
     if (ref.current) observer.observe(ref.current);

@@ -24,11 +24,13 @@ const Home = async () => {
     testimonialSection = {},
     getInTouchSection = {},
   } = getHomePage();
+  console.log(heroSection);
+  
 
   return (
     <section className={styles.layout}>
       <Intro />
-      <Hero enableAutoPlay={false} data={heroSection} />
+      <Hero  data={heroSection} />
       <CSRSection>
         <AboutUs data={aboutUsSection} />
         <WaveLines />
@@ -39,7 +41,6 @@ const Home = async () => {
           <div className={styles.childTwo}>
             <AnimatedBorderSection>
               <StaticSection mode="down" >
-
               <News data={newsSection} />
               <WaveLines colors={["#8927f2a8", "#00eaff", "#ff00d4"]} />
               <Testimonials data={testimonialSection} />

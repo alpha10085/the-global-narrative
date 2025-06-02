@@ -1,4 +1,5 @@
 "use client";
+import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
 import eventBus from "@/utils/eventBus";
 import Lenis from "@studio-freight/lenis";
@@ -7,11 +8,19 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 const SmoothScroll = ({ duration = 0.9 }) => {
-  const [enable, setEnable] = useState(false);
-  const pathname = usePathname();
-  const startLenis = () => setEnable(true);
+  const [state, setState] = useDynamicState({
+    enable: true,
+    mounted: false,
+  });
+  const { enable, mounted } = state;
+  const startLenis = () =>
+    setState({
+      enable: true,
+    });
   const stopLenis = () => {
-    setEnable(false);
+    setState({
+      enable: false,
+    });
   };
   useEffect(() => {
     const handler = async (newval) => {
@@ -25,13 +34,13 @@ const SmoothScroll = ({ duration = 0.9 }) => {
 
     eventBus.on("lenis", handler);
 
-    delay(300).then(() => setEnable(true));
+    delay(300).then(() => setState({ mounted: true }));
     return () => {
       eventBus.off("lenis", handler); // cleanup
     };
   }, []);
 
-  return enable ? <LenisComponent duration={duration} /> : null;
+  return mounted && enable ? <LenisComponent duration={duration} /> : null;
 };
 
 export default SmoothScroll;
@@ -48,9 +57,6 @@ const LenisComponent = ({ duration }) => {
       smoothTouch: false,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // default
       smooth: true,
-      
-    
-    
     });
     lenisRef.current = lenis;
 

@@ -72,7 +72,7 @@ const News = ({ data = {} }) => {
       </div>
       <Aos
         delay={200}
-        threshold={0.5}
+        threshold={0.2}
         activeClassName={styles.active}
         className={`${styles.list} flex  gap20 al-i-c`}
       >

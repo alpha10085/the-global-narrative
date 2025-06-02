@@ -20,9 +20,6 @@ const Card = ({ delay = 0, className = "", data = {} }) => {
       <div className={`${styles.content} flex   w-100 column mt-20`}>
         <div className={`${styles.left} flex just-sb  gap5 `}>
           <h3 className={styles.date}>{formatDate(data?.date)}</h3>
-          {/* <div className={`${styles.right} flex-c `}>
-            <ArrowOutwardIcon />
-          </div> */}
         </div>
 
         <h1 className={`${styles.title} mt-5 `}>
