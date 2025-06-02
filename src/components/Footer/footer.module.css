@@ -2,7 +2,7 @@
 .footer {
   font-family: Arial, sans-serif;
   font-size: 14px;
-  z-index: 100;
+  z-index: 90;
 
   position: relative;
   color: white;
@@ -40,7 +40,7 @@
 
 .top {
   border-radius: 50px 50px 0 0;
-  padding: 50px 5% 0;
+  padding: 50px 5% ;
   background-color: #385cf5;
 }
 
@@ -70,8 +70,5 @@
   }
   .top {
     border-radius: 5% 5% 0 0;
-  }
-  .footer {
-    margin-top: 120px;
   }
 }

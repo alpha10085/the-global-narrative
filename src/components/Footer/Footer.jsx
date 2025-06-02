@@ -8,7 +8,8 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import FloatedSection from "../FloatedSection/FloatedSection";
+import { ArrowBack } from "@mui/icons-material";
+
 const Footer = ({ data = {} }) => {
   const dateNow = new Date().getFullYear();
   const ScoialLinks = [
@@ -51,36 +52,39 @@ const Footer = ({ data = {} }) => {
   ];
   return (
     <footer id="footer-container" className={styles.footer}>
-     
-        <div className={`${styles.top} flex al-i-c just-sb`}>
-          <div className={`${styles.left}  `}>
-            <MainLogo theme="dark" classNameWrapper={styles.logo} />
-            <div
-              className={`${styles.ScoialLinks} flex gap40 wrap just-c al-i-c`}
-            >
-              {ScoialLinks?.map((val, i) => (
-                <Link
-                  key={i}
-                  className={styles.ScoialLink}
-                  href={`/${val?.herf}`}
-                >
-                  {val?.icon}
-                </Link>
-              ))}
-            </div>
-          </div>
-          <div className={styles.right}>
-            <ul className={`${styles.list} flex column gap15 wrap`}>
-              {links?.map((val, i) => (
-                <li key={i}>
-                  <Link className={styles.link} href={val?.href}>
-                    {val?.text}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+      <div className={`${styles.top} flex al-i-c just-sb`}>
+        <div className={`${styles.left}  `}>
+          <MainLogo theme="dark" classNameWrapper={styles.logo} />
+          <div
+            className={`${styles.ScoialLinks} flex gap40 wrap just-c al-i-c`}
+          >
+            {ScoialLinks?.map((val, i) => (
+              <Link
+                key={i}
+                className={styles.ScoialLink}
+                href={`/${val?.herf}`}
+              >
+                {val?.icon}
+              </Link>
+            ))}
           </div>
         </div>
+        <div className={styles.right}>
+          <ul className={`${styles.list} flex column gap15 wrap`}>
+            {links?.map((val, i) => (
+              <li key={i}>
+                <Link
+                  data-cursor-label={`${val?.text} →`}
+                  className={styles.link}
+                  href={val?.href}
+                >
+                  {val?.text}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </footer>
   );
 };
