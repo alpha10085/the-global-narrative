@@ -41,67 +41,73 @@ const SmoothScroll = ({ duration = 0.9 }) => {
   return enable ? <LenisComponent duration={duration} /> : null;
 };
 
-const LenisComponent = ({ duration = 1.2, }) => {
+const LenisComponent = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
   const lenisRef = useRef(null);
   const rafRef = useRef(null);
   const pathname = usePathname();
-  const [lenisActive, setLenisActive] = useState(false);
+  const [ready, setReady] = useState(false);
 
-  // Handler to enable Lenis after user scrolls for first time
+  // Force browser repaint helper
+  const forceRepaint = () => {
+    document.body.style.display = "none";
+    void document.body.offsetHeight; // trigger reflow
+    document.body.style.display = "";
+  };
+
+  // Init Lenis ASAP but start RAF only after idle or delay
   useEffect(() => {
-    if (lenisActive) return;
-
-    const onUserScroll = () => {
-      setLenisActive(true);
-      window.removeEventListener("scroll", onUserScroll);
-    };
-
-    window.addEventListener("scroll", onUserScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", onUserScroll);
-    };
-  }, [lenisActive]);
-
-  // Initialize Lenis only when activated
-  useEffect(() => {
-    if (!lenisActive) return;
+    if (typeof window === "undefined") return;
 
     const lenis = new Lenis({
       duration,
+
       smoothWheel: true,
       smoothTouch: false, // Disable on touch devices for better performance & UX
       direction: "vertical",
-      wheelMultiplier: 0.8, // Adjust scroll sensitivity if needed
+      wheelMultiplier: 0.7, // Adjust scroll sensitivity if needed
       lerp: 0.02, // control interpolation (0 to 1)
     });
     lenisRef.current = lenis;
 
+    // Sync scroll position immediately
     lenis.scrollTo(window.scrollY || 0, { immediate: true });
 
-    const update = (time) => {
-      lenis.raf(time);
+    // Wait for idle time or 200ms delay before starting RAF loop
+    const startAnimation = () => {
+      forceRepaint(); // fix repaint glitches
+
+      const update = (time) => {
+        lenis.raf(time);
+        rafRef.current = requestAnimationFrame(update);
+      };
       rafRef.current = requestAnimationFrame(update);
+      setReady(true);
     };
-    rafRef.current = requestAnimationFrame(update);
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(startAnimation, { timeout: 200 });
+    } else {
+      const timer = setTimeout(startAnimation, 300);
+      return () => clearTimeout(timer);
+    }
 
     return () => {
       cancelAnimationFrame(rafRef.current);
-      lenis.destroy();
+      lenisRef.current?.destroy();
       lenisRef.current = null;
     };
-  }, [lenisActive, duration]);
+  }, [duration, lerp, smooth]);
 
-  // Scroll to top on route change if Lenis active
+  // Scroll to top smoothly on route change
   useEffect(() => {
-    if (lenisActive) {
-      const timeout = setTimeout(() => {
-        lenisRef.current?.scrollTo(0, { immediate: true });
-      }, 100);
+    if (!ready) return;
 
-      return () => clearTimeout(timeout);
-    }
-  }, [pathname, lenisActive]);
+    const timeout = setTimeout(() => {
+      lenisRef.current?.scrollTo(0, { immediate: true });
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [pathname, ready]);
 
   return null;
 };
