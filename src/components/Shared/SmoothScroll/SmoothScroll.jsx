@@ -41,17 +41,22 @@ const SmoothScroll = ({ duration = 0.9 }) => {
   return enable ? <LenisComponent duration={duration} /> : null;
 };
 
-
-const LenisComponent = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
+const LenisComponent = ({ duration = 1.2 }) => {
   const lenisRef = useRef(null);
   const rafRef = useRef(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
     const initLenis = () => {
-      const lenis = new Lenis({ duration, lerp, smooth, smoothTouch: false });
+      const lenis = new Lenis({
+        duration,
+
+        smoothWheel: true,
+        smoothTouch: false, // Disable on touch devices for better performance & UX
+        direction: "vertical",
+        wheelMultiplier: 0.8, // Adjust scroll sensitivity if needed
+        lerp: 0.02, // control interpolation (0 to 1)
+      });
       lenisRef.current = lenis;
 
       lenis.scrollTo(window.scrollY || 0, { immediate: true });
@@ -63,11 +68,7 @@ const LenisComponent = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
       rafRef.current = requestAnimationFrame(update);
     };
 
-    if ('requestIdleCallback' in window) {
-      window.requestIdleCallback(initLenis);
-    } else {
-      setTimeout(initLenis, 100);
-    }
+    setTimeout(initLenis, 300);
 
     return () => {
       cancelAnimationFrame(rafRef.current);
