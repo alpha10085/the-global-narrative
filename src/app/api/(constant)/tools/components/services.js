@@ -2,7 +2,6 @@ import { getRootpath } from "@/scripts/helpers";
 import fs from "fs";
 import path from "path";
 
-
 export const createComponent = ({
   name = "",
   pathToFile = [],
@@ -25,7 +24,7 @@ export const createComponent = ({
       });
 
     fs.mkdirSync(folderPath, { recursive: true });
-    const componentPath = path.join(folderPath,`${name}.jsx`);
+    const componentPath = path.join(folderPath, `${name}.jsx`);
 
     // Properly formatted component content
     const pageContent = `import styles from "./${name}.module.css";
@@ -57,8 +56,8 @@ export default ${name};
       fs.writeFileSync(helpersPath, `// Add helper functions here`);
     }
     if (icons) {
-      const iconsPath = path.join(folderPath, "icons.js");
-      fs.writeFileSync(iconsPath, `// Add icon imports here`);
+      const iconsPath = path.join(folderPath, "icons.jsx");
+      fs.writeFileSync(iconsPath, `"use client";\n`);
     }
 
     return true;

@@ -8,7 +8,12 @@ import { Asynchandler } from "../helpers";
 const createStylesFile = Asynchandler(async (folderPath) => {
   const stylesPath = path.join(folderPath, "styles.module.css");
 
-  fs.writeFileSync(stylesPath, ``);
+  fs.writeFileSync(
+    stylesPath,
+    `.main {
+    
+}`
+  );
 
   return true;
 });
@@ -80,7 +85,7 @@ export default handler;
   return true;
 });
 const CraetePageFile = Asynchandler(async (options, folderPath) => {
-  const { name, styles, pageStrategy, metadata } = options;
+  const { name, styles, pageStrategy, metadata, ssrFetcher = false } = options;
   const pagePath = path.join(folderPath, "page.jsx");
   const dynamicPath = name
     .split("/")
@@ -99,8 +104,21 @@ const CraetePageFile = Asynchandler(async (options, folderPath) => {
   }
   ${withApi ? ` const data = await getPage(\`${name}\`);` : ""}
     return (
-     <section className={\`${styles ? "${styles.container}" : ""}\`}>
-
+     <section className={\`${styles ? "${styles.main}" : ""}\`}>
+     ${
+       ssrFetcher
+         ? `
+    <SSRFetcher
+      //  Component={""} // main component (CSR)
+      //  path="" // api route
+      //  options={""} //  api options (SSR APi)
+      //  Fallback={""} // loading fullback - skeletons or spinner
+      //  data={""} // context data
+      //  props={""} // custom props
+    />
+      `
+         : ""
+     }
      </section>
     );
   };
@@ -120,23 +138,30 @@ const CraetePageFile = Asynchandler(async (options, folderPath) => {
   const pageContent = `
 ${styles ? `import styles from "./styles.module.css";` : ""}
 ${
-  pageStrategy === "default" && options.ssrFetcher
+  pageStrategy !== "default"
     ? `import SsrWrapper from "@/components/Shared/SsrWrapper/SsrWrapper";\n`
     : ""
 }
 ${
-  metadata && withApi
-    ? `import { metadataHandler } from "@/utils/metadata";\n`
+  pageStrategy === "default" && options.ssrFetcher
+    ? `import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";\n`
     : ""
 }
+${metadata ? `import { metadataHandler } from "@/utils/metadata";\n` : ""}
 ${withApi ? `import { getPage } from "@/lib/pages";\n` : ""}
 ${
-  metadata && withApi
-    ? `export const generateMetadata = metadataHandler(getPage, \`${name}\`);`
+  metadata
+    ? `export const generateMetadata = metadataHandler(${
+        withApi ? `getPage` : `() => {}`
+      }, \`${name}\`);`
     : ""
 }
 ${selectedPageType}
-`.trim();
+`
+    .split("\n")
+    .map((line) => line.trimEnd()) // optional: remove trailing spaces
+    .filter((line) => line.trim() !== "") // remove empty lines
+    .join("\n");
   // Write the page file
   fs.writeFileSync(pagePath, pageContent);
   return true;
@@ -148,7 +173,7 @@ export const createPage = async (options, onError = () => {}) => {
     const {
       name = "",
       pageStrategy = null,
-      componentname,
+      componentname = null,
       pathToFile,
     } = options;
     // Check if the folder already exists
@@ -160,7 +185,7 @@ export const createPage = async (options, onError = () => {}) => {
       name
     );
     console.log(pagePath);
-    
+
     if (
       fs.existsSync(path.join(pagePath, "page.jsx")) ||
       fs.existsSync(path.join(pagePath, "page.js"))
@@ -186,7 +211,7 @@ export const createPage = async (options, onError = () => {}) => {
         helpers: true,
         icons: true,
         styles: true,
-        pathToFile: [componentname],
+        pathToFile: [],
       });
       result.component = result_Component;
     }
@@ -208,7 +233,7 @@ export const createPage = async (options, onError = () => {}) => {
     result.error = null;
     result.success = true;
   } catch (error) {
-    console.log("🚀 ~ createPage ~ error:", error)
+    console.log("🚀 ~ createPage ~ error:", error);
     result.error = error;
     result.success = false;
   }

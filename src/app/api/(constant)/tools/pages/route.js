@@ -7,6 +7,8 @@ export const POST = AsyncHandler(
   async (req, res, next) => {
     const pathToFile = req?.body?.path || [];
     req.body.pathToFile = ["(routes)", ...pathToFile];
+    console.log(req.body);
+    
     const result = await createPage(req.body, next).catch((error) =>
       console.log(
         "Error while creating page folder:",
