@@ -39,7 +39,7 @@ export const getAboutUSPage = () => {
       ],
     },
     whoUsSectionSection: {
-      title: "who us?",
+      title: "Who Are We?",
       members: [
         {
           _id: "1",
