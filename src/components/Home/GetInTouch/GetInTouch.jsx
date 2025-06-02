@@ -31,7 +31,10 @@ const GetInTouch = ({ data = {} }) => {
         <div className={styles.waves}>
           <WaveLines />
         </div>
+
       </div>
+      <div className={styles.spaceBottom} />
+
     </div>
   );
 };

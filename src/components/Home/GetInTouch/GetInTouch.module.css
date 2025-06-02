@@ -8,7 +8,9 @@
   color: white;
   background-color: rgb(5, 0, 78);
 }
-
+.wrapper {
+  position: relative;
+}
 .top {
   transform: translateY(80px);
   width: 100%;
@@ -17,7 +19,20 @@
 .waves {
   position: relative;
   z-index: -1;
-  transform: translateY(20px);
+  transform: translateY(50px);
+  
+  
+}
+
+.spaceBottom {
+  background-color: rgb(5, 0, 78);
+
+  height: 100px;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  width: 100%;
+  z-index: 10;
 }
 .description {
   line-height: 1.5;
