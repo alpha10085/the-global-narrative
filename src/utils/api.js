@@ -1,77 +1,92 @@
 import axios from "axios";
-import { timeToMillis, timeToSeconds } from "./time";
 import { SessionExpire } from "@/lib/actions";
+import eventBus from "./eventBus";
+import { timeToSeconds } from "./time";
 
-const baseURL = `${process.env.NEXT_PUBLIC_API}/api`; // Replace with your API base URL
-const timeout = 10 * 60 * 1000; // 10 minutes
+const baseURL = `${process.env.NEXT_PUBLIC_API}/api`;
+const timeout = 10 * 60 * 1000;
+
 export const csrApi = axios.create({
-  baseURL, // Replace with your API base URL
-  timeout, // 10 minutes, // Optional: Set a timeout for requests
-  withCredentials: true, // Include credentials (cookies, authorization headers, TLS client certificates, etc.)
+  baseURL,
+  timeout,
+  withCredentials: true,
 });
-// Response Interceptor
+
+// Helper: retry GET requests
+const retryRequest = async (error, retries = 2) => {
+  console.log("retrying: ", error.config);
+  const config = error.config;
+  if (!config || config.__retryCount >= retries || config.method !== "get") {
+    return null;
+  }
+
+  config.__retryCount = (config.__retryCount || 0) + 1;
+  try {
+    return await csrApi(config);
+  } catch (err) {
+    return retryRequest(err, retries);
+  }
+};
+
+// Interceptor
 csrApi.interceptors.response.use(
-  (response) => {
-    // Return the response data directly
-    return response.data;
-  },
+  (response) => response.data,
   async (error) => {
-    // Handle response errors and return custom errors
+    const config = error.config;
+
     if (error.response) {
-      // Server responded with a status other than 2xx
       switch (error.response.status) {
         case 400:
-          // Bad Request
           return Promise.reject({
             message: "Bad Request",
             ...error.response.data,
           });
         case 401:
-          // Unauthorized
           return Promise.reject({
             message: "Unauthorized Access",
             ...error.response.data,
           });
         case 403:
-          // Forbidden
           const channel = new BroadcastChannel("auth_channel");
-          channel.postMessage({
-            massage: "logout",
-            path: "/log-in",
-          });
-          await SessionExpire().catch((err) => {});
+          channel.postMessage({ massage: "logout", path: "/log-in" });
+          await SessionExpire().catch(() => {});
           return Promise.reject({
-            message: "session expierd",
+            message: "session expired",
             ...error.response.data,
             logout: true,
           });
         case 404:
-          // Not Found
           return Promise.reject({
             message: "Resource Not Found",
             ...error.response.data,
           });
         case 500:
-          // Internal Server Error
           return Promise.reject({
-            message: "someThing wrong",
+            message: "Something went wrong",
             ...error.response.data,
           });
         default:
-          // Other statuses
           return Promise.reject({
             message: "An Error Occurred",
             ...error.response.data,
           });
       }
     } else if (error.request) {
-      // The request was made but no response was received
+      const retriedResponse = await retryRequest(error);
+      if (retriedResponse) return retriedResponse;
+
+      const isOffline = typeof navigator !== "undefined" && !navigator.onLine;
+      if (isOffline) {
+        eventBus.emit("offline-mode", true);
+      } else {
+        eventBus.emit("server-down", true);
+      }
       return Promise.reject({
-        message: "No Response Received",
-        errorBoundary: true,
+        message: isOffline ? "You are offline" : "No Response Received",
+        errorBoundary: !isOffline,
+        offline: isOffline,
       });
     } else {
-      // Something happened in setting up the request
       return Promise.reject({
         message: "Request Error",
         details: error.message,
@@ -79,6 +94,7 @@ csrApi.interceptors.response.use(
     }
   }
 );
+
 /**
  * Makes an API request with server-side rendering (SSR) support, handling common use cases like timeouts, method selection, and error handling.
  *
@@ -133,7 +149,6 @@ export const ssrApi = async (url, options = {}) => {
   }
 };
 
-
 class AppError extends Error {
   constructor(e) {
     super(JSON?.stringify(e));
@@ -151,4 +166,3 @@ export function AsyncHandler(fn, { ssr = false, onError = "throw" } = {}) {
     });
   };
 }
-

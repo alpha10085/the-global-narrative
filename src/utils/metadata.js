@@ -1,4 +1,4 @@
-const MetadataHandler = ({
+const metadataHandler = ({
   title = "",
   description = "",
   poster,
@@ -58,7 +58,7 @@ const MetadataHandler = ({
   };
 };
 
-export const metadataHandler =
+const pageMetadataHandler =
   (fn, fnprops) =>
   async ({ params }) => {
     const { locale } = await params;
@@ -68,9 +68,12 @@ export const metadataHandler =
       metadata?.description ||
       `welcome to ${process.env.NEXT_PUBLIC_project_name}`;
 
-    return MetadataHandler({
+    return metadataHandler({
       keywords: ["SEO", ...(metadata?.keywords || [])],
       ...metadata,
     });
   };
-export default MetadataHandler;
+  export {
+    pageMetadataHandler,
+    metadataHandler
+  }
