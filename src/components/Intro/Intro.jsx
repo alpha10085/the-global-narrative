@@ -108,7 +108,7 @@ const Intro = () => {
           disableSkeleton
           ref={logoRef}
           className={styles.poster}
-          url="/main-logo-full-white.png"
+          url="/main-logo-f-white.png"
         />
     </div>
   );
