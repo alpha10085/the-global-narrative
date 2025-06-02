@@ -28,7 +28,7 @@
   display: none !important;
 }
 .logo {
-  height: 60px;
+  height: 70px;
   transform: translateY(20px);
   opacity: 0;
   animation: intro_logo 0.8s forwards;
