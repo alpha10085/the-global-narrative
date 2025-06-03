@@ -1,6 +1,6 @@
 import useDynamicState from "@/hooks/useDynamicState";
 import styles from "./AddNewPageControl.module.css";
-import OptionsControl from "../../components/OptionsControl/OptionsControl";
+import OptionsControl from "../../Components/OptionsControl/OptionsControl";
 import { useMemo } from "react";
 import ComponentName from "./ComponentName/ComponentName";
 import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
