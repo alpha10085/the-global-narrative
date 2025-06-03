@@ -3,11 +3,11 @@ import styles from "./Form.module.css";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { letsCollaborateVal } from "./schema";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import Aos from "@/Components/Shared/Animtions/Aos/Aos";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import InputText from "@/components/Shared/inputText/inputText";
+import InputText from "@/Components/Shared/inputText/inputText";
 
 const Form = () => {
   const [loading, setLoading] = useState(false);

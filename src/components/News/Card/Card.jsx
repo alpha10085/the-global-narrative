@@ -1,6 +1,6 @@
 import { formatDate } from "@/utils/date";
 import styles from "./Card.module.css";
-import Img from "@/components/Shared/img/Img";
+import Img from "@/Components/Shared/img/Img";
 import Link from "next/link";
 import { customText } from "@/utils/text";
 

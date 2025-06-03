@@ -1,7 +1,7 @@
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import SectionTitle from "@/Components/SectionTitle/SectionTitle";
 import styles from "./OurValues.module.css";
 import Card from "./Card/Card";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import Aos from "@/Components/Shared/Animtions/Aos/Aos";
 
 const OurValues = ({ data = {} }) => {
   return (

@@ -1,5 +1,5 @@
 "use client";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import Aos from "@/Components/Shared/Animtions/Aos/Aos";
 import SectionTitle from "../../SectionTitle/SectionTitle";
 import Card from "./Card/Card";
 import styles from "./Testimonials.module.css";

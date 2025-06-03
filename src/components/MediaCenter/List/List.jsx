@@ -9,8 +9,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import lodash from "lodash";
 import { scrollToElement } from "@/utils/document";
 import { getFakeMediaCenter } from "@/app/(routes)/media-center/data.test";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import Aos from "@/Components/Shared/Animtions/Aos/Aos";
+import SectionTitle from "@/Components/SectionTitle/SectionTitle";
 
 const List = ({ }) => {
 

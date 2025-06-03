@@ -1,4 +1,4 @@
-import AnimatedCheckbox from "@/components/Shared/AnimatedCheckbox/AnimatedCheckbox";
+import AnimatedCheckbox from "@/Components/Shared/AnimatedCheckbox/AnimatedCheckbox";
 import styles from "./OptionsControl.module.css";
 
 const OptionsControl = ({

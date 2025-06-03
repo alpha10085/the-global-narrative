@@ -1,5 +1,5 @@
 import styles from "./Marquee.module.css";
-import Img from "@/components/Shared/img/Img";
+import Img from "@/Components/Shared/img/Img";
 const MarqueeLogos = ({ data = [], single = true }) => {
   // Calculate how many logos are needed to make the total at least 16
   const logos = Array.isArray(data) ? data : [];

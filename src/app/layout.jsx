@@ -15,9 +15,9 @@ import interceptor from "@/utils/consoleProxy";
 import { isProductionMode } from "@/config/main";
 import { NextIntlClientProvider } from "next-intl";
 import { ValidateLocale } from "@/i18n/request";
-import SamsungPatch from "@/components/Shared/Pervent/Pervent";
+import SamsungPatch from "@/Components/Shared/Pervent/Pervent";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX/ErrorBoundryCTX";
-import DisableLogs from "@/components/Shared/DisableLogs/DisableLogs";
+import DisableLogs from "@/Components/Shared/DisableLogs/DisableLogs";
 
 // If loading a variable font, you don't need to specify the font weight
 const geist = Geist({

@@ -1,4 +1,4 @@
-import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
+import WordPullUpV2 from "@/Components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import styles from "./SectionTitle.module.css";
 
 const SectionTitle = ({ className = "", title }) => (

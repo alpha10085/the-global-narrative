@@ -1,7 +1,7 @@
 import styles from './MSViewer.module.css'
 
 
-import Img from '@/components/Shared/img/Img';
+import Img from '@/Components/Shared/img/Img';
 import { useMemo } from 'react';
 import { getFileExtension } from '@/_Dashboard/utils/fileUploadHelper';
 

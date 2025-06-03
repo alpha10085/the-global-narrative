@@ -1,10 +1,10 @@
 "use client";
 import styles from "./Hero.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Img from "@/components/Shared/img/Img";
+import Img from "@/Components/Shared/img/Img";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
+import WordPullUpV2 from "@/Components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import { useEffect, useRef, useState } from "react";
 import { Autoplay } from "swiper/modules";
 import eventBus from "@/utils/eventBus";

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import styles from "./page.module.css";
-import Registration from "@/components/Auth/Registration/Registration";
-import Link from "@/components/Shared/Link/Link";
+import Registration from "@/Components/Auth/Registration/Registration";
+import Link from "@/Components/Shared/Link/Link";
 import useTranslations from "@/hooks/useTranslations";
 const SignUp = ({}) => {
   const translations = useTranslations("pages", [

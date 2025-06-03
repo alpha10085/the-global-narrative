@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse';
 import styles from './TextDisplay.module.css'
 import axios from 'axios';
-import Spinner from '@/components/Shared/Spinner/Spinner';
+import Spinner from '@/Components/Shared/Spinner/Spinner';
 import { delay } from '@/utils/time';
 import Skeleton from '@/Components/Shared/Skeleton/Skeleton';
 import { useTheme } from "@/_Dashboard/context/ThemeCTX"

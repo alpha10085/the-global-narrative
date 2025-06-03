@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./popup.css";
 import { useNavigate } from "react-router-dom";
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
-import Link from "@/components/Shared/Link/Link";
+import Link from "@/Components/Shared/Link/Link";
 const Popup = ({ openpop, setopenpop, type }) => {
   const navigate = useNavigate();
 

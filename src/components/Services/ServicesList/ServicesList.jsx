@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 import styles from "./ServicesList.module.css";
-import FormatText from "@/components/Shared/FormatText/FormatText";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import FormatText from "@/Components/Shared/FormatText/FormatText";
+import Aos from "@/Components/Shared/Animtions/Aos/Aos";
+import SectionTitle from "@/Components/SectionTitle/SectionTitle";
 
 const ServicesList = ({ data = [] }) => {
   const [expanded, setExpanded] = useState({});

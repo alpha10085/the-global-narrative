@@ -9,8 +9,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import lodash from "lodash";
 import { scrollToElement } from "@/utils/document";
 import { getFakeNews } from "@/app/(routes)/news/data.test";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import Aos from "@/Components/Shared/Animtions/Aos/Aos";
+import SectionTitle from "@/Components/SectionTitle/SectionTitle";
 const List = ({ page = {}, categories = [] }) => {
   const { title = "" } = page;
   const { clearOne, clearQuery, multiple, searchParams, singleValue } =

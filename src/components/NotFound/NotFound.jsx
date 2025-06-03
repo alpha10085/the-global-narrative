@@ -1,7 +1,7 @@
 "use client"
-import Link from '@/components/Shared/Link/Link'
+import Link from '@/Components/Shared/Link/Link'
 import styles from './NotFound.module.css'
-import NavBar from '@/components/NavBar/NavBar'
+import NavBar from '@/Components/NavBar/NavBar'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 const NotFound = ({ }) => {
   return (

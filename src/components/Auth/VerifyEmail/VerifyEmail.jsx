@@ -5,7 +5,7 @@ import { ConfirmEmail } from "@/lib/auth";
 import styles from "./Verify.module.css";
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
-import Link from '@/components/Shared/Link/Link';
+import Link from '@/Components/Shared/Link/Link';
 
 const VerifyEmail = ({token = {}}) => {
   const [message, setMessage] = useState('');

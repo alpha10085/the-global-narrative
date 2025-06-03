@@ -5,7 +5,7 @@ import { joiResolver } from "@hookform/resolvers/joi";
 import { warningiVal } from "./schema";
 import TextArea from "../../Inputs/TextArea/TextArea";
 import BooleanInput from "../../Inputs/booleanInput/BooleanInput";
-import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
 import DateInput from "../../Inputs/DateInput/DateInput";
 
 const WarningForm = ({ theme }) => {

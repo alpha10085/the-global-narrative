@@ -33,7 +33,7 @@ const createNotFoundFile = Asynchandler(async (folderPath) => {
   await writeFile(
     notfoundPath,
     `"use client";
-import ErrorNotFound from "@/components/NotFound/NotFound";
+import ErrorNotFound from "@/Components/NotFound/NotFound";
 
 export default function NotFound() {
   return <ErrorNotFound />;
@@ -55,8 +55,8 @@ const createLoadingFile = Asynchandler(async (folderPath) => {
   await writeFile(
     loadingPath,
     `"use client";
-import Img from "@/components/Shared/img/Img";
-import LoadingLayout from "@/components/Shared/LoadingLayout/LoadingLayout";
+import Img from "@/Components/Shared/img/Img";
+import LoadingLayout from "@/Components/Shared/LoadingLayout/LoadingLayout";
 import React, { useEffect } from "react";
 import styles from "./page.module.css";
 const Loading = () => {
@@ -97,7 +97,7 @@ const createErrorFile = Asynchandler(async (folderPath) => {
   await writeFile(
     errorPath,
     `"use client";
-import ErrorPage from "@/components/Shared/ErrorPage/ErrorPage";
+import ErrorPage from "@/Components/Shared/ErrorPage/ErrorPage";
 const handler = (props) => <ErrorPage {...props} />;
 export default handler;
 `,
@@ -171,11 +171,11 @@ const CraetePageFile = Asynchandler(async (options, folderPath) => {
   importIf(styles, `import styles from "./styles.module.css";`);
   importIf(
     pageStrategy === "SSRWrapper",
-    `import SsrWrapper from "@/components/Shared/SsrWrapper/SsrWrapper";`
+    `import SsrWrapper from "@/Components/Shared/SsrWrapper/SsrWrapper";`
   );
   importIf(
     pageStrategy !== "SSRWrapper" && options.ssrFetcher,
-    `import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";`
+    `import SSRFetcher from "@/Components/Shared/SSRFetcher/SSRFetcher";`
   );
   importIf(metadata, `import { metadataHandler } from "@/utils/metadata";`);
   importIf(withApi, `import { getPage } from "@/lib/pages";`);

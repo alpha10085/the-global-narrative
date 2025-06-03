@@ -4,7 +4,7 @@ import style from "./TableLayOut.module.css";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import FilterSystem from "../../components/FilterSystem/FilterSystem";
 import AddIcon from "@mui/icons-material/Add";
-import Link from "@/components/Shared/Link/Link";
+import Link from "@/Components/Shared/Link/Link";
 import { useQueryParams } from "@/hooks/useQueryParams";
 import useInfinityQuery from "@/hooks/useInfinityQuery";
 import Table from "@/_Dashboard/components/boxs/Table/Table";

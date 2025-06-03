@@ -1,11 +1,11 @@
-import Img from "@/components/Shared/img/Img";
+import Img from "@/Components/Shared/img/Img";
 import SectionTitle from "../../SectionTitle/SectionTitle";
 import styles from "./GetInTouch.module.css";
-import Link from "@/components/Shared/Link/Link";
+import Link from "@/Components/Shared/Link/Link";
 import { ArrowForwardIosIcon, ArrowOutwardIcon } from "../icons";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import MainLink from "@/components/MainLink/MainLink";
-import WaveLines from "@/components/Shared/WaveLines/WaveLines";
+import Aos from "@/Components/Shared/Animtions/Aos/Aos";
+import MainLink from "@/Components/MainLink/MainLink";
+import WaveLines from "@/Components/Shared/WaveLines/WaveLines";
 
 const GetInTouch = ({ data = {} }) => {
   return (

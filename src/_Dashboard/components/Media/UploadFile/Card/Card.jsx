@@ -1,7 +1,7 @@
-import Img from "@/components/Shared/img/Img";
+import Img from "@/Components/Shared/img/Img";
 import React, { memo } from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Spinner from "@/components/Shared/Spinner/Spinner";
+import Spinner from "@/Components/Shared/Spinner/Spinner";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import ErrorIcon from "@mui/icons-material/Error";
 import styles from "./Card.module.css";

@@ -2,7 +2,7 @@
 
 import React from "react";
 import styles from "./not-found.module.css";
-import Link from "@/components/Shared/Link/Link";
+import Link from "@/Components/Shared/Link/Link";
 
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 const NotFound = () => {

@@ -1,4 +1,4 @@
-import Img from '@/components/Shared/img/Img'
+import Img from '@/Components/Shared/img/Img'
 import styles from './Poster.module.css'
 
 const Poster = ({url =''}) => {

@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { RegistrationVal } from "./schema";
 import toast from "react-hot-toast";
-import InputText from "@/components/Shared/inputText/inputText";
+import InputText from "@/Components/Shared/inputText/inputText";
 
-import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthProvider";
 import { useQueryParams } from "@/hooks/useQueryParams";

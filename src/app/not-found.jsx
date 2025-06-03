@@ -1,5 +1,5 @@
 "use client";
-import ErrorNotFound from "@/components/NotFound/NotFound";
+import ErrorNotFound from "@/Components/NotFound/NotFound";
 
 export default function NotFound() {
   return <ErrorNotFound />;

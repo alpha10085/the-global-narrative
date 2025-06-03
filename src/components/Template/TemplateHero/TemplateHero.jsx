@@ -1,8 +1,8 @@
-import Img from "@/components/Shared/img/Img";
+import Img from "@/Components/Shared/img/Img";
 import styles from "./TemplateHero.module.css";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import { ArrowOutwardIcon } from "@/components/Home/icons";
+import SectionTitle from "@/Components/SectionTitle/SectionTitle";
+import Aos from "@/Components/Shared/Animtions/Aos/Aos";
+import { ArrowOutwardIcon } from "@/Components/Home/icons";
 import ButtonScroll from "./Client";
 const TemplateHero = ({ title, description, poster }) => {
   return (

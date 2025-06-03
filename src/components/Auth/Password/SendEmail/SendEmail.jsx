@@ -9,10 +9,10 @@ import { sendEmailVal } from "./schema";
 import MailLockIcon from "@mui/icons-material/MailLock";
 import { useState } from "react";
 import styles from "./SendEmail.module.css"; // Assuming you're using CSS Modules
-import ErrorMessage from "@/components/Shared/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/Components/Shared/ErrorMessage/ErrorMessage";
 import { sendEmailFogetPassword } from "@/lib/auth";
-import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
-import InputText from "@/components/Shared/inputText/inputText";
+import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
+import InputText from "@/Components/Shared/inputText/inputText";
 
 const SendEmail = ({ swiperRef, setEmail }) => {
   const [btnSubmit, setBtnSubmit] = useState(true);

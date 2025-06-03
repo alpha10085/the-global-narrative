@@ -1,9 +1,9 @@
 import styles from "./styles.module.css";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import Aos from "@/Components/Shared/Animtions/Aos/Aos";
 import { getPage } from "@/lib/pages";
 
-import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
-import Form from "@/components/LetsCollaborate/Form/Form";
+import WordPullUpV2 from "@/Components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
+import Form from "@/Components/LetsCollaborate/Form/Form";
 
 const page = async () => {
   const {

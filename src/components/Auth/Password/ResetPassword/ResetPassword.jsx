@@ -8,13 +8,13 @@ import toast from "react-hot-toast";
 import { ResetPasswordVal } from "./schema";
 import LockPersonIcon from "@mui/icons-material/LockPerson";
 import { useState } from "react";
-import ErrorMessage from "@/components/Shared/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/Components/Shared/ErrorMessage/ErrorMessage";
 import styles from "./ResetPassword.module.css";
 import OtpInputField from "./components/OtpInputField/OtpInput";
 import { resetPassword } from "@/lib/auth";
 import { useRouter } from "next/navigation";
-import InputText from "@/components/Shared/inputText/inputText";
-import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
+import InputText from "@/Components/Shared/inputText/inputText";
+import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
 
 const ResetPassword = ({ email }) => {
   const [loading, setloading] = useState(false);

@@ -3,9 +3,9 @@ import styles from "./FormPassword.module.css";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import toast from "react-hot-toast";
-import InputText from "@/components/Shared/inputText/inputText";
+import InputText from "@/Components/Shared/inputText/inputText";
 
-import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
 import { useState } from "react";
 import { UpdatePasswordVal, UpdateProfileVal } from "../schema";
 import { updatePassword } from "@/lib/auth";

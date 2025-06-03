@@ -1,4 +1,4 @@
-import YouTubeEmbed from "@/components/Shared/YoutubeEmded/YoutubeEmded";
+import YouTubeEmbed from "@/Components/Shared/YoutubeEmded/YoutubeEmded";
 import styles from "./Card.module.css";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import { useEffect, useState } from "react";
