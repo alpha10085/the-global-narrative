@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import SectionLabel from "../Components/SectionLabel/SectionLabel";
 import ListSwitcher from "../Components/ListSwitcher/ListSwitcher";
-import MainSwitch from "../components/MainSwitch/MainSwitch";
+import MainSwitch from "../Components/MainSwitch/MainSwitch";
 import Loading from "../Loading/Loading";
 
 const options = [

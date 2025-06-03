@@ -6,7 +6,7 @@ import ComponentName from "./ComponentName/ComponentName";
 import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
 import { createPage } from "@/lib/tools";
 import PageStrategy from "./PageStrategy/PageStrategy";
-import Input from "../../components/Input/Input";
+import Input from "../../Components/Input/Input";
 import { validatePageName } from "../helpers";
 
 const options = [

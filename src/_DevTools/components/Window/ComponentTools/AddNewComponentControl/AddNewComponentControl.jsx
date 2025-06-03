@@ -1,6 +1,6 @@
 import useDynamicState from "@/hooks/useDynamicState";
 import styles from "./AddNewComponentControl.module.css";
-import Input from "../../components/Input/Input";
+import Input from "../../Components/Input/Input";
 import { useMemo } from "react";
 import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
 

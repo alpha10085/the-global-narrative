@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import SectionLabel from "../Components/SectionLabel/SectionLabel";
 import ListSwitcher from "../Components/ListSwitcher/ListSwitcher";
-import MainSwitch from "../components/MainSwitch/MainSwitch";
+import MainSwitch from "../Components/MainSwitch/MainSwitch";
 import KeysControls from "../components/KeysControls/KeysControls";
 import useAsyncQuery from "@/hooks/useAsyncQuery";
 import { getSettings, updateNextConfig } from "@/lib/tools";
