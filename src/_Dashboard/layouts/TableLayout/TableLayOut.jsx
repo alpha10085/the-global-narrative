@@ -2,7 +2,7 @@
 import React, { memo, useEffect, useMemo, useState } from "react";
 import style from "./TableLayOut.module.css";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import FilterSystem from "../../Components/FilterSystem/FilterSystem";
+import FilterSystem from "../../components/FilterSystem/FilterSystem";
 import AddIcon from "@mui/icons-material/Add";
 import Link from "@/Components/Shared/Link/Link";
 import { useQueryParams } from "@/hooks/useQueryParams";

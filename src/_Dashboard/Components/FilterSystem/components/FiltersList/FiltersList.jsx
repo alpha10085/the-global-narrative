@@ -5,7 +5,6 @@ import styles from "./FiltersList.module.css";
 const FiltersList = ({
   convertedObject,
   handleSbmit,
-  filtersCondtions,
   theme,
   translations = {},
 }) => {

@@ -1,9 +1,9 @@
-import OptionsControl from "../Components/OptionsControl/OptionsControl";
+import OptionsControl from "../components/OptionsControl/OptionsControl";
 import styles from "./styles.module.css";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import SectionLabel from "../Components/SectionLabel/SectionLabel";
-import ListSwitcher from "../Components/ListSwitcher/ListSwitcher";
-import MainSwitch from "../Components/MainSwitch/MainSwitch";
+import SectionLabel from "../components/SectionLabel/SectionLabel";
+import ListSwitcher from "../components/ListSwitcher/ListSwitcher";
+import MainSwitch from "../components/MainSwitch/MainSwitch";
 import Loading from "../Loading/Loading";
 
 const options = [

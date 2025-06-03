@@ -3,7 +3,7 @@ import React, { useState, useMemo, useCallback, memo } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Navigation, Pagination } from "swiper/modules";
 import styles from "./Slider.module.css";
-import Card from "./Components/card/Card";
+import Card from "./components/card/Card";
 import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
 import { isEqual } from "lodash";

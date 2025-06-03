@@ -6,9 +6,9 @@ import { useQueryParams } from "@/hooks/useQueryParams";
 
 import DropDown from "@/_Dashboard/Components/Dropdown/Dropdown";
 import BooleanInput from "@/_Dashboard/Components/Inputs/booleanInput/BooleanInput";
-import TextInputs from "./Components/TextInputs/TextInputs";
+import TextInputs from "./components/TextInputs/TextInputs";
 import SearchInput from "../Inputs/searchInput/searchInput";
-import FiltersList from "./Components/FiltersList/FiltersList";
+import FiltersList from "./components/FiltersList/FiltersList";
 import { useClickOut } from "@/hooks/useClickout";
 import {
   

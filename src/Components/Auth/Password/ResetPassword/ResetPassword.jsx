@@ -10,7 +10,7 @@ import LockPersonIcon from "@mui/icons-material/LockPerson";
 import { useState } from "react";
 import ErrorMessage from "@/Components/Shared/ErrorMessage/ErrorMessage";
 import styles from "./ResetPassword.module.css";
-import OtpInputField from "./Components/OtpInputField/OtpInput";
+import OtpInputField from "./components/OtpInputField/OtpInput";
 import { resetPassword } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 import InputText from "@/Components/Shared/inputText/inputText";

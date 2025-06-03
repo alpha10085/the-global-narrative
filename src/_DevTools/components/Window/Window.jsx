@@ -8,7 +8,7 @@ import {
   ServerIcon,
   SettingIcon,
 } from "./Icons";
-import Item from "./Components/Item/Item";
+import Item from "./components/Item/Item";
 import PageTools from "./PageTools/PageTools";
 import ComponentTools from "./ComponentTools/ComponentTools";
 import ServerActions from "./ServerActions/ServerActions";

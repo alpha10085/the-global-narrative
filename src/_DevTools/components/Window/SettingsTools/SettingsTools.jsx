@@ -1,11 +1,11 @@
 import useDynamicState from "@/hooks/useDynamicState";
-import OptionsControl from "../Components/OptionsControl/OptionsControl";
+import OptionsControl from "../components/OptionsControl/OptionsControl";
 import styles from "./styles.module.css";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import SectionLabel from "../Components/SectionLabel/SectionLabel";
-import ListSwitcher from "../Components/ListSwitcher/ListSwitcher";
-import MainSwitch from "../Components/MainSwitch/MainSwitch";
-import KeysControls from "../Components/KeysControls/KeysControls";
+import SectionLabel from "../components/SectionLabel/SectionLabel";
+import ListSwitcher from "../components/ListSwitcher/ListSwitcher";
+import MainSwitch from "../components/MainSwitch/MainSwitch";
+import KeysControls from "../components/KeysControls/KeysControls";
 import useAsyncQuery from "@/hooks/useAsyncQuery";
 import { getSettings, updateNextConfig } from "@/lib/tools";
 import { useEffect } from "react";
@@ -13,7 +13,7 @@ import { isValidDomainFormat, validatePageName } from "./helpers";
 import { validateComponentName } from "../ComponentTools/AddNewComponentControl/helpers";
 import { isEqual } from "lodash";
 import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
-import ListControl from "../Components/ListControl/ListControl";
+import ListControl from "../components/ListControl/ListControl";
 import Loading from "../Loading/Loading";
 const SettingsTools = () => {
   const default_storageData = {

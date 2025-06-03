@@ -2,7 +2,6 @@ import { getRootpath } from "@/utils/fs";
 import fs from "fs";
 import path from "path";
 import config from "@/i18n/config";
-import { createComponent } from "../Components/services";
 import { Asynchandler } from "../helpers";
 import {
   checkisExists,
@@ -11,6 +10,7 @@ import {
   writeFile,
 } from "@/utils/fs";
 import { systemLogger } from "@/utils/consoleProxy";
+import { createComponent } from "../components/services";
 
 const createStylesFile = Asynchandler(async (folderPath) => {
   const stylesPath = path.join(folderPath, "styles.module.css");

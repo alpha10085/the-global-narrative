@@ -1,6 +1,6 @@
 import AddNewComponentControl from "./AddNewComponentControl/AddNewComponentControl";
-import FoldersTreeControl from "../Components/FoldersTreeControl/FoldersTreeControl";
-import { allIconsTypes } from "../Components/icons";
+import FoldersTreeControl from "../components/FoldersTreeControl/FoldersTreeControl";
+import { allIconsTypes } from "../components/icons";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import Loading from "../Loading/Loading";
 const FolderIcon = allIconsTypes.folder.component;
