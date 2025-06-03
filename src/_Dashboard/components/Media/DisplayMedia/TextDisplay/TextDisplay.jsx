@@ -5,7 +5,7 @@ import styles from './TextDisplay.module.css'
 import axios from 'axios';
 import Spinner from '@/components/Shared/Spinner/Spinner';
 import { delay } from '@/utils/time';
-import Skeleton from '@/components/Shared/Skeleton/skeleton';
+import Skeleton from '@/components/Shared/Skeleton/Skeleton';
 import { useTheme } from "@/_Dashboard/context/ThemeCTX"
 function FileDisplay({ url = '', }) {
     const [fileContent, setFileContent] = useState('');

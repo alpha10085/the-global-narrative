@@ -1,4 +1,4 @@
-import Skeleton from "@/components/Shared/Skeleton/skeleton";
+import Skeleton from "@/components/Shared/Skeleton/Skeleton";
 import styles from "./Loader.module.css";
 
 const Loader = ({ theme = {}, active = false }) => {

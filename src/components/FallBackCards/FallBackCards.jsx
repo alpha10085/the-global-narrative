@@ -1,6 +1,6 @@
 import styles from "./FallBackCards.module.css";
 
-import Skeleton from "@/components/Shared/Skeleton/skeleton";
+import Skeleton from "@/components/Shared/Skeleton/Skeleton";
 
 const FallBackCards = ({ length=6 }) => {
   return (

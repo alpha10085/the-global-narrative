@@ -10,7 +10,7 @@ import useInfinityQuery from "@/hooks/useInfinityQuery";
 import Table from "@/_Dashboard/components/boxs/Table/Table";
 import { isEqual } from "lodash";
 import { notFound } from "next/navigation";
-import Skeleton from "@/components/Shared/Skeleton/skeleton";
+import Skeleton from "@/components/Shared/Skeleton/Skeleton";
 import { tableAPI } from "@/_Dashboard/lib/dashboard";
 import { getLabelsByKeys } from "@/_Dashboard/components/boxs/Table/helpers";
 import useTranslationsDashboard from "@/_Dashboard/hooks/useTranslationsDashboard";

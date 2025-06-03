@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./YouTubeEmbed.module.css";
-import Skeleton from "../Skeleton/skeleton";
+import Skeleton from "../Skeleton/Skeleton";
 import { getSearchParam } from "@/utils/query";
 import Img from "../img/Img";
 import { customText } from "@/utils/text";

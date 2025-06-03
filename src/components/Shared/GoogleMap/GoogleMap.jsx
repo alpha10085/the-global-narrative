@@ -1,5 +1,5 @@
 "use client";
-import Skeleton from "@/components/Shared/Skeleton/skeleton";
+import Skeleton from "@/components/Shared/Skeleton/Skeleton";
 import styles from "./GoogleMap.module.css";
 import { useMemo, useState } from "react";
 import { useInView } from "react-intersection-observer";

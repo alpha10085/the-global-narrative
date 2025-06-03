@@ -22,7 +22,7 @@ const nextConfig = {
     ],
   },
   reactStrictMode: false,
- allowedDevOrigins: ['http://127.0.0.1:3000', 'http://localhost:3000'],
+  allowedDevOrigins: ["http://127.0.0.1:3000", "http://localhost:3000"],
 
   experimental: {
     viewTransition: true,

@@ -1,7 +1,7 @@
 "use client";
 import React, { useRef, useState, useEffect } from "react";
 import styles from "./styles.module.css";
-import Skeleton from "../Skeleton/skeleton";
+import Skeleton from "../Skeleton/Skeleton";
 import Img from "../img/Img";
 import { delay } from "@/utils/time";
 

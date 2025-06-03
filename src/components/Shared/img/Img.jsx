@@ -1,5 +1,5 @@
 "use client";
-import Skeleton from "@/components/shared/Skeleton/skeleton";
+import Skeleton from "@/components/Shared/Skeleton/Skeleton";
 import "./Img.css";
 import { useEffect, useState, useCallback, forwardRef } from "react";
 import Image from "next/image";
