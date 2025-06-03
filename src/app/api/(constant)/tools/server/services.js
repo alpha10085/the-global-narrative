@@ -1,4 +1,4 @@
-import { readFile } from "@/_Backend/utils/fs";
+import { readFile } from "@/utils/fs";
 import { getRootpath } from "@/scripts/helpers";
 import fs from "fs";
 import path from "path";

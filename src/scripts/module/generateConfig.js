@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import pluralize from "pluralize";
 import { getRootpath } from "../helpers.js";
+import { systemLogger } from "@/utils/consoleProxy.js";
 const { rootSrcPath } = getRootpath;
 export const generateConfig = ({ name, type }) => {
   try {
@@ -32,7 +33,7 @@ export const ${name}Config = {
 };
 `
     );
-    console.log(`Created module config: ${name}`);
+    systemLogger(`Created module config: ${name}`);
   } catch (error) {
     console.error("Error creating configuration file:", error);
   }

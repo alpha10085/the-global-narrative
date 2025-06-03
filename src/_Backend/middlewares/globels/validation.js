@@ -1,13 +1,14 @@
 import { allModelsConfig } from "@/_Backend/modules/config";
 import { AppError } from "@/_Backend/utils/AppError";
+import { systemLogger } from "@/utils/consoleProxy";
 import i18next from "i18next";
 
 /**
  * Utility function to handle validation errors
  */
 const handleValidationError = (error) => {
-  console.log(error.details);
-  
+  systemLogger(error.details);
+
   const details = error.details.reduce((prev, curr, i) => {
     const key = curr?.path?.join(".");
     prev[key] = curr?.message?.replace(`"${key}" `, "");

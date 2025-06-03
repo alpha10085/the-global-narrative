@@ -1,4 +1,5 @@
 import { getRootpath } from "@/scripts/helpers";
+import { systemLogger } from "@/utils/consoleProxy";
 import fs from "fs";
 import path from "path";
 
@@ -62,7 +63,7 @@ export default ${name};
 
     return true;
   } catch (error) {
-    console.log("🚀 ~ createComponent ~ error:", error);
+    systemLogger("🚀 ~ createComponent ~ error:", error);
     return false;
   }
 };

@@ -25,6 +25,7 @@ import toast from "react-hot-toast";
 import useTranslations from "@/hooks/useTranslations";
 import { useQueryParams } from "@/hooks/useQueryParams";
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";
+import { systemLogger } from "@/utils/consoleProxy";
 
 const useHelpers = ({
   mode = "update", // Mode of the form (e.g., "create", "update")
@@ -88,8 +89,8 @@ const useHelpers = ({
   });
 
 
-  console.log("Eorooorr", errors);
-  console.log("valuess",getValues);
+  systemLogger("errors", errors);
+  systemLogger("valuess",getValues);
   
   
 
@@ -149,7 +150,7 @@ const useHelpers = ({
       }
       // Invalidate queries for the current ID
     } catch (error) {
-      console.log("Error invalidating queries:", error);
+      systemLogger("Error invalidating queries:", error);
     }
   };
   const { removalFields = {}, translationKeys = {} } =
@@ -311,10 +312,10 @@ const useHelpers = ({
     removeTranslation,
     getValues: getValues_form,
   };
-  // console.log("From-current-Data", currentData);
+  // systemLogger("From-current-Data", currentData);
   if (process.env.NEXT_PUBLIC_MODE === "dev") {
-    console.log(`❌ Form-errors`, errors);
-    console.log("From-getValues", getValues);
+    systemLogger(`❌ Form-errors`, errors);
+    systemLogger("From-getValues", getValues);
   }
 
   return {

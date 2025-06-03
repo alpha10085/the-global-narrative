@@ -4,6 +4,7 @@ import UserModel from "./models/constant/user.model";
 import { SingleTypeModel } from "./models/constant/singleType";
 import fileModel from "./models/constant/file.model";
 import { errorLogModel } from "./models/constant/errorLog.model";
+import { systemLogger } from "@/utils/consoleProxy";
 // collections
 
 // pages
@@ -34,7 +35,7 @@ const connectDB = async () => {
 
   try {
     cached.conn = await cached.promise;
-    console.log("Database connected");
+    systemLogger("Database connected");
     return cached.conn;
   } catch (error) {
     console.error("Database connection failed", error.message);

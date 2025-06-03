@@ -1,6 +1,6 @@
 import path from "path";
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
-import { listFolders } from "@/_Backend/utils/fs";
+import { listFolders } from "@/utils/fs";
 import { getRootpath } from "@/scripts/helpers";
 import { toolsMiddleware } from "@/_Backend/middlewares/tools/tools";
 import config from "@/i18n/config";

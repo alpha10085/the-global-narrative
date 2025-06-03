@@ -56,7 +56,7 @@ const AddNewPageControl = ({
     name: "",
     error: false,
     loading: false,
-    pageStrategy: null,
+    pageStrategy: "defualt",
   });
 
   const { name, error, loading, pageStrategy = null } = state;

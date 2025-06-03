@@ -15,6 +15,7 @@ import Slider from "../Inputs/Slider/Slider";
 import { getNestedValue } from "@/_Dashboard/utils/JoiHandlers";
 import TranslateField from "../Inputs/TranslateField/TranslateField";
 import dynamicZone_config from "@/_Dashboard/configuration/dynamicZone/config";
+import { systemLogger } from "@/utils/consoleProxy";
 
 const FieldManager = ({ field = {}, formProps = {} }) => {
   const {
@@ -32,7 +33,7 @@ const FieldManager = ({ field = {}, formProps = {} }) => {
   if (field.type === "dynamicZone") {
     let getField = dynamicZone_config?.[field.key];
     if (!getField) {
-      console.log(
+      systemLogger(
         `❌ No configuration found for dynamic zone field: ${field.key}`
       );
       return null;

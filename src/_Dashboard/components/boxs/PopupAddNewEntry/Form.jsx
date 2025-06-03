@@ -15,6 +15,7 @@ import { scrollToErrorElemntry, scrollToSection, useFetch } from "./helpers";
 import ErrorLayOut from "../../ErrorLayOut/ErrorLayOut";
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";
 import useDynamicState from "@/hooks/useDynamicState";
+import { systemLogger } from "@/utils/consoleProxy";
 const Form = ({
   validation,
   locale,
@@ -157,7 +158,7 @@ const Form = ({
       console.error("error", error);
     }
   };
-  console.log(errors);
+ systemLogger(errors);
   
 
   if (error) return <ErrorLayOut callBack={refetch} />;

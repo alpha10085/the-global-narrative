@@ -87,7 +87,6 @@ const Window = ({ onClose = () => {}, show }) => {
   };
 
   const activeScale = hasTrueValue(state);
-  console.log("🚀 ~ Window ~ activeScale:", activeScale , "state : " , state )
 
   const onFoucs = (value, val) => {
     

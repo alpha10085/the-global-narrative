@@ -2,15 +2,15 @@ import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 
 import { toolsMiddleware } from "@/_Backend/middlewares/tools/tools";
 import { createPage } from "./services";
+import { systemLogger } from "@/utils/consoleProxy";
 
 export const POST = AsyncHandler(
   async (req, res, next) => {
     const pathToFile = req?.body?.path || [];
     req.body.pathToFile = ["(routes)", ...pathToFile];
-    console.log(req.body);
     
     const result = await createPage(req.body, next).catch((error) =>
-      console.log(
+      systemLogger(
         "Error while creating page folder:",
         req?.body?.name,
         "details: ",

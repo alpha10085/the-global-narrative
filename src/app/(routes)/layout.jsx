@@ -11,16 +11,18 @@ export default async function RootLayout({ children }) {
     <main
       style={{
         fontFamily: "var(--font-inter)",
+        background:"black",
+        minHeight:"100vh"
       }}
       className="ShowSmoothEffectShortDelay"
     >
-      <SmoothScroll duration={1} />
+      {/* <SmoothScroll duration={1} />
       <NavBar />
       <DynamicCursor />
       <div style={{ minHeight: "100vh" }}>{children}</div>
       <Toaster />
       <DashPopup />
-      <Footer />
+      <Footer /> */}
     </main>
   );
 }

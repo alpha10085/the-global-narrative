@@ -1,3 +1,4 @@
+import { systemLogger } from "@/utils/consoleProxy";
 import fs from "fs";
 import path from "path";
 import pluralize from "pluralize";
@@ -128,7 +129,7 @@ export const ${schemaName}Val = (locale = "en", relation = false) => Joi.object(
     const fileName = `${schemaName}.validation.js`;
     const outputPath = path.join(destinationPath, fileName);
     fs.writeFileSync(outputPath, result);
-    console.log(`✅ Validation ${schemaName} created successfully!`);
+    systemLogger(`✅ Validation ${schemaName} created successfully!`);
     return fileName;
   } catch (error) {
     console.error(

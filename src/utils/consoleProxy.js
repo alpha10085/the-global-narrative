@@ -5,8 +5,9 @@ import { isEqual } from "lodash";
 export class ConsoleInterceptor {
   constructor() {
     this.logStore = [];
+    const { log: logger } = console;
     this.original = {
-      log: console.log,
+      log: logger,
       warn: console.warn,
       error: console.error,
     };
@@ -85,7 +86,8 @@ export class ConsoleInterceptor {
     };
 
     console.log = (...args) => {
-      this.original.log(...args);
+      const { log: logFn } = this.original;
+      logFn(...args);
       addMessage("log", args);
     };
     console.warn = (...args) => {
@@ -108,4 +110,10 @@ export class ConsoleInterceptor {
 
 // ✅ Singleton export for shared use
 const interceptor = new ConsoleInterceptor();
+
+export const systemLogger = (...args) => {
+  const { log: logger } = console;
+  return logger(...args);
+};
+
 export default interceptor;

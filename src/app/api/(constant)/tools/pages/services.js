@@ -4,15 +4,25 @@ import path from "path";
 import config from "@/i18n/config";
 import { createComponent } from "../components/services";
 import { Asynchandler } from "../helpers";
+import {
+  checkisExists,
+  createFolder,
+  importFile,
+  writeFile,
+} from "@/utils/fs";
+import { systemLogger } from "@/utils/consoleProxy";
 
 const createStylesFile = Asynchandler(async (folderPath) => {
   const stylesPath = path.join(folderPath, "styles.module.css");
-
-  fs.writeFileSync(
+  await writeFile(
     stylesPath,
     `.main {
     
-}`
+}`,
+    {
+      autoFormate: true,
+      overwrite: true,
+    }
   );
 
   return true;
@@ -20,7 +30,7 @@ const createStylesFile = Asynchandler(async (folderPath) => {
 const createNotFoundFile = Asynchandler(async (folderPath) => {
   const notfoundPath = path.join(folderPath, "not-found.jsx");
 
-  fs.writeFileSync(
+  await writeFile(
     notfoundPath,
     `"use client";
 import ErrorNotFound from "@/components/NotFound/NotFound";
@@ -28,7 +38,11 @@ import ErrorNotFound from "@/components/NotFound/NotFound";
 export default function NotFound() {
   return <ErrorNotFound />;
 }
-`
+`,
+    {
+      autoFormate: true,
+      overwrite: true,
+    }
   );
 
   return true;
@@ -36,7 +50,9 @@ export default function NotFound() {
 const createLoadingFile = Asynchandler(async (folderPath) => {
   const loadingPath = path.join(folderPath, "loading.jsx");
 
-  fs.writeFileSync(
+  fs.writeFileSync(loadingPath);
+
+  await writeFile(
     loadingPath,
     `"use client";
 import Img from "@/components/Shared/img/Img";
@@ -66,7 +82,11 @@ const Loading = () => {
 };
 
 export default Loading;
-`
+`,
+    {
+      autoFormate: true,
+      overwrite: true,
+    }
   );
 
   return true;
@@ -74,13 +94,17 @@ export default Loading;
 const createErrorFile = Asynchandler(async (folderPath) => {
   const errorPath = path.join(folderPath, "error.jsx");
 
-  fs.writeFileSync(
+  await writeFile(
     errorPath,
     `"use client";
 import ErrorPage from "@/components/Shared/ErrorPage/ErrorPage";
 const handler = (props) => <ErrorPage {...props} />;
 export default handler;
-`
+`,
+    {
+      autoFormate: true,
+      overwrite: true,
+    }
   );
   return true;
 });
@@ -135,35 +159,33 @@ const CraetePageFile = Asynchandler(async (options, folderPath) => {
   };
 
   const selectedPageType = pageType?.[pageStrategy] || pageType.default;
-  const pageContent = `
-${styles ? `import styles from "./styles.module.css";` : ""}
-${
-  pageStrategy !== "default"
-    ? `import SsrWrapper from "@/components/Shared/SsrWrapper/SsrWrapper";\n`
-    : ""
-}
-${
-  pageStrategy === "default" && options.ssrFetcher
-    ? `import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";\n`
-    : ""
-}
-${metadata ? `import { metadataHandler } from "@/utils/metadata";\n` : ""}
-${withApi ? `import { getPage } from "@/lib/pages";\n` : ""}
-${
-  metadata
-    ? `export const generateMetadata = metadataHandler(${
-        withApi ? `getPage` : `() => {}`
-      }, \`${name}\`);`
-    : ""
-}
-${selectedPageType}
-`
-    .split("\n")
-    .map((line) => line.trimEnd()) // optional: remove trailing spaces
-    .filter((line) => line.trim() !== "") // remove empty lines
-    .join("\n");
-  // Write the page file
-  fs.writeFileSync(pagePath, pageContent);
+
+  const lines = [];
+
+  // Conditional imports
+  const importIf = (condition, line) => {
+    if (condition) lines.push(line);
+  };
+
+  // Add imports
+  importIf(styles, `import styles from "./styles.module.css";`);
+  importIf(
+    pageStrategy === "SSRWrapper",
+    `import SsrWrapper from "@/components/Shared/SsrWrapper/SsrWrapper";`
+  );
+  importIf(
+    pageStrategy !== "SSRWrapper" && options.ssrFetcher,
+    `import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";`
+  );
+  importIf(metadata, `import { metadataHandler } from "@/utils/metadata";`);
+  importIf(withApi, `import { getPage } from "@/lib/pages";`);
+
+  const pageContent = importFile(selectedPageType, lines);
+
+  await writeFile(pagePath, pageContent, {
+    autoFormate: true,
+    overwrite: true,
+  });
   return true;
 });
 
@@ -184,17 +206,18 @@ export const createPage = async (options, onError = () => {}) => {
       ...pathToFile,
       name
     );
-    console.log(pagePath);
 
     if (
-      fs.existsSync(path.join(pagePath, "page.jsx")) ||
-      fs.existsSync(path.join(pagePath, "page.js"))
+      checkisExists(
+        path.join(pagePath, "page.jsx"),
+        path.join(pagePath, "page.js")
+      )
     )
       return onError({
         message: `❌ ${name} folder already exists!`,
       });
     // create the page directory
-    fs.mkdirSync(pagePath, { recursive: true });
+    createFolder(pagePath);
 
     // create page file
     const result_page = await CraetePageFile(options, pagePath);
@@ -233,7 +256,7 @@ export const createPage = async (options, onError = () => {}) => {
     result.error = null;
     result.success = true;
   } catch (error) {
-    console.log("🚀 ~ createPage ~ error:", error);
+    systemLogger("🚀 ~ createPage ~ error:", error);
     result.error = error;
     result.success = false;
   }

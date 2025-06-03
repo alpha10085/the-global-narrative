@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import { getRootpath } from "../helpers.js";
+import { systemLogger } from "@/utils/consoleProxy.js";
 const { rootSrcPath } = getRootpath;
 const updateSchemsFile = ({ name, type }) => {
   const filePath = path.join(
@@ -40,7 +41,7 @@ const updateSchemsFile = ({ name, type }) => {
 
   // Write the updated content back to the file
   fs.writeFileSync(filePath, content, "utf-8");
-  console.log("schemas.js updated successfully!");
+  systemLogger("schemas.js updated successfully!");
 };
 
 export default updateSchemsFile;

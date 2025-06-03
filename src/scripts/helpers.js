@@ -1,3 +1,4 @@
+import { systemLogger } from "@/utils/consoleProxy";
 import { spawn } from "child_process";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -13,7 +14,7 @@ export const getRootpath = {
   rootSrcPath,
 };
 export const reStartServer = () => {
-  console.log("🚀 Restarting server with npm run dev...");
+  systemLogger("🚀 Restarting server with npm run dev...");
   const serverProcess = spawn("npm", ["run", "dev"], {
     stdio: "inherit", // Show logs in terminal
     shell: true, // Ensures cross-platform compatibility
@@ -21,7 +22,7 @@ export const reStartServer = () => {
   });
 
   serverProcess.on("exit", (code) => {
-    console.log(`🔄 Server process exited with code ${code}`);
+    systemLogger(`🔄 Server process exited with code ${code}`);
   });
 };
 

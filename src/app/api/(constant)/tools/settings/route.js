@@ -1,11 +1,12 @@
 import httpStatus from "@/_Backend/assets/messages/httpStatus";
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import { toolsMiddleware } from "@/_Backend/middlewares/tools/tools";
-import { readFile, appendFile } from "@/_Backend/utils/fs";
+import { readFile } from "@/utils/fs";
 import { getRootpath } from "@/scripts/helpers";
 import path from "path";
 import fs from "fs";
 import { getEnvFile, updateEnvFile } from "../server/services";
+import { systemLogger } from "@/utils/consoleProxy";
 // Function to convert JavaScript-like syntax to JSON-compliant syntax
 const nextConfigPath = path.join(getRootpath.rootPath, "next.config.mjs");
 function parseNextConfig(inputString) {
@@ -110,7 +111,7 @@ export const PUT = AsyncHandler(
       nextObject.experimental.scrollRestoration = nextConfig?.scrollRestoration;
     }
     const result = await updateNextConfig(file, nextObject).catch((error) => {
-      console.log(error);
+      systemLogger("error while update NextConfig file:",error);
     });
 
     res({

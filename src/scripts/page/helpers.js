@@ -1,3 +1,4 @@
+import { systemLogger } from "@/utils/consoleProxy";
 import fs from "fs";
 import path from "path";
 
@@ -62,14 +63,14 @@ const generatePage = ({
 }) => {
   try {
     const paths = formatInput(name);
-    if (!paths.length) return console.log("❌ Name is required!");
+    if (!paths.length) return systemLogger("❌ Name is required!");
 
     // Define paths for the new page and components
     const folderPath = path.posix.join(rootPath, "app", "[locale]", "(routes)", ...paths);
     const componentPath = path.posix.join(rootPath, "components");
 
     // Check if the folder already exists
-    if (fs.existsSync(folderPath)) return console.log(`❌ ${name} folder already exists!`);
+    if (fs.existsSync(folderPath)) return systemLogger(`❌ ${name} folder already exists!`);
 
     // Create the page directory
     fs.mkdirSync(folderPath, { recursive: true });
@@ -120,7 +121,7 @@ export default Page;
         if (!fs.existsSync(componentsPath)) {
           fs.mkdirSync(componentsPath, { recursive: true });
         } else {
-          console.log(`❌ components/${formattedName} folder already exists!`);
+          systemLogger(`❌ components/${formattedName} folder already exists!`);
         }
       }
     }

@@ -34,7 +34,7 @@ const ConsolePopup = ({ logStore, onMouned }) => {
   const startSize = useRef({ width: 425, height: 900, x: 0, y: 0 });
 
   useLayoutEffect(() => {
-    const originalLog = console.log;
+    const originalLogger = console.log;
     const originalWarn = console.warn;
     const originalError = console.error;
 
@@ -132,7 +132,7 @@ const ConsolePopup = ({ logStore, onMouned }) => {
     };
 
     console.log = (...args) => {
-      originalLog(...args);
+      originalLogger(...args);
       addMessage("log", deepClone(args));
     };
     console.warn = (...args) => {
@@ -156,7 +156,7 @@ const ConsolePopup = ({ logStore, onMouned }) => {
       updateState({ logs: logsRef.current });
     });
     return () => {
-      console.log = originalLog;
+      console.log = originalLogger;
       console.warn = originalWarn;
       console.error = originalError;
     };

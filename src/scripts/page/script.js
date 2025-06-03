@@ -1,6 +1,7 @@
 import readline from "readline/promises";
 import generatePage from "./helpers.js";
 import { getRootpath, reStartServer } from "../helpers.js";
+import { systemLogger } from "@/utils/consoleProxy.js";
 
 const { rootSrcPath } = getRootpath;
 // Setup readline interface
@@ -13,7 +14,7 @@ const rl = readline.createInterface({
   try {
     let name = (await rl.question("Enter page name: ")).trim();
     if (!name) {
-      console.log("❌ page name is required!");
+      systemLogger("❌ page name is required!");
       rl.close();
       return;
     }
@@ -28,11 +29,11 @@ const rl = readline.createInterface({
     };
     const result = generatePage(pageConfig);
     if (!result) {
-      console.log("Failed to create page!");
+      systemLogger("Failed to create page!");
       rl.close();
       return;
     }
-    console.log(`✅ page "${name}" created successfully !`);
+    systemLogger(`✅ page "${name}" created successfully !`);
     reStartServer();
   } catch (error) {
     console.error("❌ Error:", error);

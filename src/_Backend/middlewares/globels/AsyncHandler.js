@@ -5,6 +5,7 @@ import { authorized } from "../auth/authorized";
 import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
 import { i18nextMiddleware } from "../i18nextMiddleware/i18nextMiddleware";
 import { AppError } from "@/_Backend/utils/AppError";
+import { systemLogger } from "@/utils/consoleProxy";
 
 export const AsyncHandler = (
   originalFunction,
@@ -36,7 +37,7 @@ export const AsyncHandler = (
         ...middlewares,
         originalFunction,
       ];
-      console.log("🚀 ~ req", req.url);
+      systemLogger("🚀 ~ req", req.url);
 
       for (const [i, currentMiddleware] of allMiddlewares.entries()) {
         let nextCalled = false;
@@ -59,7 +60,7 @@ export const AsyncHandler = (
           );
       }
     } catch (error) {
-      console.log("🚀 ~ return ~ error:", error)
+      systemLogger("🚀 ~ return ~ error:", error)
       return await globalError(req, error);
     }
   };

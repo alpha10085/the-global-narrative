@@ -15,6 +15,7 @@ import i18next from "i18next";
 import SetCookie from "@/_Backend/utils/SetCookie";
 import { errors } from "jose";
 import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
+import { systemLogger } from "@/utils/consoleProxy";
 
 function extractAPIPath(url = "") {
   const match = url?.match(/\/api\/.+/);
@@ -95,10 +96,10 @@ const cacheResponse = async (req, res, next) => {
   if (false && req?.method?.toUpperCase() === "GET") {
     const cachedResponse = getCachedPath(req?.url, req?.isAdmin);
     if (cachedResponse) {
-      console.log("🚀 cached");
+      systemLogger("🚀 cached");
       return response(cachedResponse, 200);
     }
-    console.log("❌ out of cache");
+    systemLogger("❌ out of cache");
   }
   return returnResonse;
 };

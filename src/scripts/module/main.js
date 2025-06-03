@@ -8,6 +8,7 @@ import pluralize from "pluralize";
 import modules from "../../modules/config.js";
 import { generateConfig } from "./generateConfig.js";
 import updateSchemasFile from "./updateSchemasFile.js";
+import { systemLogger } from "@/utils/consoleProxy.js";
 
 const { rootSrcPath } = getRootpath;
 // Setup readline interface
@@ -30,7 +31,7 @@ const rl = readline.createInterface({
     };
     // error loger
     const logError = (msg) => {
-      console.log("❌", msg);
+      systemLogger("❌", msg);
     };
     modules.forEach((schema) => {
       //  step 1 check schema type
@@ -79,11 +80,11 @@ const rl = readline.createInterface({
       // step 6:4 update  schemas file config (connect the new module)
       updateSchemasFile(schema);
     });
-    console.log(`🚀 script finished !`);
+    systemLogger(`🚀 script finished !`);
     // step 7 reStart the Server .
     reStartServer();
   } catch (error) {
-    console.error("❌ Error:", error);
+    systemLogger("❌ Error:", error);
   } finally {
     rl.close();
   }
