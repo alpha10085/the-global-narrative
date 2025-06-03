@@ -1,5 +1,5 @@
 import { ValidateLocale } from "@/i18n/request";
-import { redirectWithCookie } from "./helpers";
+import { redirectWithCookie } from "./_helpers";
 import config from "@/i18n/config";
 export const localeMiddleware = (request) => {
   const { pathname } = request.nextUrl;

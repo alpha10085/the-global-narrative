@@ -3,7 +3,7 @@ import React, { useCallback } from "react";
 import styles from "./List.module.css";
 import Card from "../Card/Card";
 import { VirtuosoGrid } from "react-virtuoso";
-import Skeleton from "@/components/Shared/Skeleton/Skeleton";
+import Skeleton from "@/Components/Shared/Skeleton/Skeleton";
 import { useQueryParams } from "@/hooks/useQueryParams";
 import SearchIcon from "@mui/icons-material/Search";
 import lodash from "lodash";

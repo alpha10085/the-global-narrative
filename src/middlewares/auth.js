@@ -2,7 +2,7 @@ import { adminRoutes, unAuthRoutes } from "@/config/routes";
 import decodeToken from "@/middlewares/decode";
 import { isIncludes } from "@/utils/isIncludes";
 import { NextResponse } from "next/server";
-import { authRouteHandler, redirectWithCookie } from "./helpers";
+import { authRouteHandler, redirectWithCookie } from "./_helpers";
 import { isAdmin as checkisAdmin } from "@/config/auth";
 import config from "@/i18n/config";
 

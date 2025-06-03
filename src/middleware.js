@@ -1,6 +1,6 @@
 import { localeMiddleware } from "./middlewares/locales";
 import { AuthRoutesMiddleware } from "./middlewares/auth";
-import { NextMiddleware } from "./middlewares/helpers";
+import { NextMiddleware } from "./middlewares/_helpers";
 
 // Middleware handler to execute middleware functions in sequence
 

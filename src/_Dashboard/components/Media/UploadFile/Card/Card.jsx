@@ -8,7 +8,7 @@ import styles from "./Card.module.css";
 import CloseIcon from "@mui/icons-material/Close";
 import { customText } from "@/utils/text";
 import DisplayMedia from "../../DisplayMedia/DisplayMedia";
-import Skeleton from "@/components/Shared/Skeleton/Skeleton";
+import Skeleton from "@/Components/Shared/Skeleton/Skeleton";
 
 const Card = ({ file, theme = {}, callBack = () => {}, index }) => {
   const { uploading = false, _id: response, progress, error } = file || {};  
