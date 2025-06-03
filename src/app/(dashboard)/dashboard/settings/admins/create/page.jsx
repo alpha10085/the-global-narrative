@@ -1,6 +1,6 @@
 "use client";
-import ErrorLayOut from "@/_Dashboard/_Components/ErrorLayOut/ErrorLayOut";
-import LoaderLayout from "@/_Dashboard/_Components/LoaderLayout/LoaderLayout";
+import ErrorLayOut from "@/_Dashboard/Components/ErrorLayOut/ErrorLayOut";
+import LoaderLayout from "@/_Dashboard/Components/LoaderLayout/LoaderLayout";
 import useSchema from "@/_Dashboard/hooks/auth/useSchema";
 import DynamicForm from "@/_Dashboard/layouts/DynamicForm/DynamicForm";
 import { notFound } from "next/navigation";
