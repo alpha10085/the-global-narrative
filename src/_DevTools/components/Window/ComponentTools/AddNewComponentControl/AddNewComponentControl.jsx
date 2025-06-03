@@ -6,7 +6,7 @@ import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
 
 import { createComponent } from "@/lib/tools";
 import { validateComponentName } from "./helpers";
-import OptionsControl from "../../components/OptionsControl/OptionsControl";
+import OptionsControl from "../../Components/OptionsControl/OptionsControl";
 
 const options = [
   {

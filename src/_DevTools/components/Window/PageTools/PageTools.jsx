@@ -1,6 +1,8 @@
-import FoldersTreeControl from "../components/FoldersTreeControl/FoldersTreeControl";
+
+import FoldersTreeControl from "../Components/FoldersTreeControl/FoldersTreeControl";
 import AddNewPageControl from "./AddNewPageControl/AddNewPageControl";
-import { allIconsTypes } from "../components/icons";
+import { allIconsTypes } from "../Components/icons";
+
 import useLocalStorage from "@/hooks/useLocalStorage";
 import Loading from "../Loading/Loading";
 import config from "@/i18n/config";
