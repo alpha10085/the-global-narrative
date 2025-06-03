@@ -1,6 +1,6 @@
 import style from "./sidebar.module.css";
 
-import Link from "@/Components/Shared/Link/Link";
+import Link from "@/_components/Shared/Link/Link";
 import { useAuth } from "@/contexts/AuthProvider";
 import { useClickOut } from "@/hooks/useClickout";
 import LogoutIcon from '@mui/icons-material/Logout';

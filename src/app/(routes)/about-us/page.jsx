@@ -1,10 +1,10 @@
-import SectionTitle from "@/Components/SectionTitle/SectionTitle";
+import SectionTitle from "@/_components/SectionTitle/SectionTitle";
 import { getAboutUSPage } from "./data.test";
 import styles from "./styles.module.css";
-import Hero from "@/Components/AboutUs/Hero/Hero";
-import OurValues from "@/Components/AboutUs/OurValues/OurValues";
-import WhoUsSection from "@/Components/AboutUs/WhoUsSection/WhoUsSection";
-import TemplateHero from "@/Components/Template/TemplateHero/TemplateHero";
+import Hero from "@/_components/AboutUs/Hero/Hero";
+import OurValues from "@/_components/AboutUs/OurValues/OurValues";
+import WhoUsSection from "@/_components/AboutUs/WhoUsSection/WhoUsSection";
+import TemplateHero from "@/_components/Template/TemplateHero/TemplateHero";
 
 const Page = async (props) => {
   const { hero = {}, ourValueSection = {} ,whoUsSectionSection={}} = getAboutUSPage();

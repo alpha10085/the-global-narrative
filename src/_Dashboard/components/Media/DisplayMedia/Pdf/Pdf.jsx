@@ -81,7 +81,7 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, Navigation, Pagination } from "swiper/modules";
 import useDynamicState from "@/hooks/useDynamicState";
-import Skeleton from "@/Components/Shared/Skeleton/Skeleton";
+import Skeleton from "@/_components/Shared/Skeleton/Skeleton";
 import { delay } from "@/utils/time";
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(

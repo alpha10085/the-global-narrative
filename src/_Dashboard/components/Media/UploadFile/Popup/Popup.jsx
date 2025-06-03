@@ -1,7 +1,7 @@
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import styles from "./Popup.module.css";
 import { useUploadFile } from "../ContextApi/FileUploadCTX";
-import Img from "@/Components/Shared/img/Img";
+import Img from "@/_components/Shared/img/Img";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import DoneIcon from "@mui/icons-material/Done";
 import AdjustIcon from "@mui/icons-material/Adjust";
