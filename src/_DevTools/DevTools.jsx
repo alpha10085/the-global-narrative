@@ -1,7 +1,7 @@
 "use client";
 import useDynamicState from "@/hooks/useDynamicState";
-import Icon from "./components/Icon/Icon";
-import Window from "./components/Window/Window";
+import Icon from "./Components/Icon/Icon";
+import Window from "./Components/Window/Window";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import ConsolePopup from "./Tools/ConsolePopup/ConsolePopup";
 import { memo, useEffect } from "react";

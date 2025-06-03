@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import styles from "./dropdown.module.css";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import { useClickOut } from "@/hooks/useClickout";
-import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
 import { searchAndReplace } from "@/utils/text";
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";
 import useDynamicState from "@/hooks/useDynamicState";

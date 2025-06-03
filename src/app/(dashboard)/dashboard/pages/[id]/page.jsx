@@ -4,8 +4,8 @@ import DynamicForm from "@/_Dashboard/layouts/DynamicForm/DynamicForm";
 import { GetSingleEntry } from "@/_Dashboard/lib/dashboard";
 import useAsyncQuery from "@/hooks/useAsyncQuery";
 import { notFound } from "next/navigation";
-import ErrorLayOut from "@/_Dashboard/components/ErrorLayOut/ErrorLayOut";
-import LoaderLayout from "@/_Dashboard/components/LoaderLayout/LoaderLayout";
+import ErrorLayOut from "@/_Dashboard/Components/ErrorLayOut/ErrorLayOut";
+import LoaderLayout from "@/_Dashboard/Components/LoaderLayout/LoaderLayout";
 import useSchema from "@/_Dashboard/hooks/auth/useSchema";
 import { useLocale } from "next-intl";
 

@@ -4,10 +4,10 @@ import DynamicForm from "@/_Dashboard/layouts/DynamicForm/DynamicForm";
 import { GetSingleEntry } from "@/_Dashboard/lib/dashboard";
 import { notFound } from "next/navigation";
 import useAsyncQuery from "@/hooks/useAsyncQuery";
-import LoaderLayout from "@/_Dashboard/components/LoaderLayout/LoaderLayout";
+import LoaderLayout from "@/_Dashboard/Components/LoaderLayout/LoaderLayout";
 
 import useSchema from "@/_Dashboard/hooks/auth/useSchema";
-import ErrorLayOut from "@/_Dashboard/components/ErrorLayOut/ErrorLayOut";
+import ErrorLayOut from "@/_Dashboard/Components/ErrorLayOut/ErrorLayOut";
 import { useLocale } from "next-intl";
 const Page = (props) => {
   const { id, slug = "" } = use(props.params);

@@ -11,7 +11,7 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import DonutSmallIcon from "@mui/icons-material/DonutSmall";
 import DoneIcon from "@mui/icons-material/Done";
 import CloseIcon from "@mui/icons-material/Close";
-import BlurBg from "@/_Dashboard/components/BlurBg/BlurBg";
+import BlurBg from "@/_Dashboard/Components/BlurBg/BlurBg";
 import useDisableScroll from "@/hooks/useDisableScroll";
 import { useUploadFile } from "../ContextApi/FileUploadCTX";
 const Window = ({

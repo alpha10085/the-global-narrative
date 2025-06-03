@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import styles from "./DateInput.module.css";
 import "react-datepicker/dist/react-datepicker.css";
-import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
 import { formatTimeAgo } from "@/utils/date";
 import EventIcon from "@mui/icons-material/Event";
 import { useClickOut } from "@/hooks/useClickout";

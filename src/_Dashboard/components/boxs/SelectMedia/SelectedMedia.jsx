@@ -1,7 +1,7 @@
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import { memo, useCallback, useMemo, useRef, useState } from "react";
 import styles from "./SelectedMedia.module.css";
-import List from "./components/List/List";
+import List from "./Components/List/List";
 import { useUploadFile } from "../../Media/UploadFile/ContextApi/FileUploadCTX";
 import BlurBg from "../../BlurBg/BlurBg";
 import useDisableScroll from "@/hooks/useDisableScroll";

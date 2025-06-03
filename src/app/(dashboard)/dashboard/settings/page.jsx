@@ -1,10 +1,10 @@
 "use client";
 import useTranslations from "@/hooks/useTranslations";
 import styles from "./page.module.css";
-import Settings from "@/_Dashboard/components/Settings/Settings";
+import Settings from "@/_Dashboard/Components/Settings/Settings";
 import { useAuth } from "@/contexts/AuthProvider";
 
-import LoaderLayout from "@/_Dashboard/components/LoaderLayout/LoaderLayout";
+import LoaderLayout from "@/_Dashboard/Components/LoaderLayout/LoaderLayout";
 const Page = () => {
   const translations = useTranslations("Dashboard.setting", [
     "settings",

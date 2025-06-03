@@ -4,17 +4,17 @@ import TuneIcon from "@mui/icons-material/Tune";
 
 import { useQueryParams } from "@/hooks/useQueryParams";
 
-import DropDown from "@/_Dashboard/components/Dropdown/Dropdown";
-import BooleanInput from "@/_Dashboard/components/Inputs/booleanInput/BooleanInput";
-import TextInputs from "./components/TextInputs/TextInputs";
+import DropDown from "@/_Dashboard/Components/Dropdown/Dropdown";
+import BooleanInput from "@/_Dashboard/Components/Inputs/booleanInput/BooleanInput";
+import TextInputs from "./Components/TextInputs/TextInputs";
 import SearchInput from "../Inputs/searchInput/searchInput";
-import FiltersList from "./components/FiltersList/FiltersList";
+import FiltersList from "./Components/FiltersList/FiltersList";
 import { useClickOut } from "@/hooks/useClickout";
 import {
   
   formatSearchParams,
   objectToUrl,
-} from "@/_Dashboard/components/FilterSystem/helper";
+} from "@/_Dashboard/Components/FilterSystem/helper";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import { filtersCondtions } from "./helper";
 

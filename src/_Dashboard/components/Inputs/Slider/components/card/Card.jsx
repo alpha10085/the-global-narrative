@@ -6,7 +6,7 @@ import AddLinkIcon from "@mui/icons-material/AddLink";
 
 import AddIcon from "@mui/icons-material/Add";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import DisplayMedia from "@/_Dashboard/components/Media/DisplayMedia/DisplayMedia";
+import DisplayMedia from "@/_Dashboard/Components/Media/DisplayMedia/DisplayMedia";
 import { memo } from "react";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';

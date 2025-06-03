@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
-import TextInput from "@/_Dashboard/components/Inputs/textInput/textInput";
-import DropDown from "@/_Dashboard/components/Inputs/dropdown/Dropdown";
-import RelationList from "@/_Dashboard/components/Inputs/RelationList/RelationList";
-import TextArea from "@/_Dashboard/components/Inputs/TextArea/TextArea";
+import TextInput from "@/_Dashboard/Components/Inputs/textInput/textInput";
+import DropDown from "@/_Dashboard/Components/Inputs/dropdown/Dropdown";
+import RelationList from "@/_Dashboard/Components/Inputs/RelationList/RelationList";
+import TextArea from "@/_Dashboard/Components/Inputs/TextArea/TextArea";
 import ArrayWrapper from "../Inputs/ArrayWrapper/ArrayWrapper";
 import BooleanInput from "../Inputs/booleanInput/BooleanInput";
 import NumberInput from "../Inputs/NumberInput/NumberInput";

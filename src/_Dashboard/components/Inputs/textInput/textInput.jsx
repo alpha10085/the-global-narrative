@@ -4,7 +4,7 @@ import React, { memo, useCallback, useEffect, useState } from "react";
 import styles from "./textinput.module.css";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";
 import { useClickOut } from "@/hooks/useClickout";
 import { debounce } from "lodash";

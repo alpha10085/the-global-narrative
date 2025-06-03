@@ -2,7 +2,7 @@ import React, { memo, useState } from "react";
 import styles from "./Card.module.css";
 import Img from "@/Components/Shared/img/Img";
 import DoneOutlineIcon from "@mui/icons-material/DoneOutline";
-import DisplayMedia from "@/_Dashboard/components/Media/DisplayMedia/DisplayMedia";
+import DisplayMedia from "@/_Dashboard/Components/Media/DisplayMedia/DisplayMedia";
 import { customText } from "@/utils/text";
 const Card = ({ item, active, theme, onClick, index }) => {  
   return (

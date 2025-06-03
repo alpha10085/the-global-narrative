@@ -6,7 +6,7 @@ import { getFiles } from "@/_Dashboard/lib/dashboard";
 import { VirtuosoGrid } from "react-virtuoso";
 import Spinner from "@/Components/Shared/Spinner/Spinner";
 import Card from "../Card/Card";
-import SearchInput from "@/_Dashboard/components/Inputs/searchInput/searchInput";
+import SearchInput from "@/_Dashboard/Components/Inputs/searchInput/searchInput";
 
 const List = ({
   theme,

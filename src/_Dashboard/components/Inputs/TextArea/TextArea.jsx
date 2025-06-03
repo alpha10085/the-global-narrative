@@ -1,5 +1,5 @@
 "use client";
-import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
 import styles from "./TextArea.module.css";
 import React, { useCallback, useState } from "react";
 import { useClickOut } from "@/hooks/useClickout";

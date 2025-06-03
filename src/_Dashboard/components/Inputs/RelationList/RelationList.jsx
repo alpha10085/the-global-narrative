@@ -13,7 +13,7 @@ import { handleDynamicFilters, memoizedHandler } from "./helpers";
 import List from "./List/List";
 import SelectedList from "./SelectedList/SelectedList";
 import { handleDynamicFields } from "@/_Dashboard/layouts/DynamicForm/helpers";
-import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
 import useSchema from "@/_Dashboard/hooks/auth/useSchema";
 import { delay } from "@/utils/time";
 const RelationList = ({

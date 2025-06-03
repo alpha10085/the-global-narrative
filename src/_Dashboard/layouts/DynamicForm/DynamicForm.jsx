@@ -1,11 +1,11 @@
 "use client";
 import styles from "./DynamicForm.module.css";
 import { memo } from "react";
-import InFormationBox from "@/_Dashboard/components/boxs/InFormationBox/InFormationBox";
-import FieldManager from "@/_Dashboard/components/FieldManger/FieldManger.jsx";
+import InFormationBox from "@/_Dashboard/Components/boxs/InFormationBox/InFormationBox";
+import FieldManager from "@/_Dashboard/Components/FieldManger/FieldManger.jsx";
 import useHelpers from "./useHelpers";
 import Header from "./Header/Header";
-import LoaderLayout from "@/_Dashboard/components/LoaderLayout/LoaderLayout";
+import LoaderLayout from "@/_Dashboard/Components/LoaderLayout/LoaderLayout";
 
 const DynamicForm = (props) => {
   const formCTX = useHelpers(props)

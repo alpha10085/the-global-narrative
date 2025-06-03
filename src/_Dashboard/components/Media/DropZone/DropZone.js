@@ -1,4 +1,4 @@
-// src/components/DropZone.js
+// src/Components/DropZone.js
 import allowedFormates from "@/_Dashboard/configuration/file.conf";
 import React, { useCallback, useMemo } from "react";
 import { useDropzone } from "react-dropzone";

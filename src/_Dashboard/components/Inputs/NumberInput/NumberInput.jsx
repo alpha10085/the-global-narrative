@@ -1,7 +1,7 @@
 "use client";
 import React, { memo, useEffect, useState } from "react";
 import styles from "./NumberInput.module.css";
-import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";
 import { useClickOut } from "@/hooks/useClickout";
 import LockIcon from "@mui/icons-material/Lock";

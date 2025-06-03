@@ -1,7 +1,7 @@
 "use client";
 import React, { memo, useState } from "react";
 import styles from "./Input.module.css";
-import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
 import { useClickOut } from "@/hooks/useClickout";
 import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
 import { upsertOneTranslation } from "@/_Dashboard/lib/dashboard";

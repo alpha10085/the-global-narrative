@@ -1,7 +1,7 @@
 import { memo } from "react";
 import { isEqual } from "lodash";
 import styles from "./ObjectWrapper.module.css";
-import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
 import FieldManager from "../../FieldManger/FieldManger";
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";
 
