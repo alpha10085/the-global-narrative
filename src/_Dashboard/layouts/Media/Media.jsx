@@ -3,7 +3,6 @@ import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import styles from "./Media.module.css";
 import List from "@/_Dashboard/Components/Media/List/list";
 import AddNewButton from "@/_Dashboard/Components/Media/UploadFile/AddNewButton/AddNewButton";
-import TextInputs from "@/_Dashboard/Components/FilterSystem/Components/TextInputs/TextInputs";
 import SearchInput from "@/_Dashboard/Components/Inputs/searchInput/searchInput";
 import { memo } from "react";
 import { useQueryParams } from "@/hooks/useQueryParams";
