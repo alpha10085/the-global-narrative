@@ -1,5 +1,5 @@
 import Img from "../Shared/img/Img";
-import Link from "../Shared/LocalizedLink/Link";
+import Link from "../Shared/Link/Link";
 import styles from "./MainLogo.module.css";
 
 const MainLogo = ({

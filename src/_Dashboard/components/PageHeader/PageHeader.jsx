@@ -5,7 +5,7 @@ import styles from "./PageHeader.module.css"
 
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX"
-import Link from '@/components/Shared/LocalizedLink/Link';
+import Link from '@/components/Shared/Link/Link';
 const PageHeader = ({ slug = "", displayName = "" }) => {
     const { theme } = useTheme()
     // Get the pathname and remove "/dashboard/"

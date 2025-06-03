@@ -1,5 +1,5 @@
 import { readFile } from "@/utils/fs";
-import { getRootpath } from "@/scripts/helpers";
+import { getRootpath } from "@/utils/fs";
 import fs from "fs";
 import path from "path";
 

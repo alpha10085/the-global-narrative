@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import ReactQuery from "@/providers/reactQuery";
+import ReactQuery from "@/contexts/reactQuery";
 import { Tajawal, Geist, Urbanist } from "next/font/google";
 import "../styles/main.css";
 import "../styles/framework.css";
@@ -9,7 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { AuthProvider } from "@/contexts/AuthProvider";
-import DevToolsWrapper from "@/components/Shared/DevTools/DevToolsWrapper";
+import DevToolsWrapper from "@/_DevTools/DevToolsWrapper";
 import { getLocale } from "next-intl/server";
 import interceptor from "@/utils/consoleProxy";
 import { isProductionMode } from "@/config/main";
@@ -17,6 +17,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { ValidateLocale } from "@/i18n/request";
 import SamsungPatch from "@/components/Shared/Pervent/Pervent";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX/ErrorBoundryCTX";
+import DisableLogs from "@/components/Shared/DisableLogs/DisableLogs";
 
 // If loading a variable font, you don't need to specify the font weight
 const geist = Geist({
@@ -74,6 +75,7 @@ export default async function RootLayout({ children }) {
     <ReactQuery>
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
         <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
+          <DisableLogs />
           <NextIntlClientProvider locale={locale} messages={messages}>
             <DevToolsWrapper>
               <ErrorBoundary boundary={boundary}>

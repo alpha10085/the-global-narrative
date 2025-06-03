@@ -1,6 +1,6 @@
 import { isEmpty } from "lodash";
 import styles from "./SelectedList.module.css";
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/Shared/Link/Link";
 import Img from "@/components/Shared/img/Img";
 import { getNestedProperty } from "@/utils/object";
 import { Virtuoso } from "react-virtuoso";

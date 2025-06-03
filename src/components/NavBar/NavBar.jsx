@@ -5,7 +5,7 @@ import styles from "./NavBar.module.css";
 import MobileNav from "./mobileNav/MobileNav";
 
 import { BurgerIcon } from "./Icons/Icons";
-import Link from "../Shared/LocalizedLink/Link";
+import Link from "../Shared/Link/Link";
 import MainLogo from "../MainLogo/MainLogo";
 import { usePathname } from "@/hooks/useTranslations";
 import { links } from "./Links";

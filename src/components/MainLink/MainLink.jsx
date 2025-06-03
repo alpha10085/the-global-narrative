@@ -1,5 +1,5 @@
 "use client"
-import Link from "../Shared/LocalizedLink/Link";
+import Link from "../Shared/Link/Link";
 import styles from "./MainLink.module.css";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 

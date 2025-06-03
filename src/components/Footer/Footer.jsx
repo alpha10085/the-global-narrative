@@ -1,7 +1,7 @@
 "use client";
 import MainLogo from "../MainLogo/MainLogo";
 import { links } from "../NavBar/Links";
-import Link from "../Shared/LocalizedLink/Link";
+import Link from "../Shared/Link/Link";
 import styles from "./footer.module.css";
 import XIcon from "@mui/icons-material/X";
 import FacebookIcon from "@mui/icons-material/Facebook";

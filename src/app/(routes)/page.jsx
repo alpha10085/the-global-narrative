@@ -12,8 +12,8 @@ import StaticSection, {
   CSRSection,
 } from "@/components/Home/StaticSection/StaticSection";
 import { ssrApi } from "@/utils/api";
-import AnimatedBorderSection from "@/components/AnimatedBorderSection/AnimatedBorderSection";
-import FloatedSection from "@/components/FloatedSection/FloatedSection";
+import AnimatedBorderSection from "@/components/Shared/AnimatedBorderSection/AnimatedBorderSection";
+import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 
 const Home = async () => {
   const {

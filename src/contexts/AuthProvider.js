@@ -14,6 +14,7 @@ import Cookies from "js-cookie";
 import { useQueryClient } from "@tanstack/react-query";
 import { isAdmin } from "@/config/auth";
 import translation from "@/i18n/config";
+import { systemLogger } from "@/utils/consoleProxy";
 
 // Creating context for authentication
 const AuthContext = createContext("AuthContext");

@@ -1,4 +1,4 @@
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/Shared/Link/Link";
 import Aos from "../Shared/Animtions/Aos/Aos";
 import WordPullUp from "../Shared/Animtions/WordPullUp/WordPullUp";
 import { ArrowIcon, ButtonSeeMore } from "./client";

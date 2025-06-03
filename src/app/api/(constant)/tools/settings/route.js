@@ -2,7 +2,7 @@ import httpStatus from "@/_Backend/assets/messages/httpStatus";
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import { toolsMiddleware } from "@/_Backend/middlewares/tools/tools";
 import { readFile } from "@/utils/fs";
-import { getRootpath } from "@/scripts/helpers";
+import { getRootpath } from "@/utils/fs";
 import path from "path";
 import fs from "fs";
 import { getEnvFile, updateEnvFile } from "../server/services";

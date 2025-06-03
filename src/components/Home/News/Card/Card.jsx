@@ -1,6 +1,6 @@
 import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/Shared/Link/Link";
 import { formatDate } from "@/utils/date";
 import { customText } from "@/utils/text";
 import { ArrowOutwardIcon } from "../../icons";

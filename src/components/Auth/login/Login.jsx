@@ -5,7 +5,7 @@ import styles from "./Login.module.css";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { LoginVal } from "./schema";
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/Shared/Link/Link";
 import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
 import { useAuth } from "@/contexts/AuthProvider";
 import InputText from "@/components/Shared/inputText/inputText";

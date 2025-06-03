@@ -1,7 +1,7 @@
 "use client";
 import React, { forwardRef, useCallback, useEffect } from "react";
 import styles from "./mobilenav.module.css";
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/Shared/Link/Link";
 import { useClickOut } from "@/hooks/useClickout";
 import { links } from "../Links";
 

@@ -17,7 +17,7 @@ import { delay } from "@/utils/delay";
 import useDynamicState from "@/hooks/useDynamicState";
 import ConsoleTools from "./ConsoleTools/ConsoleTools";
 import SettingsTools from "./SettingsTools/SettingsTools";
-import Link from "@/components/shared/LocalizedLink/Link";
+import Link from "@/components/Shared/Link/Link";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 const list = [
   {

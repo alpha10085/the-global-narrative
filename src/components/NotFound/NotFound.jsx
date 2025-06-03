@@ -1,5 +1,5 @@
 "use client"
-import Link from '@/components/Shared/LocalizedLink/Link'
+import Link from '@/components/Shared/Link/Link'
 import styles from './NotFound.module.css'
 import NavBar from '@/components/NavBar/NavBar'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';

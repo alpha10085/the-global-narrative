@@ -1,4 +1,4 @@
-import { getRootpath } from "@/scripts/helpers";
+import { getRootpath } from "@/utils/fs";
 import { systemLogger } from "@/utils/consoleProxy";
 import fs from "fs";
 import path from "path";

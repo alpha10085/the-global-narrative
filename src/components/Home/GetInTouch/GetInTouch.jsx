@@ -1,7 +1,7 @@
 import Img from "@/components/Shared/img/Img";
 import SectionTitle from "../../SectionTitle/SectionTitle";
 import styles from "./GetInTouch.module.css";
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/Shared/Link/Link";
 import { ArrowForwardIosIcon, ArrowOutwardIcon } from "../icons";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import MainLink from "@/components/MainLink/MainLink";

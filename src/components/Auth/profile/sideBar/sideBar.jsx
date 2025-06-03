@@ -1,5 +1,5 @@
 "use client";
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/Shared/Link/Link";
 import styles from "./sideBar.module.css";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/contexts/AuthProvider";

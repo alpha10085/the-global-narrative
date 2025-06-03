@@ -1,5 +1,5 @@
 "use client";
-import Link from "@/components/Shared/LocalizedLink/Link";
+import Link from "@/components/Shared/Link/Link";
 import style from "./sidebar.module.css";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import AppsIcon from "@mui/icons-material/Apps";
