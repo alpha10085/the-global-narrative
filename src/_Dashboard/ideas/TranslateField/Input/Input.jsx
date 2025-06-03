@@ -1,9 +1,9 @@
 "use client";
 import React, { memo, useState } from "react";
 import styles from "./Input.module.css";
-import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/_Components/ErrorMessage/ErrorMessage";
 import { useClickOut } from "@/hooks/useClickout";
-import AsyncButton from "@/_components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
 import { upsertOneTranslation } from "@/_Dashboard/lib/dashboard";
 import toast from "react-hot-toast";
 import { delay } from "@/utils/time";

@@ -1,4 +1,4 @@
-import Spinner from "@/_components/Shared/Spinner/Spinner";
+import Spinner from "@/Components/Shared/Spinner/Spinner";
 import styles from "./Loading.module.css";
 
 const Loading = () => {

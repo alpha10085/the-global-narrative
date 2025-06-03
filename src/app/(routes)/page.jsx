@@ -1,19 +1,19 @@
 import styles from "./page.module.css";
 import { getHomePage } from "./data.test";
-import Hero from "@/_components/Home/Hero/Hero";
-import Quote from "@/_components/Home/Quote/Quote";
-import AboutUs from "@/_components/Home/AboutUs/AboutUs";
-import News from "@/_components/Home/News/News";
-import Testimonials from "@/_components/Home/Testimonials/Testimonials";
-import GetInTouch from "@/_components/Home/GetInTouch/GetInTouch";
-import Intro from "@/_components/Intro/Intro";
-import WaveLines from "@/_components/Shared/WaveLines/WaveLines";
+import Hero from "@/Components/Home/Hero/Hero";
+import Quote from "@/Components/Home/Quote/Quote";
+import AboutUs from "@/Components/Home/AboutUs/AboutUs";
+import News from "@/Components/Home/News/News";
+import Testimonials from "@/Components/Home/Testimonials/Testimonials";
+import GetInTouch from "@/Components/Home/GetInTouch/GetInTouch";
+import Intro from "@/Components/Intro/Intro";
+import WaveLines from "@/Components/Shared/WaveLines/WaveLines";
 import StaticSection, {
   CSRSection,
-} from "@/_components/Home/StaticSection/StaticSection";
+} from "@/Components/Home/StaticSection/StaticSection";
 import { ssrApi } from "@/utils/api";
-import AnimatedBorderSection from "@/_components/Shared/AnimatedBorderSection/AnimatedBorderSection";
-import FloatedSection from "@/_components/Shared/FloatedSection/FloatedSection";
+import AnimatedBorderSection from "@/Components/Shared/AnimatedBorderSection/AnimatedBorderSection";
+import FloatedSection from "@/Components/Shared/FloatedSection/FloatedSection";
 
 const Home = async () => {
   const {

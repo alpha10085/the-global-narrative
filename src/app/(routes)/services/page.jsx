@@ -1,13 +1,13 @@
 import { getpage } from "./data.test";
 import styles from "./styles.module.css";
-import ServicesList from "@/_components/Services/ServicesList/ServicesList";
-import MarqueeLogos from "@/_components/Services/Marquee/Marquee";
+import ServicesList from "@/Components/Services/ServicesList/ServicesList";
+import MarqueeLogos from "@/Components/Services/Marquee/Marquee";
 import Link from "next/link";
-import TemplateHero from "@/_components/Template/TemplateHero/TemplateHero";
-import SectionTitle from "@/_components/SectionTitle/SectionTitle";
-import MainLink from "@/_components/MainLink/MainLink";
+import TemplateHero from "@/Components/Template/TemplateHero/TemplateHero";
+import SectionTitle from "@/Components/SectionTitle/SectionTitle";
+import MainLink from "@/Components/MainLink/MainLink";
 import { customers } from "../clients/data.test";
-import FAQItem from "@/_components/Services/FAQItem/FAQItem";
+import FAQItem from "@/Components/Services/FAQItem/FAQItem";
 // import { metadataHandler } from "@/utils/metadata";
 // import { getPage } from "@/lib/pages";
 

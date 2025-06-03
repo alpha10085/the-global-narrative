@@ -1,9 +1,9 @@
 "use client";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import styles from "./Media.module.css";
-import List from "@/_Dashboard/Components/Media/List/list";
-import AddNewButton from "@/_Dashboard/Components/Media/UploadFile/AddNewButton/AddNewButton";
-import SearchInput from "@/_Dashboard/Components/Inputs/searchInput/searchInput";
+import List from "@/_Dashboard/_Components/Media/List/list";
+import AddNewButton from "@/_Dashboard/_Components/Media/UploadFile/AddNewButton/AddNewButton";
+import SearchInput from "@/_Dashboard/_Components/Inputs/searchInput/searchInput";
 import { memo } from "react";
 import { useQueryParams } from "@/hooks/useQueryParams";
 import useTranslationsDashboard from "@/_Dashboard/hooks/useTranslationsDashboard";

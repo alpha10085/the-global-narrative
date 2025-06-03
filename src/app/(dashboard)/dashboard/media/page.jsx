@@ -2,7 +2,7 @@
 import Media from "@/_Dashboard/layouts/Media/Media";
 import styles from "./page.module.css";
 import useSchema from "@/_Dashboard/hooks/auth/useSchema";
-import LoaderLayout from "@/_Dashboard/Components/LoaderLayout/LoaderLayout";
+import LoaderLayout from "@/_Dashboard/_Components/LoaderLayout/LoaderLayout";
 import { notFound } from "next/navigation";
 
 const Page = () => {

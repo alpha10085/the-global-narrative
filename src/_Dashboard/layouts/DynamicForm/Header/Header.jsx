@@ -1,4 +1,4 @@
-import Link from "@/_components/Shared/Link/Link";
+import Link from "@/Components/Shared/Link/Link";
 import styles from "./Header.module.css";
 import { usePathname } from "next/navigation";
 function removeLastSegment(path) {

@@ -1,9 +1,9 @@
 "use client";
 
 import { useAuth } from "@/contexts/AuthProvider";
-import ProfileForm from "@/_Dashboard/Components/Profile/ProfileForm/ProfileForm";
+import ProfileForm from "@/_Dashboard/_Components/Profile/ProfileForm/ProfileForm";
 import styles from "./page.module.css";
-import PasswordForm from "@/_Dashboard/Components/Profile/PasswordForm/PasswordForm";
+import PasswordForm from "@/_Dashboard/_Components/Profile/PasswordForm/PasswordForm";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import useTranslationsDashboard from "@/_Dashboard/hooks/useTranslationsDashboard";
 const Page = () => {

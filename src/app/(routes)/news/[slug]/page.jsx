@@ -1,13 +1,13 @@
-import Img from "@/_components/Shared/img/Img";
+import Img from "@/Components/Shared/img/Img";
 import { getFakeOneNews } from "../data.test";
 import styles from "./styles.module.css";
-import FormatText from "@/_components/Shared/FormatText/FormatText";
-import FloatedSection from "@/_components/Shared/FloatedSection/FloatedSection";
-import { ArrowBackIosIcon } from "@/_components/NewsDetails/icons";
+import FormatText from "@/Components/Shared/FormatText/FormatText";
+import FloatedSection from "@/Components/Shared/FloatedSection/FloatedSection";
+import { ArrowBackIosIcon } from "@/Components/NewsDetails/icons";
 import { formatDate } from "@/utils/date";
-import { calcReadingTime } from "@/_components/NewsDetails/helpers";
-import Link from "@/_components/Shared/Link/Link";
-import Aos from "@/_components/Shared/Animtions/Aos/Aos";
+import { calcReadingTime } from "@/Components/NewsDetails/helpers";
+import Link from "@/Components/Shared/Link/Link";
+import Aos from "@/Components/Shared/Animtions/Aos/Aos";
 
 const Page = async (props) => {
   const { slug = "" } = await props.params;
