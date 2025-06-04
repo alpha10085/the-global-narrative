@@ -9,17 +9,27 @@ const errorLogSchema = new Schema(
       default: null,
     },
     location: {
-           type: String,
-      default: "unknown",
+      country: {
+        type: String,
+        default: "unknown",
+      },
+      timezone: {
+        type: String,
+        default: "unknown",
+      },
     },
-    Browser: {
+    browser: {
       type: String,
       default: "unknown",
     },
-    os : {
-            type: String,
+    os: {
+      type: String,
       default: "unknown",
-    }
+    },
+    ip: {
+      type: String,
+      default: "unknown",
+    },
   },
   {
     timestamps: true,

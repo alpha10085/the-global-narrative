@@ -1,10 +1,11 @@
-import { errorReportTempalte } from "@/_Backend/services/emails/error-report/template";
+import { errorReportTemplate } from "@/_Backend/services/emails/error-report/template";
 import { sendEmail } from "@/_Backend/utils/email";
 
 export const sendEmailToTeam = async (req, data) => {
   try {
     const reault = await sendEmail({
-      html: errorReportTempalte({
+      html: errorReportTemplate({
+        ...data?._doc,
         stack: data?.stack,
         date: new Date(data?.createdAt).toLocaleString(),
         message: data?.message,

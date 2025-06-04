@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import styles from "./ErrorPage.module.css";
 import RunningWithErrorsIcon from "@mui/icons-material/RunningWithErrors";
 import { UAParser } from "ua-parser-js";
+import { isProductionMode } from "@/config/main";
 export const DefualtScreen = () => {
   return (
     <div className={`${styles.container} flex-c column`}>
@@ -21,7 +22,6 @@ const ErrorPage = ({ error, reset = () => {}, Component = DefualtScreen }) => {
 
   // Trigger error boundary if the condition is met
   useEffect(() => {
-
     sendErrorToServer(error);
   }, [errorMSg]);
 
@@ -35,7 +35,7 @@ const ErrorPage = ({ error, reset = () => {}, Component = DefualtScreen }) => {
 
 export const sendErrorToServer = async (err) => {
   try {
-    if (process.env.NEXT_PUBLIC_MODE === "dev") return;
+    if (isProductionMode) return;
     const res = await csrApi.post("/error-logs", {
       message: err?.message,
       stack: err?.stack?.slice(0, 2000),
