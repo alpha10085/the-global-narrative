@@ -6,17 +6,18 @@ import DashPopup from "@/Components/Auth/DashPopup/DashPopup";
 import SmoothScroll from "@/Components/Shared/SmoothScroll/SmoothScroll";
 import DynamicCursor from "@/Components/Shared/DynamicCursor/DynamicCursor";
 import "lenis/dist/lenis.css";
+import Img from "@/Components/Shared/img/Img";
+import styles from "./page.module.css";
+import Test from "@/Components/Test/Test";
 export default async function RootLayout({ children }) {
-
-  
   return (
     <main
       style={{
         fontFamily: "var(--font-inter)",
-        background:"black",
-        minHeight:"100vh"
+        background: "black",
+        minHeight: "100vh",
       }}
-      className="ShowSmoothEffectShortDelay"
+      className="ShowSmoothEffectShortDelay flex-c"
     >
       {/* <SmoothScroll duration={1} />
       <NavBar />
@@ -25,6 +26,8 @@ export default async function RootLayout({ children }) {
       <Toaster />
       <DashPopup />
       <Footer /> */}
+      {children}
+
     </main>
   );
 }

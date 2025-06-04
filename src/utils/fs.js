@@ -4,6 +4,7 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootPath = path.join(__dirname, "..", ".."); // Moves out of "scripts" to project root
+console.log("🚀 ~ rootPath:", rootPath)
 
 const rootSrcPath = path.join(rootPath, "src");
 export const getRootpath = {

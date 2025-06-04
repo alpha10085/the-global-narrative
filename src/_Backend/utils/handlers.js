@@ -33,18 +33,22 @@ const createQueryForUniqueFields = (
       if (body?.[field]) query.$or.push({ [field]: body[field] });
     });
   }
-  if (slugValue) query.$or.push({ slug: slugify(slugValue , {
-    lower: true,
-    remove: /[^\w\s-]/g,
-    replacement: "-",
-    strict: true,
-    trim: true,
-    preserveCase: false,
-    locale: "en-US"
-  }) });
+  if (slugValue)
+    query.$or.push({
+      slug: slugify(slugValue, {
+        lower: true,
+        remove: /[^\w\s-]/g,
+        replacement: "-",
+        strict: true,
+        trim: true,
+        preserveCase: false,
+        locale: "en-US",
+      }),
+    });
   if (excludeId) query._id = { $ne: excludeId };
   return query.$or.length ? query : null;
 };
+const defaultFunction = async (req = {}, data = {}) => {};
 
 export const insertOne = ({
   model,
@@ -56,35 +60,48 @@ export const insertOne = ({
   schemaValidation,
   cache = {},
   middlewares = [],
+  hooks = {}, // <- Define default empty object first
 }) => {
+  // Destructure with fallback
+  const {
+    before = defaultFunction,
+    after = defaultFunction
+  } = hooks;
+
   return AsyncHandler(
     async (req, res) => {
+      console.log("req.body", req.body);
+
       validation(schemaValidation)(req.body, req.params, req.query);
       const user = req.user;
+
       const slugValue = getNestedProperty(req.body, slug);
       if (slug && slugValue) {
         uniqueFields.push(slug);
-        req.body.slug = slugify(slugValue , {
+        req.body.slug = slugify(slugValue, {
           lower: true,
           remove: /[^\w\s-]/g,
           replacement: "-",
           strict: true,
           trim: true,
           preserveCase: false,
-          locale: "en-US"
-        })
+          locale: "en-US",
+        });
       }
+
       const queryForCheck = createQueryForUniqueFields(
         uniqueFields,
         slugValue,
         req.body
       );
+
       if (queryForCheck && (await model.findOne(queryForCheck))) {
         throw new AppError({
           ...httpStatus.conflict,
           key: name,
         });
       }
+
       req.body.createdBy = user?._id;
 
       if (req?.translations?.bulkOperations) {
@@ -92,6 +109,8 @@ export const insertOne = ({
           bulkOperations: req?.translations?.bulkOperations,
         });
       }
+
+      await before(req, req?.body);
 
       const data = await model
         .findOneAndUpdate(
@@ -111,6 +130,8 @@ export const insertOne = ({
         createdBy: { fullName: user?.fullName, _id: user?._id },
       };
 
+      await after(req, response);
+
       return res(
         { message: `${name} saved successfully`, data: response },
         201
@@ -124,6 +145,7 @@ export const insertOne = ({
     }
   );
 };
+
 
 export const FindOne = ({
   model,
@@ -196,15 +218,15 @@ export const updateOne = ({
       const slugValue = getNestedProperty(req.body, slug);
       if (slug && slugValue) {
         uniqueFields.push(slug);
-        req.body.slug = slugify(slugValue , {
+        req.body.slug = slugify(slugValue, {
           lower: true,
           remove: /[^\w\s-]/g,
           replacement: "-",
           strict: true,
           trim: true,
           preserveCase: false,
-          locale: "en-US"
-        })
+          locale: "en-US",
+        });
       }
       const queryForCheck = createQueryForUniqueFields(
         uniqueFields,
@@ -349,7 +371,6 @@ export const FindAll = ({
               mode: "soft",
             })
         : () => model.aggregate(apiFetcher.pipeline);
-        
 
       const [data, total] = await Promise.all([
         queryFN(),

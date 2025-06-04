@@ -25,6 +25,20 @@ const Home = async () => {
     getInTouchSection = {},
   } = getHomePage();
 
+
+
+  return (
+    <div className={styles.textpage}>
+      
+      <Img
+        disableSkeleton
+        className={styles.bgPoster}
+        url="/dashboard/logo-dark.png"
+      />
+      <Test />
+    </div>
+  )
+
   return (
     <section className={styles.layout}>
       <Intro />

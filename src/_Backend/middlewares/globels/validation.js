@@ -6,8 +6,9 @@ import i18next from "i18next";
 /**
  * Utility function to handle validation errors
  */
-const handleValidationError = (error) => {
+const handleValidationError = (body ,error) => {
   systemLogger(error.details);
+  systemLogger("request body: ",body);
 
   const details = error.details.reduce((prev, curr, i) => {
     const key = curr?.path?.join(".");
@@ -35,7 +36,7 @@ export const pageValidation = (Request = {}, body, params) => {
     });
   const { error } = schema.validate({ ...body }, { abortEarly: false });
 
-  if (error) handleValidationError(error);
+  if (error) handleValidationError(body , error);
 };
 
 /**
@@ -49,6 +50,6 @@ export const validation =
       { abortEarly: false } // Ensure all errors are captured
     );
     if (error) {
-      handleValidationError(error);
+      handleValidationError(body,error);
     }
   };
