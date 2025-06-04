@@ -7,6 +7,7 @@ import CookiesClient from "js-cookie";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import OfflineBanner from "./OfflineBanner/OfflineBanner";
 import eventBus from "@/utils/eventBus";
+import { isProductionMode } from "@/config/main";
 
 export const ErrorBoundary = ({ children, boundary }) => {
   const [{ error, isOffline, isLoading }, setState] = useDynamicState({
@@ -40,6 +41,7 @@ export const ErrorBoundary = ({ children, boundary }) => {
   };
 
   const showOfflineBanner = () => {
+    if (!isProductionMode) return null;
     setState({
       isOffline: true,
     });
@@ -51,14 +53,15 @@ export const ErrorBoundary = ({ children, boundary }) => {
   }, []);
   useEffect(() => {
     if (boundary) handleCheckServer();
-  }, [boundary , isOffline]);
+  }, [boundary, isOffline]);
 
   useEffect(() => {
-    const updateStatus = () =>
+    const updateStatus = () => {
+      if (!isProductionMode) return null;
       setState({
         isOffline: !navigator.onLine,
       });
-
+    };
     updateStatus(); // Set initial state after hydration
 
     window.addEventListener("online", updateStatus);

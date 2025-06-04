@@ -5,7 +5,8 @@
   font-size: 15px;
   font-weight: 500;
   margin: 0 0 10px 10px;
-  text-transform: capitalize
+  text-transform: capitalize;
+  padding-right: 15px;
 }
 .options {
   margin: 5px 0;
@@ -28,16 +29,21 @@
   background-color: rgba(255, 255, 255, 0.15);
 }
 .btn {
+  
+  background-color: rgba(255, 255, 255, 0.05);
   padding: 5px 10px;
   
   height: 50px;
   border-radius: 15px;
   cursor: pointer;
-  width: 150px;
+  /* width: 200px; */
   text-transform: capitalize;
+  flex-grow: 1;
+  min-width: 160px;
 
 
 }
+
 
 .btn.warn {
   color: red;

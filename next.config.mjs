@@ -22,10 +22,10 @@ const nextConfig = {
     ],
   },
   reactStrictMode: false,
-  allowedDevOrigins: ["http://127.0.0.1:3000", "http://localhost:3000"],
 
+allowedDevOrigins: ['127.0.0.1', '*.127.0.0.1'],
   experimental: {
-    viewTransition: true,
+     viewTransition: true,
     scrollRestoration: true,
   },
 };
