@@ -34,7 +34,7 @@ export const getIpAddress = async (req) => {
     ip === "127.0.0.1" || ip === "::1" || ip.startsWith("::ffff:127.");
 
   // Return real IP or fallback fake IP for local testing
-  return isLocal ? "128.101.101.101" : ip;
+  return isLocal ? "1.1.1.1" : ip;
 
   /* list of real ips:
   8.8.8.8	Mountain View, CA (Google)
