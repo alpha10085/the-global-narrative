@@ -31,7 +31,7 @@ export const reportError = async ({ userAgent, deteils }) => {
       createdAt: { $gte: startOfToday, $lte: endOfToday },
     });
 
-    if (!false) {
+    if (!isExitstBefore) {
       const newDocerrorLog = new errorLogModel({
         ...deteils,
         ip: userAgent.ip || "system",
