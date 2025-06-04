@@ -89,7 +89,7 @@ const LenisComponent = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
     if ("requestIdleCallback" in window) {
       window.requestIdleCallback(startAnimation, { timeout: 200 });
     } else {
-      const timer = setTimeout(startAnimation, 300);
+      const timer = setTimeout(startAnimation, 200);
       return () => clearTimeout(timer);
     }
 
