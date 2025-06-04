@@ -24,9 +24,7 @@ export const getGeoData = async (ip, userAgent) => {
     });
 
     console.error("IP Geolocation error:", error.message);
-    return {
-      error,
-    };
+    return {};
   }
 };
 // Helper to extract IP from headers

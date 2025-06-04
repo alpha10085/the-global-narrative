@@ -16,6 +16,8 @@ import SetCookie from "@/_Backend/utils/SetCookie";
 import { errors } from "jose";
 import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
 import { systemLogger } from "@/utils/consoleProxy";
+import { reportError } from "@/app/api/(constant)/error-logs/services";
+import { decodeUserAgent } from "@/_Backend/utils/userAgent";
 
 function extractAPIPath(url = "") {
   const match = url?.match(/\/api\/.+/);
@@ -55,6 +57,7 @@ const decodeReq = async (request, context) => {
   );
   // Extract the API path from the request URL and attach it
   enhancedRequest.url = extractAPIPath(request?.url);
+
   // Determine the language, defaulting to "en" if not specified in the query
   enhancedRequest.language =
     enhancedRequest?.query?.language ||
@@ -105,6 +108,28 @@ const cacheResponse = async (req, res, next) => {
   return returnResonse;
 };
 const globalError = async (req, error) => {
+  const isServerError =
+    error instanceof SyntaxError ||
+    error instanceof ReferenceError ||
+    error instanceof TypeError ||
+    error instanceof RangeError ||
+    error instanceof EvalError ||
+    error instanceof URIError ||
+    (typeof error === "object" && error?.isSystemError === true);
+
+  if (isServerError) {
+    await reportError({
+      deteils: {
+        ...error,
+        route: {
+          server: req.url,
+          client: null,
+        },
+      },
+      userAgent: req.userAgent || (await decodeUserAgent(req)),
+    });
+  }
+
   // Error logging for development environment
   if (process.env.NEXT_PUBLIC_MODE === "dev") {
     console.error(

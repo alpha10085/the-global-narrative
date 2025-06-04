@@ -13,7 +13,7 @@
 .spaceSection {
   height: 50px;
 }
-/* 
+
 .bgPoster {
   width: 300px;
   height: auto;
@@ -24,4 +24,12 @@
   left: 50%;
   top: 47.5%;
   transform: translate(-50%, -50%);
-} */
+}
+
+.textpage {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 10000;
+}

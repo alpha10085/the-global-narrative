@@ -97,7 +97,16 @@ export const errorReportTemplate = (data = {}) => {
   <div class="info-section">
     <h2 class="fr-title">Report information</h2>
     <p><strong>Date:</strong> ${date}</p>
-    ${data?.route ? `<p><strong>Page:</strong> ${data?.route}</p>` : ""}
+    ${
+      data?.route?.client
+        ? `<p><strong>Page Route:</strong> ${data?.route?.client}</p>`
+        : ""
+    }
+     ${
+       data?.route?.server
+         ? `<p><strong>server Route:</strong> ${data?.route?.server}</p>`
+         : ""
+     }
     <p><strong>IP:</strong> ${ip}</p>
     <h2>Location</h2>
     <p><strong>Country:</strong> ${location?.country || "N/A"}</p>

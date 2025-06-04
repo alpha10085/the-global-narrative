@@ -31,7 +31,14 @@ const errorLogSchema = new Schema(
       default: "unknown",
     },
     route: {
-      type: String,
+      server: {
+        type: String,
+        default: null,
+      },
+      client: {
+        type: String,
+        default: null,
+      },
     },
   },
   {

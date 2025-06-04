@@ -23,6 +23,10 @@ export const POST = AsyncHandler(
   async (req, res, next) => {
     validation(errorLogValidationCreate)(req.body, req.params, req.query);
     const userAgent = req.userAgent;
+    req.body.route = {
+      server: null,
+      client: req.body.route,
+    };
     await reportError({
       deteils: req.body,
       userAgent: userAgent,
