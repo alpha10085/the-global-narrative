@@ -9,6 +9,8 @@ import "lenis/dist/lenis.css";
 import Img from "@/Components/Shared/img/Img";
 import styles from "./page.module.css";
 import Test from "@/Components/Test/Test";
+import PageAnalyticsTracker from "@/lib/PageAnalyticsTracker";
+
 export default async function RootLayout({ children }) {
   return (
     <main
@@ -26,8 +28,8 @@ export default async function RootLayout({ children }) {
       <Toaster />
       <DashPopup />
       <Footer /> */}
+      <PageAnalyticsTracker />
       {children}
-
     </main>
   );
 }

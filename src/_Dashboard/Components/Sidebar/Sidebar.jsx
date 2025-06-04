@@ -55,6 +55,7 @@ const Sidebar = () => {
       "Sidebar.media",
       "Sidebar.settings",
       "Sidebar.workspace",
+      "Sidebar.insights",
       ...[...collections, ...pages, ...components].map(
         (val) => `displaynames.${val?.displayName}`
       ),
@@ -139,6 +140,21 @@ const Sidebar = () => {
                     </Link>
                   </div>
                 )}
+                {/* Insights */}
+                <div
+                  className={`${style.title}  ${
+                    pathname?.includes("insights") && `${style?.active} `
+                  } flex al-i-c gap5`}
+                >
+                  <TrendingUpTwoToneIcon />
+                  <Link
+                    className={`${style.linkeffect}`}
+                    href={"/dashboard/insights"}
+                  >
+                    {translations?.Sidebar?.insights}
+                  </Link>
+                </div>
+
                 <div
                   className={`${style.title}  ${
                     pathname?.includes("settings") && `${style?.active} `

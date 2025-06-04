@@ -6,7 +6,7 @@ import { NextMiddleware } from "./middlewares/_helpers";
 
 export const middleware = NextMiddleware([
   localeMiddleware,
-  AuthRoutesMiddleware,
+  // AuthRoutesMiddleware,
 ]);
 
 export const config = {
