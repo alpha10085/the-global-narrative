@@ -1,0 +1,28 @@
+/* components/FilterBar.module.css */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.select {
+  padding: 8px;
+  border-radius: 6px;
+}

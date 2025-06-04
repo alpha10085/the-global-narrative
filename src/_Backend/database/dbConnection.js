@@ -5,10 +5,11 @@ import { SingleTypeModel } from "./models/constant/singleType";
 import fileModel from "./models/constant/file.model";
 import { errorLogModel } from "./models/constant/errorLog.model";
 import { systemLogger } from "@/utils/consoleProxy";
+import InsightModel from "./models/constant/insight.model";
+
 // collections
 
 // pages
-
 // componants
 if (!process.env.DB_URL) {
   throw new Error(

@@ -1,0 +1,38 @@
+.tableWrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 14px;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.table {
+  padding: 16px 0;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  font-weight: bold;
+}
+
+.table th,
+.table td {
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.table tbody tr {
+  transition: 0.2s ease;
+}
+
+.dark{
+  background-color: #0a0a0a;
+}
+
+.light{
+  background-color: #fbfbfb;
+}

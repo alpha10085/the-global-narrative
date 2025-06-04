@@ -1,0 +1,55 @@
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.chartWrapper {
+  position: relative;
+  height: 350px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  font-size: 16px;
+  margin: 20px 0;
+  color:  #555;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: default;
+}
+
+.colorBox {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  box-shadow: 0 0 3px rgb(0 0 0 / 0.1);
+}
+
+/* Responsive  */
+@media (max-width: 640px) {
+  .legend {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 12px;
+    max-width: 100%;
+  }
+}

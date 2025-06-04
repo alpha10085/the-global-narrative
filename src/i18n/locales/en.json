@@ -19,7 +19,8 @@
       "pages": "Pages",
       "media": "Media",
       "components": "components",
-      "settings": "Settings"
+      "settings": "Settings",
+      "insights": "insights"
     },
     "inputs": {
       "title": "title",

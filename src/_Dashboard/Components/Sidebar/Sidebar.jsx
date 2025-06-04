@@ -9,6 +9,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import TrendingUpTwoToneIcon from '@mui/icons-material/TrendingUpTwoTone';
 import Img from "@/Components/Shared/img/Img";
 import { useAuth } from "@/contexts/AuthProvider";
 import Popup from "./popup";
@@ -28,7 +29,7 @@ const Sidebar = () => {
   const { session } = useAuth();
   const { theme = {} } = useTheme();
   const pathname = usePathname();
-  const linkPathName = extractLastPathSegment(pathname);
+  const linkPathName = extractLastPathSegment(pathname.pathname);
   const {
     collections,
     pages,
@@ -55,6 +56,7 @@ const Sidebar = () => {
       "Sidebar.media",
       "Sidebar.settings",
       "Sidebar.workspace",
+      "Sidebar.insights",
       ...[...collections, ...pages, ...components].map(
         (val) => `displaynames.${val?.displayName}`
       ),
@@ -127,7 +129,7 @@ const Sidebar = () => {
                 {staticPages.find((p) => p.key === "media") && (
                   <div
                     className={`${style.title} ${
-                      pathname?.includes("media") && `${style?.active} `
+                      pathname?.pathname?.includes("media") && `${style?.active} `
                     }  ${style.customtitle} ${style.cutomSvg} flex al-i-c gap5`}
                   >
                     <PermMediaIcon />
@@ -139,9 +141,24 @@ const Sidebar = () => {
                     </Link>
                   </div>
                 )}
+                {/* Insights */}
                 <div
                   className={`${style.title}  ${
-                    pathname?.includes("settings") && `${style?.active} `
+                    pathname?.pathname?.includes("insights") && `${style?.active} `
+                  } flex al-i-c gap5`}
+                >
+                  <TrendingUpTwoToneIcon />
+                  <Link
+                    className={`${style.linkeffect}`}
+                    href={"/dashboard/insights"}
+                  >
+                    {translations?.Sidebar?.insights}
+                  </Link>
+                </div>
+
+                <div
+                  className={`${style.title}  ${
+                    pathname?.pathname?.includes("settings") && `${style?.active} `
                   } flex al-i-c gap5`}
                 >
                   <SettingsIcon />
