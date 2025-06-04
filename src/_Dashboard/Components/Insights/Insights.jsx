@@ -1,5 +1,6 @@
 'use client'; 
 
+import { systemLogger } from '@/utils/consoleProxy';
 import React, { useEffect } from 'react';
 
 const Insights = () => {
@@ -14,7 +15,7 @@ const Insights = () => {
         return res.json();
       })
       .then((data) => {
-        console.log('✅ Analytics sent:', data);
+        systemLogger('✅ Analytics sent:', data);
       })
       .catch((err) => {
         console.error('❌ Analytics error:', err.message);

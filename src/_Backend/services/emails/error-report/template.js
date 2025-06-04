@@ -1,5 +1,4 @@
 export const errorReportTemplate = (data = {}) => {
-  console.log("🚀 ~ errorReportTemplate ~ data:", data);
   const {
     message = "",
     stack = "",

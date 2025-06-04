@@ -23,7 +23,6 @@ const ErrorPage = ({ error, reset = () => {}, Component = DefualtScreen }) => {
 
 
   const location = usePathname()
-  console.log("🚀 ~ ErrorPage ~ location:", location)
 
   // Trigger error boundary if the condition is met
   useEffect(() => {

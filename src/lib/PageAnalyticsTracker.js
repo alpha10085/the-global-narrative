@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Cookies from "js-cookie";
+import { systemLogger } from "@/utils/consoleProxy";
 
 const COOKIE_EXPIRE_DAYS = 1; 
 
@@ -29,7 +30,7 @@ const PageAnalyticsTracker = () => {
         return res.json();
       })
       .then((data) => {
-        console.log("✅ Analytics sent:", data);
+        systemLogger("✅ Analytics sent:", data);
       })
       .catch((err) => {
         console.error("❌ Analytics error:", err.message);

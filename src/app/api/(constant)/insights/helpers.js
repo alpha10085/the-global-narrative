@@ -1,6 +1,7 @@
 import InsightModel from "@/_Backend/database/models/constant/insight.model.js";
 import { insightPipelines, trivialPaths } from "./config";
 import crypto from "crypto";
+import { systemLogger } from "@/utils/consoleProxy";
 
 const blacklistedIPs = ["127.0.0.1", "::1", "::ffff:127.0.0.1"];
 const BOT_UA_REGEX = /bot|crawl|spider|google|facebook|preview/i;
@@ -66,15 +67,15 @@ export async function shouldRecordVisit({
 
   // Filter blacklisted IPs
   if (blacklistedIPs.includes(ip)) return false;
-  console.log("blacklistedIPs PASS");
+  systemLogger("blacklistedIPs PASS");
 
   // Filter bots
   if (BOT_UA_REGEX.test(userAgentString)) return false;
-  console.log("BOT_UA_REGEX PASS");
+  systemLogger("BOT_UA_REGEX PASS");
 
   // Filter trivial paths
   if (trivialPaths.includes(normalizedPath)) return false;
-  console.log("trivialPaths PASS");
+  systemLogger("trivialPaths PASS");
 
   // Get local day bounds
   const { start, end } = getLocalDayBounds(timezone);
@@ -89,11 +90,10 @@ export async function shouldRecordVisit({
     ],
   });
   if (existing) return false;
-  console.log("recentVisit, existingVisit Both checks PASS");
+  systemLogger("recentVisit, existingVisit Both checks PASS");
 
   return true;
 }
-
 
 // build Match Stage
 export const buildMatchStage = (query, fromDate) => {

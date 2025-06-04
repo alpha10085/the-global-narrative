@@ -1,4 +1,5 @@
 import { ssrApi } from "@/utils/api";
+import { systemLogger } from "@/utils/consoleProxy";
 
 export const getInsightsData = async (searchParams = {}) => {
   // Destructure with defaults
@@ -17,11 +18,11 @@ export const getInsightsData = async (searchParams = {}) => {
 
  // handle cache per day (not for admin but for global)
 
-  console.log("🔍 Querying API with:", params.toString());
+  systemLogger("🔍 Querying API with:", params.toString());
 
   // Use ssrApi fetch helper
   const json = await ssrApi(`/insights?${params.toString()}`, { method: "GET" });
 
-  console.log("🚀 ~ getInsightsData ~ json:", json)
+  systemLogger("🚀 ~ getInsightsData ~ json:", json)
   return json;
 };

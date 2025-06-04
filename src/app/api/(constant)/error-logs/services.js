@@ -1,6 +1,7 @@
 import { errorLogModel } from "@/_Backend/database/models/constant/errorLog.model";
 import { errorReportTemplate } from "@/_Backend/services/emails/error-report/template";
 import { sendEmail } from "@/_Backend/utils/email";
+import { systemLogger } from "@/utils/consoleProxy";
 
 export const sendEmailToTeam = async (data) => {
   try {
@@ -46,7 +47,7 @@ export const reportError = async ({ userAgent, deteils }) => {
       await sendEmailToTeam(newDocerrorLog);
     }
   } catch (error) {
-    console.log("🚀 ~ reportError ~ error:", error);
+    systemLogger("🚀 ~ reportError ~ error:", error);
   }
   return true;
 };
