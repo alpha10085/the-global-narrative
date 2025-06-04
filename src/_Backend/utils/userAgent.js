@@ -1,6 +1,7 @@
+import { reportError } from "@/app/api/(constant)/error-logs/services";
 import { isProductionMode } from "@/config/main";
 import { UAParser } from "ua-parser-js";
-export const getGeoData = async (ip) => {
+export const getGeoData = async (ip, userAgent) => {
   try {
     const response = await fetch(
       `https://ipinfo.io/${ip}?token=${process.env.TOKEN_IPINFO}`
@@ -14,7 +15,14 @@ export const getGeoData = async (ip) => {
       timezone: data?.timezone || "Unknown",
     };
   } catch (error) {
-    // need error report
+    await reportError({
+      deteils: {
+        message: error?.message,
+        stack: error?.stack,
+      },
+      userAgent,
+    });
+
     console.error("IP Geolocation error:", error.message);
     return {
       error,
@@ -23,8 +31,7 @@ export const getGeoData = async (ip) => {
 };
 // Helper to extract IP from headers
 export const getIpAddress = async (req) => {
-
-    const ispro = isProductionMode
+  const ispro = isProductionMode;
   const forwarded = req.headers["x-forwarded-for"];
   const ip = forwarded
     ? forwarded.split(",")[0].trim()
@@ -49,10 +56,14 @@ export const decodeUserAgent = async (req) => {
   const parser = new UAParser(userAgentString);
   const ua = parser.getResult(); // ex. (browser name & os name & device type )
   const ip = await getIpAddress(req);
-  const geo = await getGeoData(ip); // ex. (country & region & city & timezone)
+  const geo = await getGeoData(ip, {
+    ...ua,
+    ip,
+    ...userAgentString,
+  }); // ex. (country & region & city & timezone)
   return {
     ...ua,
     ...geo,
-    ip
-  }
+    ip,
+  };
 };

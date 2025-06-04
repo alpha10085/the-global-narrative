@@ -30,6 +30,9 @@ const errorLogSchema = new Schema(
       type: String,
       default: "unknown",
     },
+    route: {
+      type: String,
+    },
   },
   {
     timestamps: true,

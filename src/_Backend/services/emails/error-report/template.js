@@ -53,6 +53,7 @@ export const errorReportTemplate = (data = {}) => {
             padding: 8px 0 ;
     }
 
+
     .code-window {
       background-color: #1e1e1e;
       border: 1px solid #333;
@@ -97,6 +98,7 @@ export const errorReportTemplate = (data = {}) => {
   <div class="info-section">
     <h2 class="fr-title">Report information</h2>
     <p><strong>Date:</strong> ${date}</p>
+    ${data?.route ? `<p><strong>Page:</strong> ${data?.route}</p>` : ""}
     <p><strong>IP:</strong> ${ip}</p>
     <h2>Location</h2>
     <p><strong>Country:</strong> ${location?.country || "N/A"}</p>
@@ -106,7 +108,7 @@ export const errorReportTemplate = (data = {}) => {
     <p><strong>Browser:</strong> ${browser}</p>
      <h2>Error Details</h2>
     <div id="codeContent" class="code-content">
-${stack?.trim()}
+       ${stack?.trim()}
     </div>
   </div>
 </body>

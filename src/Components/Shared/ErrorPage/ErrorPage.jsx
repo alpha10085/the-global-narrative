@@ -6,6 +6,7 @@ import styles from "./ErrorPage.module.css";
 import RunningWithErrorsIcon from "@mui/icons-material/RunningWithErrors";
 import { UAParser } from "ua-parser-js";
 import { isProductionMode } from "@/config/main";
+import { usePathname } from "next/navigation";
 export const DefualtScreen = () => {
   return (
     <div className={`${styles.container} flex-c column`}>
@@ -19,6 +20,10 @@ export const DefualtScreen = () => {
 
 const ErrorPage = ({ error, reset = () => {}, Component = DefualtScreen }) => {
   const errorMSg = decodestringtoObject(error?.message);
+
+
+  const location = usePathname()
+  console.log("🚀 ~ ErrorPage ~ location:", location)
 
   // Trigger error boundary if the condition is met
   useEffect(() => {
@@ -39,6 +44,7 @@ export const sendErrorToServer = async (err) => {
     const res = await csrApi.post("/error-logs", {
       message: err?.message,
       stack: err?.stack?.slice(0, 2000),
+      route:location?.href
     });
   } catch (error) {}
 };
