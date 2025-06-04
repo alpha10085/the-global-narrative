@@ -9,6 +9,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import TrendingUpTwoToneIcon from '@mui/icons-material/TrendingUpTwoTone';
 import Img from "@/Components/Shared/img/Img";
 import { useAuth } from "@/contexts/AuthProvider";
 import Popup from "./popup";
@@ -20,6 +21,7 @@ import RouteList from "./RoutesList/RouteList";
 import BubbleChartIcon from "@mui/icons-material/BubbleChart";
 import { usePathname } from "@/hooks/useTranslations";
 function extractLastPathSegment(url = "") {
+  console.log("🚀 ~ extractLastPathSegment ~ url:", url)
   // Split the URL into parts by "/"
   return url.replace("/dashboard", "")?.split("/").filter(Boolean);
 }
@@ -28,7 +30,7 @@ const Sidebar = () => {
   const { session } = useAuth();
   const { theme = {} } = useTheme();
   const pathname = usePathname();
-  const linkPathName = extractLastPathSegment(pathname);
+  const linkPathName = extractLastPathSegment(pathname.pathname);
   const {
     collections,
     pages,
@@ -128,7 +130,7 @@ const Sidebar = () => {
                 {staticPages.find((p) => p.key === "media") && (
                   <div
                     className={`${style.title} ${
-                      pathname?.includes("media") && `${style?.active} `
+                      pathname?.pathname?.includes("media") && `${style?.active} `
                     }  ${style.customtitle} ${style.cutomSvg} flex al-i-c gap5`}
                   >
                     <PermMediaIcon />
@@ -143,7 +145,7 @@ const Sidebar = () => {
                 {/* Insights */}
                 <div
                   className={`${style.title}  ${
-                    pathname?.includes("insights") && `${style?.active} `
+                    pathname?.pathname?.includes("insights") && `${style?.active} `
                   } flex al-i-c gap5`}
                 >
                   <TrendingUpTwoToneIcon />
@@ -157,7 +159,7 @@ const Sidebar = () => {
 
                 <div
                   className={`${style.title}  ${
-                    pathname?.includes("settings") && `${style?.active} `
+                    pathname?.pathname?.includes("settings") && `${style?.active} `
                   } flex al-i-c gap5`}
                 >
                   <SettingsIcon />
