@@ -70,7 +70,6 @@ export const insertOne = ({
 
   return AsyncHandler(
     async (req, res) => {
-      console.log("req.body", req.body);
 
       validation(schemaValidation)(req.body, req.params, req.query);
       const user = req.user;

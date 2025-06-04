@@ -6,6 +6,7 @@ import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
 import { i18nextMiddleware } from "../i18nextMiddleware/i18nextMiddleware";
 import { AppError } from "@/_Backend/utils/AppError";
 import { systemLogger } from "@/utils/consoleProxy";
+import { decodeUserAgent as decodeUserAgentFN } from "@/_Backend/utils/userAgent";
 
 export const AsyncHandler = (
   originalFunction,
@@ -14,6 +15,7 @@ export const AsyncHandler = (
     middlewares = [],
     allowedTo = [],
     auth = false,
+    decodeUserAgent = false,
   } = {}
 ) => {
   const roles = auth ? [...enumRoles.all, ...allowedTo] : allowedTo;
@@ -26,6 +28,9 @@ export const AsyncHandler = (
   return async (request, context) => {
     request.cacheConfig = { group, stdTTL: ttlInSeconds, relationCacheTags };
     const req = await decodeReq(request, context);
+    if (decodeUserAgent) {
+      req.userAgent = await decodeUserAgentFN(req);
+    }
     try {
       const res = await cacheResponse(req, context);
       let responseVal;
@@ -60,7 +65,7 @@ export const AsyncHandler = (
           );
       }
     } catch (error) {
-      systemLogger("🚀 ~ return ~ error:", error)
+      systemLogger("🚀 ~ return ~ error:", error);
       return await globalError(req, error);
     }
   };

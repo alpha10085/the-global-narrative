@@ -38,6 +38,7 @@ const decodeReq = async (request, context) => {
     ...request,
     ...context,
     method: request.method,
+    headers: request.headers,
   };
   // Retrieve cookies from the request and attach them
   enhancedRequest.cookies = await cookies();
@@ -106,8 +107,13 @@ const cacheResponse = async (req, res, next) => {
 const globalError = async (req, error) => {
   // Error logging for development environment
   if (process.env.NEXT_PUBLIC_MODE === "dev") {
-    console.error("❌ AsyncHandler Error message:", error.message, "\ndetails:",error.details);
-    console.error(" request  body:",req.body);
+    console.error(
+      "❌ AsyncHandler Error message:",
+      error.message,
+      "\ndetails:",
+      error.details
+    );
+    console.error(" request  body:", req.body);
   }
   // Clear token cookie if user is forbidden
   if (error?.message === httpStatus?.Forbidden?.message) {

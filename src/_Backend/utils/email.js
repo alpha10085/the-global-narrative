@@ -26,15 +26,12 @@ export const sendEmail = async ({
 }) => {
   try {
 
-    console.log("user" ,user);
-    
-    console.log("pass" ,pass);
+ 
     
     const transporter = nodemailer.createTransport({
       service,
       auth: { user, pass },
     });
-    console.log("step 1 passed");
     
 
     const mailOptions = {

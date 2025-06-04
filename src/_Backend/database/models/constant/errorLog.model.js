@@ -8,6 +8,18 @@ const errorLogSchema = new Schema(
       type: String,
       default: null,
     },
+    location: {
+           type: String,
+      default: "unknown",
+    },
+    Browser: {
+      type: String,
+      default: "unknown",
+    },
+    os : {
+            type: String,
+      default: "unknown",
+    }
   },
   {
     timestamps: true,
