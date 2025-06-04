@@ -13,7 +13,7 @@ const FilterBar = () => {
     device: "",
     chartType: "dailyTraffic",
   };
-
+    
   return (
     <div className={`${styles.container} ${theme.bord10} ${theme.background}`}>
       {filterConfigs?.map(({ key, label, options }) => {

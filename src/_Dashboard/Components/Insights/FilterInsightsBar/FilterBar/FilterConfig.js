@@ -13,8 +13,13 @@ export const filterConfigs = [
     label: "Page Path",
     options: [
       { value: "", label: "All" },
-      { value: "/en", label: "Home" },
-      { value: "/en/test-insights", label: "test-insights" },
+      { value: "/", label: "Home" },
+      { value: "/about-us", label: "about us" },
+      { value: "/contact-us", label: "contact us" },
+      { value: "/clients", label: "clients" },
+      { value: "/media-center", label: "media center" },
+      { value: "/news", label: "news" },
+      { value: "/services", label: "services" },
     ],
   },
   {

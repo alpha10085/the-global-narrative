@@ -21,7 +21,6 @@ import RouteList from "./RoutesList/RouteList";
 import BubbleChartIcon from "@mui/icons-material/BubbleChart";
 import { usePathname } from "@/hooks/useTranslations";
 function extractLastPathSegment(url = "") {
-  console.log("🚀 ~ extractLastPathSegment ~ url:", url)
   // Split the URL into parts by "/"
   return url.replace("/dashboard", "")?.split("/").filter(Boolean);
 }
