@@ -1,16 +1,16 @@
 export const dynamic = "auto";
 import List from "@/Components/News/List/List";
-import { getPage } from "@/lib/pages";
+// import { getPage } from "@/lib/pages";
 import { getpage } from "./data.test";
 import styles from "./styles.module.css";
 import SectionTitle from "@/Components/SectionTitle/SectionTitle";
 import ListInterviews from "@/Components/MediaCenter/List/List";
 
 // export const generateMetadata = async () =>
-//   await pageMetadataHandler(getpage, "");
+//   await pageMetadataHandler(getpage, "news-page");
 
 const page = async () => {
-  const data = await getpage("");
+  const data = await getpage("news-page");
   return (
     <section className={`${styles.layout} showSmooth`} id="news-Categories">
       <div className={styles.header}>
