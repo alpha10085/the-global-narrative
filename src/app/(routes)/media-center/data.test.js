@@ -13,12 +13,7 @@ const categories = [
   },
 ];
 
-export const getpage = () => {
-  return {
-    title: "Media center",
-    categories,
-  };
-};
+
 
 export const getFakeMediaCenter = () => {
   const mediaCenter = [
@@ -43,4 +38,12 @@ export const getFakeMediaCenter = () => {
     // add more mediaCenter...
   ];
   return mediaCenter;
+};
+
+
+export const getpage = () => {
+  return {
+    title: "Media center",
+    categories,
+  };
 };

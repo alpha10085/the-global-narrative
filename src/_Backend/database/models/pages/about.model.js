@@ -1,74 +1,70 @@
 import { Schema, models } from "mongoose";
 import { SingleTypeModel } from "../constant/singleType";
 import {
-  pageMetadataPopulate,
-  pageMetadata,
+  mongeDescription,
   mongtext,
-  mainCard,
+  pageMetadata,
+  pageMetadataPopulate,
   populateCommons,
+  poster,
 } from "../constant/Commons";
 
-const heroSection = new Schema({
-  left: mainCard,
-  right: mainCard,
-});
-const aboutSection = new Schema({
-  ...mainCard,
-});
-const ourServicesSection = new Schema({
-  ...mainCard,
-  services: [
-    {
-      title: mongtext,
 
-      description: mongtext,
-    },
-  ],
+// Who Us Member schema
+const whoUsMember = new Schema({
+  name: mongtext,
+  jobTitle: mongtext,
+  description: mongeDescription,
+  image: poster,
 });
-const whyUsSection = new Schema({
+
+// Our Value Card schema
+const ourValueCard = new Schema({
   title: mongtext,
-  description: mongtext,
-  cards: [
-    {
-      title: mongtext,
-      description: mongtext,
-    },
-  ],
+  description: mongeDescription,
 });
-// Main schema for aboutUs page
+
+
+// Hero section schema
+const heroSection = new Schema({
+  title: mongtext,
+  description: mongeDescription,
+  poster,
+});
+
+// Our Value Section schema
+const ourValueSection = new Schema({
+  title: mongtext,
+  cards: [ourValueCard],
+});
+
+// Who Us Section schema
+const whoUsSectionSection = new Schema({
+  title: mongtext,
+  members: [whoUsMember],
+});
+
+// Main about us schema
 const aboutUsSchema = new Schema({
   metadata: pageMetadata,
-  heroSection,
-  aboutSection,
-  whyUsSection,
-  ourServicesSection,
+  hero: heroSection,
+  ourValueSection,
+  whoUsSectionSection
 });
 
-// Pre-hook to populate metadata fields
+// Pre-hook to populate metadata and images
 aboutUsSchema.pre(/^find/, function (next) {
-  const populatePipeline = [
+  this.populate([
     pageMetadataPopulate,
     {
       ...populateCommons,
-      path: "heroSection.left.poster",
+      path: "hero.poster",
     },
     {
+      path: "whoUsSectionSection.members.image",
       ...populateCommons,
-      path: "heroSection.right.poster",
     },
-    {
-      ...populateCommons,
-      path: "aboutSection.poster",
-    },
-    {
-      ...populateCommons,
-      path: "ourServicesSection.poster",
-    },
-  ];
-  if (this?.options?.admin) {
-    //populatePipeline.push();
-  }
-  this.populate(populatePipeline);
+  ]);
   next();
 });
 

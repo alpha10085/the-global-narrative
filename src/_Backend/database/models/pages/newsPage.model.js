@@ -8,15 +8,15 @@ import {
   mainCard,
 } from "../constant/Commons";
 
-// Main schema for customerPage page
-const customerPageSchema = new Schema({
+// Main schema for newsPage page
+const newsPageSchema = new Schema({
   metadata: pageMetadata,
   title: mongtext,
-  description: mongtext,
+  subTitle: mongtext,
 });
 
 // Pre-hook to populate metadata fields
-customerPageSchema.pre(/^find/, function (next) {
+newsPageSchema.pre(/^find/, function (next) {
   const populatePipeline = [];
   if (this?.options?.admin) {
     //populatePipeline.push();
@@ -25,6 +25,6 @@ customerPageSchema.pre(/^find/, function (next) {
   next();
 });
 
-export const customerPageModel =
-  models?.customerPage ||
-  SingleTypeModel.discriminator("customerPage", customerPageSchema);
+export const newsPageModel =
+  models?.newsPage ||
+  SingleTypeModel.discriminator("newsPage", newsPageSchema);

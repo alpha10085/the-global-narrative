@@ -1,94 +1,84 @@
 import { Schema, models } from "mongoose";
 import { SingleTypeModel } from "../constant/singleType";
-import {
-  poster,
-  pageMetadataPopulate,
-  pageMetadata,
-  mongtext,
-  mainCard,
-  ObjectId,
-  populateCommons,
-} from "../constant/Commons";
-import { categoryModel } from "../category.model";
-import { productModel } from "../product.model";
-const heroSection = new Schema({
-  mediaSection: { poster, title: String, subTitle: String },
-  title: String,
-  description: String,
-});
-const qualitySection = new Schema({
-  ...mainCard,
-});
-const categoriesSection = new Schema({
-  title: String,
-  largeCard: {
-    type: ObjectId,
-    ref: "category",
-  },
-  smallCards: [
-    {
-      type: ObjectId,
-      ref: "category",
-    },
-  ],
-});
-const locationSection = new Schema({
+import { mongeDescription, mongtext, pageMetadata, pageMetadataPopulate, populateCommons, poster } from "../constant/Commons";
+import { newsModel } from "../news.model";
+import { testimonialModel } from "../testimonial.model";
+
+// Hero section schema
+const heroItemSchema = new Schema({
   title: mongtext,
-  address: mongtext,
-  location_url: mongtext,
-  map_url: mongtext,
-});
-// Main schema for landing page
-const landingSchema = new Schema({
-  metadata: pageMetadata,
-  heroSection,
-  qualitySection,
-  locationSection,
-  featuredProducts: [{ type: ObjectId, ref: "product" }],
-  categoriesSection,
+  media: poster,
 });
 
-// Pre-hook to populate metadata fields
+// About Us section
+const aboutUsSection = new Schema({
+  title: mongtext,
+  description: mongeDescription,
+});
+
+// Quote section
+const quoteSection = new Schema({
+  content: mongeDescription,
+});
+
+// News section
+const newsSection = new Schema({
+  title: mongtext,
+  posts: [{ type: Schema.Types.ObjectId, ref: "news" }],
+});
+
+// Testimonial section
+const testimonialSection = new Schema({
+  title: mongtext,
+  posts: [{ type: Schema.Types.ObjectId, ref: "testimonial" }],
+});
+
+// Get In Touch section
+const getInTouchSection = new Schema({
+  title: mongtext,
+  description: mongeDescription,
+  poster,
+});
+
+// Main home page schema
+const landingSchema = new Schema({
+  metadata: pageMetadata,
+  heroSection: [heroItemSchema],
+  aboutUsSection,
+  quoteSection,
+  newsSection,
+  testimonialSection,
+  getInTouchSection,
+});
+
+// Auto-populate
 landingSchema.pre(/^find/, function (next) {
   const populatePipeline = [
     pageMetadataPopulate,
+     {
+      model: "news",
+      path: "newsSection.posts",
+      options: { strictPopulate: false },
+      select: "_id poster title slug", 
+    },
+     {
+      model: "testimonial",
+      path: "testimonialSection.posts",
+      options: { strictPopulate: false },
+      select: "_id poster jobTitle", 
+    },
     {
       ...populateCommons,
-      path: "heroSection.mediaSection.poster",
+      path: "heroSection.media",
     },
     {
       ...populateCommons,
-      path: "qualitySection.poster",
-    },
-    {
-      model: "category",
-      path: "categoriesSection.largeCard",
-      options: { strictPopulate: false },
-      select: "_id poster title", // Example fields to select from the 'color' model
-    },
-    {
-      model: "category",
-      path: "categoriesSection.smallCards",
-      options: { strictPopulate: false },
-      select: "_id poster title", // Example fields to select from the 'color' model
+      path: "getInTouchSection.poster",
     },
   ];
-  if (this?.options?.admin) {
-    populatePipeline.push({
-      model: "product",
-      path: "featuredProducts",
-      options: { strictPopulate: false, relation: true },
-      select: {
-        _id: 1,
-        poster: 1,
-        title: 1,
-      },
-    });
-  }
-
   this.populate(populatePipeline);
   next();
 });
 
-export const landingPageModel =
+export const landingModel =
   models?.landing || SingleTypeModel.discriminator("landing", landingSchema);
