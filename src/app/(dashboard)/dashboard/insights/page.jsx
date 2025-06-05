@@ -1,5 +1,5 @@
+import InsightsDashboard from "@/_Dashboard/Components/Insights/InsightsDashboard/InsightsDashboard";
 import { getInsightsData } from "@/_Dashboard/lib/Insights";
-import InsightsDashboard from "@/_Dashboard/components/Insights/InsightsDashboard/InsightsDashboard";
 
 const page = async (props) => {
   const searchParams = await props.searchParams;
