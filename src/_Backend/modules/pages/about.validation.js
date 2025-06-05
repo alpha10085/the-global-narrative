@@ -1,70 +1,87 @@
-import {
-  pageMetadataVal,
-  CommonsVal,
-  fileVal,
-} from "@/_Backend/commons/validation";
+import { CommonsVal, fileVal, pageMetadataVal } from "@/_Backend/commons/validation";
 import { joiText } from "@/_Backend/utils/JoiHandlers";
-
 import Joi from "joi";
-const mainCard = {
+
+// ------------------------------
+// ✅ Hero Section
+// ------------------------------
+const heroSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   poster: fileVal.required(),
   ...CommonsVal,
-};
-const heroSection = Joi.object({
-  left: Joi.object(mainCard).required(),
-  right: Joi.object(mainCard).required(),
-  ...CommonsVal,
 });
-const aboutSection = Joi.object(mainCard);
 
-const ourServicesSection = Joi.object({
-  ...mainCard,
-  services: Joi.array().items(
-    Joi.object({
-      title: joiText({ min: 2, max: 1000, required: true }),
-      description: joiText({ min: 2, max: 20000, required: true }),
-      ...CommonsVal,
-    })
-  ).required().min(1),
-  ...CommonsVal,
-});
-const whyUsSection = Joi.object({
+// ------------------------------
+// ✅ Our Value Card
+// ------------------------------
+const ourValueCard = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
-  cards: Joi.array().items(
-    Joi.object({
-      title: joiText({ min: 2, max: 1000, required: true }),
-      description: joiText({ min: 2, max: 20000, required: true }),
-      ...CommonsVal,
-    })
-  ).required().min(1),
   ...CommonsVal,
 });
-// Validation for creating aboutUs page
-export const aboutUsValCreate = Joi.object({
-  metadata: pageMetadataVal,
-  key: Joi.string(),
-  heroSection: heroSection.required(),
 
-  aboutSection: aboutSection.required(),
-
-  ourServicesSection: ourServicesSection.required(),
-
-  whyUsSection: whyUsSection.required(),
+// ------------------------------
+// ✅ Our Value Section
+// ------------------------------
+const ourValueSection = Joi.object({
+  title: joiText({ min: 2, max: 1000, required: true }),
+  cards: joiArray({
+    body: ourValueCard,
+    min: 1,
+    required: true,
+  }),
   ...CommonsVal,
 });
-// Validation for updating aboutUs page
-export const aboutUsValUpdate = Joi.object({
+
+// ------------------------------
+// ✅ Who Us Member
+// ------------------------------
+const whoUsMember = Joi.object({
+  name: joiText({ min: 2, max: 1000, required: true }),
+  jobTitle: joiText({ min: 2, max: 1000, required: true }),
+  description: joiText({ min: 2, max: 20000, required: true }),
+  image: fileVal.required(),
+  ...CommonsVal,
+});
+
+// ------------------------------
+// ✅ Who Us Section
+// ------------------------------
+const whoUsSectionSection = Joi.object({
+  title: joiText({ min: 2, max: 1000, required: true }),
+  members: joiArray({
+    body: whoUsMember,
+    min: 1,
+    required: true,
+  }),
+  ...CommonsVal,
+});
+
+// ------------------------------
+// ✅ Validation for Creating
+// ------------------------------
+export const AboutValCreate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
-  heroSection: heroSection,
 
-  aboutSection: aboutSection,
+  hero: heroSection.required(),
+  ourValueSection: ourValueSection.required(),
+  whoUsSectionSection: whoUsSectionSection.required(),
 
-  ourServicesSection: ourServicesSection,
+  ...CommonsVal,
+});
 
-  whyUsSection: whyUsSection,
+// ------------------------------
+// ✅ Validation for Updating
+// ------------------------------
+export const AboutValUpdate = Joi.object({
+  metadata: pageMetadataVal,
+  key: Joi.string(),
+
+  hero: heroSection,
+  ourValueSection,
+  whoUsSectionSection,
+
   ...CommonsVal,
 });

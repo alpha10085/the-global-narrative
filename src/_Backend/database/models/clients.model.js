@@ -1,9 +1,10 @@
 import mongoose, { Schema, model, models } from "mongoose";
-import { poster, schemaCommens } from "./constant/Commons";
+import { mongtext, poster, schemaCommens } from "./constant/Commons";
 
 
 const clientsSchema = new Schema(
   {
+    title: mongtext,
     logo: poster,
     ...schemaCommens,
   },

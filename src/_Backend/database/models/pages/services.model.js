@@ -3,12 +3,17 @@ import { SingleTypeModel } from "../constant/singleType";
 import { mongeDescription, mongtext, ObjectId, poster } from "../constant/Commons";
 
 
-// Refs to existing models
+const serviceSubSchema = new Schema({
+  title: mongtext,
+  intro: mongtext,
+  description: mongeDescription,
+}); 
+
 const servicesPageSchema = new Schema({
   title: mongtext,
-  description: mongtext,
+  description: mongeDescription,
   poster,
-  services: [{ type: ObjectId, ref: "services" }],
+  services: [serviceSubSchema],
   contactSection: {
     title: mongtext,
     description: mongeDescription,
@@ -20,10 +25,6 @@ servicesPageSchema.pre(/^find/, function (next) {
   this.populate([
     {
       path: "poster",
-      ...populateCommons,
-    },
-    {
-      path: "services",
       ...populateCommons,
     },
   ]);
