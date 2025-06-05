@@ -32,5 +32,5 @@ servicesPageSchema.pre(/^find/, function (next) {
 });
 
 export const servicesPageModel =
-  models?.servicesPage ||
-  SingleTypeModel.discriminator("servicesPage", servicesPageSchema);
+  models?.services ||
+  SingleTypeModel.discriminator("services", servicesPageSchema);
