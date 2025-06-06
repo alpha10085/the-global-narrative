@@ -152,6 +152,8 @@ ${JSON.stringify(defaultMessages, null, 2)}
 };
 
 const moveFolder = (oldPath, newPath) => {
+  console.log("🚀 ~ moveFolder ~ newPath:", newPath)
+  console.log("🚀 ~ moveFolder ~ oldPath:", oldPath)
   if (fs.existsSync(oldPath)) {
     fs.renameSync(oldPath, newPath);
     console.log(`Moved: ${folder} → ${newPath}`);
