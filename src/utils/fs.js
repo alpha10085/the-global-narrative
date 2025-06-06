@@ -119,5 +119,6 @@ export {
   listFolders,
   checkisExists,
   createFolder,
-  path
+  path,
+  fs
 };

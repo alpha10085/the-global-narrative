@@ -1,5 +1,5 @@
 import config from "@/i18n/config";
-import { readFile, getRootpath, writeFile, path } from "@/utils/fs";
+import { readFile, getRootpath, writeFile, path, fs } from "@/utils/fs";
 import { gemini } from "@/utils/gemini";
 import { layoutbody } from "./default";
 
@@ -197,6 +197,7 @@ export const changeToWithRouting = async () => {
     await writeFile(path.join(newPath, "layout.jsx"), layoutbody);
     await writeFile(path.join(appPath, "page.jsx"), pageBody);
   } catch (error) {
+    console.log("🚀 ~ changeToWithRouting ~ error:", error);
     return null;
   }
 };
