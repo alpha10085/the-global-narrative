@@ -1,6 +1,7 @@
 import config from "@/i18n/config";
 import { readFile, getRootpath, writeFile, path } from "@/utils/fs";
 import { gemini } from "@/utils/gemini";
+import { layoutbody } from "./default";
 
 export const updateLanguageConfig = async ({
   route = null,
@@ -147,5 +148,55 @@ ${JSON.stringify(defaultMessages, null, 2)}
       success: false,
       details: error?.message,
     };
+  }
+};
+
+const moveFolder = (oldPath, newPath) => {
+  if (fs.existsSync(oldPath)) {
+    fs.renameSync(oldPath, newPath);
+    console.log(`Moved: ${folder} → ${newPath}`);
+  } else {
+    console.log(`Not found: ${folder}`);
+  }
+
+  return true;
+};
+
+const appPath = path.join(getRootpath.rootSrcPath, "app");
+const removeNextIntlFormLayout = async () => {
+  const data = await readFile(path.join(appPath, "layout.jsx"));
+  if (!data) return console.error("❌ Error reading file:", err);
+
+  let updated = data
+    // Remove the NextIntlClientProvider import
+    .replace(
+      /import\s*\{\s*NextIntlClientProvider\s*\}\s*from\s*["']next-intl["'];?\n?/g,
+      ""
+    )
+    // Remove the dynamic import for messages
+    .replace(
+      /const messages = \([\s\S]*?import\(`\.\.\/i18n\/locales\/\$\{ValidateLocale\(locale, true\)\}\.json`\)[\s\S]*?\)\.default;\n*/g,
+      ""
+    )
+    // Remove <NextIntlClientProvider ...>
+    .replace(/<NextIntlClientProvider[\s\S]*?messages=\{messages\}>/, "")
+    // Remove </NextIntlClientProvider>
+    .replace(/<\/NextIntlClientProvider>/, "");
+
+  await writeFile(path.join(appPath, "layout.jsx"), data);
+};
+export const changeToWithRouting = async () => {
+  try {
+    const newPath = path.join(appPath, "[locale]");
+    const foldersToMove = ["(dashboard)", "(routes)"];
+    fs.mkdirSync(newPath);
+    foldersToMove.forEach((f) => {
+      moveFolder(path.join(appPath), f), path.join(newPath, f);
+    });
+    await removeNextIntlFormLayout();
+    await writeFile(path.join(newPath, "layout.jsx"), layoutbody);
+    await writeFile(path.join(appPath, "page.jsx"), pageBody);
+  } catch (error) {
+    return null;
   }
 };
