@@ -59,7 +59,7 @@ export default async function RootLayout({ children }) {
   }
   const cookieStore = await cookies();
   const locale = await getLocale();
-    const boundary = cookieStore?.get("boundary")?.value;
+      const boundary = cookieStore?.get("boundary")?.value;
   const selectedFont = fonts[locale] || fonts.en;
   return (
     <ReactQuery>
