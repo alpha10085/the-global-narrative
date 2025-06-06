@@ -285,6 +285,7 @@ export const changeToWithoutRouting = async () => {
       await transformLayoutCode();
       await deleteFile(path.join(newPath, "layout.jsx"));
       await deleteFile(path.join(appPath, "page.jsx"));
+      fs.rmdirSync(newPath, { recursive: true });
     } catch (err) {
       console.error("Error moving folders:", err);
     }
