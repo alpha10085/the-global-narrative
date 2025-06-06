@@ -44,8 +44,8 @@ export const PATCH = AsyncHandler(async (req, res, next) => {
   // update i18n config [route]
 
   if (route) {
-    console.log("new route",route);
-    
+    console.log("new route", route);
+
     await changeToWithRouting();
   }
   await updateLanguageConfig({
