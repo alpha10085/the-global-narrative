@@ -191,7 +191,9 @@ export const changeToWithRouting = async () => {
   try {
     const newPath = path.join(appPath, "[locale]");
     const foldersToMove = ["(dashboard)", "(routes)"];
-    fs.mkdirSync(newPath);
+    fs.mkdirSync(newPath, {
+      recursive: true,
+    });
     foldersToMove.forEach((f) => {
       moveFolder(path.join(appPath, f), path.join(newPath, f));
     });
