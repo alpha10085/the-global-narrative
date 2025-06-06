@@ -191,7 +191,7 @@ export const changeToWithRouting = async () => {
     const foldersToMove = ["(dashboard)", "(routes)"];
     fs.mkdirSync(newPath);
     foldersToMove.forEach((f) => {
-      moveFolder(path.join(appPath), f), path.join(newPath, f);
+      moveFolder(path.join(appPath, f)), path.join(newPath, f);
     });
     await removeNextIntlFormLayout();
     await writeFile(path.join(newPath, "layout.jsx"), layoutbody);
