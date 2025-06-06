@@ -1,7 +1,7 @@
 import config from "@/i18n/config";
 import { readFile, getRootpath, writeFile, path, fs } from "@/utils/fs";
 import { gemini } from "@/utils/gemini";
-import { layoutbody } from "./default";
+import { layoutbody, pageBody } from "./default";
 
 export const updateLanguageConfig = async ({
   route = null,
