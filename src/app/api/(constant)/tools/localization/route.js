@@ -4,6 +4,7 @@ import config from "@/i18n/config";
 import {
   changeToWithRouting,
   genrateLocale,
+  transformLayoutCode,
   updateLanguageConfig,
 } from "./helpers";
 
@@ -47,6 +48,8 @@ export const PATCH = AsyncHandler(async (req, res, next) => {
     console.log("new route", route);
 
     await changeToWithRouting();
+  } else {
+    await transformLayoutCode()
   }
   await updateLanguageConfig({
     route,

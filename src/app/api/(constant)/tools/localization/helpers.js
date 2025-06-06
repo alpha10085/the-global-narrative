@@ -2,7 +2,7 @@ import config from "@/i18n/config";
 import { readFile, getRootpath, writeFile, path } from "@/utils/fs";
 import { gemini } from "@/utils/gemini";
 import { layoutbody, pageBody } from "./default";
-import fs from 'fs-extra';
+import fs from "fs-extra";
 export const updateLanguageConfig = async ({
   route = null,
   defaultLocale = null,
@@ -210,4 +210,59 @@ export const changeToWithRouting = async () => {
     console.log("🚀 ~ changeToWithRouting ~ error:", error);
     return null;
   }
+};
+
+export const transformLayoutCode = async () => {
+  let updatedCode = await readFile(path.join(appPath, "layout.jsx"));
+
+  // === Step 1: Ensure imports are present ===
+  const importsToEnsure = [
+    { name: "NextIntlClientProvider", from: "next-intl" },
+    { name: "ValidateLocale", from: "@/i18n/request" },
+  ];
+
+  importsToEnsure.forEach(({ name, from }) => {
+    const importRegex = new RegExp(
+      `import\\s+\\{[^}]*\\b${name}\\b[^}]*\\}\\s+from\\s+["']${from}["']`
+    );
+    if (!importRegex.test(updatedCode)) {
+      // Insert after the last import block
+      const lastImportIndex = updatedCode.lastIndexOf("import");
+      const nextLineIndex = updatedCode.indexOf("\n", lastImportIndex);
+      updatedCode = `${updatedCode.slice(
+        0,
+        nextLineIndex
+      )}\nimport { ${name} } from "${from}";${updatedCode.slice(
+        nextLineIndex
+      )}`;
+    }
+  });
+
+  // === Step 2: Add messages import logic after `locale` ===
+  const getLocaleLine = /const\s+locale\s*=\s*await\s+getLocale\(\);/;
+  if (getLocaleLine.test(updatedCode) && !updatedCode.includes("messages =")) {
+    updatedCode = updatedCode.replace(getLocaleLine, (match) => {
+      return `${match}\n  const messages = (await import(\`../i18n/locales/\${ValidateLocale(locale, true)}.json\`)).default;`;
+    });
+  }
+
+  // === Step 3: Inject NextIntlClientProvider inside <body> ===
+  const bodyTagRegex = /<body([^>]*)>([\s\S]*?)<\/body>/;
+  const match = updatedCode.match(bodyTagRegex);
+
+  if (match && !updatedCode.includes("<NextIntlClientProvider")) {
+    const bodyAttrs = match[1];
+    const bodyContent = match[2];
+
+    // Preserve all content inside the provider
+    const wrappedBody = `
+<body${bodyAttrs}>
+  <NextIntlClientProvider locale={locale} messages={messages}>
+${bodyContent.trim().startsWith("<") ? "    " : ""}${bodyContent.trim()}
+  </NextIntlClientProvider>
+</body>`;
+
+    updatedCode = updatedCode.replace(bodyTagRegex, wrappedBody);
+  }
+  await writeFile(path.join(appPath, "layout.jsx"), updatedCode);
 };

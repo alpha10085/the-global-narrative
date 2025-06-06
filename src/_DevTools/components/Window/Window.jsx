@@ -16,11 +16,11 @@ import { delay } from "@/utils/delay";
 import useDynamicState from "@/hooks/useDynamicState";
 import ConsoleTools from "./ConsoleTools/ConsoleTools";
 import SettingsTools from "./SettingsTools/SettingsTools";
-import Link from "@/Components/Shared/Link/Link";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import PublicIcon from '@mui/icons-material/Public';
 import Item from "./Components/Item/Item";
 import Localization from "./Localization/Localization";
+import Link from "next/link";
 const list = [
   {
     key: "page",
