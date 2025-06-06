@@ -162,10 +162,8 @@ const moveFolder = (oldPath, newPath) => {
       }
       console.log("Folder moved successfully!");
     });
-
-    console.log(`Moved: ${folder} → ${newPath}`);
   } else {
-    console.log(`Not found: ${folder}`);
+    console.log(`Not found: ${oldPath}`);
   }
 
   return true;
