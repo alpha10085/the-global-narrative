@@ -17,6 +17,7 @@ import { ValidateLocale } from "@/i18n/request";
 import SamsungPatch from "@/Components/Shared/Pervent/Pervent";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX/ErrorBoundryCTX";
 import DisableLogs from "@/Components/Shared/DisableLogs/DisableLogs";
+import { NextIntlClientProvider } from "next-intl";
 // If loading a variable font, you don't need to specify the font weight
 const geist = Geist({
   subsets: ["latin"],
@@ -59,19 +60,22 @@ export default async function RootLayout({ children }) {
   }
   const cookieStore = await cookies();
   const locale = await getLocale();
+  const messages = (await import(`../i18n/locales/${ValidateLocale(locale, true)}.json`)).default;
   const boundary = cookieStore?.get("boundary")?.value;
   const selectedFont = fonts[locale] || fonts.en;
   return (
     <ReactQuery>
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-        <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
-          <DisableLogs />
-            <DevToolsWrapper>
-              <ErrorBoundary boundary={boundary}>
-                <AuthProvider locale={locale}>{children}</AuthProvider>
-              </ErrorBoundary>
-            </DevToolsWrapper>
-        </body>
+<body className={`${selectedFont.variable}  ${selectedFont.className}`}>
+  <NextIntlClientProvider locale={locale} messages={messages}>
+    <DevToolsWrapper>
+            <DisableLogs />
+            <ErrorBoundary boundary={boundary}>
+              <AuthProvider locale={locale}>{children}</AuthProvider>
+            </ErrorBoundary>
+          </DevToolsWrapper>
+  </NextIntlClientProvider>
+</body>
       </html>
     </ReactQuery>
   );

@@ -1,9 +1,8 @@
 import { NextIntlClientProvider } from "next-intl";
 import { ValidateLocale } from "@/i18n/request";
 import config from "@/i18n/config";
-
 export async function generateMetadata({ params }) {
-  const locale = params.locale; // Extract locale directly
+  const { locale } = await params;
   return {
     title: process.env.NEXT_PUBLIC_project_name,
     description: `Welcome to ${process.env.NEXT_PUBLIC_project_name}`,
@@ -17,7 +16,7 @@ export async function generateMetadata({ params }) {
   };
 }
 export default async function RootLayout({ children, params }) {
-  const locale = params.locale;
+  const { locale } = await params;
   const messages = (
     await import(`../../i18n/locales/${ValidateLocale(locale, true)}.json`)
   ).default;
