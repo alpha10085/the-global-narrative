@@ -2,9 +2,9 @@ import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import { toolsMiddleware } from "@/_Backend/middlewares/tools/tools";
 import config from "@/i18n/config";
 import {
+  changeToWithoutRouting,
   changeToWithRouting,
   genrateLocale,
-  transformLayoutCode,
   updateLanguageConfig,
 } from "./helpers";
 
@@ -49,7 +49,7 @@ export const PATCH = AsyncHandler(async (req, res, next) => {
 
     await changeToWithRouting();
   } else {
-    await transformLayoutCode()
+    await changeToWithoutRouting()
   }
   await updateLanguageConfig({
     route,
