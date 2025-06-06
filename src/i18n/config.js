@@ -15,7 +15,7 @@ export const getlanguagesMap = (translations = {}) => {
 ];
 };
 const config = {
-  route: false,
+  route: true,
   getlanguagesMap,
   locales: ["en", "ar", "es", "fr"],
   defaultLocale: "en",

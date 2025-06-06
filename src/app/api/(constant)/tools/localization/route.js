@@ -1,7 +1,11 @@
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import { toolsMiddleware } from "@/_Backend/middlewares/tools/tools";
 import config from "@/i18n/config";
-import { changeToWithRouting, genrateLocale, updateLanguageConfig } from "./helpers";
+import {
+  changeToWithRouting,
+  genrateLocale,
+  updateLanguageConfig,
+} from "./helpers";
 
 export const POST = AsyncHandler(
   async (req, res, next) => {
@@ -38,13 +42,15 @@ export const PUT = AsyncHandler(async (req, res, next) => {
 export const PATCH = AsyncHandler(async (req, res, next) => {
   const { route = false } = req.body;
   // update i18n config [route]
+
+  if (route) {
+    console.log("new route",route);
+    
+    await changeToWithRouting();
+  }
   await updateLanguageConfig({
     route,
   });
-
-  if (route) {
-    await changeToWithRouting()
-  }
 
   // create and move old layout to  [locale] layout.js level
 
