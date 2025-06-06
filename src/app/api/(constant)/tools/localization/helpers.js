@@ -155,7 +155,7 @@ const moveFolder = (oldPath, newPath) => {
   console.log("🚀 ~ moveFolder ~ newPath:", newPath);
   console.log("🚀 ~ moveFolder ~ oldPath:", oldPath);
   if (fs.existsSync(oldPath)) {
-    fs.renameSync(oldPath, newPath);
+    fs.rename(oldPath, newPath);
     console.log(`Moved: ${folder} → ${newPath}`);
   } else {
     console.log(`Not found: ${folder}`);
@@ -185,7 +185,7 @@ const removeNextIntlFormLayout = async () => {
     // Remove </NextIntlClientProvider>
     .replace(/<\/NextIntlClientProvider>/, "");
 
-  await writeFile(path.join(appPath, "layout.jsx"), data);
+  await writeFile(path.join(appPath, "layout.jsx"), updated);
 };
 export const changeToWithRouting = async () => {
   try {
