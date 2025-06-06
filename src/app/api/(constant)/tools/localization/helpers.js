@@ -1,8 +1,8 @@
 import config from "@/i18n/config";
-import { readFile, getRootpath, writeFile, path, fs } from "@/utils/fs";
+import { readFile, getRootpath, writeFile, path } from "@/utils/fs";
 import { gemini } from "@/utils/gemini";
 import { layoutbody, pageBody } from "./default";
-
+import fs from 'fs-extra';
 export const updateLanguageConfig = async ({
   route = null,
   defaultLocale = null,
@@ -200,12 +200,12 @@ export const changeToWithRouting = async () => {
     try {
       await Promise.all(promises);
       console.log("All folders moved!");
+      await removeNextIntlFormLayout();
+      await writeFile(path.join(newPath, "layout.jsx"), layoutbody);
+      await writeFile(path.join(appPath, "page.jsx"), pageBody);
     } catch (err) {
       console.error("Error moving folders:", err);
     }
-    await removeNextIntlFormLayout();
-    await writeFile(path.join(newPath, "layout.jsx"), layoutbody);
-    await writeFile(path.join(appPath, "page.jsx"), pageBody);
   } catch (error) {
     console.log("🚀 ~ changeToWithRouting ~ error:", error);
     return null;
