@@ -10,7 +10,6 @@ export const getRootpath = {
   rootPath,
   rootSrcPath,
 };
-
 const formateFile = (content = "") => {
   if (!content) return "";
   if (typeof content === "object") return JSON.stringify(content, null, 2);
@@ -120,4 +119,5 @@ export {
   listFolders,
   checkisExists,
   createFolder,
+  path
 };

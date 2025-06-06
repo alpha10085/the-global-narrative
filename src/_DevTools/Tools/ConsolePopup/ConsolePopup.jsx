@@ -13,7 +13,26 @@ import DoNotDisturbOnIcon from "@mui/icons-material/DoNotDisturbOn";
 import ObjectID from "bson-objectid";
 import { isEqual } from "lodash";
 import { delay } from "@/utils/delay";
-const deepClone = (val) => JSON.parse(JSON.stringify(val));
+
+function safeClone(args) {
+  const handler = (arg) => {
+    try {
+      // Try to JSON.stringify and parse to remove functions/circular refs
+      return JSON.parse(JSON.stringify(arg));
+    } catch {
+      // Fallback for DOM elements, functions, circular refs
+      if (arg instanceof HTMLElement) {
+        return `[HTMLElement: ${arg.tagName.toLowerCase()}]`;
+      }
+      if (typeof arg === "function") {
+        return `[Function: ${arg.name || "anonymous"}]`;
+      }
+      return `[Unserializable]`;
+    }
+  };
+
+  return args.map(handler);
+}
 
 const ConsolePopup = ({ logStore, onMouned }) => {
   const { data, isLoading = {} } = useLocalStorage("dev-tools-console");
@@ -133,15 +152,15 @@ const ConsolePopup = ({ logStore, onMouned }) => {
 
     console.log = (...args) => {
       originalLogger(...args);
-      addMessage("log", deepClone(args));
+      addMessage("log", safeClone(args));
     };
     console.warn = (...args) => {
       originalWarn(...args);
-      addMessage("warn", deepClone(args));
+      addMessage("warn", safeClone(args));
     };
     console.error = (...args) => {
       originalError(...args);
-      addMessage("error", deepClone(args));
+      addMessage("error", safeClone(args));
     };
 
     onMouned();

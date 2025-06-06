@@ -18,7 +18,9 @@ import ConsoleTools from "./ConsoleTools/ConsoleTools";
 import SettingsTools from "./SettingsTools/SettingsTools";
 import Link from "@/Components/Shared/Link/Link";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import PublicIcon from '@mui/icons-material/Public';
 import Item from "./Components/Item/Item";
+import Localization from "./Localization/Localization";
 const list = [
   {
     key: "page",
@@ -58,6 +60,13 @@ const list = [
     Icon: <ServerIcon />,
     scaleOnActive: false,
     children: <ServerActions />,
+  },
+    {
+    key: "localization",
+    label: "localization",
+    Icon: <PublicIcon />,
+    scaleOnActive: true,
+    children: <Localization />,
   },
 ];
 function hasTrueValue(obj) {

@@ -1,0 +1,30 @@
+.projectmode {
+
+}
+.title {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 0 10px 10px;
+  text-transform: capitalize;
+  padding-right: 15px;
+}
+.options {
+  margin: 5px 0;
+  padding: 5px 10px;
+
+  background-color: rgba(255, 255, 255, 0.03);
+  width: max-content;
+  border-radius: 18px;
+  height: 55px;
+}
+.option {
+  padding: 5px 10px;
+  border-radius: 10px;
+  transition: 0.4s;
+  cursor: pointer;
+  font-size: 14px;
+  height: 35px;
+}
+.option.active {
+  background-color: rgba(255, 255, 255, 0.15);
+}

@@ -18,6 +18,7 @@ import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
 import { systemLogger } from "@/utils/consoleProxy";
 import { reportError } from "@/app/api/(constant)/error-logs/services";
 import { decodeUserAgent } from "@/_Backend/utils/userAgent";
+import { isProductionMode } from "@/config/main";
 
 function extractAPIPath(url = "") {
   const match = url?.match(/\/api\/.+/);
@@ -117,7 +118,7 @@ const globalError = async (req, error) => {
     error instanceof URIError ||
     (typeof error === "object" && error?.isSystemError === true);
 
-  if (isServerError) {
+  if (isServerError && isProductionMode) {
     await reportError({
       deteils: {
         ...error,

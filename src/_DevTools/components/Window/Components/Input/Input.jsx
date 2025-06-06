@@ -8,7 +8,7 @@ const Input = ({
   validation = () => {},
   label,
   value = "",
-  textarea = false // new prop
+  textarea = false, // new prop
 }) => {
   const [error, setError] = useState("");
 
@@ -35,7 +35,7 @@ const Input = ({
           className={`${styles.input} ${disabled ? styles.disabled : ""}`}
           onChange={handleChange}
           style={{
-            height:"150px"
+            height: "100px",
           }}
         />
       ) : (
@@ -49,7 +49,9 @@ const Input = ({
       )}
 
       <p
-        className={`${styles.errorMasg} ${error && styles.show} flex al-t-i gap5`}
+        className={`${styles.errorMasg} ${
+          error && styles.show
+        } flex al-t-i gap5`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -1,20 +1,22 @@
 import { AsyncHandler, csrApi } from "@/utils/api";
+
+const baseURL = "http://127.0.0.1:3000/api";
 export const getFolders = AsyncHandler(
   async ({ queryKey: [paths = []] = [] }) => {
     return csrApi.get(`/tools/folders?path=${["src", ...paths]}`, {
-      baseURL: "http://127.0.0.1:3000/api",
+      baseURL,
     });
   }
 );
 export const createPage = AsyncHandler(async (formData = {}) => {
   const data = csrApi.post(`/tools/pages`, formData, {
-    baseURL: "http://127.0.0.1:3000/api",
+    baseURL,
   });
   return data;
 });
 export const createComponent = AsyncHandler(async (formData = {}) => {
   const data = csrApi.post(`/tools/components`, formData, {
-    baseURL: "http://127.0.0.1:3000/api",
+    baseURL,
   });
   return data;
 });
@@ -26,7 +28,7 @@ export const ChangeProjectMode = AsyncHandler(async (mode) => {
       mode,
     },
     {
-      baseURL: "http://127.0.0.1:3000/api",
+      baseURL,
     }
   );
 });
@@ -35,24 +37,62 @@ export const makeServerAction = AsyncHandler(async (action) => {
     `/tools/server/actions`,
     { action },
     {
-      baseURL: "http://127.0.0.1:3000/api",
+      baseURL,
     }
   );
 });
 
 export const getSettings = AsyncHandler(async () => {
   return csrApi.get(`/tools/settings`, {
-    baseURL: "http://127.0.0.1:3000/api",
+    baseURL,
   });
 });
 
 export const updateNextConfig = AsyncHandler(async (formData) => {
   return csrApi.put(`/tools/settings`, formData, {
-    baseURL: "http://127.0.0.1:3000/api",
+    baseURL,
   });
 });
 export const updateEnvironment = AsyncHandler(async (formData) => {
   return csrApi.post(`/tools/settings`, formData, {
-    baseURL: "http://127.0.0.1:3000/api",
+    baseURL,
   });
+});
+
+export const updatei18Strategy = AsyncHandler(async (newVal = undefined) => {
+  return csrApi.patch(
+    `/tools/localization`,
+    {
+      route: newVal,
+    },
+    {
+      baseURL,
+    }
+  );
+});
+export const updateDefaultLocale = AsyncHandler(
+  async (newDefaultLocale = undefined) => {
+    return csrApi.put(
+      `/tools/localization`,
+      {
+        route: newDefaultLocale,
+      },
+      {
+        baseURL,
+      }
+    );
+  }
+);
+
+export const createNewLocale = AsyncHandler(async ({ lang, label } = {}) => {
+  return csrApi.post(
+    `/tools/localization`,
+    {
+      lang,
+      label,
+    },
+    {
+      baseURL,
+    }
+  );
 });

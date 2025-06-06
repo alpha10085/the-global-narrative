@@ -42,7 +42,6 @@ export const AsyncHandler = (
         ...middlewares,
         originalFunction,
       ];
-      systemLogger("🚀 ~ req", req.url);
 
       for (const [i, currentMiddleware] of allMiddlewares.entries()) {
         let nextCalled = false;
@@ -67,6 +66,8 @@ export const AsyncHandler = (
     } catch (error) {
       systemLogger("🚀 ~ return ~ error:", error);
       return await globalError(req, error);
+    } finally {
+      systemLogger("🚀 ~ req", req.url);
     }
   };
 };

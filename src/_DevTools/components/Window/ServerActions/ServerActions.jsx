@@ -3,6 +3,7 @@ import styles from "./ServerActions.module.css";
 import { ChangeProjectMode, makeServerAction } from "@/lib/tools";
 import { useRouter } from "next/navigation";
 import { delay } from "@/utils/delay";
+import Switch from "../Components/Switch/Switch";
 
 const ServerActions = () => {
   const [state, setState] = useDynamicState({
@@ -27,27 +28,18 @@ const ServerActions = () => {
   };
   return (
     <div className={`${styles.container} flex gap20 wrap showSmooth`}>
-      <div className={styles.projectmode}>
-        <h1 className={styles.title}>project mode</h1>
-        <div className={`${styles.options} flex al-i-c  gap20`}>
-          <div
-            onClick={() => handleModeChange("dev")}
-            className={`${styles.option} ${styles.dev} flex-c ${
-              state.projectMode === "dev" ? styles.active : ""
-            } `}
-          >
-            Development
-          </div>
-          <div
-            onClick={() => handleModeChange("pro")}
-            className={`${styles.option} flex-c   ${styles.pro} ${
-              state.projectMode === "pro" ? styles.active : ""
-            }`}
-          >
-            Production
-          </div>
-        </div>
-      </div>
+      <Switch
+        firstOption={{
+          onClick: () => handleModeChange("dev"),
+          isActive: state.projectMode === "dev",
+          label: "Development",
+        }}
+        secendOption={{
+          onClick: () => handleModeChange("pro"),
+          isActive: state.projectMode === "pro",
+          label: "Production",
+        }}
+      />
       <div className={styles.btnWrapper}>
         <h1 className={styles.title}>stop server</h1>
 
