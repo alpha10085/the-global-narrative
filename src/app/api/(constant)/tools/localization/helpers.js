@@ -155,7 +155,14 @@ const moveFolder = (oldPath, newPath) => {
   console.log("🚀 ~ moveFolder ~ newPath:", newPath);
   console.log("🚀 ~ moveFolder ~ oldPath:", oldPath);
   if (fs.existsSync(oldPath)) {
-    fs.rename(oldPath, newPath);
+    fs.rename(oldPath, newPath, (err) => {
+      if (err) {
+        console.error("Error moving folder:", err);
+        return;
+      }
+      console.log("Folder moved successfully!");
+    });
+
     console.log(`Moved: ${folder} → ${newPath}`);
   } else {
     console.log(`Not found: ${folder}`);
