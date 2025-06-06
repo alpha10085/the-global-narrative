@@ -1,5 +1,6 @@
 import { Schema, models } from "mongoose";
 import { mongeDescription, mongtext, pageMetadata } from "../constant/Commons";
+import { SingleTypeModel } from "../constant/singleType";
 
 
 // Main schema for contactUsPage page

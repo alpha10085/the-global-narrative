@@ -1,5 +1,5 @@
 import { CommonsVal, fileVal, pageMetadataVal } from "@/_Backend/commons/validation";
-import { joiText } from "@/_Backend/utils/JoiHandlers";
+import { joiArray, joiText } from "@/_Backend/utils/JoiHandlers";
 import Joi from "joi";
 
 // ------------------------------

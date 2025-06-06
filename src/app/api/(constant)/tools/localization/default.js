@@ -33,7 +33,8 @@ export default async function RootLayout({ children, params }) {
 
 export const pageBody = `import { redirect } from "next/navigation";
 import config from "@/i18n/config";
+
 export default function RootPage() {
-  redirect(\`/${config.defaultLocale}\`);
+  redirect(\`/\${config.defaultLocale}\`);
 }
-`
+`;
