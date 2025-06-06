@@ -1,5 +1,5 @@
 import config from "@/i18n/config";
-import { readFile, getRootpath, writeFile, path } from "@/utils/fs";
+import { readFile, getRootpath, writeFile, path, deleteFile } from "@/utils/fs";
 import { gemini } from "@/utils/gemini";
 import { layoutbody, pageBody } from "./default";
 import fs from "fs-extra";
@@ -265,4 +265,31 @@ ${bodyContent.trim().startsWith("<") ? "    " : ""}${bodyContent.trim()}
     updatedCode = updatedCode.replace(bodyTagRegex, wrappedBody);
   }
   await writeFile(path.join(appPath, "layout.jsx"), updatedCode);
+};
+
+export const changeToWithoutRouting = async () => {
+  try {
+    const newPath = path.join(appPath, "[locale]");
+    const foldersToMove = ["(dashboard)", "(routes)"];
+    fs.mkdirSync(newPath, {
+      recursive: true,
+    });
+    const promises = foldersToMove?.map((f) => {
+      const src = path.join(newPath, f);
+      const dest = path.join(appPath, f);
+      return moveFolder(src, dest);
+    });
+    try {
+      await Promise.all(promises);
+      console.log("All folders moved!");
+      await transformLayoutCode();
+      await deleteFile(path.join(newPath, "layout.jsx"));
+      await deleteFile(path.join(appPath, "page.jsx"));
+    } catch (err) {
+      console.error("Error moving folders:", err);
+    }
+  } catch (error) {
+    console.log("🚀 ~ changeToWithRouting ~ error:", error);
+    return null;
+  }
 };
