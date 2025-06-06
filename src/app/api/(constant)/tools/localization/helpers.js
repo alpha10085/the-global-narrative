@@ -151,17 +151,10 @@ ${JSON.stringify(defaultMessages, null, 2)}
   }
 };
 
-const moveFolder = (oldPath, newPath) => {
-  console.log("🚀 ~ moveFolder ~ newPath:", newPath);
-  console.log("🚀 ~ moveFolder ~ oldPath:", oldPath);
+const moveFolder = async (oldPath, newPath) => {
   if (fs.existsSync(oldPath)) {
-    fs.rename(oldPath, newPath, (err) => {
-      if (err) {
-        console.error("Error moving folder:", err);
-        return;
-      }
-      console.log("Folder moved successfully!");
-    });
+    await fs.copy(oldPath, newPath); // copy folder recursively
+    await fs.remove(oldPath); // delete original folder
   } else {
     console.log(`Not found: ${oldPath}`);
   }
@@ -199,9 +192,17 @@ export const changeToWithRouting = async () => {
     fs.mkdirSync(newPath, {
       recursive: true,
     });
-    foldersToMove.forEach((f) => {
-      moveFolder(path.join(appPath, f), path.join(newPath, f));
+    const promises = foldersToMove.map((f) => {
+      const src = path.join(appPath, f);
+      const dest = path.join(newPath, f);
+      return moveFolder(src, dest);
     });
+    try {
+      await Promise.all(promises);
+      console.log("All folders moved!");
+    } catch (err) {
+      console.error("Error moving folders:", err);
+    }
     await removeNextIntlFormLayout();
     await writeFile(path.join(newPath, "layout.jsx"), layoutbody);
     await writeFile(path.join(appPath, "page.jsx"), pageBody);
