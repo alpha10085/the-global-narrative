@@ -13,12 +13,10 @@ import DevToolsWrapper from "@/_DevTools/DevToolsWrapper";
 import { getLocale } from "next-intl/server";
 import interceptor from "@/utils/consoleProxy";
 import { isProductionMode } from "@/config/main";
-import { NextIntlClientProvider } from "next-intl";
 import { ValidateLocale } from "@/i18n/request";
 import SamsungPatch from "@/Components/Shared/Pervent/Pervent";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX/ErrorBoundryCTX";
 import DisableLogs from "@/Components/Shared/DisableLogs/DisableLogs";
-
 // If loading a variable font, you don't need to specify the font weight
 const geist = Geist({
   subsets: ["latin"],
@@ -28,13 +26,11 @@ const UrbanistFont = Urbanist({
   subsets: ["latin"],
   variable: "--font-Urbanist",
 });
-
 const tajawal = Tajawal({
   subsets: ["latin"],
   variable: "--font-tajawal",
   weight: "400",
 });
-
 export const metadata = {
   title: process.env.NEXT_PUBLIC_project_name,
   description: "Welcome",
@@ -43,7 +39,6 @@ export const metadata = {
     "supported-color-schemes": "light",
   },
 };
-
 export const viewport = {
   width: "device-width",
   initialScale: 1,
@@ -66,23 +61,16 @@ export default async function RootLayout({ children }) {
   const locale = await getLocale();
   const boundary = cookieStore?.get("boundary")?.value;
   const selectedFont = fonts[locale] || fonts.en;
-
-  const messages = (
-    await import(`../i18n/locales/${ValidateLocale(locale, true)}.json`)
-  ).default;
-
   return (
     <ReactQuery>
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
         <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
           <DisableLogs />
-          <NextIntlClientProvider locale={locale} messages={messages}>
             <DevToolsWrapper>
               <ErrorBoundary boundary={boundary}>
                 <AuthProvider locale={locale}>{children}</AuthProvider>
               </ErrorBoundary>
             </DevToolsWrapper>
-          </NextIntlClientProvider>
         </body>
       </html>
     </ReactQuery>
