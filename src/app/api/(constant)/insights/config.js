@@ -29,14 +29,6 @@
         },
       },
     ],
-    trafficSources: [
-      {
-        $group: {
-          _id: "$referrer",
-          count: { $sum: 1 },
-        },
-      },
-    ],
     pageViews: [
       {
         $group: {

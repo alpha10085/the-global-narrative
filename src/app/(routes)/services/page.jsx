@@ -11,7 +11,7 @@ import FAQItem from "@/Components/Services/FAQItem/FAQItem";
 // import { metadataHandler } from "@/utils/metadata";
 // import { getPage } from "@/lib/pages";
 
-// export const generateMetadata = metadataHandler(getPage, `services`);
+// export const generateMetadata = metadataHandler(getPage, `services-page`);
 const Page = async () => {
   const {
     title = "",
@@ -19,7 +19,7 @@ const Page = async () => {
     poster = {},
     services = [],
     faqs = [],
-  } = await getpage("services");
+  } = await getpage("services-page");
   return (
     <section className={styles.container}>
       {/* Hero  */}

@@ -1,72 +1,95 @@
-import {
-  pageMetadataVal,
-  CommonsVal,
-  fileVal,
-} from "@/_Backend/commons/validation";
-import { joiText } from "@/_Backend/utils/JoiHandlers";
-
+import { CommonsVal, fileVal, pageMetadataVal } from "@/_Backend/commons/validation";
+import { joiArray, joiText } from "@/_Backend/utils/JoiHandlers";
 import Joi from "joi";
-import { productValidationRelation } from "../product/product.validation";
-import { categoryValidationRelation } from "../category/category.validation";
-const mainCard = {
+import { newsValidationRelation } from "../news/news.validation";
+import { testimonialValidationRelation } from "../testimonial/testimonial.validation";
+
+// Hero Section (Array of cards with title & media)
+const heroItem = Joi.object({
+  title: joiText({ min: 2, max: 1000, required: true }),
+  media: fileVal.required(),
+  ...CommonsVal,
+});
+const heroSection = joiArray({
+  body: heroItem,
+  min: 1,
+  required: true,
+});
+
+// About Us Section
+const aboutUsSection = Joi.object({
+  title: joiText({ min: 2, max: 1000, required: true }),
+  description: joiText({ min: 2, max: 20000, required: true }),
+  ...CommonsVal,
+});
+
+// Quote Section
+const quoteSection = Joi.object({
+  content: joiText({ min: 2, max: 20000, required: true }),
+  ...CommonsVal,
+});
+
+// News Section
+const newsSection = Joi.object({
+  title: joiText({ min: 2, max: 1000, required: true }),
+  posts: joiArray({
+    body: newsValidationRelation,
+    min: 1,
+    required: true,
+  }),
+  ...CommonsVal,
+});
+
+// Testimonial Section
+const testimonialSection = Joi.object({
+  title: joiText({ min: 2, max: 1000, required: true }),
+  posts: joiArray({
+    body: testimonialValidationRelation,
+    min: 1,
+    required: true,
+  }),
+  ...CommonsVal,
+});
+
+// Get In Touch Section
+const getInTouchSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   poster: fileVal.required(),
   ...CommonsVal,
-};
-const heroSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
-  description: joiText({ min: 2, max: 20000, required: true }),
-  mediaSection: Joi.object({
-    poster: fileVal.required(),
-    title: joiText({ min: 2, max: 1000, required: true }),
-    subTitle: joiText({ min: 2, max: 20000, required: true }),
-    ...CommonsVal,
-  }).required(),
-  ...CommonsVal,
-});
-const qualitySection = Joi.object(mainCard);
-
-const categoriesSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
-  largeCard: categoryValidationRelation.required(),
-  smallCards: Joi.array()
-    .items(categoryValidationRelation)
-    .length(3)
-    .required(),
-  ...CommonsVal,
-});
-const locationSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
-  address: joiText({ min: 2, max: 1000, required: true }),
-  location_url: joiText({ min: 2, max: 1000, required: true }),
-  map_url: joiText({ min: 2, max: 1000, required: true }),
-  ...CommonsVal,
 });
 
-const featuredProducts = Joi.array().items(productValidationRelation);
-// Validation for creating landing page
+
+// ------------------------------
+// Validation for Creating
+// ------------------------------
 export const LandingValCreate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
+
   heroSection: heroSection.required(),
+  aboutUsSection: aboutUsSection.required(),
+  quoteSection: quoteSection.required(),
+  newsSection: newsSection.required(),
+  testimonialSection: testimonialSection.required(),
+  getInTouchSection: getInTouchSection.required(),
 
-  locationSection: locationSection.required(),
-
-  categoriesSection: categoriesSection.required(),
-
-  qualitySection: qualitySection.required(),
-  featuredProducts: featuredProducts.required(),
   ...CommonsVal,
 });
-// Validation for updating landing page
+
+// ------------------------------
+//  Validation for Updating
+// ------------------------------
 export const LandingValUpdate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
+
   heroSection,
-  locationSection,
-  categoriesSection,
-  qualitySection,
-  featuredProducts: featuredProducts,
+  aboutUsSection,
+  quoteSection,
+  newsSection,
+  testimonialSection,
+  getInTouchSection,
+
   ...CommonsVal,
 });

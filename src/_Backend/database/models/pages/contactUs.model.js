@@ -1,18 +1,12 @@
 import { Schema, models } from "mongoose";
-import { SingleTypeModel } from "../constant/singleType";
-import {
-  poster,
-  pageMetadataPopulate,
-  pageMetadata,
-  mongtext,
-  mainCard,
-} from "../constant/Commons";
+import { mongeDescription, mongtext, pageMetadata } from "../constant/Commons";
+
 
 // Main schema for contactUsPage page
 const contactUsPageSchema = new Schema({
   metadata: pageMetadata,
   title: mongtext,
-  description: mongtext,
+  description: mongeDescription,
 });
 
 // Pre-hook to populate metadata fields
