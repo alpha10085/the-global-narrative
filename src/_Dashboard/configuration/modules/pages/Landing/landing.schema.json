@@ -1,0 +1,144 @@
+{
+  "fields": [
+    {
+      "type": "dynamicZone",
+      "key": "metadata"
+    },
+    {
+      "name": "heroSection",
+      "type": "array",
+      "label": "heroSection",
+      "min": 1,
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "media",
+          "type": "media",
+          "allowedTypes": ["image"],
+          "single": true,
+          "label": "media"
+        }
+      ]
+    },
+    {
+      "name": "aboutUsSection",
+      "type": "object",
+      "label": "aboutUsSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "description",
+          "type": "textarea",
+          "label": "description"
+        }
+      ]
+    },
+    {
+      "name": "quoteSection",
+      "type": "object",
+      "label": "quoteSection",
+      "fields": [
+        {
+          "name": "content",
+          "type": "textarea",
+          "label": "content"
+        }
+      ]
+    },
+    {
+      "name": "newsSection",
+      "type": "object",
+      "label": "newsSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "posts",
+          "type": "relation",
+          "ref": "news",
+          "select": ["_id", "title", "poster"],
+          "imageField": "poster",
+          "displayField": "title",
+          "single": false,
+          "label": "posts",
+          "min": 1
+        }
+      ]
+    },
+    {
+      "name": "testimonialSection",
+      "type": "object",
+      "label": "testimonialSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "posts",
+          "type": "relation",
+          "ref": "testimonials",
+          "select": ["_id", "author", "poster"],
+          "imageField": "poster",
+          "displayField": "author",
+          "single": false,
+          "label": "posts",
+          "min": 1
+        }
+      ]
+    },
+    {
+      "name": "getInTouchSection",
+      "type": "object",
+      "label": "getInTouchSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "description",
+          "type": "textarea",
+          "label": "description"
+        },
+        {
+          "name": "poster",
+          "type": "media",
+          "allowedTypes": ["image"],
+          "single": true,
+          "label": "poster"
+        }
+      ]
+    }
+  ],
+  "options": {
+    "translation": false,
+    "roles": {
+      "view": true,
+      "create": false,
+      "update": true,
+      "delete": false,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": false
+    },
+    "cache": {
+      "duration": "10m",
+      "tags": []
+    }
+  }
+}
