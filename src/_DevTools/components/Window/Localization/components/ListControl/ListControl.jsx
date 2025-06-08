@@ -8,21 +8,30 @@ import {
   updateDefaultLocale,
   updateLocale as updateLocaleApi,
 } from "@/lib/tools";
+import AddNewControl from "./AddNewControl/AddNewControl";
 
+const extractUsedList = (data = []) => {
+  const codesList = [];
+  const labelsList = [];
+
+  data.forEach((val) => {
+    codesList.push(val?.key);
+    labelsList.push(val?.label);
+  });
+  return { codesList, labelsList };
+};
 const ListControl = () => {
   const [state, setState] = useDynamicState({
     locals: config.getlanguagesMap(),
     defaultLocale: config.defaultLocale,
-    newLocale: null,
   });
 
-  const handleAddNewLocale = () => {
-    const { key, label } = state?.newLocale;
+  const handleAddNewLocale = (newData = {}) => {
+    const { key, label } = newData;
     const isExistsBefore = state.locals.find((val) => val?.key === key);
     if (!isExistsBefore) {
       setState({
         locals: [...state.locals, { key, label }],
-        newLocale: null,
       });
 
       // handle call api to save the action
@@ -52,14 +61,6 @@ const ListControl = () => {
     await updateLocaleApi(prevKey, newVal);
   };
 
-  const handleOnChangeForAddNewLocale = (key, val) => {
-    setState({
-      newLocale: {
-        ...state.newLocale,
-        [key]: val,
-      },
-    });
-  };
   const handleChangeDefaultLocale = async (newVal) => {
     setState({
       defaultLocale: newVal,
@@ -69,6 +70,7 @@ const ListControl = () => {
     // handle call api
   };
 
+  const { codesList, labelsList } = extractUsedList(state?.locals);
   return (
     <div className={`${styles.container} w-100`}>
       <div className={`${styles.list} flex gap10 wrap`}>
@@ -81,11 +83,16 @@ const ListControl = () => {
             index={index + 1}
             onSelectAsDefualt={() => handleChangeDefaultLocale(value?.key)}
             isDefaultLocale={state?.defaultLocale === value?.key}
-            codesList={state?.locals?.map((val) => val?.key)}
-            labelsList={state?.locals?.map((val) => val?.label)}
+            codesList={codesList}
+            labelsList={labelsList}
           />
         ))}
       </div>
+      <AddNewControl
+        onSubmit={handleAddNewLocale}
+        codesList={codesList}
+        labelsList={labelsList}
+      />
     </div>
   );
 };

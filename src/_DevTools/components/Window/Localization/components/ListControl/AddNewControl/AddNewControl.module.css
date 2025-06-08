@@ -1,7 +1,7 @@
 .container {
   margin-bottom: 5px;
-  width: 70%;
-  flex-grow: 1;
+  width: 98%;
+  margin-top: 10px;
 }
 
 .container {
@@ -61,7 +61,8 @@
   background-color: rgba(255, 255, 255, 0.097);
 }
 .btnList button:disabled {
-  opacity: 0.5; cursor: not-allowed;
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .svg {
   margin: auto;

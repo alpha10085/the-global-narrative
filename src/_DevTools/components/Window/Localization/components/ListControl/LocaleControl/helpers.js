@@ -1,5 +1,4 @@
 export const validateLocaleLabel = (label, usedLabels = []) => {
-  console.log("🚀 ~ validateLocaleLabel ~ usedLabels:", usedLabels)
   if (!label) return { valid: false, message: "Label is required." };
 
   if (label.length < 2)
@@ -15,7 +14,6 @@ export const validateLocaleLabel = (label, usedLabels = []) => {
 };
 
 export const validateLocaleCode = (code, usedCodes = []) => {
-  console.log("🚀 ~ validateLocaleCode ~ usedCodes:", usedCodes)
   if (!code) return { valid: false, message: "Locale code is required." };
 
   if (!/^[a-z]{2}(-[A-Z]{2})?$/.test(code))

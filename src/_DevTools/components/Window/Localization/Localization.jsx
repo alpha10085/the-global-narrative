@@ -26,6 +26,7 @@ const Localization = () => {
         strategy: newVal,
       });
     } catch (error) {
+      console.log("🚀 ~ handleChangestrategy ~ error:", error);
     } finally {
       setState({
         loading: false,
