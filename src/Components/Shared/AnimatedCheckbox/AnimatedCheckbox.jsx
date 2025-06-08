@@ -12,7 +12,7 @@ const AnimatedCheckbox = ({
   wrapper_className = "",
   defaultValue = false,
   watchDefaultValue = false,
-  disabled = false
+  disabled = false,
 }) => {
   const [checked, setChecked] = useState(!!defaultValue);
   useEffect(() => {
@@ -21,19 +21,17 @@ const AnimatedCheckbox = ({
     }
   }, [watchDefaultValue, defaultValue]);
   return (
-    <div
-      className={`${styles.container}  ${wrapper_className}`}
-      onClick={() => {
-        if (disabled) return ;
-        onChange(!checked);
-        setChecked(!checked);
-      }}
-    >
+    <div className={`${styles.container}  ${wrapper_className}`}>
       <motion.div
         className={`${styles.checkbox} ${className}`}
         style={{
           borderColor: boxColor,
           backgroundColor: checked ? boxColor : "transparent",
+        }}
+        onClick={() => {
+          if (disabled) return;
+          onChange(!checked);
+          setChecked(!checked);
         }}
         animate={{ scale: checked ? 1.1 : 1 }}
         transition={{ type: "spring", stiffness: 300 }}

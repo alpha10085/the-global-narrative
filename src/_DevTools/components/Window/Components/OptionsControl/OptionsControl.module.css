@@ -1,6 +1,5 @@
 .container {
   padding: 10px 0;
-  cursor: pointer;
   width: calc(60% - 15px);
   flex-grow: 1;
   display: flex;
