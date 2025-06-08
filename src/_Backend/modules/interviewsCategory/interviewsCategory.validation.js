@@ -3,25 +3,25 @@ import { joiText } from "@/_Backend/utils/JoiHandlers";
 import Joi from "joi";
 
 // Create Validation
-const newsCategoryValidationCreate = Joi.object({
+const interviewsCategoryValidationCreate = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   ...CommonsVal,
 }).required();
 
 // Update Validation
-const newsCategoryValidationUpdate = Joi.object({
+const interviewsCategoryValidationUpdate = Joi.object({
   title: joiText({ min: 2, max: 1000 }),
   ...CommonsVal,
 });
 
 // Relation Validation
-const newsCategoryValidationRelation = Joi.object({
+const interviewsCategoryValidationRelation = Joi.object({
   title: joiText({ min: 2, max: 1000 }),
   ...CommonsVal,
 });
 
 export {
-  newsCategoryValidationCreate,
-  newsCategoryValidationUpdate,
-  newsCategoryValidationRelation,
+  interviewsCategoryValidationCreate,
+  interviewsCategoryValidationUpdate,
+  interviewsCategoryValidationRelation,
 };

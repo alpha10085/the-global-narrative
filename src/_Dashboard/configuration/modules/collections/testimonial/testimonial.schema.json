@@ -1,0 +1,52 @@
+{
+  "fields": [
+    {
+      "name": "content",
+      "type": "textarea",
+      "label": "content"
+    },
+    {
+      "name": "jobTitle",
+      "type": "text",
+      "label": "jobTitle"
+    },
+    {
+      "name": "author",
+      "type": "text",
+      "label": "author"
+    },
+    {
+      "name": "poster",
+      "type": "media",
+      "allowedTypes": [
+        "image"
+      ],
+      "single": true,
+      "label": "poster"
+    },
+    {
+      "name": "publish",
+      "type": "boolean",
+      "readOnly": false,
+      "label": "publish",
+      "default": false
+    }
+  ],
+  "options": {
+    "translation": false,
+    "roles": {
+      "view": true,
+      "create": true,
+      "update": true,
+      "delete": true,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": true
+    },
+    "cache": {
+      "duration": "10m",
+      "tags": []
+    }
+  }
+}

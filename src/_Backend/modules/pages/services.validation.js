@@ -24,7 +24,7 @@ export const ServicesPageValCreate = Joi.object({
   description: joiText({ min: 2, max: 20000, required: true }),
   poster: fileVal.required(),
   services: joiArray({
-    min: 2,
+    min: 1,
     max: 4,
     body: serviceSubSchemaVal,
     required: true,
@@ -42,7 +42,7 @@ export const ServicesPageValUpdate = Joi.object({
   title: joiText({ min: 2, max: 1000 }),
   description: joiText({ min: 2, max: 20000 }),
   poster: fileVal,
-  services: joiArray({ min: 2, max: 4, body: serviceSubSchemaVal }),
+  services: joiArray({ min: 1, max: 4, body: serviceSubSchemaVal }),
   contactSection: contactSectionVal,
 
   ...CommonsVal,

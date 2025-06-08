@@ -1,0 +1,64 @@
+{
+  "fields": [
+    {
+      "name": "title",
+      "type": "text",
+      "label": "title"
+    },
+    {
+      "name": "poster",
+      "type": "media",
+      "allowedTypes": [
+        "image"
+      ],
+      "single": true,
+      "label": "poster"
+    },
+    {
+      "name": "content",
+      "type": "textarea",
+      "label": "content"
+    },
+    {
+      "name": "category",
+      "type": "relation",
+      "ref": "interviewCategories",
+      "select": [
+        "_id",
+        "title"
+      ],
+      "displayField": "title",
+      "single": true,
+      "label": "category"
+    },
+    {
+      "name": "date",
+      "type": "date",
+      "label": "date"
+    },
+    {
+      "name": "publish",
+      "type": "boolean",
+      "readOnly": false,
+      "label": "publish",
+      "default": false
+    }
+  ],
+  "options": {
+    "translation": false,
+    "roles": {
+      "view": true,
+      "create": true,
+      "update": true,
+      "delete": true,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": true
+    },
+    "cache": {
+      "duration": "10m",
+      "tags": []
+    }
+  }
+}

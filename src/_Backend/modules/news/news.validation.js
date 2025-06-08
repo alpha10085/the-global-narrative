@@ -4,7 +4,6 @@ import Joi from "joi";
 import { newsCategoryValidationRelation } from "../newsCategory/newsCategory.validation";
 
 const newsValidationCreate = Joi.object({
-  slug: joiText({ min: 2, max: 1000, required: true }),
   title: joiText({ min: 2, max: 1000, required: true }),
   poster: fileVal.required(),
   content: joiText({ min: 2, max: 10000, required: true }),
@@ -15,7 +14,6 @@ const newsValidationCreate = Joi.object({
 
 // Update Validation
 const newsValidationUpdate = Joi.object({
-  slug: joiText({ min: 2, max: 1000 }),
   title: joiText({ min: 2, max: 1000 }),
   poster: fileVal,
   content: joiText({ min: 2, max: 10000 }),
@@ -26,7 +24,6 @@ const newsValidationUpdate = Joi.object({
 
 // Relation Validation
 const newsValidationRelation = Joi.object({
-  slug: joiText({ min: 2, max: 1000 }),
   title: joiText({ min: 2, max: 1000 }),
   poster: fileVal.allow(null),
   content: joiText({ min: 2, max: 10000 }),
