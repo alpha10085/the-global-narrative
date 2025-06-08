@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Switch from "../Components/Switch/Switch";
 import { updatei18Strategy } from "@/lib/tools";
 import { delay } from "@/utils/delay";
+import ListControl from "./components/ListControl/ListControl";
 
 const Localization = () => {
   const [state, setState] = useDynamicState({
@@ -33,7 +34,7 @@ const Localization = () => {
   };
 
   return (
-    <div className={`${styles.container} flex gap20 wrap showSmooth`}>
+    <div className={`${styles.container} flex gap10 wrap showSmooth`}>
       <SectionLabel label={"strategy"} />
       <Switch
         secendOption={{
@@ -47,7 +48,8 @@ const Localization = () => {
           label: "with routing",
         }}
       />
-      {/* <ListControl /> */}
+      <SectionLabel label={"locales"} />
+      <ListControl />
     </div>
   );
 };

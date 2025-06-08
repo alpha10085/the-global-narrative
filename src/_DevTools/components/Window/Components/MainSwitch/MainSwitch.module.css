@@ -12,5 +12,14 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-right: 10px;
   margin-bottom: 10px;
-  width: calc(100% - 10px);
+  width: calc(100%);
+}
+
+
+.mainOption.disabled {
+  opacity: 0.5;
+}
+.mainOption.disabled * {
+  
+  cursor: not-allowed !important;
 }

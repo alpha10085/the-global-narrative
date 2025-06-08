@@ -7,15 +7,19 @@ const OptionsControl = ({
   onChange = () => {},
   defaultValue = false,
   wrapper_className="",
-  label_className = ""
+  label_className = "",
+  watchDefaultValue = false,
+  disabled = false
 }) => {
   return (
     <div className={`${styles.container} flex just-c column ${wrapper_className}`}>
       <AnimatedCheckbox
+      watchDefaultValue={watchDefaultValue}
         defaultValue={defaultValue}
         onChange={onChange}
         label={label}
         label_className={label_className}
+        disabled={disabled}
       />
       <p>{description}</p>
     </div>

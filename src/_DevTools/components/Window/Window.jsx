@@ -65,7 +65,7 @@ const list = [
     key: "localization",
     label: "localization",
     Icon: <PublicIcon />,
-    scaleOnActive: true,
+    scaleOnActive: false,
     children: <Localization />,
   },
 ];

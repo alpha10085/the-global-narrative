@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import styles from "./AnimatedCheckbox.module.css";
 
@@ -11,13 +11,20 @@ const AnimatedCheckbox = ({
   onChange = () => {},
   wrapper_className = "",
   defaultValue = false,
+  watchDefaultValue = false,
+  disabled = false
 }) => {
   const [checked, setChecked] = useState(!!defaultValue);
-
+  useEffect(() => {
+    if (watchDefaultValue) {
+      setChecked(defaultValue);
+    }
+  }, [watchDefaultValue, defaultValue]);
   return (
     <div
-      className={`${styles.container} ${wrapper_className}`}
+      className={`${styles.container}  ${wrapper_className}`}
       onClick={() => {
+        if (disabled) return ;
         onChange(!checked);
         setChecked(!checked);
       }}

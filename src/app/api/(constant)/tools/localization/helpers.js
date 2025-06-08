@@ -25,15 +25,6 @@ export const updateLanguageConfig = async ({
     }
   }
 
-  // If trying to remove the defaultLocale, block removal
-  if (remove && newLocale === currentDefaultLocale) {
-    console.warn(
-      `Cannot remove locale "${newLocale}" because it is the defaultLocale. Please change defaultLocale first.`
-    );
-    // Do not proceed with removal, just return early or continue without removing
-    remove = false;
-  }
-
   // === Handle locales array ===
   content = content.replace(/locales:\s*\[([^\]]*)\]/, (match, p1) => {
     let locales = p1
@@ -47,11 +38,15 @@ export const updateLanguageConfig = async ({
       locales.push(newLocale);
     }
 
+    if (defaultLocale && locales.includes(defaultLocale)) {
+      locales = [defaultLocale, ...locales.filter((l) => l !== defaultLocale)];
+    }
+
     const updated = locales.map((l) => `"${l}"`).join(", ");
     return `locales: [${updated}]`;
   });
 
-  // === Handle getlanguagesMap entries ===
+  // === Handle getLanguagesMap entries ===
   content = content.replace(/return\s+\[\s*((?:.|\n)*?)\s*\];/, (_, body) => {
     let entries = body
       .split("},")
@@ -66,15 +61,37 @@ export const updateLanguageConfig = async ({
       entries = entries.filter(
         (entry) => !entry.includes(`key: "${newLocale}"`)
       );
-    } else if (
-      newLocale &&
-      newLabel &&
-      !entries.some((e) => e.includes(`key: "${newLocale}"`))
-    ) {
-      entries.push(`{
-      key: "${newLocale}",
-      label: translations?.${newLocale} || "${newLabel}",
-    }`);
+    } else if (newLocale && newLabel) {
+      const keyRegex = new RegExp(`key:\\s*["']${newLocale}["']`);
+      let updated = false;
+
+      entries = entries.map((entry) => {
+        if (keyRegex.test(entry)) {
+          updated = true;
+          return `{
+        key: "${newLocale}",
+        label: translations?.["${newLocale}"] || "${newLabel}",
+      }`;
+        }
+        return entry;
+      });
+
+      if (!updated) {
+        entries.push(`{
+        key: "${newLocale}",
+        label: translations?.["${newLocale}"] || "${newLabel}",
+      }`);
+      }
+    }
+
+    if (defaultLocale) {
+      const defaultIndex = entries.findIndex((e) =>
+        e.includes(`key: "${defaultLocale}"`)
+      );
+      if (defaultIndex > -1) {
+        const [defaultEntry] = entries.splice(defaultIndex, 1);
+        entries.unshift(defaultEntry);
+      }
     }
 
     return `return [\n    ${entries.join(",\n    ")}\n];`;
@@ -100,18 +117,23 @@ export const updateLanguageConfig = async ({
   });
 };
 
-export const genrateLocale = async ({ nextLang, label } = {}) => {
+
+
+export const genrateLocale = async ({
+  nextLang = config?.defaultLocale,
+  label = "",
+} = {}) => {
   if (!nextLang)
     return next({
       message: "lang is required",
     });
   try {
     const defaultMessages = (
-      await import(`../../../../../i18n/locales/${config.defaultLocale}.json`)
+      await import(`../../../../../i18n/locales/${config?.defaultLocale}.json`)
     ).default;
 
     const prompt = `
-Translate the following JSON from "${config.defaultLocale}" to "${nextLang}".
+Translate the following JSON from "${config?.defaultLocale}" to "${nextLang}".
 Keep the keys the same and only translate the values. Return only valid JSON.
 
 JSON:

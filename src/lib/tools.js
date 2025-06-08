@@ -71,11 +71,11 @@ export const updatei18Strategy = AsyncHandler(async (newVal = undefined) => {
   );
 });
 export const updateDefaultLocale = AsyncHandler(
-  async (newDefaultLocale = undefined) => {
+  async (defaultLocale = undefined) => {
     return csrApi.put(
       `/tools/localization`,
       {
-        route: newDefaultLocale,
+        defaultLocale,
       },
       {
         baseURL,
@@ -95,4 +95,21 @@ export const createNewLocale = AsyncHandler(async ({ lang, label } = {}) => {
       baseURL,
     }
   );
+});
+export const reWatchLocale = AsyncHandler(async (key) => {
+  return csrApi.put(`/tools/localization/${key}`, {
+    baseURL,
+  });
+});
+
+export const updateLocale = AsyncHandler(async (key, newVal = {}) => {
+  return csrApi.patch(`/tools/localization/${key}`, newVal, {
+    baseURL,
+  });
+});
+
+export const deleteLocale = AsyncHandler(async (key) => {
+  return csrApi.delete(`/tools/localization/${key}`, {
+    baseURL,
+  });
 });

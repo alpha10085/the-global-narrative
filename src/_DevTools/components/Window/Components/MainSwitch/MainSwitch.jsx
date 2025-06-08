@@ -8,9 +8,12 @@ const MainSwitch = ({
   defaultValue = false,
   wrapper_className = "",
   label_className = "",
+
+  watchDefaultValue = false,
+  disabled = false,
 }) => {
   return (
-    <div className={styles.mainOption}>
+    <div className={`${styles.mainOption} ${disabled ? styles.disabled : ""}`}>
       <OptionsControl
         onChange={onChange}
         label={label}
@@ -18,6 +21,8 @@ const MainSwitch = ({
         defaultValue={defaultValue}
         wrapper_className={wrapper_className}
         label_className={label_className}
+        watchDefaultValue={watchDefaultValue}
+        disabled={disabled}
       />
     </div>
   );

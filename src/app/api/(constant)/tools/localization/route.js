@@ -7,7 +7,7 @@ import {
   genrateLocale,
   updateLanguageConfig,
 } from "./helpers";
-
+// create new locale
 export const POST = AsyncHandler(
   async (req, res, next) => {
     const nextLang = req.body?.lang || null;
@@ -31,6 +31,7 @@ export const POST = AsyncHandler(
     middlewares: [toolsMiddleware],
   }
 );
+// update default Locale
 export const PUT = AsyncHandler(async (req, res, next) => {
   const { defaultLocale = config?.defaultLocale } = req.body;
   await updateLanguageConfig({
@@ -40,16 +41,16 @@ export const PUT = AsyncHandler(async (req, res, next) => {
     message: "success",
   });
 });
+// update i18n config [route]
 export const PATCH = AsyncHandler(async (req, res, next) => {
   const { route = false } = req.body;
-  // update i18n config [route]
 
   if (route) {
     console.log("new route", route);
 
     await changeToWithRouting();
   } else {
-    await changeToWithoutRouting()
+    await changeToWithoutRouting();
   }
   await updateLanguageConfig({
     route,

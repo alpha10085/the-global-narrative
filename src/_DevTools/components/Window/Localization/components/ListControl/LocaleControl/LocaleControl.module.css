@@ -1,0 +1,71 @@
+.container {
+  margin-bottom: 5px;
+  width: 70%;
+  flex-grow: 1;
+}
+
+.container {
+  border-radius: 15px;
+  padding: 10px 15px 15px;
+  background-color: rgba(255, 255, 255, 0.04);
+
+  /* width: fit-content; */
+  flex-grow: 1;
+}
+
+.btnSave {
+  padding: 10px 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  color: black;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4s;
+  height: 40px;
+  flex: 1;
+}
+.btnSave:hover {
+  opacity: 0.7;
+}
+.btnSave:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.label {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  padding: 10px 0 5px;
+  text-transform: capitalize;
+}
+.btnList {
+  display: flex;
+}
+.btnSync,
+.btnRemove {
+  padding: 7px 10px 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4s;
+  height: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 45px;
+}
+
+.btnRemove:hover,
+.btnSync:hover {
+  background-color: rgba(255, 255, 255, 0.097);
+}
+.btnList button:disabled {
+  opacity: 0.5; cursor: not-allowed;
+}
+.svg {
+  margin: auto;
+}
+.svg svg {
+  margin-top: 1px;
+}
