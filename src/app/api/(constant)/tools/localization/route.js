@@ -10,9 +10,9 @@ import {
 // create new locale
 export const POST = AsyncHandler(
   async (req, res, next) => {
-    const nextLang = req.body?.lang || null;
+    const nextLang = req.body?.key || null;
     const label = req?.body?.label || "";
-
+    const isDefualtLocale = req?.body?.isDefualtLocale;
     const result = await genrateLocale({
       nextLang,
       label,
@@ -21,6 +21,12 @@ export const POST = AsyncHandler(
     if (result.error) {
       return next({
         message: result?.details || "Translation failed",
+      });
+    }
+
+    if (isDefualtLocale) {
+      await updateLanguageConfig({
+        defaultLocale: nextLang,
       });
     }
     return res({

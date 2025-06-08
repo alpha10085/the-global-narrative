@@ -60,22 +60,24 @@ export default async function RootLayout({ children }) {
   }
   const cookieStore = await cookies();
   const locale = await getLocale();
-  const messages = (await import(`../i18n/locales/${ValidateLocale(locale, true)}.json`)).default;
-        const boundary = cookieStore?.get("boundary")?.value;
+  const messages = (
+    await import(`../i18n/locales/${ValidateLocale(locale, true)}.json`)
+  ).default;
+  const boundary = cookieStore?.get("boundary")?.value;
   const selectedFont = fonts[locale] || fonts.en;
   return (
     <ReactQuery>
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-<body className={`${selectedFont.variable}  ${selectedFont.className}`}>
-  <NextIntlClientProvider locale={locale} messages={messages}>
-    <DevToolsWrapper>
-            <DisableLogs />
-            <ErrorBoundary boundary={boundary}>
-              <AuthProvider locale={locale}>{children}</AuthProvider>
-            </ErrorBoundary>
-          </DevToolsWrapper>
-  </NextIntlClientProvider>
-</body>
+        <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            {/* <DevToolsWrapper>
+              <DisableLogs /> */}
+              <ErrorBoundary boundary={boundary}>
+                <AuthProvider locale={locale}>{children}</AuthProvider>
+              </ErrorBoundary>
+            {/* </DevToolsWrapper> */}
+          </NextIntlClientProvider>
+        </body>
       </html>
     </ReactQuery>
   );

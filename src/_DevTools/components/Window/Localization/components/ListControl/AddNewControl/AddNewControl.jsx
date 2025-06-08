@@ -2,7 +2,10 @@ import styles from "./AddNewControl.module.css";
 import useDynamicState from "@/hooks/useDynamicState";
 import Input from "@/_DevTools/components/Window/Components/Input/Input";
 import MainSwitch from "@/_DevTools/components/Window/Components/MainSwitch/MainSwitch";
-import { validateLocaleCode, validateLocaleLabel } from "../LocaleControl/helpers";
+import {
+  validateLocaleCode,
+  validateLocaleLabel,
+} from "../LocaleControl/helpers";
 
 const AddNewControl = ({
   labelsList = [],
@@ -13,7 +16,7 @@ const AddNewControl = ({
     value: {
       key: "",
       label: "",
-      isDefualtValue: false,
+      isDefualtLocale: false,
     },
     error: null,
   });
@@ -34,7 +37,7 @@ const AddNewControl = ({
     onSubmit({ ...state?.value });
     setState({
       value: {
-        isDefualtValue: false,
+        isDefualtLocale: false,
         key: "",
         label: "",
       },
@@ -64,12 +67,12 @@ const AddNewControl = ({
         </div>
         <MainSwitch
           watchDefaultValue
-          onChange={(val) => handleChange("isDefualtValue", val)}
+          onChange={(val) => handleChange("isDefualtLocale", val)}
           disabled={disabled}
           key={"defaultLocale"}
           label={"mark as default Locale"}
           description={"This will set this locale as default Locale"}
-          defaultValue={state?.value?.isDefualtValue}
+          defaultValue={state?.value?.isDefualtLocale}
         />
         <div className={`${styles.btnList} flex gap10 just-sb`}>
           <button

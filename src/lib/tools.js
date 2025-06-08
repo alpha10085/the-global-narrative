@@ -84,12 +84,11 @@ export const updateDefaultLocale = AsyncHandler(
   }
 );
 
-export const createNewLocale = AsyncHandler(async ({ lang, label } = {}) => {
+export const createNewLocale = AsyncHandler(async (formData = {}) => {
   return csrApi.post(
     `/tools/localization`,
     {
-      lang,
-      label,
+      ...formData,
     },
     {
       baseURL,

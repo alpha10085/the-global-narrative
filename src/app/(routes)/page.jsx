@@ -26,45 +26,43 @@ const Home = async () => {
     getInTouchSection = {},
   } = getHomePage();
 
-
-
   return (
-    <div 
-    style={{
-      background:"black",
-      minHeight:"100vh"
-    }}
-    className={styles.textpage}>
-      
+    <div
+      style={{
+        background: "black",
+        minHeight: "100vh",
+      }}
+      className={styles.textpage}
+    >
       <Img
         disableSkeleton
         className={styles.bgPoster}
         url="/dashboard/logo-dark.png"
       />
     </div>
-  )
+  );
 
   return (
     <section className={styles.layout}>
       <Intro />
-      <Hero  data={heroSection} />
+      <Hero data={heroSection} />
       <CSRSection>
         <AboutUs data={aboutUsSection} />
         <WaveLines />
         <FloatedSection>
-        <Quote data={quoteSection} />
-        <WaveLines />
+          <Quote data={quoteSection} />
+          <WaveLines />
         </FloatedSection>
         <div className={styles.spaceSection}></div>
-          <div className={styles.childTwo}>
-            <AnimatedBorderSection>
-              <StaticSection mode="down" >
+        <div className={styles.childTwo}>
+          <AnimatedBorderSection>
+            <StaticSection mode="down">
               <News data={newsSection} />
               <WaveLines colors={["#8927f2a8", "#00eaff", "#ff00d4"]} />
               <Testimonials data={testimonialSection} />
-              </StaticSection>
-            </AnimatedBorderSection>
-          </div>
+            </StaticSection>
+          </AnimatedBorderSection>
+        </div>
       </CSRSection>
       <GetInTouch data={getInTouchSection} />
     </section>

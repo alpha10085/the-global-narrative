@@ -4,6 +4,7 @@ import config from "@/i18n/config";
 import { stat } from "fs-extra";
 import LocaleControl from "./LocaleControl/LocaleControl";
 import {
+  createNewLocale,
   deleteLocale,
   updateDefaultLocale,
   updateLocale as updateLocaleApi,
@@ -26,14 +27,18 @@ const ListControl = () => {
     defaultLocale: config.defaultLocale,
   });
 
-  const handleAddNewLocale = (newData = {}) => {
+  const handleAddNewLocale = async (newData = {}) => {
     const { key, label } = newData;
     const isExistsBefore = state.locals.find((val) => val?.key === key);
     if (!isExistsBefore) {
       setState({
         locals: [...state.locals, { key, label }],
       });
-
+      try {
+        await createNewLocale(newData);
+      } catch (error) {
+        console.log("🚀 ~ handleAddNewLocale ~ error:", error);
+      }
       // handle call api to save the action
     }
   };
