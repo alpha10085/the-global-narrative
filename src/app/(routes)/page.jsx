@@ -46,7 +46,7 @@ const Home = async () => {
 
   return (
     <section className={styles.layout}>
-      <Intro />
+      {/* <Intro /> */}
       <Hero  data={heroSection} />
       {/* <CSRSection>
         <AboutUs data={aboutUsSection} />
