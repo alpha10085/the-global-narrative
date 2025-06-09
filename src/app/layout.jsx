@@ -17,6 +17,7 @@ import { isProductionMode } from "@/config/main";
 import { ValidateLocale } from "@/i18n/request";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX/ErrorBoundryCTX";
 import { NextIntlClientProvider } from "next-intl";
+import DevToolsWrapper from "@/_DevTools/DevToolsWrapper";
 // If loading a variable font, you don't need to specify the font weight
 const geist = Geist({
   subsets: ["latin"],
@@ -65,11 +66,11 @@ export default async function RootLayout({ children }) {
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
         <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            {/* <DevToolsWrapper> */}
+            <DevToolsWrapper>
             <ErrorBoundary boundary={boundary}>
               <AuthProvider locale={locale}>{children}</AuthProvider>
             </ErrorBoundary>
-            {/* </DevToolsWrapper> */}
+            </DevToolsWrapper>
           </NextIntlClientProvider>
         </body>
       </html>

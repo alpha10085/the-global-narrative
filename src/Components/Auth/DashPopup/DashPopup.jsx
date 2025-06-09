@@ -5,12 +5,11 @@ import Link from "@/Components/Shared/Link/Link";
 import useTranslations from "@/hooks/useTranslations";
 import { useAuth } from "@/contexts/AuthProvider";
 import { isAdmin } from "@/config/auth";
+import { isProductionMode } from "@/config/main";
 const DashPopup = () => {
   const translations = useTranslations("Dashboard", ["todashboard"]);
-
   const { session } = useAuth();
-
-  if (!isAdmin(session)) return null;
+  if (!isAdmin(session) || !isProductionMode) return null;
   return (
     <Link
       href={"/dashboard"}

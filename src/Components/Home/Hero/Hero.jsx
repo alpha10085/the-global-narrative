@@ -12,6 +12,7 @@ import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
 import { scrollByVh } from "@/utils/document";
 const Hero = ({ data = [] }) => {
+  console.log("🚀 ~ Hero ~ data:", data)
   const [swiperState, setSwiperState] = useDynamicState({
     swiperSection: 0,
     autoPlay: false,
