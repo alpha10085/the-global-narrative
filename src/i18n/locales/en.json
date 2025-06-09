@@ -25,6 +25,8 @@
     "inputs": {
       "title": "title",
       "title_ph": "enter title .... ",
+      "category" : "category",
+      "category_ph" : "enter category... ",
       "name": "name",
       "name_ph": "enter name .... ",
       "message": "message",
@@ -143,14 +145,17 @@
       "users": "users",
       "admins": "admins",
       "landing": "landing",
-      "blogPosts": "Blog Posts",
-      "projects": "projects",
-      "blog": "blog",
-      "works": "works",
-      "contacts": "contacts",
-      "startProject": "start project",
-      "information": "information",
-      "whoUs": "who Us"
+      "aboutUs" : "About-us",
+      "client": "Clients",
+      "contactUs": "Contact-us",
+      "news": "News",
+      "services": "Services",
+      "clients": "Client",
+      "faq": "Faq",
+      "interviews": "Interviews",
+      "interviewsCategory": "Interviews category",
+      "newsCategories": "News categories",
+      "testimonials" : "testimonials"
     },
     "profile": {
       "displayName": "profile"
