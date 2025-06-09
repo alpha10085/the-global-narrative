@@ -5,10 +5,10 @@ import { extractPath } from "@/utils/data";
 import { usePathname } from "@/hooks/useTranslations";
 
 const LogOutCover = ({ OnFinish }) => {
-  const {pathName} = usePathname();
+  const { pathname } = usePathname();
   useEffect(() => {
-    if (["/", "/log-in"].includes(pathName)) OnFinish();
-  }, [pathName]);
+    if (["/", "/log-in"].includes(pathname)) OnFinish();
+  }, [pathname]);
   return (
     <div
       className={`${styles.layout}   h-100 flex-c  showSmooth column coverredirct`}

@@ -23,6 +23,5 @@ export const getInsightsData = async (searchParams = {}) => {
   // Use ssrApi fetch helper
   const json = await ssrApi(`/insights?${params.toString()}`, { method: "GET" });
 
-  systemLogger("🚀 ~ getInsightsData ~ json:", json)
   return json;
 };

@@ -6,29 +6,39 @@ const FloatedSection = ({ children }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (!sectionRef.current) return;
+    if (!sectionRef.current) return;
 
-      window.requestAnimationFrame(() => {
-        const el = sectionRef.current;
-        const rect = el.getBoundingClientRect();
-        const windowHeight = window.innerHeight;
+    const el = sectionRef.current;
+    const windowHeight = window.innerHeight;
 
-        // Trigger when the bottom of the element appears
-        const start = windowHeight; // Bottom of viewport
+    // We'll observe the element with multiple thresholds for smooth progress
+    const thresholds = Array.from({ length: 101 }, (_, i) => i / 100); // 0 to 1 in 0.01 steps
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        // Calculate progress similar to your original logic:
+        // When bottom of the element moves from windowHeight (start) to windowHeight*0.1 (end)
+
+        const bottom = entry.boundingClientRect.bottom;
+        const start = windowHeight;
         const end = windowHeight * 0.1;
 
-        const rawProgress = (start - rect.bottom) / (start - end);
+        let rawProgress = (start - bottom) / (start - end);
         const clamped = Math.min(1, Math.max(0, rawProgress));
+        console.log("🚀 ~ useEffect ~ clamped:", clamped)
 
+        // Apply transform based on progress
         el.style.transform = `translate3d(0px, ${clamped * 300}px , 0)`;
-      });
-    };
+      },
+      {
+        root: null, // viewport
+        threshold: thresholds,
+      }
+    );
 
-    handleScroll();
+    observer.observe(el);
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => observer.disconnect();
   }, []);
 
   return (
