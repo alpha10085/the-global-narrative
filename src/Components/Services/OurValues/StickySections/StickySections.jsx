@@ -32,7 +32,7 @@ const StickySections = ({ index = 0, children }) => {
 
   return (
     <div
-      className={`${styles.section} flex al-i-c gap30 ${
+      className={`${styles.section} ${
         index === activeIndex || index === activeIndex + 1 ? styles.active : ""
       }`}
       data-sticky-section
