@@ -16,7 +16,6 @@
   height: 130dvh;
 }
 
-
 .title {
   color: white;
 }
@@ -45,24 +44,28 @@
   }
 }
 
-
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .whietspace {
     height: 80px;
+  }
+  .container {
+    margin-bottom: -10vh;
+  }
+
+  .card {
+    height: 100dvh;
   }
 }
 
 @media (max-width: 768px) {
-  .container {
-    margin-bottom: 0;
-  }
+
 
   .whietspace {
     height: 60px;
   }
 
   .card:nth-child(odd) {
-    direction: ltr; 
+    direction: ltr;
   }
 }
 
