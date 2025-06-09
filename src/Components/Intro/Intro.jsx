@@ -9,7 +9,11 @@ import { delay } from "@/utils/delay";
 
 const Intro = () => {
   const logoRef = useRef();
-  const [state, setState] = useDynamicState({ event: true, hide: false , loaded:false });
+  const [state, setState] = useDynamicState({
+    event: true,
+    hide: false,
+    loaded: false,
+  });
   const { event, hide, loaded } = state;
   const ToggleDisableScroll = useDisableScroll();
 
@@ -58,11 +62,11 @@ const Intro = () => {
     setState({
       event: false,
     });
-     await delay(800);
+    await delay(800);
     ToggleDisableScroll();
     setState({
-        hide: true,
-      });
+      hide: true,
+    });
   };
 
   useEffect(() => {
@@ -74,39 +78,35 @@ const Intro = () => {
   useEffect(() => {
     delay(300).then(() => {
       setState({
-        loaded:true
-      })
-    })
-  }, [])
+        loaded: true,
+      });
+    });
+  }, []);
 
-
+  if (hide) return;
   return (
     <div
       // data-cursor-label="← DRAG →"
       data-cursor-label="Enter →"
       // data-cursor-color="#5D27FF"
       onClick={handleHide}
-
       style={{
-        pointerEvents:loaded ? "unset" :"none"
+        pointerEvents: loaded ? "unset" : "none",
       }}
       onMouseMove={handleMouseMove}
-      //  onMouseLeave={resetTransform}
       className={`flex-c ${styles.container}
       ${event ? styles.show : styles.hide}
 
-      ${hide ? styles.hideFull : ""}
 
       
       `}
     >
-     
-        <Img
-          disableSkeleton
-          ref={logoRef}
-          className={styles.poster}
-          url="/main-logo-fu-white.png"
-        />
+      <Img
+        disableSkeleton
+        ref={logoRef}
+        className={styles.poster}
+        url="/main-logo-fu-white.png"
+      />
     </div>
   );
 };

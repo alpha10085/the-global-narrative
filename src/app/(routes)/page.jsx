@@ -26,21 +26,21 @@ const Home = async () => {
     getInTouchSection = {},
   } = getHomePage();
 
-  return (
-    <div
-      style={{
-        background: "black",
-        minHeight: "100vh",
-      }}
-      className={styles.textpage}
-    >
-      <Img
-        disableSkeleton
-        className={styles.bgPoster}
-        url="/dashboard/logo-dark.png"
-      />
-    </div>
-  );
+  // return (
+  //   <div
+  //     style={{
+  //       background: "black",
+  //       minHeight: "100vh",
+  //     }}
+  //     className={styles.textpage}
+  //   >
+  //     <Img
+  //       disableSkeleton
+  //       className={styles.bgPoster}
+  //       url="/dashboard/logo-dark.png"
+  //     />
+  //   </div>
+  // );
 
   return (
     <section className={styles.layout}>

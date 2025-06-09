@@ -10,7 +10,6 @@ import Img from "@/Components/Shared/img/Img";
 import styles from "./page.module.css";
 import Test from "@/Components/Test/Test";
 import PageAnalyticsTracker from "@/lib/PageAnalyticsTracker";
-
 export default async function RootLayout({ children }) {
   return (
     <main
@@ -19,9 +18,9 @@ export default async function RootLayout({ children }) {
       }}
       className="ShowSmoothEffectShortDelay "
     >
-      <SmoothScroll duration={1} />
+      {/* <SmoothScroll duration={1} /> */}
       <NavBar />
-      {/* <DynamicCursor /> */}
+      <DynamicCursor />
       <div style={{ minHeight: "100vh" }}>{children}</div>
       <Toaster />
       <DashPopup />

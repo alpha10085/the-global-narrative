@@ -9,16 +9,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { AuthProvider } from "@/contexts/AuthProvider";
-import DevToolsWrapper from "@/_DevTools/DevToolsWrapper";
 import { getLocale } from "next-intl/server";
 import interceptor from "@/utils/consoleProxy";
 import { isProductionMode } from "@/config/main";
 import { ValidateLocale } from "@/i18n/request";
-import SamsungPatch from "@/Components/Shared/Pervent/Pervent";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX/ErrorBoundryCTX";
 import DisableLogs from "@/Components/Shared/DisableLogs/DisableLogs";
 import { NextIntlClientProvider } from "next-intl";
-// If loading a variable font, you don't need to specify the font weight
+import { ReactLenis } from "@/Components/Shared/SmoothScroll/lenis";
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
@@ -68,16 +66,20 @@ export default async function RootLayout({ children }) {
   return (
     <ReactQuery>
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-        <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            {/* <DevToolsWrapper>
+        <ReactLenis options={{ duration: 1, wheelMultiplier: 0.7 }} root>
+          <body
+            className={`${selectedFont.variable}  ${selectedFont.className}`}
+          >
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              {/* <DevToolsWrapper>
               <DisableLogs /> */}
               <ErrorBoundary boundary={boundary}>
                 <AuthProvider locale={locale}>{children}</AuthProvider>
               </ErrorBoundary>
-            {/* </DevToolsWrapper> */}
-          </NextIntlClientProvider>
-        </body>
+              {/* </DevToolsWrapper> */}
+            </NextIntlClientProvider>
+          </body>
+        </ReactLenis>
       </html>
     </ReactQuery>
   );
