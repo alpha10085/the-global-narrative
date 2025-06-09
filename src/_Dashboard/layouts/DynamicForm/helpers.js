@@ -7,7 +7,6 @@ import { scrollToElement } from "@/utils/document";
 import { isEqual } from "lodash";
 import dynamicZone_config from "@/_Dashboard/configuration/dynamicZone/config";
 
-
 export const generateTranslationKeys = (
   target = "inputs",
   fields,
@@ -109,12 +108,9 @@ export const handleDynamicFields = (val, path = "") => {
 
   val?.fields?.forEach((field) => {
     if (field.type === "dynamicZone" && dynamicZone_config?.[field.key]) {
-      field = dynamicZone_config?.[field.key]
+      field = dynamicZone_config?.[field.key];
     }
     // Handle nested fields recursively
-    
-
-
 
     if (!field?.label) return;
     if (field?.fields) {
@@ -235,9 +231,9 @@ export function getChangedFields(
             if (!isEqual(val1, val2)) {
               changes[key] = val2;
               handleCaptureTranslations(val1, val2);
-              // if (o1._id) {
-              //   changes["_id"] = o2._id || o1._id;
-              // }
+              if (o1._id) {
+                changes["_id"] = o2._id || o1._id;
+              }
               return;
             }
           }

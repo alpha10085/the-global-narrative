@@ -89,7 +89,7 @@ const NavBar = () => {
           `}
         >
           <MainLogo
-            theme={!navMode.darkMode ? "dark" : "light"}
+            theme={navMode.darkMode ? "dark" : "light"}
             classNameWrapper={styles.logo}
           />
 
