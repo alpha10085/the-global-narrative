@@ -23,7 +23,7 @@
   font-size: clamp(20px, 5vw, 65px) !important;
   margin: 5px 0 15px;
 
-  color: rgb(170, 255, 244);
+  color:var(--color100);
 }
 .pageTitle {
   color: white;

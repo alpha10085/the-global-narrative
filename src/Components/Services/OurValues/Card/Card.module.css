@@ -22,7 +22,8 @@
 }
 .index {
   font-size: 100px;
-  color: rgb(164, 255, 243);
+  
+  color:var(--color100);
   transform: translateX(-100%);
   transition: 1s;
 }
