@@ -25,12 +25,8 @@
     "inputs": {
       "title": "title",
       "title_ph": "enter title .... ",
-      "category" : "category",
-      "category_ph" : "enter category... ",
-      "jobTitle": "job Title",
-      "jobTitle_ph": "enter job Title...",
-      "author" : "author",
-      "author_ph" : "enter author...",
+      "category": "category",
+      "category_ph": "enter category... ",
       "name": "name",
       "name_ph": "enter name .... ",
       "message": "message",
@@ -131,7 +127,31 @@
       "faqsSection": "faqs Section",
       "publish": "publish",
       "post": "post",
-      "post_ph": "select post..."
+      "post_ph": "select post...",
+
+
+      "jobTitle": "job Title",
+      "jobTitle_ph": "enter job Title...",
+      "author": "author",
+      "author_ph": "enter author...",
+      "aboutUsSection": "Aabout-us section",
+      "quoteSection": "Quote section",
+      "newsSection" : "News section",
+      "testimonialSection" : "Testimonial section",
+      "getInTouchSection" : "Get-In-Touch section",
+      "hero" : "hero",
+      "ourValueSection" : "Our Value section",
+      "whoUsSectionSection" : "Who-us section",
+      "members" : "members",
+      "cards" : "cards",
+      "image" : "image",
+      "subTitle" : "subTitle",
+      "subTitle_ph" : "enter subTitle...",
+      "services" : "services",
+      "intro" : "intro",
+      "intro_ph" : "enter intro...",
+      "contactSection" : "contact section"
+
     },
     "filterSystem": {
       "condtions": {
@@ -149,7 +169,7 @@
       "users": "users",
       "admins": "admins",
       "landing": "landing",
-      "aboutUs" : "About-us",
+      "aboutUs": "About-us",
       "client": "Clients",
       "contactUs": "Contact-us",
       "news": "News",
@@ -159,7 +179,7 @@
       "interviews": "Interviews",
       "interviewsCategory": "Interviews category",
       "newsCategories": "News categories",
-      "testimonials" : "testimonials"
+      "testimonials": "testimonials"
     },
     "profile": {
       "displayName": "profile"

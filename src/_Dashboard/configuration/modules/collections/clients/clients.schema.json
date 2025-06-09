@@ -38,5 +38,6 @@
       "duration": "10m",
       "tags": []
     }
-  }
+  },
+  "view": ["logo", "title", "createdAt"]
 }

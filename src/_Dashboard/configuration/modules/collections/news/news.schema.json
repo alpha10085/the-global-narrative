@@ -60,5 +60,11 @@
             "duration": "10m",
             "tags": []
         }
-    }
+    },
+    "view": [
+        "poster",
+        "title",
+        "content",
+        "createdAt"
+    ]
 }

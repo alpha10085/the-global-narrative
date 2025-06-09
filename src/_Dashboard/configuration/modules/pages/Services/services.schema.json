@@ -1,6 +1,10 @@
 {
     "fields": [
         {
+            "type": "dynamicZone",
+            "key": "metadata"
+        },
+        {
             "name": "title",
             "type": "text",
             "label": "title"

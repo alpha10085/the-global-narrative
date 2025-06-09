@@ -1,15 +1,22 @@
 import { Schema, models } from "mongoose";
 import { SingleTypeModel } from "../constant/singleType";
-import { mongeDescription, mongtext, ObjectId, poster } from "../constant/Commons";
-
+import {
+  mongeDescription,
+  mongtext,
+  ObjectId,
+  pageMetadata,
+  populateCommons,
+  poster,
+} from "../constant/Commons";
 
 const serviceSubSchema = new Schema({
   title: mongtext,
   intro: mongtext,
   description: mongeDescription,
-}); 
+});
 
 const servicesPageSchema = new Schema({
+  metadata: pageMetadata,
   title: mongtext,
   description: mongeDescription,
   poster,

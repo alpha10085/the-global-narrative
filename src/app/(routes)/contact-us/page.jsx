@@ -6,6 +6,8 @@ import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV
 import Form from "@/components/LetsCollaborate/Form/Form";
 
 const page = async () => {
+   //use getPage("contact-us") 
+
   const {
     title = "Get In touch",
     description = "For inquiries, press inquiries, or to schedule a meeting with our team",

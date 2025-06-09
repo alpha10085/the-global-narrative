@@ -8,8 +8,23 @@ import { systemLogger } from "@/utils/consoleProxy";
 import InsightModel from "./models/constant/insight.model";
 
 // collections
+import { clientModel } from "./models/clients.model";
+import { faqModel } from "./models/faq.model";
+import { interviewModel } from "./models/interviews.model";
+import { interviewCategoryModel } from "./models/interviewsCategory.model";
+import { newsModel } from "./models/news.model";
+import { newsCategoryModel } from "./models/newsCategory.model";
+import { testimonialModel } from "./models/testimonial.model";
+
 
 // pages
+import { aboutUsPageModel } from "./models/pages/about.model";
+import { clientsPageModel } from "./models/pages/clientsPage.model";
+import { contactUsPageModel } from "./models/pages/contactUs.model";
+import { landingModel } from "./models/pages/landing.model";
+import { newsPageModel } from "./models/pages/newsPage.model";
+import { servicesPageModel } from "./models/pages/services.model";
+
 // componants
 if (!process.env.DB_URL) {
   throw new Error(

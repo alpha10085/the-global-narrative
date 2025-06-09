@@ -13,7 +13,6 @@ const heroItem = Joi.object({
 const heroSection = joiArray({
   body: heroItem,
   min: 1,
-  required: true,
 });
 
 // About Us Section
