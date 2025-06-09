@@ -1,5 +1,10 @@
 import mongoose, { Schema, model, models } from "mongoose";
-import { mongeDescription, mongtext, schemaCommens } from "./constant/Commons";
+import {
+  mongeDescription,
+  mongtext,
+  populateCommons,
+  schemaCommens,
+} from "./constant/Commons";
 
 const interviewSchema = new Schema(
   {
@@ -20,8 +25,10 @@ const interviewSchema = new Schema(
 interviewSchema.pre(/^find/, function (next) {
   const populatePipeline = [
     {
-      ...populateCommons,
+      model: "interviewCategory",
       path: "category",
+      options: { strictPopulate: false },
+      select: "_id title",
     },
   ];
   this.populate(populatePipeline);

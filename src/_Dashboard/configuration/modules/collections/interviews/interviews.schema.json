@@ -6,18 +6,9 @@
       "label": "title"
     },
     {
-      "name": "poster",
-      "type": "media",
-      "allowedTypes": [
-        "image"
-      ],
-      "single": true,
-      "label": "poster"
-    },
-    {
-      "name": "content",
+      "name": "link",
       "type": "textarea",
-      "label": "content"
+      "label": "link"
     },
     {
       "name": "category",
@@ -30,11 +21,6 @@
       "displayField": "title",
       "single": true,
       "label": "category"
-    },
-    {
-      "name": "date",
-      "type": "date",
-      "label": "date"
     },
     {
       "name": "publish",
@@ -60,5 +46,6 @@
       "duration": "10m",
       "tags": []
     }
-  }
+  },
+   "view": ["_id", "title", "link", "createdAt"]
 }

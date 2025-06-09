@@ -29,5 +29,10 @@
       "duration": "10m",
       "tags": []
     }
-  }
+  },
+  "view": [
+    "_id",
+    "title",
+    "createdAt"
+  ]
 }

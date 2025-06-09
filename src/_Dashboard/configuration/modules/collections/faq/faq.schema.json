@@ -35,5 +35,6 @@
       "duration": "10m",
       "tags": []
     }
-  }
+  },
+  "view": ["_id", "question", "answer", "createdAt"]
 }
