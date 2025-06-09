@@ -39,7 +39,6 @@ const DateInput = ({
       if (newVal < 10_000_000) {
         newVal = now;
       }
-
       const formattedDate = new Date(newVal);
       setDate(formattedDate);
       onChange(name, format(formattedDate, "MM/dd/yyyy"));
