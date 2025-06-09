@@ -8,8 +8,10 @@ const Card = ({ className = "", data = {}, index = 1 }) => {
       triggerOnce
       threshold={0.15}
       activeClassName={styles.active}
-      className={`${styles.container}  flex al-i-c gap30 ${className} `}
+      className={`${styles.container}   ${className} `}
     >
+      <div className={`flex al-i-c gap30 ${styles.wrapper}`}>
+
 
       <div className={`${styles.content} just-c column gap15 flex`}>
         <div className={`${styles.head} flex column gap10`}>
@@ -20,6 +22,7 @@ const Card = ({ className = "", data = {}, index = 1 }) => {
       </div>
 
       <Img url={data?.poster?.url} className={styles.poster} />
+      </div>
     </Aos>
   );
 };

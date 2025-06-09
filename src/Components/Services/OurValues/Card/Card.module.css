@@ -3,12 +3,17 @@
   position: sticky;
   top: -60px;
   background-color: #4008a1a2;
-  padding: 40px;
   transition: 0.2s;
   height: 130dvh;
   overflow: hidden;
-
+  
+  padding: 40px;
   backdrop-filter: blur(40px);
+}
+
+.wrapper {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .title {
@@ -62,14 +67,14 @@
   flex-grow: 1;
   border-radius: 20px;
   overflow: hidden;
-  transform: translateY(120%);
   transition: 1.5s;
 
   transition-delay: 0.5s;
+  transform: translateY(100%);
 }
 
 .container.active .poster {
-  transform: translateY(-20px);
+  transform: translateY(20px);
 }
 .content {
   height: 100vh;
@@ -77,28 +82,31 @@
   direction: ltr;
   padding: 20px;
   padding-bottom: 0;
-  transform: translateY(-80px);
   position: relative;
 }
 
 @media (max-width: 900px) {
-.container {
-  flex-direction: column;
-  padding: 40px 5%;
-
-  justify-content: center;
+  .container {
+    
     height: 100dvh;
-}
-.poster {
+    padding: 40px 5%;
+  }
+  
+  .wrapper {
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 50px;
+    gap: 0 !important;
+  }
+  .poster {
     max-height: 40vh;
-}
+  }
   .content {
     width: 100%;
     padding: 10px 0;
     transform: translateY(0);
     height: max-content;
     gap: 10px !important;
-  
   }
 
   .poster {
