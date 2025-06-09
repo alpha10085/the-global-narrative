@@ -1,4 +1,8 @@
-import { CommonsVal, fileVal, pageMetadataVal } from "@/_Backend/commons/validation";
+import {
+  CommonsVal,
+  fileVal,
+  pageMetadataVal,
+} from "@/_Backend/commons/validation";
 import { joiArray, joiText } from "@/_Backend/utils/JoiHandlers";
 import Joi from "joi";
 
@@ -7,12 +11,14 @@ const serviceSubSchemaVal = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   intro: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
+  ...CommonsVal,
 });
 
 // Validation for the contactSection inside servicesPage
 const contactSectionVal = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
+  ...CommonsVal,
 });
 
 // Validation for creating Services Page

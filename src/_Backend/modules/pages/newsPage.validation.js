@@ -4,7 +4,7 @@ import Joi from "joi";
 
 // Validation for creating News Page
 export const NewsPageValCreate = Joi.object({
-  metadata: pageMetadataVal.required(),
+  metadata: pageMetadataVal,
   key: Joi.string(),
 
   title: joiText({ min: 2, max: 1000, required: true }),

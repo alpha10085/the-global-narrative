@@ -4,7 +4,7 @@ import Joi from "joi";
 
 // Validation for creating Contact Page
 export const ContactPageValCreate = Joi.object({
-  metadata: pageMetadataVal.required(),
+  metadata: pageMetadataVal,
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   ...CommonsVal,
