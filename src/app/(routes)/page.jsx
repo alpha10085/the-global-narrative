@@ -50,17 +50,17 @@ const Home = async () => {
       <Hero  data={heroSection} />
       {/* <CSRSection> */}
         <AboutUs data={aboutUsSection} />
-        {/* <WaveLines /> */}
+        <WaveLines />
         <FloatedSection>
         <Quote data={quoteSection} />
-        {/* <WaveLines /> */}
+        <WaveLines />
         </FloatedSection>
         <div className={styles.spaceSection}></div>
           <div className={styles.childTwo}>
             <AnimatedBorderSection>
               <StaticSection mode="down" >
               <News data={newsSection} />
-              {/* <WaveLines colors={["#8927f2a8", "#00eaff", "#ff00d4"]} /> */}
+              <WaveLines colors={["#8927f2a8", "#00eaff", "#ff00d4"]} />
               <Testimonials data={testimonialSection} />
               </StaticSection>
             </AnimatedBorderSection>
