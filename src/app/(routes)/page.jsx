@@ -46,27 +46,27 @@ const Home = async () => {
 
   return (
     <section className={styles.layout}>
-      {/* <Intro /> */}
+      <Intro />
       <Hero  data={heroSection} />
       {/* <CSRSection> */}
         <AboutUs data={aboutUsSection} />
-        <WaveLines />
-        {/* <FloatedSection> */}
+        {/* <WaveLines /> */}
+        <FloatedSection>
         <Quote data={quoteSection} />
-        <WaveLines />
-        {/* </FloatedSection> */}
+        {/* <WaveLines /> */}
+        </FloatedSection>
         <div className={styles.spaceSection}></div>
           <div className={styles.childTwo}>
             <AnimatedBorderSection>
               <StaticSection mode="down" >
               <News data={newsSection} />
-              <WaveLines colors={["#8927f2a8", "#00eaff", "#ff00d4"]} />
+              {/* <WaveLines colors={["#8927f2a8", "#00eaff", "#ff00d4"]} /> */}
               <Testimonials data={testimonialSection} />
               </StaticSection>
             </AnimatedBorderSection>
           </div>
       {/* </CSRSection> */}
-      <GetInTouch data={getInTouchSection} />
+      {/* <GetInTouch data={getInTouchSection} /> */}
     </section>
   );
 };
