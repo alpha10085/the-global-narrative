@@ -22,7 +22,7 @@
     {
       "name": "category",
       "type": "relation",
-      "ref": "interviewCategories",
+      "ref": "interviews-categories",
       "select": [
         "_id",
         "title"

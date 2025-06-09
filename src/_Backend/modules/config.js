@@ -27,7 +27,7 @@ export const allModelsConfig = {
       update: AboutValUpdate,
     },
   },
-  news: {
+  "news-page": {
     model: newsPageModel,
     validation: {
       create: NewsPageValCreate,

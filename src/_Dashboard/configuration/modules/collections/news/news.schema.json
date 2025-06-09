@@ -22,7 +22,7 @@
         {
             "name": "category",
             "type": "relation",
-            "ref": "newsCategories",
+            "ref": "news-categories",
             "select": [
                 "_id",
                 "title"
