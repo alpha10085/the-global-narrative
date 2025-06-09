@@ -1,10 +1,10 @@
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import styles from "./Quote.module.css";
+import styles from "./QuoteSection.module.css";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import AnimatedParagraph from "@/components/Shared/Animtions/AnimatedParagraph/AnimatedParagraph";
 import Link from "@/components/Shared/Link/Link";
 
-const Quote = ({ data = {} }) => {
+const QuoteSection = ({ data = {} }) => {
   const { title = "", description = "" } = data;
   return (
     <Link 
@@ -32,4 +32,4 @@ const Quote = ({ data = {} }) => {
   );
 };
 
-export default Quote;
+export default QuoteSection;

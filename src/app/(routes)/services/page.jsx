@@ -2,7 +2,7 @@ import OurValues from "@/components/Services/OurValues/OurValues";
 import { getServicespage } from "./data.test";
 import styles from "./styles.module.css";
 import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
-import Quote from "@/components/Services/Quote/Quote";
+import Quote from "@/components/QuoteSection/QuoteSection";
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
 
 const Page = async (props) => {
