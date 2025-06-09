@@ -48,7 +48,7 @@ const Home = async () => {
     <section className={styles.layout}>
       <Intro />
       <Hero  data={heroSection} />
-      {/* <CSRSection> */}
+      <CSRSection>
         <AboutUs data={aboutUsSection} />
         <WaveLines />
         <FloatedSection>
@@ -65,8 +65,8 @@ const Home = async () => {
               </StaticSection>
             </AnimatedBorderSection>
           </div>
-      {/* </CSRSection> */}
-      {/* <GetInTouch data={getInTouchSection} /> */}
+      </CSRSection>
+      <GetInTouch data={getInTouchSection} />
     </section>
   );
 };
