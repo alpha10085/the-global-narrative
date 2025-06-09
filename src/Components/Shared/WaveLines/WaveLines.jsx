@@ -1,5 +1,6 @@
 "use client";
 import React, { useRef, useEffect } from "react";
+
 const WaveLines = ({
   lineCount = 3,
   pointCount = 7,
@@ -14,25 +15,28 @@ const WaveLines = ({
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5); // Cap DPR for performance
 
-    // Set high-resolution canvas size
-    canvas.width = window.innerWidth * dpr;
-    canvas.height = height * dpr;
-    canvas.style.width = `${window.innerWidth}px`;
-    canvas.style.height = `${height}px`;
-    ctx.scale(dpr, dpr);
+    const setCanvasSize = () => {
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${window.innerWidth}px`;
+      canvas.style.height = `${height}px`;
+      ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset scale
+      ctx.scale(dpr, dpr);
+    };
+
+    setCanvasSize();
 
     let width = canvas.width / dpr;
     const centerY = height / 2;
 
-    // Setup waves
     const waves = Array.from({ length: lineCount }, (_, i) => ({
       color: colors[i % colors.length],
       offset: i * 1000,
     }));
 
-    // Animation loop
+    let animationId;
     const animate = () => {
       ctx.clearRect(0, 0, width, height);
       const time = Date.now();
@@ -40,8 +44,9 @@ const WaveLines = ({
       waves.forEach((wave) => {
         const points = [];
 
-        for (let i = 0; i < pointCount; i++) {
-          const x = (i / (pointCount - 1)) * width;
+        const adaptivePointCount = Math.min(pointCount, Math.floor(width / 80));
+        for (let i = 0; i < adaptivePointCount; i++) {
+          const x = (i / (adaptivePointCount - 1)) * width;
           const y =
             centerY +
             Math.sin(
@@ -51,7 +56,6 @@ const WaveLines = ({
           points.push({ x, y });
         }
 
-        // Draw smooth wave
         ctx.beginPath();
         ctx.moveTo(points[0].x, points[0].y);
         for (let i = 1; i < points.length - 1; i++) {
@@ -65,32 +69,29 @@ const WaveLines = ({
         ctx.stroke();
       });
 
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     };
 
     animate();
 
-    // Handle window resize
+    let resizeTimeout;
     const handleResize = () => {
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = height * dpr;
-      canvas.style.width = `${window.innerWidth}px`;
-      canvas.style.height = `${height}px`;
-      ctx.scale(dpr, dpr);
-      width = canvas.width / dpr;
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        setCanvasSize();
+        width = canvas.width / dpr;
+      }, 150);
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", handleResize);
+    };
   }, [lineCount, pointCount, amplitude, frequency, speed, colors, height]);
 
   return (
-    <div
-      style={{
-        width: "100%",
-        overflow: "hidden",
-      }}
-    >
+    <div style={{ width: "100%", overflow: "hidden" }}>
       <canvas
         ref={canvasRef}
         style={{
@@ -104,4 +105,4 @@ const WaveLines = ({
   );
 };
 
-export default () => null;
+export default WaveLines;
