@@ -1,9 +1,11 @@
 .container {
   z-index: 2;
   position: sticky;
-  top: 0;
+  top: 60px;
   background-color: #4008a1a2;
+  overflow: hidden;
 }
+
 
 .title {
   font-size: 40px;

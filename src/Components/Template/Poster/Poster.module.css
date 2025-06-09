@@ -1,9 +1,0 @@
-.pagePoster {
-    width: 1300px;
-    margin: 0 auto 40px;
-    height: calc(50vw);
-    max-height: 450px;
-    max-width: 100%;
-    /* border-radius: 10px; */
-    overflow: hidden;
-  }

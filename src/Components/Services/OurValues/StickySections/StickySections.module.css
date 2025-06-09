@@ -2,6 +2,8 @@
 .section {
     padding: 40px;
     transition: 0.2s;
+    height: 100dvh;
+    overflow: hidden;
 
 }
 .active {

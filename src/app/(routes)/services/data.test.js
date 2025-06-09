@@ -1,72 +1,68 @@
-export const getpage = () => {
+export const getServicespage = () => {
   return {
-    title: "Our Services",
-    description:
-      "Strategic Public Relations solutions tailored to amplify your brand globally.",
-    poster: {
-      url: "https://res.cloudinary.com/dsed1slaz/image/upload/v1746294755/Edge-108_xthmz1.jpg",
+    metadata: {
+      title: "About Us - The Global Narrative",
+      description:
+        "We offer expert PR solutions in nation branding, executive profiling, strategic communications, crisis management, and event planning. At The Global Narrative, we craft powerful stories that build trust, shape reputation, and drive lasting impact for leaders, governments, and institutions across the region. Precision, clarity, and purpose define every service.",
     },
-    services: [
-      {
-        _id: "1",
-        title: "Media Relations",
-        intro: "Crafting impactful narratives for the global media landscape.",
-        description:
-          "We build strong media relationships to ensure your brand gains positive exposure across all channels. From press releases to media training, we position you as a trusted industry leader.",
+    hero: {
+      title: "Shaping Stories That Inspire Trust",
+      description: `We offer expert PR solutions in nation branding, executive profiling, strategic communications, crisis management, and event planning. At The Global Narrative, we craft powerful stories that build trust, shape reputation, and drive lasting impact for leaders, governments, and institutions across the region. Precision, clarity, and purpose define every service.`,
+      poster: {
+        url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1749493197/pexels-fauxels-3183172_nve8sp.jpg",
       },
-      {
-        _id: "2",
-        title: "Crisis Management",
-        intro:
-          "Guiding your brand through turbulent times with clarity and control.",
-        description:
-          "Our rapid-response team helps protect your reputation with clear, strategic communication during crises. We minimize damage and restore trust with expert planning and execution.",
-      },
-      {
-        _id: "3",
-        title: "Digital PR & Social Media",
-        intro:
-          "Driving engagement and awareness through strategic digital storytelling.",
-        description:
-          "We combine PR expertise with social media tactics to elevate your brand online. From influencer partnerships to real-time engagement, we ensure your message connects and resonates.",
-      },
-      {
-        _id: "4",
-        title: "Strategic Partnerships",
-        intro: "Building meaningful alliances to expand your impact.",
-        description:
-          "We facilitate strategic collaborations with governmental and industry partners, helping you grow influence and achieve long-term goals through tailored partnership strategies.",
-      },
-    ],
-    contactSection: {
-      title: "Get In Touch",
-      description: `We’d love to hear from you. Every great story starts with a simple hello. Reach out and let’s create something meaningful together at The Global Narrative.`,
     },
-    faqs: [
-      {
-        _id: "2",
-        question: "What industries do you specialize in?",
-        answer:
-          "We work across tech, fashion, government, lifestyle, and more.",
-      },
-      {
-        _id: "3",
-        question: "Do you offer international PR coverage?",
-        answer:
-          "Yes, we operate globally with strong local expertise in each market.",
-      },
-      {
-        _id: "5",
-        question: "How do you measure campaign success?",
-        answer:
-          "Through KPIs like media reach, sentiment analysis, and engagement rates.",
-      },
-      {
-        _id: "6",
-        question: "Can you handle crisis situations?",
-        answer:
-          "Absolutely. We specialize in real-time crisis communication and reputation control.",
-      },
-    ],
+    ourValueSection: {
+      title: "our core values",
+      cards: [
+        {
+          title: "Nation Branding & Regional Operations",
+          poster: {
+            url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1749443606/pexels-taryn-elliott-4457110_mrl0xn.jpg",
+          },
+          description:
+            "We collaborate with both government bodies and private sector entities to develop brand images for national and regional projects. Our campaigns focus on impact, credibility, and the long-term reputation of the clients and communities we work with.",
+        },
+        {
+          title: "Executive & Personal Branding",
+          poster: {
+            url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1749443603/istockphoto-973111990-612x612-Picsart-AiImageEnhancer_drrgk8.png",
+          },
+          description: `
+We help leaders define how they want to be seen. This includes shaping online profiles, guiding public appearances, and aligning messaging across all platforms. We ensure that each story is consistent, relatable, and true to the client’s goals.
+`,
+        },
+        {
+          title: `Strategic Communications & Media Relations.`,
+          poster: {
+            url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1749443606/pexels-henri-mathieu-8354763_fg9qal.jpg",
+          },
+          description: `
+We plan and manage clear communications strategies across multiple channels. From working with the media to crafting opinion pieces and press releases, we ensure that the right messages reach the right people.
+`,
+        },
+        {
+          title: "Crisis Communication & Reputation Repair.",
+          poster: {
+            url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1749446200/istockphoto-1414012544-612x612-Picsart-AiImageEnhancer_pxzqp2.png",
+          },
+          description: `
+In moments of pressure or public scrutiny, we help clients respond with clarity and care. Our team supports clients through sensitive situations, helping manage communications and rebuild trust when it matters most.
+`,
+        },
+        {
+          title: "Event & Summit Planning.",
+          poster: {
+            url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1749443653/DeWatermark.ai_1749443635945_rxh60v.jpg",
+          },
+          description: `We bring together people and ideas through well-planned gatherings. Our events are built with intention, from closed-door briefings to large public summits. We ensure each event leaves a lasting impression and supports wider strategic goals`,
+        },
+      ],
+    },
+    quoteSection: {
+      title: "Our Mission",
+      description:
+        "We create purposeful communication strategies that help clients connect meaningfully with their audiences. Our mission is to support public figures, institutions, and regional initiatives globally in shaping their message with honesty and clarity.",
+    },
   };
 };

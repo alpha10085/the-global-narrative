@@ -1,54 +1,33 @@
-import { getpage } from "./data.test";
+import OurValues from "@/components/Services/OurValues/OurValues";
+import { getServicespage } from "./data.test";
 import styles from "./styles.module.css";
-import ServicesList from "@/components/Services/ServicesList/ServicesList";
-import MarqueeLogos from "@/components/Services/Marquee/Marquee";
-import Link from "next/link";
 import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import MainLink from "@/components/MainLink/MainLink";
-import { customers } from "../clients/data.test";
-import FAQItem from "@/components/Services/FAQItem/FAQItem";
-// import { metadataHandler } from "@/utils/metadata";
-// import { getPage } from "@/lib/pages";
+import Quote from "@/components/Services/Quote/Quote";
+import SpaceSection from "@/components/SpaceSection/SpaceSection";
 
-// export const generateMetadata = metadataHandler(getPage, `services-page`);
-const Page = async () => {
+const Page = async (props) => {
   const {
-    title = "",
-    description = "",
-    poster = {},
-    services = [],
-    faqs = [],
-  } = await getpage("services-page");
+    hero = {},
+    quoteSection = {},
+    ourValueSection = {},
+  } = getServicespage();
   return (
-    <section className={styles.container}>
-      {/* Hero  */}
-      <TemplateHero title={title} description={description} poster={poster} />
-
-      {/* Service List */}
-      <ServicesList data={services} />
-
-
-
-
-
-      {/* FAQ List */}
-        <div className={styles.faqSection}>
-          <SectionTitle
-            title="Frequently Asked Questions"
-            className={styles.faqTitle}
-          />
-          <div className={styles.faqList}>
-            {faqs?.map((faq, index) => (
-              <FAQItem
-                key={index}
-                question={faq?.question}
-                answer={faq?.answer}
-              />
-            ))}
-          </div>
-        </div>
-    
+    <section className={`${styles.container} `}>
+      <TemplateHero
+        pageTitle="Our services"
+        title={hero?.title}
+        description={hero?.description}
+        poster={hero?.poster}
+      />
+      <div className={styles.wrapper}>
+        <OurValues data={ourValueSection} />
+        <Quote data={quoteSection} />
+      </div>
+      <SpaceSection
+        style={{
+          background: "#4008a1",
+        }}
+      />
     </section>
   );
 };

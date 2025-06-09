@@ -11,8 +11,9 @@
   will-change: transform, left, top;
   height: auto;
   aspect-ratio: 1/1;
-  min-width: 130px;
+ width: 130px;
   pointer-events: none;
+
 }
 
 .cursor {
@@ -25,15 +26,20 @@
   padding: 15px;
 
   font-weight: bold;
-  font-size: 13px;
+  font-size: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
   transition: transform 0.4s ease, opacity 0.4s ease;
   backdrop-filter: blur(10);
-}
+  overflow: hidden;
 
+    overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  align-items: center;
+}
 .visible {
   transform: scale(1);
   opacity: 1;
@@ -73,6 +79,7 @@
     transform: translateY(100%);
     opacity: 0;
   }
+
   to {
     transform: translateY(0%);
     opacity: 1;
@@ -84,9 +91,9 @@
     transform: translateY(0%);
     opacity: 1;
   }
+
   to {
     transform: translateY(-100%);
     opacity: 0;
   }
 }
-

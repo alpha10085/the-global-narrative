@@ -1,5 +1,5 @@
 .container {
   min-height: 100vh;
-  background-color: #06003d;
   transform: translateY(-3px);
+  position: relative;
 }

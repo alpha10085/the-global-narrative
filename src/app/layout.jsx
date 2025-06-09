@@ -10,12 +10,18 @@ export const metadata = defualtMetadata.metadata;
 export const viewport = defualtMetadata.viewport;
 
 export default async function RootLayout({ children }) {
-  const { boundary, dir, locale, messages, selectedFont } =
-    await prepareLayoutContext();
+  const {
+    boundary,
+    allFonts = "",
+    dir,
+    locale,
+    messages,
+    selectedFont,
+  } = await prepareLayoutContext();
   return (
     <ReactQuery>
       <html lang={locale} dir={dir}>
-        <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
+        <body className={`${allFonts}   ${selectedFont.className}`}>
           <NextIntlClientProvider locale={locale} messages={messages}>
             <DevToolsWrapper>
               <ErrorBoundary boundary={boundary}>

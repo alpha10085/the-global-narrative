@@ -1,9 +1,13 @@
 "use client";
- 
+
 import styles from "./Template.module.css";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { scrollToElement } from "@/utils/document";
-export const ButtonSeeMore = ({ textButton='see more ', className, title }) => {
+export const ButtonSeeMore = ({
+  textButton = "see more ",
+  className,
+  title,
+}) => {
   const handlescroll = () => {
     scrollToElement(`#${title}`, 100);
   };
@@ -12,7 +16,8 @@ export const ButtonSeeMore = ({ textButton='see more ', className, title }) => {
       onClick={handlescroll}
       className={`${styles.btnseemore} flex gap10 al-i-c`}
     >
-      {textButton}<ArrowForwardIcon />
+      {textButton}
+      <ArrowForwardIcon />
     </button>
   );
 };

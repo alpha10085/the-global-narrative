@@ -2,7 +2,6 @@ import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import StickySections from "../StickySections/StickySections";
-import ScrollToContinueButton from "@/components/ScrollToContinueButton/ScrollToContinueButton";
 
 const Card = ({ className = "", data = {}, index = 1 }) => {
   return (

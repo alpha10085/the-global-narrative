@@ -13,6 +13,7 @@ export default function WordPullUpV2({
   triggerOnce = true,
   threshold = 0.1,
   duration = 0.4,
+  options = {},
 }) {
   const [visible, setVisible] = useState(false);
   const words = text?.match(/\S+|\s+/g) || [];
@@ -31,12 +32,18 @@ export default function WordPullUpV2({
   });
 
   return (
-    <h1 ref={ref} className={`${styles.WordPullUpV2} ${className || ""}`}>
+    <h1
+      {...options}
+      ref={ref}
+      className={`${styles.WordPullUpV2} ${className || ""}`}
+    >
       {words.map((word, i) => (
         <span key={i} className={styles.wordWrapper}>
           <motion.span
             initial={{ y: "100%", opacity: 0 }}
-            animate={visible ? { y: "0%", opacity: 1 } : { y: "100%", opacity: 0 }}
+            animate={
+              visible ? { y: "0%", opacity: 1 } : { y: "100%", opacity: 0 }
+            }
             transition={{ duration, ease: "easeOut" }}
             className={styles.word}
           >

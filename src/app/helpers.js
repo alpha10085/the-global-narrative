@@ -55,6 +55,7 @@ export const prepareLayoutContext = async () => {
       boundary,
       selectedFont,
       dir: locale === "ar" ? "rtl" : "ltr",
+      allFonts: fonts?.allFonts,
     };
   } catch (error) {
     // Log the error and return fallback values
@@ -67,6 +68,7 @@ export const prepareLayoutContext = async () => {
       boundary: true,
       selectedFont: fonts.default,
       dir: "ltr",
+      allFonts: fonts?.allFonts,
     };
   }
 };

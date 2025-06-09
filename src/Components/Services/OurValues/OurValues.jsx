@@ -1,6 +1,6 @@
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./OurValues.module.css";
 import Card from "./Card/Card";
+import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 
 const OurValues = ({ data = {} }) => {
   return (
@@ -14,7 +14,6 @@ const OurValues = ({ data = {} }) => {
           key={index}
         />
       ))}
-      <div className={styles.whietspace}></div>
     </div>
   );
 };

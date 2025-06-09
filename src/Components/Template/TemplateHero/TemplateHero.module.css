@@ -3,6 +3,8 @@
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
+
+  background-color: #06003d;
 }
 
 .poster {
@@ -18,9 +20,9 @@
 }
 .title {
   color: white;
-  font-size: clamp(20px, 5vw, 65px);
+  font-size: clamp(20px, 5vw, 65px) !important;
   margin: 5px 0 15px;
-  
+
   color: rgb(170, 255, 244);
 }
 .pageTitle {
@@ -36,7 +38,8 @@
   top: 0;
   height: 100%;
   width: 100%;
-  backdrop-filter: blur(40px);
+
+  background-color: #06003d;
 
   z-index: 10;
   position: absolute;
@@ -47,8 +50,9 @@
 }
 .left {
   padding-left: 5%;
-  width: 50%;
-  flex-grow: 1;
+  width: 800px;
+
+  max-width: 55%;
 }
 .description {
   line-height: 1.7;

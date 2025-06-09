@@ -48,7 +48,7 @@ const DynamicCursor = () => {
 
       if (wrapperRef.current) {
         wrapperRef.current.style.left = `${currentPos.current.x}px`;
-        wrapperRef.current.style.top = `${currentPos.current.y}px`;
+        wrapperRef.current.style.top = `${currentPos.current.y - 20}px`;
       }
 
       animationRef.current = requestAnimationFrame(animate);

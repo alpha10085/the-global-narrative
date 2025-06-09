@@ -1,4 +1,10 @@
-import { Tajawal, Geist, Urbanist } from "next/font/google";
+import {
+  Tajawal,
+  Geist,
+  Urbanist,
+  Cormorant,
+} from "next/font/google";
+
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
@@ -13,9 +19,18 @@ const tajawal = Tajawal({
   weight: "400",
 });
 
+const CormorantFont = Cormorant({
+  subsets: ["latin"],
+  variable: "--font-Cormorant",
+  weight: "400",
+});
+
+const allFonts = [geist, UrbanistFont, tajawal, CormorantFont];
+console.log(allFonts?.map((val) => val?.variable).join(" "));
+
 export const fonts = {
   en: UrbanistFont,
   ar: tajawal,
   default: UrbanistFont,
+  allFonts: `${allFonts?.map((val) => val?.variable).join(" ")}`,
 };
-
