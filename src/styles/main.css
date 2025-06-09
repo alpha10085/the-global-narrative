@@ -316,15 +316,21 @@ input:-webkit-autofill {
   display: none;
 }
 
-/* input:-webkit-autofill,
+input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-   -webkit-text-fill-color: #000000;
-  -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important; 
-} */
+  /* -webkit-text-fill-color: #000000;
+  -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important; */
+}
 
-
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+}
 @media (max-width: 767px) {
   .coverHeader {
     height: 45px;

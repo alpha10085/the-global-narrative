@@ -110,4 +110,4 @@ const Img = (
   );
 };
 
-export default forwardRef(Img);
+export default () => null
