@@ -7,9 +7,10 @@ import Link from "@/components/Shared/Link/Link";
 const QuoteSection = ({ data = {} }) => {
   const { title = "", description = "" } = data;
   return (
-    <Link 
-    href={"/contact-us"}
-    className={`${styles.container} gap50 flex column `}>
+    <Link
+      href={"/contact-us"}
+      className={`${styles.container} gap50 flex column `}
+    >
       <SectionTitle
         delay={600}
         options={{

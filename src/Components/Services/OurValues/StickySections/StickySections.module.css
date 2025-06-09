@@ -5,9 +5,9 @@
     height: 100dvh;
     overflow: hidden;
 
+    backdrop-filter: blur(40px);
 }
 .active {
   
-  backdrop-filter: blur(40px);
 
 }

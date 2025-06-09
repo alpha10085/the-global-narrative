@@ -1,9 +1,14 @@
 .container {
   z-index: 2;
   position: sticky;
-  top: 60px;
+  top: -60px;
   background-color: #4008a1a2;
-  overflow: hidden;
+     padding: 40px;
+    transition: 0.2s;
+    height: 130dvh;
+    overflow: hidden;
+
+    backdrop-filter: blur(40px);
 }
 
 
