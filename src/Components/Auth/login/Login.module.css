@@ -31,7 +31,7 @@
   letter-spacing: 0.2px;
   font-weight: bold;
   font-size: 11px;
-  color: rgb(255, 255, 255);
+
   color: rgb(0, 0, 0);
 }
 
@@ -51,7 +51,7 @@
   letter-spacing: 0.2px;
   text-transform: capitalize;
   margin: 0 2px;
-  color: rgb(255, 255, 255);
+
   color: rgb(0, 0, 0);
   cursor: pointer;
 }
@@ -64,7 +64,7 @@
 .registerationTitleSec {
   font-size: 14px;
   text-transform: capitalize;
-  color: rgb(255, 255, 255);
+
   color: rgb(0, 0, 0);
   text-decoration: underline;
 }
@@ -111,7 +111,7 @@
   border: none;
   width: 300px;
   max-width: 80%;
-  color: rgb(255, 255, 255);
+
   border: 1px solid white;
   text-transform: uppercase;
   background-color: black;
