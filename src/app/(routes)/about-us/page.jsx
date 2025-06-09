@@ -5,14 +5,18 @@ import Hero from "@/components/AboutUs/Hero/Hero";
 import OurValues from "@/components/AboutUs/OurValues/OurValues";
 import WhoUsSection from "@/components/AboutUs/WhoUsSection/WhoUsSection";
 import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
+import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 
 const Page = async (props) => {
   const { hero = {}, ourValueSection = {} ,whoUsSectionSection={}} = getAboutUSPage();
   return (
     <section className={`${styles.container} `}>
+      <FloatedSection>
+
       <TemplateHero title={hero?.title} description={hero?.description} poster={hero?.poster} />
+      </FloatedSection>
       <OurValues data={ourValueSection} />
-      <WhoUsSection data={whoUsSectionSection} />
+      {/* <WhoUsSection data={whoUsSectionSection} /> */}
     </section>
   );
 };
