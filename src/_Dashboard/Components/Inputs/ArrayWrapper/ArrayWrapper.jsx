@@ -3,7 +3,7 @@ import styles from "./ArrayWrapper.module.css";
 import Card from "./components/Card/Card";
 import { memo, useState } from "react";
 import { isEqual } from "lodash";
-import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
 import ObjectId from "bson-objectid";
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";

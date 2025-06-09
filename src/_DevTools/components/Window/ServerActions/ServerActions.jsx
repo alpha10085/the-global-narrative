@@ -3,7 +3,7 @@ import styles from "./ServerActions.module.css";
 import { ChangeProjectMode, makeServerAction } from "@/lib/tools";
 import { useRouter } from "next/navigation";
 import { delay } from "@/utils/delay";
-import Switch from "../Components/Switch/Switch";
+import Switch from "../components/Switch/Switch";
 
 const ServerActions = () => {
   const [state, setState] = useDynamicState({

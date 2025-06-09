@@ -1,0 +1,46 @@
+
+.scrollBox {
+  position: absolute;
+  bottom: 20px;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 100;
+  cursor: pointer;
+  color: white;
+}
+
+.scrollBox .label {
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.scrollBox .line {
+  width: 1px;
+  border-radius: 10px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.441);
+  overflow: hidden;
+}
+.scrollBox .progress {
+  width: 2px;
+  height: 35%;
+  background-color: rgba(255, 255, 255, 1);
+  transition: 0.4s;
+
+  animation: scrollEffect 2s infinite;
+}
+
+@keyframes scrollEffect {
+  0% {
+    transform: translateY(-350%);
+  }
+  50% {
+    transform: translateY(50%);
+  }
+  100% {
+    transform: translateY(350%);
+  }
+}

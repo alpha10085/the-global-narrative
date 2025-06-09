@@ -23,7 +23,7 @@ export const getPage = AsyncHandler(
 export const getApiComponent = AsyncHandler(
   cache(async (key ,language = "en") => {
     const data = await ssrApi(
-      `/Components/${key}${config.route ? `?language=${language}` : ""}`,
+      `/components/${key}${config.route ? `?language=${language}` : ""}`,
       {
         next: { revalidate: "1y", tags: [key] }, // Revalidate every 30 days
       }

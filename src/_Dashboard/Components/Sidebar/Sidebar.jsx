@@ -1,5 +1,5 @@
 "use client";
-import Link from "@/Components/Shared/Link/Link";
+import Link from "@/components/Shared/Link/Link";
 import style from "./sidebar.module.css";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import AppsIcon from "@mui/icons-material/Apps";
@@ -10,7 +10,7 @@ import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import TrendingUpTwoToneIcon from '@mui/icons-material/TrendingUpTwoTone';
-import Img from "@/Components/Shared/img/Img";
+import Img from "@/components/Shared/img/Img";
 import { useAuth } from "@/contexts/AuthProvider";
 import Popup from "./popup";
 import { useClickOut } from "@/hooks/useClickout";

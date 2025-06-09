@@ -1,5 +1,5 @@
 // components/resetPassword/OtpInput.js
-import ErrorMessage from '@/Components/Shared/ErrorMessage/ErrorMessage';
+import ErrorMessage from '@/components/Shared/ErrorMessage/ErrorMessage';
 import React, { useState } from 'react';
 import OtpInput from 'react-otp-input';
 

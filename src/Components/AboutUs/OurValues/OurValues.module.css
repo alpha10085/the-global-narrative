@@ -1,17 +1,53 @@
 .container {
-  min-height: 60vh;
+  width: 100%;
+  z-index: 10;
+  position: relative;
+
+  background-color: #4008a1;
+  padding-bottom: 50px;
+}
+.wrapper {
   width: 90%;
-  margin: 50px auto;
+  margin: 0 auto;
+}
+.bg {
+  /* position: sticky;
+  top: 0; */
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.042);
+  width: 100%;
+  left: 50%;
+  margin-bottom: -100vh;
+  z-index: -2;
 }
 
 .card {
-  transform: translateY(30%);
-  opacity: 0;
+  width: 100%;
+  margin: 0 auto;
+  height: 130dvh;
 }
 
 .list.active .card {
   animation: introCard 0.8s ease forwards;
 }
+.title {
+  color: white;
+}
+.whietspace {
+  background-color: #4008a1;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  height: 100px;
+  width: 100%;
+  z-index: -1;
+}
+
+
+.card:nth-child(odd) {
+  direction: rtl;
+}
+
 
 @keyframes introCard {
   from {

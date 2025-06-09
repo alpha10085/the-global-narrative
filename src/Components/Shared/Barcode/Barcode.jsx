@@ -3,7 +3,7 @@ import styles from './Barcode.module.css'
 import JsBarcode from "jsbarcode";
 import { useEffect, useRef, useState } from "react";
 import { delay } from "@/utils/time";
-import Spinner from "@/Components/Shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 const Barcode = ({
   className = '',
   value = null

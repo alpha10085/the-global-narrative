@@ -1,16 +1,15 @@
 .WordPullUpV2 {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem; /* optional spacing between words */
-  }
-  
-  .wordWrapper {
-    display: inline-block;
-    overflow: hidden;
-  }
-  
-  .word {
-    display: inline-block;
-    white-space: pre;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0; /* optional spacing between words */
+}
+
+.wordWrapper {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.word {
+  display: inline-block;
+  white-space: pre;
+}

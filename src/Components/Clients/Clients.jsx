@@ -1,7 +1,7 @@
 "use client";
 import { useInView } from "react-intersection-observer";
 import styles from "./Clients.module.css";
-import Img from "@/Components/Shared/img/Img";
+import Img from "@/components/Shared/img/Img";
 
 const Clients = ({ data, sectionTitle }) => {
   return (

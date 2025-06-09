@@ -1,7 +1,7 @@
 "use client";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import styles from "./DashPopup.module.css";
-import Link from "@/Components/Shared/Link/Link";
+import Link from "@/components/Shared/Link/Link";
 import useTranslations from "@/hooks/useTranslations";
 import { useAuth } from "@/contexts/AuthProvider";
 import { isAdmin } from "@/config/auth";

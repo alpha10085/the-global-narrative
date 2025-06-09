@@ -1,12 +1,12 @@
 import useDynamicState from "@/hooks/useDynamicState";
 import styles from "./AddNewPageControl.module.css";
-import OptionsControl from "../../Components/OptionsControl/OptionsControl";
+import OptionsControl from "../../components/OptionsControl/OptionsControl";
 import { useMemo } from "react";
 import ComponentName from "./ComponentName/ComponentName";
-import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
 import { createPage } from "@/lib/tools";
 import PageStrategy from "./PageStrategy/PageStrategy";
-import Input from "../../Components/Input/Input";
+import Input from "../../components/Input/Input";
 import { validatePageName } from "../helpers";
 
 const options = [

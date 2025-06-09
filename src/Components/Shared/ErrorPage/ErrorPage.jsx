@@ -21,8 +21,7 @@ export const DefualtScreen = () => {
 const ErrorPage = ({ error, reset = () => {}, Component = DefualtScreen }) => {
   const errorMSg = decodestringtoObject(error?.message);
 
-
-  const location = usePathname()
+  const location = usePathname();
 
   // Trigger error boundary if the condition is met
   useEffect(() => {
@@ -39,11 +38,11 @@ const ErrorPage = ({ error, reset = () => {}, Component = DefualtScreen }) => {
 
 export const sendErrorToServer = async (err) => {
   try {
-    if (isProductionMode) return;
+    if (!isProductionMode) return;
     const res = await csrApi.post("/error-logs", {
       message: err?.message,
       stack: err?.stack?.slice(0, 2000),
-      route:location?.href
+      route: location?.href,
     });
   } catch (error) {}
 };

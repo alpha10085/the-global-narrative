@@ -1,4 +1,4 @@
-import Link from "@/Components/Shared/Link/Link";
+import Link from "@/components/Shared/Link/Link";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import styles from "./AccountsLink.module.css";
 import useSchema from "@/_Dashboard/hooks/auth/useSchema";

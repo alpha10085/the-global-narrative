@@ -3,14 +3,14 @@ import React, { useCallback } from "react";
 import styles from "./List.module.css";
 import Card from "../Card/Card";
 import { VirtuosoGrid } from "react-virtuoso";
-import Skeleton from "@/Components/Shared/Skeleton/Skeleton";
+import Skeleton from "@/components/Shared/Skeleton/Skeleton";
 import { useQueryParams } from "@/hooks/useQueryParams";
 import SearchIcon from "@mui/icons-material/Search";
 import lodash from "lodash";
 import { scrollToElement } from "@/utils/document";
 import { getFakeMediaCenter } from "@/app/(routes)/media-center/data.test";
-import Aos from "@/Components/Shared/Animtions/Aos/Aos";
-import SectionTitle from "@/Components/SectionTitle/SectionTitle";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 
 const List = ({ }) => {
 

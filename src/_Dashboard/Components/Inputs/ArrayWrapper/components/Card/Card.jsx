@@ -1,4 +1,4 @@
-import FieldManager from "@/_Dashboard/Components/FieldManger/FieldManger";
+import FieldManager from "@/_Dashboard/components/FieldManger/FieldManger";
 import styles from "./Card.module.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { memo, useEffect, useRef, useState } from "react";

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import styles from "./ColorPicker.module.css";
-import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
 import { Sketch , } from "@uiw/react-color";
 import { useClickOut } from "@/hooks/useClickout";
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";

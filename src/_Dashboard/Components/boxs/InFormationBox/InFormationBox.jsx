@@ -8,7 +8,7 @@ import DropDown from "../../Dropdown/Dropdown";
 import { getlanguagesMap } from "@/i18n/config";
 import useDynamicState from "@/hooks/useDynamicState";
 import PopupDelete from "../PopupDelete/PopupDelete";
-import Link from "@/Components/Shared/Link/Link";
+import Link from "@/components/Shared/Link/Link";
 const InFormationBox = ({
   className = "",
   schema = {},

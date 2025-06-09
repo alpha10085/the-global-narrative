@@ -1,5 +1,5 @@
 "use client";
-import { ArrowOutwardIcon } from "@/Components/Home/icons";
+import { ArrowOutwardIcon } from "@/components/Home/icons";
 import styles from "./TemplateHero.module.css";
 import { scrollToElement } from "@/utils/document";
 

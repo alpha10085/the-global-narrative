@@ -1,10 +1,10 @@
-import Img from "@/Components/Shared/img/Img";
+import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
-import Link from "@/Components/Shared/Link/Link";
+import Link from "@/components/Shared/Link/Link";
 import { formatDate } from "@/utils/date";
 import { customText } from "@/utils/text";
 import { ArrowOutwardIcon } from "../../icons";
-import Aos from "@/Components/Shared/Animtions/Aos/Aos";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const Card = ({ delay = 0, className = "", data = {} }) => {
   return (

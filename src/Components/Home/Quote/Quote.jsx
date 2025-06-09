@@ -1,10 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import styles from "./Quote.module.css";
-import TextRevealByWord from "@/Components/Shared/Animtions/TextRevealByWord/TextRevealByWord";
-import WordDisplay from "@/Components/Shared/Animtions/WordRotate/WordRotate";
-import WordFadeIn from "@/Components/Shared/Animtions/WordFadeIn/WordFadeIn";
-import Aos from "@/Components/Shared/Animtions/Aos/Aos";
+import TextRevealByWord from "@/components/Shared/Animtions/TextRevealByWord/TextRevealByWord";
+import WordDisplay from "@/components/Shared/Animtions/WordRotate/WordRotate";
+import WordFadeIn from "@/components/Shared/Animtions/WordFadeIn/WordFadeIn";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import StaticSection from "../StaticSection/StaticSection";
 function splitContentToLines(content) {
   return content

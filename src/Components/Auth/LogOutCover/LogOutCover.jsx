@@ -1,4 +1,4 @@
-import Spinner from "@/Components/Shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 import styles from "./LogOutCover.module.css";
 import { useEffect } from "react";
 import { extractPath } from "@/utils/data";

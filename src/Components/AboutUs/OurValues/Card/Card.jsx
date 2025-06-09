@@ -1,15 +1,29 @@
+import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import StickySections from "../StickySections/StickySections";
+import ScrollToContinueButton from "@/components/ScrollToContinueButton/ScrollToContinueButton";
 
-const Card = ({delay = 0, className = "", data = {}, index = 1 }) => {
+const Card = ({ className = "", data = {}, index = 1 }) => {
   return (
-    <div 
-    style={{
-      animationDelay: `${delay}s`,
-    }}
-    className={`${styles.container} ${className} flex column  gap30  `}>
-      <h1 className={styles.title}>0{index}</h1>
-      <p className={styles.description}>{data?.description}</p>
-    </div>
+    <Aos
+      triggerOnce
+      threshold={0.15}
+      activeClassName={styles.active}
+      className={`${styles.container} ${className} `}
+    >
+      <StickySections index={index}>
+        <div className={`${styles.content} just-c column gap15 flex`}>
+          <div className={`${styles.head} flex column gap10`}>
+            <h1 className={styles.index}>0{index}</h1>
+            <h1 className={styles.title}>{data?.title}</h1>
+          </div>
+          <p className={styles.description}>{data?.description}</p>
+        </div>
+
+        <Img url={data?.poster?.url} className={styles.poster} />
+      </StickySections>
+    </Aos>
   );
 };
 

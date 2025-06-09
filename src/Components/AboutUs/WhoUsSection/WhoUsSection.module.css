@@ -1,11 +1,12 @@
 .container {
   min-height: 60vh;
   width: 90%;
-  margin: 50px auto;
+  margin: 50px auto 0;
+  padding-bottom: 100px;
 }
 
 .list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
 }

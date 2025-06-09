@@ -20,7 +20,7 @@ const NavBar = () => {
   });
   const { pathname, pathes } = usePathname();
 
-  const transparentPathes = ["/", "/news/*"];
+  const transparentPathes = ["/", "/about-us", "/news/*"];
   const darkModePathes = [];
 
   useEffect(() => {

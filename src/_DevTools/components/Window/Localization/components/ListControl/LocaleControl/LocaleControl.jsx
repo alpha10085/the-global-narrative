@@ -1,13 +1,13 @@
 import useDynamicState from "@/hooks/useDynamicState";
 import styles from "./LocaleControl.module.css";
-import Input from "@/_DevTools/components/Window/Components/Input/Input";
+import Input from "@/_DevTools/components/Window/components/Input/Input";
 import SyncIcon from "@mui/icons-material/Sync";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import MainSwitch from "@/_DevTools/components/Window/Components/MainSwitch/MainSwitch";
+import MainSwitch from "@/_DevTools/components/Window/components/MainSwitch/MainSwitch";
 import { isEqual } from "lodash";
 import { validateLocaleCode, validateLocaleLabel } from "./helpers";
 import { reWatchLocale } from "@/lib/tools";
-import Spinner from "@/Components/Shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 export const removeStringFromArray = (arr, str) => {
   return arr.filter((item) => item.toLowerCase() !== str.toLowerCase());
 };

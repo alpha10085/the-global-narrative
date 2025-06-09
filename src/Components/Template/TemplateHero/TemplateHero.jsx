@@ -1,13 +1,19 @@
-import Img from "@/Components/Shared/img/Img";
+import Img from "@/components/Shared/img/Img";
 import styles from "./TemplateHero.module.css";
-import SectionTitle from "@/Components/SectionTitle/SectionTitle";
-import Aos from "@/Components/Shared/Animtions/Aos/Aos";
-import { ArrowOutwardIcon } from "@/Components/Home/icons";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import { ArrowOutwardIcon } from "@/components/Home/icons";
 import ButtonScroll from "./Client";
-const TemplateHero = ({ title, description, poster }) => {
+const TemplateHero = ({
+  pageTitle = "about us",
+  title,
+  description,
+  poster,
+}) => {
   return (
-    <div className={`${styles.container} flex al-i-c gap20 just-sb`}>
-      <div className={`${styles.left} flex mt-50 gap30 column`}>
+    <div className={`${styles.container} flex al-i-c gap50 just-sb`}>
+      <div className={`${styles.left} flex mt-50  column`}>
+        <h1 className={styles.pageTitle}>{pageTitle}</h1>
         <SectionTitle title={title} className={styles.title} />
         <Aos
           activeClassName={styles.active}
@@ -16,20 +22,13 @@ const TemplateHero = ({ title, description, poster }) => {
         >
           <p className={styles.description}>{description}</p>
         </Aos>
-        <Aos
-          activeClassName={styles.active}
-          className={styles.aosBtn}
-          delay={800}
-        >
-          <ButtonScroll />
-        </Aos>
       </div>
       <Aos
         delay={1000}
         className={styles.posterAos}
         activeClassName={styles.active}
       >
-        {<Img className={styles.poster} url={poster.url} />}
+        {<Img disableSkeleton className={styles.poster} url={poster.url} />}
       </Aos>
     </div>
   );

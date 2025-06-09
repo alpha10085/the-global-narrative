@@ -1,6 +1,6 @@
-import SectionTitle from "@/Components/SectionTitle/SectionTitle";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./Hero.module.css";
-import Img from "@/Components/Shared/img/Img";
+import Img from "@/components/Shared/img/Img";
 
 const Hero = ({ data = {} }) => {
   return (

@@ -6,11 +6,11 @@ import ImageDetails from "../FileDetails/FileDetails";
 import { memo, useState } from "react";
 import { deleteMultipleFiles, getFiles } from "@/_Dashboard/lib/dashboard";
 import { VirtuosoGrid } from "react-virtuoso";
-import Spinner from "@/Components/Shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 import { handleArray } from "@/utils/data";
 import { useQueryClient } from "@tanstack/react-query";
 import useDynamicState from "@/hooks/useDynamicState";
-import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
 
 const List = ({ searchParams, translations, roles = {} }) => {
   const {

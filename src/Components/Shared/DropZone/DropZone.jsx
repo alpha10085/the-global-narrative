@@ -1,4 +1,4 @@
-// src/Components/DropZone.js
+// src/components/DropZone.js
 import allowedFormates_FN, {
   default_formates,
 } from "@/_Dashboard/configuration/file.conf";

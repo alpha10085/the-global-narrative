@@ -5,9 +5,9 @@ import { GetSingleEntry } from "@/_Dashboard/lib/dashboard";
 import { notFound } from "next/navigation";
 import useAsyncQuery from "@/hooks/useAsyncQuery";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import LoaderLayout from "@/_Dashboard/Components/LoaderLayout/LoaderLayout";
+import LoaderLayout from "@/_Dashboard/components/LoaderLayout/LoaderLayout";
 import useSchema from "@/_Dashboard/hooks/auth/useSchema";
-import ErrorLayOut from "@/_Dashboard/Components/ErrorLayOut/ErrorLayOut";
+import ErrorLayOut from "@/_Dashboard/components/ErrorLayOut/ErrorLayOut";
 import { useLocale } from "next-intl";
 
 const Page = (props) => {

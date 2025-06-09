@@ -1,4 +1,4 @@
 "use client";
-import ErrorPage from "@/Components/Shared/ErrorPage/ErrorPage";
+import ErrorPage from "@/components/Shared/ErrorPage/ErrorPage";
 const handler = (props) => <ErrorPage {...props} />;
 export default handler;

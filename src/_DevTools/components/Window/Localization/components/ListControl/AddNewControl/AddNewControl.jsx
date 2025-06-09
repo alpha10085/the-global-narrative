@@ -1,7 +1,7 @@
 import styles from "./AddNewControl.module.css";
 import useDynamicState from "@/hooks/useDynamicState";
-import Input from "@/_DevTools/components/Window/Components/Input/Input";
-import MainSwitch from "@/_DevTools/components/Window/Components/MainSwitch/MainSwitch";
+import Input from "@/_DevTools/components/Window/components/Input/Input";
+import MainSwitch from "@/_DevTools/components/Window/components/MainSwitch/MainSwitch";
 import {
   validateLocaleCode,
   validateLocaleLabel,

@@ -18,12 +18,16 @@ export const links = [
   //   text: "clients",
   //   href: "/clients",
   // },
-  {
-    text: "services",
-    href: "/services",
-  },
+  // {
+  //   text: "services",
+  //   href: "/services",
+  // },
   // {
   //   text: "media center",
   //   href: "/media-center",
   // },
+  {
+    text: "Get In touch",
+    href: "/contact-us",
+  },
 ];

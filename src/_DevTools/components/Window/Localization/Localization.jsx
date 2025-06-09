@@ -1,9 +1,9 @@
 import useDynamicState from "@/hooks/useDynamicState";
 import styles from "./Localization.module.css";
-import SectionLabel from "../Components/SectionLabel/SectionLabel";
+import SectionLabel from "../components/SectionLabel/SectionLabel";
 import config from "@/i18n/config";
 import { useRouter } from "next/navigation";
-import Switch from "../Components/Switch/Switch";
+import Switch from "../components/Switch/Switch";
 import { updatei18Strategy } from "@/lib/tools";
 import { delay } from "@/utils/delay";
 import ListControl from "./components/ListControl/ListControl";

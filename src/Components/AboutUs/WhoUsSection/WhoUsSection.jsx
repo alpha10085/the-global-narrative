@@ -1,4 +1,4 @@
-import SectionTitle from "@/Components/SectionTitle/SectionTitle";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./WhoUsSection.module.css";
 import Card from "./Card/Card";
 

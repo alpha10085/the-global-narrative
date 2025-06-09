@@ -1,7 +1,7 @@
 import { isEmpty } from "lodash";
 import styles from "./SelectedList.module.css";
-import Link from "@/Components/Shared/Link/Link";
-import Img from "@/Components/Shared/img/Img";
+import Link from "@/components/Shared/Link/Link";
+import Img from "@/components/Shared/img/Img";
 import { getNestedProperty } from "@/utils/object";
 import { Virtuoso } from "react-virtuoso";
 import CloseIcon from "@mui/icons-material/Close";

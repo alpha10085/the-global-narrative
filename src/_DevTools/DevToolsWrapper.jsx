@@ -1,7 +1,7 @@
 import { isProductionMode } from "@/config/main";
 import interceptor from "@/utils/consoleProxy";
 import DevToolsClient from "./DevToolsClient";
-import DisableLogs from "@/Components/Shared/DisableLogs/DisableLogs";
+import DisableLogs from "@/components/Shared/DisableLogs/DisableLogs";
 
 const DevToolsWrapper = ({ children }) => {
   if (isProductionMode)

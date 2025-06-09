@@ -1,7 +1,7 @@
 import { lineBreak } from '@/utils/text';
 
 import styles from './TemplateList.module.css'
-import Aos from '@/Components/Shared/Animtions/Aos/Aos';
+import Aos from '@/components/Shared/Animtions/Aos/Aos';
 
 const TemplateList = ({
     data = [],

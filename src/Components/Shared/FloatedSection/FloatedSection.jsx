@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import styles from "./FloatedSection.module.css";
 
-const FloatedSection = ({ children }) => {
+const FloatedSection = ({ children ,className = "" }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const FloatedSection = ({ children }) => {
 
         let rawProgress = (start - bottom) / (start - end);
         const clamped = Math.min(1, Math.max(0, rawProgress));
-        console.log("🚀 ~ useEffect ~ clamped:", clamped)
+
 
         // Apply transform based on progress
         el.style.transform = `translate3d(0px, ${clamped * 300}px , 0)`;
@@ -42,7 +42,7 @@ const FloatedSection = ({ children }) => {
   }, []);
 
   return (
-    <section ref={sectionRef} className={styles.floated}>
+    <section ref={sectionRef} className={`${styles.floated} ${className}`}>
       {children}
     </section>
   );

@@ -1,8 +1,8 @@
-import Link from "@/Components/Shared/Link/Link";
+import Link from "@/components/Shared/Link/Link";
 import styles from "./AboutUs.module.css";
 import { ArrowOutwardIcon } from "../icons";
-import WordPullUpV2 from "@/Components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
-import Aos from "@/Components/Shared/Animtions/Aos/Aos";
+import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const AboutUs = ({ data = {} }) => {
   return (

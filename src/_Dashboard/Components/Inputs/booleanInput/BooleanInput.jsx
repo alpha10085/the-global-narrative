@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./Booleaninput.module.css";
-import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";
 import { useClickOut } from "@/hooks/useClickout";
 const BooleanInput = ({

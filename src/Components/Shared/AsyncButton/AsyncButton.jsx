@@ -1,5 +1,5 @@
 import styles from "./AsyncButton.module.css";
-import Spinner from "@/Components/Shared/Spinner/Spinner";
+import Spinner from "@/components/Shared/Spinner/Spinner";
 
 const AsyncButton = ({
   loading = false,

@@ -1,0 +1,11 @@
+
+.section {
+    padding: 40px;
+    transition: 0.2s;
+
+}
+.active {
+  
+  backdrop-filter: blur(40px);
+
+}

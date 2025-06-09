@@ -1,10 +1,10 @@
 import React from "react";
-import Footer from "@/Components/Footer/Footer";
-import NavBar from "@/Components/NavBar/NavBar";
+import Footer from "@/components/Footer/Footer";
+import NavBar from "@/components/NavBar/NavBar";
 import { Toaster } from "react-hot-toast";
-import DashPopup from "@/Components/Auth/DashPopup/DashPopup";
-import SmoothScroll from "@/Components/Shared/SmoothScroll/SmoothScroll";
-import DynamicCursor from "@/Components/Shared/DynamicCursor/DynamicCursor";
+import DashPopup from "@/components/Auth/DashPopup/DashPopup";
+import SmoothScroll from "@/components/Shared/SmoothScroll/SmoothScroll";
+import DynamicCursor from "@/components/Shared/DynamicCursor/DynamicCursor";
 import "lenis/dist/lenis.css";
 import PageAnalyticsTracker from "@/lib/PageAnalyticsTracker";
 

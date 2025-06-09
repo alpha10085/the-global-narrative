@@ -8,7 +8,7 @@ import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
 import { isEqual } from "lodash";
 import { handleSingle } from "@/utils/object";
-import ErrorMessage from "@/_Dashboard/Components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "@/_Dashboard/components/ErrorMessage/ErrorMessage";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 
 import { handleReplaceDot } from "@/_Dashboard/utils/handleData";

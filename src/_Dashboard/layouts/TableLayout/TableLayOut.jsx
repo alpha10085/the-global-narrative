@@ -2,19 +2,19 @@
 import React, { memo, useEffect, useMemo, useState } from "react";
 import style from "./TableLayOut.module.css";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import FilterSystem from "../../Components/FilterSystem/FilterSystem";
+import FilterSystem from "../../components/FilterSystem/FilterSystem";
 import AddIcon from "@mui/icons-material/Add";
-import Link from "@/Components/Shared/Link/Link";
+import Link from "@/components/Shared/Link/Link";
 import { useQueryParams } from "@/hooks/useQueryParams";
 import useInfinityQuery from "@/hooks/useInfinityQuery";
-import Table from "@/_Dashboard/Components/boxs/Table/Table";
+import Table from "@/_Dashboard/components/boxs/Table/Table";
 import { isEqual } from "lodash";
 import { notFound } from "next/navigation";
-import Skeleton from "@/Components/Shared/Skeleton/Skeleton";
+import Skeleton from "@/components/Shared/Skeleton/Skeleton";
 import { tableAPI } from "@/_Dashboard/lib/dashboard";
-import { getLabelsByKeys } from "@/_Dashboard/Components/boxs/Table/helpers";
+import { getLabelsByKeys } from "@/_Dashboard/components/boxs/Table/helpers";
 import useTranslationsDashboard from "@/_Dashboard/hooks/useTranslationsDashboard";
-import { getlabelFiltersCondtions } from "@/_Dashboard/Components/FilterSystem/helper";
+import { getlabelFiltersCondtions } from "@/_Dashboard/components/FilterSystem/helper";
 
 const TableLayOut = ({
   slug,

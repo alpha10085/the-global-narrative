@@ -1,5 +1,5 @@
 .container {
-  height: 100vh;
+  height: 101dvh;
   width: 100%;
   margin: 0 auto;
   overflow: hidden;
@@ -10,11 +10,25 @@
   height: 100%;
   overflow: hidden;
   position: relative;
+  color: white;
 }
 .posterAos {
-  width: 46%;
-  min-width: 46%;
+  width: 45%;
   height: 100%;
+}
+.title {
+  color: white;
+  font-size: clamp(20px, 5vw, 65px);
+  margin: 5px 0 15px;
+  
+  color: rgb(170, 255, 244);
+}
+.pageTitle {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 .poster::before {
   content: "";
@@ -22,7 +36,8 @@
   top: 0;
   height: 100%;
   width: 100%;
-  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(40px);
+
   z-index: 10;
   position: absolute;
   transition: 0.8s;
@@ -32,13 +47,15 @@
 }
 .left {
   padding-left: 5%;
-  max-width: 45%;
+  width: 50%;
+  flex-grow: 1;
 }
 .description {
-  line-height: 1.5;
+  line-height: 1.7;
   font-weight: 500;
-  font-size: clamp(16px, 3vw, 18px);
-  color: #333333;
+  font-size: clamp(12px, 3vw, 16px);
+  color: white;
+  opacity: 0.9;
 }
 
 .aosText {

@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import styles from "./Icons.module.css";
 import BurgerIconMUi from "@mui/icons-material/Menu"; // Import BurgerIcon from MUI
-import Link from "@/Components/Shared/Link/Link";
+import Link from "@/components/Shared/Link/Link";
 export const BurgerIcon = forwardRef(({ className,isOpen, onClick }, ref) => {
   return (
       <div ref={ref}  onClick={onClick} className={`${styles.burgerIcon} } ${isOpen && styles.active} flex column just-sb ${className} `}>

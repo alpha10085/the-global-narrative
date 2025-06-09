@@ -1,12 +1,12 @@
 import useDynamicState from "@/hooks/useDynamicState";
 import styles from "./AddNewComponentControl.module.css";
-import Input from "../../Components/Input/Input";
+import Input from "../../components/Input/Input";
 import { useMemo } from "react";
-import AsyncButton from "@/Components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
 
 import { createComponent } from "@/lib/tools";
 import { validateComponentName } from "./helpers";
-import OptionsControl from "../../Components/OptionsControl/OptionsControl";
+import OptionsControl from "../../components/OptionsControl/OptionsControl";
 
 const options = [
   {
