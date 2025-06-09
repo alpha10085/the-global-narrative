@@ -1,7 +1,6 @@
 import useDynamicState from "@/hooks/useDynamicState";
 import styles from "./ListControl.module.css";
 import config from "@/i18n/config";
-import { stat } from "fs-extra";
 import LocaleControl from "./LocaleControl/LocaleControl";
 import {
   createNewLocale,

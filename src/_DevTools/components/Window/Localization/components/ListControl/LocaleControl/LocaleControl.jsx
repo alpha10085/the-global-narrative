@@ -7,9 +7,7 @@ import MainSwitch from "@/_DevTools/components/Window/Components/MainSwitch/Main
 import { isEqual } from "lodash";
 import { validateLocaleCode, validateLocaleLabel } from "./helpers";
 import { reWatchLocale } from "@/lib/tools";
-import { stat } from "fs-extra";
 import Spinner from "@/Components/Shared/Spinner/Spinner";
-import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 export const removeStringFromArray = (arr, str) => {
   return arr.filter((item) => item.toLowerCase() !== str.toLowerCase());
 };

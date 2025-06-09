@@ -8,15 +8,14 @@ import "../styles/animation.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "lenis/dist/lenis.css";
 import { AuthProvider } from "@/contexts/AuthProvider";
-import DevToolsWrapper from "@/_DevTools/DevToolsWrapper";
+// import DevToolsWrapper from "@/_DevTools/DevToolsWrapper";
 import { getLocale } from "next-intl/server";
 import interceptor from "@/utils/consoleProxy";
 import { isProductionMode } from "@/config/main";
 import { ValidateLocale } from "@/i18n/request";
-import SamsungPatch from "@/Components/Shared/Pervent/Pervent";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX/ErrorBoundryCTX";
-import DisableLogs from "@/Components/Shared/DisableLogs/DisableLogs";
 import { NextIntlClientProvider } from "next-intl";
 // If loading a variable font, you don't need to specify the font weight
 const geist = Geist({
@@ -45,10 +44,6 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  other: {
-    "color-scheme": "light dark",
-    "supported-color-schemes": "light",
-  },
 };
 const fonts = {
   en: UrbanistFont,
@@ -70,11 +65,10 @@ export default async function RootLayout({ children }) {
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
         <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
           <NextIntlClientProvider locale={locale} messages={messages}>
-            {/* <DevToolsWrapper>
-              <DisableLogs /> */}
-              <ErrorBoundary boundary={boundary}>
-                <AuthProvider locale={locale}>{children}</AuthProvider>
-              </ErrorBoundary>
+            {/* <DevToolsWrapper> */}
+            <ErrorBoundary boundary={boundary}>
+              <AuthProvider locale={locale}>{children}</AuthProvider>
+            </ErrorBoundary>
             {/* </DevToolsWrapper> */}
           </NextIntlClientProvider>
         </body>
