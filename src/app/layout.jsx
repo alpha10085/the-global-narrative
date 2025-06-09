@@ -8,15 +8,16 @@ import "../styles/animation.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "lenis/dist/lenis.css";
 import { AuthProvider } from "@/contexts/AuthProvider";
+// import DevToolsWrapper from "@/_DevTools/DevToolsWrapper";
 import { getLocale } from "next-intl/server";
 import interceptor from "@/utils/consoleProxy";
 import { isProductionMode } from "@/config/main";
 import { ValidateLocale } from "@/i18n/request";
 import { ErrorBoundary } from "@/contexts/ErrorBoundryCTX/ErrorBoundryCTX";
-import DisableLogs from "@/Components/Shared/DisableLogs/DisableLogs";
 import { NextIntlClientProvider } from "next-intl";
-import { ReactLenis } from "@/Components/Shared/SmoothScroll/lenis";
+// If loading a variable font, you don't need to specify the font weight
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
@@ -43,10 +44,6 @@ export const viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  other: {
-    "color-scheme": "light dark",
-    "supported-color-schemes": "light",
-  },
 };
 const fonts = {
   en: UrbanistFont,
@@ -66,20 +63,15 @@ export default async function RootLayout({ children }) {
   return (
     <ReactQuery>
       <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
-        <ReactLenis options={{ duration: 1, wheelMultiplier: 0.7 }} root>
-          <body
-            className={`${selectedFont.variable}  ${selectedFont.className}`}
-          >
-            <NextIntlClientProvider locale={locale} messages={messages}>
-              {/* <DevToolsWrapper>
-              <DisableLogs /> */}
-              <ErrorBoundary boundary={boundary}>
-                <AuthProvider locale={locale}>{children}</AuthProvider>
-              </ErrorBoundary>
-              {/* </DevToolsWrapper> */}
-            </NextIntlClientProvider>
-          </body>
-        </ReactLenis>
+        <body className={`${selectedFont.variable}  ${selectedFont.className}`}>
+          <NextIntlClientProvider locale={locale} messages={messages}>
+            {/* <DevToolsWrapper> */}
+            <ErrorBoundary boundary={boundary}>
+              <AuthProvider locale={locale}>{children}</AuthProvider>
+            </ErrorBoundary>
+            {/* </DevToolsWrapper> */}
+          </NextIntlClientProvider>
+        </body>
       </html>
     </ReactQuery>
   );
