@@ -3,7 +3,7 @@
   margin: 0 auto;
   position: relative;
   z-index: 10;
-  padding: 80px 0 100px;
+  padding: 80px 0 ;
 }
 
 .title {
@@ -11,6 +11,14 @@
   font-style: italic;
   font-size: clamp(22px, 4vw, 60px) !important;
   font-family: var(--font-Cormorant);
+}
+
+.line {
+  width: 100%;
+  margin: 20px 0 0;
+  height: 1px ;
+  background-color: white;
+  opacity: 0.5;
 }
 
 .description {
