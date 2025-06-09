@@ -16,7 +16,6 @@
   height: 130dvh;
 }
 
-
 .title {
   color: white;
 }
@@ -45,7 +44,6 @@
   }
 }
 
-
 @media (max-width: 1024px) {
   .whietspace {
     height: 80px;
@@ -54,7 +52,7 @@
 
 @media (max-width: 768px) {
   .container {
-    margin-bottom: 0;
+    margin-bottom: -70px;
   }
 
   .whietspace {
@@ -62,7 +60,7 @@
   }
 
   .card:nth-child(odd) {
-    direction: ltr; 
+    direction: ltr;
   }
 }
 
