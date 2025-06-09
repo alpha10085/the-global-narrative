@@ -44,3 +44,30 @@
     transform: translate(0);
   }
 }
+
+
+@media (max-width: 1024px) {
+  .whietspace {
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    margin-bottom: 0;
+  }
+
+  .whietspace {
+    height: 60px;
+  }
+
+  .card:nth-child(odd) {
+    direction: ltr; 
+  }
+}
+
+@media (max-width: 480px) {
+  .whietspace {
+    height: 40px;
+  }
+}
