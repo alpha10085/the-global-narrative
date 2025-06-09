@@ -16,7 +16,7 @@ const NavBar = () => {
   const navRef = useRef(null);
   const [navMode, setNavMode] = useState({
     transparent: !true,
-    darkMode: true,
+    darkMode: !true,
   });
   const { pathname, pathes } = usePathname();
 
