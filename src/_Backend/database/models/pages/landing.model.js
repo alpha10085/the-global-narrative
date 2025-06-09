@@ -65,7 +65,7 @@ landingSchema.pre(/^find/, function (next) {
       model: "testimonial",
       path: "testimonialSection.posts",
       options: { strictPopulate: false },
-      select: "_id poster jobTitle", 
+      select: "_id poster author", 
     },
     {
       ...populateCommons,
