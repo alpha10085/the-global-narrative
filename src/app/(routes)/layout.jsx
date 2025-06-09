@@ -23,10 +23,10 @@ export default async function RootLayout({ children }) {
       <NavBar />
       <DynamicCursor />
       <div style={{ minHeight: "100vh" }}>{children}</div>
-      {/* <Toaster />
+      <Toaster />
       <DashPopup />
       <Footer />
-      <PageAnalyticsTracker /> */}
+      <PageAnalyticsTracker />
     </main>
   );
 }
