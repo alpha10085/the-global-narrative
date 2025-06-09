@@ -48,13 +48,13 @@ const Home = async () => {
     <section className={styles.layout}>
       {/* <Intro /> */}
       <Hero  data={heroSection} />
-      {/* <CSRSection>
+      {/* <CSRSection> */}
         <AboutUs data={aboutUsSection} />
         <WaveLines />
-        <FloatedSection>
+        {/* <FloatedSection> */}
         <Quote data={quoteSection} />
         <WaveLines />
-        </FloatedSection>
+        {/* </FloatedSection> */}
         <div className={styles.spaceSection}></div>
           <div className={styles.childTwo}>
             <AnimatedBorderSection>
@@ -65,7 +65,7 @@ const Home = async () => {
               </StaticSection>
             </AnimatedBorderSection>
           </div>
-      </CSRSection> */}
+      {/* </CSRSection> */}
       <GetInTouch data={getInTouchSection} />
     </section>
   );
