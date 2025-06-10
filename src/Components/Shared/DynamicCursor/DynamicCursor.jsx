@@ -3,13 +3,14 @@ import React, { useEffect, useRef } from "react";
 import styles from "./DynamicCursor.module.css";
 import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
+import { usePathname } from "next/navigation";
 
 const DynamicCursor = () => {
   const wrapperRef = useRef(null);
   const targetPos = useRef({ x: -100, y: 0 });
   const currentPos = useRef({ x: -100, y: 0 });
   const animationRef = useRef(null);
-
+  const location = usePathname();
   const [cursorData, setCursorData] = useDynamicState({
     visible: false,
     label: "",
@@ -57,7 +58,6 @@ const DynamicCursor = () => {
     animationRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animationRef.current);
   }, []);
-
   // Handle hover and visibility logic
   useEffect(() => {
     const handleClick = () => {
@@ -77,11 +77,10 @@ const DynamicCursor = () => {
         }
       }
     };
-
     const handleLeave = (e) => {
       const el = e.target.closest("[data-cursor-label]");
       if (el && el.__hasClickHandler) {
-        el.removeEventListener("click", handleClick);
+        //   el.removeEventListener("click", handleClick);
         delete el.__hasClickHandler;
       }
       setCursorData({ visible: false });
@@ -178,8 +177,15 @@ const DynamicCursor = () => {
     };
   }, []);
 
+  useEffect(() => {
+    setCursorData({ visible: false });
+  }, [location]);
   return (
-    <div ref={wrapperRef} className={`${styles.wrappercursor} flex-c`}>
+    <div
+      onClick={() => setCursorData({ visible: false })}
+      ref={wrapperRef}
+      className={`${styles.wrappercursor} flex-c`}
+    >
       <div
         className={`${styles.cursor} ${
           cursorData?.visible && cursorData?.isDetected

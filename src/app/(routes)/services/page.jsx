@@ -1,5 +1,4 @@
 import OurValues from "@/components/Services/OurValues/OurValues";
-import { getServicespage } from "./data.test";
 import styles from "./styles.module.css";
 import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
 import QuoteSection from "@/components/QuoteSection/QuoteSection";
@@ -12,7 +11,6 @@ const Page = async (props) => {
     quoteSection = {},
     ourValueSection = {},
   } = await getPage("services-page");
-
 
   return (
     <section className={`${styles.container} `}>

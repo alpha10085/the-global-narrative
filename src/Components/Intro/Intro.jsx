@@ -62,8 +62,8 @@ const Intro = () => {
     setState({
       event: false,
     });
-    await delay(800);
     ToggleDisableScroll();
+    await delay(800);
     setState({
       hide: true,
     });
@@ -71,7 +71,6 @@ const Intro = () => {
 
   useEffect(() => {
     eventBus.emit("intro-event", event);
-
     return () => {};
   }, [event]);
 
