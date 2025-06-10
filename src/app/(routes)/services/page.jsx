@@ -14,9 +14,6 @@ const Page = async (props) => {
   } = await getPage("services-page");
 
 
-  console.log(hero, quoteSection, ourValueSection);
-  
-
   return (
     <section className={`${styles.container} `}>
       <TemplateHero
