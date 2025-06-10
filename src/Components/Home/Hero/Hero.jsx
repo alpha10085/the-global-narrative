@@ -13,7 +13,7 @@ import ScrollToContinueButton from "@/components/ScrollToContinueButton/ScrollTo
 const Hero = ({ data = [] }) => {
   const [swiperState, setSwiperState] = useDynamicState({
     swiperSection: 0,
-    autoPlay: false,
+    autoPlay: true,
   });
 
   const { autoPlay, swiperSection } = swiperState;
@@ -43,10 +43,12 @@ const Hero = ({ data = [] }) => {
     }
   };
   useEffect(() => {
-    stopAutoplay();
     eventBus.on("intro-event", handleAutoPlay);
     return () => eventBus.off("intro-event", handleAutoPlay);
   }, []);
+
+
+
   return (
     <div className={styles.staticWrappper}>
       <div className={styles.container}>

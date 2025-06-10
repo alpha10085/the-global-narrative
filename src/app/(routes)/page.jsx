@@ -1,12 +1,10 @@
 import styles from "./page.module.css";
-import { getHomePage } from "./data.test";
 import Hero from "@/components/Home/Hero/Hero";
 import Quote from "@/components/Home/Quote/Quote";
 import AboutUs from "@/components/Home/AboutUs/AboutUs";
 import News from "@/components/Home/News/News";
 import Testimonials from "@/components/Home/Testimonials/Testimonials";
 import GetInTouch from "@/components/Home/GetInTouch/GetInTouch";
-import Intro from "@/components/Intro/Intro";
 import WaveLines from "@/components/Shared/WaveLines/WaveLines";
 import StaticSection, {
   CSRSection,
@@ -27,7 +25,7 @@ const Home = async () => {
 
   return (
     <section className={styles.layout}>
-      <Intro />
+      
       <Hero data={heroSection} />
       <CSRSection>
         <AboutUs data={aboutUsSection} />

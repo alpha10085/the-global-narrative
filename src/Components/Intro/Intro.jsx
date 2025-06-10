@@ -6,14 +6,16 @@ import useDisableScroll from "@/hooks/useDisableScroll";
 import eventBus from "@/utils/eventBus";
 import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
+import { usePathname } from "@/hooks/useTranslations";
 
 const Intro = () => {
   const logoRef = useRef();
   const [state, setState] = useDynamicState({
-    event: true,
+    event: false,
     hide: false,
     loaded: false,
   });
+  const { pathname } = usePathname();
   const { event, hide, loaded } = state;
   const ToggleDisableScroll = useDisableScroll();
 
@@ -71,7 +73,6 @@ const Intro = () => {
 
   useEffect(() => {
     eventBus.emit("intro-event", event);
-    return () => {};
   }, [event]);
 
   useEffect(() => {
@@ -81,6 +82,16 @@ const Intro = () => {
       });
     });
   }, []);
+
+  useEffect(() => {
+    if (pathname === "/" && !hide) {
+      setState({
+        event: true,
+      });
+    } else {
+    //  delay(300).then(() => eventBus.emit("intro-event", false));
+    }
+  }, [pathname]);
 
   if (hide) return;
   return (
