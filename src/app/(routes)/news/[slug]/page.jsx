@@ -8,10 +8,12 @@ import { formatDate } from "@/utils/date";
 import { calcReadingTime } from "@/components/NewsDetails/helpers";
 import Link from "@/components/Shared/Link/Link";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import { getOneNewsData } from "@/lib/news";
 
 const Page = async (props) => {
   const { slug = "" } = await props.params;
-  const data = getFakeOneNews(slug);
+  const data = await getOneNewsData(slug);
+  console.log("🚀 ~ Page ~ data:", data)
 
   return (
     <section className={`${styles.container} showSmooth`}>
