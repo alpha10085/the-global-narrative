@@ -5,6 +5,7 @@
   background-color: white;
   z-index: 10;
   position: relative;
+  padding-bottom: 90px;
 }
 
 .list {

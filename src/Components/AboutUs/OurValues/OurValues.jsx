@@ -7,7 +7,7 @@ import Aos from "@/components/Shared/Animtions/Aos/Aos";
 const OurValues = ({ data = [] }) => {
   return (
     <div id="active-section" data-offset="0" className={styles.container}>
-      <FloatedSection>
+     
         <div className={styles.wrapper}>
           <SectionTitle
             delay={0}
@@ -29,7 +29,6 @@ const OurValues = ({ data = [] }) => {
             ))}
           </Aos>
         </div>
-      </FloatedSection>
     </div>
   );
 };
