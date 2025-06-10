@@ -43,6 +43,9 @@ export const AsyncHandler = (
         originalFunction,
       ];
 
+      console.log(req.body);
+      
+
       for (const [i, currentMiddleware] of allMiddlewares.entries()) {
         let nextCalled = false;
         await currentMiddleware(req, response, (error) => {

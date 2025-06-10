@@ -24,7 +24,7 @@ const NewsValidationSchema = (locale = "en", relation = false) => {
       required: !relation,
     }),
     category: relation
-      ? NewsCategoryValidationSchema(locale, true).optional()
+      ? NewsCategoryValidationSchema(locale, true).optional().allow(null)
       : NewsCategoryValidationSchema(locale, true).required(),
     date: joiText({
       locale,

@@ -1,5 +1,10 @@
 import mongoose, { Schema, model, models } from "mongoose";
-import { mongtext, populateCommons, poster, schemaCommens } from "./constant/Commons";
+import {
+  mongtext,
+  populateCommons,
+  poster,
+  schemaCommens,
+} from "./constant/Commons";
 
 const testimonialSchema = new Schema(
   {
