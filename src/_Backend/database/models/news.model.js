@@ -26,18 +26,21 @@ const newsSchema = new Schema(
 );
 
 newsSchema.pre(/^find/, function (next) {
+  const isRelation = this.options.relation || false;
   const populatePipeline = [
-    {
-      model: "newsCategory",
-      path: "category",
-      options: { strictPopulate: false },
-      select: "_id title slug",
-    },
     {
       ...populateCommons,
       path: "poster",
     },
   ];
+  if (!isRelation) {
+    populatePipeline.push({
+      model: "newsCategory",
+      path: "category",
+      options: { strictPopulate: false },
+      select: "_id title slug",
+    });
+  }
   this.populate(populatePipeline);
   next();
 });

@@ -21,7 +21,6 @@ export const getNewsData = async ({
 
    
   const data = await csrApi.get(`/news?${formatQuery}`);
-  console.log("🚀 ~ data:", data)
   return data;
 };
 
