@@ -28,8 +28,7 @@ const Page = async (props) => {
         <AboutUs data={aboutUs} />
       </FloatedSection>
       <OurValues data={ourValues} />
-       <QuoteSection data={quoteSection} />
-       
+      <QuoteSection data={quoteSection} />
       <SpaceSection style={{ background: "#4008a1" }} />
     </section>
   );

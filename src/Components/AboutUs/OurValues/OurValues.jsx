@@ -16,12 +16,16 @@ const OurValues = ({ data = [] }) => {
           />
 
           <Aos
-          activeClassName={styles.active}
-          className={`flex gap20 column mt-20 ${styles.list}`}>
+            activeClassName={styles.active}
+            className={`flex gap20 column mt-20 ${styles.list}`}
+          >
             {data?.cards?.map((val, index) => (
-              <Card 
-              className={styles.card}
-              index={index + 1} data={val} key={val?._id} />
+              <Card
+                className={styles.card}
+                index={index + 1}
+                data={val}
+                key={val?._id}
+              />
             ))}
           </Aos>
         </div>

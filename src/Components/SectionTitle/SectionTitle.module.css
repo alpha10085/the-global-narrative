@@ -1,6 +1,6 @@
 .title {
-    font-size: clamp(27px, 6vw, 50px);
-    text-transform: capitalize;
-    font-weight: 600;
-   line-height: 1.2;
-  }
+  font-size: clamp(35px, 6vw, 50px);
+  text-transform: capitalize;
+  font-weight: 600;
+  line-height: 1.2;
+}

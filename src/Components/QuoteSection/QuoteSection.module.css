@@ -38,6 +38,6 @@
   }
   .container {
     gap: 10px !important;
-    padding: 60px 0;
+    padding: 5vh 5%;
   }
 }
