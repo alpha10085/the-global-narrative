@@ -7,8 +7,7 @@ import ListInterviews from "@/components/MediaCenter/List/List";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
 
-export const generateMetadata = async () =>
-  await pageMetadataHandler(getPage, "news-page");
+export const generateMetadata = async () => pageMetadataHandler(getPage, "news-page");
 
 const page = async () => {
   const data = await getPage("custom-news");
