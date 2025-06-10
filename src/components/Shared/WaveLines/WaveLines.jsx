@@ -105,4 +105,4 @@ const WaveLines = ({
   );
 };
 
-export default WaveLines;
+export default () => null;
