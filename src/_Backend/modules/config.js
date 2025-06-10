@@ -53,7 +53,7 @@ export const allModelsConfig = {
       update: ContactPageValUpdate,
     },
   },
-  "services-page": {
+  "services": {
     model: servicesPageModel,
     validation: {
       create: ServicesPageValCreate,
