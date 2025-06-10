@@ -44,16 +44,22 @@
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .whietspace {
     height: 80px;
+  }
+  .container {
+    margin-bottom: 0vh;
+    
+  }
+
+  .card {
+    height: 100dvh;
   }
 }
 
 @media (max-width: 768px) {
-  .container {
-    margin-bottom: -70px;
-  }
+
 
   .whietspace {
     height: 60px;

@@ -1,9 +1,4 @@
-import {
-  Tajawal,
-  Geist,
-  Urbanist,
-  Cormorant,
-} from "next/font/google";
+import { Tajawal, Geist, Urbanist, Cormorant } from "next/font/google";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -26,8 +21,6 @@ const CormorantFont = Cormorant({
 });
 
 const allFonts = [geist, UrbanistFont, tajawal, CormorantFont];
-console.log(allFonts?.map((val) => val?.variable).join(" "));
-
 export const fonts = {
   en: UrbanistFont,
   ar: tajawal,

@@ -3,12 +3,17 @@
   position: sticky;
   top: -60px;
   background-color: #4008a1a2;
-     padding: 40px;
-    transition: 0.2s;
-    height: 130dvh;
-    overflow: hidden;
+  transition: 0.2s;
+  height: 130dvh;
+  overflow: hidden;
+  
+  padding: 40px;
+  backdrop-filter: blur(40px);
+}
 
-    backdrop-filter: blur(40px);
+.wrapper {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .title {
@@ -57,18 +62,19 @@
 .poster {
   width: 400px;
   height: 550px;
+  max-height: 80vh;
 
   flex-grow: 1;
   border-radius: 20px;
   overflow: hidden;
-  transform: translateY(120%);
   transition: 1.5s;
 
   transition-delay: 0.5s;
+  transform: translateY(100%);
 }
 
 .container.active .poster {
-  transform: translateY(-20px);
+  transform: translateY(20px);
 }
 .content {
   height: 100vh;
@@ -76,26 +82,31 @@
   direction: ltr;
   padding: 20px;
   padding-bottom: 0;
-  transform: translateY(-80px);
   position: relative;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
+  .container {
+    
+    height: 100dvh;
+    padding: 40px 5%;
+  }
+  
+  .wrapper {
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 50px;
+    gap: 0 !important;
+  }
   .poster {
-    height: unset;
-    aspect-ratio: 4 /8 !important;
-    width: 100% !important;
-    border-radius: 20px;
-    overflow: hidden;
-    flex-grow: 1;
-    transform: translateY(120%);
-    transition: 1.5s;
-    transition-delay: 0.5s;
+    max-height: 40vh;
   }
   .content {
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0;
     transform: translateY(0);
+    height: max-content;
+    gap: 10px !important;
   }
 
   .poster {
