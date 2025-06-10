@@ -33,10 +33,10 @@ const Home = async () => {
       <CSRSection>
         <AboutUs data={aboutUsSection} />
         <WaveLines />
-        <FloatedSection>
+        {/* <FloatedSection> */}
           <Quote data={quoteSection} />
           <WaveLines />
-        </FloatedSection>
+        {/* </FloatedSection> */}
         <div className={styles.spaceSection}></div>
         <div className={styles.childTwo}>
           <AnimatedBorderSection>
@@ -55,18 +55,3 @@ const Home = async () => {
 
 export default Home;
 
-// return (
-//   <div
-//   style={{
-//     background:"black",
-//     minHeight:"100vh"
-//   }}
-//   className={styles.textpage}>
-
-//     <Img
-//       disableSkeleton
-//       className={styles.bgPoster}
-//       url="/dashboard/logo-dark.png"
-//     />
-//   </div>
-// )

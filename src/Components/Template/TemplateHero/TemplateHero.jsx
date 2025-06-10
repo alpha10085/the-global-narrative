@@ -13,7 +13,7 @@ const TemplateHero = ({
   poster,
 }) => {
   return (
-    <FloatedSection>
+    
       <div className={`${styles.container} flex al-i-c gap50 just-sb`}>
         <div className={`${styles.left} flex mt-50  column`}>
           <h1 className={styles.pageTitle}>{pageTitle}</h1>
@@ -35,7 +35,6 @@ const TemplateHero = ({
           {<Img disableSkeleton className={styles.poster} url={poster.url} />}
         </Aos>
       </div>
-    </FloatedSection>
   );
 };
 

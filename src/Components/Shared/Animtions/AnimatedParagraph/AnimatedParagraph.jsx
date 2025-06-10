@@ -5,41 +5,58 @@ import { motion } from "framer-motion";
 import styles from "./AnimatedParagraph.module.css";
 
 const AnimatedParagraph = ({
-  options={},
+  options = {},
   className = "",
   text = "",
-  delayPerWord = 0.1, // <== New prop
-  duration = 0.5,      // Optional, if you want to control speed
+  delayPerWord = 0.1,
+  duration = 0.5,
+  gap = 20,
 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  const words = text?.split(" ");
+  // Split by period, but preserve the period at the end of each line
+  const lines = text
+    ?.split(/(?<=\.)\s+/) // split by ". " and keep the period
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0);
+
+  let wordCountBefore = 0;
 
   return (
-    <p
-    {...options}
+    <div
+      {...options}
       ref={ref}
       className={className}
-      style={{ display: "flex", flexWrap: "wrap" }}
+      style={{ display: "flex", flexDirection: "column", gap }}
     >
-      {words.map((word, i) => (
-        <motion.span
-          key={i}
-          className={styles.word}
-          initial={{ opacity: 0.2 }}
-          animate={inView ? { opacity: 1 } : { opacity: 0.2 }}
-          transition={{
-            delay: i * delayPerWord, // 👈 Control delay here
-            duration: duration,
-          }}
-        >
-          {word}&nbsp;
-        </motion.span>
-      ))}
-    </p>
+      {lines?.map((line, lineIndex) => {
+        const words = line.split(" ");
+        const lineStartDelay = wordCountBefore * delayPerWord;
+        wordCountBefore += words.length;
+
+        return (
+          <div key={lineIndex} style={{ display: "flex", flexWrap: "wrap" }}>
+            {words.map((word, wordIndex) => (
+              <motion.span
+                key={wordIndex}
+                className={styles.word}
+                initial={{ opacity: 0.2 }}
+                animate={inView ? { opacity: 1 } : { opacity: 0.2 }}
+                transition={{
+                  delay: lineStartDelay + wordIndex * delayPerWord,
+                  duration,
+                }}
+              >
+                {word}&nbsp;
+              </motion.span>
+            ))}
+          </div>
+        );
+      })}
+    </div>
   );
 };
 
