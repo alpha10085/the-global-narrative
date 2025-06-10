@@ -1,5 +1,4 @@
 import Img from "@/components/Shared/img/Img";
-import { getFakeOneNews } from "../data.test";
 import styles from "./styles.module.css";
 import FormatText from "@/components/Shared/FormatText/FormatText";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";

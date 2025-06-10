@@ -1,5 +1,4 @@
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
-import { getAboutUSPage } from "./data.test";
 import styles from "./styles.module.css";
 import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
 import OurValues from "@/components/AboutUs/OurValues/OurValues";

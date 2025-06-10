@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Img from "../Shared/img/Img";
 import styles from "./Intro.module.css";
 import useDisableScroll from "@/hooks/useDisableScroll";
@@ -8,16 +8,22 @@ import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
 import { usePathname } from "@/hooks/useTranslations";
 
+// Track outside the component to persist across re-renders
+let hasSeenIntro = false;
+
 const Intro = () => {
+  const { pathname } = usePathname();
   const logoRef = useRef();
   const [state, setState] = useDynamicState({
-    event: false,
+    event: true,
     hide: false,
     loaded: false,
   });
-  const { pathname } = usePathname();
   const { event, hide, loaded } = state;
-  const ToggleDisableScroll = useDisableScroll();
+  const ToggleDisableScroll = useDisableScroll(false);
+
+  // Conditionally block the intro
+  const shouldShowIntro = pathname === "/" && !hasSeenIntro;
 
   const handleMouseMove = (e) => {
     if (!event) return;
@@ -27,13 +33,10 @@ const Intro = () => {
     const offsetX = e.clientX - centerX;
     const offsetY = e.clientY - centerY;
 
-    // control intensity
-    const rotateY = (offsetX / centerX) * 10; // max 10deg left/right
-    const rotateX = (-offsetY / centerY) * 10; // max 10deg up/down
+    const rotateY = (offsetX / centerX) * 10;
+    const rotateX = (-offsetY / centerY) * 10;
     const scale = 1.05;
-
-    // slight skew for bending effect
-    const skewX = (offsetX / centerX) * 2; // max 2deg
+    const skewX = (offsetX / centerX) * 2;
     const skewY = (offsetY / centerY) * 2;
 
     if (logoRef.current) {
@@ -61,55 +64,43 @@ const Intro = () => {
 
   const handleHide = async () => {
     resetTransform();
-    setState({
-      event: false,
-    });
+    setState({ event: false });
     ToggleDisableScroll();
     await delay(800);
-    setState({
-      hide: true,
-    });
+    setState({ hide: true });
+    hasSeenIntro = true; // Mark as seen after hide
   };
+
+  useEffect(() => {
+    if (!shouldShowIntro) {
+      // Skip animation entirely
+      setState({ hide: true });
+      hasSeenIntro = true;
+      return;
+    }
+    delay(300).then(() => {
+      setState({ loaded: true });
+      ToggleDisableScroll();
+    });
+  }, [pathname]);
 
   useEffect(() => {
     eventBus.emit("intro-event", event);
   }, [event]);
 
-  useEffect(() => {
-    delay(300).then(() => {
-      setState({
-        loaded: true,
-      });
-    });
-  }, []);
+  if (hide) return null;
 
-  useEffect(() => {
-    if (pathname === "/" && !hide) {
-      setState({
-        event: true,
-      });
-    } else {
-    //  delay(300).then(() => eventBus.emit("intro-event", false));
-    }
-  }, [pathname]);
-
-  if (hide) return;
   return (
     <div
-      // data-cursor-label="← DRAG →"
       data-cursor-label="Enter →"
-      // data-cursor-color="#5D27FF"
       onClick={handleHide}
       style={{
         pointerEvents: loaded ? "unset" : "none",
       }}
       onMouseMove={handleMouseMove}
-      className={`flex-c ${styles.container}
-      ${event ? styles.show : styles.hide}
-
-
-      
-      `}
+      className={`flex-c ${styles.container} ${
+        event ? styles.show : styles.hide
+      }`}
     >
       <Img
         disableSkeleton
