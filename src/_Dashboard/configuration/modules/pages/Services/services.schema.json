@@ -1,85 +1,102 @@
 {
-    "fields": [
+  "fields": [
+    {
+      "type": "dynamicZone",
+      "key": "metadata"
+    },
+    {
+      "name": "hero",
+      "type": "object",
+      "label": "hero",
+      "fields": [
         {
-            "type": "dynamicZone",
-            "key": "metadata"
+          "name": "title",
+          "type": "text",
+          "label": "title"
         },
         {
-            "name": "title",
-            "type": "text",
-            "label": "title"
+          "name": "description",
+          "type": "textarea",
+          "label": "description"
         },
         {
-            "name": "description",
-            "type": "textarea",
-            "label": "description"
-        },
-        {
-            "name": "poster",
-            "type": "media",
-            "allowedTypes": [
-                "image"
-            ],
-            "single": true,
-            "label": "poster"
-        },
-        {
-            "name": "services",
-            "type": "array",
-            "label": "services",
-            "min": 1,
-            "max": 4,
-            "fields": [
-                {
-                    "name": "title",
-                    "type": "text",
-                    "label": "title"
-                },
-                {
-                    "name": "intro",
-                    "type": "text",
-                    "label": "intro"
-                },
-                {
-                    "name": "description",
-                    "type": "textarea",
-                    "label": "description"
-                }
-            ]
-        },
-        {
-            "name": "contactSection",
-            "type": "object",
-            "label": "contactSection",
-            "fields": [
-                {
-                    "name": "title",
-                    "type": "text",
-                    "label": "title"
-                },
-                {
-                    "name": "description",
-                    "type": "textarea",
-                    "label": "description"
-                }
-            ]
+          "name": "poster",
+          "type": "media",
+          "allowedTypes": ["image"],
+          "single": true,
+          "label": "poster"
         }
-    ],
-    "options": {
-        "translation": false,
-        "roles": {
-            "view": true,
-            "create": false,
-            "update": true,
-            "delete": false,
-            "filter": true,
-            "sort": true,
-            "search": true,
-            "table": false
+      ]
+    },
+    {
+      "name": "ourValueSection",
+      "type": "object",
+      "label": "ourValueSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
         },
-        "cache": {
-            "duration": "10m",
-            "tags": []
+        {
+          "name": "cards",
+          "type": "array",
+          "label": "cards",
+          "fields": [
+            {
+              "name": "title",
+              "type": "text",
+              "label": "title"
+            },
+            {
+              "name": "poster",
+              "type": "media",
+              "allowedTypes": ["image"],
+              "single": true,
+              "label": "poster"
+            },
+            {
+              "name": "description",
+              "type": "textarea",
+              "label": "description"
+            }
+          ]
         }
+      ]
+    },
+    {
+      "name": "quoteSection",
+      "type": "object",
+      "label": "quoteSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "description",
+          "type": "textarea",
+          "label": "description"
+        }
+      ]
     }
+  ],
+  "options": {
+    "translation": false,
+    "roles": {
+      "view": true,
+      "create": false,
+      "update": true,
+      "delete": false,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": false
+    },
+    "cache": {
+      "duration": "10m",
+      "tags": []
+    }
+  }
 }

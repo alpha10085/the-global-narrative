@@ -5,36 +5,53 @@ import {
   mongtext,
   ObjectId,
   pageMetadata,
+  pageMetadataPopulate,
   populateCommons,
   poster,
 } from "../constant/Commons";
 
-const serviceSubSchema = new Schema({
+const serviceCardSchema = new Schema({
   title: mongtext,
-  intro: mongtext,
+  poster,
   description: mongeDescription,
 });
 
-const servicesPageSchema = new Schema({
-  metadata: pageMetadata,
-  title: mongtext,
-  description: mongeDescription,
-  poster,
-  services: [serviceSubSchema],
-  contactSection: {
-    title: mongtext,
-    description: mongeDescription,
+const servicesPageSchema = new Schema(
+  {
+    metadata: pageMetadata,
+    hero: {
+      title: mongtext,
+      description: mongeDescription,
+      poster,
+    },
+    ourValueSection: {
+      title: mongtext,
+      cards: [serviceCardSchema],
+    },
+    quoteSection: {
+      title: mongtext,
+      description: mongeDescription,
+    },
   },
-});
+  {
+    timestamps: true,
+  }
+);
 
 // Pre-hook to populate poster, services, and faqs
 servicesPageSchema.pre(/^find/, function (next) {
-  this.populate([
+  const populatePipeline = [
+    pageMetadataPopulate,
     {
-      path: "poster",
       ...populateCommons,
+      path: "hero.poster",
     },
-  ]);
+    {
+      ...populateCommons,
+      path: "ourValueSection.cards.poster",
+    },
+  ];
+  this.populate(populatePipeline);
   next();
 });
 

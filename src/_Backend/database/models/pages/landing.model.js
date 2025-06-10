@@ -59,13 +59,13 @@ landingSchema.pre(/^find/, function (next) {
       model: "news",
       path: "newsSection.posts",
       options: { strictPopulate: false },
-      select: "_id poster title slug", 
+      select: "_id poster title date slug", 
     },
      {
       model: "testimonial",
       path: "testimonialSection.posts",
       options: { strictPopulate: false },
-      select: "_id poster author", 
+      select: "_id poster author jobTitle content", 
     },
     {
       ...populateCommons,

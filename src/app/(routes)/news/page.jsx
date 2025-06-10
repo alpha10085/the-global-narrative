@@ -5,12 +5,14 @@ import { getpage } from "./data.test";
 import styles from "./styles.module.css";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import ListInterviews from "@/components/MediaCenter/List/List";
+import { getPage } from "@/lib/pages";
+import { pageMetadataHandler } from "@/utils/metadata";
 
-// export const generateMetadata = async () =>
-//   await pageMetadataHandler(getpage, "news-page");
+export const generateMetadata = async () =>
+  await pageMetadataHandler(getPage, "news-page");
 
 const page = async () => {
-  const data = await getpage("news-page");
+  const data = await getPage("custom-news");
   return (
     <section className={`${styles.layout} showSmooth`} id="news-Categories">
       <div className={styles.header}>

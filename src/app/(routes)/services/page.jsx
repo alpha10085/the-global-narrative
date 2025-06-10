@@ -4,13 +4,19 @@ import styles from "./styles.module.css";
 import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
 import Quote from "@/components/QuoteSection/QuoteSection";
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
+import { getPage } from "@/lib/pages";
 
 const Page = async (props) => {
   const {
     hero = {},
     quoteSection = {},
     ourValueSection = {},
-  } = getServicespage();
+  } = await getPage("services-page");
+
+
+  console.log(hero, quoteSection, ourValueSection);
+  
+
   return (
     <section className={`${styles.container} `}>
       <TemplateHero

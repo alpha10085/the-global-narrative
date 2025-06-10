@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import styles from "./List.module.css";
 import Card from "../Card/Card";
 import { VirtuosoGrid } from "react-virtuoso";
@@ -8,41 +8,34 @@ import { useQueryParams } from "@/hooks/useQueryParams";
 import SearchIcon from "@mui/icons-material/Search";
 import lodash from "lodash";
 import { scrollToElement } from "@/utils/document";
-import { getFakeMediaCenter } from "@/app/(routes)/media-center/data.test";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import useInfinityQuery from "@/hooks/useInfinityQuery";
+import { getInterviewsData } from "@/lib/interviews";
 
 const List = ({ }) => {
 
   const { clearOne, clearQuery, multiple, searchParams, singleValue } =
     useQueryParams({
-      scrollTo: "#media-center-Categories",
+      scrollTo: "#interviews-Categories",
       offset: 100,
     });
 
-  // const [isfiltersOpen, setisfiltersOpen] = useState(false);
-  // const toggleFiltersWindow = (value) => setisfiltersOpen(!isfiltersOpen);
-  // const closeFiltersWindow = (value) => setisfiltersOpen(false);
+  const [isfiltersOpen, setisfiltersOpen] = useState(false);
+  const toggleFiltersWindow = (value) => setisfiltersOpen(!isfiltersOpen);
+  const closeFiltersWindow = (value) => setisfiltersOpen(false);
 
-  // const {
-  //   data = {},
-  //   isLoading,
-  //   fetchNextPage,
-  //   hasNextPage,
-  // } = useInfinityQuery({
-  //   Key: ["media-center", { ...filters }],
-  //   next: getMediaCenterData,
-  // });
-
-
-  const data = { pages: getFakeMediaCenter(6) };
-  const isLoading = false;
-  const hasNextPage = false;
-  const fetchNextPage = () => {};
-
+  const {
+    data = {},
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+  } = useInfinityQuery({
+    Key: ["interviews", { ...searchParams }],
+    next: getInterviewsData,
+  });
 
   const scrollToMainSection = () =>
-    scrollToElement("#media-center-Categories", 100);
+    scrollToElement("#interviews-Categories", 100);
   const debouncedFetch = useCallback(
     lodash?.debounce((value) => {
       scrollToMainSection();
@@ -56,7 +49,7 @@ const List = ({ }) => {
   return (
     <div 
     
-    // id="media-center-Categories" 
+    // id="interviews-Categories" 
      className={styles.mediaCenterContainer}>
       {/* <div className={`${styles.headerContainer} flex column gap20 just-sb`}>
         <SectionTitle title={title} className={styles.headingTitle} />

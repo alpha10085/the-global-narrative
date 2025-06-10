@@ -6,16 +6,35 @@ import {
 import { joiArray, joiText } from "@/_Backend/utils/JoiHandlers";
 import Joi from "joi";
 
-// Validation for the serviceSubSchema
-const serviceSubSchemaVal = Joi.object({
+// Service Card Item
+const serviceCard = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
-  intro: joiText({ min: 2, max: 20000, required: true }),
+  poster: fileVal.required(),
   description: joiText({ min: 2, max: 20000, required: true }),
   ...CommonsVal,
 });
 
-// Validation for the contactSection inside servicesPage
-const contactSectionVal = Joi.object({
+// Hero Section
+const heroSection = Joi.object({
+  title: joiText({ min: 2, max: 1000, required: true }),
+  description: joiText({ min: 2, max: 20000, required: true }),
+  poster: fileVal.required(),
+  ...CommonsVal,
+});
+
+// Our Value Section
+const ourValueSection = Joi.object({
+  title: joiText({ min: 2, max: 1000, required: true }),
+  cards: joiArray({
+    body: serviceCard,
+    min: 1,
+    required: true,
+  }),
+  ...CommonsVal,
+});
+
+// Quote Section
+const quoteSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   ...CommonsVal,
@@ -26,16 +45,9 @@ export const ServicesPageValCreate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
 
-  title: joiText({ min: 2, max: 1000, required: true }),
-  description: joiText({ min: 2, max: 20000, required: true }),
-  poster: fileVal.required(),
-  services: joiArray({
-    min: 1,
-    max: 4,
-    body: serviceSubSchemaVal,
-    required: true,
-  }),
-  contactSection: contactSectionVal.required(),
+  hero: heroSection.required(),
+  ourValueSection: ourValueSection.required(),
+  quoteSection: quoteSection.required(),
 
   ...CommonsVal,
 });
@@ -45,11 +57,9 @@ export const ServicesPageValUpdate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
 
-  title: joiText({ min: 2, max: 1000 }),
-  description: joiText({ min: 2, max: 20000 }),
-  poster: fileVal,
-  services: joiArray({ min: 1, max: 4, body: serviceSubSchemaVal }),
-  contactSection: contactSectionVal,
+  hero: heroSection,
+  ourValueSection: ourValueSection,
+  quoteSection: quoteSection,
 
   ...CommonsVal,
 });
