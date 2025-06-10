@@ -9,7 +9,6 @@ import {
   poster,
 } from "../constant/Commons";
 
-
 // Who Us Member schema
 const whoUsMember = new Schema({
   name: mongtext,
@@ -23,7 +22,6 @@ const ourValueCard = new Schema({
   title: mongtext,
   description: mongeDescription,
 });
-
 
 // Hero section schema
 const heroSection = new Schema({
@@ -49,7 +47,7 @@ const aboutUsSchema = new Schema({
   metadata: pageMetadata,
   hero: heroSection,
   ourValueSection,
-  whoUsSectionSection
+  whoUsSectionSection,
 });
 
 // Pre-hook to populate metadata and images
