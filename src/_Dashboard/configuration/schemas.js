@@ -35,7 +35,7 @@ const schemas = [
   // pages
   landingConfig,
   aboutConfig,
-  clientConfig,
+  // clientConfig,
   contactConfig,
   newsPageConfig,
   servicesConfig,
