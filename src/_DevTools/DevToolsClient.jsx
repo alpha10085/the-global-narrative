@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-const DevTools = dynamic(() => import("./DevTools"), { ssr: false });
+const DevTools = dynamic(() => import("./DevTools"));
 
 const DevToolsClient = ({ children, logStore }) => (
   <DevTools logStore={logStore}>{children}</DevTools>

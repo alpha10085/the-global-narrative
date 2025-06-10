@@ -24,7 +24,7 @@ const Home = async () => {
     testimonialSection = {},
     getInTouchSection = {},
   } = await getPage("landing");
-  
+
   return (
     <section className={styles.layout}>
       <Intro />
@@ -32,10 +32,10 @@ const Home = async () => {
       <CSRSection>
         <AboutUs data={aboutUsSection} />
         <WaveLines />
-        {/* <FloatedSection> */}
+        <FloatedSection>
           <Quote data={quoteSection} />
           <WaveLines />
-        {/* </FloatedSection> */}
+        </FloatedSection>
         <div className={styles.spaceSection}></div>
         <div className={styles.childTwo}>
           <AnimatedBorderSection>
@@ -53,4 +53,3 @@ const Home = async () => {
 };
 
 export default Home;
-
