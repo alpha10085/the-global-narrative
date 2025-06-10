@@ -2,11 +2,12 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./OurValues.module.css";
 import Card from "./Card/Card";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const OurValues = ({ data = [] }) => {
   return (
     <div id="active-section" data-offset="0" className={styles.container}>
-        <FloatedSection>
+      <FloatedSection>
         <div className={styles.wrapper}>
           <SectionTitle
             delay={0}
@@ -14,14 +15,18 @@ const OurValues = ({ data = [] }) => {
             className={styles.title}
           />
 
-          <div className={`flex gap20 column mt-20 ${styles.list}`}>
+          <Aos
+          activeClassName={styles.active}
+          className={`flex gap20 column mt-20 ${styles.list}`}>
             {data?.cards?.map((val, index) => (
-              <Card index={index + 1} data={val} key={val?._id} />
+              <Card 
+              className={styles.card}
+              index={index + 1} data={val} key={val?._id} />
             ))}
-          </div>
+          </Aos>
         </div>
-    </FloatedSection>
-      </div>
+      </FloatedSection>
+    </div>
   );
 };
 
