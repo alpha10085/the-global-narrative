@@ -7,6 +7,7 @@ import AboutUs from "@/components/AboutUs/AboutUs";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import QuoteSection from "@/components/QuoteSection/QuoteSection";
 import WhoUsSection from "@/components/AboutUs/WhoUsSection/WhoUsSection";
+import { getPage } from "@/lib/pages";
 
 const Page = async (props) => {
   const {
@@ -15,7 +16,7 @@ const Page = async (props) => {
     ourValues = [],
     aboutUs = {},
     quoteSection = {},
-  } = getAboutUSPage();
+  } = await getPage("about-us");
   return (
     <section className={`${styles.container} `}>
       <FloatedSection>
@@ -28,11 +29,10 @@ const Page = async (props) => {
         </FloatedSection>
         <AboutUs data={aboutUs} />
       </FloatedSection>
-       <FloatedSection>
-
-      <OurValues data={ourValues} />
-      <WhoUsSection data={whoUsSectionSection} />
-       </FloatedSection>
+      <FloatedSection>
+        <OurValues data={ourValues} />
+        <WhoUsSection data={whoUsSectionSection} />
+      </FloatedSection>
       <QuoteSection data={quoteSection} />
       <SpaceSection style={{ background: "#4008a1" }} />
     </section>
