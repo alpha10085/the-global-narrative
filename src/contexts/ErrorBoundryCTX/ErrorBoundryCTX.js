@@ -1,5 +1,5 @@
 "use client";
-import ErrorBoundaryPage from "@/components/Shared/ErrorBoundary/ErrorBoundary";
+import ErrorBoundaryPage from "@/componentss/Shared/ErrorBoundary/ErrorBoundary";
 import useDynamicState from "@/hooks/useDynamicState";
 import { checkApi } from "@/lib/CheckApi";
 import CookiesClient from "js-cookie";

@@ -1,8 +1,8 @@
-import OurValues from "@/components/Services/OurValues/OurValues";
+import OurValues from "@/componentss/Services/OurValues/OurValues";
 import styles from "./styles.module.css";
-import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
-import QuoteSection from "@/components/QuoteSection/QuoteSection";
-import SpaceSection from "@/components/SpaceSection/SpaceSection";
+import TemplateHero from "@/componentss/Template/TemplateHero/TemplateHero";
+import QuoteSection from "@/componentss/QuoteSection/QuoteSection";
+import SpaceSection from "@/componentss/SpaceSection/SpaceSection";
 import { getPage } from "@/lib/pages";
 
 const Page = async (props) => {

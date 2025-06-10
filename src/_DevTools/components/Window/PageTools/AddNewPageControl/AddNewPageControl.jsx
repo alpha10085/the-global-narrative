@@ -3,7 +3,7 @@ import styles from "./AddNewPageControl.module.css";
 import OptionsControl from "../../components/OptionsControl/OptionsControl";
 import { useMemo } from "react";
 import ComponentName from "./ComponentName/ComponentName";
-import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/componentss/Shared/AsyncButton/AsyncButton";
 import { createPage } from "@/lib/tools";
 import PageStrategy from "./PageStrategy/PageStrategy";
 import Input from "../../components/Input/Input";

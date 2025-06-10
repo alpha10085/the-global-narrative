@@ -9,7 +9,7 @@ import React, {
   useCallback,
 } from "react";
 import toast from "react-hot-toast";
-import LogOutCover from "@/components/Auth/LogOutCover/LogOutCover";
+import LogOutCover from "@/componentss/Auth/LogOutCover/LogOutCover";
 import Cookies from "js-cookie";
 import { useQueryClient } from "@tanstack/react-query";
 import { isAdmin } from "@/config/auth";
