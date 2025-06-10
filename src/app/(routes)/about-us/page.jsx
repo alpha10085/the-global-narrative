@@ -1,12 +1,12 @@
-import SpaceSection from "@/componentss/SpaceSection/SpaceSection";
+import SpaceSection from "@/components/SpaceSection/SpaceSection";
 import { getAboutUSPage } from "./data.test";
 import styles from "./styles.module.css";
-import TemplateHero from "@/componentss/Template/TemplateHero/TemplateHero";
-import OurValues from "@/componentss/AboutUs/OurValues/OurValues";
-import AboutUs from "@/componentss/AboutUs/AboutUs";
-import FloatedSection from "@/componentss/Shared/FloatedSection/FloatedSection";
-import QuoteSection from "@/componentss/QuoteSection/QuoteSection";
-import WhoUsSection from "@/componentss/AboutUs/WhoUsSection/WhoUsSection";
+import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
+import OurValues from "@/components/AboutUs/OurValues/OurValues";
+import AboutUs from "@/components/AboutUs/AboutUs";
+import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
+import QuoteSection from "@/components/QuoteSection/QuoteSection";
+import WhoUsSection from "@/components/AboutUs/WhoUsSection/WhoUsSection";
 import { getPage } from "@/lib/pages";
 
 const Page = async (props) => {

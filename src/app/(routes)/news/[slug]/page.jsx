@@ -1,13 +1,13 @@
-import Img from "@/componentss/Shared/img/Img";
+import Img from "@/components/Shared/img/Img";
 import { getFakeOneNews } from "../data.test";
 import styles from "./styles.module.css";
-import FormatText from "@/componentss/Shared/FormatText/FormatText";
-import FloatedSection from "@/componentss/Shared/FloatedSection/FloatedSection";
-import { ArrowBackIosIcon } from "@/componentss/NewsDetails/icons";
+import FormatText from "@/components/Shared/FormatText/FormatText";
+import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
+import { ArrowBackIosIcon } from "@/components/NewsDetails/icons";
 import { formatDate } from "@/utils/date";
-import { calcReadingTime } from "@/componentss/NewsDetails/helpers";
-import Link from "@/componentss/Shared/Link/Link";
-import Aos from "@/componentss/Shared/Animtions/Aos/Aos";
+import { calcReadingTime } from "@/components/NewsDetails/helpers";
+import Link from "@/components/Shared/Link/Link";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import { getOneNewsData } from "@/lib/news";
 
 const Page = async (props) => {

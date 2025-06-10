@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import { isValidDomainFormat, validatePageName } from "./helpers";
 import { validateComponentName } from "../ComponentTools/AddNewComponentControl/helpers";
 import { isEqual } from "lodash";
-import AsyncButton from "@/componentss/Shared/AsyncButton/AsyncButton";
+import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
 import ListControl from "../components/ListControl/ListControl";
 import Loading from "../Loading/Loading";
 import SectionLabel from "../components/SectionLabel/SectionLabel";

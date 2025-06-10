@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "./page.module.css";
-import Login from "@/componentss/Auth/login/Login";
+import Login from "@/components/Auth/login/Login";
 import useTranslations from "@/hooks/useTranslations";
 
 const Page = () => {

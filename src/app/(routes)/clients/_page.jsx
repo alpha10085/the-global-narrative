@@ -1,11 +1,11 @@
 import styles from "./styles.module.css";
 // import { metadataHandler } from "@/utils/metadata";
 // import { getPage } from "@/lib/pages";
-import Clients from "@/componentss/Clients/Clients";
+import Clients from "@/components/Clients/Clients";
 import { searchAndReplace } from "@/utils/text";
 import { customers } from "./data.test";
-import SectionTitle from "@/componentss/SectionTitle/SectionTitle";
-import Aos from "@/componentss/Shared/Animtions/Aos/Aos";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 // export const generateMetadata = metadataHandler(getPage, `clients`);
 const Page = async (props) => {

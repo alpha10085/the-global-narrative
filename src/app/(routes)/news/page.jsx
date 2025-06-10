@@ -1,10 +1,10 @@
 export const dynamic = "auto";
-import List from "@/componentss/News/List/List";
+import List from "@/components/News/List/List";
 // import { getPage } from "@/lib/pages";
 import { getpage } from "./data.test";
 import styles from "./styles.module.css";
-import SectionTitle from "@/componentss/SectionTitle/SectionTitle";
-import ListInterviews from "@/componentss/MediaCenter/List/List";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import ListInterviews from "@/components/MediaCenter/List/List";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
 
