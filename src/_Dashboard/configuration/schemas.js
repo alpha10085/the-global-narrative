@@ -41,12 +41,12 @@ const schemas = [
   servicesConfig,
 
   // collections
-  clientsConfig,
+  // clientsConfig,
   faqConfig,
   interviewsConfig,
   interviewsCategoryConfig,
   newsConfig,
-  newsCategoryConfig,
+  //newsCategoryConfig,
   testimonialConfig,
 
   // components

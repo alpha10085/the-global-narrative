@@ -29,9 +29,10 @@
       ]
     },
     {
-      "name": "ourValueSection",
+      "name": "ourValues",
       "type": "object",
-      "label": "ourValueSection",
+      "label": "ourValues",
+      "min": 1,
       "fields": [
         {
           "name": "title",
@@ -55,6 +56,23 @@
               "label": "description"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "aboutUs",
+      "type": "object",
+      "label": "aboutUs",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "description",
+          "type": "textarea",
+          "label": "description"
         }
       ]
     },
@@ -97,6 +115,23 @@
               "label": "image"
             }
           ]
+        }
+      ]
+    },
+    {
+      "name": "quoteSection",
+      "type": "object",
+      "label": "quoteSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "description",
+          "type": "textarea",
+          "label": "description"
         }
       ]
     }

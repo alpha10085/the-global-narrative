@@ -30,7 +30,7 @@ const AboutPageValidationSchema = (locale = "en") => {
       },
     }),
 
-    ourValueSection: joiObject({
+    ourValues: joiObject({
       required: true,
       locale,
       body: {
@@ -44,7 +44,12 @@ const AboutPageValidationSchema = (locale = "en") => {
             locale,
             body: {
               title: joiText({ locale, min: 2, max: 20000, required: true }),
-              description: joiText({ locale, min: 2, max: 20000, required: true }),
+              description: joiText({
+                locale,
+                min: 2,
+                max: 20000,
+                required: true,
+              }),
             },
           }),
         }),
@@ -66,7 +71,12 @@ const AboutPageValidationSchema = (locale = "en") => {
             body: {
               name: joiText({ locale, min: 2, max: 20000, required: true }),
               jobTitle: joiText({ locale, min: 2, max: 20000, required: true }),
-              description: joiText({ locale, min: 2, max: 20000, required: true }),
+              description: joiText({
+                locale,
+                min: 2,
+                max: 20000,
+                required: true,
+              }),
               image: fileVal.required().messages(
                 messagesHandlers({
                   locale,
@@ -75,6 +85,32 @@ const AboutPageValidationSchema = (locale = "en") => {
               ),
             },
           }),
+        }),
+      },
+    }),
+    aboutUs: joiObject({
+      required: true,
+      locale,
+      body: {
+        title: joiText({ locale, min: 2, max: 20000, required: true }),
+        description: joiText({
+          locale,
+          min: 2,
+          max: 20000,
+          required: true,
+        }),
+      },
+    }),
+    quoteSection: joiObject({
+      required: true,
+      locale,
+      body: {
+        title: joiText({ locale, min: 2, max: 20000, required: true }),
+        description: joiText({
+          locale,
+          min: 2,
+          max: 20000,
+          required: true,
         }),
       },
     }),
