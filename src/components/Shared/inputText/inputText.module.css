@@ -18,6 +18,7 @@
   border: 1px solid rgb(195, 195, 195);
   outline: none;
 }
+.label
 .label textarea {
   padding-top: 8px !important;
 }
@@ -106,9 +107,11 @@ html[dir="rtl"] .passwordIcon {
 
 .label.light .input {
   background-color: white;
+  color: black;
 }
 
 .label.dark .input{
+  color: white;
   background-color: rgb(0, 0, 0) !important;
 }
 
@@ -119,7 +122,7 @@ html[dir="rtl"] .passwordIcon {
   -webkit-text-fill-color: #000000;
   -webkit-box-shadow: 0 0 0 30px rgb(0, 0, 0) inset !important;
   -webkit-text-fill-color: white !important; /* Ensure text remains white */
-  caret-color: rgb(255, 255, 255); /* Change to any color you want */
+  caret-color: rgb(255, 255, 255) !important; /* Change to any color you want */
 }
 
 .label.light svg {
