@@ -37,6 +37,43 @@ export const getAboutUSPage = () => {
         },
       ],
     },
+    ourValues: {
+      title: "Capabilities",
+      cards: [
+        {
+          _id: "vr0v",
+          title: "Clarity",
+          description:
+            "We communicate simply and clearly. We avoid overcomplication and focus on what really needs to be said.",
+        },
+        {
+          _id: "vr2v",
+          title: "Trust",
+          description: `We build strong, lasting relationships by working with honesty and consistency. Our clients know we are discreet, reliable, and grounded in real-world experience.`,
+        },
+        {
+          _id: "vr1v",
+          title: "Adaptability",
+          description: `Each client is different. We tailor our work to fit individual needs, local contexts, and changing circumstances`,
+        },
+        {
+          _id: "vr3v",
+          title: "Depth",
+          description: `
+We go beyond surface-level messaging. Our work is rooted in research, insight, and a deep understanding of the issues our clients care about.
+`,
+        },
+      ],
+    },
+    aboutUs: {
+      title: "What we do",
+      description: `The Global Narrative is a strategic communications firm with a mission to shape impactful stories across borders, With offices in Cairo and Riyadh, we work with global public figures, executive leaders, and mission-driven organizations to craft narratives that build trust, influence opinion, and inspire change.
+
+Blending insight with creativity, we offer services in executive branding, nation branding, strategic partnerships, and crisis communication, Our integrated approach spans media relations, public events, and long-term positioning strategies—ensuring that every message is aligned, authentic, and built to last in today’s fast-paced media landscape.`,
+    },
+    quoteSection: {
+      title: "Our Vision",
+      description: `We aim to become the leading PR firm in the region for individuals and projects that require more than a generic PR solution. We believe in long-term partnerships, thoughtful planning, and the value of speaking with precision.`,
+    },
   };
 };
-

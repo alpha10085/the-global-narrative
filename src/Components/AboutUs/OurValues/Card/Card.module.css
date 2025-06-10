@@ -1,0 +1,27 @@
+.container {
+
+    padding: 40px 0;
+    border-bottom: 1px solid var(--color200);
+}
+
+.left {
+    flex: 1;
+    font-size: 30px;
+    
+    color: var(--color200);
+}
+.left h1:nth-child(1) {
+    opacity: 0.3;
+    color: var(--color200);
+}
+.right {
+    flex: 1;
+    font-weight: 500;
+}
+.right p {
+    line-height: 1.4;
+
+    font-size: 17px;
+}
+.title {
+}

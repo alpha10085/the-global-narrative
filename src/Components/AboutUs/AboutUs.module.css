@@ -1,0 +1,30 @@
+.container {
+  background-color: #4008a1;
+  padding: 100px 0;
+  /* width: 90%; */
+  position: relative;
+  z-index: 9;
+}
+
+.wrapper {
+  max-width: 90%;
+
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  height: max-content;
+  color: var(--color100);
+  font-size: clamp(20px, 2vw, 40px) !important;
+}
+.description {
+  width: 80%;
+  flex-grow: 1;
+
+  color: white;
+
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.5;
+}
