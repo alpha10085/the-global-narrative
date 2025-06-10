@@ -12,8 +12,7 @@ import { getOneNewsData } from "@/lib/news";
 
 const Page = async (props) => {
   const { slug = "" } = await props.params;
-  const data = await getOneNewsData(slug);
-  console.log("🚀 ~ Page ~ data:", data)
+  const data = await getOneNewsData(slug)
 
   return (
     <section className={`${styles.container} showSmooth`}>

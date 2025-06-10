@@ -1,0 +1,14 @@
+.container {
+  min-height: 60vh;
+  width: 90%;
+  margin: 50px auto;
+  background-color: white;
+  z-index: 10;
+  position: relative;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}

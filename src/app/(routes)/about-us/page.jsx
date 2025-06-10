@@ -6,6 +6,7 @@ import OurValues from "@/components/AboutUs/OurValues/OurValues";
 import AboutUs from "@/components/AboutUs/AboutUs";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import QuoteSection from "@/components/QuoteSection/QuoteSection";
+import WhoUsSection from "@/components/AboutUs/WhoUsSection/WhoUsSection";
 
 const Page = async (props) => {
   const {
@@ -28,6 +29,7 @@ const Page = async (props) => {
         <AboutUs data={aboutUs} />
       </FloatedSection>
       <OurValues data={ourValues} />
+      <WhoUsSection data={whoUsSectionSection} />
       <QuoteSection data={quoteSection} />
       <SpaceSection style={{ background: "#4008a1" }} />
     </section>

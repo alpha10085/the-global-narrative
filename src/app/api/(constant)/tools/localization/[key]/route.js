@@ -63,9 +63,7 @@ export const PUT = AsyncHandler(
 );
 // update locale
 export const PATCH = AsyncHandler(
-  async (req, res, next) => {
-    console.log(req.body);
-    
+  async (req, res, next) => {    
     const nextLang = req.body?.key || null;
     const label = req?.body?.label || "";
     const key = req?.params?.key;
@@ -77,14 +75,7 @@ export const PATCH = AsyncHandler(
       const newFileName = path.join(mainPath, `${nextLang}.json`);
       if (fs.existsSync(oldFileName)) {
         fs.rename(oldFileName, newFileName, (err) => {
-          if (err) {
-            console.error("Error renaming file:", err);
-          } else {
-            console.log("File renamed successfully");
-          }
         });
-      } else {
-        console.log("Old file does not exist");
       }
     }
     await updateLanguageConfig({

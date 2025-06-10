@@ -15,7 +15,7 @@
 
 .title {
   height: max-content;
-  min-width: 120px;
+  min-width: max-content;
   color: var(--color100);
   font-size: clamp(20px, 2vw, 40px) !important;
 }
@@ -25,10 +25,10 @@
 
   color: white;
 
-  font-size: clamp(16px, 2vw, 25px);
+  font-size: clamp(16px, 2vw, 20px);
 
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {

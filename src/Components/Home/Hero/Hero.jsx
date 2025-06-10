@@ -5,15 +5,12 @@ import Img from "@/components/Shared/img/Img";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { Autoplay } from "swiper/modules";
 import eventBus from "@/utils/eventBus";
 import useDynamicState from "@/hooks/useDynamicState";
-import { delay } from "@/utils/delay";
-import { scrollByVh } from "@/utils/document";
 import ScrollToContinueButton from "@/components/ScrollToContinueButton/ScrollToContinueButton";
 const Hero = ({ data = [] }) => {
-  console.log("🚀 ~ Hero ~ data:", data);
   const [swiperState, setSwiperState] = useDynamicState({
     swiperSection: 0,
     autoPlay: false,

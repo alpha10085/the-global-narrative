@@ -36,7 +36,7 @@ const ListControl = () => {
       try {
         await createNewLocale(newData);
       } catch (error) {
-        console.log("🚀 ~ handleAddNewLocale ~ error:", error);
+      
       }
       // handle call api to save the action
     }

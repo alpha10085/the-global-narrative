@@ -31,7 +31,6 @@ const List = ({ page = {}, categories = [] }) => {
     Key: ["news", { ...searchParams }],
     next: getNewsData,
   });
-  console.log("🚀 ~ List ~ data:", data)
 
   const categoriesQuery = searchParams?.categories?.split(",") || [];
 

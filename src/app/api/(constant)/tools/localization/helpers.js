@@ -117,8 +117,6 @@ export const updateLanguageConfig = async ({
   });
 };
 
-
-
 export const genrateLocale = async ({
   nextLang = config?.defaultLocale,
   label = "",
@@ -178,7 +176,6 @@ const moveFolder = async (oldPath, newPath) => {
     await fs.copy(oldPath, newPath); // copy folder recursively
     await fs.remove(oldPath); // delete original folder
   } else {
-    console.log(`Not found: ${oldPath}`);
   }
 
   return true;
@@ -221,7 +218,7 @@ export const changeToWithRouting = async () => {
     });
     try {
       await Promise.all(promises);
-      console.log("All folders moved!");
+
       await removeNextIntlFormLayout();
       await writeFile(path.join(newPath, "layout.jsx"), layoutbody);
       await writeFile(path.join(appPath, "page.jsx"), pageBody);
@@ -229,7 +226,6 @@ export const changeToWithRouting = async () => {
       console.error("Error moving folders:", err);
     }
   } catch (error) {
-    console.log("🚀 ~ changeToWithRouting ~ error:", error);
     return null;
   }
 };
@@ -303,7 +299,6 @@ export const changeToWithoutRouting = async () => {
     });
     try {
       await Promise.all(promises);
-      console.log("All folders moved!");
       await transformLayoutCode();
       await deleteFile(path.join(newPath, "layout.jsx"));
       await deleteFile(path.join(appPath, "page.jsx"));
@@ -312,7 +307,6 @@ export const changeToWithoutRouting = async () => {
       console.error("Error moving folders:", err);
     }
   } catch (error) {
-    console.log("🚀 ~ changeToWithRouting ~ error:", error);
     return null;
   }
 };

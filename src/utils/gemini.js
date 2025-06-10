@@ -10,7 +10,5 @@ export const gemini = async (contents) => {
     });
 
     return response;
-  } catch (error) {
-    console.log("🚀 ~ generateContent ~ error:", error);
-  }
+  } catch (error) {}
 };

@@ -52,7 +52,6 @@ export const PATCH = AsyncHandler(async (req, res, next) => {
   const { route = false } = req.body;
 
   if (route) {
-    console.log("new route", route);
 
     await changeToWithRouting();
   } else {

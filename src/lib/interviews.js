@@ -18,10 +18,7 @@ export const getInterviewsData = async ({
     page: pageParam,
     ...query,
   }).toString();
-
-   
   const data = await csrApi.get(`/interviews?${formatQuery}`);
-  console.log("🚀 ~ data:", data)
   return data;
 };
 
@@ -44,7 +41,6 @@ export const getInterviewsData = async ({
 
    
 //   const data = await csrApi.get(`/interviews?${formatQuery}`);
-//   console.log("🚀 ~ data:", data)
 //   return data;
 // };
 

@@ -14,7 +14,6 @@ export const adminPopulate = [
 ];
 export const POST = AsyncHandler(
   async (req, res) => {
-     console.log("🚀 ~ req?.body:", req?.body);
     // Validate the request data using the pageValidation function
     pageValidation(req, req?.body, req?.params);
     // Verify token and get user
@@ -29,7 +28,6 @@ export const POST = AsyncHandler(
     }
 
     let Model = allModelsConfig[key]?.model;
-    console.log("🚀 ~ Model:", Model);
 
     if (!Model) {
       throw new AppError({ message: "component.notFound", code: 404 });
@@ -55,7 +53,6 @@ export const POST = AsyncHandler(
       })
       .lean();
 
-      console.log("new page", newPage);
       
     newPage.createdBy = {
       fullName: user?.fullName,

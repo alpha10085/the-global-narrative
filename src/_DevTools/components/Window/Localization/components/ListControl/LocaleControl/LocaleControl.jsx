@@ -49,7 +49,6 @@ const LocaleControl = ({
       await reWatchLocale(value?.key);
     } catch (error) {
       // call toast.error
-      console.log("🚀 ~ oneRewatch ~ error:", error);
     } finally {
       setState({
         isLoading: false,
