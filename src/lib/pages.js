@@ -11,7 +11,7 @@ export const getPage = AsyncHandler(
       {
         next: { revalidate: "1y", tags: [key] }, // Revalidate every 30 days
       }
-    );
+    );    
     return data;
   }),
   {

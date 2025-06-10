@@ -1,0 +1,81 @@
+import { notFound } from "next/navigation";
+import { AsyncHandler, csrApi, ssrApi } from "@/utils/api";
+import { objectToUrl } from "@/utils/query";
+
+export const getInterviewsData = async ({
+  pageParam = 1,
+  queryKey: [slug = "", query = {}] = [],
+}) => {
+  let copy_query = { ...query };
+  let search = copy_query?.search;
+  delete query["search"];
+  query = {
+    ...objectToUrl({ ...query }, "filters"),
+    ...(search ? { search } : {}),
+  };
+
+  const formatQuery = new URLSearchParams({
+    page: pageParam,
+    ...query,
+  }).toString();
+
+   
+  const data = await csrApi.get(`/interviews?${formatQuery}`);
+  console.log("🚀 ~ data:", data)
+  return data;
+};
+
+// export const getRefInterviewsData = async ({
+//   pageParam = 1,
+//   queryKey: [slug = "", query = {}] = [],
+// }) => {
+//   let copy_query = { ...query };
+//   let search = copy_query?.search;
+//   delete query["search"];
+//   query = {
+//     ...objectToUrl({ ...query }, "filters"),
+//     ...(search ? { search } : {}),
+//   };
+
+//   const formatQuery = new URLSearchParams({
+//     page: pageParam,
+//     ...query,
+//   }).toString();
+
+   
+//   const data = await csrApi.get(`/interviews?${formatQuery}`);
+//   console.log("🚀 ~ data:", data)
+//   return data;
+// };
+
+
+export const getOneInterviewsData = AsyncHandler(
+  async (slug) => {
+    return await ssrApi(`/interviews/${slug}`, {
+      next: { revalidate: "30d", tags: ["interviews"] }, // Revalidate every 30 days
+    });
+  },
+  {
+    ssr: true,
+    onError: notFound,
+  }
+);
+
+
+export const getSearchInterviews = async ({
+  pageParam = 1,
+  queryKey: [slug = "", term] = [],
+}) => {
+  const formatQuery = new URLSearchParams({
+    page: pageParam,
+  }).toString();
+  try {
+    const response = await csrApi.get(`/interviews?${formatQuery}`, {
+      params: { "index[title]": term },
+    });
+
+    return response;
+  } catch (error) {
+    return "No interviews found :(";
+  }
+};

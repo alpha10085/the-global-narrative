@@ -11,10 +11,9 @@ import WaveLines from "@/components/Shared/WaveLines/WaveLines";
 import StaticSection, {
   CSRSection,
 } from "@/components/Home/StaticSection/StaticSection";
-import { ssrApi } from "@/utils/api";
 import AnimatedBorderSection from "@/components/Shared/AnimatedBorderSection/AnimatedBorderSection";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
-import Img from "@/components/Shared/img/Img";
+import { getPage } from "@/lib/pages";
 
 const Home = async () => {
   const {
@@ -24,8 +23,8 @@ const Home = async () => {
     newsSection = {},
     testimonialSection = {},
     getInTouchSection = {},
-  } = getHomePage();
-
+  } = await getPage("landing");
+  
   return (
     <section className={styles.layout}>
       <Intro />

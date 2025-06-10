@@ -41,7 +41,7 @@ export const allModelsConfig = {
       update: ContactPageValUpdate,
     },
   },
-  services: {
+  "services-page": {
     model: servicesPageModel,
     validation: {
       create: ServicesPageValCreate,

@@ -1,5 +1,5 @@
 "use client";
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import styles from "./List.module.css";
 import Card from "../Card/Card";
 import { VirtuosoGrid } from "react-virtuoso";
@@ -7,10 +7,9 @@ import Skeleton from "@/components/Shared/Skeleton/Skeleton";
 import { useQueryParams } from "@/hooks/useQueryParams";
 import SearchIcon from "@mui/icons-material/Search";
 import lodash from "lodash";
-import { scrollToElement } from "@/utils/document";
-import { getFakeNews } from "@/app/(routes)/news/data.test";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import { getNewsData } from "@/lib/news";
+import useInfinityQuery from "@/hooks/useInfinityQuery";
 const List = ({ page = {}, categories = [] }) => {
   const { title = "" } = page;
   const { clearOne, clearQuery, multiple, searchParams, singleValue } =
@@ -19,29 +18,25 @@ const List = ({ page = {}, categories = [] }) => {
       offset: 100,
     });
 
-  // const [isfiltersOpen, setisfiltersOpen] = useState(false);
-  // const toggleFiltersWindow = (value) => setisfiltersOpen(!isfiltersOpen);
-  // const closeFiltersWindow = (value) => setisfiltersOpen(false);
+  const [isfiltersOpen, setisfiltersOpen] = useState(false);
+  const toggleFiltersWindow = (value) => setisfiltersOpen(!isfiltersOpen);
+  const closeFiltersWindow = (value) => setisfiltersOpen(false);
 
-  // const {
-  //   data = {},
-  //   isLoading,
-  //   fetchNextPage,
-  //   hasNextPage,
-  // } = useInfinityQuery({
-  //   Key: ["news", { ...filters }],
-  //   next: getNewsData,
-  // });
+  const {
+    data = {},
+    isLoading,
+    fetchNextPage,
+    hasNextPage,
+  } = useInfinityQuery({
+    Key: ["news", { ...searchParams }],
+    next: getNewsData,
+  });
+  console.log("🚀 ~ List ~ data:", data)
 
   const categoriesQuery = searchParams?.categories?.split(",") || [];
 
   const searchQuery = (searchParams?.search || "").toLocaleLowerCase();
-  const ogData = getFakeNews(5);
 
-  const data = { pages: ogData };
-  const isLoading = false;
-  const hasNextPage = false;
-  const fetchNextPage = () => {};
   let dataAfterFiltered = categoriesQuery?.length
     ? data?.pages.filter((val) =>
         categoriesQuery?.includes(val?.category?.slug)
