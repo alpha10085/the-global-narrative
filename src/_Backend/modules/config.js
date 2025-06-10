@@ -5,11 +5,23 @@ import { landingModel } from "../database/models/pages/landing.model";
 import { newsPageModel } from "../database/models/pages/newsPage.model";
 import { servicesPageModel } from "../database/models/pages/services.model";
 import { AboutValCreate, AboutValUpdate } from "./pages/about.validation";
-import { clientsPageValCreate, clientsPageValUpdate } from "./pages/clients.validation";
-import { ContactPageValCreate, ContactPageValUpdate } from "./pages/contactUs.validation";
+import {
+  clientsPageValCreate,
+  clientsPageValUpdate,
+} from "./pages/clients.validation";
+import {
+  ContactPageValCreate,
+  ContactPageValUpdate,
+} from "./pages/contactUs.validation";
 import { LandingValCreate, LandingValUpdate } from "./pages/landing.validation";
-import { NewsPageValCreate, NewsPageValUpdate } from "./pages/newsPage.validation";
-import { ServicesPageValCreate, ServicesPageValUpdate } from "./pages/services.validation";
+import {
+  NewsPageValCreate,
+  NewsPageValUpdate,
+} from "./pages/newsPage.validation";
+import {
+  ServicesPageValCreate,
+  ServicesPageValUpdate,
+} from "./pages/services.validation";
 
 export const allModelsConfig = {
   // pages
@@ -48,7 +60,7 @@ export const allModelsConfig = {
       update: ServicesPageValUpdate,
     },
   },
-   client: {
+  client: {
     model: clientsPageModel,
     validation: {
       create: clientsPageValCreate,

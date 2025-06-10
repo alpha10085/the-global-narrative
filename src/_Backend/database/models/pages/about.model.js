@@ -16,38 +16,45 @@ const whoUsMember = new Schema({
   description: mongeDescription,
   image: poster,
 });
-
-// Our Value Card schema
-const ourValueCard = new Schema({
-  title: mongtext,
-  description: mongeDescription,
-});
-
-// Hero section schema
+// hero section
 const heroSection = new Schema({
   title: mongtext,
   description: mongeDescription,
   poster,
 });
-
-// Our Value Section schema
-const ourValueSection = new Schema({
-  title: mongtext,
-  cards: [ourValueCard],
-});
-
-// Who Us Section schema
+// whoUsSectionSection
 const whoUsSectionSection = new Schema({
   title: mongtext,
   members: [whoUsMember],
 });
-
+// ourValues
+const ourValues = new Schema({
+  title: mongtext,
+  cards: [
+    {
+      title: mongtext,
+      description: mongeDescription,
+    },
+  ],
+});
+// aboutUs
+const aboutUs = new Schema({
+  title: mongtext,
+  description: mongeDescription,
+});
+// quoteSection
+const quoteSection = new Schema({
+  title: mongtext,
+  description: mongeDescription,
+});
 // Main about us schema
 const aboutUsSchema = new Schema({
   metadata: pageMetadata,
   hero: heroSection,
-  ourValueSection,
   whoUsSectionSection,
+  ourValues,
+  aboutUs,
+  quoteSection,
 });
 
 // Pre-hook to populate metadata and images
