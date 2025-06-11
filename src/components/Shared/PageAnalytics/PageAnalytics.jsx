@@ -19,7 +19,7 @@ const sendPageAnalytics = async (pathname) => {
     await csrApi.post("/analytics", { pathname });
     Cookies.set(cookieKey, "1", { expires: COOKIE_EXPIRE_DAYS });
   } catch (error) {
-    systemLogger?.error?.("Analytics error", error);
+    // need report
   }
 };
 
