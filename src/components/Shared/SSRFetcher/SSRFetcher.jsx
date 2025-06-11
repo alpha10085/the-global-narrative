@@ -20,7 +20,6 @@ const FetcherComponent = async ({
   props = {},
 }) => {
   const fetchedData = await fetchData(path, options);
-  console.log("🚀 ~ fetchedData:", fetchedData)
   return fetchedData ? (
     <Component {...props} data={{ ...data, ...fetchedData }} />
   ) : null;
