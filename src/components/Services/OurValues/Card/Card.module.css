@@ -2,7 +2,7 @@
   z-index: 2;
   position: sticky;
   top: -40px;
-  background-color: #4008a1a2;
+  background-color: var(--color-tr-400);
   transition: 0.2s;
   height: 130dvh;
   overflow: hidden;
