@@ -19,6 +19,8 @@
 .headerSection h1 {
   font-size: clamp(28px, 4vw, 6vw);
   margin-bottom: 30px;
+      font-weight: 400 !important;
+      opacity: 0 !important;
 }
 
 .description {

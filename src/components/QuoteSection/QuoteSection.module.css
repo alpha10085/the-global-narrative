@@ -4,10 +4,11 @@
   position: relative;
   z-index: 10;
   padding: 80px 5%;
-  background-color: var(--color300);
+  background-color: var(--color200);
 }
 .title {
-  color: var(--color100);
+  color: var(--color500);
+  
   font-style: italic;
   font-size: clamp(40px, 4vw, 60px);
   font-family: var(--font-Cormorant);

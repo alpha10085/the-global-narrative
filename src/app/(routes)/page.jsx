@@ -34,7 +34,7 @@ const Home = async () => {
       <News data={newsSection} />
 
       <Testimonials data={testimonialSection} />
-      {/* <GetInTouch data={getInTouchSection} /> */}
+      <GetInTouch data={getInTouchSection} />
     </section>
   );
 };

@@ -25,15 +25,7 @@ const Quote = ({ data = {} }) => {
 
   return (
     <div className={styles.container}>
-      <div className={`${styles.main} flex column just-sb`}>
-        {Array.from({ length: 11 }).map((_, lineIndex) => (
-          <LinePFPoints
-            key={lineIndex}
-            lineIndex={lineIndex}
-            activeNumbers={numbers}
-          />
-        ))}
-      </div>
+
 
       <div className={styles.content}>
         <WordFadeIn mode="dark" className={styles.text} text={data?.content} />

@@ -6,7 +6,7 @@ import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const OurValues = ({ data = [] }) => {
   return (
-    <div id="active-section" data-offset="0" className={styles.container}>
+    <div className={styles.container}>
      
         <div className={styles.wrapper}>
           <SectionTitle

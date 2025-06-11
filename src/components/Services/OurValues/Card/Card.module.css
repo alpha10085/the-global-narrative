@@ -1,8 +1,8 @@
 .container {
   z-index: 2;
   position: sticky;
-  top: -40px;
-  background-color: var(--color-tr-400);
+  top: -10px;
+  background-color: var(--color500);
   transition: 0.2s;
   height: 130dvh;
   overflow: hidden;
@@ -17,10 +17,12 @@
 
 .title {
   font-size: clamp(24px, 4vw, 40px);
-  color: rgb(255, 255, 255);
+  color: var(--color200);
   transform: translateY(100%);
   transition: 1s;
   transition-delay: 0.5s;
+  
+    font-weight: 600;
 }
 
 .head {
@@ -36,6 +38,9 @@
   color: var(--color100);
   transform: translateX(-100%);
   transition: 1s;
+    color: var(--color200);
+    opacity: 0.8;
+    font-weight: 400;
 }
 
 .container.active .index {
@@ -44,12 +49,13 @@
 
 .description {
   font-size: clamp(14px, 1.5vw, 17px);
-  font-weight: 400;
   line-height: 1.6;
-  color: white;
+  color: var(--color200);
   opacity: 0;
   transition: 0.8s;
   transition-delay: 0.8s;
+  font-weight: 500;
+  color: black;
 }
 
 .container.active .description {

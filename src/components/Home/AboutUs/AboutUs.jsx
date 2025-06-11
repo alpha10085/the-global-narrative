@@ -7,9 +7,10 @@ import Aos from "@/components/Shared/Animtions/Aos/Aos";
 const AboutUs = ({ data = {} }) => {
   return (
     <div
-     id="active-section"
+      id="active-section"
       data-offset="0"
-    className={`${styles.container} flex just-c gap20 column`}>
+      className={`${styles.container} flex just-c gap20 column`}
+    >
       <WordPullUpV2
         duration={0.6}
         delay={200}

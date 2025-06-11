@@ -22,9 +22,6 @@
 
   font-size: 17px;
 }
-.title {
-}
-
 @media (max-width: 768px) {
   .container {
     flex-direction: column;

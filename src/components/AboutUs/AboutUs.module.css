@@ -1,22 +1,19 @@
 .container {
-  background-color: #4008a1;
-  padding: 10vh 0;
-  /* width: 90%; */
+  background-color: var(--color200);
+  padding: 15vh 0;
   position: relative;
   z-index: 9;
 }
 
 .wrapper {
-  max-width: 90%;
-
-  width: 1200px;
+  width: 90%;
   margin: 0 auto;
 }
 
 .title {
   height: max-content;
   min-width: max-content;
-  color: var(--color100);
+  color: var(--color500);
   font-size: clamp(20px, 2vw, 40px) !important;
 }
 .description {
@@ -29,6 +26,7 @@
 
   font-weight: 500;
   line-height: 1.6;
+  margin-top: 5px;
 }
 
 @media (max-width: 768px) {

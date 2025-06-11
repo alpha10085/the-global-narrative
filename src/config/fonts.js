@@ -3,11 +3,12 @@ import { Tajawal, Geist, Ubuntu, Cormorant } from "next/font/google";
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
+  weight:"400"
 });
 const UbuntuFont = Ubuntu({
   subsets: ["latin"],
   variable: "--font-Ubuntu",
-  weight:"300"
+  weight:"400"
 });
 const tajawal = Tajawal({
   subsets: ["latin"],
