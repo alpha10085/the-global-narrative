@@ -1,12 +1,9 @@
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
-import { UAParser } from "ua-parser-js";
 import {
   buildMatchStage,
   calculateRetention,
   generateVisitorKey,
   getChartData,
-  getGeoData,
-  getIpAddress,
   shouldRecordVisit,
 } from "./helpers";
 import InsightModel from "@/_Backend/database/models/constant/insight.model";

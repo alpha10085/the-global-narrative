@@ -1,6 +1,6 @@
 import mongoose, { model, models } from "mongoose";
 
-const InsightSchema = new mongoose.Schema(
+const Analyticschema = new mongoose.Schema(
   {
     eventType: {
       type: String,
@@ -27,5 +27,5 @@ const InsightSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const InsightModel = models?.insight || model("insight", InsightSchema);
+const InsightModel = models?.insight || model("insight", Analyticschema);
 export default InsightModel;

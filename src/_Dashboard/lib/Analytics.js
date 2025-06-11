@@ -21,7 +21,7 @@ export const getAnalyticsData = async (searchParams = {}) => {
   systemLogger("🔍 Querying API with:", params.toString());
 
   // Use ssrApi fetch helper
-  const json = await ssrApi(`/Analytics?${params.toString()}`, { method: "GET" });
+  const json = await ssrApi(`/analytics?${params.toString()}`, { method: "GET" });
 
   return json;
 };

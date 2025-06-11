@@ -1,11 +1,11 @@
 "use client";
-import styles from "./InsightsDashboard.module.css";
+import styles from "./AnalyticsDashboard.module.css";
 import FilterBar from "../FilterBar/FilterBar/FilterBar";
-import InsightsChart from "../ChartControl/ChartControl";
+import AnalyticsChart from "../ChartControl/ChartControl";
 import { chartConfig } from "./chartConfig";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 
-const InsightsDashboard = ({ data, searchParams }) => {
+const AnalyticsDashboard = ({ data, searchParams }) => {
   const { theme } = useTheme();
   const chartType = searchParams?.chartType || "dailyTraffic";
 
@@ -20,7 +20,7 @@ const InsightsDashboard = ({ data, searchParams }) => {
   return (
     <div className={styles.container}>
       <h1 className={`${styles.heading} ${theme.color}`}>
-        📊 Insights Dashboard
+        📊 Analytics Dashboard
       </h1>
 
       <div className={styles.filterBar}>
@@ -70,7 +70,7 @@ const InsightsDashboard = ({ data, searchParams }) => {
         )}
 
       <div className={styles.chart}>
-        <InsightsChart
+        <AnalyticsChart
           title={chartConfig[chartType]?.title}
           type={chartConfig[chartType]?.type}
           labels={chartData?.map((d) => d?._id)}
@@ -83,4 +83,4 @@ const InsightsDashboard = ({ data, searchParams }) => {
   );
 };
 
-export default InsightsDashboard;
+export default AnalyticsDashboard;

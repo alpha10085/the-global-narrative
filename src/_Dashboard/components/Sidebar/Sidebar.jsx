@@ -149,17 +149,17 @@ const Sidebar = () => {
                       </Link>
                     </div>
                   )}
-                  {/* Insights */}
+                  {/* Analytics*/}
                   <div
                     className={`${style.title}  ${
-                      pathname?.pathname?.includes("insights") &&
+                      pathname?.pathname?.includes("analytics") &&
                       `${style?.active} `
                     } flex al-i-c gap5`}
                   >
                     <TrendingUpTwoToneIcon />
                     <Link
                       className={`${style.linkeffect}`}
-                      href={"/dashboard/Analytics"}
+                      href={"/dashboard/analytics"}
                     >
                       {translations?.Sidebar?.Analytics}
                     </Link>

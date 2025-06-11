@@ -2,7 +2,10 @@ import { fonts } from "@/config/fonts";
 import { isProductionMode } from "@/config/main";
 import config from "@/i18n/config";
 import { ValidateLocale } from "@/i18n/request";
-import interceptor, { systemLogger } from "@/utils/consoleProxy";
+import interceptor, {
+  disableConsole,
+  systemLogger,
+} from "@/utils/consoleProxy";
 import { getLocale } from "next-intl/server";
 import { cookies } from "next/headers";
 
@@ -25,6 +28,8 @@ export const prepareLayoutContext = async () => {
   // Enable console proxy/interceptor in development mode only
   if (!isProductionMode) {
     interceptor.intercept();
+  } else {
+    disableConsole();
   }
 
   // Read cookies from the incoming request

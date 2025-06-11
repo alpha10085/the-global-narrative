@@ -1,4 +1,5 @@
 import { isProductionMode } from "@/config/main";
+import { consoleKey } from "@/utils/consoleProxy";
 
 const { log: logger, warn: warnLogger, error: errorLogger } = console;
 
@@ -6,7 +7,7 @@ export function disableConsole() {
   if (!isProductionMode) return;
 
   const sanitizeArgs = (args) => {
-    if (args?.[0] === "system-000-logger-000") {
+    if (args?.[0] === consoleKey) {
       return args.slice(1); // remove the flag
     }
     return args;

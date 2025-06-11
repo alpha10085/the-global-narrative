@@ -3,21 +3,18 @@ import styles from "./Hero.module.css";
 import Img from "@/components/Shared/img/Img";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 const Hero = ({ data = {} }) => {
-
   return (
     <div className={styles.container}>
       <div className={styles.slide}>
         <Media {...data?.media} className={`${styles.media} imageoverlay`} />
         <div className={styles.titleBox}>
-          {
-            <WordPullUpV2
-              triggerOnce={false}
-              duration={0.6}
-              delay={500}
-              className={styles.title}
-              text={data?.title}
-            />
-          }
+          <WordPullUpV2
+            triggerOnce={false}
+            duration={0.5}
+            delay={500}
+            className={`flex-c ${styles.title}`}
+            text={data?.title}
+          />
         </div>
       </div>
     </div>

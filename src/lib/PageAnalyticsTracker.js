@@ -19,7 +19,7 @@ const PageAnalyticsTracker = () => {
     if (Cookies.get(cookieKey)) return;
 
     // Send analytics to backend
-    fetch("/api/insights", {
+    fetch("/api/Analytics", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ pathname }),
