@@ -14,7 +14,7 @@ const page = async (props) => {
         <SSRFetcher
           Component={ChartLine}
           path={`/analytics/daily-traffic?days=${
-            searchParams?.["dailyTraffic.days"] || 7
+            searchParams?.["dailyTraffic"] || 7
           }`}
           props={{ chartType: "dailyTraffic" }}
           options={{
@@ -25,7 +25,7 @@ const page = async (props) => {
         <SSRFetcher
           Component={InsightsTable}
           path={`/analytics/page-views?days=${
-            searchParams?.["pageViews.days"] || 7
+            searchParams?.["pageViews"] || 7
           }`}
           props={{ chartType: "pageViews" }}
           options={{
@@ -37,7 +37,7 @@ const page = async (props) => {
           <SSRFetcher
             Component={ChartBar}
             path={`/analytics/country?days=${
-              searchParams?.["country.days"] || 7
+              searchParams?.["country"] || 7
             }`}
             props={{ chartType: "country" }}
             options={{
@@ -48,7 +48,7 @@ const page = async (props) => {
           <SSRFetcher
             Component={ChartPie}
             path={`/analytics/devices?days=${
-              searchParams?.["devices.days"] || 7
+              searchParams?.["devices"] || 7
             }`}
             props={{ chartType: "devices" }}
             options={{

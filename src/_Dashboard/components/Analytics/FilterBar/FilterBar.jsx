@@ -14,7 +14,7 @@ const FilterBar = ({ chartType }) => {
 
   const filterConfigs = [
     {
-      key: `${chartType}.days`,
+      key: `${chartType}`,
       options: [
         { value: "1", label: "Today" },
         { value: "7", label: "Last 7 days" },
