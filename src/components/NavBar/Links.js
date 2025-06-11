@@ -13,8 +13,8 @@ export const links = [
     enabled: true,
   },
   {
-    text: "News",
-    href: "/news",
+    text: "services",
+    href: "/services",
     enabled: true,
   },
   {
@@ -23,8 +23,8 @@ export const links = [
     enabled: false,
   },
   {
-    text: "services",
-    href: "/services",
+    text: "News",
+    href: "/news",
     enabled: true,
   },
   {
