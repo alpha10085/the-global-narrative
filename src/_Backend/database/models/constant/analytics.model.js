@@ -27,5 +27,5 @@ const Analyticschema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const InsightModel = models?.insight || model("insight", Analyticschema);
-export default InsightModel;
+const analyticsModel = models?.analytics || model("analytics", Analyticschema);
+export default analyticsModel;

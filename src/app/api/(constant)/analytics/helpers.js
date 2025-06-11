@@ -1,4 +1,4 @@
-import InsightModel from "@/_Backend/database/models/constant/insight.model.js";
+import analyticsModel from "@/_Backend/database/models/constant/analytics.model.js";
 import { insightPipelines, trivialPaths } from "./config";
 import crypto from "crypto";
 import { systemLogger } from "@/utils/consoleProxy";
@@ -81,7 +81,7 @@ export async function shouldRecordVisit({
   const { start, end } = getLocalDayBounds(timezone);
 
   // Check for duplicate visit (same IP, pathname, same local day) AND // Check for rapid repeat visits within 1 day
-  const existing = await InsightModel.findOne({
+  const existing = await analyticsModel.findOne({
     ip,
     pathname: normalizedPath,
     $or: [
@@ -123,7 +123,7 @@ export const getChartData = async (chartType, matchStage) => {
   if (!pipeline) return null;
 
   // return the aggregation with the match stage and chart-specific pipeline
-  return await InsightModel.aggregate([matchStage, ...pipeline]);
+  return await analyticsModel.aggregate([matchStage, ...pipeline]);
 };
 
 // VisitorKey for tracking Returned visitors
@@ -134,7 +134,7 @@ export const generateVisitorKey = async ({ ip, userAgent, device, region }) => {
 
 // calculate Returned visitors
 export const calculateRetention = async (matchStage) => {
-  const retention = await InsightModel.aggregate([
+  const retention = await analyticsModel.aggregate([
     matchStage,
     // Project visitorKey and day string (YYYY-MM-DD)
     {

@@ -6,7 +6,7 @@ import {
   getChartData,
   shouldRecordVisit,
 } from "./helpers";
-import InsightModel from "@/_Backend/database/models/constant/insight.model";
+import analyticsModel from "@/_Backend/database/models/constant/analytics.model";
 
 export const POST = AsyncHandler(async (req, res) => {
   const { pathname, referrer } = req.body;
@@ -36,7 +36,7 @@ export const POST = AsyncHandler(async (req, res) => {
   if (!shouldRecord)
     return res({ message: "Pageview not recorded due to filters issue" }, 200);
 
-  const newRecord = await InsightModel.create({
+  const newRecord = await analyticsModel.create({
     eventType: "pageview",
     ip,
     country: req.userAgent.country,
@@ -81,7 +81,7 @@ export const GET = AsyncHandler(async (req, res) => {
   }
 
   // Count unique visitors (distinct visitorKey) in the period
-  const totalUsersResult = await InsightModel.aggregate([
+  const totalUsersResult = await analyticsModel.aggregate([
     matchStage,
     {
       $group: {
