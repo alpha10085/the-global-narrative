@@ -41,9 +41,10 @@
 }
 
 .top {
-  border-radius: 50px 50px 0 0;
+  border-radius: 80px 80px 0 0;
   padding: 50px 5% ;
-  background-color: var(--color400);
+  background-color: var(--color200);
+  background-color: rgb(49, 49, 163);
 
 
 }

@@ -2,8 +2,8 @@
   width: 100%;
   z-index: 10;
   position: relative;
-  background-color: #4008a1;
   margin-bottom: -22vh;
+    margin-top: -3vh;
 }
 .wrapper {
   width: 90%;
@@ -20,7 +20,6 @@
   color: white;
 }
 .whietspace {
-  background-color: #4008a1;
   position: absolute;
   bottom: -50px;
   left: 0;

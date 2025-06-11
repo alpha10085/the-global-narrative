@@ -4,7 +4,7 @@
   margin: 0 auto;
   overflow: hidden;
   position: relative;
-  background-color: var(--color200);
+  background-color: var(--main-bg);
 }
 
 .poster {
@@ -12,25 +12,26 @@
   height: 100%;
   overflow: hidden;
   position: relative;
-  color: white;
 }
 .posterAos {
   width: 45%;
   height: 100%;
 }
 .title {
-  color: white;
-  font-size: clamp(20px, 4vw, 65px) !important;
+  font-size: clamp(20px, 4vw, 55px) !important;
   margin: 5px 0 15px;
 
-  color: var(--color100);
+  color: var(--color200);
 }
 .pageTitle {
   color: white;
+  color: var(--color100);
+  opacity: 0.8;
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
+  font-weight: 400;
 }
 .poster::before {
   content: "";
@@ -55,11 +56,13 @@
   max-width: 55%;
 }
 .description {
-  line-height: 1.7;
-  font-weight: 500;
+  line-height: 2;
+  font-weight: 600;
   font-size: clamp(12px, 2vw, 16px);
-  color: white;
-  opacity: 0.9;
+
+  opacity: 0.7;
+
+  color: var(--color100);
 }
 
 .aosText {
@@ -93,10 +96,10 @@
     width: 100%;
     height: 30vh;
     flex-grow: 1;
-padding-bottom: 40px;
+    padding-bottom: 40px;
   }
   .poster {
-        border-radius: 10px;
+    border-radius: 10px;
     overflow: hidden;
   }
 }

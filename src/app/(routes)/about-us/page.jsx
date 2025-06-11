@@ -33,7 +33,7 @@ const Page = async (props) => {
         <WhoUsSection data={whoUsSectionSection} />
       </FloatedSection>
       <QuoteSection data={quoteSection} />
-      <SpaceSection style={{ background: "#4008a1" }} />
+      <SpaceSection style={{ background: "var(--color200)" }} />
     </section>
   );
 };

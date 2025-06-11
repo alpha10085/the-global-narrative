@@ -24,11 +24,8 @@ const Page = async (props) => {
         <OurValues data={ourValueSection} />
         <QuoteSection data={quoteSection} />
       </div>
-      <SpaceSection
-        style={{
-          background: "#4008a1",
-        }}
-      />
+
+      <SpaceSection style={{ background: "var(--color200)" }} />
     </section>
   );
 };
