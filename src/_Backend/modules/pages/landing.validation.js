@@ -5,14 +5,10 @@ import { newsValidationRelation } from "../news/news.validation";
 import { testimonialValidationRelation } from "../testimonial/testimonial.validation";
 
 // Hero Section (Array of cards with title & media)
-const heroItem = Joi.object({
+const heroSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   media: fileVal.required(),
   ...CommonsVal,
-});
-const heroSection = joiArray({
-  body: heroItem,
-  min: 1,
 });
 
 // About Us Section
@@ -83,7 +79,7 @@ export const LandingValUpdate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
 
-  heroSection,
+  heroSection:heroSection,
   aboutUsSection,
   quoteSection,
   newsSection,

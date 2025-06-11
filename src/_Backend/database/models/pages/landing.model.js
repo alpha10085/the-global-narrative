@@ -43,7 +43,7 @@ const getInTouchSection = new Schema({
 // Main home page schema
 const landingSchema = new Schema({
   metadata: pageMetadata,
-  heroSection: [heroItemSchema],
+  heroSection: heroItemSchema,
   aboutUsSection,
   quoteSection,
   newsSection,

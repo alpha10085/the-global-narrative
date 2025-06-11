@@ -1,5 +1,5 @@
 import { Bar } from "react-chartjs-2";
-import styles from "./InsightsChartBar.module.css";
+import styles from "./ChartBar.module.css";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import {
   Chart as ChartJS,
@@ -36,7 +36,7 @@ const colorPalette = [
   "#6366f1",
 ];
 
-const InsightsChartBar = ({
+const ChartBar = ({
   title,
   labels,
   data,
@@ -112,4 +112,4 @@ const InsightsChartBar = ({
   );
 };
 
-export default InsightsChartBar;
+export default ChartBar;

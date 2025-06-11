@@ -1,5 +1,6 @@
 import Link from "@/components/Shared/Link/Link";
 import styles from "./RouteList.module.css";
+import { customText } from "@/utils/text";
 
 const RouteList = ({
   translations = {},
@@ -13,8 +14,14 @@ const RouteList = ({
 }) => {
   const isActive = linkPathName?.[0] === routeKey;
   if (!options?.length) return null;
+
+  const handleFormateLable = (val) => {
+    const label = translations?.displaynames?.[val];
+
+    return customText(label, 18, "..");
+  };
   return (
-    <>
+    <div>
       <div
         className={`${styles.title} 
         ${isActive && `${styles?.active} `}   
@@ -38,12 +45,12 @@ const RouteList = ({
               } flex gap10  ${styles.link}`}
               href={`/dashboard/${routeKey}/${val?.key}`}
             >
-              {translations?.displaynames?.[val?.displayName]}
+              {handleFormateLable(val?.displayName)}
             </Link>
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 

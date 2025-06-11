@@ -1,8 +1,8 @@
 .title {
   width: 100%;
-  margin: 10px 10px;
+  margin: 0px 10px;
   font-size: 14px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   cursor: default;
   max-width: 90%;
   border-radius: 6px;
@@ -18,7 +18,7 @@
   opacity: 50%;
   transition: 0.2s;
   font-size: 13px;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .title.active .linkeffect {

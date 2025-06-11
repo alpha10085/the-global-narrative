@@ -1,7 +1,7 @@
 "use client";
 import styles from "./InsightsDashboard.module.css";
-import FilterBar from "../FilterInsightsBar/FilterBar/FilterBar";
-import InsightsChart from "../FilterInsightsBar/InsightsChart/InsightsChart";
+import FilterBar from "../FilterBar/FilterBar/FilterBar";
+import InsightsChart from "../ChartControl/ChartControl";
 import { chartConfig } from "./chartConfig";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 
@@ -26,25 +26,45 @@ const InsightsDashboard = ({ data, searchParams }) => {
       <div className={styles.filterBar}>
         <FilterBar />
       </div>
-     <p className={styles.infoText}>
+      <p className={styles.infoText}>
         Showing data from last {metadata?.days} days.
       </p>
       {chartType === "dailyTraffic" &&
         metadata?.returnedUsers !== undefined && (
-          <div className={`${styles.metricsFlex} flex just-sb mb-20 wrap flex-wrap gap15`}>
-            <div className={`${styles.metricBox} ${theme.background} ${theme.card}`}>
-              <p className={`${styles.metricTitle} ${theme.color}`}>Total Visitors</p>
-              <p className={`${styles.metricValue} ${theme.color}`}>{metadata.total}</p>
+          <div
+            className={`${styles.metricsFlex} flex just-sb mb-20 wrap flex-wrap gap15`}
+          >
+            <div
+              className={`${styles.metricBox} ${theme.background} ${theme.card}`}
+            >
+              <p className={`${styles.metricTitle} ${theme.color}`}>
+                Total Visitors
+              </p>
+              <p className={`${styles.metricValue} ${theme.color}`}>
+                {metadata.total}
+              </p>
             </div>
 
-            <div className={`${styles.metricBox} ${theme.background} ${theme.card}`}>
-              <p className={`${styles.metricTitle} ${theme.color}`}>Returned Visitors</p>
-              <p className={`${styles.metricValue} ${theme.color}`}>{metadata.returnedUsers}</p>
+            <div
+              className={`${styles.metricBox} ${theme.background} ${theme.card}`}
+            >
+              <p className={`${styles.metricTitle} ${theme.color}`}>
+                Returned Visitors
+              </p>
+              <p className={`${styles.metricValue} ${theme.color}`}>
+                {metadata.returnedUsers}
+              </p>
             </div>
 
-            <div className={`${styles.metricBox} ${theme.background} ${theme.card}`}>
-              <p className={`${styles.metricTitle} ${theme.color}`}>Retention Rate</p>
-              <p className={`${styles.metricValue} ${theme.color}`}>{metadata.retentionRate}%</p>
+            <div
+              className={`${styles.metricBox} ${theme.background} ${theme.card}`}
+            >
+              <p className={`${styles.metricTitle} ${theme.color}`}>
+                Retention Rate
+              </p>
+              <p className={`${styles.metricValue} ${theme.color}`}>
+                {metadata.retentionRate}%
+              </p>
             </div>
           </div>
         )}

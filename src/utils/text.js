@@ -71,9 +71,9 @@ export const generateRandomText = (length = 4) => {
   return randomText;
 };
 
-export const customText = (text = "", length = 1) => {
+export const customText = (text = "", length = 5 , prefix = "...") => {
   if (text?.length > length && length >= 4) {
-    return text.slice(0, length - 3) + "...";
+    return text.slice(0, length - prefix.length) + prefix;
   }
   return text;
 };

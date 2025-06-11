@@ -1,4 +1,4 @@
-import InsightsDashboard from "@/_Dashboard/components/Insights/InsightsDashboard/InsightsDashboard";
+import InsightsDashboard from "@/_Dashboard/components/Analytics/AnalyticsDashboard/AnalyticsDashboard";
 import { getInsightsData } from "@/_Dashboard/lib/Insights";
 
 const page = async (props) => {

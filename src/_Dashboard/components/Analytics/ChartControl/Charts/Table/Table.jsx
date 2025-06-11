@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./InsightsTable.module.css";
+import styles from "./Table.module.css";
 
-const InsightsTable = ({ title, labels = [], data = [], theme }) => {
+const Table = ({ title, labels = [], data = [], theme }) => {
   return (
     <>
       <h2 className={`${styles.title} ${theme.color}`}>{title}</h2>
@@ -29,4 +29,4 @@ const InsightsTable = ({ title, labels = [], data = [], theme }) => {
   );
 };
 
-export default InsightsTable;
+export default Table;

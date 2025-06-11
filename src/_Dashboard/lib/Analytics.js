@@ -1,7 +1,7 @@
 import { ssrApi } from "@/utils/api";
 import { systemLogger } from "@/utils/consoleProxy";
 
-export const getInsightsData = async (searchParams = {}) => {
+export const getAnalyticsData = async (searchParams = {}) => {
   // Destructure with defaults
   const {
     days = "7",
@@ -21,7 +21,7 @@ export const getInsightsData = async (searchParams = {}) => {
   systemLogger("🔍 Querying API with:", params.toString());
 
   // Use ssrApi fetch helper
-  const json = await ssrApi(`/insights?${params.toString()}`, { method: "GET" });
+  const json = await ssrApi(`/Analytics?${params.toString()}`, { method: "GET" });
 
   return json;
 };

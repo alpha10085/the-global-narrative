@@ -6,7 +6,7 @@
     },
     {
       "name": "heroSection",
-      "type": "array",
+      "type": "object",
       "label": "heroSection",
       "min": 1,
       "fields": [

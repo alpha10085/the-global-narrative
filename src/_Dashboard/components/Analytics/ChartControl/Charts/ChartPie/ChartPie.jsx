@@ -1,6 +1,5 @@
 import { Pie } from "react-chartjs-2";
-import styles from "./InsightsChartPie.module.css";
-import { useTheme } from "@/_Dashboard/context/ThemeCTX";
+import styles from "./ChartPie.module.css";
 import {
   Chart as ChartJS,
   BarElement,
@@ -36,7 +35,7 @@ const colorPalette = [
   "#6366f1",
 ];
 
-const InsightsChartPie = ({ title, labels, data, theme }) => {
+const ChartPie = ({ title, labels, data, theme }) => {
   const colors = labels?.map((_, i) => colorPalette[i % colorPalette.length]);
 
   const chartData = {
@@ -98,4 +97,4 @@ const InsightsChartPie = ({ title, labels, data, theme }) => {
   );
 };
 
-export default InsightsChartPie;
+export default ChartPie;

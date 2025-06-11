@@ -9,7 +9,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import { useState } from "react";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import TrendingUpTwoToneIcon from '@mui/icons-material/TrendingUpTwoTone';
+import TrendingUpTwoToneIcon from "@mui/icons-material/TrendingUpTwoTone";
 import Img from "@/components/Shared/img/Img";
 import { useAuth } from "@/contexts/AuthProvider";
 import Popup from "./popup";
@@ -56,7 +56,7 @@ const Sidebar = () => {
       "Sidebar.media",
       "Sidebar.settings",
       "Sidebar.workspace",
-      "Sidebar.insights",
+      "Sidebar.Analytics",
       ...[...collections, ...pages, ...components].map(
         (val) => `displaynames.${val?.displayName}`
       ),
@@ -88,7 +88,7 @@ const Sidebar = () => {
           </div>
         </Link>
         <div
-          className={`flex column just-sb ${theme.scrollBar} ${style.wrapperforuls}`}
+          className={`flex column  just-sb ${theme.scrollBar} ${style.wrapperforuls}`}
         >
           {isLoading ? (
             <Loader active={open} theme={theme} />
@@ -96,78 +96,89 @@ const Sidebar = () => {
             <>
               <div
                 onClick={handleToggle}
-                className={` ${theme.scrollBar} showSmooth ${style.wrapperul}`}
+                className={` ${theme.scrollBar} 
+                flex column 
+                showSmooth ${style.wrapperul}`}
               >
-                <RouteList
-                  linkPathName={linkPathName}
-                  routeKey={"collections"}
-                  options={collections}
-                  Icon={AppsIcon}
-                  theme={theme}
-                  translations={translations}
-                  active={open}
-                />
-                <RouteList
-                  linkPathName={linkPathName}
-                  routeKey={"pages"}
-                  options={pages}
-                  Icon={LayersIcon}
-                  theme={theme}
-                  translations={translations}
-                  active={open}
-                />
-                <RouteList
-                  linkPathName={linkPathName}
-                  routeKey={"components"}
-                  options={components}
-                  Icon={BubbleChartIcon}
-                  theme={theme}
-                  translations={translations}
-                  active={open}
-                />
-
-                {staticPages.find((p) => p.key === "media") && (
-                  <div
-                    className={`${style.title} ${
-                      pathname?.pathname?.includes("media") && `${style?.active} `
-                    }  ${style.customtitle} ${style.cutomSvg} flex al-i-c gap5`}
-                  >
-                    <PermMediaIcon />
-                    <Link
-                      className={`${style.linkeffect}`}
-                      href={"/dashboard/media"}
-                    >
-                      {translations?.Sidebar?.media}
-                    </Link>
-                  </div>
-                )}
-                {/* Insights */}
-                <div
-                  className={`${style.title}  ${
-                    pathname?.pathname?.includes("insights") && `${style?.active} `
-                  } flex al-i-c gap5`}
-                >
-                  <TrendingUpTwoToneIcon />
-                  <Link
-                    className={`${style.linkeffect}`}
-                    href={"/dashboard/insights"}
-                  >
-                    {translations?.Sidebar?.insights}
-                  </Link>
+                <div className={`flex column ${style.dynamicContent}`}>
+                  <RouteList
+                    linkPathName={linkPathName}
+                    routeKey={"collections"}
+                    options={collections}
+                    Icon={AppsIcon}
+                    theme={theme}
+                    translations={translations}
+                    active={open}
+                  />
+                  <RouteList
+                    linkPathName={linkPathName}
+                    routeKey={"pages"}
+                    options={pages}
+                    Icon={LayersIcon}
+                    theme={theme}
+                    translations={translations}
+                    active={open}
+                  />
+                  <RouteList
+                    linkPathName={linkPathName}
+                    routeKey={"components"}
+                    options={components}
+                    Icon={BubbleChartIcon}
+                    theme={theme}
+                    translations={translations}
+                    active={open}
+                  />
                 </div>
 
-                <div
-                  className={`${style.title}  ${
-                    pathname?.pathname?.includes("settings") && `${style?.active} `
-                  } flex al-i-c gap5`}
-                >
-                  <SettingsIcon />
-                  <Link
-                    className={`${style.linkeffect}`}
-                    href={"/dashboard/settings"}
+                <div className={`${style.staticContant} flex column gap20`}>
+                  {staticPages?.find((p) => p.key === "media") && (
+                    <div
+                      className={`${style.title} ${
+                        pathname?.pathname?.includes("media") &&
+                        `${style?.active} `
+                      }  ${style.customtitle} ${
+                        style.cutomSvg
+                      } flex al-i-c gap5`}
+                    >
+                      <PermMediaIcon />
+                      <Link
+                        className={`${style.linkeffect}`}
+                        href={"/dashboard/media"}
+                      >
+                        {translations?.Sidebar?.media}
+                      </Link>
+                    </div>
+                  )}
+                  {/* Insights */}
+                  <div
+                    className={`${style.title}  ${
+                      pathname?.pathname?.includes("insights") &&
+                      `${style?.active} `
+                    } flex al-i-c gap5`}
                   >
-                    {translations?.Sidebar?.settings}
-                  </Link>
+                    <TrendingUpTwoToneIcon />
+                    <Link
+                      className={`${style.linkeffect}`}
+                      href={"/dashboard/Analytics"}
+                    >
+                      {translations?.Sidebar?.Analytics}
+                    </Link>
+                  </div>
+
+                  <div
+                    className={`${style.title}  ${
+                      pathname?.pathname?.includes("settings") &&
+                      `${style?.active} `
+                    } flex al-i-c gap5`}
+                  >
+                    <SettingsIcon />
+                    <Link
+                      className={`${style.linkeffect}`}
+                      href={"/dashboard/settings"}
+                    >
+                      {translations?.Sidebar?.settings}
+                    </Link>
+                  </div>
                 </div>
               </div>
 
@@ -176,7 +187,7 @@ const Sidebar = () => {
                   setOpen(true);
                   setopenPopup(true);
                 }}
-                className={`${style.bottombox} showSmooth `}
+                className={`${style.bottombox}  showSmooth `}
               >
                 <div className={`${style.bottomwrapper} gap5 flex al-i-c  `}>
                   <div className={`${style.profPic} flex-c`}>

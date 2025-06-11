@@ -20,7 +20,7 @@
       "media": "Media",
       "components": "components",
       "settings": "Settings",
-      "insights": "insights"
+      "Analytics": "Analytics"
     },
     "inputs": {
       "title": "title",

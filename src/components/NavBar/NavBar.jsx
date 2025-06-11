@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 import { useEffect, useRef, useState } from "react";
 import styles from "./NavBar.module.css";
@@ -8,7 +7,7 @@ import { BurgerIcon } from "./Icons/Icons";
 import Link from "../Shared/Link/Link";
 import MainLogo from "../MainLogo/MainLogo";
 import { usePathname } from "@/hooks/useTranslations";
-import { links } from "./Links";
+import { enabledLinks } from "./helpers";
 
 const NavBar = () => {
   const [openMobil, setOpenMobile] = useState(false);
@@ -70,12 +69,6 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", updateNavModeOnScroll);
   }, [pathname]);
 
-  //   useEffect(() => {
-  //       stopAutoplay();
-  //   eventBus.on("intro-event", handleAutoPlay);
-  //   return () => eventBus.off("intro-event", handleAutoPlay);
-  // }, []);
-
   return (
     <header className={styles.header}>
       <div className={styles.wrapperHeader}>
@@ -94,7 +87,7 @@ const NavBar = () => {
           />
 
           <ul className={`flex al-i-c gap40 ${styles.rightUl}`}>
-            {links?.map((val, index) => (
+            {enabledLinks?.map((val, index) => (
               <li key={index}>
                 <Link
                   style={{ animationDelay: `${index * 200 + 500}ms` }}

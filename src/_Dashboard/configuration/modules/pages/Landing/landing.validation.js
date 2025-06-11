@@ -16,12 +16,7 @@ import TestimonialValidationSchema from "../../collections/testimonial/testimoni
 const LandingPageValidationSchema = (locale = "en") => {
   return Joi.object({
     metadata: pageMetadataValClient(locale),
-
-    heroSection: joiArray({
-      min: 1,
-      required: true,
-      locale,
-      body: joiObject({
+    heroSection:  joiObject({
         required: true,
         locale,
         body: {
@@ -33,7 +28,6 @@ const LandingPageValidationSchema = (locale = "en") => {
             })
           ),
         },
-      }),
     }),
 
     aboutUsSection: joiObject({

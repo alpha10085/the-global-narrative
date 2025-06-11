@@ -1,5 +1,5 @@
 import { Line } from "react-chartjs-2";
-import styles from "./InsightsChartLine.module.css";
+import styles from "./ChartLine.module.css";
 import {
   Chart as ChartJS,
   BarElement,
@@ -25,7 +25,7 @@ ChartJS.register(
   ArcElement
 );
 
-const InsightsChartLine = ({
+const ChartLine = ({
   title,
   labels,
   data,
@@ -96,4 +96,4 @@ const InsightsChartLine = ({
   );
 };
 
-export default InsightsChartLine;
+export default ChartLine;

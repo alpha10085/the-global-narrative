@@ -42,12 +42,12 @@ const schemas = [
 
   // collections
   // clientsConfig,
-  faqConfig,
+  newsConfig,
+  testimonialConfig,
   interviewsConfig,
   interviewsCategoryConfig,
-  newsConfig,
+  faqConfig,
   //newsCategoryConfig,
-  testimonialConfig,
 
   // components
 ]; // empty array for now, you can add your schemas here.
