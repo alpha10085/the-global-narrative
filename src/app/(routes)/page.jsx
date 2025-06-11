@@ -27,13 +27,13 @@ const Home = async () => {
     <section className={styles.layout}>
       <Hero data={heroSection} />
       <AboutUs data={aboutUsSection} />
-      <WaveLines />
+     
       <FloatedSection>
         <Quote data={quoteSection} />
-        <WaveLines />
+
       </FloatedSection>
       <News data={newsSection} />
-      <WaveLines colors={["#8927f2a8", "#00eaff", "#ff00d4"]} />
+     
       <Testimonials data={testimonialSection} />
       {/* <GetInTouch data={getInTouchSection} /> */}
     </section>

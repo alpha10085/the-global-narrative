@@ -16,7 +16,7 @@ export default async function RootLayout({ children }) {
     >
       <SmoothScroll duration={1} />
       <NavBar />
-      <DynamicCursor />
+      {/* <DynamicCursor /> */}
       <div style={{ minHeight: "100vh" }}>{children}</div>
       <Toaster />
       <DashPopup />

@@ -9,7 +9,7 @@ const Hero = ({ data = {} }) => {
         <Media {...data?.media} className={`${styles.media} imageoverlay`} />
         <div className={styles.titleBox}>
           <WordPullUpV2
-            triggerOnce={false}
+            
             duration={0.5}
             delay={500}
             className={`flex-c ${styles.title}`}

@@ -28,13 +28,8 @@ const GetInTouch = ({ data = {} }) => {
             <MainLink text="Contact us" href={"/contact-us"} />
           </Aos>
         </div>
-        <div className={styles.waves}>
-          <WaveLines />
-        </div>
-
       </div>
       <div className={styles.spaceBottom} />
-
     </div>
   );
 };

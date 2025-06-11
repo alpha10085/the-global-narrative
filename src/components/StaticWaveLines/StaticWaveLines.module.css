@@ -1,0 +1,17 @@
+.container {
+  background-color: #0047ab;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wave {
+  fill: none;
+  stroke: #00bfff;
+  stroke-width: 1;
+}

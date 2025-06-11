@@ -1,12 +1,13 @@
-import { Tajawal, Geist, Urbanist, Cormorant } from "next/font/google";
+import { Tajawal, Geist, Ubuntu, Cormorant } from "next/font/google";
 
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
 });
-const UrbanistFont = Urbanist({
+const UbuntuFont = Ubuntu({
   subsets: ["latin"],
-  variable: "--font-Urbanist",
+  variable: "--font-Ubuntu",
+  weight:"300"
 });
 const tajawal = Tajawal({
   subsets: ["latin"],
@@ -20,10 +21,10 @@ const CormorantFont = Cormorant({
   weight: "400",
 });
 
-const allFonts = [geist, UrbanistFont, tajawal, CormorantFont];
+const allFonts = [geist, UbuntuFont, tajawal, CormorantFont];
 export const fonts = {
-  en: UrbanistFont,
+  en: UbuntuFont,
   ar: tajawal,
-  default: UrbanistFont,
+  default: UbuntuFont,
   allFonts: `${allFonts?.map((val) => val?.variable).join(" ")}`,
 };
