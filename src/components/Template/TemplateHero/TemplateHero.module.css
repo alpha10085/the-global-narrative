@@ -18,7 +18,7 @@
   height: 100%;
 }
 .title {
-  font-size: clamp(20px, 4vw, 65px) !important;
+  font-size: clamp(20px, 4vw, 55px) !important;
   margin: 5px 0 15px;
 
   color: var(--color200);
@@ -26,12 +26,12 @@
 .pageTitle {
   color: white;
   color: var(--color100);
-opacity: 0.8;
+  opacity: 0.8;
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 2px;
-      font-weight: 400;
+  font-weight: 400;
 }
 .poster::before {
   content: "";
