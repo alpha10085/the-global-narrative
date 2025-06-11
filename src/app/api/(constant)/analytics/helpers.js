@@ -1,7 +1,8 @@
-import analyticsModel from "@/_Backend/database/models/constant/analytics.model.js";
 import { insightPipelines, trivialPaths } from "./config";
 import crypto from "crypto";
 import { systemLogger } from "@/utils/consoleProxy";
+import analyticsModel from "@/_Backend/database/models/constant/analytics.model";
+// lib/analytics/handlers.js
 
 const blacklistedIPs = ["127.0.0.1", "::1", "::ffff:127.0.0.1"];
 const BOT_UA_REGEX = /bot|crawl|spider|google|facebook|preview/i;
@@ -84,10 +85,7 @@ export async function shouldRecordVisit({
   const existing = await analyticsModel.findOne({
     ip,
     pathname: normalizedPath,
-    $or: [
-      { timestamp: { $gte: start, $lt: end } },
-      { timestamp: { $gte: new Date(Date.now() - 24 * 60 * 60 * 1000) } },
-    ],
+    timestamp: { $gte: start, $lt: end },
   });
   if (existing) return false;
   systemLogger("recentVisit, existingVisit Both checks PASS");
@@ -95,35 +93,28 @@ export async function shouldRecordVisit({
   return true;
 }
 
-// build Match Stage
 export const buildMatchStage = (query, fromDate) => {
-  /**
-   * Builds a $match stage for MongoDB aggregation based on query filters.
-   * filtering by pathname and device for now.
-   * Future: country, referrer, etc.
-   */
-
   const match = {
     eventType: "pageview",
     timestamp: { $gte: fromDate },
   };
-
   if (query.pathname) match.pathname = query.pathname;
   if (query.device) match.device = query.device;
-  // Add more dynamic filters here as needed
-
   return { $match: match };
 };
 
-// Returns aggregated chart data based on the selected chartType.
-export const getChartData = async (chartType, matchStage) => {
-  // Find the pipeline for the given chartType
-  const pipeline = insightPipelines[chartType];
-
+export const runAggregation = async (pipeline, matchStage) => {
   if (!pipeline) return null;
-
-  // return the aggregation with the match stage and chart-specific pipeline
   return await analyticsModel.aggregate([matchStage, ...pipeline]);
+};
+
+export const getTotalUsers = async (matchStage) => {
+  const result = await analyticsModel.aggregate([
+    matchStage,
+    { $group: { _id: "$visitorKey" } },
+    { $count: "totalUsers" },
+  ]);
+  return result[0]?.totalUsers || 0;
 };
 
 // VisitorKey for tracking Returned visitors

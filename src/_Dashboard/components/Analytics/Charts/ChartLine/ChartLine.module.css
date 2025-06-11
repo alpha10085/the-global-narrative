@@ -1,0 +1,38 @@
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+  min-height: 420px;
+}
+
+.chartWrapper {
+  position: relative;
+  height: 400px;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .metrics {
+    flex-direction: column;
+  }
+
+  .metricCard {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .chartWrapper {
+    height: 300px;
+  }
+}

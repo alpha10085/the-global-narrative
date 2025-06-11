@@ -1,0 +1,97 @@
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+    min-height: 420px;
+}
+
+.chartLegendWrapper {
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.chartWrapper {
+  position: relative;
+  height: 400px;
+  width: 60%;
+  min-width: 280px;
+  flex: 1;
+}
+
+.customLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 40%;
+  min-width: 200px;
+  flex: 1;
+  padding-top: 16px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legendColor {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.legendLabel {
+  font-size: 14px;
+  color: #374151;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+@media (max-width: 768px) {
+  .chartLegendWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chartWrapper {
+    width: 100%;
+    height: 300px;
+  }
+
+  .customLegend {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  .legendItem {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .legendLabel {
+    font-size: 13px;
+  }
+}

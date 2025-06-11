@@ -62,57 +62,57 @@ export const POST = AsyncHandler(async (req, res) => {
   );
 });
 
-export const GET = AsyncHandler(async (req, res) => {
-  const query = req.query;
-  const days = parseInt(query.days || "7");
-  const chartType = query.chartType || "dailyTraffic";
+// export const GET = AsyncHandler(async (req, res) => {
+//   const query = req.query;
+//   const days = parseInt(query.days || "7");
+//   const chartType = query.chartType || "dailyTraffic";
 
-  const fromDate = new Date();
-  fromDate.setDate(fromDate.getDate() - days);
+//   const fromDate = new Date();
+//   fromDate.setDate(fromDate.getDate() - days);
 
-  // Build $match based on filters
-  const matchStage = buildMatchStage(query, fromDate);
+//   // Build $match based on filters
+//   const matchStage = buildMatchStage(query, fromDate);
 
-   // Get the chart-specific aggregated data
-  const chartData = await getChartData(chartType, matchStage);
+//    // Get the chart-specific aggregated data
+//   const chartData = await getChartData(chartType, matchStage);
 
-  if (!chartData) {
-    return res({ error: "Invalid chartType" }, 400);
-  }
+//   if (!chartData) {
+//     return res({ error: "Invalid chartType" }, 400);
+//   }
 
-  // Count unique visitors (distinct visitorKey) in the period
-  const totalUsersResult = await analyticsModel.aggregate([
-    matchStage,
-    {
-      $group: {
-        _id: "$visitorKey",
-      },
-    },
-    {
-      $count: "totalUsers",
-    },
-  ]);
-  const totalUsers = totalUsersResult[0]?.totalUsers || 0;
+//   // Count unique visitors (distinct visitorKey) in the period
+//   const totalUsersResult = await analyticsModel.aggregate([
+//     matchStage,
+//     {
+//       $group: {
+//         _id: "$visitorKey",
+//       },
+//     },
+//     {
+//       $count: "totalUsers",
+//     },
+//   ]);
+//   const totalUsers = totalUsersResult[0]?.totalUsers || 0;
 
-  const metadata = {
-    total: totalUsers,
-    days,
-  };
+//   const metadata = {
+//     total: totalUsers,
+//     days,
+//   };
 
-  // ✅ Add retention only for dailyTraffic chart
-  if (chartType === "dailyTraffic") {
-    const { returnedUsers, retentionRate } = await calculateRetention(
-      matchStage
-    );
-    metadata.returnedUsers = returnedUsers;
-    metadata.retentionRate = retentionRate;
-  }
+//   // ✅ Add retention only for dailyTraffic chart
+//   if (chartType === "dailyTraffic") {
+//     const { returnedUsers, retentionRate } = await calculateRetention(
+//       matchStage
+//     );
+//     metadata.returnedUsers = returnedUsers;
+//     metadata.retentionRate = retentionRate;
+//   }
 
-  return res(
-    {
-      metadata,
-      charts: { [chartType]: chartData },
-    },
-    200
-  );
-});
+//   return res(
+//     {
+//       metadata,
+//       charts: { [chartType]: chartData },
+//     },
+//     200
+//   );
+// });

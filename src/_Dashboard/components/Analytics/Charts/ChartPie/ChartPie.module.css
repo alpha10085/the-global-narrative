@@ -6,29 +6,35 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+    min-height: 420px;
 }
 
 .chartLegendWrapper {
+  padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
   gap: 32px;
+  flex-wrap: wrap;
 }
 
 .chartWrapper {
   position: relative;
   height: 400px;
   width: 60%;
-  border: none !important; 
+  min-width: 280px;
+  flex: 1;
 }
 
 .customLegend {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  width: 40%; 
+  width: 40%;
+  min-width: 200px;
+  flex: 1;
   padding-top: 16px;
 }
 
@@ -50,9 +56,41 @@
   color: #374151;
 }
 
-
 .title {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .chartLegendWrapper {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .chartWrapper {
+    min-width: 100%;
+    height: 300px;
+  }
+
+  .customLegend {
+    min-width: 100%;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px 20px;
+  }
+
+  .legendItem {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .legendLabel {
+    font-size: 13px;
+  }
 }

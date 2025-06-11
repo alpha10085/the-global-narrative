@@ -1,0 +1,78 @@
+.wrapper {
+  border-radius: 8px;
+  gap: 8px;
+  min-width: 160px;
+  position: relative;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  padding: 0px 12px;
+  border-right: 0.5px solid #333;
+}
+
+.select {
+  padding: 10px 12px;
+  appearance: none;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  padding-right: 20px;
+  cursor: pointer;
+  width: 100%;
+  outline: none;
+}
+
+.select option {
+  padding: 8px 12px;
+}
+
+.arrow {
+  position: absolute;
+  right: 10px;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .wrapper {
+    min-width: 100%;
+  }
+
+  .select {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .icon {
+    padding: 0 8px;
+  }
+
+  .arrow {
+    right: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .select {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+
+  .icon {
+    padding: 0 6px;
+  }
+
+  .wrapper {
+    gap: 6px;
+  }
+}

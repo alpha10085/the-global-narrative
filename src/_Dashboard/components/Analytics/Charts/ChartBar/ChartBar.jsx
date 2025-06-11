@@ -1,3 +1,4 @@
+"use client";
 import { Bar } from "react-chartjs-2";
 import styles from "./ChartBar.module.css";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
@@ -13,6 +14,9 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
+import FilterBar from "../../FilterBar/FilterBar";
+import { chartConfig } from "../../chartConfig";
+import MetricsHeader from "../../MetricsHeader/MetricsHeader";
 
 ChartJS.register(
   BarElement,
@@ -36,22 +40,25 @@ const colorPalette = [
   "#6366f1",
 ];
 
-const ChartBar = ({
-  title,
-  labels,
-  data,
-  initialValue = null,
-  theme,
-}) => {
+const ChartBar = ({ data, chartType }) => {
+  const { theme } = useTheme();
+
+  const { metadata, charts } = data;
+  const chartDataArr = charts?.[chartType] || [];
+  const { title } = chartConfig[chartType] || {};
+  const labels = chartDataArr?.map((d) => d?._id);
+  const dataset = chartDataArr?.map((d) => d?.count);
+  const initialValue = null;
+
   // Custom colors per label example (for a Country chart or any other)
-  const colors = labels.map((_, i) => colorPalette[i % colorPalette.length]);
+  const colors = labels?.map((_, i) => colorPalette[i % colorPalette.length]);
 
   const chartData = {
     labels: initialValue ? ["Start", ...labels] : labels,
     datasets: [
       {
         label: title,
-        data: initialValue ? [initialValue, ...data] : data,
+        data: initialValue ? [initialValue, ...dataset] : dataset,
         backgroundColor: colors,
         borderColor: colors,
         borderWidth: 1,
@@ -92,7 +99,15 @@ const ChartBar = ({
     <div
       className={`${styles.card} showSmooth ${theme.background} ${theme.bord10}`}
     >
-      <h2 className={`${styles.title} ${theme.color}`}>{title}</h2>
+      <div className=" p-15">
+        <div className=" flex al-i-c just-sb w-100 wrap mb-20 gap20">
+          <h2 className={`${styles.title} ${theme.color}`}>{title}</h2>
+          {/* Top Filter */}
+          <FilterBar chartType={chartType} />
+        </div>
+
+        <MetricsHeader metadata={metadata} />
+      </div>
       <div className={styles.legend}>
         {labels?.map((label, i) => (
           <div key={label} className={styles.legendItem}>

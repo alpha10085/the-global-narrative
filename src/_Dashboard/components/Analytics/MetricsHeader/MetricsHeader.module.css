@@ -1,0 +1,103 @@
+.metrics {
+  width: fit-content;
+  margin-right: auto;
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.metricCard {
+  flex: 1 1 calc(33.333% - 16px);
+  min-width: 220px;
+  max-width: 100%;
+  padding: 16px;
+  border-right: 0.5px solid #333;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.metricCard:nth-child(1) {
+  background-color: transparent !important;
+}
+.metricCard:nth-last-child(1) {
+  border: none;
+}
+
+.label {
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #666;
+}
+
+.valueRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 10px;
+  gap: 8px;
+}
+
+.valueRow h3 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.change {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.up {
+  color: green;
+}
+
+.down {
+  color: red;
+}
+
+@media (max-width: 1024px) {
+  .metricCard {
+    flex: 1 1 calc(50% - 12px);
+    padding: 14px;
+    border-radius:  0;
+    border-right: none !important;
+    border-bottom: 0.5px solid #333;
+  }
+
+  .metrics {
+    padding: 12px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .metricCard {
+    flex: 1 1 100%;
+    padding: 10px;
+    min-width: auto;
+  }
+
+  .metrics {
+    width: 100%;
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .valueRow {
+    flex-direction: column;
+  }
+
+  .valueRow h3 {
+    font-size: 18px;
+  }
+
+  .label,
+  .change {
+    font-size: 13px;
+  }
+}

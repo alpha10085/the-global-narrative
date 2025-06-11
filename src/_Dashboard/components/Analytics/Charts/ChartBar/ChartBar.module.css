@@ -4,28 +4,30 @@
   border-radius: 16px;
   margin-bottom: 24px;
   width: 100%;
+  overflow: hidden;
 }
 
 .chartWrapper {
   position: relative;
   height: 350px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .title {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 16px;
 }
 
 .legend {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
   font-size: 16px;
   margin: 20px 0;
-  color:  #555;
+  color: #555;
 }
 
 .legendItem {
@@ -43,13 +45,41 @@
   box-shadow: 0 0 3px rgb(0 0 0 / 0.1);
 }
 
-/* Responsive  */
-@media (max-width: 640px) {
+/* Responsive styles */
+@media (max-width: 768px) {
+  .title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .chartWrapper {
+    height: 300px;
+  }
+
   .legend {
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: flex-start;
     gap: 12px;
-    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .colorBox {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chartWrapper {
+    height: 250px;
+  }
+
+  .legend {
+    font-size: 12px;
+    gap: 10px;
+  }
+
+  .colorBox {
+    width: 12px;
+    height: 12px;
   }
 }

@@ -1,0 +1,56 @@
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.wrapper {
+  margin: 0 auto;
+  padding: 32px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.chartRow {
+  display: flex;
+  align-items: stretch; 
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.chartContainer {
+  flex: 1 1 48%;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
+}
+
+@media (max-width: 768px) {
+  .page,
+  .wrapper {
+    padding: 24px 12px;
+  }
+
+  .chartRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .chartContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .page,
+  .wrapper {
+    padding: 16px 8px;
+  }
+
+  .page h1 {
+    font-size: 1.5rem;
+  }
+}
