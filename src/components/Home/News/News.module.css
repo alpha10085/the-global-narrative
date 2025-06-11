@@ -6,6 +6,9 @@
   overflow: hidden;
 
   overflow: hidden;
+  position: relative;
+  z-index: 10;
+  background-color: white;
 }
 
 .list {
@@ -17,11 +20,10 @@
 }
 
 .card {
-
   opacity: 0;
 }
 .swiperSlide:nth-child(even) {
-  transform: translateY(50px) ;
+  transform: translateY(50px);
 }
 .list.active .card {
   animation: introCard 0.8s ease forwards;

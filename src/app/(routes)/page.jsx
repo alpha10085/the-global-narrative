@@ -26,14 +26,13 @@ const Home = async () => {
   return (
     <section className={styles.layout}>
       <Hero data={heroSection} />
-      <AboutUs data={aboutUsSection} />
-     
       <FloatedSection>
-        <Quote data={quoteSection} />
+      <AboutUs data={aboutUsSection} />
 
+        <Quote data={quoteSection} />
       </FloatedSection>
       <News data={newsSection} />
-     
+
       <Testimonials data={testimonialSection} />
       {/* <GetInTouch data={getInTouchSection} /> */}
     </section>

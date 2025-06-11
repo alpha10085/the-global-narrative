@@ -3,10 +3,13 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  
+  background-color: #3355CC;
 }
 
 .pointBg {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: white;
+  opacity: 0.5;
   width: 5px;
   height: 5px;
   border-radius: 50%;
@@ -16,27 +19,27 @@
 
 .content {
   position: absolute;
-  right: 5%;
+  right: 6%;
   bottom: 50%;
   transform: translateY(50%) translateX(-15px);
   width: 800px;
   max-width: 100%;
-  padding: 40px 20px;
-  background-color: rgba(255, 255, 255, 0.3);
+  padding: 40px 40px;
   backdrop-filter: blur(5px);
 }
 .text {
-  line-height: 1.5;
-  font-size: clamp(12px, 3vw, 24px);
+  line-height: 1.7;
+  font-size: clamp(12px, 3vw, 20px);
   font-weight: 600;
-  color: #333333 !important;
+  color: #ffffff !important;
+  
 }
 
 .pointBg.active {
-  background-color: blue;
+  opacity: 1;
   transform: scale(3);
 
-  box-shadow: 0 0 10px blue;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
 }
 
 @media (max-width: 1024px) {
