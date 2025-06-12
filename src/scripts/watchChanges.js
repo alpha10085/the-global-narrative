@@ -1,16 +1,25 @@
 // src/scripts/watchChanges.js
 import { fs, getRootpath, path } from "../utils/fs.js";
 import { watch } from "chokidar";
+import { execSync } from "child_process";
 
+const gitUserName = execSync("git config user.name").toString().trim();
+if (!gitUserName) {
+  console.error(
+    'Git user.name is not set. Run `git config --global user.name "Your Name"`.'
+  );
+  process.exit(1);
+}
 const LOG_FILE = path.join(
-  getRootpath.rootSrcPath,
-  "changes",
+  getRootpath.rootPath,
+  ".tmp",
+  gitUserName,
   "file-changes.json"
 );
 
 if (!fs.existsSync(LOG_FILE)) {
   try {
-    fs.mkdirSync(path.join(getRootpath.rootSrcPath, "changes"), {
+    fs.mkdirSync(path.join(getRootpath.rootPath, ".tmp", gitUserName), {
       recursive: true,
     });
     fs.writeFileSync(LOG_FILE, JSON.stringify([], null, 2));
