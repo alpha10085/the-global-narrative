@@ -30,6 +30,7 @@ if (!fs.existsSync(LOG_FILE)) {
 
 const watchFolders = [
   ".env",
+  ".gitignore",
   "src/utils",
   "package.json",
   "next.config.mjs",
