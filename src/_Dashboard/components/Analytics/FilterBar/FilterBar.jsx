@@ -9,7 +9,7 @@ const FilterBar = ({ chartType }) => {
   const { searchParams, singleValue } = useQueryParams();
 
   const defaultValues = {
-    days: "7",
+    days: "1", // Default to "Today"
   };
 
   const filterConfigs = [
@@ -27,13 +27,13 @@ const FilterBar = ({ chartType }) => {
   return (
     <div className={`${styles.container} flex al-i-c `}>
       {filterConfigs?.map(({ key, options }) => {
-        const paramKey = key.split(".")[1];
+        const paramKey = key?.split(".")[1];
         const value = searchParams?.[key] ?? defaultValues[paramKey];
-        const isLight = theme.name === "light";
+        const isLight = theme?.name === "light";
         return (
           <div
             key={key}
-            className={`${styles.wrapper} flex al-i-c ${theme.color}`}
+            className={`${styles.wrapper} flex al-i-c ${theme?.color}`}
             style={{
               backgroundColor: isLight ? "#f5f5f5" : "#121212",
               border: `1px solid ${isLight ? "#ccc" : "#333"}`,
@@ -57,7 +57,7 @@ const FilterBar = ({ chartType }) => {
                 <option
                   key={optionValue}
                   value={optionValue}
-                  className={` ${theme.color} ${theme.background} ${theme.bord10}`}
+                  className={` ${theme?.color} ${theme?.background} ${theme?.bord10}`}
                   style={{
                     backgroundColor: isLight ? "#fff" : "#121212",
                     color: isLight ? "#000" : "#fff",

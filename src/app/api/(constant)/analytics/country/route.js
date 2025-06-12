@@ -6,10 +6,14 @@ import { insightPipelines } from "../config";
 
 export const GET = AsyncHandler(async (req, res) => {
   const query = req.query;
-  const days = parseInt(query.days || "7");
+  const days = query.days !== undefined ? parseInt(query.days) : 0;
 
   const fromDate = new Date();
-  fromDate.setDate(fromDate.getDate() - days);
+  fromDate.setHours(0, 0, 0, 0); // Start of today
+
+  if (days > 0) {
+    fromDate.setDate(fromDate.getDate() - days);
+  }
 
   const matchStage = buildMatchStage(query, fromDate);
   const chartData = await runAggregation(insightPipelines?.country, matchStage);

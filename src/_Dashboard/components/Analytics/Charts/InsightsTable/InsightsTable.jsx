@@ -15,7 +15,7 @@ const InsightsTable = ({ data = [], chartType }) => {
 
   return (
     <div
-      className={`${styles.tableWrapper} ${theme.background} ${theme.color} ${theme.bord10} showSmooth`}
+      className={`${styles.tableWrapper} ${theme.background} ${theme.color} ${theme.bord20} showSmooth`}
     >
       <div className="flex al-i-c just-sb w-100 wrap p-30 mb-20 gap20">
         <h2 className={`${styles.title} ${theme.color}`}>{title}</h2>

@@ -4,6 +4,7 @@ import ChartPie from "@/_Dashboard/components/Analytics/Charts/ChartPie/ChartPie
 import InsightsTable from "@/_Dashboard/components/Analytics/Charts/InsightsTable/InsightsTable";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import styles from "./page.module.css";
+import DeviceChart from "@/_Dashboard/components/Analytics/Charts/DeviceChart/DeviceChart";
 
 const page = async (props) => {
   const searchParams = await props.searchParams;
@@ -11,16 +12,27 @@ const page = async (props) => {
     <div className={styles.page}>
       <h1>Web Analytics</h1>
       <div className={styles.wrapper}>
-        <SSRFetcher
-          Component={ChartLine}
-          path={`/analytics/daily-traffic?days=${
-            searchParams?.["dailyTraffic"] || 7
-          }`}
-          props={{ chartType: "dailyTraffic" }}
-          options={{
-            next: { revalidate: 60 * 60 * 24 * 7, tags: ["daily-traffic"] },
-          }}
-        />
+        <div className={`${styles.charts} `}>
+          <SSRFetcher
+            Component={ChartLine}
+            path={`/analytics/daily-traffic?days=${
+              searchParams?.["dailyTraffic"] || 7
+            }`}
+            props={{ chartType: "dailyTraffic" }}
+            options={{
+              next: { revalidate: 60 * 60 * 24 * 7, tags: ["daily-traffic"] },
+            }}
+          />
+
+          <SSRFetcher
+            Component={DeviceChart}
+            path={`/analytics/devices?days=${searchParams?.["dailyTraffic"] || 7}`}
+            props={{ chartType: "devices" }}
+            options={{
+              next: { revalidate: 60 * 60 * 24 * 7, tags: ["devices"] },
+            }}
+          />
+        </div>
 
         <SSRFetcher
           Component={InsightsTable}
@@ -36,23 +48,10 @@ const page = async (props) => {
         <div className=" flex al-i-c just-sb wrap">
           <SSRFetcher
             Component={ChartBar}
-            path={`/analytics/country?days=${
-              searchParams?.["country"] || 7
-            }`}
+            path={`/analytics/country?days=${searchParams?.["country"] || 7}`}
             props={{ chartType: "country" }}
             options={{
               next: { revalidate: 60 * 60 * 24 * 7, tags: ["country"] },
-            }}
-          />
-
-          <SSRFetcher
-            Component={ChartPie}
-            path={`/analytics/devices?days=${
-              searchParams?.["devices"] || 7
-            }`}
-            props={{ chartType: "devices" }}
-            options={{
-              next: { revalidate: 60 * 60 * 24 * 7, tags: ["devices"] },
             }}
           />
         </div>
