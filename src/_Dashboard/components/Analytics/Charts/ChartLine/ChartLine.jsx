@@ -39,7 +39,7 @@ const ChartLine = ({ data, chartType }) => {
 
   return (
     <div
-      className={`${styles.card} ${theme.background} ${theme.bord10} showSmooth`}
+      className={`${styles.card} ${theme.background} ${theme.bord20} showSmooth`}
     >
       <div className="p-15">
         <div className="flex al-i-c just-sb w-100 wrap mb-20 gap20">
