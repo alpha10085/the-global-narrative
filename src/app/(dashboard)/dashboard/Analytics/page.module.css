@@ -2,6 +2,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 32px 16px;
+    overflow: hidden;
+
 }
 
 .wrapper {
@@ -12,20 +14,21 @@
   gap: 32px;
 }
 
-.chartRow {
-  display: flex;
-  align-items: stretch; 
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
 .chartContainer {
   flex: 1 1 48%;
   min-width: 280px;
   display: flex;
   flex-direction: column;
   height: 100%; 
+}
+
+
+.charts {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 15px;
+  height: 100%;
 }
 
 @media (max-width: 768px) {
@@ -42,6 +45,9 @@
   .chartContainer {
     width: 100%;
   }
+  .charts {
+  flex-wrap: wrap;
+}
 }
 
 @media (max-width: 480px) {

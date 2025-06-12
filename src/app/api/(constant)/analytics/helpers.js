@@ -202,3 +202,10 @@ export const calculateRetention = async (matchStage) => {
     }
   );
 };
+
+
+export const calcChange = (current, previous) => {
+  if (!previous) return 100; // Prevent divide-by-zero
+  const change = ((current - previous) / previous) * 100;
+  return Math.round(change);
+};
