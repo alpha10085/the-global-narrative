@@ -5,7 +5,6 @@ import { timeToSeconds } from "./time";
 
 const baseURL = `${process.env.NEXT_PUBLIC_API}/api`;
 const defaultTimeout = 10 * 60 * 1000; // 10 minutes
-// hi 
 export const csrApi = axios.create({
   baseURL,
   timeout: defaultTimeout,

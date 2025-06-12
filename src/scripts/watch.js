@@ -80,7 +80,9 @@ function logChange(type, filePath) {
     if (!stat.isFile()) return;
 
     const time = new Date().toLocaleString();
-    const relativePath = path.relative(process.cwd(), filePath);
+
+    // Normalize path with forward slashes
+    const relativePath = path.relative(process.cwd(), filePath).replace(/\\/g, "/");
 
     let data = [];
     try {
@@ -111,6 +113,7 @@ function logChange(type, filePath) {
     if (err.code !== "EISDIR") console.error("Error logging change:", err);
   }
 }
+
 
 watcher
   .on("add", (filePath) => logChange("added", filePath))
