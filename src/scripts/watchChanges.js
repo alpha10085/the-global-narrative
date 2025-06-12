@@ -20,6 +20,7 @@ if (!fs.existsSync(LOG_FILE)) {
 }
 
 const watchFolders = [
+  ".env",
   "src/utils",
   "src/package.json",
   "src/middlewares",
