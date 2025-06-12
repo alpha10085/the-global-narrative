@@ -138,8 +138,8 @@ const Example = () => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <AreaChart width={500} height={400} data={data}>
-        {/* <XAxis dataKey="name" />
-        <YAxis /> */}
+        <XAxis dataKey="name" />
+        <YAxis />
         <Tooltip />
         <Area type="linear" dataKey="day" stroke="blue" fill="#0000ff4d" />
       </AreaChart>
