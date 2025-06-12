@@ -26,7 +26,9 @@ const ChartLine = ({ data, chartType }) => {
   const labels = chartDataArr?.map((d) => d?._id);
   const dataset = chartDataArr?.map((d) => d?.count);
   const initialValue = metadata?.total;
+  console.log("🚀 ~ ChartLine ~ initialValue:", initialValue);
   const projectedValue = dataset?.length ? dataset[dataset.length - 1] + 1 : 0;
+  console.log("🚀 ~ ChartLine ~ projectedValue:", projectedValue);
 
   const chartData = {
     labels: initialValue ? ["Start", ...labels] : [...labels],
@@ -102,46 +104,33 @@ const ChartLine = ({ data, chartType }) => {
 
 const data = [
   {
-    name: "Page A",
-    day: 4000,
-    pv: 2400,
-    amt: 2400,
+    name: "jan 8",
+    day: 35,
   },
   {
-    name: "Page B",
-    day: 3000,
-    pv: 1398,
-    amt: 2210,
+    name: "jan 9",
+    day: 75,
   },
   {
-    name: "Page C",
-    day: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: "jan 10",
+
+    day: 88,
   },
   {
-    name: "Page D",
-    day: 2780,
-    pv: 3908,
-    amt: 2000,
+    name: "jan 11",
+    day: 98,
   },
   {
-    name: "Page E",
-    day: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: "jan 12",
+    day: 40,
   },
   {
-    name: "Page F",
-    day: 2390,
-    pv: 3800,
-    amt: 2500,
+    name: "jan 13",
+    day: 43,
   },
   {
-    name: "Page G",
-    day: 3490,
-    pv: 4300,
-    amt: 2100,
+    name: "jan 14",
+    day: 59,
   },
 ];
 
@@ -149,8 +138,8 @@ const Example = () => {
   return (
     <ResponsiveContainer width="100%" height="100%">
       <AreaChart width={500} height={400} data={data}>
-        <XAxis dataKey="name" />
-        <YAxis />
+        {/* <XAxis dataKey="name" />
+        <YAxis /> */}
         <Tooltip />
         <Area type="linear" dataKey="day" stroke="blue" fill="#0000ff4d" />
       </AreaChart>
