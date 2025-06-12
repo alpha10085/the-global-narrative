@@ -15,7 +15,9 @@ const SelectedMedia = ({
   callback,
   translations
 }) => {
-  const scrollHandler = useDisableScroll(true);
+  const {
+    
+  } = useDisableScroll(true);
   const { theme } = useTheme();
   const [itemsSelected, setItemsSelected] = useState(
     Array.isArray(current)

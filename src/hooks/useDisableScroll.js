@@ -42,12 +42,24 @@ const useDisableScroll = (disable = true) => {
     };
   }, [disable]);
 
-  const toggleScrollLock = () => {
+  const toggleScroll = () => {
     isLockedRef.current = !isLockedRef.current;
     updateScrollLock(isLockedRef.current);
   };
+  const disableScroll = () => {
+    isLockedRef.current = true;
+    updateScrollLock(isLockedRef.current);
+  };
+  const enableScroll = () => {
+    isLockedRef.current = false;
+    updateScrollLock(isLockedRef.current);
+  };
 
-  return toggleScrollLock;
+  return {
+    toggleScroll,
+    disableScroll,
+    enableScroll,
+  };
 };
 
 export default useDisableScroll;

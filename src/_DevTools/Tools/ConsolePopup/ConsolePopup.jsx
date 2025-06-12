@@ -4,7 +4,6 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styles from "./ConsolePopup.module.css";
 import "react18-json-view/src/style.css";
 import useLocalStorage from "@/hooks/useLocalStorage";
-import eventBus from "@/utils/eventBus";
 import LogEntry from "./LogEntry/LogEntry";
 import CloseIcon from "@mui/icons-material/Close";
 import NotInterestedIcon from "@mui/icons-material/NotInterested";
@@ -13,6 +12,7 @@ import DoNotDisturbOnIcon from "@mui/icons-material/DoNotDisturbOn";
 import ObjectID from "bson-objectid";
 import { isEqual } from "lodash";
 import { delay } from "@/utils/delay";
+import useDisableScroll from "@/hooks/useDisableScroll";
 
 function safeClone(args) {
   const handler = (arg) => {
@@ -43,6 +43,8 @@ const ConsolePopup = ({ logStore, onMouned }) => {
     isHidden: false,
     loading: true,
   });
+
+  const { disableScroll, enableScroll } = useDisableScroll(false);
 
   const [allowedTypes, setAllowedTypes] = useState([]);
 
@@ -266,14 +268,13 @@ const ConsolePopup = ({ logStore, onMouned }) => {
       })
     );
   };
-
   if (state?.loading || state.isHidden || !data?.enabled) return null;
 
   return (
     <div
       id="consolepopup"
-      onMouseEnter={() => eventBus.emit("lenis", false, ["consolepopup"])}
-      onMouseLeave={() => eventBus.emit("lenis", true)}
+      onMouseEnter={disableScroll}
+      onMouseLeave={enableScroll}
       style={{
         width: `${state.size?.width}px`,
         height: `${state.size?.height}px`,
@@ -296,7 +297,10 @@ const ConsolePopup = ({ logStore, onMouned }) => {
             </div>
             <div
               className={`${styles.closeIcon} ${styles.icon} flex-c`}
-              onClick={() => updateState({ isHidden: true })}
+              onClick={() => {
+                updateState({ isHidden: true })
+                enableScroll()
+              }}
             >
               <CloseIcon />
             </div>

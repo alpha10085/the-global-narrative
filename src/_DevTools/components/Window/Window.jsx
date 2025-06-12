@@ -74,7 +74,9 @@ function hasTrueValue(obj) {
 }
 
 const Window = ({ onClose = () => {}, show }) => {
-  const toggleScrollBar = useDisableScroll();
+    const {
+    
+  } = useDisableScroll(true);
   const [state, setState] = useDynamicState(
     list?.reduce((prev, cur, i) => {
       prev[cur?.key] = false;

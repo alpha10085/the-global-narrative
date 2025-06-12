@@ -16,9 +16,9 @@ const DevTools = ({ logStore, children }) => {
       enable_window: false,
     });
   };
+  
 
-  const { createOrUpdate, isLoading, data } =
-    useLocalStorage("dev-tools-settings");
+  const { createOrUpdate, isLoading, data } = useLocalStorage("dev-tools-settings");
 
   useEffect(() => {
     const handleKeyDown = (event) => {

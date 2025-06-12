@@ -36,7 +36,9 @@ const FileDetails = ({
     downloadLoading: false,
     removeingLoading: false,
   });
-  const scrollHandler = useDisableScroll(true);
+   const {
+    
+  } = useDisableScroll(true);
   const handleDownload = async () => {
     setState({
       downloadLoading: true,

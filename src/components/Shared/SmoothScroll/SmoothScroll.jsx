@@ -1,47 +1,12 @@
 "use client";
-import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
 import eventBus from "@/utils/eventBus";
 import Lenis from "lenis";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
-const SmoothScroll = ({ duration = 0.9 }) => {
-  const [state, setState] = useDynamicState({
-    enable: true,
-  });
-  const { enable } = state;
-  const startLenis = () =>
-    setState({
-      enable: true,
-    });
-  const stopLenis = () => {
-    setState({
-      enable: false,
-    });
-  };
-  useEffect(() => {
-    const handler = async (newval) => {
-      await delay(105);
-      if (newval) {
-        startLenis();
-      } else {
-        stopLenis();
-      }
-    };
-
-    eventBus.on("lenis", handler);
-
-    return () => {
-      eventBus.off("lenis", handler); // cleanup
-    };
-  }, []);
-
-  return enable ? <LenisComponent duration={duration} /> : null;
-};
-
-const LenisComponent = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
+const SmoothScroll = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
   const lenisRef = useRef(null);
   const rafRef = useRef(null);
   const pathname = usePathname();
@@ -76,6 +41,23 @@ const LenisComponent = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
       lenisRef.current = null;
     };
   }, [duration, lerp, smooth]);
+
+  useEffect(() => {
+    const handler = async (newval) => {
+      await delay(105);
+      if (newval) {
+        lenisRef.current.start();
+      } else {
+        lenisRef.current?.stop();
+      }
+    };
+
+    eventBus.on("lenis", handler);
+
+    return () => {
+      eventBus.off("lenis", handler); // cleanup
+    };
+  }, []);
 
   // Scroll to top smoothly on route change
   useEffect(() => {

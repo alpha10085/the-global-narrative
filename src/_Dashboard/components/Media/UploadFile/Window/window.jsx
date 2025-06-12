@@ -46,7 +46,10 @@ const Window = ({
     await delay(500);
     setfaseOutEffect(false);
   };
-  const scrollHandler = useDisableScroll(toggleWindow);
+
+    const {
+    
+  } = useDisableScroll(toggleWindow);
   const isEmpty = !files?.length && swiperSection === 1;
 
   useEffect(() => {

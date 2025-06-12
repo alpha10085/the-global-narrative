@@ -20,8 +20,9 @@ const Intro = () => {
     loaded: false,
   });
   const { event, hide, loaded } = state;
-  const ToggleDisableScroll = useDisableScroll(false);
-
+    const {
+    toggleScroll
+  } = useDisableScroll(false);
   // Conditionally block the intro
   const shouldShowIntro = pathname === "/" && !hasSeenIntro;
 
@@ -65,7 +66,7 @@ const Intro = () => {
   const handleHide = async () => {
     resetTransform();
     setState({ event: false });
-    ToggleDisableScroll();
+    toggleScroll();
     await delay(800);
     setState({ hide: true });
     hasSeenIntro = true; // Mark as seen after hide
@@ -80,7 +81,7 @@ const Intro = () => {
     }
     delay(300).then(() => {
       setState({ loaded: true });
-      ToggleDisableScroll();
+      toggleScroll();
     });
   }, [pathname]);
 
