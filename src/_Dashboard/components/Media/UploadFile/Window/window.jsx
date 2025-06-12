@@ -47,9 +47,9 @@ const Window = ({
     setfaseOutEffect(false);
   };
 
-    const {
-    
-  } = useDisableScroll(toggleWindow);
+  const {} = useDisableScroll({
+    default: toggleWindow,
+  });
   const isEmpty = !files?.length && swiperSection === 1;
 
   useEffect(() => {
@@ -61,11 +61,9 @@ const Window = ({
       <BlurBg active={open} onClick={close} />
 
       <div
-        className={` flex ${theme.bord20} column showSmooth ${
-          theme.color
-        }  ${styles.section} ${styles.wrapper} ${open && styles.open} ${
-          theme?.background
-        }  flex `}
+        className={` flex ${theme.bord20} column showSmooth ${theme.color}  ${
+          styles.section
+        } ${styles.wrapper} ${open && styles.open} ${theme?.background}  flex `}
       >
         <div className={`${styles.head} flex just-sb  gap15`}>
           <div className="flex  gap5">

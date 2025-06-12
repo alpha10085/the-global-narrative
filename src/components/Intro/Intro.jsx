@@ -22,7 +22,9 @@ const Intro = () => {
   const { event, hide, loaded } = state;
     const {
     toggleScroll
-  } = useDisableScroll(false);
+  } = useDisableScroll({
+    default:false}
+  );
   // Conditionally block the intro
   const shouldShowIntro = pathname === "/" && !hasSeenIntro;
 

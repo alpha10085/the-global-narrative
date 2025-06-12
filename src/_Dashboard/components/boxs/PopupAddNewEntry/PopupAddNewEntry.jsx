@@ -48,7 +48,9 @@ const PopupAddNewEntry = ({
 
   const {
     
-  } = useDisableScroll(true);
+  } = useDisableScroll({
+    default:true
+  });
   return (
     <section className={`${styles.layout} flex al-i-c `}>
       <div onClick={close} className={styles.BgBlur} />

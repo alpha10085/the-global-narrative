@@ -44,7 +44,10 @@ const ConsolePopup = ({ logStore, onMouned }) => {
     loading: true,
   });
 
-  const { disableScroll, enableScroll } = useDisableScroll(false);
+  const { disableScroll, enableScroll } = useDisableScroll({
+    default: false,
+    hideScollBar: false,
+  });
 
   const [allowedTypes, setAllowedTypes] = useState([]);
 
@@ -268,13 +271,32 @@ const ConsolePopup = ({ logStore, onMouned }) => {
       })
     );
   };
+  const hoverTimeout = useRef(null);
+
+  const handleMouseEnter = () => {
+    if (hoverTimeout.current) {
+      clearTimeout(hoverTimeout.current);
+    }
+    hoverTimeout.current = setTimeout(() => {
+      disableScroll(); // delay activation
+    }, 500); // adjust delay in ms
+  };
+
+  const handleMouseLeave = () => {
+    if (hoverTimeout.current) {
+      clearTimeout(hoverTimeout.current); // cancel if mouse leaves before delay ends
+      hoverTimeout.current = null;
+    }
+    enableScroll(); // revert scroll when mouse leaves
+  };
+
   if (state?.loading || state.isHidden || !data?.enabled) return null;
 
   return (
     <div
       id="consolepopup"
-      onMouseEnter={disableScroll}
-      onMouseLeave={enableScroll}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       style={{
         width: `${state.size?.width}px`,
         height: `${state.size?.height}px`,
@@ -298,8 +320,8 @@ const ConsolePopup = ({ logStore, onMouned }) => {
             <div
               className={`${styles.closeIcon} ${styles.icon} flex-c`}
               onClick={() => {
-                updateState({ isHidden: true })
-                enableScroll()
+                updateState({ isHidden: true });
+                enableScroll();
               }}
             >
               <CloseIcon />

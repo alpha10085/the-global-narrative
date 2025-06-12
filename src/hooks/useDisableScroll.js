@@ -20,7 +20,7 @@ const updateScrollLock = (lock) => {
   }
 };
 
-const useDisableScroll = (disable = true) => {
+const useDisableScroll = ({ default: disable = true }) => {
   const isLockedRef = useRef(false);
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import styles from "./Quote.module.css";
 import WordFadeIn from "@/components/Shared/Animtions/WordFadeIn/WordFadeIn";
 
 const bgImage =
-  "https://res.cloudinary.com/dpuygkgve/image/upload/v1749698570/ChatGPT_Image_Jun_12_2025_06_18_49_AM-Photoroom_1_zt7xdb.png";
+  "https://res.cloudinary.com/dpuygkgve/image/upload/v1749763391/ChatGPT_Image_Jun_12_2025_06_18_49_AM-Photoroom_1_-Picsart-AiImageEnhancer-Picsart-AiImageEnhancer_mc8n4m.png";
 const Quote = ({ data = {} }) => {
   return (
     <div className={styles.container}>
@@ -11,7 +11,10 @@ const Quote = ({ data = {} }) => {
         <WordFadeIn mode="dark" className={styles.text} text={data?.content} />
       </div>
 
-      <Img url={bgImage} className={styles.bgImage} />
+      <Img 
+      
+      disableSkeleton
+      url={bgImage} className={styles.bgImage} />
     </div>
   );
 };
