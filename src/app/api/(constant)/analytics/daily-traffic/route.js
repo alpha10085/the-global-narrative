@@ -17,7 +17,7 @@ export const GET = AsyncHandler(async (req, res) => {
   const totalUsers = await getTotalUsers(matchStage);
 
   const metadata = {
-    total: totalUsers,
+    totalUsers: totalUsers,
     days,
   };
 
