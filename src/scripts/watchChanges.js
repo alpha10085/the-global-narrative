@@ -22,7 +22,9 @@ if (!fs.existsSync(LOG_FILE)) {
 const watchFolders = [
   ".env",
   "src/utils",
-  "src/package.json",
+  "package.json",
+  "next.config.mjs",
+  "jsconfig.json",
   "src/middlewares",
   "src/lib/actions.js",
   "src/lib/tools.js",
