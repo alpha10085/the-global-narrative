@@ -1,5 +1,6 @@
 import Img from "../Shared/img/Img";
 import Link from "../Shared/Link/Link";
+import LinkTransition from "../Shared/LinkTransition/LinkTransition";
 import styles from "./MainLogo.module.css";
 
 const MainLogo = ({
@@ -8,7 +9,7 @@ const MainLogo = ({
   classNameImg = "",
 }) => {
   return (
-    <Link 
+    <LinkTransition 
     href={"/"}
     className={`${classNameWrapper} ${styles.wrapper}`}>
       <Img
@@ -25,7 +26,7 @@ const MainLogo = ({
         } ${classNameImg}`}
         url={`/main-logo-fu-white.png`}
       />
-    </Link>
+    </LinkTransition>
   );
 };
 

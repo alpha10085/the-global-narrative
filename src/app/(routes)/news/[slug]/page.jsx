@@ -5,9 +5,9 @@ import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import { ArrowBackIosIcon } from "@/components/NewsDetails/icons";
 import { formatDate } from "@/utils/date";
 import { calcReadingTime } from "@/components/NewsDetails/helpers";
-import Link from "@/components/Shared/Link/Link";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import { getOneNewsData } from "@/lib/news";
+import LinkTransition from "@/components/Shared/LinkTransition/LinkTransition";
 
 const Page = async (props) => {
   const { slug = "" } = await props.params;
@@ -19,9 +19,9 @@ const Page = async (props) => {
         {/* header */}
         <div className={styles.header}>
           <div className={`${styles.left} flex al-i-c gap15`}>
-            <Link href={"/news"} className={`${styles.arrow} flex-c`}>
+            <LinkTransition href={"/news"} className={`${styles.arrow} flex-c`}>
               <ArrowBackIosIcon />
-            </Link>
+            </LinkTransition>
             <span>Back</span>
           </div>
           <div className={styles.right}></div>

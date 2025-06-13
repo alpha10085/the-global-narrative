@@ -6,6 +6,7 @@ import { toolsMiddleware } from "@/_Backend/middlewares/tools/tools";
 import config from "@/i18n/config";
 export const GET = AsyncHandler(
   async (req, res, next) => {
+    req.query.path = (req?.query?.path || "" ).split(",")
     let pathToFile = Array.isArray(req?.query?.path)
       ? req?.query?.path
       : req?.query?.path

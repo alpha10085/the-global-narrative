@@ -3,10 +3,11 @@ import styles from "./Card.module.css";
 import Img from "@/components/Shared/img/Img";
 import Link from "@/components/Shared/Link/Link";
 import { customText } from "@/utils/text";
+import LinkTransition from "@/components/Shared/LinkTransition/LinkTransition";
 
 const Card = ({ New = {}, className = "", latest = false }) => {
   return (
-    <Link className={`${styles.card} ${className}`} href={`/news/${New?.slug}`}>
+    <LinkTransition className={`${styles.card} ${className}`} href={`/news/${New?.slug}`}>
       <div className={styles.top}>
         <div className={styles.cardOverlay}> </div>
         <Img url={New?.poster?.url} className={`${styles.image} `} />
@@ -15,7 +16,7 @@ const Card = ({ New = {}, className = "", latest = false }) => {
           <h1 className={styles.cardTitle}> {customText(New?.title, 80)}</h1>
         </div>
       </div>
-    </Link>
+    </LinkTransition>
   );
 };
 

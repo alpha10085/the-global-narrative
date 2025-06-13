@@ -8,6 +8,7 @@ import Link from "../Shared/Link/Link";
 import MainLogo from "../MainLogo/MainLogo";
 import { usePathname } from "@/hooks/useTranslations";
 import { enabledLinks } from "./helpers";
+import LinkTransition from "../Shared/LinkTransition/LinkTransition";
 
 const NavBar = () => {
   const [openMobil, setOpenMobile] = useState(false);
@@ -21,7 +22,7 @@ const NavBar = () => {
   const { pathname, pathes } = usePathname();
 
   const transparentPathes = ["/", "/news/*"];
-  const darkModePathes = ["/news/*"];
+  const darkModePathes = [];
 
   const transparentDarkLogoPathes = ["/faq"]; // example paths
   useEffect(() => {
@@ -96,7 +97,7 @@ const NavBar = () => {
           <ul className={`flex al-i-c gap40 ${styles.rightUl}`}>
             {enabledLinks?.map((val, index) => (
               <li key={index}>
-                <Link
+                <LinkTransition
                   style={{ animationDelay: `${index * 200 + 500}ms` }}
                   className={`${styles.link} 
                     ${pathes?.[0] === val?.href ? styles.active : ""}
@@ -104,7 +105,7 @@ const NavBar = () => {
                   href={val?.href}
                 >
                   {val?.text}
-                </Link>
+                </LinkTransition>
               </li>
             ))}
           </ul>

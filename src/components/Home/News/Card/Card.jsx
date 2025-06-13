@@ -1,14 +1,12 @@
 import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
-import Link from "@/components/Shared/Link/Link";
 import { formatDate } from "@/utils/date";
 import { customText } from "@/utils/text";
-import { ArrowOutwardIcon } from "../../icons";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import LinkTransition from "@/components/Shared/LinkTransition/LinkTransition";
 
 const Card = ({ delay = 0, className = "", data = {} }) => {
   return (
-    <Link
+    <LinkTransition
       style={{
         animationDelay: `${delay}s`,
       }}
@@ -26,7 +24,7 @@ const Card = ({ delay = 0, className = "", data = {} }) => {
           {customText(data?.title, 50)}
         </h1>
       </div>
-    </Link>
+    </LinkTransition>
   );
 };
 

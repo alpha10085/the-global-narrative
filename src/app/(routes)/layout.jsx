@@ -3,9 +3,8 @@ import NavBar from "@/components/NavBar/NavBar";
 import { Toaster } from "react-hot-toast";
 import DashPopup from "@/components/Auth/DashPopup/DashPopup";
 import SmoothScroll from "@/components/Shared/SmoothScroll/SmoothScroll";
-import DynamicCursor from "@/components/Shared/DynamicCursor/DynamicCursor";
 import PageAnalytics from "@/components/Shared/PageAnalytics/PageAnalytics";
-;
+
 
 export default async function RootLayout({ children }) {
 
@@ -16,7 +15,6 @@ export default async function RootLayout({ children }) {
     >
       <SmoothScroll duration={1} />
       <NavBar />
-      {/* <DynamicCursor /> */}
       <div style={{ minHeight: "100vh" }}>{children}</div>
       <Toaster />
       <DashPopup />

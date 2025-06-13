@@ -6,6 +6,7 @@ import { NextIntlClientProvider } from "next-intl";
 import DevToolsWrapper from "@/_DevTools/DevToolsWrapper";
 import defualtMetadata from "@/config/metadata";
 import { prepareLayoutContext } from "./helpers";
+import { ViewTransitions } from "next-view-transitions";
 export const metadata = defualtMetadata.metadata;
 export const viewport = defualtMetadata.viewport;
 
@@ -20,17 +21,19 @@ export default async function RootLayout({ children }) {
   } = await prepareLayoutContext();
   return (
     <ReactQuery>
-      <html lang={locale} dir={dir}>
-        <body className={`${allFonts}   ${selectedFont.className}`}>
-          <NextIntlClientProvider locale={locale} messages={messages}>
-            <DevToolsWrapper>
-              <ErrorBoundary boundary={boundary}>
-                <AuthProvider locale={locale}>{children}</AuthProvider>
-              </ErrorBoundary>
-            </DevToolsWrapper>
-          </NextIntlClientProvider>
-        </body>
-      </html>
+      <ViewTransitions>
+        <html lang={locale} dir={dir}>
+          <body className={`${allFonts}   ${selectedFont.className}`}>
+            <NextIntlClientProvider locale={locale} messages={messages}>
+              <DevToolsWrapper>
+                <ErrorBoundary boundary={boundary}>
+                  <AuthProvider locale={locale}>{children}</AuthProvider>
+                </ErrorBoundary>
+              </DevToolsWrapper>
+            </NextIntlClientProvider>
+          </body>
+        </html>
+      </ViewTransitions>
     </ReactQuery>
   );
 }

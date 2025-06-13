@@ -1,8 +1,8 @@
-import Link from "@/components/Shared/Link/Link";
 import styles from "./AboutUs.module.css";
 import { ArrowOutwardIcon } from "../icons";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import LinkTransition from "@/components/Shared/LinkTransition/LinkTransition";
 
 const AboutUs = ({ data = {} }) => {
   return (
@@ -31,7 +31,10 @@ const AboutUs = ({ data = {} }) => {
         triggerOnce
         delay={800}
       >
-        <Link href={"/about-us"} className={`${styles.link} flex-c   column`}>
+        <LinkTransition
+          href={"/about-us"}
+          className={`${styles.link} flex-c   column`}
+        >
           <span> About</span>
           <span> US</span>
 
@@ -40,7 +43,7 @@ const AboutUs = ({ data = {} }) => {
               <ArrowOutwardIcon />
             </span>
           </div>
-        </Link>
+        </LinkTransition>
       </Aos>
     </div>
   );
