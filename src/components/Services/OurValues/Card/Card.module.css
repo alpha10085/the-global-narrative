@@ -21,8 +21,8 @@
   transform: translateY(100%);
   transition: 1s;
   transition-delay: 0.5s;
-  
-    font-weight: 600;
+
+  font-weight: 600;
 }
 
 .head {
@@ -38,9 +38,9 @@
   color: var(--color100);
   transform: translateX(-100%);
   transition: 1s;
-    color: var(--color200);
-    opacity: 0.8;
-    font-weight: 400;
+  color: var(--color200);
+  opacity: 0.8;
+  font-weight: 400;
 }
 
 .container.active .index {
@@ -68,13 +68,14 @@
 
 .poster {
   width: 400px;
-  height: 550px;
+  height: 500px;
   max-height: 80vh;
 
   flex-grow: 1;
   border-radius: 20px;
   overflow: hidden;
   transition: 1.5s;
+  margin: 0 40px;
 
   transition-delay: 0.5s;
   transform: translateY(100%);
@@ -109,6 +110,7 @@
 
   .poster {
     max-height: 40vh;
+    margin: 0;
   }
 
   .content {
