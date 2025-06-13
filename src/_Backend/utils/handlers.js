@@ -8,6 +8,7 @@ import { AppError } from "./AppError";
 import mongoose from "mongoose";
 import httpStatus from "../assets/messages/httpStatus";
 import { adminPopulateHandler } from "../commons/lookup";
+import { delay } from "@/utils/delay";
 
 export const getNestedProperty = (obj, key) => {
   return (
