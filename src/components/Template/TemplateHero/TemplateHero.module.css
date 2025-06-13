@@ -40,7 +40,7 @@
   height: 100%;
   width: 100%;
 
-  background-color: var(--color200);
+  background-color: white;
 
   z-index: 10;
   position: absolute;
