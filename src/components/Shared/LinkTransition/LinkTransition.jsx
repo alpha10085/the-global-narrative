@@ -1,26 +1,25 @@
 "use client";
-import styles from "./LinkTransition.module.css";
-
 import { useTransitionRouter } from "next-view-transitions";
-import {
-  fadeInOut,
-  slideInOut,
-  slideLeftRight,
-  slideToTop,
-  zoomInOut,
-} from "./animtions";
-const LinkTransition = ({ children, ...props }) => {
+import { slideToTop } from "./animtions";
+import { useHandleherfLink } from "../Link/helpers";
+
+const LinkTransition = ({ children, href = "/", ...props }) => {
   const router = useTransitionRouter();
+  const handlers = useHandleherfLink(href);
+
+  const onClick = () => {
+    router.push(handlers.href, {
+      onTransitionReady: slideToTop,
+    });
+  };
 
   return (
     <a
+      href={handlers.href}
       onClick={(e) => {
         e.preventDefault();
-        router.push(props.href, {
-          onTransitionReady: slideToTop,
-        });
+        handlers.onClick(onClick)(e);
       }}
-      href=""
       {...props}
     >
       {children}

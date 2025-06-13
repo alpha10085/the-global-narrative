@@ -1,33 +1,15 @@
 "use client";
 
-import { useLocale } from "next-intl";
-import { getLocalizedPath } from "@/utils/locale";
-import config from "@/i18n/config";
-import { useMemo } from "react";
 import NextLink from "next/link";
+import { useHandleherfLink } from "./helpers";
 
-const Link = ({
-  onClick = () => {},
-  href, children, className, ...props }) => {
-  const locale = useLocale() || config.defaultLocale;
-
-  const localizedHref = config.route
-    ? useMemo(() => getLocalizedPath(href, locale), [href, locale])
-    : href;
+const Link = ({ onClick = () => {}, href, children, className, ...props }) => {
+  const handlers = useHandleherfLink(href);
 
   return (
     <NextLink
-      onClick={(e) => {
-        if (
-          typeof window !== "undefined" &&
-          window.location.pathname === localizedHref
-        ) {
-          e.preventDefault();
-        }
-
-        onClick()
-      }}
-      href={localizedHref}
+      onClick={handlers.onClick(onClick)}
+      href={handlers?.href}
       className={className}
       {...props}
     >
