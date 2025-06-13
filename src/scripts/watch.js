@@ -3,9 +3,7 @@ import { fs, getRootpath, path } from "../utils/fs.js";
 import { watch } from "chokidar";
 import { execSync } from "child_process";
 
-
-
-const { log:logger} = console
+const { log: logger } = console;
 const gitUserName = execSync("git config user.name").toString().trim();
 if (!gitUserName) {
   console.error(
@@ -85,7 +83,9 @@ function logChange(type, filePath) {
     const time = new Date().toLocaleString();
 
     // Normalize path with forward slashes
-    const relativePath = path.relative(process.cwd(), filePath).replace(/\\/g, "/");
+    const relativePath = path
+      .relative(process.cwd(), filePath)
+      .replace(/\\/g, "/");
 
     let data = [];
     try {
@@ -106,6 +106,7 @@ function logChange(type, filePath) {
         firstSeenAt: time,
         lastUpdatedAt: time,
         lastType: type,
+        Type: type,
         count: 1,
       });
     }
@@ -116,7 +117,6 @@ function logChange(type, filePath) {
     if (err.code !== "EISDIR") logger("Error logging change:", err);
   }
 }
-
 
 watcher
   .on("add", (filePath) => logChange("added", filePath))
