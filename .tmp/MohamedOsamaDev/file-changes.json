@@ -9,9 +9,9 @@
   {
     "file": "package.json",
     "firstSeenAt": "6/13/2025, 6:16:15 AM",
-    "lastUpdatedAt": "6/13/2025, 6:16:15 AM",
+    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
     "lastType": "changed",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/_Backend/middlewares/globels/AsyncHandler.js",
@@ -61,5 +61,68 @@
     "lastUpdatedAt": "6/13/2025, 7:28:23 AM",
     "lastType": "changed",
     "count": 14
+  },
+  {
+    "file": "src/app/(dashboard)/dashboard/analytics/page.jsx",
+    "firstSeenAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastType": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/api/(constant)/analytics/country/route.js",
+    "firstSeenAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastType": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/api/(constant)/analytics/daily-traffic/route.js",
+    "firstSeenAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastType": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/api/(constant)/analytics/devices/route.js",
+    "firstSeenAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastType": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/api/(constant)/analytics/page-views/route.js",
+    "firstSeenAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastType": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Backend/database/models/constant/rateLimit.model.js",
+    "firstSeenAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastType": "added",
+    "count": 1
+  },
+  {
+    "file": "src/_Backend/middlewares/security/honeypot.js",
+    "firstSeenAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastType": "added",
+    "count": 1
+  },
+  {
+    "file": "src/_Backend/middlewares/security/rateLimitMiddleware.js",
+    "firstSeenAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastType": "added",
+    "count": 1
+  },
+  {
+    "file": "src/_Backend/middlewares/security/recaptchaMiddleware.js",
+    "firstSeenAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastType": "added",
+    "count": 1
   }
 ]
