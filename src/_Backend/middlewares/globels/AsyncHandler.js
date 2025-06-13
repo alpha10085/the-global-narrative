@@ -55,8 +55,6 @@ export const AsyncHandler = (
       if (group) {
         cacheKey.push(coreKey);
       }
-
-      console.log("🚀 ~ return ~ cacheKeys:", cacheKey);
       // Define final response logic
       const runHandler = async () => {
         let responseVal;
@@ -91,9 +89,9 @@ export const AsyncHandler = (
       // 🧠 Use platform cache for GET requests only
       if (isGet && ttlInSeconds > 0 && !isDev) {
         const cachedHandler = unstable_cache(
-          async (isCached = {}) => {
+          async (req = {}) => {
             const data = await runHandler();
-            isCached.active = false;
+            req.notCached = true;
             return data;
           },
           cacheKey,
@@ -102,15 +100,13 @@ export const AsyncHandler = (
             tags: cacheKey,
           }
         );
-        let isCached = {
-          active: true,
-        };
-        const cachedData = await cachedHandler(isCached);
-        if (isCached.active) {
-          systemLogger("🚀 cached", req.og_url);
-        } else {
-          systemLogger("🚀 cache HIT", req.og_url);
-        }
+
+        const cachedData = await cachedHandler(req);
+        // if (isCached.active) {
+        //   systemLogger("🚀 cached", req.og_url);
+        // } else {
+        //   systemLogger("🚀 cache HIT", req.og_url);
+        // }
         return response(cachedData, 200);
       }
 
@@ -128,10 +124,14 @@ export const AsyncHandler = (
 
       return response(data, 200);
     } catch (error) {
-      systemLogger("🚨 AsyncHandler Error:", error);
       return await globalError(req, error);
     } finally {
-      systemLogger("🚀 req:", req.url);
+      systemLogger(
+        `[${new Date().toLocaleDateString()}]${
+          req?.notCached ? "" : " cached"
+        }`,
+        req.url
+      );
     }
   };
 };

@@ -45,7 +45,12 @@ const createQueryForUniqueFields = (
 };
 const defaultFunction = async (req = {}, data = {}) => {};
 
-const defaultCache = { group: false, stdTTL: "0s", relationCacheTags: [] };
+const defaultCache = {
+  group: false,
+  stdTTL: "0s",
+  relationCacheTags: [],
+  autoRevalidate: true,
+};
 
 export const insertOne = ({
   model,
