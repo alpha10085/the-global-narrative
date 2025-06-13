@@ -1,6 +1,6 @@
 
 import { AsyncHandler, csrApi } from "@/utils/api";
-import { revalidateTagAfterAction } from "./actions";
+import { revalidateTags } from "@/utils/revalidate";
 const tableAPI = async ({
   pageParam = 1,
   queryKey: [slug = "", query = {}, customFilters = {}] = [],
@@ -20,7 +20,7 @@ const GetSingleEntry = AsyncHandler(
 );
 const deleteOneEntry = AsyncHandler(async (slug, id, { tags = [] } = {}) => {
   const data = await csrApi.delete(`/${slug}/${id}`);
-  await revalidateTagAfterAction([data?.slug, id, slug, ...tags]);
+  await revalidateTags([data?.slug, id, slug, ...tags]);
   return data;
 });
 const handleDynamicFormApi = AsyncHandler(
@@ -37,7 +37,7 @@ const handleDynamicFormApi = AsyncHandler(
       isUpdateMode || type !== "collections" ? `${slug}/${id}` : slug;
     const requestMethod = isUpdateMode ? csrApi.put : csrApi.post;
     const data = await requestMethod(path, formdata);
-   await revalidateTagAfterAction([data?.data?.slug, id, slug, ...tags]);
+   await revalidateTags([data?.data?.slug, id, slug, ...tags]);
     return data;
   }
 );

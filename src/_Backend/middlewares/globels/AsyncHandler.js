@@ -8,9 +8,9 @@ import { i18nextMiddleware } from "../i18nextMiddleware/i18nextMiddleware";
 import { AppError } from "@/_Backend/utils/AppError";
 import { systemLogger } from "@/utils/consoleProxy";
 import { decodeUserAgent as decodeUserAgentFN } from "@/_Backend/utils/userAgent";
-
 import { getCoresegment } from "@/_Backend/utils/cacheHandlers";
 import { response } from "@/_Backend/utils/contextHander";
+import { revalidateTags } from "@/utils/revalidate";
 
 export const AsyncHandler = (
   originalFunction,
@@ -44,9 +44,13 @@ export const AsyncHandler = (
 
     try {
       // Cache key
-      console.log("🚀 ~ return ~ req.og_url:", req.og_url);
-      const cacheKey = [req.og_url];
+      const coreKey = getCoresegment(req.url);
+      let cacheKey = [req.og_url, ...relationCacheTags];
+      if (group) {
+        cacheKey.push(coreKey);
+      }
 
+      console.log("🚀 ~ return ~ cacheKeys:", cacheKey);
       // Define final response logic
       const runHandler = async () => {
         let responseVal;
@@ -88,7 +92,7 @@ export const AsyncHandler = (
           cacheKey,
           {
             revalidate: ttlInSeconds,
-            tags: [req?.url, ...relationCacheTags],
+            tags: cacheKey,
           }
         );
 
@@ -102,11 +106,10 @@ export const AsyncHandler = (
 
       // ✅ Trigger revalidation for mutations
       if (isMutation) {
-        const coreKey = getCoresegment(req.og_url);
         const keys = [req.og_url, coreKey, ...relationCacheTags];
         if (data?.slug) keys.push(`/api/${coreKey}/${data.slug}`);
-        // revaildatePath(keys);
-        relationCacheTags.forEach((tag) => revalidateTag(tag));
+
+        await revalidateTags(keys);
       }
 
       return response(data, 200);
