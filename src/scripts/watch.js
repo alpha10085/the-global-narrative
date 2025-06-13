@@ -2,8 +2,10 @@
 import { fs, getRootpath, path } from "../utils/fs.js";
 import { watch } from "chokidar";
 import { execSync } from "child_process";
-import { systemLogger } from "@/utils/consoleProxy.js";
 
+
+
+const { log:logger} = console
 const gitUserName = execSync("git config user.name").toString().trim();
 if (!gitUserName) {
   console.error(
@@ -73,7 +75,7 @@ const watcher = watch(watchFolders, {
   ignoreInitial: true,
 });
 
-systemLogger("👀 Watching for file changes...");
+logger("👀 Watching for file changes...");
 
 function logChange(type, filePath) {
   try {
@@ -109,9 +111,9 @@ function logChange(type, filePath) {
     }
 
     fs.writeFileSync(LOG_FILE, JSON.stringify(data, null, 2));
-    systemLogger(`[${time}] ${type.toUpperCase()}: ${relativePath}`);
+    logger(`[${time}] ${type.toUpperCase()}: ${relativePath}`);
   } catch (err) {
-    if (err.code !== "EISDIR") systemLogger("Error logging change:", err);
+    if (err.code !== "EISDIR") logger("Error logging change:", err);
   }
 }
 

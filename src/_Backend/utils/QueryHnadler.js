@@ -99,9 +99,9 @@ export const handleSearchParams = (input = {}) => {
         if (i === parts.length - 1) {
           let val = value;
 
-          if (typeof value === "string" && value.includes(",")) {
-            val = value.split(","); // Convert comma-separated values into arrays
-          }
+          // if (typeof value === "string" && value.includes(",")) {
+          //   val = value.split(","); // Convert comma-separated values into arrays
+          // }
 
           current[part] = val;
         } else {

@@ -49,7 +49,7 @@ const defaultCache = {
   group: false,
   stdTTL: "0s",
   relationCacheTags: [],
-  autoRevalidate: true,
+  revalidateKeysFN: null,
 };
 
 export const insertOne = ({
@@ -128,6 +128,9 @@ export const insertOne = ({
       };
 
       await after(req, response);
+      if (cache.revalidateKeysFN) {
+        req.cacheKeys = cache?.revalidateKeysFN(req, response);
+      }
 
       return res(
         { message: `${name} saved successfully`, data: response },
@@ -325,7 +328,12 @@ export const FindAll = ({
   allowedTo = [],
   auth = false,
   options = {},
-  cache = { group: true, stdTTL: "0s", relationCacheTags: [] },
+  cache = {
+    group: true,
+    stdTTL: "0s",
+    relationCacheTags: [],
+    keyFN: null,
+  },
   middlewares = [],
 }) => {
   return AsyncHandler(
@@ -360,6 +368,7 @@ export const FindAll = ({
         .select()
         .sort()
         .pagination();
+
       const queryFN = model.translationConfig
         ? () =>
             model.aggregateWithTranslation(apiFetcher.pipeline, {

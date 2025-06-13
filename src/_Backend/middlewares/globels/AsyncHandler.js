@@ -19,7 +19,7 @@ export const AsyncHandler = (
       stdTTL = "0s",
       group = false,
       relationCacheTags = [],
-      autoRevalidate = false,
+      keyFN = null,
     } = {},
     middlewares = [],
     allowedTo = [],
@@ -75,7 +75,12 @@ export const AsyncHandler = (
     const shouldAuth = auth || Object.keys(authConfig).length > 0;
 
     let cacheKey = [req.og_url, ...relationCacheTags];
+
     if (group) cacheKey.push(coreKey);
+
+    if (keyFN) {
+      cacheKey = [...keyFN(req)];
+    }
 
     const keys = Object.values(req?.params || {}) || [];
     if (keys.length) cacheKey.push(...keys);
@@ -116,8 +121,6 @@ export const AsyncHandler = (
 
       // Cached GET handler
       if (isGet && ttlInSeconds > 0 && !isDev) {
-
-
         const cachedHandler = unstable_cache(
           async (req = {}) => {
             const data = await runPipeline();
@@ -138,8 +141,12 @@ export const AsyncHandler = (
       // Run and respond for non-cached/mutation requests
       const data = await runPipeline();
 
-      if (isMutation && autoRevalidate) {
-        const keys = [req.og_url, coreKey, ...relationCacheTags];
+      if (isMutation) {
+        const keys = [req.og_url, ...relationCacheTags];
+        if (Array.isArray(req.cacheKeys)) {
+          keys.push(...req.cacheKeys);
+        }
+        if (group) keys.push(coreKey);
         if (data?.slug) keys.push(`/api/${coreKey}/${data.slug}`);
         await revalidateTags(keys);
       }
@@ -148,7 +155,6 @@ export const AsyncHandler = (
     } catch (error) {
       return await globalError(req, error);
     } finally {
-
       systemLogger(
         `[${new Date().toLocaleDateString()}]${
           req?.notCached === false ? "" : " cached"

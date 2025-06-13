@@ -150,7 +150,8 @@
       "intro_ph": "enter intro...",
       "contactSection": "contact section",
       "ourValues":"services section",
-      "aboutUs":"about Us Section"
+      "aboutUs":"about Us Section",
+      "contentSection":"content Section"
     },
     "filterSystem": {
       "condtions": {
@@ -178,7 +179,8 @@
       "interviews": "Interviews",
       "interviewsCategory": "Interviews category",
       "newsCategories": "News categories",
-      "testimonials": "testimonials"
+      "testimonials": "testimonials",
+      "joinUs":"join us"
     },
     "profile": {
       "displayName": "profile"

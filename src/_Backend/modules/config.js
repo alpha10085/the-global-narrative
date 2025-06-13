@@ -1,6 +1,8 @@
+
 import { aboutUsPageModel } from "../database/models/pages/about.model";
 import { clientsPageModel } from "../database/models/pages/clientsPage.model";
 import { contactUsPageModel } from "../database/models/pages/contactUs.model";
+import { joinUsPageModel } from "../database/models/pages/join-us.model";
 import { landingModel } from "../database/models/pages/landing.model";
 import { newsPageModel } from "../database/models/pages/newsPage.model";
 import { servicesPageModel } from "../database/models/pages/services.model";
@@ -13,6 +15,7 @@ import {
   ContactPageValCreate,
   ContactPageValUpdate,
 } from "./pages/contactUs.validation";
+import { joinUsValCreate, joinUsValUpdate } from "./pages/joinUs.validation";
 import { LandingValCreate, LandingValUpdate } from "./pages/landing.validation";
 import {
   NewsPageValCreate,
@@ -37,6 +40,13 @@ export const allModelsConfig = {
     validation: {
       create: AboutValCreate,
       update: AboutValUpdate,
+    },
+  },
+    "join-us": {
+    model: joinUsPageModel,
+    validation: {
+      create: joinUsValCreate,
+      update: joinUsValUpdate,
     },
   },
   "news-page": {
