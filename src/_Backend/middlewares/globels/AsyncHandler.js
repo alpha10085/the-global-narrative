@@ -1,4 +1,4 @@
-import { unstable_cache, revalidateTag } from "next/cache";
+import { unstable_cache } from "next/cache";
 import { timeToSeconds } from "@/utils/time";
 import { decodeReq, globalError } from "./request.Handlers";
 import { tokenDetector } from "../auth/tokenDetector";
@@ -13,7 +13,7 @@ import { response } from "@/_Backend/utils/contextHander";
 import { revalidateTags } from "@/utils/revalidate";
 
 export const AsyncHandler = (
-  originalFunction,
+  handler,
   {
     cache: {
       stdTTL = "0s",
@@ -36,89 +36,72 @@ export const AsyncHandler = (
 
   return async (request, context) => {
     request.cacheConfig = { group, stdTTL: ttlInSeconds, relationCacheTags };
+
     const req = await decodeReq(request, context);
-    if (decodeUserAgent) {
-      req.userAgent = await decodeUserAgentFN(req);
-    }
+    if (decodeUserAgent) req.userAgent = await decodeUserAgentFN(req);
 
     const isGet = req.method?.toUpperCase() === "GET";
-    const isMutation = ["DELETE", "PUT", "PATCH", "POST"].includes(
+    const isMutation = ["POST", "PUT", "PATCH", "DELETE"].includes(
       req.method?.toUpperCase()
     );
     const isDev = process.env.NEXT_PUBLIC_MODE === "dev";
 
-
-
     try {
-      const coreKey = getCoresegment(req.url); // cache core key => /api/users => users
-      let cacheKey = [req?.og_url, ...relationCacheTags]; // cache keys
-
-      if (group) {
-        cacheKey.push(coreKey);
-      }
+      const coreKey = getCoresegment(req.url);
+      let cacheKey = [req?.og_url, ...relationCacheTags];
+      if (group) cacheKey.push(coreKey);
       const shouldAuth = auth || Object.keys(authConfig).length > 0;
+      if (shouldAuth) cacheKey = cacheKey.map((key) => `admin-${key}`);
+
+      // Run auth middlewares first
+      const preMiddlewares = [i18nextMiddleware];
       if (shouldAuth) {
-        cacheKey = cacheKey.map((key) => `admin-${key}`);
+        preMiddlewares.push(tokenDetector(authConfig), authorized(roles));
       }
 
-
-          // Always run auth middlewares first
-    if (shouldAuth) {
-      const preMiddlewares = [tokenDetector(authConfig), authorized(roles)];
       for (const [i, mw] of preMiddlewares.entries()) {
         let nextCalled = false;
         await mw(
           req,
           () => {},
-          (error) => {
-            if (error) throw new AppError(error);
+          (err) => {
+            if (err) throw new AppError(err);
             nextCalled = true;
           }
         );
-
-        if (!nextCalled) {
-          throw new Error(
-            `Auth middleware at index ${i} did not call 'next()'`
-          );
-        }
+        if (!nextCalled)
+          throw new Error(`Auth middleware at index ${i} did not call next()`);
       }
-    }
+      // Main request pipeline
+      const runPipeline = async () => {
+        let finalResponse;
+        const sendResponse = (val) => (finalResponse = val);
 
-      // Define final response logic
-      const runHandler = async () => {
-        let responseVal;
-        const responseFn = (val) => (responseVal = val);
-
-        const allMiddlewares = [
-          i18nextMiddleware,
-
-          ...middlewares,
-          originalFunction,
-        ];
-
-        for (const [i, currentMiddleware] of allMiddlewares.entries()) {
+        const chain = [i18nextMiddleware, ...middlewares, handler];
+        for (const [i, mw] of chain.entries()) {
           let nextCalled = false;
-          await currentMiddleware(req, responseFn, (error) => {
-            if (error) throw new AppError(error);
+
+          await mw(req, sendResponse, (err) => {
+            if (err) throw new AppError(err);
             nextCalled = true;
           });
 
-          if (responseVal !== undefined) return responseVal;
-
-          if (!nextCalled)
+          if (finalResponse !== undefined) return finalResponse;
+          if (!nextCalled) {
             throw new Error(
-              `Middleware at index ${i} did not call 'next()' or set a response`
+              `Middleware at index ${i} did not call next() or send response`
             );
+          }
         }
 
-        throw new Error("No response returned by any middleware");
+        throw new Error("No middleware returned a response");
       };
 
-      // Use platform cache for GET requests only
+      // Handle GET requests with cache
       if (isGet && ttlInSeconds > 0 && !isDev) {
         const cachedHandler = unstable_cache(
           async (req = {}) => {
-            const data = await runHandler();
+            const data = await runPipeline();
             req.notCached = true;
             return data;
           },
@@ -129,19 +112,17 @@ export const AsyncHandler = (
           }
         );
 
-        const cachedData = await cachedHandler(req);
-        return response(cachedData, 200);
+        const data = await cachedHandler(req);
+        return response(data, 200);
       }
 
-      // ❌ Not GET or no cache → execute normally
-      const data = await runHandler();
+      // Non-cached or mutation requests
+      const data = await runPipeline();
 
-      // ✅ Trigger revalidation for mutations
+      // Revalidate tags on mutation
       if (isMutation && autoRevalidate) {
         const keys = [req.og_url, coreKey, ...relationCacheTags];
         if (data?.slug) keys.push(`/api/${coreKey}/${data.slug}`);
-        console.log("revalidate Tags");
-
         await revalidateTags(keys);
       }
 
