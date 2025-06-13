@@ -138,7 +138,6 @@ export const GET = AsyncHandler(
       .setOptions({
         language: req?.language,
         removeTranslations: !req.isAdmin,
-     
         admin: req.isAdmin,
       })
       .populate(populateOptions)

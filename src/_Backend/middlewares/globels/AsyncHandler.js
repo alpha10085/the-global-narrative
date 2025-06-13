@@ -36,6 +36,7 @@ export const AsyncHandler = (
     return roles.reduce((acc, role) => ({ ...acc, [role]: true }), {});
   };
 
+  const authConfig = buildAuthConfig();
   const runMiddlewares = async (req, chain) => {
     let finalResponse;
 
@@ -63,6 +64,7 @@ export const AsyncHandler = (
 
   return async (request, context) => {
     const req = await decodeReq(request, context);
+    req.notCached = false;
     const method = req.method?.toUpperCase();
     const isGet = method === "GET";
     const isMutation = ["POST", "PUT", "PATCH", "DELETE"].includes(method);
@@ -70,12 +72,15 @@ export const AsyncHandler = (
     if (decodeUserAgent) req.userAgent = await decodeUserAgentFN(req);
 
     const coreKey = getCoresegment(req.url);
-    const authConfig = buildAuthConfig();
     const shouldAuth = auth || Object.keys(authConfig).length > 0;
 
     let cacheKey = [req.og_url, ...relationCacheTags];
     if (group) cacheKey.push(coreKey);
-    if (shouldAuth) cacheKey = cacheKey.map((key) => `admin-${key}`);
+
+    const keys = Object.values(req?.params || {}) || [];
+    if (keys.length) cacheKey.push(...keys);
+    if (shouldAuth && stdTTL > 0)
+      cacheKey = cacheKey.map((key) => `admin-${key}`);
 
     req.cacheConfig = {
       group,
@@ -111,6 +116,8 @@ export const AsyncHandler = (
 
       // Cached GET handler
       if (isGet && ttlInSeconds > 0 && !isDev) {
+
+
         const cachedHandler = unstable_cache(
           async (req = {}) => {
             const data = await runPipeline();
@@ -141,9 +148,10 @@ export const AsyncHandler = (
     } catch (error) {
       return await globalError(req, error);
     } finally {
+
       systemLogger(
         `[${new Date().toLocaleDateString()}]${
-          req?.notCached ? "" : " cached"
+          req?.notCached === false ? "" : " cached"
         }`,
         req.url
       );

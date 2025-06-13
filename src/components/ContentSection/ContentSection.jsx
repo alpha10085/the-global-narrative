@@ -1,8 +1,8 @@
 import SectionTitle from "../SectionTitle/SectionTitle";
 import AnimatedParagraph from "../Shared/Animtions/AnimatedParagraph/AnimatedParagraph";
-import styles from "./AboutUs.module.css";
+import styles from "./ContentSection.module.css";
 
-const AboutUs = ({ data = {} }) => {
+const ContentSection = ({ data = {} }) => {
   const { title = "", description = "" } = data;
   return (
     <div id="active-section" data-offset="0" className={styles.container}>
@@ -20,4 +20,4 @@ const AboutUs = ({ data = {} }) => {
   );
 };
 
-export default AboutUs;
+export default ContentSection;
