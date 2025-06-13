@@ -4,6 +4,7 @@ import { contactUsModel } from "@/_Backend/database/models/contact-us";
 import { contactUsValidation } from "@/_Backend/modules/contact-us/contact-us.validation";
 import { honeypotMiddleware } from "@/_Backend/middlewares/security/honeypot";
 import { recaptchaMiddleware } from "@/_Backend/middlewares/security/recaptchaMiddleware";
+import { rateLimitMiddleware } from "@/_Backend/middlewares/security/rateLimitMiddleware";
 
 const config = {
   model: contactUsModel,
@@ -14,11 +15,18 @@ const config = {
 };
 export const GET = FindAll({
   ...config,
-  alloweTo:[enumRoles.adminRoles]
+  alloweTo: [enumRoles.adminRoles],
 });
 export const POST = insertOne({
   schemaValidation: contactUsValidation,
   alloweTo: [],
-  middlewares: [honeypotMiddleware, recaptchaMiddleware],
+  middlewares: [
+    rateLimitMiddleware({
+      limit: 3,
+      windowMs: 10 * 60 * 1000, // 3 requests per 10 minutes
+    }),
+    honeypotMiddleware,
+    recaptchaMiddleware,
+  ],
   ...config,
 });

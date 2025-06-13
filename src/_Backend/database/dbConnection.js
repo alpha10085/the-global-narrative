@@ -6,6 +6,7 @@ import fileModel from "./models/constant/file.model";
 import { errorLogModel } from "./models/constant/errorLog.model";
 import { systemLogger } from "@/utils/consoleProxy";
 import analyticsModel from "./models/constant/analytics.model";
+import RateLimitModel from "./models/constant/rateLimit.model";
 
 // collections
 import { clientModel } from "./models/clients.model";
