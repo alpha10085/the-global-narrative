@@ -16,9 +16,9 @@
   {
     "file": "src/_Backend/middlewares/globels/AsyncHandler.js",
     "firstSeenAt": "6/13/2025, 6:21:44 AM",
-    "lastUpdatedAt": "6/13/2025, 7:49:00 AM",
+    "lastUpdatedAt": "6/13/2025, 8:20:58 AM",
     "lastType": "changed",
-    "count": 38
+    "count": 46
   },
   {
     "file": "src/_Backend/utils/cacheHandlers.js",

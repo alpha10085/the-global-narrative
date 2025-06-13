@@ -27,36 +27,70 @@ export const AsyncHandler = (
     decodeUserAgent = true,
   } = {}
 ) => {
-  const roles = auth ? [...enumRoles.all, ...allowedTo] : allowedTo;
-  const authConfig = roles.reduce(
-    (acc, role) => ({ ...acc, [role]: true }),
-    {}
-  );
   const ttlInSeconds = stdTTL ? timeToSeconds(stdTTL) : 0;
+  const isDev = process.env.NEXT_PUBLIC_MODE === "dev";
+
+  const buildAuthConfig = () => {
+    if (!auth && !allowedTo.length) return {};
+    const roles = auth ? [...enumRoles.all, ...allowedTo] : allowedTo;
+    return roles.reduce((acc, role) => ({ ...acc, [role]: true }), {});
+  };
+
+  const runMiddlewares = async (req, chain) => {
+    let finalResponse;
+
+    const sendResponse = (val) => {
+      finalResponse = val;
+    };
+
+    for (const [i, mw] of chain.entries()) {
+      let nextCalled = false;
+
+      await mw(req, sendResponse, (err) => {
+        if (err) throw new AppError(err);
+        nextCalled = true;
+      });
+
+      if (finalResponse !== undefined) return finalResponse;
+      if (!nextCalled)
+        throw new Error(
+          `Middleware at index ${i} did not call next() or respond`
+        );
+    }
+
+    throw new Error("No middleware returned a response");
+  };
 
   return async (request, context) => {
-    request.cacheConfig = { group, stdTTL: ttlInSeconds, relationCacheTags };
-
     const req = await decodeReq(request, context);
+    const method = req.method?.toUpperCase();
+    const isGet = method === "GET";
+    const isMutation = ["POST", "PUT", "PATCH", "DELETE"].includes(method);
+
     if (decodeUserAgent) req.userAgent = await decodeUserAgentFN(req);
 
-    const isGet = req.method?.toUpperCase() === "GET";
-    const isMutation = ["POST", "PUT", "PATCH", "DELETE"].includes(
-      req.method?.toUpperCase()
-    );
-    const isDev = process.env.NEXT_PUBLIC_MODE === "dev";
+    const coreKey = getCoresegment(req.url);
+    const authConfig = buildAuthConfig();
+    const shouldAuth = auth || Object.keys(authConfig).length > 0;
+
+    let cacheKey = [req.og_url, ...relationCacheTags];
+    if (group) cacheKey.push(coreKey);
+    if (shouldAuth) cacheKey = cacheKey.map((key) => `admin-${key}`);
+
+    req.cacheConfig = {
+      group,
+      stdTTL: ttlInSeconds,
+      relationCacheTags,
+    };
 
     try {
-      const coreKey = getCoresegment(req.url);
-      let cacheKey = [req?.og_url, ...relationCacheTags];
-      if (group) cacheKey.push(coreKey);
-      const shouldAuth = auth || Object.keys(authConfig).length > 0;
-      if (shouldAuth) cacheKey = cacheKey.map((key) => `admin-${key}`);
-
-      // Run auth middlewares first
+      // Run built-in and auth middlewares
       const preMiddlewares = [i18nextMiddleware];
       if (shouldAuth) {
-        preMiddlewares.push(tokenDetector(authConfig), authorized(roles));
+        preMiddlewares.push(
+          tokenDetector(authConfig),
+          authorized(Object.keys(authConfig))
+        );
       }
 
       for (const [i, mw] of preMiddlewares.entries()) {
@@ -72,32 +106,10 @@ export const AsyncHandler = (
         if (!nextCalled)
           throw new Error(`Auth middleware at index ${i} did not call next()`);
       }
-      // Main request pipeline
-      const runPipeline = async () => {
-        let finalResponse;
-        const sendResponse = (val) => (finalResponse = val);
 
-        const chain = [i18nextMiddleware, ...middlewares, handler];
-        for (const [i, mw] of chain.entries()) {
-          let nextCalled = false;
+      const runPipeline = () => runMiddlewares(req, [...middlewares, handler]);
 
-          await mw(req, sendResponse, (err) => {
-            if (err) throw new AppError(err);
-            nextCalled = true;
-          });
-
-          if (finalResponse !== undefined) return finalResponse;
-          if (!nextCalled) {
-            throw new Error(
-              `Middleware at index ${i} did not call next() or send response`
-            );
-          }
-        }
-
-        throw new Error("No middleware returned a response");
-      };
-
-      // Handle GET requests with cache
+      // Cached GET handler
       if (isGet && ttlInSeconds > 0 && !isDev) {
         const cachedHandler = unstable_cache(
           async (req = {}) => {
@@ -116,10 +128,9 @@ export const AsyncHandler = (
         return response(data, 200);
       }
 
-      // Non-cached or mutation requests
+      // Run and respond for non-cached/mutation requests
       const data = await runPipeline();
 
-      // Revalidate tags on mutation
       if (isMutation && autoRevalidate) {
         const keys = [req.og_url, coreKey, ...relationCacheTags];
         if (data?.slug) keys.push(`/api/${coreKey}/${data.slug}`);
