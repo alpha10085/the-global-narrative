@@ -38,9 +38,11 @@
   color: var(--color100);
   transform: translateX(-100%);
   transition: 1s;
-  color: var(--color200);
-  opacity: 0.8;
+  color: var(--bg100);
+
+  color: rgb(81, 183, 255);
   font-weight: 400;
+  color: #69B9FF;
 }
 
 .container.active .index {
@@ -54,12 +56,12 @@
   opacity: 0;
   transition: 0.8s;
   transition-delay: 0.8s;
-  font-weight: 500;
-  color: black;
+  font-weight: 600;
+  color:#4A5B74;
 }
 
 .container.active .description {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .container:nth-child(odd) {

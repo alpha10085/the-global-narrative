@@ -43,8 +43,7 @@
 .top {
   border-radius: 80px 80px 0 0;
   padding: 50px 5% ;
-  background-color: var(--color200);
-  background-color: rgb(49, 49, 163);
+  background-color: #3971d3;
 
 
 }
