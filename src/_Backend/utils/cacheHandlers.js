@@ -28,7 +28,8 @@ export const cachPathes = (key, value, stdTTL, admin = null) => {
 export const getCachedPath = (key, admin = null) => {
   try {
     let adminKey = admin ? `-admin` : "";
-    let result = cache.get(`${key}${adminKey}`) ||
+    let result =
+      cache.get(`${key}${adminKey}`) ||
       cache.get(`${getCoresegment(key)}${adminKey}`)?.[`${key}${adminKey}`] ||
       null;
     return result;
@@ -37,11 +38,12 @@ export const getCachedPath = (key, admin = null) => {
 };
 export const revaildatePath = (keys) => {
   try {
-    let Allkeys =  [...keys,...keys?.map((key) => `${key}-admin`)].filter(Boolean);
+    let Allkeys = [...keys, ...keys?.map((key) => `${key}-admin`)].filter(
+      Boolean
+    );
     let result = cache.del(Allkeys);
     return result;
-  } catch (error) {
-  }
+  } catch (error) {}
   return null;
 };
 export const updatetTTL = (key, sttl = "1h") => {

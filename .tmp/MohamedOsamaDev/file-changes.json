@@ -1,8 +1,15 @@
 [
   {
     "file": "src/utils/api.js",
-    "firstSeenAt": "6/13/2025, 2:25:40 AM",
-    "lastUpdatedAt": "6/13/2025, 2:25:40 AM",
+    "firstSeenAt": "6/13/2025, 6:12:29 AM",
+    "lastUpdatedAt": "6/13/2025, 6:17:25 AM",
+    "lastType": "changed",
+    "count": 6
+  },
+  {
+    "file": "package.json",
+    "firstSeenAt": "6/13/2025, 6:16:15 AM",
+    "lastUpdatedAt": "6/13/2025, 6:16:15 AM",
     "lastType": "changed",
     "count": 1
   }

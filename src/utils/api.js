@@ -37,9 +37,15 @@ csrApi.interceptors.response.use(
     if (error.response) {
       switch (error.response.status) {
         case 400:
-          return Promise.reject({ message: "Bad Request", ...error.response.data });
+          return Promise.reject({
+            message: "Bad Request",
+            ...error.response.data,
+          });
         case 401:
-          return Promise.reject({ message: "Unauthorized Access", ...error.response.data });
+          return Promise.reject({
+            message: "Unauthorized Access",
+            ...error.response.data,
+          });
         case 403:
           const channel = new BroadcastChannel("auth_channel");
           channel.postMessage({ massage: "logout", path: "/log-in" });
@@ -50,11 +56,20 @@ csrApi.interceptors.response.use(
             logout: true,
           });
         case 404:
-          return Promise.reject({ message: "Resource Not Found", ...error.response.data });
+          return Promise.reject({
+            message: "Resource Not Found",
+            ...error.response.data,
+          });
         case 500:
-          return Promise.reject({ message: "Something went wrong", ...error.response.data });
+          return Promise.reject({
+            message: "Something went wrong",
+            ...error.response.data,
+          });
         default:
-          return Promise.reject({ message: "An Error Occurred", ...error.response.data });
+          return Promise.reject({
+            message: "An Error Occurred",
+            ...error.response.data,
+          });
       }
     } else if (error.request) {
       const retriedResponse = await retryRequest(error);
@@ -72,7 +87,10 @@ csrApi.interceptors.response.use(
         offline: isOffline,
       });
     } else {
-      return Promise.reject({ message: "Request Error", details: error.message });
+      return Promise.reject({
+        message: "Request Error",
+        details: error.message,
+      });
     }
   }
 );
@@ -115,13 +133,20 @@ export const ssrApi = async (url, options = {}) => {
         next:
           process.env.NEXT_PUBLIC_MODE === "dev"
             ? { revalidate: 0 }
-            : { ...next, revalidate: next.revalidate ? timeToSeconds(next.revalidate) : undefined },
+            : {
+                ...next,
+                revalidate: next.revalidate
+                  ? timeToSeconds(next.revalidate)
+                  : undefined,
+              },
       });
 
       clearTimeout(id);
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({ message: "An error occurred" }));
+        const errorData = await response
+          .json()
+          .catch(() => ({ message: "An error occurred" }));
         throw errorData;
       }
 

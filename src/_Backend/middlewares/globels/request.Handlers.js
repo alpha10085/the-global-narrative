@@ -3,8 +3,6 @@ import { deCodeRequest, response } from "@/_Backend/utils/contextHander";
 import { cookies } from "next/headers";
 import { detectJwtAndDecodeJwtFromRequest } from "../auth/decodeToken";
 import {
-  cachePath,
-  cachPathes,
   getCachedPath,
   getCoresegment,
   revaildatePath,
@@ -23,6 +21,10 @@ import { isProductionMode } from "@/config/main";
 function extractAPIPath(url = "") {
   const match = url?.match(/\/api\/.+/);
   return match ? match[0] : "/";
+}
+function extractPathAndQuery(urlString) {
+  const url = new URL(urlString);
+  return url.pathname + url.search;
 }
 /**
  * Enhances the incoming request object by adding decoded data, cookies, query parameters,
@@ -57,8 +59,8 @@ const decodeReq = async (request, context) => {
     enhancedRequest?.decoded?.role
   );
   // Extract the API path from the request URL and attach it
+  enhancedRequest.og_url = extractPathAndQuery(request?.url);
   enhancedRequest.url = extractAPIPath(request?.url);
-
   // Determine the language, defaulting to "en" if not specified in the query
   enhancedRequest.language =
     enhancedRequest?.query?.language ||

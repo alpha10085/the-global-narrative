@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "start /B node src/scripts/watch.js && next dev --turbopack",
+    "dev": "node src/scripts/dev.js",
     "build": "next build",
     "start": "next start",
     "bs": "next build && next start"
