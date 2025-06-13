@@ -107,9 +107,9 @@ export const AsyncHandler = (
         };
         const cachedData = await cachedHandler(isCached);
         if (isCached.active) {
-          systemLogger("🚀 already cached ", req.og_url);
+          systemLogger("🚀 cached", req.og_url);
         } else {
-          systemLogger("🚀  cache HIT", req.og_url);
+          systemLogger("🚀 cache HIT", req.og_url);
         }
         return response(cachedData, 200);
       }
