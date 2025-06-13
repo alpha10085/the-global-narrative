@@ -22,6 +22,7 @@ import { interviewsCategoryConfig } from "./modules/collections/interviewsCatego
 import { newsConfig } from "./modules/collections/news/news.config";
 import { newsCategoryConfig } from "./modules/collections/newsCategory/newsCategory.config";
 import { testimonialConfig } from "./modules/collections/testimonial/testimonial.config";
+import { contactUsConfig } from "./modules/collections/contact-us/contact-us.config";
 
 // import { userConfig } from "./modules/collections/user/user.config";
 const schemas = [
@@ -47,6 +48,7 @@ const schemas = [
   interviewsConfig,
   interviewsCategoryConfig,
   faqConfig,
+  contactUsConfig,
   //newsCategoryConfig,
 
   // components
