@@ -24,7 +24,6 @@ const Form = () => {
     resolver: joiResolver(letsCollaborateVal),
   });
 
-
   const handleClick = async (form) => {
     return null;
     setLoading(true);
@@ -45,54 +44,63 @@ const Form = () => {
   };
 
   return (
+    <form
+      onSubmit={handleSubmit(handleClick)}
+      className={`${styles.form}  flex column gap15`}
+    >
+      <InputText
+        name={"name"}
+        watch={watch}
+        onChange={setValue}
+        errors={errors}
+        className={styles.label}
+        placeholder={"full name"}
+        inputClassName={` ${styles.labelinput}`}
+      />
 
-      <form
-        onSubmit={handleSubmit(handleClick)}
-        className={`${styles.form}  flex column gap15`}
-      >
-        <InputText
-          name={"name"}
-          watch={watch}
-          onChange={setValue}
-          errors={errors}
-          className={styles.label}
-          placeholder={"full name"}
-          inputClassName={` ${styles.labelinput}`}
-        />
+      <InputText
+        name={"email"}
+        watch={watch}
+        errors={errors}
+        className={styles.label}
+        placeholder={"email"}
+        onChange={setValue}
+        inputClassName={` ${styles.labelinput}`}
+      />
+      <InputText
+        name={"confirm_email"}
+        watch={watch}
+        errors={errors}
+        className={styles.label}
+        placeholder={"confirm email"}
+        onChange={setValue}
+        inputClassName={` ${styles.labelinput}`}
+      />
+      
+      <InputText
+        name={"phone"}
+        watch={watch}
+        errors={errors}
+        className={styles.label}
+        placeholder={"phone number"}
+        onChange={setValue}
+        inputClassName={` ${styles.labelinput}`}
+      />
 
-        <InputText
-          name={"email"}
-          watch={watch}
-          errors={errors}
-          className={styles.label}
-          placeholder={"email"}
-          onChange={setValue}
-          inputClassName={` ${styles.labelinput}`}
-        />
-        <InputText
-          name={"phone"}
-          watch={watch}
-          errors={errors}
-          className={styles.label}
-          placeholder={"phone number"}
-          onChange={setValue}
-          inputClassName={` ${styles.labelinput}`}
-        />
-
-        <InputText
-          name={"message"}
-          watch={watch}
-          errors={errors}
-          className={`${styles.label}`}
-          placeholder={"message"}
-          inputClassName={`${styles.messageInput} ${styles.labelinput}`}
-          onChange={setValue}
-          type="textarea"
-        />
-        <button type="submit" className={styles.btnsubmut}>
-          send
-        </button>
-      </form>
+      <InputText
+        name={"message"}
+        watch={watch}
+        errors={errors}
+        className={`${styles.label}`}
+        placeholder={"message"}
+        inputClassName={`${styles.messageInput} ${styles.labelinput}`}
+        onChange={setValue}
+        type="textarea"
+      />
+      <button type="submit" className={styles.btnsubmut}>
+        send
+      </button>
+    </form>
   );
 };
 

@@ -2,6 +2,7 @@ import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
 import { FindAll, insertOne } from "@/_Backend/utils/handlers";
 import { contactUsModel } from "@/_Backend/database/models/contact-us";
 import { contactUsValidation } from "@/_Backend/modules/contact-us/contact-us.validation";
+import { honeypotMiddleware } from "@/_Backend/middlewares/security/honeypot";
 
 const config = {
   model: contactUsModel,
@@ -17,5 +18,6 @@ export const GET = FindAll({
 export const POST = insertOne({
   schemaValidation: contactUsValidation,
   alloweTo: [],
+  middlewares: [honeypotMiddleware],
   ...config,
 });
