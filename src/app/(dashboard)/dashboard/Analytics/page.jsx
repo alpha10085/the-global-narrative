@@ -16,7 +16,7 @@ const page = async (props) => {
           <SSRFetcher
             Component={ChartLine}
             path={`/analytics/daily-traffic?days=${
-              searchParams?.["dailyTraffic"] || 7
+              searchParams?.["dailyTraffic"] || 1
             }`}
             props={{ chartType: "dailyTraffic" }}
             options={{
@@ -26,7 +26,7 @@ const page = async (props) => {
 
           <SSRFetcher
             Component={DeviceChart}
-            path={`/analytics/devices?days=${searchParams?.["dailyTraffic"] || 7}`}
+            path={`/analytics/devices?days=${searchParams?.["dailyTraffic"] || 1}`}
             props={{ chartType: "devices" }}
             options={{
               next: { revalidate: 60 * 60 * 24 * 7, tags: ["devices"] },
@@ -37,7 +37,7 @@ const page = async (props) => {
         <SSRFetcher
           Component={InsightsTable}
           path={`/analytics/page-views?days=${
-            searchParams?.["pageViews"] || 7
+            searchParams?.["pageViews"] || 1
           }`}
           props={{ chartType: "pageViews" }}
           options={{
@@ -48,7 +48,7 @@ const page = async (props) => {
         <div className=" flex al-i-c just-sb wrap">
           <SSRFetcher
             Component={ChartBar}
-            path={`/analytics/country?days=${searchParams?.["country"] || 7}`}
+            path={`/analytics/country?days=${searchParams?.["country"] || 1}`}
             props={{ chartType: "country" }}
             options={{
               next: { revalidate: 60 * 60 * 24 * 7, tags: ["country"] },

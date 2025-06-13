@@ -12,7 +12,7 @@ export const GET = AsyncHandler(async (req, res) => {
   fromDate.setHours(0, 0, 0, 0); // Start of today
 
   if (days > 0) {
-    fromDate.setDate(fromDate.getDate() - days);
+    fromDate.setDate(fromDate.getDate() - (days - 1)); 
   }
 
 
