@@ -3,6 +3,7 @@ import { FindAll, insertOne } from "@/_Backend/utils/handlers";
 import { contactUsModel } from "@/_Backend/database/models/contact-us";
 import { contactUsValidation } from "@/_Backend/modules/contact-us/contact-us.validation";
 import { honeypotMiddleware } from "@/_Backend/middlewares/security/honeypot";
+import { recaptchaMiddleware } from "@/_Backend/middlewares/security/recaptchaMiddleware";
 
 const config = {
   model: contactUsModel,
@@ -18,6 +19,6 @@ export const GET = FindAll({
 export const POST = insertOne({
   schemaValidation: contactUsValidation,
   alloweTo: [],
-  middlewares: [honeypotMiddleware],
+  middlewares: [honeypotMiddleware, recaptchaMiddleware],
   ...config,
 });

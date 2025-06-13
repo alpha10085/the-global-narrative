@@ -331,6 +331,12 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important; */
 }
 
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+
 @media (prefers-color-scheme: dark) {
   html,
   body {
