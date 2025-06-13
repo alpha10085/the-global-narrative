@@ -3,9 +3,11 @@ import cache from "./cache";
 
 export const getCoresegment = (key) => {
   try {
-    return key?.match(/^\/api\/([^\/\?\s]+)/)?.[1] || "";
-  } catch (error) {}
-  return "";
+    const match = key?.match(/^\/([^\/\?\s]+)/);
+    return match?.[1] || "";
+  } catch {
+    return "";
+  }
 };
 // export const cachePath = (key, value, stdTTL, admin = null) => {
 //   try {

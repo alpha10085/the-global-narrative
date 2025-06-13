@@ -1,31 +1,30 @@
 import connectDB from "@/_Backend/database/dbConnection";
-import { deCodeRequest, response } from "@/_Backend/utils/contextHander";
+import { deCodeRequest } from "@/_Backend/utils/contextHander";
 import { cookies } from "next/headers";
 import { detectJwtAndDecodeJwtFromRequest } from "../auth/decodeToken";
-import {
-  getCachedPath,
-  getCoresegment,
-  revaildatePath,
-} from "@/_Backend/utils/cacheHandlers";
 import { handleSearchParams } from "@/_Backend/utils/QueryHnadler";
 import httpStatus from "@/_Backend/assets/messages/httpStatus";
 import i18next from "i18next";
 import SetCookie from "@/_Backend/utils/SetCookie";
-import { errors } from "jose";
 import { enumRoles } from "@/_Backend/assets/enums/Roles_permissions";
-import { systemLogger } from "@/utils/consoleProxy";
 import { reportError } from "@/app/api/(constant)/error-logs/services";
 import { decodeUserAgent } from "@/_Backend/utils/userAgent";
 import { isProductionMode } from "@/config/main";
 
-function extractAPIPath(url = "") {
-  const match = url?.match(/\/api\/.+/);
-  return match ? match[0] : "/";
+function extractPathname(url = "") {
+  try {
+    const parsed = new URL(url);
+    const path = parsed.pathname.replace(/^\/api/, "") || "/";
+    return path;
+  } catch {
+    return "/";
+  }
 }
 function extractPathAndQuery(urlString) {
   const url = new URL(urlString);
-  return url.pathname + url.search;
+  return url.search;
 }
+
 /**
  * Enhances the incoming request object by adding decoded data, cookies, query parameters,
  * and other useful properties for further processing.
@@ -59,9 +58,12 @@ const decodeReq = async (request, context) => {
     enhancedRequest?.decoded?.role
   );
   // Extract the API path from the request URL and attach it
-  enhancedRequest.og_url = extractPathAndQuery(request?.url);
-  enhancedRequest.url = extractAPIPath(request?.url);
+  enhancedRequest.url = extractPathname(request?.url);
+  enhancedRequest.og_url = `${enhancedRequest.url}${extractPathAndQuery(
+    request?.url
+  )}`;
   // Determine the language, defaulting to "en" if not specified in the query
+
   enhancedRequest.language =
     enhancedRequest?.query?.language ||
     enhancedRequest.cookies.get("locale")?.value ||
@@ -73,43 +75,6 @@ const decodeReq = async (request, context) => {
   return enhancedRequest;
 };
 
-const cacheResponse = async (req, res, next) => {
-  const { group, stdTTL, relationCacheTags } = req.cacheConfig;
-
-  // Define response handler with caching support
-  const returnResonse = (res, statusCode = 200) => {
-    const SuccessStatusCode = statusCode >= 100 && statusCode < 309;
-    if (
-      stdTTL &&
-      req?.method?.toUpperCase() === "GET" &&
-      SuccessStatusCode &&
-      process.env.NEXT_PUBLIC_MODE !== "dev"
-    ) {
-      // Cache the response body if required
-      // if (group) {
-      //   cachPathes(req?.url, res, ttlInSeconds, isAdmin);
-      // } else {
-      //   cachePath(req?.url, res, ttlInSeconds, isAdmin);
-      // }
-    }
-    if (["DELETE", "PUT", "PATCH", "POST"].includes(req.method.toUpperCase())) {
-      const corekey = getCoresegment(req?.url);
-      const keys = [req?.url, corekey, ...relationCacheTags];
-      if (res?.data?.slug) keys.push(`/api/${corekey}/${res?.data?.slug}`);
-      revaildatePath(keys);
-    }
-    return response(res, statusCode);
-  };
-  if (false && req?.method?.toUpperCase() === "GET") {
-    const cachedResponse = getCachedPath(req?.url, req?.isAdmin);
-    if (cachedResponse) {
-      systemLogger("🚀 cached");
-      return response(cachedResponse, 200);
-    }
-    systemLogger("❌ out of cache");
-  }
-  return returnResonse;
-};
 const globalError = async (req, error) => {
   const isServerError =
     error instanceof SyntaxError ||
@@ -166,4 +131,4 @@ const globalError = async (req, error) => {
   );
 };
 
-export { decodeReq, cacheResponse, globalError };
+export { decodeReq, globalError };

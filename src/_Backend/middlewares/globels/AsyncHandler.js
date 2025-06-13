@@ -46,6 +46,7 @@ export const AsyncHandler = (
       // Cache key
       const coreKey = getCoresegment(req.url);
       let cacheKey = [req.og_url, ...relationCacheTags];
+
       if (group) {
         cacheKey.push(coreKey);
       }
@@ -85,8 +86,9 @@ export const AsyncHandler = (
       // 🧠 Use platform cache for GET requests only
       if (isGet && ttlInSeconds > 0 && !isDev) {
         const cachedHandler = unstable_cache(
-          async () => {
+          async (isCached = {}) => {
             const data = await runHandler();
+            isCached.active = false;
             return data;
           },
           cacheKey,
@@ -95,9 +97,15 @@ export const AsyncHandler = (
             tags: cacheKey,
           }
         );
-
-        const cachedData = await cachedHandler();
-        systemLogger("🚀 Platform cache HIT", req.og_url);
+        let isCached = {
+          active: true,
+        };
+        const cachedData = await cachedHandler(isCached);
+        if (isCached.active) {
+          systemLogger("🚀 already cached ", req.og_url);
+        } else {
+          systemLogger("🚀  cache HIT", req.og_url);
+        }
         return response(cachedData, 200);
       }
 
@@ -108,8 +116,7 @@ export const AsyncHandler = (
       if (isMutation) {
         const keys = [req.og_url, coreKey, ...relationCacheTags];
         if (data?.slug) keys.push(`/api/${coreKey}/${data.slug}`);
-
-        await revalidateTags(keys);
+     //   revalidateTags(keys);
       }
 
       return response(data, 200);
@@ -117,7 +124,7 @@ export const AsyncHandler = (
       systemLogger("🚨 AsyncHandler Error:", error);
       return await globalError(req, error);
     } finally {
-      systemLogger("🔁 Request complete:", req.url);
+      systemLogger("🚀 req:", req.url);
     }
   };
 };

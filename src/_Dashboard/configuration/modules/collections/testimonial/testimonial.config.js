@@ -3,7 +3,7 @@ import TestimonialValidationSchema from "./testimonial.validation";
 
 export const testimonialConfig = {
   displayName: "testimonials",
-  key: "testimonial",
+  key: "testimonials",
   type: "collections",
   schema: testimonialSchema,
   validation: TestimonialValidationSchema,

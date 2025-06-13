@@ -15,6 +15,10 @@ export const GET = FindAll({
   ...config,
   allowedTo: [...enumRoles.adminRoles, "public"],
   pushToPipeLine: imageLookup("poster"),
+  cache: {
+    group: true,
+    stdTTL: "10m",
+  },
 });
 export const POST = insertOne({
   schemaValidation: testimonialValidationCreate,

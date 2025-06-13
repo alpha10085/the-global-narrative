@@ -15,12 +15,6 @@ export const getNestedProperty = (obj, key) => {
   );
 };
 
-const handleCacheOptions = ({ group, stdTTL, relationCacheTags }) => {
-  return {
-    cache: { group, stdTTL, relationCacheTags },
-  };
-};
-
 const createQueryForUniqueFields = (
   uniqueFields,
   slugValue,
@@ -50,6 +44,8 @@ const createQueryForUniqueFields = (
 };
 const defaultFunction = async (req = {}, data = {}) => {};
 
+const defaultCache = { group: false, stdTTL: "0s", relationCacheTags: [] };
+
 export const insertOne = ({
   model,
   name = "",
@@ -58,19 +54,15 @@ export const insertOne = ({
   allowedTo = [],
   auth = false,
   schemaValidation,
-  cache = {},
+  cache = defaultCache,
   middlewares = [],
   hooks = {}, // <- Define default empty object first
 }) => {
   // Destructure with fallback
-  const {
-    before = defaultFunction,
-    after = defaultFunction
-  } = hooks;
+  const { before = defaultFunction, after = defaultFunction } = hooks;
 
   return AsyncHandler(
     async (req, res) => {
-
       validation(schemaValidation)(req.body, req.params, req.query);
       const user = req.user;
 
@@ -137,7 +129,7 @@ export const insertOne = ({
       );
     },
     {
-      cache: handleCacheOptions(cache),
+      cache,
       allowedTo,
       middlewares,
       auth,
@@ -145,14 +137,13 @@ export const insertOne = ({
   );
 };
 
-
 export const FindOne = ({
   model,
   name = "",
   allowedTo = [],
   auth = false,
   publishMode = true,
-  cache = {},
+  cache = defaultCache,
   middlewares = [],
   populate = [],
   populatewithTranslation = [],
@@ -191,7 +182,7 @@ export const FindOne = ({
       return res(data, 200);
     },
     {
-      cache: handleCacheOptions(cache),
+      cache,
       middlewares,
       allowedTo,
       auth,
@@ -207,7 +198,7 @@ export const updateOne = ({
   allowedTo = [],
   auth = false,
   schemaValidation,
-  cache = {},
+  cache = defaultCache,
   middlewares = [],
 }) => {
   return AsyncHandler(
@@ -273,7 +264,7 @@ export const updateOne = ({
       );
     },
     {
-      cache: handleCacheOptions(cache),
+      cache,
       allowedTo,
       auth,
       middlewares,
@@ -286,7 +277,7 @@ export const deleteOne = ({
   name = "",
   allowedTo = [],
   auth = false,
-  cache = {},
+  cache = defaultCache,
   middlewares = [],
 }) => {
   return AsyncHandler(
@@ -310,7 +301,7 @@ export const deleteOne = ({
       return res({ message: "Deleted Successfully" }, 200);
     },
     {
-      cache: handleCacheOptions(cache),
+      cache,
       allowedTo,
       auth,
       middlewares,
@@ -328,7 +319,7 @@ export const FindAll = ({
   allowedTo = [],
   auth = false,
   options = {},
-  cache = {},
+  cache = { group: true, stdTTL: "0s", relationCacheTags: [] },
   middlewares = [],
 }) => {
   return AsyncHandler(
@@ -388,7 +379,7 @@ export const FindAll = ({
       );
     },
     {
-      cache: handleCacheOptions(cache),
+      cache,
       allowedTo,
       auth,
       middlewares,
