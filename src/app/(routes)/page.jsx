@@ -24,6 +24,7 @@ const Home = async () => {
   } = await getPage("landing");
 
   return (
+    
     <section className={styles.layout}>
       <Hero data={heroSection} />
       <FloatedSection>
