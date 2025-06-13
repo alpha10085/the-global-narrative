@@ -78,7 +78,6 @@ export const joinUsValCreate = Joi.object({
   hero: heroSection.required(),
 
   whoUsSectionSection: whoUsSectionSection.required(),
-  contentsection: contentsection.required(),
   quoteSection: contentsection.required(),
   ...CommonsVal,
 });
@@ -91,7 +90,7 @@ export const joinUsValUpdate = Joi.object({
   key: Joi.string(),
   hero: heroSection,
   whoUsSectionSection,
-  contentsection,
+
   quoteSection: contentsection,
   ...CommonsVal,
 });

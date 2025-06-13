@@ -61,19 +61,6 @@ const AboutPageValidationSchema = (locale = "en") => {
         }),
       },
     }),
-    contentsection: joiObject({
-      required: true,
-      locale,
-      body: {
-        title: joiText({ locale, min: 2, max: 20000, required: true }),
-        description: joiText({
-          locale,
-          min: 2,
-          max: 20000,
-          required: true,
-        }),
-      },
-    }),
     quoteSection: joiObject({
       required: true,
       locale,

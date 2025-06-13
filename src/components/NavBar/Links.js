@@ -33,13 +33,13 @@ export const links = [
     enabled: false,
   },
   {
-    text: "contact us",
-    href: "/contact-us",
-    enabled: true,
-  },
-    {
     text: "join us",
     href: "/join-us",
+    enabled: true,
+  },
+  {
+    text: "contact us",
+    href: "/contact-us",
     enabled: true,
   },
 ];

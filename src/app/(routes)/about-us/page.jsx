@@ -5,7 +5,7 @@ import OurValues from "@/components/AboutUs/OurValues/OurValues";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import QuoteSection from "@/components/QuoteSection/QuoteSection";
 import { getPage } from "@/lib/pages";
-import contentsection from "@/components/contentsection/contentsection";
+import ContentSection from "@/components/ContentSection/ContentSection";
 
 const Page = async (props) => {
   const {
@@ -25,7 +25,7 @@ const Page = async (props) => {
             poster={hero?.poster}
           />
         </FloatedSection>
-        <contentsection data={aboutUs} />
+        <ContentSection data={aboutUs} />
       </FloatedSection>
       <FloatedSection>
         <OurValues data={ourValues} />

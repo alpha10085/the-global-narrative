@@ -36,11 +36,7 @@ const ourValues = new Schema({
     },
   ],
 });
-// joinUs
-const contentsection = new Schema({
-  title: mongtext,
-  description: mongeDescription,
-});
+
 // quoteSection
 const quoteSection = new Schema({
   title: mongtext,
@@ -51,7 +47,7 @@ const joinUsSchema = new Schema({
   metadata: pageMetadata,
   hero: heroSection,
   whoUsSectionSection,
-  contentsection,
+  
   quoteSection,
 });
 

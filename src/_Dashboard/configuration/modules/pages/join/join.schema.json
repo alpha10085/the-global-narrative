@@ -29,23 +29,6 @@
       ]
     },
     {
-      "name": "contentsection",
-      "type": "object",
-      "label": "contentsection",
-      "fields": [
-        {
-          "name": "title",
-          "type": "text",
-          "label": "title"
-        },
-        {
-          "name": "description",
-          "type": "textarea",
-          "label": "description"
-        }
-      ]
-    },
-    {
       "name": "whoUsSectionSection",
       "type": "object",
       "label": "whoUsSectionSection",

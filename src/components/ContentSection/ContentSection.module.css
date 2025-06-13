@@ -15,6 +15,7 @@
   transform: translateY(-25px);
   min-width: max-content;
   color: var(--color500);
+  font-weight: 400;
   font-size: clamp(20px, 2vw, 40px) !important;
 }
 .description {
