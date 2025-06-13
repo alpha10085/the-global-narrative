@@ -47,14 +47,43 @@ export const AsyncHandler = (
     );
     const isDev = process.env.NEXT_PUBLIC_MODE === "dev";
 
+
+
     try {
-      // Cache key
-      const coreKey = getCoresegment(req.url);
-      let cacheKey = [req.og_url, ...relationCacheTags];
+      const coreKey = getCoresegment(req.url); // cache core key => /api/users => users
+      let cacheKey = [req?.og_url, ...relationCacheTags]; // cache keys
 
       if (group) {
         cacheKey.push(coreKey);
       }
+      const shouldAuth = auth || Object.keys(authConfig).length > 0;
+      if (shouldAuth) {
+        cacheKey = cacheKey.map((key) => `admin-${key}`);
+      }
+
+
+          // Always run auth middlewares first
+    if (shouldAuth) {
+      const preMiddlewares = [tokenDetector(authConfig), authorized(roles)];
+      for (const [i, mw] of preMiddlewares.entries()) {
+        let nextCalled = false;
+        await mw(
+          req,
+          () => {},
+          (error) => {
+            if (error) throw new AppError(error);
+            nextCalled = true;
+          }
+        );
+
+        if (!nextCalled) {
+          throw new Error(
+            `Auth middleware at index ${i} did not call 'next()'`
+          );
+        }
+      }
+    }
+
       // Define final response logic
       const runHandler = async () => {
         let responseVal;
@@ -62,8 +91,7 @@ export const AsyncHandler = (
 
         const allMiddlewares = [
           i18nextMiddleware,
-          tokenDetector(authConfig),
-          authorized(roles),
+
           ...middlewares,
           originalFunction,
         ];
@@ -86,7 +114,7 @@ export const AsyncHandler = (
         throw new Error("No response returned by any middleware");
       };
 
-      // 🧠 Use platform cache for GET requests only
+      // Use platform cache for GET requests only
       if (isGet && ttlInSeconds > 0 && !isDev) {
         const cachedHandler = unstable_cache(
           async (req = {}) => {
@@ -102,11 +130,6 @@ export const AsyncHandler = (
         );
 
         const cachedData = await cachedHandler(req);
-        // if (isCached.active) {
-        //   systemLogger("🚀 cached", req.og_url);
-        // } else {
-        //   systemLogger("🚀 cache HIT", req.og_url);
-        // }
         return response(cachedData, 200);
       }
 
