@@ -15,7 +15,12 @@ import { revalidateTags } from "@/utils/revalidate";
 export const AsyncHandler = (
   originalFunction,
   {
-    cache: { stdTTL = "0s", group = false, relationCacheTags = [] } = {},
+    cache: {
+      stdTTL = "0s",
+      group = false,
+      relationCacheTags = [],
+      autoRevalidate = false,
+    } = {},
     middlewares = [],
     allowedTo = [],
     auth = false,
@@ -113,10 +118,12 @@ export const AsyncHandler = (
       const data = await runHandler();
 
       // ✅ Trigger revalidation for mutations
-      if (isMutation) {
+      if (isMutation && autoRevalidate) {
         const keys = [req.og_url, coreKey, ...relationCacheTags];
         if (data?.slug) keys.push(`/api/${coreKey}/${data.slug}`);
-     //   revalidateTags(keys);
+        console.log("revalidate Tags");
+
+        await revalidateTags(keys);
       }
 
       return response(data, 200);
