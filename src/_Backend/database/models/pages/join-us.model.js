@@ -8,7 +8,18 @@ import {
   populateCommons,
   poster,
 } from "../constant/Commons";
-
+// Who Us Member schema
+const whoUsMember = new Schema({
+  name: mongtext,
+  jobTitle: mongtext,
+  description: mongeDescription,
+  image: poster,
+});
+// whoUsSectionSection
+const whoUsSectionSection = new Schema({
+  title: mongtext,
+  members: [whoUsMember],
+});
 // hero section
 const heroSection = new Schema({
   title: mongtext,
@@ -26,7 +37,7 @@ const ourValues = new Schema({
   ],
 });
 // joinUs
-const joinUs = new Schema({
+const contentsection = new Schema({
   title: mongtext,
   description: mongeDescription,
 });
@@ -39,8 +50,8 @@ const quoteSection = new Schema({
 const joinUsSchema = new Schema({
   metadata: pageMetadata,
   hero: heroSection,
-  ourValues,
-  joinUs,
+  whoUsSectionSection,
+  contentsection,
   quoteSection,
 });
 
@@ -51,6 +62,10 @@ joinUsSchema.pre(/^find/, function (next) {
     {
       ...populateCommons,
       path: "hero.poster",
+    },
+        {
+      path: "whoUsSectionSection.members.image",
+      ...populateCommons,
     },
   ]);
   next();

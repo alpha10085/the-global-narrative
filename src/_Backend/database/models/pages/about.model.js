@@ -9,13 +9,13 @@ import {
   poster,
 } from "../constant/Commons";
 
+
 // hero section
 const heroSection = new Schema({
   title: mongtext,
   description: mongeDescription,
   poster,
 });
-
 // ourValues
 const ourValues = new Schema({
   title: mongtext,
@@ -53,10 +53,7 @@ aboutUsSchema.pre(/^find/, function (next) {
       ...populateCommons,
       path: "hero.poster",
     },
-    {
-      path: "whoUsSectionSection.members.image",
-      ...populateCommons,
-    },
+
   ]);
   next();
 });

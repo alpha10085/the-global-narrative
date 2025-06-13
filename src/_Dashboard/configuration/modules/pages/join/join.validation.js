@@ -61,7 +61,7 @@ const AboutPageValidationSchema = (locale = "en") => {
         }),
       },
     }),
-    contentSection: joiObject({
+    contentsection: joiObject({
       required: true,
       locale,
       body: {

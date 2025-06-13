@@ -37,4 +37,9 @@ export const links = [
     href: "/contact-us",
     enabled: true,
   },
+    {
+    text: "join us",
+    href: "/join-us",
+    enabled: true,
+  },
 ];

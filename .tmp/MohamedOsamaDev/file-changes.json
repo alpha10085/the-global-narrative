@@ -135,9 +135,9 @@
   {
     "file": "src/i18n/locales/en.json",
     "firstSeenAt": "6/13/2025, 9:30:29 PM",
-    "lastUpdatedAt": "6/13/2025, 9:31:30 PM",
+    "lastUpdatedAt": "6/13/2025, 10:38:55 PM",
     "lastType": "changed",
-    "count": 2
+    "count": 3
   },
   {
     "file": "src/app/api/(constant)/files/route.js",
@@ -159,5 +159,12 @@
     "lastUpdatedAt": "6/13/2025, 10:14:11 PM",
     "lastType": "changed",
     "count": 7
+  },
+  {
+    "file": "src/components/Shared/FloatedSection/FloatedSection.jsx",
+    "firstSeenAt": "6/13/2025, 10:52:03 PM",
+    "lastUpdatedAt": "6/13/2025, 10:58:07 PM",
+    "lastType": "changed",
+    "count": 5
   }
 ]

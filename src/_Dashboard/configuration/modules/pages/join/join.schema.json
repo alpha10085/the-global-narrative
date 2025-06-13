@@ -29,9 +29,9 @@
       ]
     },
     {
-      "name": "contentSection",
+      "name": "contentsection",
       "type": "object",
-      "label": "contentSection",
+      "label": "contentsection",
       "fields": [
         {
           "name": "title",

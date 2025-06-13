@@ -7,29 +7,16 @@ import Link from "@/components/Shared/Link/Link";
 const QuoteSection = ({ data = {} }) => {
   const { title = "", description = "" } = data;
   return (
-    <Link
-      href={"/contact-us"}
-      className={`${styles.container} gap50 flex column `}
-    >
-      <SectionTitle
-        delay={600}
-        options={{
-          ["data-cursor-label"]: "GET IN Touch",
-        }}
-        title={title}
-        className={styles.title}
-      />
+    <div className={`${styles.container} gap50 flex column `}>
+      <SectionTitle delay={600} title={title} className={styles.title} />
 
       <AnimatedParagraph
-        options={{
-          ["data-cursor-label"]: "GET IN Touch",
-        }}
         text={description}
         delayPerWord={0.15} // Slower
         duration={0.8}
         className={styles.description}
       />
-    </Link>
+    </div>
   );
 };
 
