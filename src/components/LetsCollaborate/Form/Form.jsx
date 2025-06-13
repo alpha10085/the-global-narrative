@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import InputText from "@/components/Shared/inputText/inputText";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
+import { HandleContactUs } from "@/lib/ContactUs";
 
 const Form = () => {
   const [loading, setLoading] = useState(false);
@@ -37,7 +38,7 @@ const Form = () => {
     return null;
     setLoading(true);
     try {
-      toast.promise(HandleletsCollaborate(fullForm), {
+      toast.promise(HandleContactUs(fullForm), {
         loading: "sending...",
         success: (data) => {
           reset();
