@@ -5,11 +5,6 @@ import AboutUs from "@/components/Home/AboutUs/AboutUs";
 import News from "@/components/Home/News/News";
 import Testimonials from "@/components/Home/Testimonials/Testimonials";
 import GetInTouch from "@/components/Home/GetInTouch/GetInTouch";
-import WaveLines from "@/components/Shared/WaveLines/WaveLines";
-import StaticSection, {
-  CSRSection,
-} from "@/components/Home/StaticSection/StaticSection";
-import AnimatedBorderSection from "@/components/Shared/AnimatedBorderSection/AnimatedBorderSection";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import { getPage } from "@/lib/pages";
 
@@ -24,7 +19,6 @@ const Home = async () => {
   } = await getPage("landing");
 
   return (
-    
     <section className={styles.layout}>
       <Hero data={heroSection} />
       <FloatedSection>

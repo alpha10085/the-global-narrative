@@ -1,7 +1,5 @@
 import styles from "./styles.module.css";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
-
-import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import Form from "@/components/LetsCollaborate/Form/Form";
 import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
 
