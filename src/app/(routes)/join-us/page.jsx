@@ -5,7 +5,7 @@ import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import QuoteSection from "@/components/QuoteSection/QuoteSection";
 import { getPage } from "@/lib/pages";
-import ContentSection from "@/components/ContentSection/ContentSection";
+import ContentSection from "@/components/Contentection/ContentSection";
 import WhoUsSection from "@/components/AboutUs/WhoUsSection/WhoUsSection";
 
 const Page = async (props) => {

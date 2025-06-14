@@ -5,7 +5,7 @@ import OurValues from "@/components/AboutUs/OurValues/OurValues";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import QuoteSection from "@/components/QuoteSection/QuoteSection";
 import { getPage } from "@/lib/pages";
-import ContentSection from "@/components/ContentSection/ContentSection";
+import ContentSection from "@/components/Contentection/ContentSection";
 
 const Page = async (props) => {
   const {
