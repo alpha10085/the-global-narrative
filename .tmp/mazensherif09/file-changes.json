@@ -2,37 +2,37 @@
   {
     "file": "src/app/(dashboard)/dashboard/analytics/page.jsx",
     "firstSeenAt": "6/13/2025, 2:31:13 PM",
-    "lastUpdatedAt": "6/13/2025, 2:34:34 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
     "lastType": "changed",
-    "count": 2
+    "count": 3
   },
   {
     "file": "src/app/api/(constant)/analytics/daily-traffic/route.js",
     "firstSeenAt": "6/13/2025, 2:36:29 PM",
-    "lastUpdatedAt": "6/13/2025, 2:37:47 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
     "lastType": "changed",
-    "count": 2
+    "count": 3
   },
   {
     "file": "src/app/api/(constant)/analytics/page-views/route.js",
     "firstSeenAt": "6/13/2025, 2:38:04 PM",
-    "lastUpdatedAt": "6/13/2025, 2:38:04 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
     "lastType": "changed",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/app/api/(constant)/analytics/country/route.js",
     "firstSeenAt": "6/13/2025, 2:38:09 PM",
-    "lastUpdatedAt": "6/13/2025, 2:38:09 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
     "lastType": "changed",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/app/api/(constant)/analytics/devices/route.js",
     "firstSeenAt": "6/13/2025, 2:38:12 PM",
-    "lastUpdatedAt": "6/13/2025, 2:38:15 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
     "lastType": "changed",
-    "count": 2
+    "count": 3
   },
   {
     "file": "src/_Backend/middlewares/security/honeypot.js",
@@ -58,9 +58,9 @@
   {
     "file": "src/app/api/(constant)/analytics/route.js",
     "firstSeenAt": "6/13/2025, 7:52:58 PM",
-    "lastUpdatedAt": "6/13/2025, 7:52:58 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
     "lastType": "changed",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/_Backend/middlewares/security/rateLimitMiddleware.js",
@@ -91,5 +91,125 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 1
+  },
+  {
+    "file": "src/_Backend/middlewares/globels/AsyncHandler.js",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/ChartLine/ChartLine.jsx",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/ChartLine/ChartLine.module.css",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/InsightsTable/InsightsTable.jsx",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/FilterBar/FilterBar.jsx",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/MetricsHeader/MetricsHeader.jsx",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/api/(constant)/analytics/config.js",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/api/(constant)/files/route.js",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/config/metadata.js",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/utils/revalidate.js",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/InsightsTable/InsightsTable.module.css",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/MetricsHeader/MetricsHeader.module.css",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/(dashboard)/dashboard/analytics/page.module.css",
+    "firstSeenAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/components/Shared/SSRFetcher/SSRFetcher.jsx",
+    "firstSeenAt": "6/14/2025, 7:22:11 PM",
+    "lastUpdatedAt": "6/14/2025, 7:25:53 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 2
+  },
+  {
+    "file": "src/i18n/locales/en.json",
+    "firstSeenAt": "6/14/2025, 7:26:18 PM",
+    "lastUpdatedAt": "6/14/2025, 7:27:02 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 2
   }
 ]

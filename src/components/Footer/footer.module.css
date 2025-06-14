@@ -3,7 +3,7 @@
   font-family: Arial, sans-serif;
   font-size: 14px;
   z-index: 90;
-
+  overflow: hidden;
   position: relative;
   color: white;
   
@@ -30,6 +30,14 @@
 .ScoialLinks {
   margin-top: 50px;
 }
+
+.icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  filter: invert(1); 
+}
+
 
 .ScoialLinks svg:not(.TikTokLogo) {
   width: 40px;

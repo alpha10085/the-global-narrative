@@ -149,9 +149,14 @@
       "intro": "intro",
       "intro_ph": "enter intro...",
       "contactSection": "contact section",
-      "ourValues":"services section",
-      "aboutUs":"about Us Section",
-      "contentsection":"content Section"
+      "ourValues": "services section",
+      "aboutUs": "about Us Section",
+      "contentsection": "content Section",
+      "socialLinks": "socialLinks",
+      "url": "url",
+      "url_ph": "Enter logo url...",
+      "link": "link",
+      "link_ph": "Enter your platform link..."
     },
     "filterSystem": {
       "condtions": {
@@ -180,7 +185,8 @@
       "interviewsCategory": "Interviews category",
       "newsCategories": "News categories",
       "testimonials": "testimonials",
-      "joinUs":"join us"
+      "joinUs": "join us",
+      "footer" : "footer"
     },
     "profile": {
       "displayName": "profile"
