@@ -4,7 +4,7 @@ import styles from "./FilterBar.module.css";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import DateRangeOutlinedIcon from "@mui/icons-material/DateRangeOutlined";
 
-const FilterBar = ({ chartType }) => {
+const FilterBar = ({ type }) => {
   const { theme } = useTheme();
   const { searchParams, singleValue } = useQueryParams();
 
@@ -14,7 +14,7 @@ const FilterBar = ({ chartType }) => {
 
   const filterConfigs = [
     {
-      key: `${chartType}`,
+      key: `${type}`,
       options: [
         { value: "1", label: "Today" },
         { value: "7", label: "Last 7 days" },

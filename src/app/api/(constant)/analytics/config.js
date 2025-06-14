@@ -1,7 +1,7 @@
  export const trivialPaths = ["/favicon.ico", "/robots.txt", "/favicon.png"];
 
 
-  // chartTypes 
+  // data Types 
  export const insightPipelines = {
     dailyTraffic: [
       {
@@ -39,5 +39,5 @@
       { $sort: { count: -1 } },
     ],
 
-    // ADD MORE chartType 
+    // ADD MORE data Type 
   };

@@ -22,11 +22,7 @@ export const links = [
     href: "/clients",
     enabled: false,
   },
-  {
-    text: "News",
-    href: "/news",
-    enabled: true,
-  },
+
   {
     text: "media center",
     href: "/media-center",
@@ -35,6 +31,11 @@ export const links = [
   {
     text: "join us",
     href: "/join-us",
+    enabled: true,
+  },
+    {
+    text: "News",
+    href: "/news",
     enabled: true,
   },
   {

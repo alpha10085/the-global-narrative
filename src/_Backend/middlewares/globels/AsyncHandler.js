@@ -84,7 +84,7 @@ export const AsyncHandler = (
 
     const keys = Object.values(req?.params || {}) || [];
     if (keys.length) cacheKey.push(...keys);
-    if (shouldAuth && stdTTL > 0)
+    if (req.isAdmin && stdTTL > 0)
       cacheKey = cacheKey.map((key) => `admin-${key}`);
 
     req.cacheConfig = {
@@ -121,10 +121,11 @@ export const AsyncHandler = (
 
       // Cached GET handler
       if (isGet && ttlInSeconds > 0 && !isDev) {
+        req.cached = true;
         const cachedHandler = unstable_cache(
           async (req = {}) => {
             const data = await runPipeline();
-            req.notCached = true;
+            req.cached = false;
             return data;
           },
           cacheKey,
@@ -137,6 +138,7 @@ export const AsyncHandler = (
         const data = await cachedHandler(req);
         return response(data, 200);
       }
+      req.cached = false;
 
       // Run and respond for non-cached/mutation requests
       const data = await runPipeline();
@@ -155,10 +157,10 @@ export const AsyncHandler = (
     } catch (error) {
       return await globalError(req, error);
     } finally {
+      console.log(req?.notCached === false ? "" : " cached");
+
       systemLogger(
-        `[${new Date().toLocaleDateString()}]${
-          req?.notCached === false ? "" : " cached"
-        }`,
+        `[${new Date().toLocaleString()}]${req?.cached ? " cached" : ""}`,
         req.url
       );
     }

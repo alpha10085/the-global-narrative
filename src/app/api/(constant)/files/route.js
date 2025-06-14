@@ -81,7 +81,8 @@ export const DELETE = AsyncHandler(
     ).catch((err) => {});
     // Delete from DB
     await fileModel.deleteMany({ _id: { $in: ids } });
-
+    
+    
     return res({ message: "Files deleted successfully" }, 200);
   },
   {

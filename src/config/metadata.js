@@ -1,4 +1,4 @@
- const  metadata =  {
+const metadata = {
   title: process.env.NEXT_PUBLIC_project_name,
   description: "Welcome",
   other: {
@@ -6,13 +6,15 @@
     "supported-color-schemes": "light",
   },
 };
- const viewport = {
+const viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
 };
-export default {
-    metadata,
-    viewport
-}
+
+const main = {
+  metadata,
+  viewport,
+};
+export default main;

@@ -19,9 +19,7 @@
   gap: 20px;
 }
 
-.metricCard:nth-child(1) {
-  background-color: transparent !important;
-}
+
 .metricCard:nth-last-child(1) {
   border: none;
 }
@@ -48,23 +46,33 @@
 .change {
   display: flex;
   align-items: center;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
-}
+  gap: 2px;
 
+  padding: 8px 10px ;
+  border-radius: 6px;
+}
+.change svg {
+  font-size: 14px;
+  transform: translateY(-1px);
+}
 .up {
-  color: green;
+  color: rgba(0, 226, 0, 0.7);
+  background-color: rgba(0, 255, 0, 0.1);
 }
 
 .down {
-  color: red;
+  color: rgb(255, 0, 0.7);
+
+  background-color: rgba(255, 0, 0, 0.15);
 }
 
 @media (max-width: 1024px) {
   .metricCard {
     flex: 1 1 calc(50% - 12px);
     padding: 14px;
-    border-radius:  0;
+    border-radius: 0;
     border-right: none !important;
     border-bottom: 0.5px solid #333;
   }
