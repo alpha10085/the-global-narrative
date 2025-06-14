@@ -12,7 +12,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
 import { HandleContactUs } from "@/lib/ContactUs";
 
-const Form = () => {
+const Form = ({ siteKey }) => {
   const [loading, setLoading] = useState(false);
   const recaptchaRef = useRef(null);
   const {
@@ -144,11 +144,7 @@ const Form = () => {
           </button>
         </div>
         {/* reCAPTCHA (invisible) */}
-        <ReCAPTCHA
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-          size="invisible"
-          ref={recaptchaRef}
-        />
+        <ReCAPTCHA sitekey={siteKey} size="invisible" ref={recaptchaRef} />
       </form>
     </>
   );

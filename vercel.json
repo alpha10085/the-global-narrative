@@ -1,7 +1,5 @@
 {
-  "build": {
-    "env": {
-      "NPM_FLAGS": "--legacy-peer-deps"
-    }
+  "scripts": {
+    "preinstall": "npm config set legacy-peer-deps true"
   }
 }

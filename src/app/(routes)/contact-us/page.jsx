@@ -10,7 +10,7 @@ const page = async () => {
     email = "contact@silverbacks-holding.com",
     linkedIn = "https://www.linkedin.com/company/silverbacks-holding",
   } = {};
-
+const siteKey = process.env.RECAPTCHA_SITE_KEY
   return (
     <section
       id="active-section"
@@ -38,7 +38,9 @@ const page = async () => {
             <p className={styles.description}>{description}</p>
           </Aos>
         </div>
-        <Form />
+        <Form
+        siteKey={siteKey}
+        />
       </div>
     </section>
   );
