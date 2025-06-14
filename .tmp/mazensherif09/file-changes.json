@@ -75,5 +75,21 @@
     "lastUpdatedAt": "6/13/2025, 7:59:09 PM",
     "lastType": "changed",
     "count": 1
+  },
+  {
+    "file": "package.json",
+    "firstSeenAt": "6/14/2025, 3:43:37 AM",
+    "lastUpdatedAt": "6/14/2025, 3:43:37 AM",
+    "lastType": "removed",
+    "Type": "removed",
+    "count": 1
+  },
+  {
+    "file": "src/components/Shared/inputText/inputText.jsx",
+    "firstSeenAt": "6/14/2025, 3:48:50 AM",
+    "lastUpdatedAt": "6/14/2025, 3:48:50 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
   }
 ]

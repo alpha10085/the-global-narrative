@@ -102,7 +102,7 @@ const Testimonials = ({ data = {} }) => {
           }}
           modules={[Autoplay]}
         >
-          {[...data?.posts, ...data?.posts, ...data?.posts]?.map(
+          {[...data?.testimonials, ...data?.testimonials, ...data?.testimonials]?.map(
             (item, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <Card
