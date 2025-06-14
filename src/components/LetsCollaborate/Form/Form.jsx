@@ -66,6 +66,9 @@ const Form = () => {
           errors={errors}
           className={styles.label}
           placeholder={"full name"}
+          style={{
+            animationDelay: `${0.8 + 1}s`,
+          }}
           inputClassName={` ${styles.labelinput}`}
         />
 
@@ -73,6 +76,9 @@ const Form = () => {
           name={"email"}
           watch={watch}
           errors={errors}
+          style={{
+            animationDelay: `${1.2 + 1}s`,
+          }}
           className={styles.label}
           placeholder={"email"}
           onChange={setValue}
@@ -83,6 +89,9 @@ const Form = () => {
           name={"phone"}
           watch={watch}
           errors={errors}
+          style={{
+            animationDelay: `${1.4 + 1}s`,
+          }}
           className={styles.label}
           placeholder={"phone number"}
           onChange={setValue}
@@ -93,6 +102,9 @@ const Form = () => {
           name={"message"}
           watch={watch}
           errors={errors}
+          style={{
+            animationDelay: `${1.8 + 1}s`,
+          }}
           className={`${styles.label}`}
           placeholder={"message"}
           inputClassName={`${styles.messageInput} ${styles.labelinput}`}
@@ -100,37 +112,44 @@ const Form = () => {
           type="textarea"
         />
 
+        <div
+          style={{
+            textAlign: "start",
+
+            animationDelay: `${2.2 + 1}s`,
+          }}
+          className={`flex just-sb al-i-c ${styles.bottomBox}`}
+        >
+          <p className={styles.recaptchaNotice}>
+            This site is protected by reCAPTCHA and the Google{" "}
+            <a
+              href="https://policies.google.com/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy Policy
+            </a>{" "}
+            and{" "}
+            <a
+              href="https://policies.google.com/terms"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Terms of Service
+            </a>{" "}
+            apply.
+          </p>
+          <button type="submit" className={styles.btnsubmut}>
+            send
+          </button>
+        </div>
         {/* reCAPTCHA (invisible) */}
         <ReCAPTCHA
           sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
           size="invisible"
           ref={recaptchaRef}
         />
-
-        <button type="submit" className={styles.btnsubmut}>
-          send
-        </button>
       </form>
-
-      <p className={styles.recaptchaNotice}>
-        This site is protected by reCAPTCHA and the Google{" "}
-        <a
-          href="https://policies.google.com/privacy"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Privacy Policy
-        </a>{" "}
-        and{" "}
-        <a
-          href="https://policies.google.com/terms"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Terms of Service
-        </a>{" "}
-        apply.
-      </p>
     </>
   );
 };

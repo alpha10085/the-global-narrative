@@ -22,6 +22,7 @@ const InputText = ({
   errorClassName = "",
   focus: triggerFocus = false,
   inputClassName = "",
+  style = {}
 }) => {
   const [focus, setFocus] = useState(false);
   const [hide, sethide] = useState(true);
@@ -63,6 +64,7 @@ const InputText = ({
   return (
     <div
       ref={ref}
+      style={style}
       onClick={handleFoucssClick}
       className={`${styles.label} flex column gap5  ${styles?.[theme]} ${className}`}
       htmlFor={name}

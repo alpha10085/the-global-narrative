@@ -7,7 +7,7 @@ import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackgrou
 
 const page = async () => {
   const {
-    title = "Get In touch",
+    title = "Join Our Journey",
     description = "For inquiries, press inquiries, or to schedule a meeting with our team",
     email = "contact@silverbacks-holding.com",
     linkedIn = "https://www.linkedin.com/company/silverbacks-holding",
@@ -29,10 +29,10 @@ const page = async () => {
         </div>
       </div>
       <div className={`${styles.content} flex column`}>
-        <div className={`${styles.top} flex-c column`}>
-          <WordPullUpV2 delay={0.3} className={styles.title} text={title} />
+        <div className={`${styles.top} flex column`}>
+          <h1 className={styles.title}>{title}</h1>
           <Aos
-            delay={50}
+            delay={6 * 100 + 500}
             className={`${styles.AnimtionWrap} `}
             activeClassName={styles.event}
           >
