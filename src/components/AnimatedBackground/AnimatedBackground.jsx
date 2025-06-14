@@ -1,5 +1,5 @@
 "use client";
-import { Renderer, Program, Mesh, Color, Triangle } from "ogl";
+import { Renderer, Program, Mesh, Triangle } from "ogl";
 import { useEffect, useRef } from "react";
 import styles from "./AnimatedBackground.module.css";
 
@@ -59,23 +59,24 @@ const AnimatedBackground = ({
   useEffect(() => {
     if (!ctnDom.current) return;
     const ctn = ctnDom.current;
-    const renderer = new Renderer();
+    const renderer = new Renderer({ dpr: 1 });
     const gl = renderer.gl;
     gl.clearColor(1, 1, 1, 1);
 
     let program;
 
     function resize() {
-      const scale = 1;
-      renderer.setSize(ctn.offsetWidth * scale, ctn.offsetHeight * scale);
+      const { width, height } = ctn.getBoundingClientRect();
+      renderer.setSize(width, height, false);
       if (program) {
-        program.uniforms.uResolution.value = new Color(
+        program.uniforms.uResolution.value = new Float32Array([
           gl.canvas.width,
           gl.canvas.height,
-          gl.canvas.width / gl.canvas.height
-        );
+          gl.canvas.width / gl.canvas.height,
+        ]);
       }
     }
+
     window.addEventListener("resize", resize, false);
     resize();
 
@@ -85,16 +86,19 @@ const AnimatedBackground = ({
       fragment: fragmentShader,
       uniforms: {
         uTime: { value: 0 },
-        uColor: { value: new Color(...color) },
+        uColor: { value: new Float32Array(color) },
         uResolution: {
-          value: new Color(
+          value: new Float32Array([
             gl.canvas.width,
             gl.canvas.height,
-            gl.canvas.width / gl.canvas.height
-          ),
+            gl.canvas.width / gl.canvas.height,
+          ]),
         },
         uMouse: {
-          value: new Float32Array([mousePos.current.x, mousePos.current.y]),
+          value: new Float32Array([
+            mousePos.current.x,
+            mousePos.current.y,
+          ]),
         },
         uAmplitude: { value: amplitude },
         uSpeed: { value: speed },
@@ -120,6 +124,7 @@ const AnimatedBackground = ({
       program.uniforms.uMouse.value[0] = x;
       program.uniforms.uMouse.value[1] = y;
     }
+
     if (mouseReact) {
       ctn.addEventListener("mousemove", handleMouseMove);
     }
@@ -127,16 +132,14 @@ const AnimatedBackground = ({
     return () => {
       cancelAnimationFrame(animateId);
       window.removeEventListener("resize", resize);
-      if (mouseReact) {
-        ctn.removeEventListener("mousemove", handleMouseMove);
-      }
+      if (mouseReact) ctn.removeEventListener("mousemove", handleMouseMove);
       ctn.removeChild(gl.canvas);
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [color, speed, amplitude, mouseReact]);
 
-  return <div ref={ctnDom} className={`${styles.container}`} {...rest} />;
+  return <div ref={ctnDom} className={styles.container} {...rest} />;
 };
 
 export default AnimatedBackground;
