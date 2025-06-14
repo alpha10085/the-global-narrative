@@ -25,6 +25,10 @@ import { testimonialConfig } from "./modules/collections/testimonial/testimonial
 import { contactUsConfig } from "./modules/collections/contact-us/contact-us.config";
 import { joinUsConfig } from "./modules/pages/join/join.config";
 
+// componenet 
+import { footerConfig } from "./modules/components/footer/footer.config";
+
+
 // import { userConfig } from "./modules/collections/user/user.config";
 const schemas = [
   // admin config
@@ -54,6 +58,7 @@ const schemas = [
   //newsCategoryConfig,
 
   // components
+  footerConfig
 ]; // empty array for now, you can add your schemas here.
 
 export default schemas;

@@ -1,6 +1,13 @@
 import { Schema, models } from "mongoose";
 import { SingleTypeModel } from "../constant/singleType";
-import { mongeDescription, mongtext, pageMetadata, pageMetadataPopulate, populateCommons, poster } from "../constant/Commons";
+import {
+  mongeDescription,
+  mongtext,
+  pageMetadata,
+  pageMetadataPopulate,
+  populateCommons,
+  poster,
+} from "../constant/Commons";
 import { newsModel } from "../news.model";
 import { testimonialModel } from "../testimonial.model";
 
@@ -55,18 +62,6 @@ const landingSchema = new Schema({
 landingSchema.pre(/^find/, function (next) {
   const populatePipeline = [
     pageMetadataPopulate,
-     {
-      model: "news",
-      path: "newsSection.posts",
-      options: { strictPopulate: false },
-      select: "_id poster title date slug", 
-    },
-     {
-      model: "testimonial",
-      path: "testimonialSection.posts",
-      options: { strictPopulate: false },
-      select: "_id poster author jobTitle content", 
-    },
     {
       ...populateCommons,
       path: "heroSection.media",
@@ -76,7 +71,37 @@ landingSchema.pre(/^find/, function (next) {
       path: "getInTouchSection.poster",
     },
   ];
+  if (this?.options?.admin) {
+    populatePipeline.push(
+      ...[
+        {
+          path: "newsSection.posts",
+          model: "news",
+          select: {
+            _id: 1,
+            poster: 1,
+            title: 1,
+            date: 1,
+            slug: 1,
+          },
+        },
+        {
+          path: "testimonialSection.posts",
+          model: "testimonial",
+          select: {
+            _id: 1,
+            author: 1,
+            jobTitle: 1,
+            content: 1,
+            poster: 1,
+          },
+        },
+      ]
+    );
+  }
+
   this.populate(populatePipeline);
+
   next();
 });
 

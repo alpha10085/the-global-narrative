@@ -7,6 +7,7 @@ import Testimonials from "@/components/Home/Testimonials/Testimonials";
 import GetInTouch from "@/components/Home/GetInTouch/GetInTouch";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import { getPage } from "@/lib/pages";
+import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 
 const Home = async () => {
   const {
@@ -25,8 +26,26 @@ const Home = async () => {
         <AboutUs data={aboutUsSection} />
         <Quote data={quoteSection} />
       </FloatedSection>
-      <News data={newsSection} />
-      <Testimonials data={testimonialSection} />
+      <SSRFetcher
+        Component={News}
+        options={{
+          next: { revalidate: "1y", 
+          tags: newsSection?.posts || ["news"] },
+        }}
+        data={newsSection}
+        path={`/news/landing?ids=${newsSection?.posts}`}
+      />
+      <SSRFetcher
+        Component={Testimonials}
+        data={testimonialSection}
+        options={{
+          next: {
+            revalidate: "1y",
+            tags: testimonialSection?.posts || ["testimonials"],
+          },
+        }}
+        path={`/testimonials/landing?ids=${testimonialSection?.posts}`}
+      />
       <GetInTouch data={getInTouchSection} />
     </section>
   );

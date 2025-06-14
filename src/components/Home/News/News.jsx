@@ -96,7 +96,7 @@ const News = ({ data = {} }) => {
           }}
           modules={[Autoplay]}
         >
-          {[...data?.posts, ...data?.posts, ...data?.posts]?.map(
+          {[...data?.news, ...data?.news, ...data?.news]?.map(
             (item, index) => (
               <SwiperSlide key={index} className={styles.swiperSlide}>
                 <Card

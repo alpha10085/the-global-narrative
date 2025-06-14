@@ -1,4 +1,4 @@
-
+import { footerComponentModel } from "../database/models/components/footer.model";
 import { aboutUsPageModel } from "../database/models/pages/about.model";
 import { clientsPageModel } from "../database/models/pages/clientsPage.model";
 import { contactUsPageModel } from "../database/models/pages/contactUs.model";
@@ -6,6 +6,7 @@ import { joinUsPageModel } from "../database/models/pages/join-us.model";
 import { landingModel } from "../database/models/pages/landing.model";
 import { newsPageModel } from "../database/models/pages/newsPage.model";
 import { servicesPageModel } from "../database/models/pages/services.model";
+import { footerValCreate, footerValUpdate } from "./components/footer/footer.validation";
 import { AboutValCreate, AboutValUpdate } from "./pages/about.validation";
 import {
   clientsPageValCreate,
@@ -42,7 +43,7 @@ export const allModelsConfig = {
       update: AboutValUpdate,
     },
   },
-    "join-us": {
+  "join-us": {
     model: joinUsPageModel,
     validation: {
       create: joinUsValCreate,
@@ -63,7 +64,7 @@ export const allModelsConfig = {
       update: ContactPageValUpdate,
     },
   },
-  "services": {
+  services: {
     model: servicesPageModel,
     validation: {
       create: ServicesPageValCreate,
@@ -75,6 +76,13 @@ export const allModelsConfig = {
     validation: {
       create: clientsPageValCreate,
       update: clientsPageValUpdate,
+    },
+  },
+  footer: {
+    model: footerComponentModel,
+    validation: {
+      create: footerValCreate,
+      update: footerValUpdate,
     },
   },
 };

@@ -11,50 +11,29 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { ArrowBack } from "@mui/icons-material";
 import { usePathname } from "@/hooks/useTranslations";
 import { useEffect } from "react";
+import { csrApi } from "@/utils/api";
+import useAsyncQuery from "@/hooks/useAsyncQuery";
 
 const hiddenPaths = ["/contact-us"];
-const Footer = ({ data = {} }) => {
-  const dateNow = new Date().getFullYear();
-  const ScoialLinks = [
-    {
-      label: "Facebook",
-      _id: "facebook",
-      herf: "/",
-      icon: <FacebookIcon />,
-    },
-    {
-      label: "X",
-      _id: "x",
-      herf: "/",
-      icon: <XIcon />,
-    },
-    {
-      label: "Instagram",
-      _id: "instagram",
-      herf: "/",
-      icon: <InstagramIcon />,
-    },
-    {
-      label: "LinkedIn",
-      _id: "linkedin",
-      herf: "/",
-      icon: <LinkedInIcon />,
-    },
-    {
-      label: "YouTube",
-      _id: "youtube",
-      herf: "/",
-      icon: <YouTubeIcon />,
-    },
-    {
-      label: "TikTok",
-      _id: "tiktok",
-      herf: "/",
-      icon: <TikTokLogo />,
-    },
-  ];
 
+const fetchFooter = async () => {
+  const data = await csrApi.get("/components/footer");
+  return data;
+};
+
+const Footer = () => {
   const { pathname } = usePathname();
+  const dateNow = new Date().getFullYear();
+  const { data, isLoading, error } = useAsyncQuery({
+    queryKey: ["footer"],
+    queryFn: fetchFooter,
+    cache: "10m",
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+
+  // Check if data is available
+  const { socialLinks = [] } = data || {};
 
   return (
     <footer
@@ -69,14 +48,20 @@ const Footer = ({ data = {} }) => {
           <div
             className={`${styles.ScoialLinks} flex gap40 wrap just-c al-i-c`}
           >
-            {ScoialLinks?.map((val, i) => (
-              <Link
-                key={i}
-                className={styles.ScoialLink}
-                href={`/${val?.herf}`}
+            {socialLinks?.map((item, i) => (
+              <a
+                key={item?._id}
+                href={item?.link}
+                className={styles.ScoialLinks}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {val?.icon}
-              </Link>
+                <img
+                  src={item?.url}
+                  alt={`social-icon-${i}`}
+                  className={styles.icon}
+                />
+              </a>
             ))}
           </div>
         </div>
