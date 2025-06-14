@@ -62,6 +62,7 @@ const List = ({ page = {}, categories = [] }) => {
   );
 
 
+console.log(dataAfterFiltered);
 
   return (
     <div id="news-Categories" className={styles.newsContainer}>

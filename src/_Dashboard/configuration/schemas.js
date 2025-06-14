@@ -50,6 +50,7 @@ const schemas = [
   // collections
   // clientsConfig,
   newsConfig,
+  newsCategoryConfig,
   testimonialConfig,
   interviewsConfig,
   interviewsCategoryConfig,
