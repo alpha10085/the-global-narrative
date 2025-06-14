@@ -10,7 +10,7 @@ const page = async () => {
     email = "contact@silverbacks-holding.com",
     linkedIn = "https://www.linkedin.com/company/silverbacks-holding",
   } = {};
-const siteKey = process.env.RECAPTCHA_SITE_KEY
+  const siteKey = process.env.RECAPTCHA_SITE_KEY;
   return (
     <section
       id="active-section"
@@ -24,7 +24,6 @@ const siteKey = process.env.RECAPTCHA_SITE_KEY
             color={[0, 1, 1]}
             mouseReact={false}
           />
-
         </div>
       </div>
       <div className={`${styles.content} flex column`}>
@@ -38,9 +37,7 @@ const siteKey = process.env.RECAPTCHA_SITE_KEY
             <p className={styles.description}>{description}</p>
           </Aos>
         </div>
-        <Form
-        siteKey={siteKey}
-        />
+        <Form siteKey={siteKey} />
       </div>
     </section>
   );
