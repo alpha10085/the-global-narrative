@@ -1,13 +1,11 @@
 import styles from "./styles.module.css";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import { getPage } from "@/lib/pages";
 
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import Form from "@/components/LetsCollaborate/Form/Form";
+import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
 
 const page = async () => {
-   //use getPage("contact-us") 
-
   const {
     title = "Get In touch",
     description = "For inquiries, press inquiries, or to schedule a meeting with our team",
@@ -16,18 +14,33 @@ const page = async () => {
   } = {};
 
   return (
-    <section className={`${styles.section} ShowSmoothEffect`}>
-      <div className={`${styles.top} flex-c column`}>
-        <WordPullUpV2 delay={0.3} className={styles.title} text={title} />
-        <Aos
-          delay={50}
-          className={`${styles.AnimtionWrap} `}
-          activeClassName={styles.event}
-        >
-          <p className={styles.description}>{description}</p>
-        </Aos>
+    <section
+      id="active-section"
+      data-offset="-150"
+      className={`${styles.section} flex ShowSmoothEffect`}
+    >
+      <div className={styles.bgwrapper}>
+        <div className={styles.bg}>
+          <AnimatedBackground
+            speed={0.5}
+            color={[0, 1, 1]}
+            mouseReact={false}
+          />
+        </div>
       </div>
-      <Form />
+      <div className={`${styles.content} flex column`}>
+        <div className={`${styles.top} flex-c column`}>
+          <WordPullUpV2 delay={0.3} className={styles.title} text={title} />
+          <Aos
+            delay={50}
+            className={`${styles.AnimtionWrap} `}
+            activeClassName={styles.event}
+          >
+            <p className={styles.description}>{description}</p>
+          </Aos>
+        </div>
+        <Form />
+      </div>
     </section>
   );
 };

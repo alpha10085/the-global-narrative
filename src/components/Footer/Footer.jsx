@@ -9,7 +9,10 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import { ArrowBack } from "@mui/icons-material";
+import { usePathname } from "@/hooks/useTranslations";
+import { useEffect } from "react";
 
+const hiddenPaths = ["/contact-us"];
 const Footer = ({ data = {} }) => {
   const dateNow = new Date().getFullYear();
   const ScoialLinks = [
@@ -50,8 +53,16 @@ const Footer = ({ data = {} }) => {
       icon: <TikTokLogo />,
     },
   ];
+
+  const { pathname } = usePathname();
+
   return (
-    <footer id="footer-container" className={styles.footer}>
+    <footer
+      id="footer-container"
+      className={`${styles.footer} ${
+        hiddenPaths.includes(pathname) ? styles.hide : ""
+      }`}
+    >
       <div className={`${styles.top} flex al-i-c just-sb`}>
         <div className={`${styles.left}  `}>
           <MainLogo theme="dark" classNameWrapper={styles.logo} />

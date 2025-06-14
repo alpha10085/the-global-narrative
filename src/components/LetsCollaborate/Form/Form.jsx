@@ -78,15 +78,6 @@ const Form = () => {
           onChange={setValue}
           inputClassName={` ${styles.labelinput}`}
         />
-        <InputText
-          name={"confirm_email"}
-          watch={watch}
-          errors={errors}
-          className={styles.label}
-          placeholder={"confirm email"}
-          onChange={setValue}
-          inputClassName={` ${styles.labelinput}`}
-        />
 
         <InputText
           name={"phone"}

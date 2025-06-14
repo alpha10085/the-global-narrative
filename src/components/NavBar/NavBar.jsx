@@ -17,14 +17,16 @@ const NavBar = () => {
   const [navMode, setNavMode] = useState({
     transparent: true,
     darkMode: true,
-    darkLogo: false, // ✅
+    darkLogo: false,
   });
+
   const { pathname, pathes } = usePathname();
 
   const transparentPathes = ["/", "/news/*"];
   const darkModePathes = [];
+  const transparentDarkLogoPathes = [];
+  const transparentDarkModeLightLogoPathes = ["/contact-us"];
 
-  const transparentDarkLogoPathes = ["/faq"]; // example paths
   useEffect(() => {
     const matchPath = (pattern, path) => {
       const regexPattern = pattern
@@ -38,13 +40,6 @@ const NavBar = () => {
       return patterns.some((pattern) => matchPath(pattern, path));
     };
 
-    const isTransparentPath = isPathInPatterns(transparentPathes, pathname);
-    const isDarkModePath = isPathInPatterns(darkModePathes, pathname);
-    const isDarkLogoPath = isPathInPatterns(
-      transparentDarkLogoPathes,
-      pathname
-    );
-
     const updateNavModeOnScroll = () => {
       const section = document.getElementById("active-section");
       const navbar = navRef.current;
@@ -57,7 +52,24 @@ const NavBar = () => {
 
       const shouldActivate = scrollPosition + navbarHeight >= sectionTop;
 
-      if (shouldActivate) {
+      const isTransparentPath = isPathInPatterns(transparentPathes, pathname);
+      const isDarkModePath = isPathInPatterns(darkModePathes, pathname);
+      const isDarkLogoPath = isPathInPatterns(
+        transparentDarkLogoPathes,
+        pathname
+      );
+      const isDarkModeLightLogoPath = isPathInPatterns(
+        transparentDarkModeLightLogoPathes,
+        pathname
+      );
+
+      const matched =
+        isTransparentPath ||
+        isDarkLogoPath ||
+        isDarkModePath ||
+        isDarkModeLightLogoPath;
+
+      if (shouldActivate || !matched) {
         setNavMode({
           transparent: false,
           darkMode: true,
@@ -65,9 +77,13 @@ const NavBar = () => {
         });
       } else {
         setNavMode({
-          transparent: isTransparentPath || isDarkLogoPath,
-          darkMode: isDarkModePath || (!isTransparentPath && !isDarkLogoPath),
-          darkLogo: isDarkLogoPath, // ✅ enable dark logo when needed
+          transparent:
+            isTransparentPath || isDarkLogoPath || isDarkModeLightLogoPath,
+          darkMode:
+            isDarkModePath ||
+            isDarkModeLightLogoPath ||
+            (!isTransparentPath && !isDarkLogoPath),
+          darkLogo: isDarkLogoPath && !isDarkModeLightLogoPath,
         });
       }
     };
@@ -90,7 +106,7 @@ const NavBar = () => {
           `}
         >
           <MainLogo
-            theme={navMode.darkMode || navMode.darkLogo ? "light" : "dark"}
+            theme={navMode.darkLogo ? "light" : "dark"}
             classNameWrapper={styles.logo}
           />
 

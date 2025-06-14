@@ -9,7 +9,10 @@
   
 }
 
-
+.footer.hide {
+  height: 0;
+  overflow: hidden;
+}
 .logo {
   height: 100px;
 }

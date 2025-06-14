@@ -1,24 +1,29 @@
+import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
 import StaticWaveLines from "@/components/StaticWaveLines/StaticWaveLines";
-
+import styles from "./styles.module.css";
 const Page = async (props) => {
   return (
     <section
       style={{
-        minHeight: "100vh",
+        height: "120vh",
         width: "100%",
-        overflow: "hidden",
+        marginBottom: "-20vh",
       }}
-      className={`flex-c m-h-100`}
+      className={` flex  `}
     >
-      <div style={{ width: "100%", height: "600px", position: "relative" }}>
-        <StaticWaveLines
-          amplitude={1.5}
-          distance={0.2}
-          color={"blue"}
-          enableMouseInteraction={false}
-        />
+      <div className={styles.bg}>
+        <AnimatedBackground speed={0.5} color={[0, 1, 1]} mouseReact={false} />
       </div>
     </section>
   );
 };
 export default Page;
+
+{
+  /* <StaticWaveLines
+    amplitude={1.5}
+    distance={0.2}
+    color={"blue"}
+    enableMouseInteraction={false}
+  /> */
+}

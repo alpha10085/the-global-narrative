@@ -68,15 +68,12 @@ export async function shouldRecordVisit({
 
   // Filter blacklisted IPs
   if (blacklistedIPs.includes(ip)) return false;
-  systemLogger("blacklistedIPs PASS");
 
   // Filter bots
   if (BOT_UA_REGEX.test(userAgentString)) return false;
-  systemLogger("BOT_UA_REGEX PASS");
 
   // Filter trivial paths
   if (trivialPaths.includes(normalizedPath)) return false;
-  systemLogger("trivialPaths PASS");
 
   // Get local day bounds
   const { start, end } = getLocalDayBounds(timezone);
@@ -202,7 +199,6 @@ export const calculateRetention = async (matchStage) => {
     }
   );
 };
-
 
 export const calcChange = (current, previous) => {
   if (!previous) return 100; // Prevent divide-by-zero
