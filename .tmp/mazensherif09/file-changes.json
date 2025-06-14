@@ -44,9 +44,9 @@
   {
     "file": "src/_Backend/middlewares/security/recaptchaMiddleware.js",
     "firstSeenAt": "6/13/2025, 7:08:04 PM",
-    "lastUpdatedAt": "6/13/2025, 8:02:05 PM",
+    "lastUpdatedAt": "6/14/2025, 10:43:50 PM",
     "lastType": "changed",
-    "count": 5
+    "count": 11
   },
   {
     "file": "src/_Backend/database/models/constant/rateLimit.model.js",
@@ -65,9 +65,9 @@
   {
     "file": "src/_Backend/middlewares/security/rateLimitMiddleware.js",
     "firstSeenAt": "6/13/2025, 7:54:37 PM",
-    "lastUpdatedAt": "6/13/2025, 7:59:06 PM",
+    "lastUpdatedAt": "6/14/2025, 10:43:04 PM",
     "lastType": "changed",
-    "count": 8
+    "count": 9
   },
   {
     "file": "src/app/api/(constant)/tools/components/route.js",
@@ -95,10 +95,10 @@
   {
     "file": "src/_Backend/middlewares/globels/AsyncHandler.js",
     "firstSeenAt": "6/14/2025, 7:07:23 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/14/2025, 10:50:32 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 3
   },
   {
     "file": "src/_Dashboard/components/Analytics/Charts/ChartLine/ChartLine.jsx",
@@ -208,6 +208,14 @@
     "file": "src/i18n/locales/en.json",
     "firstSeenAt": "6/14/2025, 7:26:18 PM",
     "lastUpdatedAt": "6/14/2025, 7:27:02 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 2
+  },
+  {
+    "file": "src/_Backend/middlewares/globels/request.Handlers.js",
+    "firstSeenAt": "6/14/2025, 10:39:44 PM",
+    "lastUpdatedAt": "6/14/2025, 10:40:17 PM",
     "lastType": "changed",
     "Type": "changed",
     "count": 2
