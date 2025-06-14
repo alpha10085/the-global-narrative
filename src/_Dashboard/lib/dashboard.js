@@ -65,7 +65,6 @@ const deleteMultipleFiles = async (ids) => {
     });
     return data;
   } catch (error) {
-    console.log("🚀 ~ deleteMultipleFiles ~ error:", error)
     console.error("Failed to delete files", error);
     throw error;
   }

@@ -157,7 +157,6 @@ export const AsyncHandler = (
     } catch (error) {
       return await globalError(req, error);
     } finally {
-      console.log(req?.notCached === false ? "" : " cached");
 
       systemLogger(
         `[${new Date().toLocaleString()}]${req?.cached ? " cached" : ""}`,
