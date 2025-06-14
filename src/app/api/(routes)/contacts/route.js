@@ -23,7 +23,7 @@ export const POST = insertOne({
   middlewares: [
     rateLimitMiddleware({
       limit: 3,
-      windowMs: 10 * 60 * 1000, // 3 requests per 10 minutes
+      windowMs: 60 * 60 * 1000, // 3 requests per 10 minutes
     }),
     // honeypotMiddleware,
     recaptchaMiddleware,
