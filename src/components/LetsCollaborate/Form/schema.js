@@ -35,16 +35,6 @@ export const letsCollaborateVal = Joi.object({
       "string.email": "Email must be a valid email address",
       "any.required": "Email is required",
     }),
-  confirm_email: Joi.string()
-    .email({ tlds: { allow: validTLDs } })
-    .required()
-    .messages({
-      "string.base": "confirm email should be a type of text",
-      "string.empty": "confirm email cannot be empty",
-      "string.confirm_email":
-        "confirm email must be a valid confirm email address",
-      "any.required": "confirm email is required",
-    }),
   phone: Joi.string().min(2).max(100).required().messages({
     "string.base": "phone should be a type of text",
     "string.empty": "phone cannot be empty",

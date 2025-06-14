@@ -25,7 +25,7 @@ export const POST = insertOne({
       limit: 3,
       windowMs: 10 * 60 * 1000, // 3 requests per 10 minutes
     }),
-    honeypotMiddleware,
+    // honeypotMiddleware,
     recaptchaMiddleware,
   ],
   ...config,
