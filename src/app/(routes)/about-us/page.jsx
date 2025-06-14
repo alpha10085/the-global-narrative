@@ -10,7 +10,6 @@ import ContentSection from "@/components/ContentSection/ContentSection";
 const Page = async (props) => {
   const {
     hero = {},
-    whoUsSectionSection = {},
     ourValues = [],
     aboutUs = {},
     quoteSection = {},

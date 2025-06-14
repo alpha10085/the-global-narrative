@@ -18,7 +18,7 @@
   height: 100%;
 }
 .title {
-  font-size: clamp(20px, 4vw, 50px) !important;
+  font-size: clamp(23px, 4vw, 50px) !important;
   margin: 5px 0 15px;
 
   color: var(--color200);
@@ -81,6 +81,7 @@
     flex-direction: column;
     padding: 40px 5% 40px;
     gap: 20px !important;
+    justify-content: space-between;
   }
 
   .left {
@@ -94,12 +95,13 @@
   }
   .posterAos {
     width: 100%;
-    height: 30vh;
+    height: 300px;
     flex-grow: 1;
-    padding-bottom: 40px;
+    padding-bottom: 0px;
   }
   .poster {
     border-radius: 10px;
     overflow: hidden;
   }
+
 }
