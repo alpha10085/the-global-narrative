@@ -35,7 +35,6 @@ const Form = ({ siteKey }) => {
       ...form,
       recaptchaToken, // add token to form data
     };
-    return null;
     setLoading(true);
     try {
       toast.promise(HandleContactUs(fullForm), {
