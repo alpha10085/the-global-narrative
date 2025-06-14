@@ -32,7 +32,7 @@ const TemplateHero = ({
           className={styles.posterAos}
           activeClassName={styles.active}
         >
-          {<Img disableSkeleton className={styles.poster} url={poster.url} />}
+          {<Img  className={styles.poster} url={poster.url} />}
         </Aos>
       </div>
   );

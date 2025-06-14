@@ -36,16 +36,18 @@
 @media (max-width: 768px) {
   .wrapper {
     flex-direction: column;
-    gap: 20px !important;
+    gap: 0px !important;
   }
   .container {
-    padding: 5vh 0;
+    padding: 50px 0;
   }
   .description {
     width: 100%;
+    margin: 0 !important;
   }
   .title {
     font-size: clamp(20px, 8vw, 40px) !important ;
+    transform: translate(0);
   }
   .description span {
     opacity: 1 !important;

@@ -27,3 +27,9 @@ padding: 50px 5%;
 opacity: 1;
 transform: translate(0);
 }
+
+@media (max-width:768px) {
+    .container {
+padding: 30px 5%;
+    }
+}
