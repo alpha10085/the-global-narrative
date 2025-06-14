@@ -3,10 +3,8 @@ import styles from "./Form.module.css";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 import { letsCollaborateVal } from "./schema";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import toast from "react-hot-toast";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import InputText from "@/components/Shared/inputText/inputText";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
@@ -141,7 +139,9 @@ const Form = ({ siteKey }) => {
             </a>{" "}
             apply.
           </p>
-          <button type="submit" className={styles.btnsubmut}>
+          <button 
+          disabled={loading}
+          type="submit" className={styles.btnsubmut}>
             send
           </button>
         </div>
