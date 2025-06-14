@@ -25,7 +25,7 @@ const Card = ({ val, index }) => {
         />
       </div>
       <div className={`${styles.cardBottom} just-sb flex `}>
-        <h1 className={styles.title}>{customText(val?.title,60)}</h1>
+        <h1 className={styles.title}>{customText(val?.title,40)}</h1>
         <ArrowOutwardIcon />
       </div>
     </div>

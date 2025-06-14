@@ -47,7 +47,7 @@ const List = ({}) => {
           No interviews found
         </div>
       )}
-      {!isLoading && (
+      {isLoading && (
         <div className={styles.skeletonGrid}>
           {Array.from({ length: 8 }).map((_, index) => (
             <Skeleton key={index} className={styles.skeletonCard} />
