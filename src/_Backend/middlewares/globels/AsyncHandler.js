@@ -84,7 +84,7 @@ export const AsyncHandler = (
 
     const keys = Object.values(req?.params || {}) || [];
     if (keys.length) cacheKey.push(...keys);
-    if (shouldAuth && stdTTL > 0)
+    if (req.isAdmin && stdTTL > 0)
       cacheKey = cacheKey.map((key) => `admin-${key}`);
 
     req.cacheConfig = {
