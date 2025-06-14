@@ -1,6 +1,4 @@
 {
   "$schema": "https://the-global-narrative-git-main-mohamed-osamas-projects-0a152562.vercel.app/vercel.json",
-  "scripts": {
-    "preinstall": "npm config set legacy-peer-deps true"
-  }
+  "installCommand": "npm config set legacy-peer-deps true"
 }
