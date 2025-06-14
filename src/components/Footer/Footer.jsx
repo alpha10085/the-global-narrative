@@ -3,34 +3,13 @@ import MainLogo from "../MainLogo/MainLogo";
 import { links } from "../NavBar/Links";
 import Link from "../Shared/Link/Link";
 import styles from "./footer.module.css";
-import XIcon from "@mui/icons-material/X";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import YouTubeIcon from "@mui/icons-material/YouTube";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import { ArrowBack } from "@mui/icons-material";
 import { usePathname } from "@/hooks/useTranslations";
-import { useEffect } from "react";
-import { csrApi } from "@/utils/api";
-import useAsyncQuery from "@/hooks/useAsyncQuery";
 
 const hiddenPaths = ["/contact-us"];
 
-const fetchFooter = async () => {
-  const data = await csrApi.get("/components/footer");
-  return data;
-};
-
-const Footer = () => {
+const Footer = ({ data = {} }) => {
   const { pathname } = usePathname();
   const dateNow = new Date().getFullYear();
-  const { data, isLoading, error } = useAsyncQuery({
-    queryKey: ["footer"],
-    queryFn: fetchFooter,
-    cache: "10m",
-  });
-
-  if (isLoading) return <div>Loading...</div>;
 
   // Check if data is available
   const { socialLinks = [] } = data || {};
@@ -39,7 +18,7 @@ const Footer = () => {
     <footer
       id="footer-container"
       className={`${styles.footer} ${
-        hiddenPaths.includes(pathname) ? styles.hide : ""
+        hiddenPaths?.includes(pathname) ? styles.hide : ""
       }`}
     >
       <div className={`${styles.top} flex al-i-c just-sb`}>

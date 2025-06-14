@@ -58,7 +58,10 @@
 
 
 }
-
+.loader {
+  height: 50vh;
+  border-radius: 80px 80px 0 0 ;
+}
 @media (max-width: 768px) {
   .top,
   .left {

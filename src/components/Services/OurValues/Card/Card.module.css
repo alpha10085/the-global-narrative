@@ -98,7 +98,7 @@
 
 @media (max-width: 900px) {
   .container {
-    height: 100dvh;
+    height: 100vh;
     padding: 40px 5%;
     top: -10px;
   }
