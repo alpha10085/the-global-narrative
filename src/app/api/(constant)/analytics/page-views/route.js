@@ -12,20 +12,19 @@ export const GET = AsyncHandler(async (req, res) => {
   fromDate.setHours(0, 0, 0, 0); // Start of today
 
   if (days > 0) {
-    fromDate.setDate(fromDate.getDate() - (days - 1)); 
+    fromDate.setDate(fromDate.getDate() - (days - 1));
   }
 
-
   const matchStage = buildMatchStage(query, fromDate);
-  const chartData = await runAggregation(insightPipelines?.pageViews, matchStage);
-  if (!chartData) return res({ error: "Chart data not found" }, 400);
+  const data = await runAggregation(insightPipelines?.pageViews, matchStage);
+  if (!data) return res({ error: "Chart data not found" }, 400);
 
   const totalUsers = await getTotalUsers(matchStage);
 
   return res(
     {
       metadata: { total: totalUsers, days },
-      charts: { pageViews: chartData },
+      data,
     },
     200
   );

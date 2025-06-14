@@ -1,17 +1,13 @@
 .page {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 32px 16px;
-    overflow: hidden;
-
+  max-width: 100%;
+  width: 1400px;
+  flex-grow: 1;
+  padding: 30px 40px;
+  overflow: hidden;
 }
 
 .wrapper {
-  margin: 0 auto;
-  padding: 32px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+
 }
 
 .chartContainer {
@@ -19,10 +15,12 @@
   min-width: 280px;
   display: flex;
   flex-direction: column;
-  height: 100%; 
+  height: 100%;
 }
-
-
+.title {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
 .charts {
   display: flex;
   align-items: stretch;
@@ -46,8 +44,8 @@
     width: 100%;
   }
   .charts {
-  flex-wrap: wrap;
-}
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 480px) {

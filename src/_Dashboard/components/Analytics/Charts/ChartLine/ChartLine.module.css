@@ -1,8 +1,7 @@
 .card {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 16px;
+  padding: 15px 0 0;
   border-radius: 16px;
-  margin-bottom: 24px;
   width: 100%;
   min-height: 420px;
 }
@@ -10,15 +9,27 @@
 .chartWrapper {
   position: relative;
   height: 400px;
-  margin: 0 auto;
+  margin: 20px auto 0;
   max-width: 100%;
+  color: unset !important;
 }
 
 .title {
   font-size: 20px;
   font-weight: 600;
 }
-
+.line {
+  opacity: 0.2;
+}
+.XAxis {
+  font-size: 12px;
+}
+.Tooltip {
+  color: black !important;
+}
+.head {
+  margin: 10px 32px 0;
+}
 @media (max-width: 600px) {
   .metrics {
     flex-direction: column;

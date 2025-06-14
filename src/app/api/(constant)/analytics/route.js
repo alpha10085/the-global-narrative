@@ -1,9 +1,7 @@
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import {
-  buildMatchStage,
-  calculateRetention,
   generateVisitorKey,
-  getChartData,
+
   shouldRecordVisit,
 } from "./helpers";
 import analyticsModel from "@/_Backend/database/models/constant/analytics.model";
@@ -65,7 +63,7 @@ export const POST = AsyncHandler(async (req, res) => {
 // export const GET = AsyncHandler(async (req, res) => {
 //   const query = req.query;
 //   const days = parseInt(query.days || "7");
-//   const chartType = query.chartType || "dailyTraffic";
+//   const dataType = query.dataType || "dailyTraffic";
 
 //   const fromDate = new Date();
 //   fromDate.setDate(fromDate.getDate() - days);
@@ -73,11 +71,11 @@ export const POST = AsyncHandler(async (req, res) => {
 //   // Build $match based on filters
 //   const matchStage = buildMatchStage(query, fromDate);
 
-//    // Get the chart-specific aggregated data
-//   const chartData = await getChartData(chartType, matchStage);
+//    // Get the data-specific aggregated data
+//   const dataData = await getdataData(dataType, matchStage);
 
-//   if (!chartData) {
-//     return res({ error: "Invalid chartType" }, 400);
+//   if (!dataData) {
+//     return res({ error: "Invalid dataType" }, 400);
 //   }
 
 //   // Count unique visitors (distinct visitorKey) in the period
@@ -99,8 +97,8 @@ export const POST = AsyncHandler(async (req, res) => {
 //     days,
 //   };
 
-//   // ✅ Add retention only for dailyTraffic chart
-//   if (chartType === "dailyTraffic") {
+//   // ✅ Add retention only for dailyTraffic data
+//   if (dataType === "dailyTraffic") {
 //     const { returnedUsers, retentionRate } = await calculateRetention(
 //       matchStage
 //     );
@@ -111,7 +109,7 @@ export const POST = AsyncHandler(async (req, res) => {
 //   return res(
 //     {
 //       metadata,
-//       charts: { [chartType]: chartData },
+//       datas: { [dataType]: dataData },
 //     },
 //     200
 //   );

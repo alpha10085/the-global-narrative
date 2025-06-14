@@ -17,15 +17,15 @@ export const GET = AsyncHandler(async (req, res) => {
 
 
   const matchStage = buildMatchStage(query, fromDate);
-  const chartData = await runAggregation(insightPipelines?.devices, matchStage);
-  if (!chartData) return res({ error: "Chart data not found" }, 400);
+  const data = await runAggregation(insightPipelines?.devices, matchStage);
+  if (!data) return res({ error: "Chart data not found" }, 400);
 
   const totalUsers = await getTotalUsers(matchStage);
 
   return res(
     {
       metadata: { total: totalUsers, days },
-      charts: { devices: chartData },
+      data
     },
     200
   );

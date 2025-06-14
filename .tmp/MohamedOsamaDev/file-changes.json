@@ -65,37 +65,37 @@
   {
     "file": "src/app/(dashboard)/dashboard/analytics/page.jsx",
     "firstSeenAt": "6/13/2025, 8:23:19 PM",
-    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/14/2025, 7:51:44 AM",
     "lastType": "changed",
-    "count": 1
+    "count": 68
   },
   {
     "file": "src/app/api/(constant)/analytics/country/route.js",
     "firstSeenAt": "6/13/2025, 8:23:19 PM",
-    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/14/2025, 7:12:47 AM",
     "lastType": "changed",
-    "count": 1
+    "count": 3
   },
   {
     "file": "src/app/api/(constant)/analytics/daily-traffic/route.js",
     "firstSeenAt": "6/13/2025, 8:23:19 PM",
-    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/14/2025, 7:12:39 AM",
     "lastType": "changed",
-    "count": 1
+    "count": 3
   },
   {
     "file": "src/app/api/(constant)/analytics/devices/route.js",
     "firstSeenAt": "6/13/2025, 8:23:19 PM",
-    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/14/2025, 7:13:02 AM",
     "lastType": "changed",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/app/api/(constant)/analytics/page-views/route.js",
     "firstSeenAt": "6/13/2025, 8:23:19 PM",
-    "lastUpdatedAt": "6/13/2025, 8:23:19 PM",
+    "lastUpdatedAt": "6/14/2025, 7:13:29 AM",
     "lastType": "changed",
-    "count": 1
+    "count": 3
   },
   {
     "file": "src/_Backend/database/models/constant/rateLimit.model.js",
@@ -242,6 +242,86 @@
     "file": "src/components/Shared/inputText/inputText.jsx",
     "firstSeenAt": "6/14/2025, 3:40:38 AM",
     "lastUpdatedAt": "6/14/2025, 3:40:38 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/ChartLine/ChartLine.jsx",
+    "firstSeenAt": "6/14/2025, 6:23:40 AM",
+    "lastUpdatedAt": "6/14/2025, 7:58:50 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 67
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/MetricsHeader/MetricsHeader.jsx",
+    "firstSeenAt": "6/14/2025, 6:25:29 AM",
+    "lastUpdatedAt": "6/14/2025, 6:38:44 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 41
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/MetricsHeader/MetricsHeader.module.css",
+    "firstSeenAt": "6/14/2025, 6:27:39 AM",
+    "lastUpdatedAt": "6/14/2025, 7:53:38 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 49
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/ChartLine/ChartLine.module.css",
+    "firstSeenAt": "6/14/2025, 6:32:21 AM",
+    "lastUpdatedAt": "6/14/2025, 7:47:11 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 60
+  },
+  {
+    "file": "src/app/(dashboard)/dashboard/analytics/page.module.css",
+    "firstSeenAt": "6/14/2025, 6:33:02 AM",
+    "lastUpdatedAt": "6/14/2025, 7:43:26 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 22
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/InsightsTable/InsightsTable.jsx",
+    "firstSeenAt": "6/14/2025, 6:51:25 AM",
+    "lastUpdatedAt": "6/14/2025, 7:36:32 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 52
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/InsightsTable/InsightsTable.module.css",
+    "firstSeenAt": "6/14/2025, 6:51:33 AM",
+    "lastUpdatedAt": "6/14/2025, 7:48:14 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 108
+  },
+  {
+    "file": "src/app/api/(constant)/analytics/config.js",
+    "firstSeenAt": "6/14/2025, 7:13:47 AM",
+    "lastUpdatedAt": "6/14/2025, 7:13:47 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/api/(constant)/analytics/route.js",
+    "firstSeenAt": "6/14/2025, 7:14:23 AM",
+    "lastUpdatedAt": "6/14/2025, 7:14:23 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/FilterBar/FilterBar.jsx",
+    "firstSeenAt": "6/14/2025, 7:15:33 AM",
+    "lastUpdatedAt": "6/14/2025, 7:15:33 AM",
     "lastType": "changed",
     "Type": "changed",
     "count": 1

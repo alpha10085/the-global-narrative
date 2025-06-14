@@ -1,24 +1,46 @@
 .tableWrapper {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
-  margin-bottom: 24px;
+  border-radius: 10px;
   width: 100%;
-  overflow: hidden;
-  min-height: 420px;
+  height: 340px;
+  overflow: auto;
 }
 
 .title {
-  font-size: 20px;
+  font-size: 16px;
+
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.head {
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  border-width: 0 0 1px 0 !important ;
 }
 
 .table {
-  padding: 16px 0;
   width: 100%;
   border-collapse: collapse;
 }
-
+.vistorsLable {
+  opacity: 0.7;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+}
 .table thead {
   font-weight: bold;
+  font-size: 16px;
+}
+.table tr:first-child {
+  border-top-width: 0;
+}
+
+.table tr {
+  border-left-width: 0;
+  border-right-width: 0;
+  
 }
 
 .table th,
@@ -26,25 +48,24 @@
   text-align: left;
   padding: 12px 0;
 }
+.table tr td:first-child {
+
+}
+.table tr td:last-child {
+width: 100px;
+}
 
 .table th:first-child,
 .table td:first-child {
-  padding-left: 30px;
+  padding-left: 20px;
 }
 
 .table th:last-child,
 .table td:last-child {
-  padding-right: 30px;
+  padding-right: 20px;
 }
 
 .table tbody tr {
   transition: 0.2s ease;
-}
-
-.dark {
-  background-color: #0a0a0a;
-}
-
-.light {
-  background-color: #fbfbfb;
+  font-size: 14px;
 }
