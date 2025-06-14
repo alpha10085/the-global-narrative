@@ -42,7 +42,7 @@
 
 @media (max-width: 768px) {
   .titleBox {
-    left: 50%;
+    /* left: 50%;
     top: 50%;
     bottom: unset;
     right: unset;
@@ -52,7 +52,7 @@
     max-width: 90%;
     text-align: center !important;
     display: flex;
-    justify-content: center;
+    justify-content: center; */
   }
   .title {
     text-align: center !important;

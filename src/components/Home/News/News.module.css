@@ -22,9 +22,9 @@
 .card {
   opacity: 0;
 }
-.swiperSlide:nth-child(even) {
+/* .swiperSlide:nth-child(even) {
   transform: translateY(50px);
-}
+} */
 .list.active .card {
   animation: introCard 0.8s ease forwards;
 }

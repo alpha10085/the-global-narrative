@@ -11,10 +11,7 @@ const Quote = ({ data = {} }) => {
         <WordFadeIn mode="dark" className={styles.text} text={data?.content} />
       </div>
 
-      <Img 
-      
-      disableSkeleton
-      url={bgImage} className={styles.bgImage} />
+      <Img disableSkeleton url={bgImage} className={styles.bgImage} />
     </div>
   );
 };
