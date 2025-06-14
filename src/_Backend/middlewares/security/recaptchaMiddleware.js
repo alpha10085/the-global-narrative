@@ -2,6 +2,7 @@ import { AppError } from "@/_Backend/utils/AppError";
 
 export const recaptchaMiddleware = async (req, res, next, minScore = 0.5) => {
   const recaptchaToken = req.body?.recaptchaToken;
+  console.log("🚀 ~ recaptchaMiddleware ~ recaptchaToken:", recaptchaToken)
 
   if (!recaptchaToken) {
     throw new AppError({ message: "Missing reCAPTCHA token", statusCode: 400 });
