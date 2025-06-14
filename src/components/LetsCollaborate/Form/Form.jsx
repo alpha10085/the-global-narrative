@@ -29,12 +29,13 @@ const Form = ({ siteKey }) => {
 
   const handleClick = async (form) => {
     const recaptchaToken = await recaptchaRef.current.executeAsync();
-    recaptchaRef.current.reset();
 
+    recaptchaRef.current.reset();
     const fullForm = {
       ...form,
       recaptchaToken, // add token to form data
     };
+
     setLoading(true);
     try {
       toast.promise(HandleContactUs(fullForm), {
@@ -43,7 +44,9 @@ const Form = ({ siteKey }) => {
           reset();
           return `Form sent successfully`;
         },
-        error: (error) => `Form failed`,
+        error: (error) => {
+          return `${error.message}`;
+        },
       });
     } catch (error) {
       toast.error(error || "Form failed");

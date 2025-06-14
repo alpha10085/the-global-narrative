@@ -2,10 +2,9 @@ import { AppError } from "@/_Backend/utils/AppError";
 
 export const recaptchaMiddleware = async (req, res, next, minScore = 0.5) => {
   const recaptchaToken = req.body?.recaptchaToken;
-  console.log("🚀 ~ recaptchaMiddleware ~ recaptchaToken:", recaptchaToken)
 
   if (!recaptchaToken) {
-    throw new AppError({ message: "Missing reCAPTCHA token", statusCode: 400 });
+    throw new AppError({ message: "Missing reCAPTCHA token", code: 400 });
   }
 
   const secretKey = process.env.RECAPTCHA_SECRET_KEY;
@@ -24,14 +23,14 @@ export const recaptchaMiddleware = async (req, res, next, minScore = 0.5) => {
     if (!data.success) {
       throw new AppError({
         message: "Invalid reCAPTCHA token",
-        statusCode: 403,
+        code: 403,
       });
     }
 
     if (data.score !== undefined && data.score < minScore) {
       throw new AppError({
         message: `reCAPTCHA score too low (${data.score}). Possibly a bot.`,
-        statusCode: 403,
+        code: 403,
       });
     }
 
@@ -40,7 +39,7 @@ export const recaptchaMiddleware = async (req, res, next, minScore = 0.5) => {
     console.error("reCAPTCHA verification error:", err);
     throw new AppError({
       message: "reCAPTCHA verification error",
-      statusCode: 500,
+      code: 500,
     });
   }
 };

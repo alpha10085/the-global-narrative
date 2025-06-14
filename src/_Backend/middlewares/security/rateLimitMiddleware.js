@@ -11,7 +11,10 @@ export const rateLimitMiddleware = ({
     const ua = req.userAgent?.ua || req.headers["user-agent"] || "unknown";
 
     const rawIdentifier = `${ip}-${ua}`;
-    const identifier = crypto.createHash("sha256").update(rawIdentifier).digest("hex"); // safer, fixed length
+    const identifier = crypto
+      .createHash("sha256")
+      .update(rawIdentifier)
+      .digest("hex"); // safer, fixed length
 
     const now = Date.now();
     const windowStart = new Date(now - windowMs);
@@ -22,12 +25,12 @@ export const rateLimitMiddleware = ({
       if (record.windowStart > windowStart) {
         if (record.count >= limit) {
           return next(
-            new AppError(
-              `Too many requests. Try again in ${Math.ceil(
+            new AppError({
+              message: `Too many requests. Try again in ${Math.ceil(
                 (record.windowStart.getTime() + windowMs - now) / 1000
               )} seconds.`,
-              429
-            )
+              code: 429,
+            })
           );
         }
         record.count += 1;
