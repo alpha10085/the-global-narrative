@@ -27,12 +27,8 @@
     },
     "cache": {
       "duration": "10m",
-      "tags": []
+      "tags": ["custom-news"]
     }
   },
-  "view": [
-    "_id",
-    "title",
-    "createdAt"
-  ]
+  "view": ["_id", "title", "createdAt"]
 }
