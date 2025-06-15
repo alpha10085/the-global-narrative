@@ -16,18 +16,6 @@
       "name": "link",
       "type": "textarea",
       "label": "link"
-    },
-    {
-      "name": "category",
-      "type": "relation",
-      "ref": "interviews-categories",
-      "select": [
-        "_id",
-        "title"
-      ],
-      "displayField": "title",
-      "single": true,
-      "label": "category"
     }
   ],
   "options": {
