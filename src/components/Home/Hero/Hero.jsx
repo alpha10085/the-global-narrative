@@ -15,11 +15,14 @@ const Hero = ({ data = {} }) => {
             text={data?.title}
           />
           <p className={styles.description}>{data?.description}</p>
+          <div 
+            className={styles.link}>
+
           <MainButton
             text="our services"
             href="/services"
-            className={styles.link}
-          />
+            />
+            </div>
         </div>
       </div>
     </div>

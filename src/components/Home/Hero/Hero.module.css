@@ -39,10 +39,31 @@
 
 .description {
   color: white;
+
+  animation: intro 0.6s forwards 0.8s;
+  opacity: 0;
+  transform: translateY(20px);
 }
+.link {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: intro 0.6s forwards 1.2s;
+}
+
+@keyframes intro {
+  form {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
 @media (max-width: 768px) {
   .titleBox {
-  bottom: 18vh;
+    bottom: 18vh;
   }
   .title {
     text-align: center !important;
