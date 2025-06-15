@@ -53,7 +53,6 @@ const schemas = [
   newsCategoryConfig,
   testimonialConfig,
   interviewsConfig,
-  interviewsCategoryConfig,
   faqConfig,
   contactUsConfig,
   //newsCategoryConfig,

@@ -1,6 +1,13 @@
 {
   "fields": [
     {
+      "name": "publish",
+      "type": "boolean",
+      "readOnly": false,
+      "label": "publish",
+      "default": false
+    },
+    {
       "name": "content",
       "type": "textarea",
       "label": "content"
@@ -23,13 +30,6 @@
       ],
       "single": true,
       "label": "poster"
-    },
-    {
-      "name": "publish",
-      "type": "boolean",
-      "readOnly": false,
-      "label": "publish",
-      "default": false
     }
   ],
   "options": {
@@ -46,7 +46,9 @@
     },
     "cache": {
       "duration": "10m",
-      "tags": ["landing"]
+      "tags": [
+        "landing"
+      ]
     }
   },
   "view": [

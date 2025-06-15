@@ -1,5 +1,12 @@
 {
     "fields": [
+          {
+            "name": "publish",
+            "type": "boolean",
+            "readOnly": false,
+            "label": "publish",
+            "default": false
+        },
         {
             "name": "title",
             "type": "text",
@@ -35,13 +42,6 @@
             "name": "date",
             "type": "date",
             "label": "date"
-        },
-        {
-            "name": "publish",
-            "type": "boolean",
-            "readOnly": false,
-            "label": "publish",
-            "default": false
         }
     ],
     "options": {

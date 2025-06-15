@@ -1,6 +1,12 @@
 {
   "fields": [
-   
+       {
+      "name": "publish",
+      "type": "boolean",
+      "readOnly": false,
+      "label": "publish",
+      "default": false
+    },
     {
       "name": "question",
       "type": "text",
@@ -10,13 +16,6 @@
       "name": "answer",
       "type": "textarea",
       "label": "answer"
-    },
-    {
-      "name": "publish",
-      "type": "boolean",
-      "readOnly": false,
-      "label": "publish",
-      "default": false
     }
   ],
   "options": {

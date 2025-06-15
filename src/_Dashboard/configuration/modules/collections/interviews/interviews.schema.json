@@ -1,6 +1,13 @@
 {
   "fields": [
     {
+      "name": "publish",
+      "type": "boolean",
+      "readOnly": false,
+      "label": "publish",
+      "default": false
+    },
+    {
       "name": "title",
       "type": "text",
       "label": "title"
@@ -21,13 +28,6 @@
       "displayField": "title",
       "single": true,
       "label": "category"
-    },
-    {
-      "name": "publish",
-      "type": "boolean",
-      "readOnly": false,
-      "label": "publish",
-      "default": false
     }
   ],
   "options": {
@@ -47,5 +47,10 @@
       "tags": []
     }
   },
-   "view": ["_id", "title", "link", "createdAt"]
+  "view": [
+    "_id",
+    "title",
+    "link",
+    "createdAt"
+  ]
 }
