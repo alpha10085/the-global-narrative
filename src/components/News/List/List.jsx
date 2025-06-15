@@ -36,12 +36,7 @@ const List = ({ page = {}, categories = [] }) => {
 
   const searchQuery = (searchParams?.search || "").toLocaleLowerCase();
 
-  let dataAfterFiltered = categoriesQuery?.length
-    ? data?.pages.filter((val) =>
-        categoriesQuery?.includes(val?.category?.slug)
-      )
-    : data?.pages;
-
+  let dataAfterFiltered =  data.pages;
   if (searchQuery?.length) {
     dataAfterFiltered = dataAfterFiltered.filter((val) =>
       val?.title?.toLocaleLowerCase().includes(searchQuery)
@@ -62,7 +57,7 @@ const List = ({ page = {}, categories = [] }) => {
   );
 
 
-console.log(dataAfterFiltered);
+// console.log(dataAfterFiltered);
 
   return (
     <div id="news-Categories" className={styles.newsContainer}>
