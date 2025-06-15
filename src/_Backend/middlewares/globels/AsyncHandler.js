@@ -151,7 +151,6 @@ export const AsyncHandler = (
         if (group) keys.push(coreKey);
         if (data?.slug) keys.push(`/api/${coreKey}/${data.slug}`);
         keys.push(...keys.map((val) => `admin-${val}`));
-        console.log("🚀 ~ return ~ keys:", keys)
         await revalidateTags(keys);
       }
 
