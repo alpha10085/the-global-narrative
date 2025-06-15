@@ -3,6 +3,7 @@ import MainLogo from "../MainLogo/MainLogo";
 import { enabledLinks } from "../NavBar/helpers";
 import { links } from "../NavBar/Links";
 import Link from "../Shared/Link/Link";
+import LinkTransition from "../Shared/LinkTransition/LinkTransition";
 import styles from "./footer.module.css";
 import { usePathname } from "@/hooks/useTranslations";
 
@@ -49,13 +50,13 @@ const Footer = ({ data = {} }) => {
           <ul className={`${styles.list} flex column gap15 wrap`}>
             {enabledLinks?.map((val, i) => (
               <li key={i}>
-                <Link
+                <LinkTransition
                   data-cursor-label={`${val?.text} →`}
                   className={styles.link}
                   href={val?.href}
                 >
                   {val?.text}
-                </Link>
+                </LinkTransition>
               </li>
             ))}
           </ul>
