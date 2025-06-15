@@ -2,9 +2,12 @@
 import { useTransitionRouter } from "next-view-transitions";
 import { slideToTop } from "./animtions";
 import { useHandleherfLink } from "../Link/helpers";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 const LinkTransition = ({ children, href = "/", ...props }) => {
   const router = useTransitionRouter();
+  const nextRouter = useRouter();
   const handlers = useHandleherfLink(href);
 
   const onClick = () => {
@@ -13,6 +16,9 @@ const LinkTransition = ({ children, href = "/", ...props }) => {
     });
   };
 
+  useEffect(() => {
+    if (href) nextRouter.prefetch(href);
+  }, [href]);
   return (
     <a
       href={handlers.href}
