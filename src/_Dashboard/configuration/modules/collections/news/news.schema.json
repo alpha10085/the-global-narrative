@@ -58,7 +58,9 @@
         },
         "cache": {
             "duration": "10m",
-            "tags": []
+            "tags": [
+                "landing"
+            ]
         }
     },
     "view": [
