@@ -19,8 +19,8 @@ const Hero = ({ data = {} }) => {
             className={styles.link}>
 
           <MainButton
-            text="our services"
-            href="/services"
+            text="join us"
+            href="/join-us"
             />
             </div>
         </div>
