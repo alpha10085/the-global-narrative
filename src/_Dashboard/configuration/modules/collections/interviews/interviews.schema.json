@@ -1,16 +1,16 @@
 {
   "fields": [
     {
+      "name": "title",
+      "type": "text",
+      "label": "title"
+    },
+    {
       "name": "publish",
       "type": "boolean",
       "readOnly": false,
       "label": "publish",
       "default": false
-    },
-    {
-      "name": "title",
-      "type": "text",
-      "label": "title"
     },
     {
       "name": "link",
