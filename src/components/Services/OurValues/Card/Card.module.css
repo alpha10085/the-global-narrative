@@ -1,17 +1,17 @@
 .container {
   z-index: 2;
   position: sticky;
-  top: -10px;
+  top: 80px;
   background-color: var(--color500);
   transition: 0.2s;
-  height: 130vh;
+  height: 120vh;
   overflow: hidden;
-  padding: 40px;
+  padding: 0 40px;
   backdrop-filter: blur(40px);
 }
 
 .wrapper {
-  height: 100vh;
+  height: 85vh;
   overflow: hidden;
 }
 

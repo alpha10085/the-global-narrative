@@ -3,7 +3,7 @@
   z-index: 10;
   position: relative;
   margin-bottom: -22vh;
-    margin-top: -3vh;
+  margin-top: -3vh;
 }
 .wrapper {
   width: 90%;
@@ -13,7 +13,6 @@
 .card {
   width: 100%;
   margin: 0 auto;
-  height: 130dvh;
 }
 
 .title {
