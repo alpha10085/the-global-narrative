@@ -6,6 +6,13 @@
             "label": "title"
         },
         {
+            "name": "publish",
+            "type": "boolean",
+            "readOnly": false,
+            "label": "publish",
+            "default": false
+        },
+        {
             "name": "poster",
             "type": "media",
             "allowedTypes": [
@@ -35,13 +42,6 @@
             "name": "date",
             "type": "date",
             "label": "date"
-        },
-        {
-            "name": "publish",
-            "type": "boolean",
-            "readOnly": false,
-            "label": "publish",
-            "default": false
         }
     ],
     "options": {
@@ -58,7 +58,9 @@
         },
         "cache": {
             "duration": "10m",
-            "tags": []
+            "tags": [
+                "landing"
+            ]
         }
     },
     "view": [

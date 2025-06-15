@@ -3,22 +3,26 @@
     {
       "name": "name",
       "type": "text",
-      "label": "name"
+      "label": "name",
+      "readOnly": true
     },
     {
       "name": "email",
       "type": "text",
-      "label": "email"
+      "label": "email",
+      "readOnly": true
     },
     {
       "name": "phone",
       "type": "text",
-      "label": "phone"
+      "label": "phone",
+      "readOnly": true
     },
     {
       "name": "message",
       "type": "textarea",
-      "label": "message"
+      "label": "message",
+      "readOnly": true
     }
   ],
   "options": {
@@ -38,6 +42,10 @@
       "tags": []
     }
   },
-    "view": ["_id", "name", "email", "phone"]
-
+  "view": [
+    "_id",
+    "name",
+    "email",
+    "phone"
+  ]
 }

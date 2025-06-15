@@ -56,38 +56,6 @@ const AboutPageValidationSchema = (locale = "en") => {
       },
     }),
 
-    whoUsSectionSection: joiObject({
-      required: true,
-      locale,
-      body: {
-        title: joiText({ locale, min: 2, max: 20000, required: true }),
-        members: joiArray({
-          min: 1,
-          required: true,
-          locale,
-          body: joiObject({
-            required: true,
-            locale,
-            body: {
-              name: joiText({ locale, min: 2, max: 20000, required: true }),
-              jobTitle: joiText({ locale, min: 2, max: 20000, required: true }),
-              description: joiText({
-                locale,
-                min: 2,
-                max: 20000,
-                required: true,
-              }),
-              image: fileVal.required().messages(
-                messagesHandlers({
-                  locale,
-                  type: "object",
-                })
-              ),
-            },
-          }),
-        }),
-      },
-    }),
     aboutUs: joiObject({
       required: true,
       locale,

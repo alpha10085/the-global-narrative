@@ -1,7 +1,6 @@
 .container {
   height: calc(100vh);
   width: 100%;
-
 }
 
 .slide,
@@ -19,7 +18,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 100px;
+  bottom: 120px;
   width: max-content;
   z-index: 10;
   /* background-color: red; */

@@ -13,7 +13,7 @@ export const GET = AsyncHandler(
       });
     }
 
-    const categories = await newsCategoryModel.find().lean();
+    const categories = await newsCategoryModel.find({ publish: true }).lean();
 
     return res(
       {

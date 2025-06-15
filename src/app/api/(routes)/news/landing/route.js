@@ -17,12 +17,8 @@ export const GET = AsyncHandler(async (req, res) => {
     publish: true,
   }).lean();
 
-  // Sort based on original `ids` order
-  const sortednews = arrayOfIds.map((id) =>
-    data.find((news) => news._id.toString() === id)
-  );
 
   return res({
-    news: sortednews,
+    news: data,
   });
 });

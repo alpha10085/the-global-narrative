@@ -6,6 +6,13 @@
       "label": "title"
     },
     {
+      "name": "publish",
+      "type": "boolean",
+      "readOnly": false,
+      "label": "publish",
+      "default": false
+    },
+    {
       "name": "logo",
       "type": "media",
       "allowedTypes": [
@@ -13,13 +20,6 @@
       ],
       "single": true,
       "label": "logo"
-    },
-    {
-      "name": "publish",
-      "type": "boolean",
-      "readOnly": false,
-      "label": "publish",
-      "default": false
     }
   ],
   "options": {
@@ -39,5 +39,9 @@
       "tags": []
     }
   },
-  "view": ["logo", "title", "createdAt"]
+  "view": [
+    "logo",
+    "title",
+    "createdAt"
+  ]
 }

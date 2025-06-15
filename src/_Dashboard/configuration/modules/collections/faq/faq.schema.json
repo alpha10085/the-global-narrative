@@ -1,15 +1,9 @@
 {
   "fields": [
-   
     {
       "name": "question",
       "type": "text",
       "label": "question"
-    },
-     {
-      "name": "answer",
-      "type": "textarea",
-      "label": "answer"
     },
     {
       "name": "publish",
@@ -17,6 +11,11 @@
       "readOnly": false,
       "label": "publish",
       "default": false
+    },
+    {
+      "name": "answer",
+      "type": "textarea",
+      "label": "answer"
     }
   ],
   "options": {
@@ -36,5 +35,10 @@
       "tags": []
     }
   },
-  "view": ["_id", "question", "answer", "createdAt"]
+  "view": [
+    "_id",
+    "question",
+    "answer",
+    "createdAt"
+  ]
 }

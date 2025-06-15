@@ -2,14 +2,14 @@ import styles from "./styles.module.css";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import Form from "@/components/LetsCollaborate/Form/Form";
 import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
+import { getPage } from "@/lib/pages";
 
 const page = async () => {
   const {
     title = "Join Our Journey",
     description = "For inquiries, press inquiries, or to schedule a meeting with our team",
-    email = "contact@silverbacks-holding.com",
-    linkedIn = "https://www.linkedin.com/company/silverbacks-holding",
-  } = {};
+  } = await getPage("contact-us");
+
   const siteKey = process.env.RECAPTCHA_SITE_KEY;
   return (
     <section
