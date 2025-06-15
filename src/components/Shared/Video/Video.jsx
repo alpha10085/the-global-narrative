@@ -23,6 +23,7 @@ const VideoPlayer = ({
   const handleCanPlayThrough = () => {
     if (autoPlay && videoRef?.current) {
       videoRef.current.play();
+          setLoading(false);
     }
   };
 
@@ -55,7 +56,7 @@ const VideoPlayer = ({
 
   return (
     <div className={`${styles.wrapper} p-relative ${className}`}>
-      {!loading ? (
+      {loading ? (
         thumbnail ? (
           <Img
             withEffect={false}
