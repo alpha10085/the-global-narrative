@@ -89,7 +89,7 @@
         {
           "name": "posts",
           "type": "relation",
-          "ref": "testimonial",
+          "ref": "testimonials",
           "select": ["_id", "author", "poster"],
           "imageField": "poster",
           "displayField": "author",

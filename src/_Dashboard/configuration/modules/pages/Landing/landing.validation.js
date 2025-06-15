@@ -52,7 +52,7 @@ const LandingPageValidationSchema = (locale = "en") => {
       locale,
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
-        posts: Joi.array().items(NewsValidationSchema(locale, true)),
+        posts: Joi.array().min(1).items(NewsValidationSchema(locale, true)),
       },
     }),
 
@@ -61,7 +61,7 @@ const LandingPageValidationSchema = (locale = "en") => {
       locale,
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
-        posts: Joi.array().items(TestimonialValidationSchema(locale, true)),
+        posts: Joi.array().min(1).items(TestimonialValidationSchema(locale, true)),
       },
     }),
 
