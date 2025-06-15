@@ -19,11 +19,7 @@ export const GET = AsyncHandler(async (req, res) => {
     })
     .lean();
 
-  // Sort the testimonials based on the order of `ids`
-  const sortedtestimonials = arrayOfIds?.map((id) =>
-    data?.find((testimonial) => testimonial?._id?.toString() === id)
-  );
   return res({
-    testimonials: sortedtestimonials,
+    testimonials: data,
   });
 });
