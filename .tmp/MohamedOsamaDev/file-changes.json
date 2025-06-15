@@ -357,5 +357,13 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 3
+  },
+  {
+    "file": "src/components/Shared/SmoothScroll/SmoothScroll.jsx",
+    "firstSeenAt": "6/15/2025, 6:59:13 AM",
+    "lastUpdatedAt": "6/15/2025, 7:03:57 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 2
   }
 ]

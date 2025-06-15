@@ -1,5 +1,6 @@
 "use client";
 import MainLogo from "../MainLogo/MainLogo";
+import { enabledLinks } from "../NavBar/helpers";
 import { links } from "../NavBar/Links";
 import Link from "../Shared/Link/Link";
 import styles from "./footer.module.css";
@@ -46,7 +47,7 @@ const Footer = ({ data = {} }) => {
         </div>
         <div className={styles.right}>
           <ul className={`${styles.list} flex column gap15 wrap`}>
-            {links?.map((val, i) => (
+            {enabledLinks?.map((val, i) => (
               <li key={i}>
                 <Link
                   data-cursor-label={`${val?.text} →`}

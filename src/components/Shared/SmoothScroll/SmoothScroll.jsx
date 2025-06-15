@@ -11,22 +11,23 @@ const SmoothScroll = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
   const rafRef = useRef(null);
   const pathname = usePathname();
 
-  // Init Lenis ASAP but start RAF only after idle or delay
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+  const isTouchDevice = () =>
+    typeof window !== "undefined" &&
+    ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
+  useEffect(() => {
     const lenis = new Lenis({
       duration,
       prevent: (node) => node.id === "modal",
       smoothWheel: true,
-      smoothTouch: false, // Disable on touch devices for better performance & UX
+      smoothTouch: isTouchDevice(), // Enable smoothTouch if it's a mobile/touch device
       direction: "vertical",
-      wheelMultiplier: 0.7, // Adjust scroll sensitivity if needed
-      lerp: 0.02, // control interpolation (0 to 1)
+      wheelMultiplier: 0.7,
+      lerp,
     });
+
     lenisRef.current = lenis;
 
-    // Sync scroll position immediately
     lenis.scrollTo(window.scrollY || 0, { immediate: true });
 
     const update = (time) => {
@@ -46,7 +47,7 @@ const SmoothScroll = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
     const handler = async (newval) => {
       await delay(105);
       if (newval) {
-        lenisRef.current.start();
+        lenisRef.current?.start();
       } else {
         lenisRef.current?.stop();
       }
@@ -55,16 +56,14 @@ const SmoothScroll = ({ duration = 1.2, lerp = 0.1, smooth = true }) => {
     eventBus.on("lenis", handler);
 
     return () => {
-      eventBus.off("lenis", handler); // cleanup
+      eventBus.off("lenis", handler);
     };
   }, []);
 
-  // Scroll to top smoothly on route change
   useEffect(() => {
     const timeout = setTimeout(() => {
       lenisRef.current?.scrollTo(0, { immediate: true });
     }, 100);
-
     return () => clearTimeout(timeout);
   }, [pathname]);
 
