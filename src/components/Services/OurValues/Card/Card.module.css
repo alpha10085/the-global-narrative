@@ -4,7 +4,7 @@
   top: -10px;
   background-color: var(--color500);
   transition: 0.2s;
-  height: 130dvh;
+  height: 130vh;
   overflow: hidden;
   padding: 40px;
   backdrop-filter: blur(40px);
