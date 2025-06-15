@@ -144,12 +144,13 @@ export const AsyncHandler = (
       const data = await runPipeline();
 
       if (isMutation) {
-        const keys = [req.og_url, ...relationCacheTags];
+        const keys = [...relationCacheTags];
         if (Array.isArray(req.cacheKeys)) {
           keys.push(...req.cacheKeys);
         }
         if (group) keys.push(coreKey);
         if (data?.slug) keys.push(`/api/${coreKey}/${data.slug}`);
+        keys.push(...keys.map((val) => `admin-${val}`));
         await revalidateTags(keys);
       }
 
@@ -157,7 +158,6 @@ export const AsyncHandler = (
     } catch (error) {
       return await globalError(req, error);
     } finally {
-
       systemLogger(
         `[${new Date().toLocaleString()}]${req?.cached ? " cached" : ""}`,
         req.url
