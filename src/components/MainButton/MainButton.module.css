@@ -1,25 +1,47 @@
 .toggleButton {
-  all: unset;
   cursor: pointer;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 18px;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 20px;
+
+  transform: translateX(30px);
 }
 
 .contnet {
-  width: max-content;
   border-radius: 20px;
   border: 1px solid transparent;
-  background-color: rgb(230, 230, 230);
-  padding: 0 15px;
-  height: 40px;
+  padding: 0px 30px 2px;
+  height: 50px;
   transition: 0.6s;
   padding-top: 2px;
-  display: flex;
-  align-items: center;
+  color: white;
+  backdrop-filter: blur(20px);
+  background-color: white;
+  color: black;
+  z-index: 1;
+  box-shadow: 0 0 10px white;
 }
 
-.toggleButton:hover .contnet {
-  border-color: black;
+
+
+.arrow {
+  height: 50px;
+  width: 50px;
+  border-radius: 20px;
+
+  color: white;
+  border: 1px solid white;
+
+  backdrop-filter: blur(20px);
+  transform: translateX(-110%) scale(0.9);
+  transition: 0.8s;
   background-color: white;
+  color: black;
+}
+.arrow svg {
+  font-size: 22px;
+}
+
+.toggleButton:hover .arrow {
+  transform: translateX(0%);
 }

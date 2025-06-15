@@ -1,12 +1,18 @@
-import React from "react";
 import styles from "./MainButton.module.css";
-const MainButton = ({text = "" , className = ""}) => {
+import LinkTransition from "../Shared/LinkTransition/LinkTransition";
+import { ArrowOutwardIcon } from "../Home/icons";
+const MainButton = ({ text = "", href = "/", className = "" }) => {
   return (
-    <button className={`flex gap5 al-i-c ${styles.toggleButton} ${className}`}>
-      <span className={`${styles.contnet} flex al-i-c`}>
-        {text}
+    <LinkTransition
+      href={href}
+      className={`flex gap5 al-i-c ${styles.toggleButton} ${className}`}
+    >
+      <span className={`${styles.contnet} flex al-i-c`}>{text}</span>
+
+      <span className={`flex-c ${styles.arrow}`}>
+        <ArrowOutwardIcon />
       </span>
-    </button>
+    </LinkTransition>
   );
 };
 

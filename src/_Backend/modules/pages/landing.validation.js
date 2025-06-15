@@ -7,6 +7,7 @@ import { testimonialValidationRelation } from "../testimonial/testimonial.valida
 // Hero Section (Array of cards with title & media)
 const heroSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
+  description: joiText({ min: 2, max: 1000, required: true }),
   media: fileVal.required(),
   ...CommonsVal,
 });

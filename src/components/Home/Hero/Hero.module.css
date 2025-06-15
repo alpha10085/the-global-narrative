@@ -18,10 +18,9 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 120px;
+  bottom: 12vh;
   width: max-content;
   z-index: 10;
-  /* background-color: red; */
   max-width: 90%;
 }
 
@@ -38,6 +37,9 @@
   justify-content: center;
 }
 
+.description {
+  color: white;
+}
 @media (max-width: 768px) {
   .titleBox {
     /* left: 50%;

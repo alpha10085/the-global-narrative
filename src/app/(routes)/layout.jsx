@@ -6,6 +6,7 @@ import SmoothScroll from "@/components/Shared/SmoothScroll/SmoothScroll";
 import PageAnalytics from "@/components/Shared/PageAnalytics/PageAnalytics";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import Fallback from "@/components/Footer/Fallback";
+import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 
 export default async function RootLayout({ children }) {
   return (
@@ -15,7 +16,9 @@ export default async function RootLayout({ children }) {
     >
       <SmoothScroll duration={1} />
       <NavBar />
+       
       <div style={{ minHeight: "100vh" }}>{children}</div>
+   
       <Toaster />
       <DashPopup />
       <SSRFetcher

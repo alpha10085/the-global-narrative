@@ -15,6 +15,8 @@ import { testimonialModel } from "../testimonial.model";
 const heroItemSchema = new Schema({
   title: mongtext,
   media: poster,
+
+  description: mongeDescription,
 });
 
 // About Us section

@@ -16,18 +16,19 @@ import TestimonialValidationSchema from "../../collections/testimonial/testimoni
 const LandingPageValidationSchema = (locale = "en") => {
   return Joi.object({
     metadata: pageMetadataValClient(locale),
-    heroSection:  joiObject({
-        required: true,
-        locale,
-        body: {
-          title: joiText({ locale, min: 2, max: 20000, required: true }),
-          media: fileVal.required().messages(
-            messagesHandlers({
-              locale,
-              type: "object",
-            })
-          ),
-        },
+    heroSection: joiObject({
+      required: true,
+      locale,
+      body: {
+        title: joiText({ locale, min: 2, max: 20000, required: true }),
+        description: joiText({ locale, min: 2, max: 20000, required: true }),
+        media: fileVal.required().messages(
+          messagesHandlers({
+            locale,
+            type: "object",
+          })
+        ),
+      },
     }),
 
     aboutUsSection: joiObject({

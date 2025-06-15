@@ -1,66 +1,42 @@
 "use client";
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./FloatedSection.module.css";
 
 const FloatedSection = ({ children, className = "" }) => {
   const sectionRef = useRef(null);
-  const windowHeightRef = useRef(0);
-  const animationFrameRef = useRef(null);
-
-  const updateTransform = useCallback((entry) => {
-    if (animationFrameRef.current) {
-      cancelAnimationFrame(animationFrameRef.current);
-    }
-
-    animationFrameRef.current = requestAnimationFrame(() => {
-      const el = sectionRef.current;
-      if (!el || !windowHeightRef.current) return;
-
-      const bottom = entry.boundingClientRect.bottom;
-      const start = windowHeightRef.current;
-      const end = start * 0.1;
-
-      const rawProgress = (start - bottom) / (start - end);
-      const clamped = Math.min(1, Math.max(0, rawProgress));
-
-      el.style.transform = `translate3d(0px, ${clamped * 300}px , 0)`;
-    });
-  }, []);
+  const rafId = useRef(null);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
 
-    windowHeightRef.current = window.innerHeight;
+    const handleScroll = () => {
+      if (rafId.current) cancelAnimationFrame(rafId.current);
 
-    const thresholds = Array.from({ length: 11 }, (_, i) => i / 10);
+      rafId.current = requestAnimationFrame(() => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => updateTransform(entry),
-      {
-        root: null,
-        threshold: thresholds,
-      }
-    );
+        const start = windowHeight;
+        const end = windowHeight * 0.1;
 
-    observer.observe(el);
+        let rawProgress = (start - rect.bottom) / (start - end);
+        const clamped = Math.min(1, Math.max(0, rawProgress));
 
-    const handleResize = () => {
-      windowHeightRef.current = window.innerHeight;
-      observer.disconnect();
-      observer.observe(el);
+        el.style.transform = `translate3d(0px, ${clamped * 300}px, 0)`;
+      });
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll); // re-trigger on resize
+    handleScroll(); // initial position
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", handleResize);
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+      cancelAnimationFrame(rafId.current);
     };
-  }, [updateTransform]);
+  }, []);
 
   return (
     <section ref={sectionRef} className={`${styles.floated} ${className}`}>

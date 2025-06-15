@@ -1,13 +1,6 @@
 .floated {
-  animation: float-in 0.8s ease-out forwards;
-  opacity: 0;
-  transform: translateY(50px);
-  will-change: transform, opacity;
-}
-
-@keyframes float-in {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+  width: 100%;
+  max-width: 100%;
 }
