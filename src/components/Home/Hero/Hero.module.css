@@ -42,17 +42,7 @@
 }
 @media (max-width: 768px) {
   .titleBox {
-    /* left: 50%;
-    top: 50%;
-    bottom: unset;
-    right: unset;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    width: max-content;
-    max-width: 90%;
-    text-align: center !important;
-    display: flex;
-    justify-content: center; */
+  bottom: 18vh;
   }
   .title {
     text-align: center !important;
