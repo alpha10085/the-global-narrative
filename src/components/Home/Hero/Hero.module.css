@@ -39,7 +39,9 @@
   justify-content: center;
 }
 
-
+.description {
+  color: white;
+}
 @media (max-width: 768px) {
   .titleBox {
     /* left: 50%;

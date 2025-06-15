@@ -1,12 +1,13 @@
-import React from "react";
 import styles from "./MainButton.module.css";
-const MainButton = ({text = "" , className = ""}) => {
+import LinkTransition from "../Shared/LinkTransition/LinkTransition";
+const MainButton = ({ text = "", href = "/", className = "" }) => {
   return (
-    <button className={`flex gap5 al-i-c ${styles.toggleButton} ${className}`}>
-      <span className={`${styles.contnet} flex al-i-c`}>
-        {text}
-      </span>
-    </button>
+    <LinkTransition
+      href=""
+      className={`flex gap5 al-i-c ${styles.toggleButton} ${className}`}
+    >
+      <span className={`${styles.contnet} flex al-i-c`}>{text}</span>
+    </LinkTransition>
   );
 };
 

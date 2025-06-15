@@ -15,6 +15,11 @@
           "type": "text",
           "label": "title"
         },
+                {
+          "name": "description",
+          "type": "textarea",
+          "label": "description"
+        },
         {
           "name": "media",
           "type": "media",

@@ -1,4 +1,4 @@
-
+import config from "@/i18n/config";
 import { AsyncHandler, csrApi } from "@/utils/api";
 import { revalidateTags } from "@/utils/revalidate";
 const tableAPI = async ({
@@ -14,8 +14,10 @@ const tableAPI = async ({
   return data;
 };
 const GetSingleEntry = AsyncHandler(
-  async ({ queryKey: [id = "", { slug } = {}, language] = [] }) => {
-    return await csrApi.get(`/${slug}/${id}?language=${language}`);
+  async ({ queryKey: [id = "", { slug } = {}, language = null] = [] }) => {
+    return await csrApi.get(
+      `/${slug}/${id}?language=${language || config?.defaultLocale}`
+    );
   }
 );
 const deleteOneEntry = AsyncHandler(async (slug, id, { tags = [] } = {}) => {
@@ -37,7 +39,7 @@ const handleDynamicFormApi = AsyncHandler(
       isUpdateMode || type !== "collections" ? `${slug}/${id}` : slug;
     const requestMethod = isUpdateMode ? csrApi.put : csrApi.post;
     const data = await requestMethod(path, formdata);
-   await revalidateTags([data?.data?.slug, id, slug, ...tags]);
+    await revalidateTags([data?.data?.slug, id, slug, ...tags]);
     return data;
   }
 );
@@ -133,5 +135,5 @@ export {
   generateInitialize,
   tableAPI,
   getFiles,
-  deleteMultipleFiles
+  deleteMultipleFiles,
 };

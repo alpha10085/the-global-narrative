@@ -1,56 +1,42 @@
 "use client";
-import { useEffect, useRef, useCallback, useState } from "react";
+import { useEffect, useRef } from "react";
 import styles from "./FloatedSection.module.css";
 
 const FloatedSection = ({ children, className = "" }) => {
   const sectionRef = useRef(null);
-  const windowHeightRef = useRef(0); // Don't initialize with window.innerHeight
-
-  const updateTransform = useCallback((entry) => {
-    const el = sectionRef.current;
-    if (!el || !windowHeightRef.current) return;
-
-    const bottom = entry.boundingClientRect.bottom;
-    const start = windowHeightRef.current;
-    const end = start * 0.1;
-
-    let rawProgress = (start - bottom) / (start - end);
-    const clamped = Math.min(1, Math.max(0, rawProgress));
-
-    el.style.transform = `translate3d(0px, ${clamped * 300}px , 0)`;
-  }, []);
+  const rafId = useRef(null);
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-
     const el = sectionRef.current;
-    windowHeightRef.current = window.innerHeight; // Safe here
+    if (!el) return;
 
-    const thresholds = Array.from({ length: 101 }, (_, i) => i / 100);
+    const handleScroll = () => {
+      if (rafId.current) cancelAnimationFrame(rafId.current);
 
-    const observer = new IntersectionObserver(
-      ([entry]) => updateTransform(entry),
-      {
-        root: null,
-        threshold: thresholds,
-      }
-    );
+      rafId.current = requestAnimationFrame(() => {
+        const rect = el.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
 
-    observer.observe(el);
+        const start = windowHeight;
+        const end = windowHeight * 0.1;
 
-    const handleResize = () => {
-      windowHeightRef.current = window.innerHeight;
-      observer.disconnect();
-      observer.observe(el);
+        let rawProgress = (start - rect.bottom) / (start - end);
+        const clamped = Math.min(1, Math.max(0, rawProgress));
+
+        el.style.transform = `translate3d(0px, ${clamped * 300}px, 0)`;
+      });
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll); // re-trigger on resize
+    handleScroll(); // initial position
 
     return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+      cancelAnimationFrame(rafId.current);
     };
-  }, [updateTransform]);
+  }, []);
 
   return (
     <section ref={sectionRef} className={`${styles.floated} ${className}`}>
