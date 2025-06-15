@@ -39,29 +39,6 @@ const ourValues = Joi.object({
 });
 
 // ------------------------------
-// ✅ Who Us Member
-// ------------------------------
-const whoUsMember = Joi.object({
-  name: joiText({ min: 2, max: 1000, required: true }),
-  jobTitle: joiText({ min: 2, max: 1000, required: true }),
-  description: joiText({ min: 2, max: 20000, required: true }),
-  image: fileVal.required(),
-  ...CommonsVal,
-});
-
-// ------------------------------
-// ✅ Who Us Section
-// ------------------------------
-const whoUsSectionSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
-  members: joiArray({
-    body: whoUsMember,
-    min: 1,
-    required: true,
-  }),
-  ...CommonsVal,
-});
-// ------------------------------
 // ✅aboutUs
 // ------------------------------
 const aboutUs = Joi.object({
@@ -75,11 +52,12 @@ const aboutUs = Joi.object({
 export const AboutValCreate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
+
   hero: heroSection.required(),
   ourValues: ourValues.required(),
-  whoUsSectionSection: whoUsSectionSection.required(),
   aboutUs: aboutUs.required(),
   quoteSection: aboutUs.required(),
+  
   ...CommonsVal,
 });
 
@@ -89,10 +67,11 @@ export const AboutValCreate = Joi.object({
 export const AboutValUpdate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
+
   hero: heroSection,
   ourValues,
-  whoUsSectionSection,
   aboutUs,
   quoteSection: aboutUs,
+
   ...CommonsVal,
 });
