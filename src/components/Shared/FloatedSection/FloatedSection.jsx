@@ -1,32 +1,39 @@
 "use client";
-import { useEffect, useRef, useCallback, useState } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import styles from "./FloatedSection.module.css";
 
 const FloatedSection = ({ children, className = "" }) => {
   const sectionRef = useRef(null);
-  const windowHeightRef = useRef(0); // Don't initialize with window.innerHeight
+  const windowHeightRef = useRef(0);
+  const animationFrameRef = useRef(null);
 
   const updateTransform = useCallback((entry) => {
-    const el = sectionRef.current;
-    if (!el || !windowHeightRef.current) return;
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
 
-    const bottom = entry.boundingClientRect.bottom;
-    const start = windowHeightRef.current;
-    const end = start * 0.1;
+    animationFrameRef.current = requestAnimationFrame(() => {
+      const el = sectionRef.current;
+      if (!el || !windowHeightRef.current) return;
 
-    let rawProgress = (start - bottom) / (start - end);
-    const clamped = Math.min(1, Math.max(0, rawProgress));
+      const bottom = entry.boundingClientRect.bottom;
+      const start = windowHeightRef.current;
+      const end = start * 0.1;
 
-    el.style.transform = `translate3d(0px, ${clamped * 300}px , 0)`;
+      const rawProgress = (start - bottom) / (start - end);
+      const clamped = Math.min(1, Math.max(0, rawProgress));
+
+      el.style.transform = `translate3d(0px, ${clamped * 300}px , 0)`;
+    });
   }, []);
 
   useEffect(() => {
-    if (!sectionRef.current) return;
-
     const el = sectionRef.current;
-    windowHeightRef.current = window.innerHeight; // Safe here
+    if (!el) return;
 
-    const thresholds = Array.from({ length: 101 }, (_, i) => i / 100);
+    windowHeightRef.current = window.innerHeight;
+
+    const thresholds = Array.from({ length: 11 }, (_, i) => i / 10);
 
     const observer = new IntersectionObserver(
       ([entry]) => updateTransform(entry),
@@ -49,6 +56,9 @@ const FloatedSection = ({ children, className = "" }) => {
     return () => {
       observer.disconnect();
       window.removeEventListener("resize", handleResize);
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
     };
   }, [updateTransform]);
 
