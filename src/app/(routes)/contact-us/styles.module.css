@@ -108,4 +108,7 @@
   .section {
     background-color: rgb(237, 252, 255);
   }
+  .bg::before {
+    opacity: 0;
+  }
 }
