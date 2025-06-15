@@ -1,4 +1,8 @@
-import { CommonsVal, fileVal, pageMetadataVal } from "@/_Backend/commons/validation";
+import {
+  CommonsVal,
+  fileVal,
+  pageMetadataVal,
+} from "@/_Backend/commons/validation";
 import { joiArray, joiText } from "@/_Backend/utils/JoiHandlers";
 import Joi from "joi";
 import { newsValidationRelation } from "../news/news.validation";
@@ -9,6 +13,7 @@ const heroSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 1000, required: true }),
   media: fileVal.required(),
+  thumbnail: fileVal.allow(null),
   ...CommonsVal,
 });
 
@@ -55,7 +60,6 @@ const getInTouchSection = Joi.object({
   ...CommonsVal,
 });
 
-
 // ------------------------------
 // Validation for Creating
 // ------------------------------
@@ -80,7 +84,7 @@ export const LandingValUpdate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
 
-  heroSection:heroSection,
+  heroSection: heroSection,
   aboutUsSection,
   quoteSection,
   newsSection,

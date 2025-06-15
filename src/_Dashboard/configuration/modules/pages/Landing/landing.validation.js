@@ -28,6 +28,12 @@ const LandingPageValidationSchema = (locale = "en") => {
             type: "object",
           })
         ),
+        thumbnail: fileVal.allow(null).messages(
+          messagesHandlers({
+            locale,
+            type: "object",
+          })
+        ),
       },
     }),
 
@@ -62,7 +68,9 @@ const LandingPageValidationSchema = (locale = "en") => {
       locale,
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
-        posts: Joi.array().min(1).items(TestimonialValidationSchema(locale, true)),
+        posts: Joi.array()
+          .min(1)
+          .items(TestimonialValidationSchema(locale, true)),
       },
     }),
 

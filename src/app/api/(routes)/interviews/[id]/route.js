@@ -8,6 +8,10 @@ const config = {
   name: "interview",
   alloweTo: [enumRoles.adminRoles],
   schemaValidation: InterviewValUpdate,
+    cache: {
+    group: true,
+    stdTTL: "1y",
+  },
 };
 export const GET = FindOne(config);
 export const PUT = updateOne(config);

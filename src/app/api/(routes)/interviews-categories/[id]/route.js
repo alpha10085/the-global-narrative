@@ -9,6 +9,10 @@ const config = {
   schemaValidation: interviewsCategoryValidationUpdate,
   allowedTo: [...enumRoles.adminRoles],
   slug: "title",
+    cache: {
+    group: true,
+    stdTTL: "1y",
+  },
 };
 export const GET = FindOne({
   ...config,

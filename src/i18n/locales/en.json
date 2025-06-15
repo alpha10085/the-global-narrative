@@ -23,6 +23,8 @@
       "Analytics": "Analytics"
     },
     "inputs": {
+      "thumbnail": "thumbnail",
+      "thumbnail_ph": "choose thumbnail...",
       "title": "title",
       "title_ph": "enter title .... ",
       "category": "category",
@@ -154,9 +156,7 @@
       "contentsection": "content Section",
       "socialLinks": "socialLinks",
       "url": "url",
-      "url_ph": "Enter logo url...",
-      "link": "link",
-      "link_ph": "Enter your platform link..."
+      "url_ph": "Enter logo url..."
     },
     "filterSystem": {
       "condtions": {
@@ -186,7 +186,7 @@
       "newsCategories": "News categories",
       "testimonials": "testimonials",
       "joinUs": "join us",
-      "footer" : "footer"
+      "footer": "footer"
     },
     "profile": {
       "displayName": "profile"

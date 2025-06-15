@@ -2,38 +2,38 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import themes from "../services/themes/themes";
 import CookiesClient from "js-cookie";
+
 const ThemeContext = createContext();
 
 /**
  * Theme Context provider component that manages and provides theme-related values
  * to the rest of the application.
  *
- * @param {Object} props - The component props.
- * @param {React.ReactNode} props.children - The children to render inside the provider.
- * @param {("light" | "dark")} [props.initValue="light"] - The initial theme value, either "light" or "dark".
- *
- * @returns {JSX.Element} The Theme Context provider with theme values and toggle functionality.
+ * @param {Object} props
+ * @param {React.ReactNode} props.children
+ * @param {"light" | "dark"} [props.initValue="light"]
  */
 const ThemeCTX = ({ children, initValue = "light" }) => {
-  const [theme, setTheme] = useState(initValue);
+  const [theme, setTheme] = useState(() => {
+    return (
+      CookiesClient.get("theme") || localStorage.getItem("theme") || initValue
+    );
+  });
+
   const { light, dark } = themes;
 
-  /**
-   * Toggle between the light and dark themes.
-   */
   const toggleTheme = () => {
     const selectedTheme = theme === "light" ? "dark" : "light";
     setTheme(selectedTheme);
-    CookiesClient.set("theme", selectedTheme, {
-      expires: 730,
-    });
-    localStorage.setItem("theme", selectedTheme); // Update localStorage
+    CookiesClient.set("theme", selectedTheme, { expires: 730 });
+    localStorage.setItem("theme", selectedTheme);
   };
 
   const currentTheme = theme === "light" ? light : dark;
+
   // Sync theme across tabs
   useEffect(() => {
-    const handleStorageChange = ({ newValue = "light" }) => {
+    const handleStorageChange = ({ key, newValue }) => {
       if (key === "theme" && newValue) {
         setTheme(newValue);
       }
@@ -42,7 +42,8 @@ const ThemeCTX = ({ children, initValue = "light" }) => {
     return () => {
       window.removeEventListener("storage", handleStorageChange);
     };
-  }, [initValue]);
+  }, []);
+
   const ctxProps = {
     theme: currentTheme,
     next: theme === "light" ? dark : light,
@@ -51,10 +52,8 @@ const ThemeCTX = ({ children, initValue = "light" }) => {
 
   return (
     <main
-      style={{
-        fontFamily: "var(--font-geist)",
-      }}
-      className={` ${currentTheme.background}  flex `}
+      className={`${currentTheme.background} flex`}
+      style={{ fontFamily: "var(--font-geist)" }}
     >
       <ThemeContext.Provider value={ctxProps}>{children}</ThemeContext.Provider>
     </main>
@@ -62,24 +61,15 @@ const ThemeCTX = ({ children, initValue = "light" }) => {
 };
 
 /**
- * @typedef {typeof themes.dark | typeof themes.light} Theme
- */
-
-/**
  * Custom hook to access the theme context values.
- *
- * @returns {{ theme: Theme, next: Theme, toggleTheme: Function }}
- * - `theme`: The current theme object (either light or dark).
- * - `next`: The opposite theme (either dark or light).
- * - `toggleTheme`: A function to toggle the theme between light and dark.
- *
- * @example
- * const { theme, next, toggleTheme } = useTheme();
- * toggleTheme(); // Toggles the theme
+ * @returns {{ theme: typeof themes.light | typeof themes.dark, next: typeof themes.light | typeof themes.dark, toggleTheme: () => void }}
  */
 export const useTheme = () => {
-  const { theme, next, toggleTheme } = useContext(ThemeContext);
-  return { theme, next, toggleTheme };
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within a ThemeCTX");
+  }
+  return context;
 };
 
 export default ThemeCTX;

@@ -1,35 +1,33 @@
 .container {
-background-color: white;
-width: 100%;
-min-height: 100vh;
-position: relative;
-z-index: 10;
-padding: 50px 5%;
+  background-color: white;
+  width: 100%;
+  min-height: 85vh;
+  position: relative;
+  z-index: 10;
+  padding: 50px 5%;
 }
 
 .title {
-    color: var(--color200);
-    
+  color: var(--color200);
 }
 
 .wrapper {
-    width: 1200px;
-    margin: 0 auto;
-    max-width: 100%;
+  width: 80%;
+  margin: 0 auto;
+  max-width: 100%;
 }
 .card {
-    transition: 1s;
-    transform: translateY(50px);
-    opacity: 0;
-    
+  transition: 1s;
+  transform: translateY(50px);
+  opacity: 0;
 }
 .list.active .card {
-opacity: 1;
-transform: translate(0);
+  opacity: 1;
+  transform: translate(0);
 }
 
-@media (max-width:768px) {
-    .container {
-padding: 30px 5%;
-    }
+@media (max-width: 768px) {
+  .container {
+    padding: 30px 5%;
+  }
 }

@@ -10,15 +10,15 @@ const config = {
   options: {
     searchfields: ["content", "jobTitle", "author"],
   },
+    cache: {
+    group: true,
+    stdTTL: "1y",
+  },
 };
 export const GET = FindAll({
   ...config,
   allowedTo: [...enumRoles.adminRoles, "public"],
   pushToPipeLine: imageLookup("poster"),
-  cache: {
-    group: true,
-    stdTTL: "10m",
-  },
 });
 export const POST = insertOne({
   schemaValidation: testimonialValidationCreate,

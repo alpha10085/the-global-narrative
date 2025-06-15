@@ -3,7 +3,6 @@ import React, { useRef, useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import Skeleton from "../Skeleton/Skeleton";
 import Img from "../img/Img";
-import { delay } from "@/utils/time";
 
 const VideoPlayer = ({
   url = "",
@@ -11,21 +10,20 @@ const VideoPlayer = ({
   controls = false,
   autoPlay = true,
   loop = true,
-  muted = true,
   className = "",
   withEffect = false,
   theme = "light",
-  imgAsloadingScreen = undefined,
   urlForMobil = null,
+  thumbnail = null,
 }) => {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [videourl, setVideourl] = useState(url);
   const handleCanPlayThrough = () => {
-    // if (autoPlay && videoRef?.current) {
-    //   videoRef.current.play();
-    // }
+    if (autoPlay && videoRef?.current) {
+      videoRef.current.play();
+    }
   };
 
   const handleVideoError = () => {
@@ -57,15 +55,21 @@ const VideoPlayer = ({
 
   return (
     <div className={`${styles.wrapper} p-relative ${className}`}>
-      {/* {loading ? (
-        imgAsloadingScreen ? (
-          <Img  className={`${styles.thume}`} url={imgAsloadingScreen} />
+      {!loading ? (
+        thumbnail ? (
+          <Img
+            withEffect={false}
+            className={`${className} ${styles.thume}`}
+            url={thumbnail}
+          />
+        ) : withEffect ? (
+          <Skeleton theme={theme} className={styles.skImage} type="image" />
         ) : (
-          withEffect ? <Skeleton theme={theme} className={styles.skImage} type="image" /> : ''
+          ""
         )
       ) : (
         ""
-      )} */}
+      )}
       {error ? (
         <Skeleton theme={theme} className={styles.skImage} type="image" />
       ) : (
@@ -77,9 +81,9 @@ const VideoPlayer = ({
           loop={loop}
           muted={true}
           playsInline
-          autoPlay={autoPlay}
-          // onLoadedData={() => setLoading(false)}
-          onCanPlayThrough={handleCanPlayThrough}
+           autoPlay={autoPlay}
+          onLoadedData={() => setLoading(false)}
+           onCanPlayThrough={handleCanPlayThrough}
           onError={handleVideoError}
           data-loaded={loading ? undefined : "true"}
           preload="preload" // Preload more data for smoother playback

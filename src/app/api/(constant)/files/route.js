@@ -41,7 +41,10 @@ export const GET = FindAll({
       const mimetypes = (req?.query?.filters?.mimetype || "")
         .split(",")
         .filter(Boolean);
-      const keys = ["files", ...mimetypes];
+      const keys = [...mimetypes];
+      if (keys.length === 0) {
+        keys.push("files");
+      }
       return keys;
     },
   },
@@ -54,35 +57,40 @@ export const POST = insertOne({
   allowedTo: [...enumRoles.adminRoles],
   name: "file",
   cache: {
-    revalidateKeysFN: (req, newData) => [newData?.mimetype],
+    revalidateKeysFN: (req, newData) => [newData?.mimetype, "files"],
   },
 });
 export const DELETE = AsyncHandler(
-  async (req, res) => {
+  async (req, res, next) => {
     const { ids } = req.body;
 
-    if (!Array.isArray(ids) || !ids.length) {
-      next({
-        message: "No valid file IDs provided",
-        code: 400,
-      });
+    if (!Array.isArray(ids) || ids.length === 0) {
+      return next({ message: "No valid file IDs provided", code: 400 });
     }
 
-    // Fetch files from DB
     const filesToDelete = await fileModel.find({ _id: { $in: ids } });
 
     if (!filesToDelete.length) {
-      next(httpStatus.NotFound);
+      return next(httpStatus.NotFound);
     }
 
-    // Delete from Cloudinary
-    await Promise.all(
-      filesToDelete.map((file) => deleteFileCloudinary(file.public_id))
-    ).catch((err) => {});
-    // Delete from DB
+    const cacheKeys = new Set(["files"]);
+
+    try {
+      await Promise.all(
+        filesToDelete.map(async ({ public_id, mimetype }) => {
+          cacheKeys.add(mimetype);
+          await deleteFileCloudinary(public_id);
+        })
+      );
+    } catch (err) {
+      console.error("Error deleting from Cloudinary:", err);
+      // optionally: return next({ message: "Cloudinary deletion failed", code: 500 });
+    }
+
     await fileModel.deleteMany({ _id: { $in: ids } });
-    
-    
+
+    req.cacheKeys = Array.from(cacheKeys);
     return res({ message: "Files deleted successfully" }, 200);
   },
   {

@@ -11,7 +11,11 @@ const config = {
   options: {
     searchFeilds: ["title", "content", "date"],
   },
-   customQuery
+  customQuery,
+  cache: {
+    group: true,
+    stdTTL: "1y",
+  },
 };
 export const GET = FindAll({
   ...config,

@@ -9,6 +9,10 @@ const config = {
   options: {
     searchfields: ["title", "slug"],
   },
+    cache: {
+    group: true,
+    stdTTL: "1y",
+  },
 };
 export const GET = FindAll({
   ...config,

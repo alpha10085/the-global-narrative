@@ -8,6 +8,10 @@ const config = {
   name: "testimonial",
   schemaValidation: testimonialValidationUpdate,
   allowedTo: [...enumRoles.adminRoles],
+    cache: {
+    group: true,
+    stdTTL: "1y",
+  },
 };
 export const GET = FindOne({
   ...config,

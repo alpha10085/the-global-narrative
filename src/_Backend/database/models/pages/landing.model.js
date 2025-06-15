@@ -15,7 +15,7 @@ import { testimonialModel } from "../testimonial.model";
 const heroItemSchema = new Schema({
   title: mongtext,
   media: poster,
-
+  thumbnail: poster,
   description: mongeDescription,
 });
 
@@ -67,6 +67,10 @@ landingSchema.pre(/^find/, function (next) {
     {
       ...populateCommons,
       path: "heroSection.media",
+    },
+    {
+      ...populateCommons,
+      path: "heroSection.thumbnail",
     },
     {
       ...populateCommons,

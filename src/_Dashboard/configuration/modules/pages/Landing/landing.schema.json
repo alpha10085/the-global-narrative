@@ -15,7 +15,7 @@
           "type": "text",
           "label": "title"
         },
-                {
+        {
           "name": "description",
           "type": "textarea",
           "label": "description"
@@ -23,9 +23,16 @@
         {
           "name": "media",
           "type": "media",
-          "allowedTypes": ["image"],
+          "allowedTypes": ["image", "video"],
           "single": true,
           "label": "media"
+        },
+        {
+          "name": "thumbnail",
+          "type": "media",
+          "allowedTypes": ["image"],
+          "single": true,
+          "label": "thumbnail"
         }
       ]
     },

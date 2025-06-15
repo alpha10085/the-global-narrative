@@ -4,6 +4,8 @@
   position: relative;
   margin-bottom: -22vh;
   margin-top: -3vh;
+  max-width: 1800px;
+  margin: 0 auto;
 }
 .wrapper {
   width: 90%;
@@ -29,6 +31,9 @@
 
 .card:nth-child(odd) {
   direction: rtl;
+}
+.card:last-child {
+  height: 95vh;
 }
 
 @keyframes introCard {

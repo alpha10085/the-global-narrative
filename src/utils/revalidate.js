@@ -8,7 +8,8 @@ export const revalidateTags = async (tags = []) => {
     // Revalidate each tag with a slight delay to prevent rate-limiting issues
     for (const tag of tags?.filter(Boolean)) {
       revalidateTag(tag);
-  
+      console.log("🚀 ~ revalidateTags:", tag);
+
       // Add a delay to avoid hitting revalidation limits
       await delay(100);
     }
