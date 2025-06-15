@@ -38,6 +38,8 @@ const FloatedSection = ({ children, className = "" }) => {
     };
   }, []);
 
+
+  return children
   return (
     <section ref={sectionRef} className={`${styles.floated} ${className}`}>
       {children}
