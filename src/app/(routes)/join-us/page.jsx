@@ -1,13 +1,14 @@
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
 import styles from "./styles.module.css";
 import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
-
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import QuoteSection from "@/components/QuoteSection/QuoteSection";
 import { getPage } from "@/lib/pages";
-import ContentSection from "@/components/ContentSection/ContentSection";
 import WhoUsSection from "@/components/AboutUs/WhoUsSection/WhoUsSection";
+import { pageMetadataHandler } from "@/utils/metadata";
 
+const pageKey = "join-us";
+export const generateMetadata = pageMetadataHandler(getPage, pageKey);
 const Page = async (props) => {
   const {
     hero = {},

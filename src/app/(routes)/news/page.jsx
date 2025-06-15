@@ -6,11 +6,10 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import ListInterviews from "@/components/MediaCenter/List/List";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
-
-export const generateMetadata = async () => pageMetadataHandler(getPage, "news-page");
-
+const pageKey = "custom-news";
+export const generateMetadata = pageMetadataHandler(getPage, pageKey);
 const page = async () => {
-  const data = await getPage("custom-news");
+  const data = await getPage(pageKey);
   return (
     <section className={`${styles.layout} showSmooth`} id="news-Categories">
       <div className={styles.header}>

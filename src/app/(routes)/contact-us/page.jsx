@@ -3,7 +3,10 @@ import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import Form from "@/components/LetsCollaborate/Form/Form";
 import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
 import { getPage } from "@/lib/pages";
+import { pageMetadataHandler } from "@/utils/metadata";
 
+const pageKey = "contact-us";
+export const generateMetadata = pageMetadataHandler(getPage, pageKey);
 const page = async () => {
   const {
     title = "Join Our Journey",

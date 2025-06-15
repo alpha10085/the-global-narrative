@@ -96,7 +96,7 @@
     },
     "cache": {
       "duration": "10m",
-      "tags": []
+      "tags": ["services-page"]
     }
   }
 }

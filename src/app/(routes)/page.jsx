@@ -8,7 +8,9 @@ import GetInTouch from "@/components/Home/GetInTouch/GetInTouch";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import { getPage } from "@/lib/pages";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
+import {  pageMetadataHandler } from "@/utils/metadata";
 
+export const generateMetadata = pageMetadataHandler(getPage, "landing");
 const Home = async () => {
   const {
     heroSection = [],

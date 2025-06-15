@@ -6,7 +6,10 @@ import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import QuoteSection from "@/components/QuoteSection/QuoteSection";
 import { getPage } from "@/lib/pages";
 import ContentSection from "@/components/ContentSection/ContentSection";
+import { pageMetadataHandler } from "@/utils/metadata";
 
+const pageKey = "about-us";
+export const generateMetadata = pageMetadataHandler(getPage, pageKey);
 const Page = async (props) => {
   const {
     hero = {},

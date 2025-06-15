@@ -4,13 +4,16 @@ import TemplateHero from "@/components/Template/TemplateHero/TemplateHero";
 import QuoteSection from "@/components/QuoteSection/QuoteSection";
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
 import { getPage } from "@/lib/pages";
+import { pageMetadataHandler } from "@/utils/metadata";
 
+const pageKey = "services-page";
+export const generateMetadata = pageMetadataHandler(getPage, pageKey);
 const Page = async (props) => {
   const {
     hero = {},
     quoteSection = {},
     ourValueSection = {},
-  } = await getPage("services-page");
+  } = await getPage(pageKey);
 
   return (
     <section className={`${styles.container} `}>
