@@ -159,7 +159,6 @@ ${JSON.stringify(defaultMessages, null, 2)}
     );
     return {
       error: false,
-
       success: true,
     };
   } catch (error) {
@@ -175,7 +174,6 @@ const moveFolder = async (oldPath, newPath) => {
   if (fs.existsSync(oldPath)) {
     await fs.copy(oldPath, newPath); // copy folder recursively
     await fs.remove(oldPath); // delete original folder
-  } else {
   }
 
   return true;
