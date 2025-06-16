@@ -30,7 +30,7 @@ const page = async (props) => {
             next: { revalidate: "1y", tags: ["daily-traffic"] },
           }}
         />
-        <div className="flex gap15">
+        <div className={styles.rows}>
           <SSRFetcher
             Component={InsightsTable}
             path={`/analytics/page-views?days=${
@@ -56,7 +56,7 @@ const page = async (props) => {
             }}
           />
         </div>
-        <div className="flex gap15">
+        <div className={styles.rows}>
           <SSRFetcher
             Component={InsightsTable}
             path={`/analytics/devices?days=${searchParams?.["devices"] || 7}`}

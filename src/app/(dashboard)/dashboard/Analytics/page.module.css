@@ -10,6 +10,11 @@
 
 }
 
+.rows{
+  display: flex;
+  gap: 15px;
+}
+
 .chartContainer {
   flex: 1 1 48%;
   min-width: 280px;
@@ -45,6 +50,9 @@
   }
   .charts {
     flex-wrap: wrap;
+  }
+  .rows{
+    flex-direction: column;
   }
 }
 
