@@ -15,7 +15,8 @@ const InsightsTable = ({
 }) => {
   const { theme } = useTheme();
   const chartDataArr = data?.data || [];
-
+  
+  console.log("🚀 ~ data:", data)
   return (
     <div
       className={`${styles.tableWrapper}

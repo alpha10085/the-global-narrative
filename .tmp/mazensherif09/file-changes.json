@@ -2,9 +2,9 @@
   {
     "file": "src/app/(dashboard)/dashboard/analytics/page.jsx",
     "firstSeenAt": "6/13/2025, 2:31:13 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 4:55:44 AM",
     "lastType": "changed",
-    "count": 3
+    "count": 7
   },
   {
     "file": "src/app/api/(constant)/analytics/daily-traffic/route.js",
@@ -119,10 +119,10 @@
   {
     "file": "src/_Dashboard/components/Analytics/Charts/InsightsTable/InsightsTable.jsx",
     "firstSeenAt": "6/14/2025, 7:07:23 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 5:05:17 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/_Dashboard/components/Analytics/FilterBar/FilterBar.jsx",
@@ -143,10 +143,10 @@
   {
     "file": "src/app/api/(constant)/analytics/config.js",
     "firstSeenAt": "6/14/2025, 7:07:23 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 4:59:56 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/app/api/(constant)/files/route.js",
@@ -259,5 +259,21 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 2
+  },
+  {
+    "file": "src/app/api/(constant)/analytics/browsers/route.js",
+    "firstSeenAt": "6/16/2025, 5:00:21 AM",
+    "lastUpdatedAt": "6/16/2025, 5:03:05 AM",
+    "lastType": "changed",
+    "Type": "added",
+    "count": 7
+  },
+  {
+    "file": "src/app/api/(constant)/analytics/operating-systems/route.js",
+    "firstSeenAt": "6/16/2025, 5:00:26 AM",
+    "lastUpdatedAt": "6/16/2025, 5:02:58 AM",
+    "lastType": "changed",
+    "Type": "added",
+    "count": 7
   }
 ]

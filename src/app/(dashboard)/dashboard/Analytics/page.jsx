@@ -23,7 +23,7 @@ const page = async (props) => {
         <SSRFetcher
           Component={ChartLine}
           path={`/analytics/daily-traffic?days=${
-            searchParams?.["dailyTraffic"] || 1
+            searchParams?.["dailyTraffic"] || 7
           }`}
           props={{ type: "dailyTraffic" }}
           options={{
@@ -34,7 +34,7 @@ const page = async (props) => {
           <SSRFetcher
             Component={InsightsTable}
             path={`/analytics/page-views?days=${
-              searchParams?.["pageViews"] || 1
+              searchParams?.["pageViews"] || 7
             }`}
             props={{ type: "pageViews" }}
             options={{
@@ -43,7 +43,7 @@ const page = async (props) => {
           />
           <SSRFetcher
             Component={InsightsTable}
-            path={`/analytics/country?days=${searchParams?.["country"] || 1}`}
+            path={`/analytics/country?days=${searchParams?.["country"] || 7}`}
             props={{
               headerLabels: {
                 vistor: "vistors",
@@ -59,7 +59,7 @@ const page = async (props) => {
         <div className="flex gap15">
           <SSRFetcher
             Component={InsightsTable}
-            path={`/analytics/devices?days=${searchParams?.["devices"] || 1}`}
+            path={`/analytics/devices?days=${searchParams?.["devices"] || 7}`}
             props={{
               headerLabels: {
                 vistor: "vistors",
@@ -73,30 +73,30 @@ const page = async (props) => {
           />
           <SSRFetcher
             Component={InsightsTable}
-            path={`/analytics/devices?days=${searchParams?.["devices"] || 1}`}
+            path={`/analytics/browsers?days=${searchParams?.["browsers"] || 7}`}
             props={{
               headerLabels: {
                 vistor: "vistors",
                 main: "browsers",
               },
-              type: "devices",
+              type: "browsers",
             }}
             options={{
-              next: { revalidate: "1y", tags: ["devices", cacheKey] },
+              next: { revalidate: "1y", tags: ["browsers", cacheKey] },
             }}
           />
           <SSRFetcher
             Component={InsightsTable}
-            path={`/analytics/devices?days=${searchParams?.["devices"] || 1}`}
+            path={`/analytics/operating-systems?days=${searchParams?.["operating-systems"] || 7}`}
             props={{
               headerLabels: {
                 vistor: "vistors",
                 main: "operating systems",
               },
-              type: "devices",
+              type: "operating-systems",
             }}
             options={{
-              next: { revalidate: "1y", tags: ["devices", cacheKey] },
+              next: { revalidate: "1y", tags: ["operating-systems", cacheKey] },
             }}
           />
         </div>
