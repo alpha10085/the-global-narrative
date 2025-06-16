@@ -22,8 +22,8 @@ const page = async (props) => {
       <div className={`${styles.wrapper} flex column gap15 `}>
         <SSRFetcher
           Component={ChartLine}
-          path={`/analytics/daily-traffic?days=${
-            searchParams?.["dailyTraffic"] || 7
+          path={`/analytics/daily-traffic?range=${
+            searchParams?.["dailyTraffic"] || "7d"
           }`}
           props={{ type: "dailyTraffic" }}
           options={{
@@ -33,8 +33,8 @@ const page = async (props) => {
         <div className={styles.rows}>
           <SSRFetcher
             Component={InsightsTable}
-            path={`/analytics/page-views?days=${
-              searchParams?.["pageViews"] || 7
+            path={`/analytics/page-views?range=${
+              searchParams?.["pageViews"] || "7d"
             }`}
             props={{ type: "pageViews" }}
             options={{
@@ -43,7 +43,7 @@ const page = async (props) => {
           />
           <SSRFetcher
             Component={InsightsTable}
-            path={`/analytics/country?days=${searchParams?.["country"] || 7}`}
+            path={`/analytics/country?range=${searchParams?.["country"] || "7d"}`}
             props={{
               headerLabels: {
                 vistor: "vistors",
@@ -59,7 +59,7 @@ const page = async (props) => {
         <div className={styles.rows}>
           <SSRFetcher
             Component={InsightsTable}
-            path={`/analytics/devices?days=${searchParams?.["devices"] || 7}`}
+            path={`/analytics/devices?range=${searchParams?.["devices"] || "7d"}`}
             props={{
               headerLabels: {
                 vistor: "vistors",
@@ -73,7 +73,7 @@ const page = async (props) => {
           />
           <SSRFetcher
             Component={InsightsTable}
-            path={`/analytics/browsers?days=${searchParams?.["browsers"] || 7}`}
+            path={`/analytics/browsers?range=${searchParams?.["browsers"] || "7d"}`}
             props={{
               headerLabels: {
                 vistor: "vistors",
@@ -87,7 +87,7 @@ const page = async (props) => {
           />
           <SSRFetcher
             Component={InsightsTable}
-            path={`/analytics/operating-systems?days=${searchParams?.["operating-systems"] || 7}`}
+            path={`/analytics/operating-systems?range=${searchParams?.["operating-systems"] || "7d"}`}
             props={{
               headerLabels: {
                 vistor: "vistors",
