@@ -6,12 +6,12 @@ import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 const Card = ({ className = "", data = {}, index = 1 }) => {
   return (
     <Aos
-    triggerOnce
-    threshold={0.15}
-    activeClassName={styles.active}
-    className={`${styles.container}   ${className} `}
+      triggerOnce
+      threshold={0.15}
+      activeClassName={styles.active}
+      className={`${styles.container}   ${className} `}
     >
-        <FloatedSection>
+      <FloatedSection>
         <div className={`flex al-i-c gap30 ${styles.wrapper}`}>
           <div className={`${styles.content} just-c column gap15 flex`}>
             <div className={`${styles.head} flex column gap10`}>
@@ -23,8 +23,8 @@ const Card = ({ className = "", data = {}, index = 1 }) => {
 
           <Img url={data?.poster?.url} className={styles.poster} />
         </div>
-    </FloatedSection>
-      </Aos>
+      </FloatedSection>
+    </Aos>
   );
 };
 
