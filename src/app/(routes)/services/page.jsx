@@ -5,6 +5,7 @@ import QuoteSection from "@/components/QuoteSection/QuoteSection";
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
+import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 
 const pageKey = "services-page";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
@@ -17,12 +18,15 @@ const Page = async (props) => {
 
   return (
     <section className={`${styles.container} `}>
+      <FloatedSection>
+
       <TemplateHero
         pageTitle="Our services"
         title={hero?.title}
         description={hero?.description}
         poster={hero?.poster}
-      />
+        />
+        </FloatedSection>
       <div className={styles.wrapper}>
         <OurValues data={ourValueSection} />
         <QuoteSection data={quoteSection} />

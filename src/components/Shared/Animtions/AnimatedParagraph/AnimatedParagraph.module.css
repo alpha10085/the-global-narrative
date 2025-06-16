@@ -1,3 +1,4 @@
 .word {
   display: inline-block;
+  opacity: 0.5;
 }

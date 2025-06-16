@@ -1,13 +1,14 @@
 .container {
   z-index: 2;
-  position: sticky;
-  top: 80px;
+  /* position: sticky;
+  top: 80px; */
   background-color: var(--color500);
   transition: 0.2s;
-  height: 120vh;
+  height: 100vh;
   overflow: hidden;
   padding: 0 40px;
   backdrop-filter: blur(40px);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.104);
 }
 
 .wrapper {
