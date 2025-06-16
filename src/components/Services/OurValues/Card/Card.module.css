@@ -20,7 +20,7 @@
   color: var(--color200);
   transform: translateY(100%);
   transition: 1s;
-  transition-delay: 0.5s;
+  /* transition-delay: 0.5s; */
 
   font-weight: 600;
 }
@@ -55,7 +55,7 @@
   color: var(--color200);
   opacity: 0;
   transition: 0.8s;
-  transition-delay: 0.8s;
+  /* transition-delay: 0.8s; */
   font-weight: 600;
   color:#4A5B74;
 }
@@ -78,8 +78,7 @@
   overflow: hidden;
   transition: 1.5s;
   margin: 0 40px;
-
-  transition-delay: 0.5s;
+  /* transition-delay: 0.5s; */
   transform: translateY(100%);
 }
 
