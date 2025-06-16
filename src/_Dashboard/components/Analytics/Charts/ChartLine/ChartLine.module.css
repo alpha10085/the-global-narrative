@@ -11,6 +11,7 @@
   height: 400px;
   margin: 20px auto 0;
   max-width: 100%;
+  width: 100%;
   color: unset !important;
 }
 
@@ -30,6 +31,17 @@
 .head {
   margin: 10px 32px 0;
 }
+
+@media (max-width: 768px) {
+  .chartWrapper {
+    height: 300px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+}
+
 @media (max-width: 600px) {
   .metrics {
     flex-direction: column;
@@ -38,12 +50,18 @@
   .metricCard {
     width: 100%;
   }
+}
+
+@media (max-width: 480px) {
+  .chartWrapper {
+    height: 260px;
+  }
 
   .title {
     font-size: 16px;
   }
 
-  .chartWrapper {
-    height: 300px;
+  .XAxis {
+    font-size: 10px;
   }
 }

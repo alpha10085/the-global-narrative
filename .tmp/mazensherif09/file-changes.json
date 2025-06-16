@@ -111,10 +111,10 @@
   {
     "file": "src/_Dashboard/components/Analytics/Charts/ChartLine/ChartLine.module.css",
     "firstSeenAt": "6/14/2025, 7:07:23 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 5:24:07 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 5
   },
   {
     "file": "src/_Dashboard/components/Analytics/Charts/InsightsTable/InsightsTable.jsx",
@@ -127,10 +127,10 @@
   {
     "file": "src/_Dashboard/components/Analytics/FilterBar/FilterBar.jsx",
     "firstSeenAt": "6/14/2025, 7:07:23 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 5:32:30 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 10
   },
   {
     "file": "src/_Dashboard/components/Analytics/MetricsHeader/MetricsHeader.jsx",

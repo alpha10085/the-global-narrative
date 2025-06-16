@@ -8,10 +8,6 @@ const FilterBar = ({ type }) => {
   const { theme } = useTheme();
   const { searchParams, singleValue } = useQueryParams();
 
-  const defaultValues = {
-    days: "1", // Default to "Today"
-  };
-
   const filterConfigs = [
     {
       key: `${type}`,
@@ -27,8 +23,7 @@ const FilterBar = ({ type }) => {
   return (
     <div className={`${styles.container} flex al-i-c `}>
       {filterConfigs?.map(({ key, options }) => {
-        const paramKey = key?.split(".")[1];
-        const value = searchParams?.[key] ?? defaultValues[paramKey];
+        const value = searchParams?.[key] ?? "7";
         const isLight = theme?.name === "light";
         return (
           <div
