@@ -187,13 +187,12 @@ export const calculateUserStats = async (matchStage) => {
 };
 
 // Helper to calculate % change safely
-export const calcChange = (current, previous) => {
+export const calcRoundedChange = (current, previous) => {
   if (previous === 0) return current === 0 ? 0 : 100;
-  return ((current - previous) / previous) * 100;
+  const change = ((current - previous) / previous) * 100;
+  return Math.round(change * 10) / 10;
 };
 
-export const roundChange = (current, previous) =>
-  Math.round(calcChange(current, previous) * 10) / 10;
 
 export const getFromDate = (range) => {
   const toDate = new Date();

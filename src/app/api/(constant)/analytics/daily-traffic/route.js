@@ -4,7 +4,7 @@ import {
   buildMatchStage,
   calculateUserStats,
   getFromDate,
-  roundChange,
+  calcRoundedChange,
   runAggregation,
 } from "../helpers";
 import { insightPipelines } from "../config";
@@ -43,11 +43,11 @@ export const GET = AsyncHandler(async (req, res) => {
 
   const metadata = {
     totalUsers: currentStats.totalUsers,
-    totalUsersChange: roundChange(currentStats.totalUsers, previousStats.totalUsers),
+    totalUsersChange: calcRoundedChange(currentStats.totalUsers, previousStats.totalUsers),
     returnedUsers: currentStats.returnedUsers,
-    returnedUsersChange: roundChange(currentStats.returnedUsers, previousStats.returnedUsers),
+    returnedUsersChange: calcRoundedChange(currentStats.returnedUsers, previousStats.returnedUsers),
     retentionRate: currentStats.retentionRate,
-    retentionRateChange: roundChange(currentStats.retentionRate, previousStats.retentionRate),
+    retentionRateChange: calcRoundedChange(currentStats.retentionRate, previousStats.retentionRate),
     range,
   };
 
