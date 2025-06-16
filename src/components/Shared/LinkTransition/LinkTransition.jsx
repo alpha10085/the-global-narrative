@@ -1,4 +1,5 @@
 "use client";
+
 import { useTransitionRouter } from "next-view-transitions";
 import { slideToTop } from "./animtions";
 import { useHandleherfLink } from "../Link/helpers";
@@ -11,14 +12,20 @@ const LinkTransition = ({ children, href = "/", ...props }) => {
   const handlers = useHandleherfLink(href);
 
   const onClick = () => {
-    router.push(handlers.href, {
-      onTransitionReady: slideToTop,
-    });
+    try {
+      router.push(handlers.href, {
+        onTransitionReady: slideToTop,
+      });
+    } catch (error) {
+      // fallback if transition fails
+      nextRouter.push(handlers.href);
+    }
   };
 
   useEffect(() => {
     if (href) nextRouter.prefetch(href);
   }, [href]);
+
   return (
     <a
       href={handlers.href}

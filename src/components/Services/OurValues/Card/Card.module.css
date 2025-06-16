@@ -1,18 +1,20 @@
 .container {
   z-index: 2;
-  position: sticky;
-  top: 80px;
+  /* position: sticky;
+  top: 80px; */
   background-color: var(--color500);
   transition: 0.2s;
-  height: 120vh;
+  height: 100vh;
   overflow: hidden;
   padding: 0 40px;
-  backdrop-filter: blur(40px);
+  box-shadow: 0 0 50px rgba(0, 204, 255, 0.104);
 }
 
 .wrapper {
   height: 85vh;
   overflow: hidden;
+  margin: 0 auto;
+  max-width: 1800px;
 }
 
 .title {
@@ -20,8 +22,6 @@
   color: var(--color200);
   transform: translateY(100%);
   transition: 1s;
-  transition-delay: 0.5s;
-
   font-weight: 600;
 }
 
@@ -42,7 +42,7 @@
 
   color: rgb(81, 183, 255);
   font-weight: 400;
-  color: #69B9FF;
+  color: #69b9ff;
 }
 
 .container.active .index {
@@ -55,9 +55,9 @@
   color: var(--color200);
   opacity: 0;
   transition: 0.8s;
-  transition-delay: 0.8s;
+  /* transition-delay: 0.8s; */
   font-weight: 600;
-  color:#4A5B74;
+  color: #4a5b74;
 }
 
 .container.active .description {
@@ -78,8 +78,7 @@
   overflow: hidden;
   transition: 1.5s;
   margin: 0 40px;
-
-  transition-delay: 0.5s;
+  /* transition-delay: 0.5s; */
   transform: translateY(100%);
 }
 
