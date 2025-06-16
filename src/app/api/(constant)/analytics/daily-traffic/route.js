@@ -2,43 +2,55 @@
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import {
   buildMatchStage,
-  calculateRetention,
-  getTotalUsers,
+  calculateUserStats,
+  getFromDate,
+  roundChange,
   runAggregation,
 } from "../helpers";
 import { insightPipelines } from "../config";
 
 export const GET = AsyncHandler(async (req, res) => {
   const query = req.query;
-  const days = query.days !== undefined ? parseInt(query.days) : 0;
+  const range = query.range || "7d";
 
-  const fromDate = new Date();
-  fromDate.setHours(0, 0, 0, 0); // Start of today
+  const toDate = new Date();
+  toDate.setHours(23, 59, 59, 999);
 
-  if (days > 0) {
-    fromDate.setDate(fromDate.getDate() - (days - 1));
-  }
+  const fromDate = getFromDate(range);
 
-  const matchStage = buildMatchStage(query, fromDate);
-  const data = await runAggregation(insightPipelines?.dailyTraffic, matchStage);
+  const prevToDate = new Date(fromDate);
+  prevToDate.setHours(23, 59, 59, 999);
+
+  const diffMillis = toDate.getTime() - fromDate.getTime();
+
+  const prevFromDate = new Date(prevToDate.getTime() - diffMillis);
+  prevFromDate.setHours(0, 0, 0, 0);
+
+  // Build match stages for current and previous period
+  const currentMatch = buildMatchStage(query, fromDate, toDate);
+  const prevMatch = buildMatchStage(query, prevFromDate, prevToDate);
+
+  // Get stats for current and previous periods
+  const currentStats = await calculateUserStats(currentMatch);
+  const previousStats = await calculateUserStats(prevMatch);
+
+  // Compose pipeline using insightPipelines.dailyTraffic
+  const pipeline = [currentMatch, ...insightPipelines.dailyTraffic];
+
+  // Run aggregation
+  const data = await runAggregation(pipeline);
   if (!data) return res({ error: "Chart data not found" }, 400);
 
-  const totalUsers = await getTotalUsers(matchStage);
-
   const metadata = {
-    totalUsers: totalUsers,
-    days,
+    totalUsers: currentStats.totalUsers,
+    totalUsersChange: roundChange(currentStats.totalUsers, previousStats.totalUsers),
+    returnedUsers: currentStats.returnedUsers,
+    returnedUsersChange: roundChange(currentStats.returnedUsers, previousStats.returnedUsers),
+    retentionRate: currentStats.retentionRate,
+    retentionRateChange: roundChange(currentStats.retentionRate, previousStats.retentionRate),
+    range,
   };
 
-  const { returnedUsers, retentionRate } = await calculateRetention(matchStage);
-  metadata.returnedUsers = returnedUsers;
-  metadata.retentionRate = retentionRate;
-
-  return res(
-    {
-      metadata,
-      data,
-    },
-    200
-  );
+  return res({ metadata, data }, 200);
 });
+

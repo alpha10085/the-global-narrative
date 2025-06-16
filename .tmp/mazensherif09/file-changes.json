@@ -2,37 +2,37 @@
   {
     "file": "src/app/(dashboard)/dashboard/analytics/page.jsx",
     "firstSeenAt": "6/13/2025, 2:31:13 PM",
-    "lastUpdatedAt": "6/16/2025, 5:10:55 AM",
+    "lastUpdatedAt": "6/16/2025, 11:35:11 PM",
     "lastType": "changed",
-    "count": 11
+    "count": 15
   },
   {
     "file": "src/app/api/(constant)/analytics/daily-traffic/route.js",
     "firstSeenAt": "6/13/2025, 2:36:29 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 11:25:37 PM",
     "lastType": "changed",
-    "count": 3
+    "count": 38
   },
   {
     "file": "src/app/api/(constant)/analytics/page-views/route.js",
     "firstSeenAt": "6/13/2025, 2:38:04 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 11:35:03 PM",
     "lastType": "changed",
-    "count": 2
+    "count": 3
   },
   {
     "file": "src/app/api/(constant)/analytics/country/route.js",
     "firstSeenAt": "6/13/2025, 2:38:09 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 11:33:24 PM",
     "lastType": "changed",
-    "count": 2
+    "count": 6
   },
   {
     "file": "src/app/api/(constant)/analytics/devices/route.js",
     "firstSeenAt": "6/13/2025, 2:38:12 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 11:34:31 PM",
     "lastType": "changed",
-    "count": 3
+    "count": 4
   },
   {
     "file": "src/_Backend/middlewares/security/honeypot.js",
@@ -58,9 +58,9 @@
   {
     "file": "src/app/api/(constant)/analytics/route.js",
     "firstSeenAt": "6/13/2025, 7:52:58 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 11:35:59 PM",
     "lastType": "changed",
-    "count": 2
+    "count": 11
   },
   {
     "file": "src/_Backend/middlewares/security/rateLimitMiddleware.js",
@@ -103,10 +103,10 @@
   {
     "file": "src/_Dashboard/components/Analytics/Charts/ChartLine/ChartLine.jsx",
     "firstSeenAt": "6/14/2025, 7:07:23 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 10:40:17 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 3
   },
   {
     "file": "src/_Dashboard/components/Analytics/Charts/ChartLine/ChartLine.module.css",
@@ -127,18 +127,18 @@
   {
     "file": "src/_Dashboard/components/Analytics/FilterBar/FilterBar.jsx",
     "firstSeenAt": "6/14/2025, 7:07:23 PM",
-    "lastUpdatedAt": "6/16/2025, 5:32:30 AM",
+    "lastUpdatedAt": "6/16/2025, 10:59:24 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 10
+    "count": 14
   },
   {
     "file": "src/_Dashboard/components/Analytics/MetricsHeader/MetricsHeader.jsx",
     "firstSeenAt": "6/14/2025, 7:07:23 PM",
-    "lastUpdatedAt": "6/14/2025, 7:07:23 PM",
+    "lastUpdatedAt": "6/16/2025, 11:01:07 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 14
   },
   {
     "file": "src/app/api/(constant)/analytics/config.js",
@@ -199,10 +199,10 @@
   {
     "file": "src/components/Shared/SSRFetcher/SSRFetcher.jsx",
     "firstSeenAt": "6/14/2025, 7:22:11 PM",
-    "lastUpdatedAt": "6/14/2025, 7:25:53 PM",
+    "lastUpdatedAt": "6/16/2025, 11:30:03 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 2
+    "count": 5
   },
   {
     "file": "src/i18n/locales/en.json",
@@ -263,17 +263,25 @@
   {
     "file": "src/app/api/(constant)/analytics/browsers/route.js",
     "firstSeenAt": "6/16/2025, 5:00:21 AM",
-    "lastUpdatedAt": "6/16/2025, 5:03:05 AM",
+    "lastUpdatedAt": "6/16/2025, 11:34:03 PM",
     "lastType": "changed",
     "Type": "added",
-    "count": 7
+    "count": 8
   },
   {
     "file": "src/app/api/(constant)/analytics/operating-systems/route.js",
     "firstSeenAt": "6/16/2025, 5:00:26 AM",
-    "lastUpdatedAt": "6/16/2025, 5:02:58 AM",
+    "lastUpdatedAt": "6/16/2025, 11:34:44 PM",
     "lastType": "changed",
     "Type": "added",
-    "count": 7
+    "count": 9
+  },
+  {
+    "file": "src/app/api/(constant)/analytics/helpers.js",
+    "firstSeenAt": "6/16/2025, 7:48:57 PM",
+    "lastUpdatedAt": "6/16/2025, 11:05:24 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 42
   }
 ]

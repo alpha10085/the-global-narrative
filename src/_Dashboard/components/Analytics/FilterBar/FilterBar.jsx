@@ -10,12 +10,15 @@ const FilterBar = ({ type }) => {
 
   const filterConfigs = [
     {
-      key: `${type}`,
+      key: `${type}`, // e.g. "dailyTraffic"
       options: [
-        { value: "1", label: "Today" },
-        { value: "7", label: "Last 7 days" },
-        { value: "30", label: "Last 30 days" },
-        { value: "100", label: "Last 100 days" },
+        { value: "today", label: "Today" },
+        { value: "7d", label: "Last 7 days" },
+        { value: "1m", label: "Last 1 month" },
+        { value: "3m", label: "Last 3 months" },
+        { value: "6m", label: "Last 6 months" },
+        { value: "9m", label: "Last 9 months" },
+        { value: "1y", label: "Last 1 year" },
       ],
     },
   ];
@@ -23,7 +26,7 @@ const FilterBar = ({ type }) => {
   return (
     <div className={`${styles.container} flex al-i-c `}>
       {filterConfigs?.map(({ key, options }) => {
-        const value = searchParams?.[key] ?? "7";
+       const value = searchParams?.[key] ?? "7d";
         const isLight = theme?.name === "light";
         return (
           <div

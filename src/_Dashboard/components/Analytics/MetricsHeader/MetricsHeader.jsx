@@ -41,9 +41,10 @@ const MetricsHeader = ({ metadata = {} }) => {
   const { theme } = useTheme();
 
   // Exclude unwanted keys like "days"
-  const excludedKeys = ["days"];
+  const excludedKeys = ["range"];
   const filteredEntries = Object.entries(metadata).filter(
-    ([key]) => !excludedKeys.includes(key)
+    ([key]) =>
+      !excludedKeys.includes(key) && !key.toLowerCase().endsWith("change")
   );
 
   return (
@@ -55,21 +56,26 @@ const MetricsHeader = ({ metadata = {} }) => {
         borderRadius: "12px",
       }}
     >
-      {filteredEntries?.map(([label, value]) => (
-        <MetricCard
-          key={label}
-          theme={theme}
-          label={label
-            .replace(/([A-Z])/g, " $1")
-            .replace(/^./, (str) => str.toUpperCase())}
-          value={
-            typeof value === "number" && label.toLowerCase().includes("rate")
-              ? `${value}%`
-              : value
-          }
-          change={Math.floor(Math.random() * 10 - 5)} // Placeholder logic
-        />
-      ))}
+      {filteredEntries?.map(([label, value]) => {
+        // Look for the change in metadata
+        const changeKey = `${label}Change`;
+        const change = metadata[changeKey] ?? 0;
+
+        return (
+          <MetricCard
+            key={label}
+            label={label
+              .replace(/([A-Z])/g, " $1")
+              .replace(/^./, (str) => str.toUpperCase())}
+            value={
+              typeof value === "number" && label.toLowerCase().includes("rate")
+                ? `${value}%`
+                : value
+            }
+            change={change}
+          />
+        );
+      })}
     </div>
   );
 };

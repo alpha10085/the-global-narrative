@@ -90,19 +90,19 @@ export async function shouldRecordVisit({
   return true;
 }
 
-export const buildMatchStage = (query, fromDate) => {
+export const buildMatchStage = (query, fromDate, toDate) => {
   const match = {
     eventType: "pageview",
-    timestamp: { $gte: fromDate },
+    timestamp: { $gte: fromDate, $lte: toDate },
   };
   if (query.pathname) match.pathname = query.pathname;
   if (query.device) match.device = query.device;
   return { $match: match };
 };
 
-export const runAggregation = async (pipeline, matchStage) => {
+export const runAggregation = async (pipeline) => {
   if (!pipeline) return null;
-  return await analyticsModel.aggregate([matchStage, ...pipeline]);
+  return await analyticsModel.aggregate(pipeline);
 };
 
 export const getTotalUsers = async (matchStage) => {
@@ -114,46 +114,32 @@ export const getTotalUsers = async (matchStage) => {
   return result[0]?.totalUsers || 0;
 };
 
-// VisitorKey for tracking Returned visitors
-export const generateVisitorKey = async ({ ip, userAgent, device, region }) => {
-  const raw = `${ip}-${userAgent}-${device}-${region}`;
-  return crypto.createHash("sha256").update(raw).digest("hex");
-};
-
 // calculate Returned visitors
-export const calculateRetention = async (matchStage) => {
-  const retention = await analyticsModel.aggregate([
+export const calculateUserStats = async (matchStage) => {
+  const result = await analyticsModel.aggregate([
     matchStage,
-    // Project visitorKey and day string (YYYY-MM-DD)
     {
       $project: {
         visitorKey: 1,
-        day: {
-          $dateToString: {
-            format: "%Y-%m-%d", // ← use full day
-            date: "$timestamp",
-          },
-        },
+        day: { $dateToString: { format: "%Y-%m-%d", date: "$timestamp" } },
       },
     },
-    // Group by visitorKey + day to get unique visits per user per day
     {
       $group: {
         _id: { visitorKey: "$visitorKey", day: "$day" },
       },
     },
-    // Group by visitorKey again to count distinct days visited
     {
       $group: {
         _id: "$_id.visitorKey",
-        daysVisitedCount: { $sum: 1 },
+        daysVisited: { $sum: 1 },
       },
     },
     {
       $facet: {
         allUsers: [{ $count: "totalUsers" }],
         returnedUsers: [
-          { $match: { daysVisitedCount: { $gt: 1 } } },
+          { $match: { daysVisited: { $gt: 1 } } },
           { $count: "returnedUsers" },
         ],
       },
@@ -192,7 +178,7 @@ export const calculateRetention = async (matchStage) => {
   ]);
 
   return (
-    retention[0] || {
+    result[0] || {
       totalUsers: 0,
       returnedUsers: 0,
       retentionRate: 0,
@@ -200,8 +186,97 @@ export const calculateRetention = async (matchStage) => {
   );
 };
 
+// Helper to calculate % change safely
 export const calcChange = (current, previous) => {
-  if (!previous) return 100; // Prevent divide-by-zero
-  const change = ((current - previous) / previous) * 100;
-  return Math.round(change);
+  if (previous === 0) return current === 0 ? 0 : 100;
+  return ((current - previous) / previous) * 100;
+};
+
+export const roundChange = (current, previous) =>
+  Math.round(calcChange(current, previous) * 10) / 10;
+
+export const getFromDate = (range) => {
+  const toDate = new Date();
+  toDate.setHours(23, 59, 59, 999);
+  const fromDate = new Date(toDate);
+
+  switch (range) {
+    case "1d":
+    case "today":
+      fromDate.setDate(toDate.getDate() - 0);
+      break;
+    case "7d":
+      fromDate.setDate(toDate.getDate() - 7);
+      break;
+    case "30d":
+    case "1m":
+      fromDate.setMonth(toDate.getMonth() - 1);
+      fromDate.setDate(1); // start of month
+      fromDate.setHours(0, 0, 0, 0);
+      break;
+    case "3m":
+      fromDate.setMonth(toDate.getMonth() - 3);
+      fromDate.setDate(1);
+      fromDate.setHours(0, 0, 0, 0);
+      break;
+    case "6m":
+      fromDate.setMonth(toDate.getMonth() - 6);
+      fromDate.setDate(1);
+      fromDate.setHours(0, 0, 0, 0);
+      break;
+    case "9m":
+      fromDate.setMonth(toDate.getMonth() - 9);
+      fromDate.setDate(1);
+      fromDate.setHours(0, 0, 0, 0);
+      break;
+    case "1y":
+      fromDate.setFullYear(toDate.getFullYear() - 1);
+      fromDate.setMonth(0);
+      fromDate.setDate(1);
+      fromDate.setHours(0, 0, 0, 0);
+      break;
+    default:
+      // Default 7 days
+      fromDate.setDate(toDate.getDate() - 6);
+  }
+
+  return fromDate;
+};
+
+export function buildGroupingStage(range) {
+  if (range === "7d" || range === "1d") {
+    return {
+      $group: {
+        _id: { $dateToString: { format: "%Y-%m-%d", date: "$timestamp" } },
+        count: { $sum: 1 },
+      },
+    };
+  } else if (range === "1m") {
+    return {
+      $group: {
+        _id: { $dateToString: { format: "%Y-%m", date: "$timestamp" } },
+        count: { $sum: 1 },
+      },
+    };
+  } else if (range === "1y") {
+    return {
+      $group: {
+        _id: { $dateToString: { format: "%Y", date: "$timestamp" } },
+        count: { $sum: 1 },
+      },
+    };
+  }
+  // default fallback
+  return {
+    $group: {
+      _id: { $dateToString: { format: "%Y-%m-%d", date: "$timestamp" } },
+      count: { $sum: 1 },
+    },
+  };
+}
+
+// VisitorKey for tracking Returned visitors
+export const generateVisitorKey = async ({ ip, userAgent, device, region }) => {
+  const raw = `${ip}-${userAgent}-${device}-${region}`;
+  return crypto.createHash("sha256").update(raw).digest("hex");
 };
