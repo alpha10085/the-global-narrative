@@ -3,6 +3,8 @@ import React, { useRef, useState, useEffect } from "react";
 import styles from "./styles.module.css";
 import Skeleton from "../Skeleton/Skeleton";
 import Img from "../img/Img";
+import DynamicVolume from "./icons";
+import { useInView } from "react-intersection-observer";
 
 const VideoPlayer = ({
   url = "",
@@ -15,15 +17,25 @@ const VideoPlayer = ({
   theme = "light",
   urlForMobil = null,
   thumbnail = null,
+  allowChangeSound = false,
+  muted = true,
 }) => {
   const videoRef = useRef(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [videourl, setVideourl] = useState(url);
+  const [isMuted, setIsMuted] = useState(muted);
+  const { ref } = useInView({
+    threshold: 0.2,
+    triggerOnce: false,
+    onChange: (inView = false) => {
+      if (!isMuted) setIsMuted(!inView);
+    },
+  });
   const handleCanPlayThrough = () => {
     if (autoPlay && videoRef?.current) {
       videoRef.current.play();
-          setLoading(false);
+      setLoading(false);
     }
   };
 
@@ -55,7 +67,7 @@ const VideoPlayer = ({
   }, [url, urlForMobil]);
 
   return (
-    <div className={`${styles.wrapper} p-relative ${className}`}>
+    <div ref={ref} className={`${styles.wrapper} p-relative ${className}`}>
       {loading ? (
         thumbnail ? (
           <Img
@@ -80,17 +92,20 @@ const VideoPlayer = ({
           poster={poster}
           controls={controls}
           loop={loop}
-          muted={true}
+          muted={isMuted}
           playsInline
-           autoPlay={autoPlay}
+          autoPlay={autoPlay}
           onLoadedData={() => setLoading(false)}
-           onCanPlayThrough={handleCanPlayThrough}
+          onCanPlayThrough={handleCanPlayThrough}
           onError={handleVideoError}
           data-loaded={loading ? undefined : "true"}
           preload="preload" // Preload more data for smoother playback
           className={`${withEffect ? styles.blurring : ""} ${styles.video}`}
         />
       )}
+      <div className={styles.sounedState}>
+        <DynamicVolume value={isMuted} onChange={(e) => setIsMuted(e)} />
+      </div>
     </div>
   );
 };

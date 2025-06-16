@@ -78,5 +78,29 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 5
+  },
+  {
+    "file": "src/components/Shared/Video/Video.jsx",
+    "firstSeenAt": "6/17/2025, 12:27:43 AM",
+    "lastUpdatedAt": "6/17/2025, 12:50:50 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 11
+  },
+  {
+    "file": "src/components/Shared/Video/icons.js",
+    "firstSeenAt": "6/17/2025, 12:29:44 AM",
+    "lastUpdatedAt": "6/17/2025, 12:51:46 AM",
+    "lastType": "changed",
+    "Type": "added",
+    "count": 19
+  },
+  {
+    "file": "src/components/Shared/Video/styles.module.css",
+    "firstSeenAt": "6/17/2025, 12:34:50 AM",
+    "lastUpdatedAt": "6/17/2025, 12:46:55 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 71
   }
 ]

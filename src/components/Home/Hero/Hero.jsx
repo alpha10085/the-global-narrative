@@ -8,10 +8,10 @@ const Hero = ({ data = {} }) => {
     <div className={styles.container}>
       <div className={styles.slide}>
         <Media
-        
-        {...{...data?.media,thumbnail:data?.thumbnail?.url}}
-        
-        className={`${styles.media} imageoverlay`} />
+          {...{ ...data?.media, thumbnail: data?.thumbnail?.url }}
+          allowChangeSound
+          className={`${styles.media} imageoverlay`}
+        />
         <div className={`${styles.titleBox} flex-c column gap15`}>
           <WordPullUpV2
             duration={0.5}
@@ -20,19 +20,13 @@ const Hero = ({ data = {} }) => {
             text={data?.title}
           />
           <p className={styles.description}>{data?.description}</p>
-          <div 
-            className={styles.link}>
-
-          <MainButton
-            text="join us"
-            href="/join-us"
-            />
-            </div>
+          <div className={styles.link}>
+            <MainButton text="join us" href="/join-us" />
+          </div>
         </div>
       </div>
     </div>
   );
 };
-
 
 export default Hero;
