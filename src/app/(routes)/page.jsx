@@ -28,7 +28,7 @@ const Home = async () => {
         <AboutUs data={aboutUsSection} />
         <Quote data={quoteSection} />
       </FloatedSection>
-      <div className={styles.wrapper}>
+      {/* <div className={styles.wrapper}>
         <SSRFetcher
           Component={News}
           options={{
@@ -48,8 +48,8 @@ const Home = async () => {
           }}
           path={`/testimonials/landing?ids=${testimonialSection?.posts}`}
         />
-      </div>
-        <GetInTouch data={getInTouchSection} />
+      </div> */}
+        {/* <GetInTouch data={getInTouchSection} /> */}
     </section>
   );
 };
