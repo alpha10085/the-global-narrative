@@ -5,6 +5,8 @@
   padding-left: 5%;
   position: relative;
   overflow: hidden;
+
+  background-color: white;
 }
 
 .left {

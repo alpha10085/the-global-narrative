@@ -1,5 +1,4 @@
 .childOne {
-
   background-color: rgba(255, 0, 0, 0);
 }
 
@@ -37,10 +36,18 @@
   text-transform: capitalize;
 }
 .textpage h1 {
-    background: linear-gradient(to right, #5ffff2, #fe7b7b); /* Customize colors */
+  background: linear-gradient(
+    to right,
+    #5ffff2,
+    #fe7b7b
+  ); /* Customize colors */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 2rem;
   font-weight: bold;
   font-size: 40px;
+}
+.wrapper {
+  
+  transform: translateY(-50px);
 }

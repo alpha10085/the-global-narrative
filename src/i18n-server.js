@@ -16,3 +16,5 @@ const initializeI18next = async () => {
 };
 
 export default initializeI18next;
+
+

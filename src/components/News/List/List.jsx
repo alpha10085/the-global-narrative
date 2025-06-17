@@ -111,7 +111,7 @@ const List = ({ page = {}, categories = [] }) => {
         <VirtuosoGrid
           useWindowScroll
           className={`${styles.list} `}
-          data={[...dataAfterFiltered,...dataAfterFiltered]}
+          data={dataAfterFiltered}
           endReached={() => {
             if (hasNextPage) fetchNextPage();
           }}
