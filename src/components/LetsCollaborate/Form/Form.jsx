@@ -28,7 +28,7 @@ const Form = ({ siteKey }) => {
   const handleClick = async (form) => {
     try {
       setLoading(true);
-      console.log(recaptchaRef.current);
+      console.log(recaptchaRef.current.executeAsync);
       
       // const recaptchaToken = await recaptchaRef.current.executeAsync();
       // console.log("🚀 ~ handleClick ~ recaptchaToken:", recaptchaToken);
