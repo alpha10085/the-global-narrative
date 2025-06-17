@@ -31,7 +31,7 @@ const Form = ({ siteKey }) => {
     try {
       setLoading(true);
       const recaptchaToken = await recaptchaRef.current.executeAsync();
-      if (!recaptchaToken) throw new Error("reCAPTCHA failed");
+      if (!recaptchaToken) throw new Error("failed to send form");
       recaptchaRef.current.reset();
       const fullForm = {
         ...form,
