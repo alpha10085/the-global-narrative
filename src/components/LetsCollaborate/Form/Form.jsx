@@ -31,25 +31,26 @@ const Form = ({ siteKey }) => {
     try {
       setLoading(true);
       const recaptchaToken = await recaptchaRef.current.executeAsync();
+      console.log("🚀 ~ handleClick ~ recaptchaToken:", recaptchaToken)
       if (!recaptchaToken) throw new Error("failed to send form");
       recaptchaRef.current.reset();
       const fullForm = {
         ...form,
         recaptchaToken, // add token to form data
       };
-      toast.promise(HandleContactUs(fullForm), {
-        loading: "sending...",
-        success: (data) => {
-          reset();
-          setLoading(false);
-          return `Form sent successfully`;
-        },
-        error: (error) => {
-          console.log("🚀 ~ toast.promise ~ error:", error)
-          setLoading(false);
-          return `${error?.message}`;
-        },
-      });
+      // toast.promise(HandleContactUs(fullForm), {
+      //   loading: "sending...",
+      //   success: (data) => {
+      //     reset();
+      //     setLoading(false);
+      //     return `Form sent successfully`;
+      //   },
+      //   error: (error) => {
+      //     console.log("🚀 ~ toast.promise ~ error:", error)
+      //     setLoading(false);
+      //     return `${error?.message}`;
+      //   },
+      // });
     } catch (error) {
       console.log("🚀 ~ handleClick ~ error:", error);
       setLoading(false);
