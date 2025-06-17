@@ -49,7 +49,8 @@ const Form = ({ siteKey }) => {
         },
       });
     } catch (error) {
-      toast.error(error || "Form failed");
+      setLoading(false);
+      toast.error(error?.message || "Form failed");
     }
   };
 
