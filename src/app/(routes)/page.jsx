@@ -48,8 +48,8 @@ const Home = async () => {
           }}
           path={`/testimonials/landing?ids=${testimonialSection?.posts}`}
         />
-        <GetInTouch data={getInTouchSection} />
       </div>
+        <GetInTouch data={getInTouchSection} />
     </section>
   );
 };

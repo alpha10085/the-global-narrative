@@ -131,6 +131,11 @@ const NavBar = () => {
   return (
     <header className={styles.header}>
       <div className={styles.wrapperHeader}>
+        <div
+          className={`${styles.bg} ${
+            navMode.transparent ? styles.transparent : ""
+          }`}
+        ></div>
         <nav
           ref={navRef}
           className={`
