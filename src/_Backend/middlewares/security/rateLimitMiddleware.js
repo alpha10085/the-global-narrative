@@ -38,6 +38,8 @@ export const rateLimitMiddleware = ({
       }
       await record.save();
     } else {
+      console.log("here");
+
       await RateLimitModel.create({
         identifier,
         count: 1,
@@ -45,6 +47,6 @@ export const rateLimitMiddleware = ({
       });
     }
 
-    next();
+    return next();
   };
 };
