@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import styles from "./ServiceItem.module.css";
 import MainLink from "@/components/MainLink/MainLink";
+import { customText } from "@/utils/text";
 
 const ServiceItem = ({ value, index, activeIndex, callBack }) => {
   const { ref, inView } = useInView({
@@ -23,7 +24,7 @@ const ServiceItem = ({ value, index, activeIndex, callBack }) => {
       }`}
     >
       <h3>{value?.title}</h3>
-      <p>{value?.description}</p>
+      <p>{customText(value?.description, 100)}</p> {/* cut to 150 chars */}
       <MainLink text="Read more" href={`/services/#id_${value?._id}`} />
     </div>
   );
