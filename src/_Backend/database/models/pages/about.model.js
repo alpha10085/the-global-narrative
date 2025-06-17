@@ -9,13 +9,26 @@ import {
   poster,
 } from "../constant/Commons";
 
-
 // hero section
 const heroSection = new Schema({
   title: mongtext,
   description: mongeDescription,
   poster,
 });
+
+// Who Us Member schema
+const whoUsMember = new Schema({
+  name: mongtext,
+  jobTitle: mongtext,
+  description: mongeDescription,
+  image: poster,
+});
+// whoUsSectionSection
+const whoUsSectionSection = new Schema({
+  title: mongtext,
+  members: [whoUsMember],
+});
+
 // ourValues
 const ourValues = new Schema({
   title: mongtext,
@@ -40,6 +53,7 @@ const quoteSection = new Schema({
 const aboutUsSchema = new Schema({
   metadata: pageMetadata,
   hero: heroSection,
+  whoUsSectionSection,
   ourValues,
   aboutUs,
   quoteSection,
@@ -53,7 +67,10 @@ aboutUsSchema.pre(/^find/, function (next) {
       ...populateCommons,
       path: "hero.poster",
     },
-
+    {
+      path: "whoUsSectionSection.members.image",
+      ...populateCommons,
+    },
   ]);
   next();
 });
