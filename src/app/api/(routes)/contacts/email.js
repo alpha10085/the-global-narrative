@@ -21,23 +21,23 @@ export const ContactNotifyEmailTemplate = ({
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
       body {
-        background-color: #111; /* dark bg for contrast */
+        background-color: #ffffff;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         margin: 0;
         padding: 40px 16px;
-        color: white;
+        color: #000000;
       }
 
       .card {
         max-width: 480px;
         margin: auto;
-        background: #222; /* dark background */
-        border: 1px solid #444;
+        background: #ffffff;
+        border: 1px solid #eaeaea;
         border-radius: 10px;
         padding: 32px;
         text-align: center;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-        color: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        color: #000000;
       }
 
       .logo img {
@@ -50,41 +50,41 @@ export const ContactNotifyEmailTemplate = ({
         font-size: 20px;
         font-weight: 600;
         margin-bottom: 24px;
-        color: white;
+        color: #000000;
       }
 
       .details {
         text-align: left;
         font-size: 15px;
-        color: white;
+        color: #000000;
         margin-bottom: 24px;
         line-height: 1.6;
       }
 
       .message-box {
-        background: #333;
+        background: #f5f5f5;
         border-radius: 6px;
         padding: 12px 16px;
         font-size: 14px;
         font-style: italic;
-        color: white;
+        color: #000000;
         text-align: left;
       }
 
       .footer {
         margin-top: 32px;
         font-size: 12px;
-        color: #bbb;
+        color: #666666;
         text-align: center;
       }
 
       a {
-        color: #66ccff;
+        color: #0070f3;
         text-decoration: none;
       }
 
       strong {
-        color: white;
+        color: #000000;
       }
     </style>
   </head>
