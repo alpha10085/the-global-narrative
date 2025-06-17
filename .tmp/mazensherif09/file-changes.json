@@ -207,10 +207,10 @@
   {
     "file": "src/i18n/locales/en.json",
     "firstSeenAt": "6/14/2025, 7:26:18 PM",
-    "lastUpdatedAt": "6/17/2025, 8:19:11 PM",
+    "lastUpdatedAt": "6/17/2025, 10:11:14 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 3
+    "count": 7
   },
   {
     "file": "src/_Backend/middlewares/globels/request.Handlers.js",

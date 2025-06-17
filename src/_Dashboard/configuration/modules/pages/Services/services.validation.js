@@ -10,6 +10,7 @@ import {
   messagesHandlers,
 } from "@/_Dashboard/utils/JoiHandlers";
 import Joi from "joi";
+import serviceSchemaValidation from "../../collections/service/service.validation";
 
 const ServicesPageValidationSchema = (locale = "en") => {
   return Joi.object({
@@ -33,28 +34,7 @@ const ServicesPageValidationSchema = (locale = "en") => {
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
 
-        cards: joiArray({
-          required: true,
-          locale,
-          min: 1,
-          max: 20,
-          body: joiObject({
-            required: true,
-            locale,
-            body: {
-              title: joiText({ locale, min: 2, max: 20000, required: true }),
-              poster: fileVal
-                .required()
-                .messages(messagesHandlers({ locale, type: "object" })),
-              description: joiText({
-                locale,
-                min: 2,
-                max: 20000,
-                required: true,
-              }),
-            },
-          }),
-        }),
+        cards: Joi.array().min(1).max(20).items(serviceSchemaValidation(locale, true)),
       },
     }),
 

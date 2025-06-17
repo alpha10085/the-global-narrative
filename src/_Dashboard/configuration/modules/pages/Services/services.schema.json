@@ -22,7 +22,9 @@
         {
           "name": "poster",
           "type": "media",
-          "allowedTypes": ["image"],
+          "allowedTypes": [
+            "image"
+          ],
           "single": true,
           "label": "poster"
         }
@@ -40,28 +42,19 @@
         },
         {
           "name": "cards",
-          "type": "array",
-          "label": "cards",
-          "max":20,
-          "fields": [
-            {
-              "name": "title",
-              "type": "text",
-              "label": "title"
-            },
-            {
-              "name": "poster",
-              "type": "media",
-              "allowedTypes": ["image"],
-              "single": true,
-              "label": "poster"
-            },
-            {
-              "name": "description",
-              "type": "textarea",
-              "label": "description"
-            }
-          ]
+          "type": "relation",
+          "ref": "service",
+          "select": [
+            "_id",
+            "title",
+            "poster"
+          ],
+          "imageField": "poster",
+          "displayField": "title",
+          "single": false,
+          "label": "services",
+          "min": 1,
+          "max": 20
         }
       ]
     },
@@ -97,7 +90,9 @@
     },
     "cache": {
       "duration": "10m",
-      "tags": ["services-page"]
+      "tags": [
+        "services-page"
+      ]
     }
   }
 }

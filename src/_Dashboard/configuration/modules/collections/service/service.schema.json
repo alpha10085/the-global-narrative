@@ -1,0 +1,55 @@
+{
+    "fields": [
+        {
+            "name": "title",
+            "type": "text",
+            "label": "title"
+        },
+        {
+            "name": "publish",
+            "type": "boolean",
+            "readOnly": false,
+            "label": "publish",
+            "default": false
+        },
+        {
+            "name": "poster",
+            "type": "media",
+            "allowedTypes": [
+                "image"
+            ],
+            "single": true,
+            "label": "poster"
+        },
+        {
+            "name": "description",
+            "type": "textarea",
+            "label": "description"
+        }
+    ],
+    "options": {
+        "translation": false,
+        "roles": {
+            "view": true,
+            "create": true,
+            "update": true,
+            "delete": true,
+            "filter": true,
+            "sort": true,
+            "search": true,
+            "table": true
+        },
+        "cache": {
+            "duration": "10m",
+            "tags": [
+                "landing"
+            ]
+        }
+    },
+    "view": [
+        "poster",
+        "title",
+        "description",
+        "createdAt"
+    ]
+}

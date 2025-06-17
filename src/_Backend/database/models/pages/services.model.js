@@ -10,12 +10,6 @@ import {
   poster,
 } from "../constant/Commons";
 
-const serviceCardSchema = new Schema({
-  title: mongtext,
-  poster,
-  description: mongeDescription,
-});
-
 const servicesPageSchema = new Schema(
   {
     metadata: pageMetadata,
@@ -26,7 +20,7 @@ const servicesPageSchema = new Schema(
     },
     ourValueSection: {
       title: mongtext,
-      cards: [serviceCardSchema],
+      cards: [{ type: Schema.Types.ObjectId, ref: "service" }],
     },
     quoteSection: {
       title: mongtext,
@@ -46,11 +40,25 @@ servicesPageSchema.pre(/^find/, function (next) {
       ...populateCommons,
       path: "hero.poster",
     },
-    {
-      ...populateCommons,
-      path: "ourValueSection.cards.poster",
-    },
   ];
+    if (this?.options?.admin) {
+      populatePipeline.push(
+        ...[
+          {
+            path: "ourValueSection.cards.poster",
+            model: "service",
+            select: {
+              _id: 1,
+              title: 1,
+              poster: 1,
+              description: 1
+            },
+          },
+          
+        ]
+      );
+    }
+
   this.populate(populatePipeline);
   next();
 });

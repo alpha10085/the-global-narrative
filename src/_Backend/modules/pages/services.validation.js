@@ -5,14 +5,8 @@ import {
 } from "@/_Backend/commons/validation";
 import { joiArray, joiText } from "@/_Backend/utils/JoiHandlers";
 import Joi from "joi";
+import { serviceValidationRelation } from "../service/service.validation";
 
-// Service Card Item
-const serviceCard = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
-  poster: fileVal.required(),
-  description: joiText({ min: 2, max: 20000, required: true }),
-  ...CommonsVal,
-});
 
 // Hero Section
 const heroSection = Joi.object({
@@ -26,7 +20,7 @@ const heroSection = Joi.object({
 const ourValueSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   cards: joiArray({
-    body: serviceCard,
+    body: serviceValidationRelation,
     min: 1,
     required: true,
     max: 20,

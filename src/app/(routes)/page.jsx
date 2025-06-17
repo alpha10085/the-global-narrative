@@ -9,12 +9,14 @@ import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import { getPage } from "@/lib/pages";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import { pageMetadataHandler } from "@/utils/metadata";
+import ServicesSection from "@/components/Home/Services/ServicesSection";
 
 export const generateMetadata = pageMetadataHandler(getPage, "landing");
 const Home = async () => {
   const {
     heroSection = [],
     aboutUsSection = {},
+    servicesSection = {},
     quoteSection = {},
     newsSection = {},
     testimonialSection = {},
@@ -25,7 +27,15 @@ const Home = async () => {
     <section className={styles.layout}>
       <Hero data={heroSection} />
       <FloatedSection>
-        <AboutUs data={aboutUsSection} />
+        {/* <AboutUs data={aboutUsSection} /> */}
+        <SSRFetcher
+          Component={ServicesSection}
+          options={{
+            next: { revalidate: "1y", tags: servicesSection?.services || ["service"] },
+          }}
+          data={servicesSection}
+          path={`/service/landing?ids=${servicesSection?.services}`}
+        />
         <Quote data={quoteSection} />
       </FloatedSection>
       <div className={styles.wrapper}>
