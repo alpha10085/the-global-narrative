@@ -45,8 +45,9 @@ const Form = ({ siteKey }) => {
           return `Form sent successfully`;
         },
         error: (error) => {
+          console.log("🚀 ~ toast.promise ~ error:", error)
           setLoading(false);
-          return `${error.message}`;
+          return `${error?.message}`;
         },
       });
     } catch (error) {
