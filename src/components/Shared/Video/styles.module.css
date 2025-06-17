@@ -47,10 +47,6 @@
 }
 
 /* Enables view transition animation */
-::view-transition-group(*) {
-  animation-duration: 400ms;
-  animation-timing-function: ease-in-out;
-}
 
 /* Button Styling */
 .volumeToggle {
