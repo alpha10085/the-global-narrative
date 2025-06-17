@@ -158,5 +158,13 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 9
+  },
+  {
+    "file": "src/i18n/locales/en.json",
+    "firstSeenAt": "6/18/2025, 12:18:05 AM",
+    "lastUpdatedAt": "6/18/2025, 12:18:05 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
   }
 ]
