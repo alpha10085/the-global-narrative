@@ -13,9 +13,9 @@ const ServicesSection = ({ data = {} }) => {
   return (
     <section className={styles.servicesWrapper}>
       <div className={styles.contentArea}>
-        {serviceRefs.map((value, index) => (
+        {serviceRefs?.map((value, index) => (
           <ServiceItem
-            key={value._id}
+            key={value?._id}
             value={value}
             index={index}
             activeIndex={activeIndex}
