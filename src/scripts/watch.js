@@ -77,8 +77,8 @@ logger("👀 Watching for file changes...");
 
 function logChange(type, filePath) {
   try {
-    const stat = fs.lstatSync(filePath);
-    if (!stat.isFile()) return;
+    // const stat = fs.lstatSync(filePath);
+    // if (!stat.isFile()) return;
 
     const time = new Date().toLocaleString();
 
