@@ -7,44 +7,44 @@ export const rateLimitMiddleware = ({
   windowMs = 15 * 60 * 1000, // 15 minutes
 } = {}) => {
   return async (req, res, next) => {
-    const ip = req.userAgent?.ip || req.headers["x-forwarded-for"] || "unknown";
-    const ua = req.userAgent?.ua || req.headers["user-agent"] || "unknown";
+    try {
+      const ip =
+        req.userAgent?.ip || req.headers["x-forwarded-for"] || "unknown";
+      const ua = req.userAgent?.ua || req.headers["user-agent"] || "unknown";
 
-    const rawIdentifier = `${ip}-${ua}`;
-    const identifier = crypto
-      .createHash("sha256")
-      .update(rawIdentifier)
-      .digest("hex"); // safer, fixed length
+      const rawIdentifier = `${ip}-${ua}`;
+      const identifier = crypto
+        .createHash("sha256")
+        .update(rawIdentifier)
+        .digest("hex"); // safer, fixed length
 
-    const now = Date.now();
-    const windowStart = new Date(now - windowMs);
+      const now = Date.now();
+      const windowStart = new Date(now - windowMs);
 
-    let record = await RateLimitModel.findOne({ identifier });
+      let record = await RateLimitModel.findOne({ identifier });
 
-    if (record) {
-      if (record.windowStart > windowStart) {
-        if (record.count >= limit) {
-          return next(
-            new AppError({
-              message: `Too many requests`,
-              code: 429,
-            })
-          );
+      if (record) {
+        if (record.windowStart > windowStart) {
+          if (record.count >= limit) {
+            return next({ message: `Too many requests`, code: 429 });
+          }
+          record.count += 1;
+        } else {
+          record.count = 1;
+          record.windowStart = new Date();
         }
-        record.count += 1;
+        await record.save();
       } else {
-        record.count = 1;
-        record.windowStart = new Date();
-      }
-      await record.save();
-    } else {
-      console.log("here");
+        console.log("here");
 
-      await RateLimitModel.create({
-        identifier,
-        count: 1,
-        windowStart: new Date(),
-      });
+        await RateLimitModel.create({
+          identifier,
+          count: 1,
+          windowStart: new Date(),
+        });
+      }
+    } catch (error) {
+      console.log("🚀 ~ return ~ error:", error);
     }
 
     return next();
