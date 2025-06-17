@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./PosterDisplay.module.css";
+import Img from "@/components/Shared/img/Img";
 
 const PosterDisplay = ({ activePoster }) => {
   const [prev, setPrev] = useState(null);
@@ -18,7 +19,7 @@ const PosterDisplay = ({ activePoster }) => {
       setCurrent(activePoster);
       setFadeIn(true);
       setPrev(null); // clean after fade-in
-    }, 200); 
+    }, 200);
 
     return () => clearTimeout(timeout);
   }, [activePoster]);
@@ -27,12 +28,30 @@ const PosterDisplay = ({ activePoster }) => {
     <div className={styles.posterBox}>
       {prev && (
         <div className={`${styles.posterWrapper} ${styles.exit}`}>
-          <img src={prev?.url} alt="Previous Poster" className={styles.posterImage} />
+          <Img
+            url={prev?.url}
+            alt="Previous Poster"
+            className={styles.posterImage}
+            mainClassName=""
+            disableSkeleton={true}
+            withEffect={false}
+          />
         </div>
       )}
       {current && (
-        <div className={`${styles.posterWrapper} ${fadeIn ? styles.enter : styles.hidden}`}>
-          <img src={current?.url} alt="Current Poster" className={styles.posterImage} />
+        <div
+          className={`${styles.posterWrapper} ${
+            fadeIn ? styles.enter : styles.hidden
+          }`}
+        >
+          <Img
+            url={current?.url}
+            alt="Current Poster"
+            className={styles.posterImage}
+            mainClassName=""
+            disableSkeleton={true}
+            withEffect={false}
+          />
         </div>
       )}
     </div>
