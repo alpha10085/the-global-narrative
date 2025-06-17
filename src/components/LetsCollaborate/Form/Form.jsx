@@ -11,6 +11,7 @@ import { useRef } from "react";
 import { HandleContactUs } from "@/lib/ContactUs";
 
 const Form = ({ siteKey }) => {
+  console.log("🚀 ~ Form ~ siteKey:", siteKey);
   const [loading, setLoading] = useState(false);
   const recaptchaRef = useRef(null);
   const {
@@ -24,8 +25,8 @@ const Form = ({ siteKey }) => {
   } = useForm({
     resolver: joiResolver(letsCollaborateVal),
   });
-  
-  console.log("🚀 ~ Form ~ errors:", errors)
+
+  console.log("🚀 ~ Form ~ errors:", errors);
   const handleClick = async (form) => {
     try {
       setLoading(true);
@@ -49,7 +50,7 @@ const Form = ({ siteKey }) => {
         },
       });
     } catch (error) {
-      console.log("🚀 ~ handleClick ~ error:", error)
+      console.log("🚀 ~ handleClick ~ error:", error);
       setLoading(false);
       toast.error(error?.message || "Form failed");
     }
