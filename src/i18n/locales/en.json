@@ -148,6 +148,7 @@
       "subTitle": "subTitle",
       "subTitle_ph": "enter subTitle...",
       "services": "services",
+      "service" : "service",
       "intro": "intro",
       "intro_ph": "enter intro...",
       "contactSection": "contact section",
@@ -156,7 +157,10 @@
       "contentsection": "content Section",
       "socialLinks": "socialLinks",
       "url": "url",
-      "url_ph": "Enter logo url..."
+      "url_ph": "Enter logo url...",
+      "serviceSection" : "Service section",
+      "services_ph" : "Select services...",
+      "serviceCards" : "services cards"
     },
     "filterSystem": {
       "condtions": {
@@ -179,13 +183,13 @@
       "contactUs": "Contact us",
       "news": "News",
       "services": "Services",
+      "service" : "service",
       "clients": "Client",
       "faq": "Faq",
       "interviews": "Interviews",
       "interviewsCategory": "Interviews category",
       "newsCategories": "News categories",
       "testimonials": "testimonials",
-      "joinUs": "join us",
       "footer": "footer"
     },
     "profile": {

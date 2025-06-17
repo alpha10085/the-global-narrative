@@ -7,6 +7,7 @@ import { joiArray, joiText } from "@/_Backend/utils/JoiHandlers";
 import Joi from "joi";
 import { newsValidationRelation } from "../news/news.validation";
 import { testimonialValidationRelation } from "../testimonial/testimonial.validation";
+import { serviceValidationRelation } from "../service/service.validation";
 
 // Hero Section (Array of cards with title & media)
 const heroSection = Joi.object({
@@ -23,6 +24,19 @@ const aboutUsSection = Joi.object({
   description: joiText({ min: 2, max: 20000, required: true }),
   ...CommonsVal,
 });
+
+// services Section
+const servicesSection = Joi.object({
+  title: joiText({ min: 2, max: 1000, required: true }),
+  services: joiArray({
+    body: serviceValidationRelation,
+    min: 1,
+    max: 3,
+    required: true,
+  }),
+  ...CommonsVal,
+});
+
 
 // Quote Section
 const quoteSection = Joi.object({
@@ -69,6 +83,7 @@ export const LandingValCreate = Joi.object({
 
   heroSection: heroSection.required(),
   aboutUsSection: aboutUsSection.required(),
+  servicesSection: servicesSection.required(),
   quoteSection: quoteSection.required(),
   newsSection: newsSection.required(),
   testimonialSection: testimonialSection.required(),
@@ -86,6 +101,7 @@ export const LandingValUpdate = Joi.object({
 
   heroSection: heroSection,
   aboutUsSection,
+  servicesSection,
   quoteSection,
   newsSection,
   testimonialSection,

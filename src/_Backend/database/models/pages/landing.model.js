@@ -25,6 +25,13 @@ const aboutUsSection = new Schema({
   description: mongeDescription,
 });
 
+// services section
+const servicesSection = new Schema({
+  title: mongtext,
+  services: [{ type: Schema.Types.ObjectId, ref: "service" }],
+});
+
+
 // Quote section
 const quoteSection = new Schema({
   content: mongeDescription,
@@ -54,6 +61,7 @@ const landingSchema = new Schema({
   metadata: pageMetadata,
   heroSection: heroItemSchema,
   aboutUsSection,
+  servicesSection,
   quoteSection,
   newsSection,
   testimonialSection,
@@ -102,6 +110,17 @@ landingSchema.pre(/^find/, function (next) {
             poster: 1,
           },
         },
+        {
+          path: "servicesSection.services.poster",
+          model: "service",
+          select: {
+            _id: 1,
+            title: 1,
+            poster: 1,
+            description: 1
+          },
+        },
+        
       ]
     );
   }

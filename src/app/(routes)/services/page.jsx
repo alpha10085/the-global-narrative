@@ -6,6 +6,7 @@ import SpaceSection from "@/components/SpaceSection/SpaceSection";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
+import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 
 const pageKey = "services-page";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
@@ -27,11 +28,18 @@ const Page = async (props) => {
         />
       </FloatedSection>
       <div className={styles.wrapper}>
-        <OurValues data={ourValueSection} />
+        <SSRFetcher
+          Component={OurValues}
+          options={{
+            next: { revalidate: "1y", tags: ourValueSection?.cards || ["ourValue-service"] },
+          }}
+          data={ourValueSection}
+          path={`/service/services?ids=${ourValueSection?.cards}`}
+        />
         <QuoteSection
           link={{
-            href: "/join-us",
-            label: "join us ",
+            href: "/contact-us",
+            label: "get in touch",
           }}
           data={quoteSection}
         />

@@ -23,7 +23,7 @@ import { newsConfig } from "./modules/collections/news/news.config";
 import { newsCategoryConfig } from "./modules/collections/newsCategory/newsCategory.config";
 import { testimonialConfig } from "./modules/collections/testimonial/testimonial.config";
 import { contactUsConfig } from "./modules/collections/contact-us/contact-us.config";
-import { joinUsConfig } from "./modules/pages/join/join.config";
+import { serviceConfig } from "./modules/collections/service/service.config";
 
 // componenet 
 import { footerConfig } from "./modules/components/footer/footer.config";
@@ -41,7 +41,6 @@ const schemas = [
   // pages
   landingConfig,
   aboutConfig,
-  joinUsConfig,
   servicesConfig,
   newsPageConfig,
   contactConfig,
@@ -49,6 +48,7 @@ const schemas = [
   
   // collections
   // clientsConfig,
+  serviceConfig,
   newsConfig,
   newsCategoryConfig,
   testimonialConfig,

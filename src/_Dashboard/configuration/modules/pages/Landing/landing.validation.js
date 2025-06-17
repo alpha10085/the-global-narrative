@@ -12,6 +12,7 @@ import {
 import Joi from "joi";
 import NewsValidationSchema from "../../collections/news/news.validation";
 import TestimonialValidationSchema from "../../collections/testimonial/testimonial.validation";
+import serviceSchemaValidation from "../../collections/service/service.validation";
 
 const LandingPageValidationSchema = (locale = "en") => {
   return Joi.object({
@@ -43,6 +44,15 @@ const LandingPageValidationSchema = (locale = "en") => {
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
         description: joiText({ locale, min: 2, max: 20000, required: true }),
+      },
+    }),
+
+     servicesSection: joiObject({
+      required: true,
+      locale,
+      body: {
+        title: joiText({ locale, min: 2, max: 20000, required: true }),
+        services: Joi.array().min(1).max(3).items(serviceSchemaValidation(locale, true)),
       },
     }),
 

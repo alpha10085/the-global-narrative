@@ -22,9 +22,55 @@
         {
           "name": "poster",
           "type": "media",
-          "allowedTypes": ["image"],
+          "allowedTypes": [
+            "image"
+          ],
           "single": true,
           "label": "poster"
+        }
+      ]
+    },
+    {
+      "name": "whoUsSectionSection",
+      "type": "object",
+      "label": "whoUsSectionSection",
+      "fields": [
+        {
+          "name": "title",
+          "type": "text",
+          "label": "title"
+        },
+        {
+          "name": "members",
+          "type": "array",
+          "label": "members",
+          "min": 1,
+          "fields": [
+            {
+              "name": "name",
+              "type": "text",
+              "label": "name"
+            },
+            {
+              "name": "jobTitle",
+              "type": "text",
+              "label": "jobTitle"
+            },
+            {
+              "name": "description",
+              "type": "textarea",
+              "label": "description"
+            },
+            {
+              "name": "image",
+              "type": "media",
+              "allowedTypes": [
+                "image"
+              ],
+              "single": true,
+              "label": "image"
+            }
+          ]
         }
       ]
     },

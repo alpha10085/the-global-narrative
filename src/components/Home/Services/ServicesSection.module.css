@@ -1,0 +1,43 @@
+.servicesWrapper {
+  display: flex;
+  position: relative;
+  padding: 80px 20px;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contentArea {
+  flex: 1;
+  padding-right: 30px;
+  max-width: 600px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #222;
+}
+
+@media (max-width: 825px) {
+  .posterArea {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesWrapper {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+  }
+
+  .contentArea {
+   
+    max-width: 100%;
+    padding: 0;
+    flex: none;
+  }
+
+  .contentArea {
+    margin-bottom: 40px;
+  }
+}

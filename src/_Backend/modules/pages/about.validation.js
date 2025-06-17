@@ -17,6 +17,30 @@ const heroSection = Joi.object({
 });
 
 // ------------------------------
+// ✅ Who Us Member
+// ------------------------------
+const whoUsMember = Joi.object({
+  name: joiText({ min: 2, max: 1000, required: true }),
+  jobTitle: joiText({ min: 2, max: 1000, required: true }),
+  description: joiText({ min: 2, max: 20000, required: true }),
+  image: fileVal.required(),
+  ...CommonsVal,
+});
+
+// ------------------------------
+// ✅ Who Us Section
+// ------------------------------
+const whoUsSectionSection = Joi.object({
+  title: joiText({ min: 2, max: 1000, required: true }),
+  members: joiArray({
+    body: whoUsMember,
+    min: 1,
+    required: true,
+  }),
+  ...CommonsVal,
+});
+
+// ------------------------------
 // ✅ Our Value Card
 // ------------------------------
 const ourValueCard = Joi.object({
@@ -54,10 +78,11 @@ export const AboutValCreate = Joi.object({
   key: Joi.string(),
 
   hero: heroSection.required(),
+  whoUsSectionSection: whoUsSectionSection.required(),
   ourValues: ourValues.required(),
   aboutUs: aboutUs.required(),
   quoteSection: aboutUs.required(),
-  
+
   ...CommonsVal,
 });
 
@@ -69,6 +94,7 @@ export const AboutValUpdate = Joi.object({
   key: Joi.string(),
 
   hero: heroSection,
+  whoUsSectionSection,
   ourValues,
   aboutUs,
   quoteSection: aboutUs,
