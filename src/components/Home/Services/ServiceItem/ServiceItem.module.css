@@ -17,16 +17,25 @@
   box-sizing: border-box;
 }
 
+
 .valueItem h3 {
-  font-size: 28px;
+  font-size: clamp(32px, 4vw, 48px);
   margin: 0;
   font-weight: 700;
+   line-height: 1.2;
 }
 
 .valueItem p {
   font-size: 18px;
   margin: 0;
   color: #444;
+  line-height: 1.5;
+  max-height: 54px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .active {
@@ -49,7 +58,7 @@
     font-size: 16px;
     line-height: 24px;
   }
-  .valueItem:last-child{
+  .valueItem:last-child {
     margin-bottom: 0;
   }
 
