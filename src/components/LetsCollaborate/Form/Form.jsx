@@ -24,7 +24,8 @@ const Form = ({ siteKey }) => {
   } = useForm({
     resolver: joiResolver(letsCollaborateVal),
   });
-
+  
+  console.log("🚀 ~ Form ~ errors:", errors)
   const handleClick = async (form) => {
     try {
       setLoading(true);
@@ -48,6 +49,7 @@ const Form = ({ siteKey }) => {
         },
       });
     } catch (error) {
+      console.log("🚀 ~ handleClick ~ error:", error)
       setLoading(false);
       toast.error(error?.message || "Form failed");
     }
