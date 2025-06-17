@@ -1,6 +1,7 @@
 import { errorLogModel } from "@/_Backend/database/models/constant/errorLog.model";
 import { errorReportTemplate } from "@/_Backend/services/emails/error-report/template";
 import { sendEmail } from "@/_Backend/utils/email";
+import { isProductionMode } from "@/config/main";
 import { systemLogger } from "@/utils/consoleProxy";
 
 export const sendEmailToTeam = async (data) => {
@@ -20,6 +21,7 @@ export const sendEmailToTeam = async (data) => {
 
 export const reportError = async ({ userAgent, deteils }) => {
   try {
+    if (!isProductionMode) return null;
     const startOfToday = new Date();
     startOfToday.setHours(0, 0, 0, 0);
 
