@@ -37,6 +37,7 @@ const ServicesPageValidationSchema = (locale = "en") => {
           required: true,
           locale,
           min: 1,
+          max: 20,
           body: joiObject({
             required: true,
             locale,

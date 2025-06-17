@@ -1,8 +1,10 @@
 .container {
   background-color: var(--color200);
-  padding: 15vh 0;
+  padding: 15vh 0 18vh;
   position: relative;
   z-index: 9;
+  
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 }
 
 .wrapper {
@@ -16,7 +18,7 @@
   min-width: max-content;
   color: var(--color500);
   font-weight: 400;
-  font-size: clamp(20px, 2vw, 40px) !important;
+  font-size: clamp(20px, 2.5vw, 40px) !important;
 }
 .description {
   width: 80%;
@@ -24,15 +26,58 @@
 
   color: white;
 
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(12px, 2vw, 20px);
 
   font-weight: 500;
   line-height: 1.6;
   margin-top: 5px;
 
-  transform: translateY(25px);
+  transform: translateY(60px);
+}
+.description p {
+  position: relative;
+  cursor: pointer;
+}
+.description p::before {
+  content: "";
+  left: -27.5px;
+  top: 13px;
+  transform: translateY(0%);
+  background-color: white;
+  width: 4px;
+  height: auto;
+  aspect-ratio: 1;
+  z-index: 1;
+  position: absolute;
+  border-radius: 50%;
+}
+.description p::after {
+  content: "";
+  left: -36.5px;
+  top: 4px;
+  transform: translateY(0%);
+  background-color: transparent;
+  width: 20px;
+  height: auto;
+  aspect-ratio: 1;
+  z-index: 1;
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+.description p {
+  transition: 0.6s;
+}
+.description:hover p {
+  opacity: 0.5;
+  transform: scale(1);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+.description p:hover {
+  opacity: 1;
+  transform: scale(1.015);
+}
 @media (max-width: 768px) {
   .wrapper {
     flex-direction: column;
@@ -44,6 +89,8 @@
   .description {
     width: 100%;
     margin: 0 !important;
+    transform: translate(40px, 25px);
+    max-width: calc(100% - 45px);
   }
   .title {
     font-size: clamp(20px, 8vw, 40px) !important ;

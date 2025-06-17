@@ -13,28 +13,27 @@ const TemplateHero = ({
   poster,
 }) => {
   return (
-    
-      <div className={`${styles.container} flex al-i-c gap50 just-sb`}>
-        <div className={`${styles.left} flex mt-50  column`}>
-          <h1 className={styles.pageTitle}>{pageTitle}</h1>
-          <SectionTitle title={title} className={styles.title} />
-          <Aos
-            activeClassName={styles.active}
-            className={styles.aosText}
-            delay={600}
-          >
-            <p className={styles.description}>{description}</p>
-          </Aos>
-          <ScrollToContinueButton />
-        </div>
+    <div className={`${styles.container} flex al-i-c gap50 just-sb`}>
+      <div className={`${styles.left} flex mt-50  column`}>
+        <h1 className={styles.pageTitle}>{pageTitle}</h1>
+        <SectionTitle delay={800} title={title} className={styles.title} />
         <Aos
-          delay={1000}
-          className={styles.posterAos}
           activeClassName={styles.active}
+          className={styles.aosText}
+          delay={600}
         >
-          {<Img  className={styles.poster} url={poster.url} />}
+          <p className={styles.description}>{description}</p>
         </Aos>
+        <ScrollToContinueButton />
       </div>
+      <Aos
+        delay={1000}
+        className={styles.posterAos}
+        activeClassName={styles.active}
+      >
+        {<Img className={styles.poster} url={poster.url} />}
+      </Aos>
+    </div>
   );
 };
 

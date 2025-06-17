@@ -8,7 +8,7 @@
   overflow: hidden;
   max-height: 900px;
   padding: 0 40px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.104);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 }
 
 .wrapper {
@@ -56,7 +56,7 @@
   color: var(--color200);
   opacity: 0;
   transition: 0.8s;
-  /* transition-delay: 0.8s; */
+  transition-delay: 0.8s;
   font-weight: 600;
   color: #4a5b74;
 }
@@ -79,7 +79,7 @@
   overflow: hidden;
   transition: 1.5s;
   margin: 0 40px;
-  /* transition-delay: 0.5s; */
+  transition-delay: 0.5s;
   transform: translateY(100%);
 }
 

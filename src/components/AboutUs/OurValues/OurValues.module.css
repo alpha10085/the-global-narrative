@@ -5,6 +5,8 @@
   position: relative;
   z-index: 10;
   padding: 50px 5%;
+  
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
 }
 
 .title {
@@ -12,9 +14,9 @@
 }
 
 .wrapper {
-  width: 80%;
+  width: 1250px;
   margin: 0 auto;
-  max-width: 100%;
+  min-width: 80%;
 }
 .card {
   transition: 1s;

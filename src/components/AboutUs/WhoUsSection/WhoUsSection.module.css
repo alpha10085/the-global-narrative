@@ -6,10 +6,12 @@
   z-index: 10;
   position: relative;
   padding-bottom: 90px;
+  
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 }
 
 .list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
 }

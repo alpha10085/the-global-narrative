@@ -165,16 +165,23 @@ const FileUploadCTX = ({ children }) => {
         )
       );
     } catch (error) {
+      console.log(
+        "🚀 ~ uploadFile ~ error:",
+        error?.response.data?.error?.message
+      );
+      let errorMSg =
+        error?.response?.data?.error?.message || error?.message || "failed";
+
+      if (errorMSg.includes("file size")) {
+        errorMSg = "file is to big";
+      }
       setFiles((prev) =>
         prev?.map((val) =>
           val?.file?.path === file?.file?.path
             ? {
                 ...val,
                 error: {
-                  message:
-                    error?.response?.data?.message ||
-                    error?.message ||
-                    "failed",
+                  message: errorMSg,
                 },
                 progress: 100,
                 uploaded: false,

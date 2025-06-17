@@ -58,7 +58,7 @@
   border: none;
   cursor: pointer;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 0px solid rgba(255, 255, 255, 0.5);
   padding: 14px 10px 8px;
   width: auto;
   aspect-ratio: 1;
@@ -67,6 +67,8 @@
   min-width: 40px;
   max-width: 60px;
   max-height: 60px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 .volumeToggle:hover {
@@ -79,15 +81,13 @@
 }
 
 .icon {
-
   transition: all 0.3s ease;
   background-color: transparent !important;
-width: 70%;
-height: auto;
-aspect-ratio: 1;
+  width: 70%;
+  height: auto;
+  aspect-ratio: 1;
 }
-.icon  {
-
+.icon {
 }
 
 .sounedState {

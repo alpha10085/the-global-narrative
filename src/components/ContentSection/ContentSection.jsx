@@ -1,5 +1,5 @@
 import SectionTitle from "../SectionTitle/SectionTitle";
-import AnimatedParagraph from "../Shared/Animtions/AnimatedParagraph/AnimatedParagraph";
+import AnimatedSlideParagraph from "../Shared/Animtions/AnimatedSlideParagraph/AnimatedSlideParagraph";
 import styles from "./ContentSection.module.css";
 
 const ContentSection = ({ data = {} }) => {
@@ -9,10 +9,11 @@ const ContentSection = ({ data = {} }) => {
       <div className={`${styles.wrapper} flex gap40`}>
         <SectionTitle delay={0} title={title} className={styles.title} />
 
-        <AnimatedParagraph
+        <AnimatedSlideParagraph
           text={description}
-          delayPerWord={0.1} // Slower
+          delay={0.3} // Slower
           duration={0.75}
+          threshold={0.5}
           className={styles.description}
         />
       </div>

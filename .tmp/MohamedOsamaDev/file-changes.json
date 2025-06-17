@@ -10,10 +10,10 @@
   {
     "file": "src/components/Shared/Animtions/AnimatedParagraph/AnimatedParagraph.module.css",
     "firstSeenAt": "6/16/2025, 7:24:59 PM",
-    "lastUpdatedAt": "6/16/2025, 7:24:59 PM",
+    "lastUpdatedAt": "6/17/2025, 12:58:02 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 3
   },
   {
     "file": "src/components/Shared/Animtions/AnimatedParagraph copy/AnimatedParagraph.jsx",
@@ -50,10 +50,10 @@
   {
     "file": "src/components/Shared/Animtions/AnimatedSlideParagraph/AnimatedSlideParagraph.jsx",
     "firstSeenAt": "6/16/2025, 7:25:16 PM",
-    "lastUpdatedAt": "6/16/2025, 7:38:48 PM",
+    "lastUpdatedAt": "6/17/2025, 4:30:02 AM",
     "lastType": "changed",
     "Type": "added",
-    "count": 24
+    "count": 26
   },
   {
     "file": "src/components/Shared/Animtions/AnimatedSlideParagraph/AnimatedSlideParagraph.module.css",
@@ -98,9 +98,25 @@
   {
     "file": "src/components/Shared/Video/styles.module.css",
     "firstSeenAt": "6/17/2025, 12:34:50 AM",
-    "lastUpdatedAt": "6/17/2025, 12:46:55 AM",
+    "lastUpdatedAt": "6/17/2025, 3:01:51 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 71
+    "count": 82
+  },
+  {
+    "file": "src/_Dashboard/components/Media/UploadFile/ContextApi/FileUploadCTX.jsx",
+    "firstSeenAt": "6/17/2025, 1:36:50 AM",
+    "lastUpdatedAt": "6/17/2025, 1:45:18 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 7
+  },
+  {
+    "file": "src/_Dashboard/components/Media/UploadFile/Card/Card.jsx",
+    "firstSeenAt": "6/17/2025, 1:46:24 AM",
+    "lastUpdatedAt": "6/17/2025, 1:51:57 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 6
   }
 ]

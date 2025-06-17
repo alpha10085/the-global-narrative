@@ -6,7 +6,7 @@ import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const OurValues = ({ data = [] }) => {
   return (
-    <div className={styles.container}>
+    <div className={`flex ${styles.container}`}>
      
         <div className={styles.wrapper}>
           <SectionTitle

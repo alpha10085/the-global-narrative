@@ -29,6 +29,7 @@ const ourValueSection = Joi.object({
     body: serviceCard,
     min: 1,
     required: true,
+    max: 20,
   }),
   ...CommonsVal,
 });

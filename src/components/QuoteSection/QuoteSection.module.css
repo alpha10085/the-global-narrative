@@ -5,6 +5,9 @@
   z-index: 10;
   padding: 80px 5%;
   background-color: var(--color200);
+  
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+  z-index: 1;
 }
 .title {
   color: var(--color500);

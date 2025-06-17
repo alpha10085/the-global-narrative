@@ -11,7 +11,7 @@ import DisplayMedia from "../../DisplayMedia/DisplayMedia";
 import Skeleton from "@/components/Shared/Skeleton/Skeleton";
 
 const Card = ({ file, theme = {}, callBack = () => {}, index }) => {
-  const { uploading = false, _id: response, progress, error } = file || {};  
+  const { uploading = false, _id: response, progress, error } = file || {};
   return (
     <div
       className={`${uploading && styles.uploading} ${styles.card} ${
@@ -35,15 +35,13 @@ const Card = ({ file, theme = {}, callBack = () => {}, index }) => {
         <div className={`${styles.bgoverlay} showSmooth flex-c column`}>
           <div className={`${styles.iconError} mt-10`}>
             <ErrorIcon />
-            <h1>{error?.message || "Failed"}</h1>
+            <h1>{customText(error?.message, 23) || "Failed"}</h1>
           </div>
         </div>
       )}
 
       {!error && progress < 100 && (
-        <div
-          className={`${styles.bgoverlay}   showSmooth flex-c column`}
-        >
+        <div className={`${styles.bgoverlay}   showSmooth flex-c column`}>
           <div
             className={`${styles.progressBar} ${theme.bg200} flex  ${theme.bord20}`}
           >
@@ -61,7 +59,7 @@ const Card = ({ file, theme = {}, callBack = () => {}, index }) => {
         </div>
       )}
       <div className={`${styles.fileinfo} ${theme.bg_overlay}`}>
-        <h1>{customText(file?.fileName, 25)}</h1>
+        <h1>{customText(file?.fileName, 20)}</h1>
       </div>
       {error || progress > 95 ? (
         " "

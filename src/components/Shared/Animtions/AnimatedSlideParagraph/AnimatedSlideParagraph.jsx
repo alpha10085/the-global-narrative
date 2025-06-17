@@ -10,8 +10,8 @@ const AnimatedSlideParagraph = ({
   delay = 0.2,
   duration = 0.6,
   gap = 20,
-  threshold=0.1,
-  triggerOnce = true
+  threshold = 0.1,
+  triggerOnce = true,
 }) => {
   const { ref, inView } = useInView({
     triggerOnce,
@@ -33,7 +33,7 @@ const AnimatedSlideParagraph = ({
       style={{ gap }}
     >
       {lines?.map((line, i) => (
-        <p
+        <div
           key={i}
           className={styles.line}
           style={{
@@ -41,8 +41,8 @@ const AnimatedSlideParagraph = ({
             animationDuration: `${duration}s`,
           }}
         >
-          {line}
-        </p>
+          <p>{line}</p>
+        </div>
       ))}
     </div>
   );

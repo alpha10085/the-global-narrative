@@ -183,7 +183,7 @@
 }
 
 /* Responsive Media Queries */
-@media (max-width: 1440px) {
+@media (max-width: 1600px) {
   .gridList,
   .skeletonGrid,
   .latestCards {
@@ -218,7 +218,7 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   .gridList,
   .latestCards {
     padding: 0;

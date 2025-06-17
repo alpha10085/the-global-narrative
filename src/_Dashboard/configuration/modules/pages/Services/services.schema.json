@@ -42,6 +42,7 @@
           "name": "cards",
           "type": "array",
           "label": "cards",
+          "max":20,
           "fields": [
             {
               "name": "title",

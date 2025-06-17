@@ -69,6 +69,8 @@
   transition: 0.6s;
   transform: translateY(50px);
   opacity: 0;
+
+  transition-delay: 1s;
 }
 
 .active {
@@ -103,5 +105,4 @@
     border-radius: 10px;
     overflow: hidden;
   }
-
 }

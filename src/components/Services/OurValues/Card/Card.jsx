@@ -15,7 +15,7 @@ const Card = ({ className = "", data = {}, index = 1 }) => {
         <div className={`flex al-i-c gap30 ${styles.wrapper}`}>
           <div className={`${styles.content} just-c column gap15 flex`}>
             <div className={`${styles.head} flex column gap10`}>
-              <h1 className={styles.index}>0{index}</h1>
+              <h1 className={styles.index}>{index < 10 ? 0 : "" }{index}</h1>
               <h1 className={styles.title}>{data?.title}</h1>
             </div>
             <p className={styles.description}>{data?.description}</p>
