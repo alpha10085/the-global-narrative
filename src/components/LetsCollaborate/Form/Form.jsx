@@ -26,16 +26,15 @@ const Form = ({ siteKey }) => {
   });
 
   const handleClick = async (form) => {
-    setLoading(true);
-    const recaptchaToken = await recaptchaRef.current.executeAsync();
-
-    recaptchaRef.current.reset();
-    const fullForm = {
-      ...form,
-      recaptchaToken, // add token to form data
-    };
-
     try {
+      setLoading(true);
+      const recaptchaToken = await recaptchaRef.current.executeAsync();
+
+      recaptchaRef.current.reset();
+      const fullForm = {
+        ...form,
+        recaptchaToken, // add token to form data
+      };
       toast.promise(HandleContactUs(fullForm), {
         loading: "sending...",
         success: (data) => {
