@@ -11,7 +11,6 @@ import { useRef } from "react";
 import { HandleContactUs } from "@/lib/ContactUs";
 
 const Form = ({ siteKey }) => {
-  console.log("🚀 ~ Form ~ siteKey:", siteKey);
   const [loading, setLoading] = useState(false);
   const recaptchaRef = useRef(null);
   const {
@@ -26,10 +25,11 @@ const Form = ({ siteKey }) => {
     resolver: joiResolver(letsCollaborateVal),
   });
 
-  console.log("🚀 ~ Form ~ errors:", errors);
   const handleClick = async (form) => {
     try {
       setLoading(true);
+      console.log(recaptchaRef.current);
+      
       const recaptchaToken = await recaptchaRef.current.executeAsync();
       console.log("🚀 ~ handleClick ~ recaptchaToken:", recaptchaToken);
       if (!recaptchaToken) throw new Error("failed to send form");
@@ -38,6 +38,7 @@ const Form = ({ siteKey }) => {
         ...form,
         recaptchaToken, // add token to form data
       };
+   //   await HandleContactUs(fullForm)
       // toast.promise(HandleContactUs(fullForm), {
       //   loading: "sending...",
       //   success: (data) => {
