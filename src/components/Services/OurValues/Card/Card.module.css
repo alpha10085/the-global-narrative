@@ -2,7 +2,7 @@
   z-index: 2;
   background-color: var(--color500);
   transition: 0.2s;
-  height: 105vh;
+  height: 110vh;
   overflow: hidden;
   max-height: 900px;
   padding: 0 40px;
