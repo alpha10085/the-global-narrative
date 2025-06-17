@@ -25,13 +25,13 @@
 }
 
 .titleBox .title {
-  color: white;
+  /* color: white; */
   text-transform: uppercase;
   font-size: clamp(20px, 3vw, 70px);
   width: 850px;
   max-width: 100%;
   font-weight: 600;
-  text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  /* text-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
   text-align: center;
   display: flex;
   justify-content: center;

@@ -315,5 +315,21 @@
     "lastType": "added",
     "Type": "added",
     "count": 1
+  },
+  {
+    "file": "src/components/Shared/Animtions/ShinyText/ShinyText.module.css",
+    "firstSeenAt": "6/17/2025, 5:30:40 AM",
+    "lastUpdatedAt": "6/17/2025, 5:57:12 AM",
+    "lastType": "changed",
+    "Type": "added",
+    "count": 39
+  },
+  {
+    "file": "src/components/Shared/Animtions/ShinyText/ShinyText.jsx",
+    "firstSeenAt": "6/17/2025, 5:30:52 AM",
+    "lastUpdatedAt": "6/17/2025, 5:39:02 AM",
+    "lastType": "changed",
+    "Type": "added",
+    "count": 4
   }
 ]
