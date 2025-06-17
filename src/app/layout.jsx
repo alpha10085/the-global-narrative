@@ -7,8 +7,6 @@ import DevToolsWrapper from "@/_DevTools/DevToolsWrapper";
 import defualtMetadata from "@/config/metadata";
 import { prepareLayoutContext } from "./helpers";
 import { ViewTransitions } from "next-view-transitions";
-import Img from "@/components/Shared/img/Img";
-import MaintanceLayout from "@/components/Shared/MaintanceLayout/MaintanceLayout";
 export const metadata = defualtMetadata.metadata;
 export const viewport = defualtMetadata.viewport;
 
@@ -29,9 +27,7 @@ export default async function RootLayout({ children }) {
             <NextIntlClientProvider locale={locale} messages={messages}>
               <DevToolsWrapper>
                 <ErrorBoundary boundary={boundary}>
-                  <AuthProvider locale={locale}>
-           <MaintanceLayout />
-                  </AuthProvider>
+                  <AuthProvider locale={locale}>{children}</AuthProvider>
                 </ErrorBoundary>
               </DevToolsWrapper>
             </NextIntlClientProvider>
