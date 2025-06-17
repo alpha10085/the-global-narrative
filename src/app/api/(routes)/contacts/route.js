@@ -28,7 +28,7 @@ export const POST = insertOne({
       windowMs: timeToMillis("1h"), // 3 requests per 10 minutes
     }),
     // honeypotMiddleware,
-    //   recaptchaMiddleware,
+       recaptchaMiddleware,
   ],
   hooks: {
     after: async (req, data) => {

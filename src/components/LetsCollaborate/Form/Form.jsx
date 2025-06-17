@@ -27,12 +27,12 @@ const Form = ({ siteKey }) => {
 
   const handleClick = async (form) => {
     setLoading(true);
-//    const recaptchaToken = await recaptchaRef.current.executeAsync();
+    const recaptchaToken = await recaptchaRef.current.executeAsync();
 
     recaptchaRef.current.reset();
     const fullForm = {
       ...form,
-    //  recaptchaToken, // add token to form data
+      recaptchaToken, // add token to form data
     };
 
     try {
@@ -49,7 +49,7 @@ const Form = ({ siteKey }) => {
         },
       });
     } catch (error) {
-         setLoading(false);
+      setLoading(false);
       toast.error(error.message || "Form failed");
     }
   };
