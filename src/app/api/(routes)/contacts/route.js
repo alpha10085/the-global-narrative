@@ -13,7 +13,7 @@ const configEndpoint = {
   name: "contact Form",
   options: {
     searchFeilds: ["email", "phone", "name"],
-  }, 
+  },
 };
 export const GET = FindAll({
   ...configEndpoint,
@@ -28,14 +28,16 @@ export const POST = insertOne({
       windowMs: timeToMillis("1h"), // 3 requests per 10 minutes
     }),
     // honeypotMiddleware,
- //   recaptchaMiddleware,
+    //   recaptchaMiddleware,
   ],
   hooks: {
     after: async (req, data) => {
-      await sendEmail({
-        subject: "The Global Narrtive | 📩 New Contact Message",
-        html: ContactNotifyEmailTemplate(data),
-      });
+      try {
+        await sendEmail({
+          subject: "The Global Narrtive | 📩 New Contact Message",
+          html: ContactNotifyEmailTemplate(data),
+        });
+      } catch (error) {}
     },
   },
   ...configEndpoint,
