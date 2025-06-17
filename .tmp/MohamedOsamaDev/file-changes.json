@@ -166,5 +166,21 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 1
+  },
+  {
+    "file": "src/components/Shared/MaintanceLayout/MaintanceLayout.jsx",
+    "firstSeenAt": "6/18/2025, 12:33:24 AM",
+    "lastUpdatedAt": "6/18/2025, 12:38:24 AM",
+    "lastType": "changed",
+    "Type": "added",
+    "count": 13
+  },
+  {
+    "file": "src/components/Shared/MaintanceLayout/MaintanceLayout.module.css",
+    "firstSeenAt": "6/18/2025, 12:33:24 AM",
+    "lastUpdatedAt": "6/18/2025, 12:42:44 AM",
+    "lastType": "changed",
+    "Type": "added",
+    "count": 45
   }
 ]

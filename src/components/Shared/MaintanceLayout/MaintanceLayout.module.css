@@ -1,0 +1,25 @@
+.container {
+width: 100vw;
+height: 100vh;
+position: fixed;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+background-color: black;
+color: white;
+}
+
+.poster {
+    width: 18vw;
+    min-width: 150px;
+    max-width: 70%;
+    height: auto;
+    aspect-ratio: 3/0.7;
+}
+.container p {
+    line-height: 1.7;
+}
+.container p a {
+    color: rgb(98, 127, 255);
+    margin: 0 0 0 10px;
+}

@@ -7,12 +7,12 @@ import PageAnalytics from "@/components/Shared/PageAnalytics/PageAnalytics";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import Fallback from "@/components/Footer/Fallback";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
-
+import styles from './page.module.css'
 export default async function RootLayout({ children }) {
   return (
     <main
       style={{ fontFamily: "var(--font-inter)" }}
-      className="ShowSmoothEffectShortDelay"
+      className={`ShowSmoothEffectShortDelay ${styles.mainlayout}`}
     >
       <SmoothScroll duration={1} />
       <NavBar />

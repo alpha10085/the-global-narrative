@@ -357,6 +357,12 @@ input:-webkit-autofill:active {
   z-index: 1;
   animation: none !important;
 }
+.mainlayout {
+  width: var(--main-layout-width);
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
 
 @media (prefers-color-scheme: dark) {
   html,

@@ -31,7 +31,10 @@ const Home = async () => {
         <SSRFetcher
           Component={ServicesSection}
           options={{
-            next: { revalidate: "1y", tags: servicesSection?.services || ["service"] },
+            next: {
+              revalidate: "1y",
+              tags: servicesSection?.services || ["service"],
+            },
           }}
           data={servicesSection}
           path={`/service/landing?ids=${servicesSection?.services}`}
@@ -59,7 +62,7 @@ const Home = async () => {
           path={`/testimonials/landing?ids=${testimonialSection?.posts}`}
         />
       </div> */}
-        {/* <GetInTouch data={getInTouchSection} /> */}
+      {/* <GetInTouch data={getInTouchSection} /> */}
     </section>
   );
 };
