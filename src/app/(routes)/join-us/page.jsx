@@ -13,7 +13,6 @@ const Page = async (props) => {
   const {
     hero = {},
     whoUsSectionSection = {},
-    contentsection = {},
     quoteSection = {},
   } = await getPage("join-us");
   return (
@@ -28,7 +27,13 @@ const Page = async (props) => {
       <FloatedSection>
         <WhoUsSection data={whoUsSectionSection} />
       </FloatedSection>
-      <QuoteSection data={quoteSection} />
+      <QuoteSection
+        link={{
+          href: "/contact-us",
+          label: "get in touch",
+        }}
+        data={quoteSection}
+      />
       <SpaceSection style={{ background: "var(--color200)" }} />
     </section>
   );

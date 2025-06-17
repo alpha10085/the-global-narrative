@@ -32,7 +32,13 @@ const Page = async (props) => {
       <FloatedSection>
         <OurValues data={ourValues} />
       </FloatedSection>
-      <QuoteSection data={quoteSection} />
+      <QuoteSection
+        link={{
+          href: "/services",
+          label: "explore our services",
+        }}
+        data={quoteSection}
+      />
       <SpaceSection style={{ background: "var(--color200)" }} />
     </section>
   );

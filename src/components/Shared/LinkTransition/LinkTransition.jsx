@@ -6,7 +6,7 @@ import { useHandleherfLink } from "../Link/helpers";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
-const LinkTransition = ({ children, href = "/", ...props }) => {
+const LinkTransition = ({ children, href = "/", className = "", ...props }) => {
   const router = useTransitionRouter();
   const nextRouter = useRouter();
   const handlers = useHandleherfLink(href);
@@ -33,6 +33,7 @@ const LinkTransition = ({ children, href = "/", ...props }) => {
         e.preventDefault();
         handlers.onClick(onClick)(e);
       }}
+      className={className}
       {...props}
     >
       {children}

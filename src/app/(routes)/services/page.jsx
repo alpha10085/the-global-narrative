@@ -19,17 +19,22 @@ const Page = async (props) => {
   return (
     <section className={`${styles.container} `}>
       <FloatedSection>
-
-      <TemplateHero
-        pageTitle="Our services"
-        title={hero?.title}
-        description={hero?.description}
-        poster={hero?.poster}
+        <TemplateHero
+          pageTitle="Our services"
+          title={hero?.title}
+          description={hero?.description}
+          poster={hero?.poster}
         />
-        </FloatedSection>
+      </FloatedSection>
       <div className={styles.wrapper}>
         <OurValues data={ourValueSection} />
-        <QuoteSection data={quoteSection} />
+        <QuoteSection
+          link={{
+            href: "/join-us",
+            label: "join us ",
+          }}
+          data={quoteSection}
+        />
       </div>
 
       <SpaceSection style={{ background: "var(--color200)" }} />

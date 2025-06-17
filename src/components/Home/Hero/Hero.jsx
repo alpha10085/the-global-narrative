@@ -14,18 +14,18 @@ const Hero = ({ data = {} }) => {
           className={`${styles.media} imageoverlay`}
         />
         <div className={`${styles.titleBox} flex-c column gap15`}>
-          <ShinyText
+          {/* <ShinyText
             text={data?.title}
             disabled={false}
             speed={8}
             className={`flex-c ${styles.title}`}
-          />
-          {/* <WordPullUpV2
+          /> */}
+          <WordPullUpV2
             duration={0.5}
             delay={500}
             className={`flex-c ${styles.title}`}
             text={data?.title}
-          /> */}
+          />
           <p className={styles.description}>{data?.description}</p>
           <div className={styles.link}>
             <MainButton text="join us" href="/join-us" />

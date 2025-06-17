@@ -8,13 +8,12 @@ const Quote = ({ data = {} }) => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-
-              <AnimatedParagraph
-        text={data?.content}
-        delayPerWord={0.15} // Slower
-        duration={0.8}
-        className={styles.text}
-      />
+        <AnimatedParagraph
+          text={data?.content}
+          delayPerWord={0.15} // Slower
+          duration={0.8}
+          className={styles.text}
+        />
       </div>
 
       <Img disableSkeleton url={bgImage} className={styles.bgImage} />

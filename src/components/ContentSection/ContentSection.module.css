@@ -69,14 +69,13 @@
   transition: 0.6s;
 }
 .description:hover p {
-  opacity: 0.5;
+  opacity: 0.3;
   transform: scale(1);
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .description p:hover {
   opacity: 1;
-  transform: scale(1.015);
 }
 @media (max-width: 768px) {
   .wrapper {

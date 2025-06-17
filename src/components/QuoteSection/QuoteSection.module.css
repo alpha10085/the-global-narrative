@@ -5,18 +5,17 @@
   z-index: 10;
   padding: 80px 5%;
   background-color: var(--color200);
-  
+
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 .title {
   color: var(--color500);
-  
+
   font-size: clamp(40px, 4vw, 60px);
   font-family: var(--font-Cormorant);
   font-weight: 500;
   font-style: italic;
-  
 }
 
 .line {
@@ -26,18 +25,94 @@
   background-color: white;
   opacity: 0.5;
 }
-
+.bottomBox {
+  width: 900px;
+  max-width: 60%;
+  align-self: flex-end;
+}
 .description {
   color: white;
   line-height: 1.7;
-  width: 900px;
-  max-width: 60%;
   font-size: clamp(16px, 2vw, 20px);
-  align-self: flex-end;
+}
+.link {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+  animation: intro 0.6s forwards;
+  animation-delay: 1s;
+  transition: 0.4s;
+}
+.aosLink {
+  transition: 0.8s;
+}
+.aosLink {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.aosLink.active {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.content {
+  padding: 15px 24px;
+  border-radius: 20px;
+  background: white;
+  color: var(--color200);
+  text-transform: capitalize;
+  font-weight: 600;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #fff;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.4s ease;
+}
+
+.arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  aspect-ratio: 1;
+  background-color: white;
+  color: var(--color200);
+  border-radius: 20px;
+transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
+    transform 1.2s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.arrow svg {
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  transform: translateX(0);
+  opacity: 1;
+  position: relative;
+  z-index: 2;
+}
+.link:hover .content {
+  transform: translateY(-8px);
+}
+.link:hover .arrow {
+  transform: translateY(-8px);
+}
+.link:hover .content,
+.link:hover .arrow {
+  background-color: #a1e6ff;
+  color: #012e89;
+  border-color: transparent;
+}
+.link:hover .arrow svg {
+  transform: rotate(44deg);
 }
 
 @media (max-width: 768px) {
-  .description {
+  .bottomBox {
     max-width: 100%;
     width: 100%;
     align-items: center;

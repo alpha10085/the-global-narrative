@@ -17,11 +17,11 @@
   --main-bg: rgb(255, 255, 255);
   --bg100: rgba(5, 0, 78, 1);
   --color100: rgb(0, 0, 0);
-  --color200: #2B57A3;  /* #2F5DAA */
+  --color200: #2b57a3; /* #2F5DAA */
   --color400: #385cf5;
   --color-tr-400: #ffffffa2;
   --color500: #ffffff;
-    --color600: rgb(255, 181, 43);
+  --color600: rgb(255, 181, 43);
   --color-scroll-thumb: #000000;
   --color-scroll-track: #eef6f7;
   --headerHeight: 100px;
@@ -33,6 +33,7 @@ body {
   letter-spacing: 1px;
   min-height: 100vh;
   font-family: var(--font-geist);
+  overflow:  auto scroll;
 }
 
 .imageoverlay {
@@ -330,7 +331,6 @@ input:-webkit-autofill:active {
   /* -webkit-text-fill-color: #000000;
   -webkit-box-shadow: 0 0 0 30px rgb(255, 255, 255) inset !important; */
 }
-
 
 .grecaptcha-badge {
   visibility: hidden;
