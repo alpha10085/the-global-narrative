@@ -13,7 +13,7 @@ const configEndpoint = {
   name: "contact Form",
   options: {
     searchFeilds: ["email", "phone", "name"],
-  },
+  }, 
 };
 export const GET = FindAll({
   ...configEndpoint,
