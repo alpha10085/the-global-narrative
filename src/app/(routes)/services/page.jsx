@@ -30,8 +30,8 @@ const Page = async (props) => {
         <OurValues data={ourValueSection} />
         <QuoteSection
           link={{
-            href: "/join-us",
-            label: "join us ",
+            href: "/contact-us",
+            label: "get in touch",
           }}
           data={quoteSection}
         />
