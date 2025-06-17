@@ -14,25 +14,20 @@ import nodemailer from "nodemailer";
  * @returns {Promise<Object>} - Info from Nodemailer
  */
 
-
 export const sendEmail = async ({
   service = "gmail",
   user = process.env.Email_user,
   pass = process.env.Email_pass,
   from = process.env.Email_user, // default to sender
-  to,
+  to = process.env.Email_user,
   subject = "No Subject",
   html,
 }) => {
   try {
-
- 
-    
     const transporter = nodemailer.createTransport({
       service,
       auth: { user, pass },
     });
-    
 
     const mailOptions = {
       from,
@@ -48,5 +43,3 @@ export const sendEmail = async ({
     throw error; // Let caller handle it
   }
 };
-
-

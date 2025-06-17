@@ -5,6 +5,8 @@ import { contactUsValidation } from "@/_Backend/modules/contact-us/contact-us.va
 import { recaptchaMiddleware } from "@/_Backend/middlewares/security/recaptchaMiddleware";
 import { rateLimitMiddleware } from "@/_Backend/middlewares/security/rateLimitMiddleware";
 import { timeToMillis } from "@/utils/time";
+import { sendEmail } from "@/_Backend/utils/email";
+import { ContactNotifyEmailTemplate } from "./email";
 
 const configEndpoint = {
   model: contactUsModel,
@@ -28,6 +30,14 @@ export const POST = insertOne({
     // honeypotMiddleware,
     recaptchaMiddleware,
   ],
+  hooks: {
+    after: async (req, data) => {
+      await sendEmail({
+        subject: "The Global Narrtive | 📩 New Contact Message",
+        html: ContactNotifyEmailTemplate(data),
+      });
+    },
+  },
   ...configEndpoint,
 });
 
