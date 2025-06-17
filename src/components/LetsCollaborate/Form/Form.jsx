@@ -31,7 +31,7 @@ const Form = ({ siteKey }) => {
     try {
       setLoading(true);
       const recaptchaToken = await recaptchaRef.current.executeAsync();
-      console.log("🚀 ~ handleClick ~ recaptchaToken:", recaptchaToken)
+      console.log("🚀 ~ handleClick ~ recaptchaToken:", recaptchaToken);
       if (!recaptchaToken) throw new Error("failed to send form");
       recaptchaRef.current.reset();
       const fullForm = {
@@ -56,6 +56,7 @@ const Form = ({ siteKey }) => {
       setLoading(false);
       toast.error(error?.message || "Form failed");
     }
+    setLoading(false);
   };
 
   return (
