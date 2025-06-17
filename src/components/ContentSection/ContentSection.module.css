@@ -36,39 +36,12 @@
 }
 .description p {
   position: relative;
-  cursor: pointer;
 }
-.description p::before {
-  content: "";
-  left: -27.5px;
-  top: 13px;
-  transform: translateY(0%);
-  background-color: white;
-  width: 4px;
-  height: auto;
-  aspect-ratio: 1;
-  z-index: 1;
-  position: absolute;
-  border-radius: 50%;
-}
-.description p::after {
-  content: "";
-  left: -36.5px;
-  top: 4px;
-  transform: translateY(0%);
-  background-color: transparent;
-  width: 20px;
-  height: auto;
-  aspect-ratio: 1;
-  z-index: 1;
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-}
+
 .description p {
   transition: 0.6s;
 }
-.description:hover p {
+/* .description:hover p {
   opacity: 0.3;
   transform: scale(1);
   transition: transform 0.3s ease, opacity 0.3s ease;
@@ -76,7 +49,7 @@
 
 .description p:hover {
   opacity: 1;
-}
+} */
 @media (max-width: 768px) {
   .wrapper {
     flex-direction: column;

@@ -1,12 +1,12 @@
 .container {
   min-height: 60vh;
   width: 100%;
-  padding: 50px 5%;
+  padding: 0 5%;
   background-color: white;
   z-index: 10;
   position: relative;
   padding-bottom: 90px;
-  
+
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 }
 
@@ -14,4 +14,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 30px;
+}
+.title {
+  padding: 60px 0 40px;
 }
