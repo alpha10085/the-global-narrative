@@ -19,7 +19,7 @@ const PosterDisplay = ({ activePoster }) => {
       setCurrent(activePoster);
       setFadeIn(true);
       setPrev(null); // clean after fade-in
-    }, 200);
+    }, 600);
 
     return () => clearTimeout(timeout);
   }, [activePoster]);
