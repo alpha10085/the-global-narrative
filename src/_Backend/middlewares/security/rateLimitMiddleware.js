@@ -26,9 +26,7 @@ export const rateLimitMiddleware = ({
         if (record.count >= limit) {
           return next(
             new AppError({
-              message: `Too many requests. Try again in ${Math.ceil(
-                (record.windowStart.getTime() + windowMs - now) / 1000
-              )} seconds.`,
+              message: `Too many requests`,
               code: 429,
             })
           );

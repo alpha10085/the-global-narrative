@@ -26,6 +26,7 @@ const Form = ({ siteKey }) => {
   });
 
   const handleClick = async (form) => {
+    setLoading(true);
     const recaptchaToken = await recaptchaRef.current.executeAsync();
 
     recaptchaRef.current.reset();
@@ -34,22 +35,21 @@ const Form = ({ siteKey }) => {
       recaptchaToken, // add token to form data
     };
 
-    setLoading(true);
     try {
       toast.promise(HandleContactUs(fullForm), {
         loading: "sending...",
         success: (data) => {
           reset();
+          setLoading(false);
           return `Form sent successfully`;
         },
         error: (error) => {
+          setLoading(false);
           return `${error.message}`;
         },
       });
     } catch (error) {
       toast.error(error || "Form failed");
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -139,9 +139,7 @@ const Form = ({ siteKey }) => {
             </a>{" "}
             apply.
           </p>
-          <button 
-          disabled={loading}
-          type="submit" className={styles.btnsubmut}>
+          <button disabled={loading} type="submit" className={styles.btnsubmut}>
             send
           </button>
         </div>
