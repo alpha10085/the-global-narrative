@@ -10,6 +10,7 @@ import { getPage } from "@/lib/pages";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import { pageMetadataHandler } from "@/utils/metadata";
 import ServicesSection from "@/components/Home/Services/ServicesSection";
+import SpaceSection from "@/components/SpaceSection/SpaceSection";
 
 export const generateMetadata = pageMetadataHandler(getPage, "landing");
 const Home = async () => {
@@ -26,22 +27,23 @@ const Home = async () => {
   return (
     <section className={styles.layout}>
       <Hero data={heroSection} />
-      <FloatedSection>
-        {/* <AboutUs data={aboutUsSection} /> */}
-        <SSRFetcher
-          Component={ServicesSection}
-          options={{
-            next: {
-              revalidate: "1y",
-              tags: servicesSection?.services || ["service"],
-            },
-          }}
-          data={servicesSection}
-          path={`/service/landing?ids=${servicesSection?.services}`}
-        />
-        <Quote data={quoteSection} />
-      </FloatedSection>
-      {/* <div className={styles.wrapper}>
+      <div className={styles.staticWrapper}>
+        <FloatedSection>
+          {/* <AboutUs data={aboutUsSection} /> */}
+          <SSRFetcher
+            Component={ServicesSection}
+            options={{
+              next: {
+                revalidate: "1y",
+                tags: servicesSection?.services || ["service"],
+              },
+            }}
+            data={servicesSection}
+            path={`/service/landing?ids=${servicesSection?.services}`}
+          />
+          <Quote data={quoteSection} />
+        </FloatedSection>
+        {/* <div className={styles.wrapper}>
         <SSRFetcher
           Component={News}
           options={{
@@ -62,7 +64,9 @@ const Home = async () => {
           path={`/testimonials/landing?ids=${testimonialSection?.posts}`}
         />
       </div> */}
-      {/* <GetInTouch data={getInTouchSection} /> */}
+        {/* <GetInTouch data={getInTouchSection} /> */}
+         <SpaceSection style={{ background: "white" }} />
+      </div>
     </section>
   );
 };

@@ -11,7 +11,11 @@ const ServicesSection = ({ data = {} }) => {
   const activeService = serviceRefs.find((s) => s._id === activeIndex);
 
   return (
-    <section className={styles.servicesWrapper}>
+    <section
+      id="active-section"
+      data-offset="10"
+      className={styles.servicesWrapper}
+    >
       <div className={styles.contentArea}>
         {serviceRefs?.map((value, index) => (
           <ServiceItem

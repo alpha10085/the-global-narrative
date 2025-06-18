@@ -1,54 +1,11 @@
-.childOne {
-  background-color: rgba(255, 0, 0, 0);
-}
 
-.childTwo {
-  width: 100%;
-  margin: auto;
-  padding: 0 2%;
-}
-
-.spaceSection {
-  height: 50px;
-}
-
-.bgPoster {
-  width: 300px;
-  height: auto;
-
-  aspect-ratio: 50/11.5;
-
-  position: fixed;
-  left: 50%;
-  top: 47.5%;
-  transform: translate(-50%, -50%);
-}
-
-.textpage {
-  /* position: fixed;
-  left: 0;
-  top: 0; */
-  width: 100%;
-  z-index: 100;
-  color: white;
-  padding: 100px 200px;
-  line-height: 1.7;
-  text-transform: capitalize;
-}
-.textpage h1 {
-  background: linear-gradient(
-    to right,
-    #5ffff2,
-    #fe7b7b
-  ); /* Customize colors */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 2rem;
-  font-weight: bold;
-  font-size: 40px;
-}
 .wrapper {
   
   transform: translateY(-50px);
 }
 
+.staticWrapper {
+position: relative;
+background-color: white;
+z-index: 10;
+}
