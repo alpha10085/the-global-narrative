@@ -1,0 +1,23 @@
+.cubeWrapper {
+  min-height: 60vh;
+  width: 80%;
+  margin: 50px auto;
+  padding: 0 5%;
+  z-index: 10;
+  position: relative;
+  padding-bottom: 90px;
+
+  overflow: hidden;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mySwiper {
+  width: 40%;
+}
+
+.title {
+  padding: 60px 0 40px;
+}
