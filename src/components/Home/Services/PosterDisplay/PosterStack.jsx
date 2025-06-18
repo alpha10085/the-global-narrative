@@ -19,7 +19,10 @@ const PosterStack = ({ posters = [] }) => {
         const offsetTop = 20 + index * 20;
         const percentage = Math.min(
           1,
-          Math.max(0, (vh - rect.top - offsetTop) / (vh - card.clientHeight))
+          Math.max(
+            0,
+            (vh - rect.top - offsetTop) / Math.max(100, vh - card.clientHeight)
+          )
         );
 
         const scale = 1 - (posters?.length - 1 - index) * 0.1;
@@ -45,11 +48,7 @@ const PosterStack = ({ posters = [] }) => {
           style={{ paddingTop: `${20 + index * 20}px` }}
         >
           <div className={styles.cardInner}>
-            <Img
-              className={styles.cardImage}
-              url={poster?.url}
-              alt=""
-            />
+            <Img className={styles.cardImage} url={poster?.url} alt="" />
           </div>
         </div>
       ))}
