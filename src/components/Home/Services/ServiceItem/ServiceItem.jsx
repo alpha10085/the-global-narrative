@@ -9,7 +9,7 @@ const ServiceItem = ({ value, index, activeIndex, callBack }) => {
     threshold: 0.2,
     triggerOnce: false,
     onChange: (inView) => {
-      if (inView) callBack(value?._id);
+      if (inView) callBack(index);
     },
   });
 
@@ -24,7 +24,7 @@ const ServiceItem = ({ value, index, activeIndex, callBack }) => {
       }`}
     >
       <h3>{value?.title}</h3>
-      <p>{customText(value?.description, 100)}</p> {/* cut to 150 chars */}
+      <p>{customText(value?.description, 100)}</p>
       <MainLink text="Read more" href={`/services/#id_${value?._id}`} />
     </div>
   );

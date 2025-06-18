@@ -16,7 +16,7 @@ import { interviewCategoryModel } from "./models/interviewsCategory.model";
 import { newsModel } from "./models/news.model";
 import { newsCategoryModel } from "./models/newsCategory.model";
 import { testimonialModel } from "./models/testimonial.model";
-
+import { serviceModel } from "./models/service.model";
 
 // pages
 import { aboutUsPageModel } from "./models/pages/about.model";
