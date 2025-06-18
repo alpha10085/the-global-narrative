@@ -1,14 +1,12 @@
 "use client";
 import { useState } from "react";
 import styles from "./ServicesSection.module.css";
+import PosterStack from "./PosterDisplay/PosterStack";
 import ServiceItem from "./ServiceItem/ServiceItem";
-import PosterDisplay from "./PosterDisplay/PosterDisplay";
 
 const ServicesSection = ({ data = {} }) => {
   const serviceRefs = data?.serviceRefs || [];
-  const [activeIndex, setActiveIndex] = useState(serviceRefs[0]?._id);
-
-  const activeService = serviceRefs.find((s) => s._id === activeIndex);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section className={styles.servicesWrapper}>
@@ -18,14 +16,19 @@ const ServicesSection = ({ data = {} }) => {
             key={value?._id}
             value={value}
             index={index}
-            activeIndex={activeIndex}
-            callBack={setActiveIndex}
+            activeIndex={serviceRefs[activeIndex]?._id}
+            callBack={() => setActiveIndex(index)}
           />
         ))}
       </div>
 
       <div className={styles.posterArea}>
-        <PosterDisplay activePoster={activeService?.poster} />
+        <PosterStack
+          posters={serviceRefs?.map((s) => ({
+            _id: s._id,
+            url: s.poster?.url,
+          }))}
+        />
       </div>
     </section>
   );

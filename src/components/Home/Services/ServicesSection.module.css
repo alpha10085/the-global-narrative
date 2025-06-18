@@ -1,25 +1,25 @@
 .servicesWrapper {
   display: flex;
   position: relative;
-  padding: 80px 20px;
-  gap: 40px;
-  flex-wrap: wrap;
+  padding: 100px 40px;
+  width: 80%;
+  margin: 0 auto; 
+  gap: 60px;           
   justify-content: center;
 }
 
 .contentArea {
-  flex: 1;
-  padding-right: 30px;
-  max-width: 600px;
+  width: 50%;
+  padding-right: 40px; 
+  box-sizing: border-box;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 28px; 
   color: #222;
 }
 
-@media (max-width: 825px) {
-  .posterArea {
-    display: none;
-  }
+.posterArea {
+  width: 50%;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
@@ -27,17 +27,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 40px 15px;
+    padding: 60px 20px; 
   }
 
   .contentArea {
-   
-    max-width: 100%;
+    width: 100%;
     padding: 0;
-    flex: none;
-  }
-
-  .contentArea {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
 }
