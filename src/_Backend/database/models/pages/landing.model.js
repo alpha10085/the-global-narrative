@@ -111,7 +111,7 @@ landingSchema.pre(/^find/, function (next) {
           },
         },
         {
-          path: "servicesSection.services.poster",
+          path: "servicesSection.services",
           model: "service",
           select: {
             _id: 1,
