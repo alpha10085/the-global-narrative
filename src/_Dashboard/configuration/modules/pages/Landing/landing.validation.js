@@ -52,7 +52,7 @@ const LandingPageValidationSchema = (locale = "en") => {
       locale,
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
-        services: Joi.array().min(1).max(3).items(serviceSchemaValidation(locale, true)),
+        services: Joi.array().min(1).max(4).items(serviceSchemaValidation(locale, true)),
       },
     }),
 
