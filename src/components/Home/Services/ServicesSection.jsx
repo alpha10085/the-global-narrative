@@ -35,10 +35,10 @@ const ServicesSection = ({ data = {} }) => {
         />
         <div className={` flex gap10 ${styles.navButtons} `}>
           <button onClick={() => scroll("left")} className={styles.navButton}>
-            ←
+              ‹
           </button>
           <button onClick={() => scroll("right")} className={styles.navButton}>
-            →
+            ›
           </button>
         </div>
       </div>

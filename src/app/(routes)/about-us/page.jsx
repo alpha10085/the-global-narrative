@@ -32,11 +32,12 @@ const Page = async (props) => {
         </FloatedSection>
 
         <ContentSection data={aboutUs} />
+        <Cube data={whoUsSectionSection} />
       </FloatedSection>
+       
 
       <FloatedSection>
         <OurValues data={ourValues} />
-        <Cube data={whoUsSectionSection} />
       </FloatedSection>
 
       <QuoteSection
