@@ -1,29 +1,25 @@
 import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
-import { customText } from "@/utils/text";
 
-const Card = ({ delay = 0, className = "", data }) => {
+const Card = ({ item, isActive }) => {
+  if (!item) return null;
+
   return (
     <div
-     
-      style={{
-        animationDelay: `${delay}s`,
-      }}
-      className={`${styles.container}  ${className}`}
+      className={`${styles.card} ${isActive ? styles.active : styles.inactive}`}
     >
-      <div className={`${styles.head} flex column just-sb`}>
-        <div className={`${styles.left} gap5 flex column`}>
-          <h1 className={styles.author}>@{data?.author}</h1>
-          <p className={styles.jobtitle}>{customText(data?.jobTitle, 40)}</p>
-        </div>
-        <Img className={styles.poster} url={data?.poster?.url} />
-        <div className={`${styles.triangles} flex gap5`}>
-          <Img className={styles.triangle} url={"/Testimonials-assets.png"} />
-          <Img className={styles.triangle} url={"/Testimonials-assets.png"} />
+      <p className={styles.quote}>“{item?.content}”</p>
+      <div className={styles.author}>
+        <Img
+          url={item?.poster?.url}
+          alt={item?.author}
+          className={styles.avatar}
+        />
+        <div>
+          <p className={styles.name}>{item?.author}</p>
+          <p className={styles.title}>{item?.jobTitle}</p>
         </div>
       </div>
-
-      <p className={`${styles.content} `}>{data?.content}</p>
     </div>
   );
 };

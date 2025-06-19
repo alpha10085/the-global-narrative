@@ -45,14 +45,14 @@ const Home = async () => {
           {/* <Quote data={quoteSection} /> */}
         </FloatedSection>
         <div className={styles.wrapper}>
-        {/* <SSRFetcher
+        <SSRFetcher
           Component={News}
           options={{
             next: { revalidate: "1y", tags: newsSection?.posts || ["news"] },
           }}
           data={newsSection}
           path={`/news/landing?ids=${newsSection?.posts}`}
-        /> */}
+        />
         <SSRFetcher
           Component={Testimonials}
           data={testimonialSection}

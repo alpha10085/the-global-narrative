@@ -1,60 +1,60 @@
 .container {
-  min-height: 50vh;
-  width: 100%;
-  margin: 0 auto;
-  padding: 40px 0;
-  overflow: hidden;
-  background-color: white;
+  padding: 80px 0;
+  background-color: #f9f9f9;
 }
 
 .wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 90%;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  gap: 40px;
-  align-items: stretch; 
+  padding: 0 24px;
+  gap: 48px;
+  align-items: stretch;
 }
 
 .left {
-  width: 35%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 200px;
- }
+  padding: 16px 0;
+}
 
 .left h2 {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
-  margin: 0;
+  line-height: 1.2;
+  color: #111;
+  margin-bottom: 16px;
 }
 
 .left p {
-  margin-top: 20px;
-  font-size: 22px;
-  color: #555;
+  font-size: 18px;
+  color: #444;
+  margin-bottom: auto;
 }
 
 .buttons {
   display: flex;
-  gap: 10px;
-  margin-top: auto;
+  gap: 12px;
+  margin-top: 32px;
 }
 
 .buttons button {
-  width: 55px;
-  height: 55px;
-  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
   border: 1px solid #666;
   background-color: white;
   padding-bottom: 1px;
-  color: #666;
-  cursor: pointer;
-  font-size: 25px;
+  color: #333;
+  font-size: 20px;
   font-weight: bold;
-  transition: 0.3s;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
 .buttons button:hover {
@@ -63,51 +63,10 @@
 }
 
 .right {
-  width: 50%;
+  flex: 2;
   position: relative;
-  min-height: 200px;
-}
-
-.card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  pointer-events: none;
-}
-
-.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.quote {
-  font-size: 21px; 
-  line-height: 30px;
-  margin-bottom: 25px;
-  color: #111;
-}
-
-.author {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.avatar {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.name {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.title {
-  font-size: 14px; 
-  color: #666;
+  min-height: 240px;
+  padding: 16px;
+  background: #f9f9f9;
+  border-radius: 12px;
 }

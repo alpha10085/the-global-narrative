@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import styles from "./Testimonials.module.css";
+import Card from "./Card/Card";
 
 const Testimonials = ({ data = {} }) => {
   const [current, setCurrent] = useState(0);
@@ -31,24 +32,8 @@ const Testimonials = ({ data = {} }) => {
 
         {/* RIGHT COLUMN */}
         <div className={styles.right}>
-          {testimonials.map((item, index) => (
-            <div
-              key={item._id}
-              className={`${styles.card} ${index === current ? styles.active : styles.inactive}`}
-            >
-              <p className={styles.quote}>“{item.content}”</p>
-              <div className={styles.author}>
-                <img
-                  src={item.poster?.url}
-                  alt={item.author}
-                  className={styles.avatar}
-                />
-                <div>
-                  <p className={styles.name}>{item.author}</p>
-                  <p className={styles.title}>{item.jobTitle}</p>
-                </div>
-              </div>
-            </div>
+          {testimonials?.map((item, index) => (
+            <Card key={item?._id} item={item} isActive={index === current} />
           ))}
         </div>
       </div>
