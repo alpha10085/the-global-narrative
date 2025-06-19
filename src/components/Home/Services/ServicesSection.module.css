@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   padding: 100px 40px;
-  width: 90%; 
+  width: 90%;
   margin: 0 auto;
   gap: 60px;
   justify-content: center;
@@ -10,20 +10,18 @@
 
 .contentArea {
   width: 60%;
-  padding-right: 40px; 
+  padding-right: 40px;
   box-sizing: border-box;
   font-size: 16px;
-  line-height: 28px; 
+  line-height: 28px;
   color: #222;
   flex-grow: 1;
 }
 
 .posterArea {
- 
-  box-sizing: border-box;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: flex-start
 }
 
 @media (max-width: 768px) {
@@ -31,7 +29,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 60px 20px; 
+    padding: 60px 20px;
   }
 
   .contentArea {
@@ -40,7 +38,7 @@
     margin-bottom: 50px;
   }
 
-   .posterArea {
+  .posterArea {
     width: 100%;
     aspect-ratio: unset;
   }

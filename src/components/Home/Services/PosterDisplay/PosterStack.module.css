@@ -4,8 +4,6 @@
   position: sticky;
   top: 20%;
   z-index: 10;
-  height: max-content;
-  transform: translateY(-25vh);
 }
 
 .card {
@@ -13,7 +11,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  top: 150px;
+  top: 25px;
   width: 100%;
   aspect-ratio: 4 / 3;
 }

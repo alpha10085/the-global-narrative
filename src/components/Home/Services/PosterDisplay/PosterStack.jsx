@@ -6,7 +6,7 @@ import { useRef } from "react";
 const PosterStack = ({ activeIndex = 0, posters = [] }) => {
   return (
     <div className={styles.cards}>
-      {posters.map((poster, index) => {
+      {posters?.map((poster, index) => {
         const isActive = activeIndex === index;
         const isBefore = activeIndex > index;
         const isAfter = activeIndex < index;
