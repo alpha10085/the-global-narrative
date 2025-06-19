@@ -32,7 +32,7 @@ const ServiceItem = ({ item = {}, index = 0 }) => {
         </a>
       </div>
       <h3>{item?.title}</h3>
-      <p>{customText(item?.description, 100)}</p>
+      <p>{customText(item?.description, 50)}</p>
     </div>
   );
 };

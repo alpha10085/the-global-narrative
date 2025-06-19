@@ -9,7 +9,7 @@ const ServicesSection = ({ data = {} }) => {
   let serviceRefs = data?.serviceRefs || [];
 
   // Add spacer item at the beginning
-  serviceRefs = [{ _id: "spacer" }, ...serviceRefs];
+  serviceRefs = [ ...serviceRefs];
 
   const scroll = (direction) => {
     if (!sliderRef.current) return;
