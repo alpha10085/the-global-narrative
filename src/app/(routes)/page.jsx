@@ -29,7 +29,7 @@ const Home = async () => {
       <Hero data={heroSection} />
       <div className={styles.staticWrapper}>
         <FloatedSection>
-          {/* <AboutUs data={aboutUsSection} /> */}
+          <AboutUs data={aboutUsSection} />
           <SSRFetcher
             Component={ServicesSection}
             options={{

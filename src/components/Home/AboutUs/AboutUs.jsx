@@ -3,48 +3,34 @@ import { ArrowOutwardIcon } from "../icons";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import LinkTransition from "@/components/Shared/LinkTransition/LinkTransition";
+import Threads from "@/components/Threads/Threads";
 
 const AboutUs = ({ data = {} }) => {
   return (
     <div
       id="active-section"
       data-offset="0"
-      className={`${styles.container} flex just-c gap20 column`}
+      className={`${styles.container} flex  gap20 `}
     >
-      <WordPullUpV2
-        duration={0.6}
-        delay={200}
-        className={`${styles.title} `}
-        text={data?.title}
-      />
-      <Aos
-        activeClassName={styles.active}
-        className={styles.aos}
-        triggerOnce
-        delay={800}
-      >
-        <p className={styles.description}> {data?.description}</p>
-      </Aos>
-      <Aos
-        activeClassName={styles.active}
-        className={styles.aosBtn}
-        triggerOnce
-        delay={800}
-      >
-        <LinkTransition
-          href={"/about-us"}
-          className={`${styles.link} flex-c   column`}
+      <div className={`${styles.top} flex-c  gap20 column `}>
+        <WordPullUpV2
+          duration={0.6}
+          delay={200}
+          className={`${styles.title} `}
+          text={data?.title}
+        />
+        <Aos
+          activeClassName={styles.active}
+          className={styles.aos}
+          triggerOnce
+          delay={800}
         >
-          <span> About</span>
-          <span> US</span>
-
-          <div className={styles.arrowWrapper}>
-            <span className={`${styles.arrow} flex-c`}>
-              <ArrowOutwardIcon />
-            </span>
-          </div>
-        </LinkTransition>
-      </Aos>
+          <p className={styles.description}> {data?.description}</p>
+        </Aos>
+      </div>
+      <div className={styles.mesh}>
+        <Threads color={"#385cf5"} amplitude={1.2} />
+      </div>
     </div>
   );
 };
