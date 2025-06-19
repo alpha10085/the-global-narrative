@@ -9,16 +9,17 @@
 }
 
 .contentArea {
-  width: 50%;
+  width: 60%;
   padding-right: 40px; 
   box-sizing: border-box;
   font-size: 16px;
   line-height: 28px; 
   color: #222;
+  flex-grow: 1;
 }
 
 .posterArea {
-  width: 70%;
+ 
   box-sizing: border-box;
   display: flex;
   justify-content: center;
