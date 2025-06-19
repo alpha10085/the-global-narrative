@@ -36,7 +36,10 @@ const Cube = ({ data = {} }) => {
           <p>{members[activeIndex]?.description}</p>
         </div>
 
-        <div className="flex al-i-c gap10 w-100" style={{ alignItems: "center", gap: "10px", width: "100%" }}>
+        <div
+          className="flex al-i-c gap10 w-100"
+          style={{ alignItems: "center", gap: "10px", width: "100%" }}
+        >
           {/* Left button: only visible if activeIndex is 1 */}
           <button
             onClick={() => handleDir("left")}
@@ -50,12 +53,19 @@ const Cube = ({ data = {} }) => {
           <Swiper
             effect="cube"
             grabCursor={true}
+            allowTouchMove={true}
+            speed={1200}
+            cubeEffect={{
+              shadow: true,
+              slideShadows: true,
+              shadowOffset: 20,
+              shadowScale: 0.94,
+            }}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
             modules={[EffectCube]}
             className={styles.mySwiper}
             slidesPerView={1}
-            allowTouchMove={false} // optional
           >
             {members?.map((member, i) => (
               <SwiperSlide key={i} className={styles.slide}>
