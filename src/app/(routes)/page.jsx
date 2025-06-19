@@ -9,8 +9,9 @@ import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import { getPage } from "@/lib/pages";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import { pageMetadataHandler } from "@/utils/metadata";
-import ServicesSection from "@/components/Home/Services/ServicesSection";
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
+import ServicesSection from "@/components/Home/Services/ServicesSection";
+
 
 export const generateMetadata = pageMetadataHandler(getPage, "landing");
 const Home = async () => {

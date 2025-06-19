@@ -1,12 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useRef } from "react";
 import styles from "./ServicesSection.module.css";
-import PosterStack from "./PosterDisplay/PosterStack";
 import ServiceItem from "./ServiceItem/ServiceItem";
 
 const ServicesSection = ({ data = {} }) => {
-  const serviceRefs = data?.serviceRefs || [];
-  const [activeIndex, setActiveIndex] = useState(0);
+  let serviceRefs = data?.serviceRefs || [];
+  const sliderRef = useRef();
+
+  // Add spacer item at the beginning
+  serviceRefs = [{ _id: "spacer" }, ...serviceRefs];
+
+  const scroll = (direction) => {
+    if (!sliderRef.current) return;
+    const scrollAmount = 400;
+    sliderRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section
@@ -14,26 +25,25 @@ const ServicesSection = ({ data = {} }) => {
       data-offset="10"
       className={styles.servicesWrapper}
     >
-      <div className={styles.contentArea}>
-        {serviceRefs?.map((value, index) => (
-          <ServiceItem
-            key={value?._id}
-            value={value}
-            index={index}
-            activeIndex={serviceRefs[activeIndex]?._id}
-            callBack={() => setActiveIndex(index)}
-          />
-        ))}
+      <div className={styles.sliderHeader}>
+        <button onClick={() => scroll("left")} className={styles.navButton}>
+          ←
+        </button>
+        <button onClick={() => scroll("right")} className={styles.navButton}>
+          →
+        </button>
       </div>
 
-      <div className={styles.posterArea}>
-        <PosterStack
-          activeIndex={activeIndex}
-          posters={serviceRefs?.map((s) => ({
-            _id: s?._id,
-            url: s?.poster?.url,
-          }))}
-        />
+      <div className={styles.sliderWrapper} ref={sliderRef}>
+        <div className={styles.slider} ref={sliderRef}>
+          {serviceRefs?.map((item, index) =>
+            item?._id === "spacer" ? (
+              <div key="spacer" className={styles.spacer} />
+            ) : (
+              <ServiceItem item={item} index={index} key={item?._id} />
+            )
+          )}
+        </div>
       </div>
     </section>
   );

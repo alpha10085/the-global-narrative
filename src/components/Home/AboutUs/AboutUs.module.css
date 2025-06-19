@@ -1,6 +1,6 @@
 .container {
   min-height: 70vh;
-
+  overflow: hidden;
   position: relative;
   color: rgb(0, 0, 0);
 }
@@ -133,6 +133,60 @@
     width: 30px;
     height: 30px;
   }
+  .container {
+    margin: 55px auto 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .title,
+  .description {
+    text-align: center;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .top {
+    padding-top: 50px;
+    width: 90%;
+  }
+
+  .aosBtn {
+    position: relative;
+    right: unset;
+    width: max-content;
+    margin: auto;
+  }
+
+  .arrow {
+    margin: 0;
+    background-color: white;
+  }
+
+  .link {
+    padding: 10px;
+    text-transform: uppercase;
+    border-radius: 40px;
+    height: 50px;
+    font-weight: bold;
+    font-size: clamp(10px, 3vw, 12px);
+    padding-top: 14px;
+    margin: 0;
+    width: 120px;
+  }
+
+  .arrow svg {
+    font-size: 18px;
+  }
+
+  .link:hover .arrow {
+    right: -20px;
+    top: -20px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+  }
+
   .container {
     margin: 55px auto 20px;
   }

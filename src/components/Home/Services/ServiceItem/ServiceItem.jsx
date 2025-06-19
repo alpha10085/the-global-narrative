@@ -1,35 +1,38 @@
-import { useRef } from "react";
+"use client";
 import { useInView } from "react-intersection-observer";
 import styles from "./ServiceItem.module.css";
-import MainLink from "@/components/MainLink/MainLink";
+import Img from "@/components/Shared/img/Img";
 import { customText } from "@/utils/text";
 
-const ServiceItem = ({ value, index, activeIndex, callBack }) => {
+const ServiceItem = ({ item = {}, index = 0 }) => {
   const { ref, inView } = useInView({
-    threshold: 0.6,
-    triggerOnce: false,
-    onChange: (inView) => {
-      if (inView) callBack(index);
-    },
+    triggerOnce: true,
+    threshold: 0.2,
   });
 
-  const isActive = value?._id === activeIndex;
+  const delayStyle = {
+    transitionDelay: `${index * 100}ms`,
+  };
 
   return (
     <div
+      id={`id_${item?._id}`}
       ref={ref}
-      id={`id_${value?._id}`}
-      className={`${styles.valueItem} ${
-        isActive ? styles.active : styles.hidden
-      }`}
+      className={`${styles.valueItem} ${inView ? styles.show : styles.hidden}`}
+      style={delayStyle}
     >
-      <h3>{value?.title}</h3>
-      <p>{customText(value?.description, 400)}</p>
-      <MainLink
-        className={styles.MainLink}
-        text="Read more"
-        href={`/services/#id_${value?._id}`}
-      />
+      <div className={styles.imageWrapper}>
+        <Img
+          className={styles.cardImage}
+          url={item?.poster?.url}
+          alt={item?.title || ""}
+        />
+        <a href={`/services/#id_${item?._id}`} className={styles.overlay}>
+          <span>Read more</span>
+        </a>
+      </div>
+      <h3>{item?.title}</h3>
+      <p>{customText(item?.description, 100)}</p>
     </div>
   );
 };

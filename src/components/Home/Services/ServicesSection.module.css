@@ -1,45 +1,87 @@
 .servicesWrapper {
-  display: flex;
+  height: 100vh;
+  width: 100%;
   position: relative;
-  padding: 100px 40px;
-  width: 90%;
-  margin: 0 auto;
-  gap: 60px;
-  justify-content: center;
 }
 
-.contentArea {
-  width: 60%;
-  padding-right: 40px;
-  box-sizing: border-box;
-  font-size: 16px;
-  line-height: 28px;
-  color: #222;
-  flex-grow: 1;
-}
-
-.posterArea {
+.sliderHeader {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  z-index: 10;
   display: flex;
-  justify-content: center;
-  align-items: flex-start
+  gap: 8px;
+}
+
+.navButton {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 1px solid #666;
+  background-color: white;
+  padding-bottom: 1px;
+  color: #666;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.navButton:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.sliderWrapper {
+  height: 100%;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+   padding-top: 64px;
+}
+
+.sliderWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.slider {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 24px;
+  padding-right: 24px;
+  gap: 16px;
+}
+
+.spacer {
+  width: 180px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .slider {
+    padding-left: 16px;
+    padding-right: 16px;
+    gap: 12px;
+  }
+  .spacer {
+    width: 100px;
+  }
 }
 
 @media (max-width: 768px) {
-  .servicesWrapper {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
+  .slider {
+    padding-left: 8px;
+    padding-right: 8px;
+    gap: 5px;
   }
-
-  .contentArea {
-    width: 100%;
-    padding: 0;
-    margin-bottom: 50px;
+  .spacer {
+    width: 20px;
   }
-
-  .posterArea {
-    width: 100%;
-    aspect-ratio: unset;
+  .sliderHeader{
+    display: none;
   }
 }
