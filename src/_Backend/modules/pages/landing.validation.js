@@ -31,7 +31,7 @@ const servicesSection = Joi.object({
   services: joiArray({
     body: serviceValidationRelation,
     min: 1,
-    max: 3,
+    max: 4,
     required: true,
   }),
   ...CommonsVal,

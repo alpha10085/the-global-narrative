@@ -20,7 +20,7 @@
   font-size: clamp(25px, 5vw, 50px);
   font-weight: 600;
   color: rgb(0, 0, 0);
-  margin: 10px 0 ;
+  margin: 10px 0;
   font-weight: 400;
 }
 
@@ -76,7 +76,8 @@
     width: 100px;
   }
   .sliderHeader {
-    padding-left: 145px;
+    padding-left: 18px;
+
     padding-right: 16px;
   }
 }
@@ -94,7 +95,8 @@
     display: none;
   }
   .sliderHeader {
-    padding-left: 45px;
+    padding-left: 19px;
+
     padding-right: 16px;
   }
 }
