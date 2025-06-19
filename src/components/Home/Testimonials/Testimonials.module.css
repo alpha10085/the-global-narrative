@@ -2,49 +2,112 @@
   min-height: 50vh;
   width: 100%;
   margin: 0 auto;
-  padding: 20px 0 40px;
+  padding: 40px 0;
   overflow: hidden;
-
-  overflow: hidden;
-
+  background-color: white;
 }
 
-.list {
-  width: 100%;
-  margin-top: 30px;
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  gap: 40px;
+  align-items: stretch; 
 }
-.title {
-  padding-left: 5%;
+
+.left {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+ }
+
+.left h2 {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.left p {
+  margin-top: 20px;
+  font-size: 22px;
+  color: #555;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.buttons button {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 1px solid #666;
+  background-color: white;
+  padding-bottom: 1px;
+  color: #666;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.buttons button:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.right {
+  width: 50%;
+  position: relative;
+  min-height: 200px;
 }
 
 .card {
+  position: absolute;
+  top: 0;
+  left: 0;
   opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
 }
 
-.list.active .card {
-  animation: introCard 0.8s ease forwards;
+.active {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.swiper {
-  width: 100%;
-  padding-left: 5%;
+.quote {
+  font-size: 21px; 
+  line-height: 30px;
+  margin-bottom: 25px;
+  color: #111;
 }
 
-@keyframes introCard {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.author {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-@media (max-width: 550px) {
-  .container {
-    padding: 0  0  30px;
-  }
-  .list {
-    
-  margin-top: 20px;
-  }
+.avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.title {
+  font-size: 14px; 
+  color: #666;
 }

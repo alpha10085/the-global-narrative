@@ -1,120 +1,57 @@
 "use client";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import SectionTitle from "../../SectionTitle/SectionTitle";
-import Card from "./Card/Card";
+import { useState } from "react";
 import styles from "./Testimonials.module.css";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import { useRef, useState, useEffect } from "react";
 
 const Testimonials = ({ data = {} }) => {
-  const swiperRef = useRef(null);
-  const containerRef = useRef(null);
+  const [current, setCurrent] = useState(0);
+  const testimonials = data?.testimonials || [];
 
-  useEffect(() => {
-    const swiperInstance = swiperRef.current?.swiper;
-
-    if (!swiperInstance) return;
-
-    // 👇 Stop autoplay initially
-    swiperInstance.autoplay?.stop();
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          if (window.innerWidth > 550) {
-            swiperInstance.autoplay?.start();
-          }
-          observer.disconnect(); // Run only once
-        }
-      },
-      {
-        threshold: 0.3, // Start autoplay when ~30% visible
-      }
+  const handleChange = (dir) => {
+    setCurrent((prev) =>
+      dir === "left"
+        ? (prev - 1 + testimonials.length) % testimonials.length
+        : (prev + 1) % testimonials.length
     );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    // Handle screen resize
-    const handleResize = () => {
-      if (!swiperInstance.autoplay) return;
-
-      if (window.innerWidth <= 550) {
-        swiperInstance.autoplay.stop();
-      } else if (containerRef.current && isInViewport(containerRef.current)) {
-        swiperInstance.autoplay.start();
-      }
-    };
-
-    const isInViewport = (el) => {
-      const rect = el.getBoundingClientRect();
-      return rect.top < window.innerHeight && rect.bottom >= 0;
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      observer.disconnect();
-    };
-  }, []);
+  };
 
   return (
-    <div className={styles.container} ref={containerRef}>
-      <div className={styles.title}>
-        <SectionTitle title={data?.title} />
-      </div>
-      <Aos
-        delay={200}
-        activeClassName={styles.active}
-        className={`${styles.list} flex  gap20 al-i-c`}
-      >
-        <Swiper
-          ref={swiperRef}
-          className={styles.swiper}
-          autoplay={{
-            delay: 2000,
-            disableOnInteraction: false,
-          }}
-          speed={1000}
-          loop={true}
-          slidesPerView={1.1}
-          spaceBetween={10}
-          breakpoints={{
-            645: {
-              slidesPerView: 1.2,
-              spaceBetween: 20,
-            },
-            922: {
-              slidesPerView: 1.8,
-              spaceBetween: 20,
-            },
-            1150: {
-              slidesPerView: 2.2,
-              spaceBetween: 20,
-            },
-            1300: {
-              slidesPerView: 3.2,
-              spaceBetween: 20,
-            },
-          }}
-          modules={[Autoplay]}
-        >
-          {[...data?.testimonials, ...data?.testimonials, ...data?.testimonials]?.map(
-            (item, index) => (
-              <SwiperSlide key={index} className={styles.swiperSlide}>
-                <Card
-                  className={styles.card}
-                  delay={index * 0.2 + 0.4}
-                  data={item}
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        {/* LEFT COLUMN */}
+        <div className={styles.left}>
+          <h2>
+            {data?.title || "From our"} <strong>community.</strong>
+          </h2>
+          <p>Here’s what other subscribers had to say about CC Plus.</p>
+          <div className={styles.buttons}>
+            <button onClick={() => handleChange("left")}>←</button>
+            <button onClick={() => handleChange("right")}>→</button>
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div className={styles.right}>
+          {testimonials.map((item, index) => (
+            <div
+              key={item._id}
+              className={`${styles.card} ${index === current ? styles.active : styles.inactive}`}
+            >
+              <p className={styles.quote}>“{item.content}”</p>
+              <div className={styles.author}>
+                <img
+                  src={item.poster?.url}
+                  alt={item.author}
+                  className={styles.avatar}
                 />
-              </SwiperSlide>
-            )
-          )}
-        </Swiper>
-      </Aos>
+                <div>
+                  <p className={styles.name}>{item.author}</p>
+                  <p className={styles.title}>{item.jobTitle}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
