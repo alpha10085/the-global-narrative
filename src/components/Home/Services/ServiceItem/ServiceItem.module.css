@@ -9,7 +9,7 @@
   box-sizing: border-box;
 
   opacity: 0;
-  transform: translate(100px, 120px);
+  transform: translate(80px, 100px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
