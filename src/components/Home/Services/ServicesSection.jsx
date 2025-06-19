@@ -28,9 +28,10 @@ const ServicesSection = ({ data = {} }) => {
 
       <div className={styles.posterArea}>
         <PosterStack
+          activeIndex={activeIndex}
           posters={serviceRefs?.map((s) => ({
-            _id: s._id,
-            url: s.poster?.url,
+            _id: s?._id,
+            url: s?.poster?.url,
           }))}
         />
       </div>

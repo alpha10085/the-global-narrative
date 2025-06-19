@@ -1,27 +1,32 @@
 .cards {
-  width: 100%;
-  max-width: 900px;
-  aspect-ratio: 4 / 3;
-  position: relative;
+  width: 600px;
+  max-width: 90%;
+  position: sticky;
+  top: 20%;
+  z-index: 10;
+  height: max-content;
+  transform: translateY(-25vh);
 }
 
 .card {
-  position: sticky;
+  transition: 0.8s;
+  position: absolute;
+  top: 0;
+  left: 0;
   top: 150px;
   width: 100%;
   aspect-ratio: 4 / 3;
-  z-index: 1;
 }
 
 .cardInner {
-  width: 100%;
   height: 100%;
-  border-radius: 14px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(22, 38, 58, 0.35);
   transform-origin: center top;
   transition: transform 0.2s, filter 0.2s;
-}
+  transition: 0.8s;
+  margin: 0 auto;
+} 
 
 .cardImage {
   width: 100%;
@@ -30,19 +35,10 @@
   display: block;
 }
 
-@media (max-width: 768px) {
-  .posterArea {
-    width: 100%;
-    aspect-ratio: unset;
-  }
 
-  .cards {
-    aspect-ratio: unset;
-    max-width: 100%;
-  }
-
-  .card {
-    aspect-ratio: 4 / 3;
-    top: 60px;
-  }
+/* .card.activeIndex {
+  box-shadow: 0 25px 50px -12px rgba(22, 38, 58, 0.33);
+} */
+.lessThanActiveIndex {
+  transform: translateY(100vh); /* pushed down */
 }

@@ -4,6 +4,7 @@
   margin: 0 auto;
   overflow: hidden;
   position: relative;
+  margin-top: 100px;
   background-color: var(--main-bg);
 }
 
@@ -63,6 +64,7 @@
   opacity: 0.7;
 
   color: var(--color100);
+  width: 600px;
 }
 
 .aosText {
@@ -77,7 +79,52 @@
   opacity: 1;
   transform: translate(0);
 }
+.mesh {
+  position: absolute;
+  right: -20vw;
+  width: 100vw;
+  height: 100vh;
+  transform: rotate(-45deg) translateY(20vh);
+}
 
+.images {
+  display: flex;
+  gap: 10px; /* space between images */
+  width: fit-content;
+
+}
+.image {
+  width: 300px; /* adjust image width */
+  height: calc(100vh - 100px); /* adjust image height */
+  overflow: hidden;
+  position: relative;
+}
+
+.image img {
+  position: absolute;
+  height: auto !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+/* Position images differently */
+.image:nth-child(1) img {
+  left: 0 !important;
+}
+.image:nth-child(1) {
+  height: 250px;
+}
+
+.image:nth-child(2) img {
+  left: -300px !important;
+}
+.image:nth-child(3) {
+  height: 450px;
+}
+
+.image:nth-child(3) img {
+  left: -600px !important;
+}
 @media (max-width: 768px) {
   .container {
     flex-direction: column;

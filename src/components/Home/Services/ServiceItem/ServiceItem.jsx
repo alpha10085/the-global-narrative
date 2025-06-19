@@ -6,7 +6,7 @@ import { customText } from "@/utils/text";
 
 const ServiceItem = ({ value, index, activeIndex, callBack }) => {
   const { ref, inView } = useInView({
-    threshold: 0.2,
+    threshold: 0.6,
     triggerOnce: false,
     onChange: (inView) => {
       if (inView) callBack(index);
@@ -25,7 +25,9 @@ const ServiceItem = ({ value, index, activeIndex, callBack }) => {
     >
       <h3>{value?.title}</h3>
       <p>{customText(value?.description, 100)}</p>
-      <MainLink text="Read more" href={`/services/#id_${value?._id}`} />
+      <MainLink 
+      className={styles.MainLink}
+      text="Read more" href={`/services/#id_${value?._id}`} />
     </div>
   );
 };

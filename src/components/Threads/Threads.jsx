@@ -27,7 +27,6 @@ void main() {
 `;
 
 const fragmentShaderSource = `
-// (same as before — unchanged)
 precision highp float;
 uniform float iTime;
 uniform vec3 iResolution;
@@ -35,6 +34,7 @@ uniform vec3 uColor;
 uniform float uAmplitude;
 uniform float uDistance;
 uniform vec2 uMouse;
+uniform float uFade;
 
 #define PI 3.1415926538
 const int u_line_count = 40;
@@ -98,11 +98,8 @@ float lineFn(vec2 st, float width, float perc, float offset, vec2 mouse, float t
       st.y
   );
 
-  return clamp(
-      (line_start - line_end) * (1.0 - smoothstep(0.0, 1.0, pow(perc, 0.3))),
-      0.0,
-      1.0
-  );
+  float fadeAmount = 1.0 - smoothstep(0.0, 1.0, pow(perc, 0.3));
+  return clamp((line_start - line_end) * mix(1.0, fadeAmount, uFade), 0.0, 1.0);
 }
 
 void main() {
@@ -127,7 +124,7 @@ void main() {
 }
 `;
 
-const Threads = ({ color = "white", amplitude = 1, distance = 0, ...rest }) => {
+const Threads = ({ color = "white", amplitude = 1, distance = 0, fade = 1, ...rest }) => {
   const canvasRef = useRef(null);
   const frameId = useRef(null);
 
@@ -176,6 +173,7 @@ const Threads = ({ color = "white", amplitude = 1, distance = 0, ...rest }) => {
     const ampLoc = gl.getUniformLocation(program, "uAmplitude");
     const distLoc = gl.getUniformLocation(program, "uDistance");
     const mouseLoc = gl.getUniformLocation(program, "uMouse");
+    const fadeLoc = gl.getUniformLocation(program, "uFade");
 
     function resize() {
       canvas.width = canvas.clientWidth;
@@ -199,6 +197,7 @@ const Threads = ({ color = "white", amplitude = 1, distance = 0, ...rest }) => {
       gl.uniform1f(ampLoc, amplitude);
       gl.uniform1f(distLoc, distance);
       gl.uniform2f(mouseLoc, 0.5, 0.5);
+      gl.uniform1f(fadeLoc, fade);
 
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
@@ -211,7 +210,7 @@ const Threads = ({ color = "white", amplitude = 1, distance = 0, ...rest }) => {
       gl.getExtension("WEBGL_lose_context")?.loseContext();
       window.removeEventListener("resize", resize);
     };
-  }, [color, amplitude, distance]);
+  }, [color, amplitude, distance, fade]);
 
   return <canvas ref={canvasRef} className={styles.container} {...rest} />;
 };
