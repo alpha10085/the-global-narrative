@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 import styles from "./Testimonials.module.css";
 import Card from "./Card/Card";
 
@@ -15,11 +16,16 @@ const Testimonials = ({ data = {} }) => {
     );
   };
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       <div className={styles.wrapper}>
         {/* LEFT COLUMN */}
-        <div className={styles.left}>
+        <div className={`${styles.left} ${inView ? styles.animateLeft : ""}`}>
           <h2>
             {data?.title || "From our"} <strong>community.</strong>
           </h2>
@@ -31,7 +37,7 @@ const Testimonials = ({ data = {} }) => {
         </div>
 
         {/* RIGHT COLUMN */}
-        <div className={styles.right}>
+        <div className={`${styles.right} ${inView ? styles.animateRight : ""}`}>
           {testimonials?.map((item, index) => (
             <Card key={item?._id} item={item} isActive={index === current} />
           ))}
