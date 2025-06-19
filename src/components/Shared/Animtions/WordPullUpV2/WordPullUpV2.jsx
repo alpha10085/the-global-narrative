@@ -35,10 +35,10 @@ export default function WordPullUpV2({
     <h1
       {...options}
       ref={ref}
-      className={`${styles.WordPullUpV2} ${className || ""}`}
+      className={`${styles.WordPullUpV2} ${className || ""} flex wrap `}
     >
       {words.map((word, i) => (
-        <span key={i} className={styles.wordWrapper}>
+        <span key={i} className={`${styles.wordWrapper} `}>
           <motion.span
             initial={{ y: "100%", opacity: 0 }}
             animate={
@@ -47,7 +47,7 @@ export default function WordPullUpV2({
             transition={{ duration, ease: "easeOut" }}
             className={styles.word}
           >
-            {/^\s+$/.test(word) ? <span>&nbsp;</span> : word}
+            {/^\s+$/.test(word) ? "" : word}
           </motion.span>
         </span>
       ))}
