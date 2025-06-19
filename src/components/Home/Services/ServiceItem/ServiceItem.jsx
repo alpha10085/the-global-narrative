@@ -25,9 +25,11 @@ const ServiceItem = ({ value, index, activeIndex, callBack }) => {
     >
       <h3>{value?.title}</h3>
       <p>{customText(value?.description, 400)}</p>
-      <MainLink 
-      className={styles.MainLink}
-      text="Read more" href={`/services/#id_${value?._id}`} />
+      <MainLink
+        className={styles.MainLink}
+        text="Read more"
+        href={`/services/#id_${value?._id}`}
+      />
     </div>
   );
 };
