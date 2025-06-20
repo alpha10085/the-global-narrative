@@ -3,7 +3,6 @@ import styles from "./Card.module.css";
 import Img from "@/components/Shared/img/Img";
 
 const Card = ({ data = {} }) => {
-  console.log("🚀 ~ Card ~ data:", data);
   return (
     <div
       className={`flex  ${styles.card} just-sb   al-i-c`}
