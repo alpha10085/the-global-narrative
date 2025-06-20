@@ -10,6 +10,18 @@ const serviceSchemaValidation = (locale = "en", relation = false) => {
       max: 20000,
       required: !relation,
     }),
+    subTitle:joiText({
+      locale,
+      min: 2,
+      max: 20000,
+      required: !relation,
+    }),
+    keyPoints:joiText({
+      locale,
+      min: 2,
+      max: 20000,
+      required: false,
+    }),
 
     publish: Joi.boolean().default(false),
 

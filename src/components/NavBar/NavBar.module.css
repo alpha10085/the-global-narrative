@@ -10,12 +10,18 @@
   justify-content: space-between;
   align-items: center;
   color: white;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 100;
   overflow: hidden;
   transition: 0.5s;
+  position: absolute;
+    top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* NEW: Add this to make position fixed conditional */
+.fixed {
+  position: fixed;
+
 }
 
 .bg {
@@ -30,7 +36,6 @@
   background-color: rgb(255, 255, 255);
   transform: translateY(0%);
   transition: 0.8s;
-  
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
 }
 .bg.transparent {
@@ -54,6 +59,7 @@
   transform: translateY(20px);
   opacity: 0;
   animation: intro_logo 0.8s forwards;
+  z-index: 100;
 }
 @keyframes intro_logo {
   from {
@@ -112,7 +118,6 @@
   transition: 0.4s;
   background-color: rgba(255, 255, 255, 0.3);
 }
-
 .link.active::before,
 .link:hover::before {
   background-color: rgb(255, 255, 255);
@@ -138,12 +143,10 @@
   .rightUl {
     display: none !important;
   }
-
   .burgerIcon {
     display: flex !important;
   }
 }
-
 @media (max-width: 768px) {
   .logo {
     height: 45px;

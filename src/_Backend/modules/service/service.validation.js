@@ -7,6 +7,8 @@ import { CommonsVal, fileVal } from "@/_Backend/commons/validation";
 // ------------------------------
 const serviceValidationCreate = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
+  subTitle: joiText({ min: 2, max: 1000, required: true }),
+  keyPoints: joiText({ min: 2, max: 1000 }),
   poster: fileVal.required(),
   description: joiText({ min: 5, max: 20000, required: true }),
   ...CommonsVal,
@@ -17,6 +19,9 @@ const serviceValidationCreate = Joi.object({
 // ------------------------------
 const serviceValidationUpdate = Joi.object({
   title: joiText({ min: 2, max: 1000 }),
+
+  subTitle: joiText({ min: 2, max: 1000 }),
+  keyPoints: joiText({ min: 2, max: 1000 }),
   poster: fileVal,
   description: joiText({ min: 5, max: 20000 }),
   ...CommonsVal,
@@ -27,6 +32,8 @@ const serviceValidationUpdate = Joi.object({
 // ------------------------------
 const serviceValidationRelation = Joi.object({
   title: joiText({ min: 2, max: 1000 }),
+  subTitle: joiText({ min: 2, max: 1000 }),
+  keyPoints: joiText({ min: 2, max: 1000 }),
   poster: fileVal,
   description: joiText({ min: 5, max: 20000 }),
   ...CommonsVal,

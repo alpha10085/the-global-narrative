@@ -36,19 +36,18 @@ export const textDir = (value = null) => {
   }
 };
 
-export const lineBreak = (text = "", symbol = ".", remove = true) => {
-  // Replace all occurrences of $$ with <br />
-  const regex = new RegExp(symbol, "g");
-  if (remove) {
-    //  return text.replace(regex, '');
-  }
-  let lines = text?.split(regex);
-  return lines
-    ?.map((line, index) => {
-      return index === lines.length - 1 ? line : `${line}${symbol}<br />`;
+export const lineBreak = (text = "", remove = false) => {
+  const lines = text
+    ?.split(/(?<=\.)\s+/) // split after periods + space
+    .map((line) => {
+      const trimmed = line.trim();
+      return remove ? trimmed.replace(/\.$/, "") : trimmed;
     })
-    .join("");
+    .filter((line) => line.length > 0);
+
+  return lines;
 };
+
 
 export const formatTextWithLineBreaks = (text = "") => {
   return text

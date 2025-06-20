@@ -20,19 +20,19 @@ const Page = async (props) => {
 
   return (
     <Template
-      color="brightNeonBlue"
+      color="default"
       pageTitle="services"
       className={styles.main}
       data={hero}
     >
-      {/* <SSRFetcher
+      <SSRFetcher
           Component={OurValues}
           options={{
             next: { revalidate: "1y", tags: ourValueSection?.cards || ["ourValue-service"] },
           }}
           data={ourValueSection}
           path={`/service/services?ids=${ourValueSection?.cards}`}
-          /> */}
+          />
       {/* <QuoteSection
           link={{
             href: "/contact-us",

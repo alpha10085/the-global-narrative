@@ -2,76 +2,16 @@
   width: 100%;
   z-index: 10;
   position: relative;
-  margin-bottom: -22vh;
-  margin-top: -3vh;
 
   margin: 0 auto;
 }
-.wrapper {
-  width: 90%;
-  margin: 0 auto;
-}
 
-.card {
+.swiper {
   width: 100%;
-  margin: 0 auto;
+  height: 100vh;
+  position: sticky;
+top: 0;
 }
+.SwiperSlide:nth-child(even) {
 
-.title {
-  color: white;
-}
-.whietspace {
-  position: absolute;
-  bottom: -50px;
-  left: 0;
-  height: 100px;
-  width: 100%;
-  z-index: -1;
-}
-
-.card:nth-child(odd) {
-  direction: rtl;
-}
-.card:last-child {
-  height: 95vh;
-}
-
-@keyframes introCard {
-  from {
-    transform: translateY(30%);
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-    transform: translate(0);
-  }
-}
-
-@media (max-width: 900px) {
-  .whietspace {
-    height: 80px;
-  }
-  .container {
-    margin-bottom: 0vh;
-  }
-
-  .card {
-    height: 100vh;
-  }
-}
-
-@media (max-width: 768px) {
-  .whietspace {
-    height: 60px;
-  }
-
-  .card:nth-child(odd) {
-    direction: ltr;
-  }
-}
-
-@media (max-width: 480px) {
-  .whietspace {
-    height: 40px;
-  }
 }

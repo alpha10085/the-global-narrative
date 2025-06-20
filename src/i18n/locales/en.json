@@ -160,7 +160,9 @@
       "url_ph": "Enter logo url...",
       "serviceSection" : "Service section",
       "services_ph" : "Select services...",
-      "serviceCards" : "services cards"
+      "serviceCards" : "services cards",
+      "keyPoints":"key Points",
+      "keyPoints_ph":"enter key Points"
     },
     "filterSystem": {
       "condtions": {

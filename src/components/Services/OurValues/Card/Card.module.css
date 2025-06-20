@@ -2,46 +2,51 @@
   z-index: 2;
   background-color: var(--color500);
   transition: 0.2s;
-  height: 110vh;
-  overflow: hidden;
-  max-height: 900px;
-  padding: 0 40px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  padding: 15px 0 0;
 }
-
+.container * {
+  text-align: start;
+}
 .wrapper {
   height: 100%;
-  overflow: hidden;
   margin: 0 auto;
   max-width: 1800px;
 }
 
-.title {
-  font-size: clamp(24px, 4vw, 40px);
+.subTitle {
+  font-size: clamp(24px, 3vw, 40px);
   color: var(--color200);
   transform: translateY(100%);
   transition: 1s;
-  font-weight: 600;
+  font-weight: 400;
+  color: rgb(16, 51, 126);
+  margin: 15px 0;
 }
 
 .head {
   overflow: hidden;
 }
 
-.container.active .title {
+.container.active .subTitle {
   transform: translateY(0);
 }
 
-.index {
-  font-size: clamp(50px, 10vw, 100px);
+.title {
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  background-color: var(--bg200);
+  width: max-content;
   color: var(--color100);
-  transform: translateX(-100%);
   transition: 1s;
   color: var(--bg100);
+  border: 1px solid rgb(236, 236, 236);
 
-  color: rgb(81, 183, 255);
   font-weight: 400;
-  color: #69b9ff;
+  border-radius: 20px;
 }
 
 .container.active .index {
@@ -50,13 +55,13 @@
 
 .description {
   font-size: clamp(14px, 1.5vw, 17px);
-  line-height: 1.6;
+  line-height: 1.5;
   color: var(--color200);
   opacity: 0;
   transition: 0.8s;
   transition-delay: 0.8s;
-  font-weight: 600;
-  color: #4a5b74;
+  font-weight: 400;
+  color: #575757;
 }
 
 .container.active .description {
@@ -66,32 +71,77 @@
 .container:nth-child(odd) {
   direction: rtl;
 }
-
-.poster {
-  width: 400px;
-  height: 500px;
-  max-height: 80vh;
-
-  flex-grow: 1;
+.posterWrapper {
+  width: calc(50% - 10px);
+  height: calc(100vh - 30px);
   border-radius: 20px;
   overflow: hidden;
+  position: relative;
+}
+.subTitlePoster {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  line-height: 1.4;
+  color: white;
+  font-weight: 400;
+  font-size: clamp(20px, 4vw, 50px);
+}
+.poster {
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
   transition: 1.5s;
-  margin: 0 40px;
+
   transition-delay: 0.2s;
-  transform: translateY(100%);
+}
+.poster::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0c0f21;
+  z-index: 2;
+  opacity: 0.45;
 }
 
 .container.active .poster {
-  transform: translateY(20px);
+  transform: translateY(0);
 }
 
 .content {
   height: 100vh;
-  width: 52%;
+  width: 50%;
   direction: ltr;
-  padding: 20px;
-  padding-bottom: 0;
   position: relative;
+  padding: 50px 100px 40px;
+}
+.keypoints {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+.point {
+
+  border-radius: 15px;
+  width: max-content;
+  font-size: 16px;
+  position: relative;
+  transform: translateX(20px);
+
+}
+.point::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.111);
+  left: -20px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 @media (max-width: 900px) {

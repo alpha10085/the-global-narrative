@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./NavBar.module.css";
 import MobileNav from "./mobileNav/MobileNav";
 import { BurgerIcon } from "./Icons/Icons";
@@ -19,12 +19,12 @@ const NavBar = () => {
     transparent: true,
     darkMode: true,
     darkLogo: false,
+    nonFixed: false,
     isMounted: false,
   });
 
   const { pathname, pathes } = usePathname();
 
-  // 👇 Add minWidth and maxWidth per path
   const transparentPathes = [
     { path: "/", minWidth: 0, maxWidth: Infinity },
     { path: "/news/*", minWidth: 0, maxWidth: Infinity },
@@ -34,14 +34,16 @@ const NavBar = () => {
   ];
 
   const darkModePathes = [];
-
   const transparentDarkLogoPathes = [];
-
   const transparentDarkModeLightLogoPathes = [
     { path: "/contact-us", minWidth: 768, maxWidth: Infinity },
   ];
 
-  // 👇 Updated matcher to support both minWidth and maxWidth
+  // NEW: Routes where navbar is NOT fixed
+  const nonFixedNavRoutes = [
+    { path: "/services", minWidth: 0, maxWidth: Infinity },
+  ];
+
   const isPathInPatterns = (patterns, path, width) => {
     return patterns.some(
       ({ path: pattern, minWidth = 0, maxWidth = Infinity }) => {
@@ -84,6 +86,11 @@ const NavBar = () => {
         pathname,
         width
       );
+      const isNonFixedRoute = isPathInPatterns(
+        nonFixedNavRoutes,
+        pathname,
+        width
+      );
 
       const matched =
         isTransparentPath ||
@@ -96,6 +103,7 @@ const NavBar = () => {
           transparent: false,
           darkMode: true,
           darkLogo: true,
+          nonFixed: isNonFixedRoute,
         });
       } else {
         setNavMode({
@@ -106,8 +114,10 @@ const NavBar = () => {
             isDarkModeLightLogoPath ||
             (!isTransparentPath && !isDarkLogoPath),
           darkLogo: isDarkLogoPath && !isDarkModeLightLogoPath,
+          nonFixed: isNonFixedRoute,
         });
       }
+
       delay(250).then(() =>
         setNavMode({
           isMounted: true,
@@ -116,7 +126,6 @@ const NavBar = () => {
     };
 
     const handleResize = () => {
-      // Use requestAnimationFrame to avoid layout thrashing
       window.requestAnimationFrame(updateNavMode);
     };
 
@@ -133,15 +142,18 @@ const NavBar = () => {
   return (
     <header className={styles.header}>
       <div className={styles.wrapperHeader}>
-        <div
-          className={`${styles.bg} ${
-            navMode.transparent ? styles.transparent : ""
-          }`}
-        ></div>
+        {!navMode.nonFixed && (
+          <div
+            className={`${styles.bg} ${
+              navMode.transparent ? styles.transparent : ""
+            }`}
+          ></div>
+        )}
         <nav
           ref={navRef}
           className={`
             ${styles.nav}
+            ${!navMode.nonFixed ? styles.fixed : ""}
             ${navMode.transparent ? styles.transparent : ""}
             ${navMode.darkMode ? styles.darkMode : ""}
             flex just-sb gap15

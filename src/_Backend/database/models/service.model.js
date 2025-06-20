@@ -1,11 +1,19 @@
 import { Schema, model, models } from "mongoose";
-import { mongeDescription, mongtext, populateCommons, poster, schemaCommens } from "./constant/Commons";
+import {
+  mongeDescription,
+  mongtext,
+  populateCommons,
+  poster,
+  schemaCommens,
+} from "./constant/Commons";
 
 const serviceSchema = new Schema(
   {
     title: mongtext,
     poster,
+    subTitle: mongtext,
     description: mongeDescription,
+    keyPoints: mongtext,
     ...schemaCommens,
   },
   {

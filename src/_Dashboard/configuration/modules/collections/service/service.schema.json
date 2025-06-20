@@ -5,6 +5,16 @@
             "type": "text",
             "label": "title"
         },
+              {
+            "name": "subTitle",
+            "type": "text",
+            "label": "subTitle"
+        },
+                      {
+            "name": "keyPoints",
+            "type": "textarea",
+            "label": "keyPoints"
+        },
         {
             "name": "publish",
             "type": "boolean",
@@ -13,6 +23,12 @@
             "default": false
         },
         {
+            "name": "description",
+            "type": "textarea",
+            "label": "description"
+        }
+        ,
+        {
             "name": "poster",
             "type": "media",
             "allowedTypes": [
@@ -20,11 +36,6 @@
             ],
             "single": true,
             "label": "poster"
-        },
-        {
-            "name": "description",
-            "type": "textarea",
-            "label": "description"
         }
     ],
     "options": {
