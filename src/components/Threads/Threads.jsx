@@ -212,7 +212,12 @@ const Threads = ({ color = "white", amplitude = 1, distance = 0, fade = 1, ...re
     };
   }, [color, amplitude, distance, fade]);
 
-  return <canvas ref={canvasRef} className={styles.container} {...rest} />;
-};
+return (
+  <canvas
+    ref={canvasRef}
+    className={`${styles.container} ${rest.className || ""}`}
+    {...rest}
+  />
+);};
 
 export default Threads;

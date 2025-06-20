@@ -1,23 +1,28 @@
-import Img from "@/components/Shared/img/Img";
+import Link from "@/components/Shared/Link/Link";
 import styles from "./Quote.module.css";
-import AnimatedParagraph from "@/components/Shared/Animtions/AnimatedParagraph/AnimatedParagraph";
+import Threads from "@/components/Threads/Threads";
 
-const bgImage =
-  "https://res.cloudinary.com/dpuygkgve/image/upload/v1749763391/ChatGPT_Image_Jun_12_2025_06_18_49_AM-Photoroom_1_-Picsart-AiImageEnhancer-Picsart-AiImageEnhancer_mc8n4m.png";
 const Quote = ({ data = {} }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        <AnimatedParagraph
-          text={data?.content}
-          delayPerWord={0.15} // Slower
-          duration={0.8}
-          className={styles.text}
-        />
-      </div>
+    <section className={styles.section}>
+      <div className={styles.wrapper}>
+        {/* Left animated mesh */}
+        <div className={styles.left}>
+          <Threads className={styles.verticalMesh} color={"#385cf5"} amplitude={1.2} />
+        </div>
 
-      <Img disableSkeleton url={bgImage} className={styles.bgImage} />
-    </div>
+        {/* Right content */}
+        <div className={styles.right}>
+          <h2 className={styles.title}>We manage your reputation, you focus on making an impact.</h2>
+          <p className={styles.description}>
+            Experience the next generation of interactive design and animation.
+          </p>
+          <Link href="/learn-more" className={styles.link}>
+            Learn about us →
+          </Link>
+        </div>
+      </div>
+    </section>
   );
 };
 

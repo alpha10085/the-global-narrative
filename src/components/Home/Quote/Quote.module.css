@@ -1,83 +1,119 @@
-.container {
-  min-height: 60vh;
-  width: 100%;
-  position: relative;
-  padding-bottom: 50px;
+.section {
+  width: 90%;
+  min-height: 30vh;
+  margin: 60px auto;
+  border-radius: 12px;
+  box-sizing: border-box;
+  background: radial-gradient(
+      circle at top right,
+      rgba(255, 110, 0, 0.15),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at bottom left,
+      rgba(255, 110, 0, 0.1),
+      transparent 70%
+    ),
+    #000;
   overflow: hidden;
+  position: relative;
 }
 
-.content {
-  position: absolute;
-  right: 0%;
-  bottom: 50%;
-  transform: translateY(50%) translateX(-15px);
-  width: 800px;
-  max-width: 50%;
-  padding: 40px 40px;
-}
-.text {
-  line-height: 1.7;
-  font-size: clamp(12px, 1.5vw, 18px);
-  font-weight: 500;
-}
-
-.bgImage {
-  width: auto !important;
-  transform: rotate(30deg) translateX(-16.3%) translateY(80px);
-  height: 70vh;
-  aspect-ratio: 4/2.1;
-
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
   z-index: 1;
-  max-width: 60%;
 }
-@media (max-width: 1024px) {
-  .bgImage {
-    width: auto !important;
-    transform: rotate(30deg) translateX(-16.3%) translateY(80px);
-    height: 60vh;
-    aspect-ratio: 4/2.1;
-    top: 0;
-    z-index: -1;
-    max-width: 67%;
-  }
+
+.left {
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
 }
+
+.right {
+  max-width: 500px;
+  position: relative;
+  z-index: 3;
+}
+
+.title {
+  font-size: clamp(20px, 4vw, 32px);
+  color: #ffffff;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.description {
+  font-size: clamp(14px, 2.5vw, 18px);
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.verticalMesh {
+  transform: rotate(50deg);
+  width: 500px;
+  height: 300px;
+  transition: all 0.3s ease;
+}
+
+.link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+.link:hover {
+  background-color: #f0f0f0;
+  color: #666;
+}
+
 @media (max-width: 768px) {
-  .text {
-    line-height: 1.7;
-    font-size: clamp(12px, 2vw, 20px);
-    font-weight: 500;
-    text-align: center;
-    /* color: white; */
-  }
-  .container {
-    min-height: max-content;
-    margin: 0 0 20px;
-    display: flex;
+  .wrapper {
     flex-direction: column;
-  }
-  .bgImage {
-    width: 100vw !important;
-    transform: translate(0);
-    height: auto;
-    top: unset;
-    z-index: -1;
-    max-width: unset;
+    padding: 40px 30px;
   }
 
-  .content {
+  .verticalMesh {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(50deg);
+    z-index: 1;
+  }
+
+  .right {
+    z-index: 3;
     position: relative;
-    right: unset;
-    bottom: unset;
-    transform: translate(0);
-    max-width: 100%;
+  }
+
+  .left {
+    z-index: 1;
   }
 }
-@media (max-width: 500px) {
-  .text {
-    font-weight: 500;
+
+@media (max-width: 523px) {
+  .section {
+    width: 95%;
   }
-  .pointBg.active {
-    transform: scale(1.5);
-    box-shadow: 0 0 5px blue;
+  .wrapper {
+    width: 100%;
+    align-items: normal;
+  }
+  .verticalMesh {
+    transform: translateX(-50%) rotate(10deg);
   }
 }
