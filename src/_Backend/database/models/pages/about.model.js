@@ -36,6 +36,7 @@ const ourValues = new Schema({
     {
       title: mongtext,
       description: mongeDescription,
+      poster,
     },
   ],
 });
@@ -69,6 +70,10 @@ aboutUsSchema.pre(/^find/, function (next) {
     },
     {
       path: "whoUsSectionSection.members.image",
+      ...populateCommons,
+    },
+    {
+      path: "ourValues.cards.poster",
       ...populateCommons,
     },
   ]);
