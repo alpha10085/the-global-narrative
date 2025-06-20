@@ -1,7 +1,7 @@
 import styles from "./TemplateHero.module.css";
 import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
 
-const TemplateHero = ({ pageTitle = "about us" }) => {
+const TemplateHero = ({ pageTitle = "..." }) => {
   return (
     <div className={styles.staticWrapper}>
       <div className={`${styles.container} flex  gap50 `}>

@@ -18,11 +18,9 @@ const Page = async (props) => {
     quoteSection = {},
   } = await getPage("about-us");
   return (
-    <Template 
-    className={styles.main}
-    data={hero}>
-
-
+    <Template
+    pageTitle="about us"
+    className={styles.main} data={hero}>
       {/* <ContentSection data={aboutUs} /> */}
       <FloatedSection>
         <Cube data={whoUsSectionSection} />
