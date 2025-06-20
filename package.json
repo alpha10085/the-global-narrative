@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "node src/scripts/dev.js",
+    "bs": "node src/scripts/bs.js",
     "build": "next build",
     "start": "next start",
-    "bs": "next build && next start",
     "vercel-build": "npm install --legacy-peer-deps && next build",
     "preinstall": "npm config set legacy-peer-deps true"
   },

@@ -8,7 +8,7 @@ const Quote = ({ data = {} }) => {
       <div className={styles.wrapper}>
         {/* Left animated mesh */}
         <div className={styles.left}>
-          <Threads className={styles.verticalMesh} color={"#385cf5"} amplitude={1.2} />
+          <Threads className={styles.verticalMesh} color={"#385cf5"} amplitude={1.5} />
         </div>
 
         {/* Right content */}

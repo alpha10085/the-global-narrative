@@ -11,6 +11,7 @@ const ArrowCircle = ({ keySelector, headerOffset = 0 }) => {
   return (
     <div className={`${styles.button} flex-c gap5`} onClick={handleScroll}>
       discover more
+      
       <ArrowOutwardIcon />
     </div>
   );

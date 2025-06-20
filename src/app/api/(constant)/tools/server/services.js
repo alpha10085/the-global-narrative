@@ -1,7 +1,4 @@
-import { readFile } from "@/utils/fs";
-import { getRootpath } from "@/utils/fs";
-import fs from "fs";
-import path from "path";
+import { fs, getRootpath, path, readFile } from "../../../../../utils/fs.js";
 
 function formatEnvFile(envContent) {
   return envContent.split("\n").reduce((acc, line) => {

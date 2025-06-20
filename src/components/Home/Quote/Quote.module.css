@@ -1,20 +1,10 @@
 .section {
   width: 80%;
-  min-height: 30vh;
+  height: 50vh;
   margin: 60px auto;
   border-radius: 12px;
   box-sizing: border-box;
-  background: radial-gradient(
-      circle at top right,
-      rgba(255, 110, 0, 0.15),
-      transparent 60%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(255, 110, 0, 0.1),
-      transparent 70%
-    ),
-    #000;
+  background-color: var(--bg200);
   overflow: hidden;
   position: relative;
 }
@@ -41,6 +31,7 @@
   max-width: 500px;
   position: relative;
   z-index: 3;
+  margin-bottom: 40px;
 }
 
 .title {
@@ -48,18 +39,19 @@
   color: #ffffff;
   font-weight: bold;
   margin-bottom: 16px;
+  color: var(--color200);
 }
 
 .description {
   font-size: clamp(14px, 2.5vw, 18px);
   margin-bottom: 20px;
-  color: #ccc;
+  color: #848484;
 }
 
 .verticalMesh {
-  transform: rotate(50deg);
-  width: 500px;
-  height: 300px;
+  transform: rotate(40deg) translateX(-140px) translateY(60px);
+  width: 750px;
+  height: 400px;
   transition: all 0.3s ease;
 }
 
@@ -123,4 +115,3 @@
     transform: translateX(-50%) rotate(10deg);
   }
 }
-

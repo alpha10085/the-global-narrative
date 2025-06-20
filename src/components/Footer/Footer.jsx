@@ -37,8 +37,8 @@ const Footer = ({ data = {} }) => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src={item?.url}
+                <Img
+                  url={item?.url}
                   alt={`social-icon-${i}`}
                   className={styles.icon}
                 />

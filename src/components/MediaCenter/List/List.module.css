@@ -151,7 +151,7 @@
   }
   .filters {
     flex-direction: column-reverse;
-    align-items: start;
+    align-items: flex-start;
   }
   .categories {
     width: 100%;

@@ -206,5 +206,21 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 12
+  },
+  {
+    "file": "package.json",
+    "firstSeenAt": "6/21/2025, 12:34:54 AM",
+    "lastUpdatedAt": "6/21/2025, 12:53:06 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 2
+  },
+  {
+    "file": "src/components/Shared/ArrowCircle/ArrowCircle.jsx",
+    "firstSeenAt": "6/21/2025, 12:52:20 AM",
+    "lastUpdatedAt": "6/21/2025, 12:52:20 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
   }
 ]

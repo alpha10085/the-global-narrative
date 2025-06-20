@@ -1,10 +1,6 @@
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import { toolsMiddleware } from "@/_Backend/middlewares/tools/tools";
-import { readFile, writeFile } from "@/utils/fs";
-import { getRootpath } from "@/utils/fs";
-import fs from "fs";
-import path from "path";
-import { getEnvFile, updateEnvFile } from "../services";
+import {  updateEnvFile } from "../services";
 
 export const PUT = AsyncHandler(
   async (req, res, next) => {
