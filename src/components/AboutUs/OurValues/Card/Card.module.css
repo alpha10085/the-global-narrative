@@ -1,6 +1,8 @@
 .container {
-  padding: 40px 5px;
-  border-bottom: 1px solid var(--color200);
+  background-color: var(--bg200);
+  border-radius: 20px;
+  min-height: 250px;
+  padding: 10px;
 }
 
 .left {
@@ -10,33 +12,29 @@
   color: var(--color200);
 }
 .left h1:nth-child(1) {
-  opacity: 0.3;
+  opacity: 0.6;
   color: var(--color200);
 }
-.right {
+.left {
   flex: 1;
+
+  padding: 40px;
   font-weight: 500;
 }
-.right p {
+.left p {
   line-height: 1.4;
 
   font-size: 17px;
+  width: 500px;
 }
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    gap: 20px !important;
-    padding: 20px 5px;
-  }
-  .left {
-    gap: 10px !important;
-  }
-  .left {
-    font-size: 25px;
-  }
-  .right  p {
-  line-height: 1.4;
 
-  font-size: 14px;
+.title {
+  opacity: 1 !important;
 }
+
+.poster {
+  width: 250px;
+  height: 250px;
+  border-radius: 15px;
+  overflow: hidden;
 }

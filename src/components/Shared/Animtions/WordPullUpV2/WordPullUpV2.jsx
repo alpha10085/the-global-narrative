@@ -37,7 +37,7 @@ export default function WordPullUpV2({
       ref={ref}
       className={`${styles.WordPullUpV2} ${className || ""} flex wrap `}
     >
-      {words.map((word, i) => (
+      {words?.map((word, i) => (
         <span key={i} className={`${styles.wordWrapper} `}>
           <motion.span
             initial={{ y: "100%", opacity: 0 }}

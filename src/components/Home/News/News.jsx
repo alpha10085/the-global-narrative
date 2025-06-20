@@ -88,11 +88,11 @@ const News = ({ data = {} }) => {
           slidesPerView={1.2}
           spaceBetween={10}
           breakpoints={{
-            550: { slidesPerView: 2, spaceBetween: 10 },
-            768: { slidesPerView: 2.2, spaceBetween: 10 },
-            990: { slidesPerView: 2.8, spaceBetween: 10 },
-            1100: { slidesPerView: 3.2, spaceBetween: 10 },
-            1300: { slidesPerView: 3.2, spaceBetween: 50 },
+            550: { slidesPerView: 2, },
+            768: { slidesPerView: 2.2, },
+            990: { slidesPerView: 2.8, },
+            1100: { slidesPerView: 3.2, },
+            1300: { slidesPerView: 3.6 },
           }}
           modules={[Autoplay]}
         >

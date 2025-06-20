@@ -1,48 +1,29 @@
-import Img from "@/components/Shared/img/Img";
 import styles from "./TemplateHero.module.css";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import { ArrowOutwardIcon } from "@/components/Home/icons";
-import ButtonScroll from "./Client";
-import ScrollToContinueButton from "@/components/ScrollToContinueButton/ScrollToContinueButton";
-import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
-import Threads from "@/components/Threads/Threads";
+import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
 
-const images = [
-  {
-    url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1749523007/rozurwi0bfn19v4gfdsh.jpg",
-  },
-  {
-    url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1749439677/ztuu5ismm9f9pywu48qk.jpg",
-  },
-  {
-    url: "https://res.cloudinary.com/dpuygkgve/image/upload/v1749441091/al7x42lbvyqoewv1kg21.jpg",
-  },
-];
-const TemplateHero = ({
-  pageTitle = "about us",
-  title,
-  description,
-  poster,
-}) => {
+const TemplateHero = ({ pageTitle = "about us" }) => {
   return (
-    <div className={`${styles.container} flex  gap50 `}>
-      {/* <div className={`${styles.left} flex mt-50 gap15  column`}>
-        <h1 className={styles.pageTitle}>{pageTitle}</h1>
-        <SectionTitle delay={800} title={title} className={styles.title} />
-        <Aos
-          activeClassName={styles.active}
-          className={styles.aosText}
-          delay={600}
-        >
-          <p className={styles.description}>{description}</p>
-        </Aos>
-      </div> */}
+    <div className={styles.staticWrapper}>
+      <div className={`${styles.container} flex  gap50 `}>
+        <div className={styles.bg}>
+          <AnimatedBackground
+            speed={0.3}
+            // 1. Classic Cyan
+            //  color={[0.0, 1.0, 1.0]} // Pure cyan — vibrant & clean
+            // // 2. Bright Neon Blue
+            // color={[0.4, 0.8, 1]} // Slightly deeper, electric feel
 
+            // // 3. Aqua Mint
+            color={[0.2, 1.0, 1.0]} // Soft, refreshing, minty cool
+            // // 4. Ice Blue
+            // color={[0.4, 1.0, 1.0]} // Softer tint, arctic vibe
 
-      {/* <div className={styles.mesh}>
-        <Threads color={"#0095ff"} fade={0.9} amplitude={3} />
-      </div> */}
+            mouseReact={false}
+            amplitude={0}
+          />
+        </div>
+        <h1 className={styles.title}>{pageTitle}</h1>
+      </div>
     </div>
   );
 };

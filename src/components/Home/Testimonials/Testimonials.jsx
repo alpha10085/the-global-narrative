@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 import styles from "./Testimonials.module.css";
 import Card from "./Card/Card";
+import { ArrowBackIosNewIcon, ArrowForwardIosIcon } from "../icons";
 
 const Testimonials = ({ data = {} }) => {
   const [current, setCurrent] = useState(0);
@@ -31,8 +32,8 @@ const Testimonials = ({ data = {} }) => {
           </h2>
           <p>Here’s what other subscribers had to say about CC Plus.</p>
           <div className={styles.buttons}>
-            <button onClick={() => handleChange("left")}>←</button>
-            <button onClick={() => handleChange("right")}>→</button>
+            <button className="flex-c" onClick={() => handleChange("left")}> <ArrowBackIosNewIcon /></button>
+            <button className="flex-c" onClick={() => handleChange("right")}><ArrowForwardIosIcon /></button>
           </div>
         </div>
 

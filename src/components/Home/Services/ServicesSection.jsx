@@ -3,13 +3,14 @@ import { useRef } from "react";
 import styles from "./ServicesSection.module.css";
 import ServiceItem from "./ServiceItem/ServiceItem";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
+import { ArrowBackIosNewIcon, ArrowForwardIosIcon } from "../icons";
 
 const ServicesSection = ({ data = {} }) => {
   const sliderRef = useRef();
   let serviceRefs = data?.serviceRefs || [];
 
   // Add spacer item at the beginning
-  serviceRefs = [ ...serviceRefs];
+  serviceRefs = [...serviceRefs];
 
   const scroll = (direction) => {
     if (!sliderRef.current) return;
@@ -34,11 +35,17 @@ const ServicesSection = ({ data = {} }) => {
           text={data?.title}
         />
         <div className={` flex gap10 ${styles.navButtons} `}>
-          <button onClick={() => scroll("left")} className={styles.navButton}>
-              ‹
+          <button
+            onClick={() => scroll("left")}
+            className={`flex-c ${styles.navButton}`}
+          >
+            <ArrowBackIosNewIcon />
           </button>
-          <button onClick={() => scroll("right")} className={styles.navButton}>
-            ›
+          <button
+            onClick={() => scroll("right")}
+            className={`flex-c ${styles.navButton}`}
+          >
+            <ArrowForwardIosIcon />
           </button>
         </div>
       </div>

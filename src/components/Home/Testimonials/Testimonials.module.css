@@ -40,7 +40,9 @@
   color: #444;
   margin-bottom: auto;
 }
-
+.buttons svg{
+font-size: 18px;
+}
 .buttons {
   display: flex;
   gap: 12px;

@@ -22,32 +22,29 @@ const Page = async (props) => {
   } = await getPage("about-us");
   return (
     <section className={`${styles.container} `}>
-      <FloatedSection>
+      <TemplateHero pageTitle={"about us"} />
+      <div className={styles.wrapper}>
+        <div className={`flex  gap40 ${styles.content}`}>
+          <h1>{hero?.title}</h1>
+          <p className={`${styles.iner} `}>{hero?.description}</p>
+        </div>
+
+        {/* <ContentSection data={aboutUs} /> */}
         <FloatedSection>
-          <TemplateHero
-            title={hero?.title}
-            description={hero?.description}
-            poster={hero?.poster}
-          />
+          <Cube data={whoUsSectionSection} />
         </FloatedSection>
 
-        <ContentSection data={aboutUs} />
-        <Cube data={whoUsSectionSection} />
-      </FloatedSection>
-       
-
-      <FloatedSection>
         <OurValues data={ourValues} />
-      </FloatedSection>
 
-      <QuoteSection
+        {/* <QuoteSection
         link={{
           href: "/services",
           label: "explore our services",
         }}
         data={quoteSection}
-      />
-      <SpaceSection style={{ background: "var(--color200)" }} />
+      /> */}
+        {/* <SpaceSection style={{ background: "var(--color200)" }} /> */}
+      </div>
     </section>
   );
 };
