@@ -24,8 +24,9 @@ const page = async () => {
         <div className={styles.bg}>
           <AnimatedBackground
             speed={0.5}
-            color={[0, 1, 1]}
+            color={[0.2, 0.6, 1.0]}
             mouseReact={false}
+            
           />
         </div>
       </div>

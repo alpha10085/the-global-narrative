@@ -19,9 +19,11 @@ const Page = async (props) => {
   } = await getPage("about-us");
   return (
     <Template
-    pageTitle="about us"
-    className={styles.main} data={hero}>
-      {/* <ContentSection data={aboutUs} /> */}
+      color="classicCyan"
+      pageTitle="about us"
+      className={styles.main}
+      data={hero}
+    >
       <FloatedSection>
         <Cube data={whoUsSectionSection} />
       </FloatedSection>

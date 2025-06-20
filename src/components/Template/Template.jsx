@@ -1,14 +1,22 @@
-import TemplateHero from "./TemplateHero/TemplateHero";
+import TemplateHero, { colors } from "./TemplateHero/TemplateHero";
 import styles from "./Template.module.css";
+/**
+ * @typedef {keyof typeof colors} ColorKey
+ */
+
+/**
+ * @param {{ color?: keyof typeof colors, pageTitle?: string }} props
+ */
 const Template = ({
   className = "",
   pageTitle = undefined,
   data = null,
   children,
+  color = null,
 }) => {
   return (
     <>
-      <TemplateHero pageTitle={pageTitle} data={data} />
+      <TemplateHero color={color} pageTitle={pageTitle} data={data} />
       <div
         id="active-section"
         data-offset="10"

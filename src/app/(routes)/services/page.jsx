@@ -7,6 +7,7 @@ import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
+import Template from "@/components/Template/Template";
 
 const pageKey = "services-page";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
@@ -18,35 +19,30 @@ const Page = async (props) => {
   } = await getPage(pageKey);
 
   return (
-    <section className={`${styles.container} `}>
-      <FloatedSection>
-        <TemplateHero
-          pageTitle="Our services"
-          title={hero?.title}
-          description={hero?.description}
-          poster={hero?.poster}
-        />
-      </FloatedSection>
-      <div className={styles.wrapper}>
-        <SSRFetcher
+    <Template
+      color="brightNeonBlue"
+      pageTitle="services"
+      className={styles.main}
+      data={hero}
+    >
+      {/* <SSRFetcher
           Component={OurValues}
           options={{
             next: { revalidate: "1y", tags: ourValueSection?.cards || ["ourValue-service"] },
           }}
           data={ourValueSection}
           path={`/service/services?ids=${ourValueSection?.cards}`}
-        />
-        <QuoteSection
+          /> */}
+      {/* <QuoteSection
           link={{
             href: "/contact-us",
             label: "get in touch",
           }}
           data={quoteSection}
-        />
-      </div>
+          /> */}
 
-      <SpaceSection style={{ background: "var(--color200)" }} />
-    </section>
+      {/* <SpaceSection style={{ background: "var(--color200)" }} /> */}
+    </Template>
   );
 };
 
