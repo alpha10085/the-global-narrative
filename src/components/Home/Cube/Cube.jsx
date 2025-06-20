@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "./Cube.module.css";
 import Card from "./Card/Card";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
