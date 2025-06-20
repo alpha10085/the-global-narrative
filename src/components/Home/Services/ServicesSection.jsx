@@ -2,15 +2,15 @@
 import { useRef } from "react";
 import styles from "./ServicesSection.module.css";
 import ServiceItem from "./ServiceItem/ServiceItem";
-import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import { ArrowBackIosNewIcon, ArrowForwardIosIcon } from "../icons";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 
 const ServicesSection = ({ data = {} }) => {
   const sliderRef = useRef();
   let serviceRefs = data?.serviceRefs || [];
 
   // Add spacer item at the beginning
-  serviceRefs = [...serviceRefs];
+  serviceRefs = [{ _id: "spacer" }, ...serviceRefs];
 
   const scroll = (direction) => {
     if (!sliderRef.current) return;
@@ -28,12 +28,9 @@ const ServicesSection = ({ data = {} }) => {
       className={styles.servicesWrapper}
     >
       <div className={styles.sliderHeader}>
-        <WordPullUpV2
-          duration={0.6}
-          delay={200}
-          className={`${styles.title} `}
-          text={data?.title}
-        />
+        <div className={styles.title}>
+          <SectionTitle title={data?.title} />
+        </div>
         <div className={` flex gap10 ${styles.navButtons} `}>
           <button
             onClick={() => scroll("left")}
