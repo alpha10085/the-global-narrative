@@ -1,8 +1,6 @@
 .WordPullUpV2 {
   gap: 0.25%; /* optional spacing between words */
-  width: max-content;
-  flex-grow: 1;
-  
+  flex-grow: 1; 
 }
 
 .wordWrapper {

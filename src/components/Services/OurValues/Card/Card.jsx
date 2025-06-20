@@ -6,7 +6,7 @@ import { lineBreak } from "@/utils/text";
 
 const Card = ({ className = "", data = {}, index = 1 }) => {
   return (
-    <div
+    <Aos
       triggerOnce
       threshold={0.15}
       activeClassName={styles.active}
@@ -36,7 +36,7 @@ const Card = ({ className = "", data = {}, index = 1 }) => {
           <h1 className={styles.subTitlePoster}>{data?.title}</h1>
         </div>
       </div>
-    </div>
+    </Aos>
   );
 };
 
