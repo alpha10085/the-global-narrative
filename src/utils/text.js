@@ -48,7 +48,6 @@ export const lineBreak = (text = "", remove = false) => {
   return lines;
 };
 
-
 export const formatTextWithLineBreaks = (text = "") => {
   return text
     .split(". ")
@@ -70,7 +69,7 @@ export const generateRandomText = (length = 4) => {
   return randomText;
 };
 
-export const customText = (text = "", length = 5 , prefix = "...") => {
+export const customText = (text = "", length = 5, prefix = "...") => {
   if (text?.length > length && length >= 4) {
     return text.slice(0, length - prefix.length) + prefix;
   }
