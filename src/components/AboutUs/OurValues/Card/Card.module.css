@@ -3,13 +3,12 @@
   border-radius: 20px;
   min-height: 250px;
   padding: 10px;
+  position: relative;
 }
-
 .left {
   flex: 1;
   font-size: 30px;
-
-  color: var(--color200);
+  
 }
 .left h1:nth-child(1) {
   opacity: 0.6;
@@ -17,19 +16,24 @@
 }
 .left {
   flex: 1;
-
+  
   padding: 40px;
-  font-weight: 500;
+  max-width: calc(100% - 280px);
 }
 .left p {
-  line-height: 1.4;
-
-  font-size: 17px;
-  width: 500px;
+  line-height: 1.6;
+  
+  font-size: 14px;
+  
+  width: 700px;
+  font-weight: 600;
+  opacity: 0.6;
+  max-width: 100%;
 }
 
 .title {
   opacity: 1 !important;
+  font-weight: 400;
 }
 
 .poster {

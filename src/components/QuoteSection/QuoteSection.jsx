@@ -10,24 +10,25 @@ import Aos from "../Shared/Animtions/Aos/Aos";
 const QuoteSection = ({ link = { href: "/", label: "" }, data = {} }) => {
   const { title = "", description = "" } = data;
   return (
-    <div className={`${styles.container} gap50 flex column `}>
-      <SectionTitle delay={600} title={title} className={styles.title} />
-      <div className={`flex gap25 column ${styles.bottomBox}`}>
-        <AnimatedSlideParagraph
-          text={description}
-          delay={0.3} // Slower
-          duration={0.6}
-          className={styles.description}
-          animationMode="slideUp"
-        />
-        <Aos
-        activeClassName={styles.active}
-        className={styles.aosLink}
-        delay={1000}
-        
-        >
-        <Button className={styles.link} {...link} />
-        </Aos>
+    <div className={`${styles.container} `}>
+      <div className={`${styles.contentWrapper}  gap50 flex column`}>
+        <SectionTitle delay={600} title={title} className={styles.title} />
+        <div className={`flex gap25 column ${styles.bottomBox}`}>
+          <AnimatedSlideParagraph
+            text={description}
+            delay={0.3} // Slower
+            duration={0.6}
+            className={styles.description}
+            animationMode="slideUp"
+          />
+          <Aos
+            activeClassName={styles.active}
+            className={styles.aosLink}
+            delay={1000}
+          >
+            <Button className={styles.link} {...link} />
+          </Aos>
+        </div>
       </div>
     </div>
   );

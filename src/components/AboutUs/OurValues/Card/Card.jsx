@@ -26,7 +26,9 @@ const Card = ({ className = "", index = 0, data = {} }) => {
       flex al-i-c w-100 just-sb`}
     >
       <div className={`${styles.left}  flex gap30`}>
-        <h1>
+        <h1
+        
+        >
           {index < 9 ? "0" : ""}
           {index + 1}
         </h1>

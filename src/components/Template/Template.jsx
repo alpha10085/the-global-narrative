@@ -1,26 +1,17 @@
-import Link from "@/components/Shared/Link/Link";
-import Aos from "../Shared/Animtions/Aos/Aos";
-import WordPullUp from "../Shared/Animtions/WordPullUp/WordPullUp";
-import { ArrowIcon, ButtonSeeMore } from "./client";
-import styles from "./Template.module.css";
-import { lineBreak, searchAndReplace } from "@/utils/text";
 import TemplateHero from "./TemplateHero/TemplateHero";
-import TemplateList from "./TemplateList/TemplateList";
-
-const Template = ({ title, description, data, children, mode = "bottom" }) => {
-  const sectionTitle = `${searchAndReplace(title, " ", "-")}-main`;
-
+import styles from "./Template.module.css";
+const Template = ({ className = "", pageTitle = "", data = {}, children }) => {
   return (
-    <div className={styles.mainContent}>
-      <TemplateHero
-        sectionTitle={sectionTitle}
-        title={title}
-        description={description}
-      />
-      {mode === "top" && children}
-      <TemplateList data={data} sectionTitle={sectionTitle} />
-      {mode === "bottom" && children}
-    </div>
+    <>
+      <TemplateHero pageTitle={pageTitle} data={data} />
+      <div className={`${className} ${styles.container}`}>
+        <div className={`flex  gap40 ${styles.content}`}>
+          <h1>{data?.title}</h1>
+          <p className={`${styles.iner} `}>{data?.description}</p>
+        </div>
+        {children}
+      </div>
+    </>
   );
 };
 
