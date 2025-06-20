@@ -2,6 +2,8 @@
 import { useInView } from "react-intersection-observer";
 import styles from "./ServiceItem.module.css";
 import Img from "@/components/Shared/img/Img";
+import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+
 import { customText } from "@/utils/text";
 
 const ServiceItem = ({ item = {}, index = 0 }) => {
@@ -22,6 +24,9 @@ const ServiceItem = ({ item = {}, index = 0 }) => {
       style={delayStyle}
     >
       <div className={styles.imageWrapper}>
+        <div className={styles.iconWrapper}>
+          <ArrowOutwardIcon fontSize="small" />
+        </div>
         <Img
           className={styles.cardImage}
           url={item?.poster?.url}
@@ -30,7 +35,6 @@ const ServiceItem = ({ item = {}, index = 0 }) => {
         <a href={`/services/#id_${item?._id}`} className={styles.overlay}>
           <span>Read more</span>
         </a>
-
         <div className={styles.textOverlay}>
           <h3>{item?.title}</h3>
           <p>{customText(item?.description, 50)}</p>
