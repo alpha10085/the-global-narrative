@@ -1,5 +1,5 @@
 .section {
-  width: 90%;
+  width: 80%;
   min-height: 30vh;
   margin: 60px auto;
   border-radius: 12px;
@@ -81,6 +81,12 @@
   color: #666;
 }
 
+@media (max-width: 992px) {
+  .section {
+    width: 95%;
+  }
+}
+
 @media (max-width: 768px) {
   .wrapper {
     flex-direction: column;
@@ -117,3 +123,4 @@
     transform: translateX(-50%) rotate(10deg);
   }
 }
+
