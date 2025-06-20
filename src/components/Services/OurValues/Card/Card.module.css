@@ -113,7 +113,7 @@
 }
 
 .content {
-  height: 100vh;
+  height: calc(100vh - 20px);
   width: 50%;
   direction: ltr;
   position: relative;
