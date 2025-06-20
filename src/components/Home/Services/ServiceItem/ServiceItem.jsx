@@ -32,9 +32,7 @@ const ServiceItem = ({ item = {}, index = 0 }) => {
           url={item?.poster?.url}
           alt={item?.title || ""}
         />
-        <a href={`/services/#id_${item?._id}`} className={styles.overlay}>
-          <span>Read more</span>
-        </a>
+ 
         <div className={styles.textOverlay}>
           <h3>{item?.title}</h3>
           <p>{customText(item?.description, 50)}</p>

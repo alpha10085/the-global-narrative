@@ -124,7 +124,13 @@ void main() {
 }
 `;
 
-const Threads = ({ color = "white", amplitude = 1, distance = 0, fade = 1, ...rest }) => {
+const Threads = ({
+  color = "white",
+  amplitude = 1,
+  distance = 0,
+  fade = 1,
+  ...rest
+}) => {
   const canvasRef = useRef(null);
   const frameId = useRef(null);
 
@@ -212,12 +218,13 @@ const Threads = ({ color = "white", amplitude = 1, distance = 0, fade = 1, ...re
     };
   }, [color, amplitude, distance, fade]);
 
-return (
-  <canvas
-    ref={canvasRef}
-    className={`${styles.container} ${rest.className || ""}`}
-    {...rest}
-  />
-);};
+  return (
+    <canvas
+      ref={canvasRef}
+      className={`${styles.container} ${rest.className || ""}`}
+      {...rest}
+    />
+  );
+};
 
 export default Threads;

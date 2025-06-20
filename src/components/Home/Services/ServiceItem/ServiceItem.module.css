@@ -21,6 +21,19 @@
   overflow: hidden;
   border-radius: 8px;
   margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.imageWrapper::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #0c0f21;
+  z-index: 2;
+  opacity: 0.45;
 }
 
 .cardImage {
@@ -28,31 +41,12 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: 0.4s;
 }
 
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(10, 10, 10, 0.5);
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  text-decoration: none;
-  z-index: 10;
+.imageWrapper:hover .cardImage {
+  transform: scale(1.06);
 }
-
-.imageWrapper:hover .overlay {
-  opacity: 1;
-}
-
 .valueItem h3 {
   font-size: clamp(20px, 3vw, 20px);
   margin: 0 0 10px;
