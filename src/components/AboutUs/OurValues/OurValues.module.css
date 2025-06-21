@@ -9,7 +9,7 @@
 }
 
 .title {
-  color: var(--color200);
+  /* color: var(--color200); */
   width: auto;
   margin: 20px 20px 50px;
 }
