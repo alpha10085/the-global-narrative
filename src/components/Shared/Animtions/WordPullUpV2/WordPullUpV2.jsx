@@ -40,9 +40,9 @@ export default function WordPullUpV2({
       {words?.map((word, i) => (
         <span key={i} className={`${styles.wordWrapper} `}>
           <motion.span
-            initial={{ y: "100%", opacity: 0 }}
+            initial={{ y: "100%" }}
             animate={
-              visible ? { y: "0%", opacity: 1 } : { y: "100%", opacity: 0 }
+              visible ? { y: "0%", opacity: 1 } : { y: "100%" }
             }
             transition={{ duration, ease: "easeOut" }}
             className={styles.word}

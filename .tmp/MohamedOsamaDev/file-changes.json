@@ -186,10 +186,10 @@
   {
     "file": "src/components/Shared/Animtions/WordPullUpV2/WordPullUpV2.jsx",
     "firstSeenAt": "6/19/2025, 5:12:04 PM",
-    "lastUpdatedAt": "6/20/2025, 5:14:23 AM",
+    "lastUpdatedAt": "6/21/2025, 8:41:08 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 8
+    "count": 9
   },
   {
     "file": "src/components/Shared/Animtions/WordPullUpV2/WordPullUpV2.module.css",

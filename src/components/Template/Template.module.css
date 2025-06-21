@@ -17,6 +17,7 @@
   margin: 0 auto;
   max-width: 90%;
 }
+
 .iner {
   width: 950px;
   line-height: 2;
@@ -27,15 +28,41 @@
   font-size: clamp(25px, 4vw, 40px);
   transform: translateY(-10px);
   line-height: 1.5;
+  transform: translateY(100%);
+  opacity: 0;
+
+  animation: intro 1s forwards;
+  animation-delay: 0.5s;
 }
 .content p {
   transform: translateY(5vw);
 
   font-size: clamp(12px, 2vw, 17px);
 
-color: var(--p);
+  transform: translateY(100%);
+  opacity: 0;
+  color: var(--p);
+  animation: intro2 1s forwards;
+  animation-delay: 1s;
 }
-
+@keyframes intro2 {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(5vw);
+    opacity: 1;
+  }
+}
+@keyframes intro {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .icon {
   position: absolute;
   right: 5%;
@@ -62,7 +89,7 @@ color: var(--p);
   .content {
     flex-direction: column;
     gap: 10px;
-    padding:  20px 0 ;
+    padding: 20px 0;
     justify-content: center;
   }
   .content h1 {
@@ -72,13 +99,10 @@ color: var(--p);
     transform: translateY(0px);
   }
   .icon {
-      width: 50px;
-  height: 50px;
-
+    width: 50px;
+    height: 50px;
   }
   .icon svg {
     font-size: 18px;
   }
 }
-
-
