@@ -20,7 +20,7 @@
   color: #000;
 
   display: flex;
-  gap: 10px;
+  gap: 10px !important;
   max-width: 100%;
 
 }
@@ -78,6 +78,6 @@
     transform: rotate(20deg);
   }
   .title{
-    gap: 5px;
+    gap: 5px !important;
   }
 }
