@@ -4,7 +4,6 @@ import Img from "@/components/Shared/img/Img";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const Card = ({ data = {} }) => {
-  console.log("🚀 ~ Card ~ data:", data)
   return (
     <Aos
       threshold={0.6}
