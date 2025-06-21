@@ -47,12 +47,15 @@ const LandingPageValidationSchema = (locale = "en") => {
       },
     }),
 
-     servicesSection: joiObject({
+    servicesSection: joiObject({
       required: true,
       locale,
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
-        services: Joi.array().min(1).max(4).items(serviceSchemaValidation(locale, true)),
+        services: Joi.array()
+          .min(1)
+          .max(4)
+          .items(serviceSchemaValidation(locale, true)),
       },
     }),
 
@@ -60,7 +63,14 @@ const LandingPageValidationSchema = (locale = "en") => {
       required: true,
       locale,
       body: {
+        title: joiText({ locale, min: 2, max: 20000, required: true }),
         content: joiText({ locale, min: 2, max: 20000, required: true }),
+        poster: fileVal.required().messages(
+          messagesHandlers({
+            locale,
+            type: "object",
+          })
+        ),
       },
     }),
 
