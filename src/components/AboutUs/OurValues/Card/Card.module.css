@@ -16,11 +16,12 @@
 }
 .left {
   padding: 40px 0 40px 40px;
-  width: calc(100% - 260px);
+  max-width: calc(100% - 260px);
   overflow: hidden;
+width: 750px;
 }
 .left p {
-  line-height: 1.6;
+  line-height: 1.7;
 
   font-size: 14px;
 

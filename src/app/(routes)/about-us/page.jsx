@@ -24,9 +24,9 @@ const Page = async (props) => {
       className={styles.main}
       data={hero}
     >
-      {/* <FloatedSection>
+      <FloatedSection>
         <WhoUsSection data={whoUsSectionSection} />
-      </FloatedSection> */}
+      </FloatedSection>
 
       <OurValues data={ourValues} />
 
