@@ -11,7 +11,7 @@ export const generateMetadata = pageMetadataHandler(getPage, pageKey);
 const page = async () => {
   const data = await getPage(pageKey);
   return (
-    <section className={`${styles.layout} showSmooth`} id="news-Categories">
+    <section className={`${styles.layout} showSmooth`}>
       <div className={styles.header}>
         <p className={`${styles.subTitle} `}>{data?.subTitle}</p>
 
