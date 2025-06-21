@@ -13,20 +13,33 @@ const News = ({ data = {} }) => {
 
   useEffect(() => {
     const swiperInstance = swiperRef.current?.swiper;
-    if (!swiperInstance) return;
+    if (!swiperInstance || !swiperInstance.autoplay) return;
 
-    // Stop autoplay initially
-    swiperInstance.autoplay?.stop();
+    // Initially stop autoplay
+    swiperInstance.autoplay.stop();
 
-    // Use IntersectionObserver to start autoplay when section is in view
+    const isInViewport = (el) => {
+      const rect = el.getBoundingClientRect();
+      return rect.top < window.innerHeight && rect.bottom > 0;
+    };
+
+    const startAutoplayIfNeeded = () => {
+      if (
+        window.innerWidth > 550 &&
+        containerRef.current &&
+        isInViewport(containerRef.current)
+      ) {
+        swiperInstance.autoplay.start();
+      } else {
+        swiperInstance.autoplay.stop();
+      }
+    };
+
+    // IntersectionObserver to trigger autoplay when visible
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          if (window.innerWidth > 550) {
-            //  swiperInstance.autoplay?.start();
-          }
-
-          observer.disconnect(); // Optional: Only trigger once
+          startAutoplayIfNeeded();
         }
       },
       { threshold: 0.3 }
@@ -36,26 +49,11 @@ const News = ({ data = {} }) => {
       observer.observe(containerRef.current);
     }
 
-    // Handle screen resize
-    const handleResize = () => {
-      if (!swiperInstance.autoplay) return;
-
-      if (window.innerWidth <= 550) {
-        swiperInstance.autoplay.stop();
-      } else if (containerRef.current && isInViewport(containerRef.current)) {
-        swiperInstance.autoplay.start();
-      }
-    };
-
-    const isInViewport = (el) => {
-      const rect = el.getBoundingClientRect();
-      return rect.top < window.innerHeight && rect.bottom >= 0;
-    };
-
-    window.addEventListener("resize", handleResize);
+    // Resize listener
+    window.addEventListener("resize", startAutoplayIfNeeded);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", startAutoplayIfNeeded);
       observer.disconnect();
     };
   }, []);
@@ -74,7 +72,7 @@ const News = ({ data = {} }) => {
         delay={200}
         threshold={0.2}
         activeClassName={styles.active}
-        className={`${styles.list} flex  gap20 al-i-c`}
+        className={`${styles.list} flex gap20 al-i-c`}
       >
         <Swiper
           ref={swiperRef}
@@ -87,26 +85,25 @@ const News = ({ data = {} }) => {
           loop={true}
           slidesPerView={1.2}
           spaceBetween={10}
+          initialSlide={2}
           breakpoints={{
-            550: { slidesPerView: 2, },
-            768: { slidesPerView: 2.2, },
-            990: { slidesPerView: 2.8, },
-            1100: { slidesPerView: 3.2, },
+            550: { slidesPerView: 2 },
+            768: { slidesPerView: 2.2 },
+            990: { slidesPerView: 2.8 },
+            1100: { slidesPerView: 3.2 },
             1300: { slidesPerView: 3.6 },
           }}
           modules={[Autoplay]}
         >
-          {[...data?.news, ...data?.news, ...data?.news]?.map(
-            (item, index) => (
-              <SwiperSlide key={index} className={styles.swiperSlide}>
-                <Card
-                  className={styles.card}
-                  delay={index * 0.2 + 0.4}
-                  data={item}
-                />
-              </SwiperSlide>
-            )
-          )}
+          {[...data?.news, ...data?.news, ...data?.news]?.map((item, index) => (
+            <SwiperSlide key={index} className={styles.swiperSlide}>
+              <Card
+                className={styles.card}
+                delay={index * 0.2 + 0.4}
+                data={item}
+              />
+            </SwiperSlide>
+          ))}
         </Swiper>
       </Aos>
     </div>
