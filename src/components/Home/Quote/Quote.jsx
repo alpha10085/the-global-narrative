@@ -38,7 +38,7 @@ const Quote = ({ data = {} }) => {
 
 
             <Aos
-              delay={400}
+              delay={200}
               className={styles.linkWrapper}
               activeClassName={styles.fadeUpActive}
             >
