@@ -1,20 +1,31 @@
 .container {
-  min-height: 60vh;
-  width: 100%;
-  padding: 0 5%;
-  background-color: white;
-  z-index: 10;
-  position: relative;
-  padding-bottom: 90px;
-
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  min-height: 100vh;
+  margin: 0 auto;
+  max-width: 90%;
+  box-sizing: border-box;
+  padding-bottom: 100px;
+  width: 1200px;
+  margin: 80px auto;
 }
 
 .list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
+
+  gap: 40px;
 }
+
 .title {
-  padding: 60px 0 40px;
+  width: 100%;
+  margin: 20px 15px;
+  font-size: clamp(25px,4vw,40px) !important;
+
+}
+
+@media (max-width:768px) {
+  .container {
+    margin: 0px auto;
+    padding-bottom: 50px;
+  }
+  .list {
+    gap: 20px ;
+  }
 }

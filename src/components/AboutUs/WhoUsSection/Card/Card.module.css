@@ -1,27 +1,134 @@
-.container {
-}
+.card {
+  background: linear-gradient(135deg, #f5f7fa, #ffffff);
 
-.poster {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/5;
-  border-radius: 2%;
+  border-radius: 20px;
   overflow: hidden;
 }
 
-.poster img {
-  object-position: 50% 0%;
+.card:nth-child(even) {
+  flex-direction: row-reverse;
+    background: linear-gradient(-135deg, #f5f7fa, #ffffff);
 }
 
-.jobTitle {
-  font-weight: 500;
-  font-size: clamp(16px, 3vw, 15px);
-  color: #333333;
+.descriptionBox {
+  width: 50%;
+  padding: 30px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.card:nth-child(even) .descriptionBox {
+  padding-left: 50px;
+  padding-right: 5%;
+  /* width: 100%; */
+  width: 50%;
 }
 
 .name {
-  margin: 10px 0;
-  text-transform: capitalize;
-  color: var(--color200);
-  font-size: clamp(18px,2vw,22px);
+  font-size: clamp(24px, 5vw, 48px);
+  font-weight: 800;
+  color: #1e3a8a; /* rich modern blue */
+  margin-bottom: 12px;
+}
+
+.descriptionBox h4 {
+  font-size: 18px;
+  color: #1c4db6;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.descriptionBox p {
+  font-size: 16px;
+  color: #374151; /* modern dark grey */
+  line-height: 1.8;
+  font-weight: 600;
+}
+
+.image {
+  aspect-ratio: 4 / 3.5;
+  height: calc(100%);
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 600px;
+  margin: 10px;
+
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  
+
+}
+
+.image img {
+
+  object-fit: cover;
+  object-position: top;
+  
+  border-radius: 10px;
+  margin: auto;
+}
+
+@media (max-width: 768px) {
+  .card:nth-child(even),
+  .card {
+    flex-direction: column-reverse;
+    max-height: none;
+  }
+
+  .image {
+    height: auto;
+    border-radius: 10px;
+    width: calc(100% - 20px);
+    margin: auto;
+    margin-top: 10px;
+  }
+
+  .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  .card:nth-child(even) .descriptionBox,
+  .descriptionBox {
+    width: 100%;
+    padding: 40px 35px;
+  }
+
+
+
+
+
+
+
+.descriptionBox h4 {
+  font-size: 16px;
+
+}
+
+.descriptionBox p {
+  font-size: 14px;
+
+}
+}
+
+@media (max-width: 550px) {
+  .card:nth-child(even) .descriptionBox,
+  .descriptionBox {
+    padding: 30px 25px;
+  }
+  
+
+
+
+.descriptionBox h4 {
+  font-size: 14px;
+
+}
+
+.descriptionBox p {
+  font-size: 12px;
+
+}
 }

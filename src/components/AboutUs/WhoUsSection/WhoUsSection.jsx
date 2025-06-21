@@ -1,17 +1,18 @@
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./WhoUsSection.module.css";
 import Card from "./Card/Card";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 
 const WhoUsSection = ({ data = {} }) => {
+  const members = data?.members || [];
   return (
-    <div className={styles.container}>
+     <section className={styles.container}>
       <SectionTitle title={data?.title} className={styles.title} />
-      <div className={`${styles.list}`}>
-        {data?.members?.map((val) => (
-          <Card data={val} key={val?._id} />
+      <div className={`${styles.list} flex column `}>
+        {members?.map((val) => (
+          <Card key={val?._id} data={val} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

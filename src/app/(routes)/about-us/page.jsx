@@ -4,8 +4,8 @@ import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import QuoteSection from "@/components/QuoteSection/QuoteSection";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
-import Cube from "@/components/Home/Cube/Cube";
 import Template from "@/components/Template/Template";
+import WhoUsSection from "@/components/AboutUs/WhoUsSection/WhoUsSection";
 
 const pageKey = "about-us";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
@@ -25,7 +25,7 @@ const Page = async (props) => {
       data={hero}
     >
       <FloatedSection>
-        <Cube data={whoUsSectionSection} />
+        <WhoUsSection data={whoUsSectionSection} />
       </FloatedSection>
 
       {/* <OurValues data={ourValues} /> */}
