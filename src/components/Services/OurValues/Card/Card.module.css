@@ -113,25 +113,22 @@
 }
 
 .content {
-  min-height: calc(120vh - 20px);
+  min-height: calc(100vh - 20px);
   width: 50%;
   direction: ltr;
   position: relative;
   padding: 50px 5% 40px;
-    
 }
 .keypoints {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 20px;
 }
 .point {
-
   border-radius: 15px;
   width: max-content;
   font-size: 16px;
   position: relative;
   transform: translateX(20px);
-
 }
 .point::before {
   content: "";
@@ -145,3 +142,34 @@
   transform: translateY(-50%);
 }
 
+@media (max-width: 950px) {
+  .subTitle {
+    margin: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    flex-direction: column-reverse;
+    gap: 25px;
+  }
+  .posterWrapper {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+    aspect-ratio: 1.2/1;
+    position: relative;
+    top: unset;
+    border-radius: 0;
+  }
+  .content {
+    width: 90%;
+    margin: auto;
+    padding: 0;
+    min-height: max-content;
+    padding: 0 0 20px 0;
+  }
+  .point {
+    font-size: clamp(12px,2vw,16px);
+  }
+}
