@@ -2,6 +2,7 @@
 import MainLogo from "../MainLogo/MainLogo";
 import { enabledLinks } from "../NavBar/helpers";
 import { links } from "../NavBar/Links";
+import Img from "../Shared/img/Img";
 import Link from "../Shared/Link/Link";
 import LinkTransition from "../Shared/LinkTransition/LinkTransition";
 import styles from "./footer.module.css";

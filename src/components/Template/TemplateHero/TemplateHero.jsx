@@ -4,7 +4,7 @@ import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackgrou
 
 export const colors = {
   classicCyan: [0.1, 1.0, 1.0],
-  brightNeonBlue:[0.7, 0.1, 1],
+  brightNeonBlue:[0, 1, 0.65],
   aquaMint: [0.2, 1.0, 1.0],
   iceBlue: [0.5, 0, 0.9],
   default: [0.7, 1, 1],

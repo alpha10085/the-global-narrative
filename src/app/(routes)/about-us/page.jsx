@@ -6,6 +6,7 @@ import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
 import Template from "@/components/Template/Template";
 import WhoUsSection from "@/components/AboutUs/WhoUsSection/WhoUsSection";
+import SpaceSection from "@/components/SpaceSection/SpaceSection";
 
 const pageKey = "about-us";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
@@ -37,7 +38,7 @@ const Page = async (props) => {
         }}
         data={quoteSection}
       />
-      {/* <SpaceSection style={{ background: "var(--color200)" }} /> */}
+      <SpaceSection style={{ background: "white" }} />
     </Template>
   );
 };

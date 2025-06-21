@@ -21,12 +21,12 @@ export default async function RootLayout({ children }) {
    
       <Toaster />
       <DashPopup />
-      {/* <SSRFetcher
+      <SSRFetcher
         Component={Footer}
         path="/components/footer"
         Fallback={Fallback}
         props={{ revalidate: "1y" }}
-      /> */}
+      />
       <PageAnalytics />
     </main>
   );
