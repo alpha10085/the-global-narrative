@@ -4,6 +4,7 @@ import Img from "@/components/Shared/img/Img";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const Card = ({ data = {} }) => {
+  console.log("🚀 ~ Card ~ data:", data)
   return (
     <Aos
       threshold={0.6}
@@ -18,7 +19,7 @@ const Card = ({ data = {} }) => {
         <p>{data?.description}</p>
       </div>
 
-      <Img className={styles.image} url={data?.image?.url} alt={data?.name} />
+      <Img className={styles.image} url={data?.poster?.url} alt={data?.name} />
     </Aos>
   );
 };
