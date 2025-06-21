@@ -9,9 +9,8 @@
 
 .title {
   width: 100%;
-  font-size: clamp(35px, 6vw, 45px);
-  font-weight: 400;
-  margin: 0px 10px 50px;
+  font-size: clamp(25px,4vw,40px) !important;
+  margin: 20px 15px;
   display: flex;
   gap: 3px !important;
 }
