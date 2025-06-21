@@ -31,7 +31,7 @@
   line-height: 1.5;
 }
 .content p {
-  transform: translateY(100px);
+  transform: translateY(5vw);
 
   font-size: clamp(12px, 2vw, 17px);
 }

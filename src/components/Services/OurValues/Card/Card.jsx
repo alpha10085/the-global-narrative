@@ -1,7 +1,6 @@
 import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import { lineBreak } from "@/utils/text";
 
 const Card = ({ className = "", data = {}, index = 1 }) => {
