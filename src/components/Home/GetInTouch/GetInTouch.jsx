@@ -8,7 +8,7 @@ const GetInTouch = ({ data = {} }) => {
   return (
     <div className={`${styles.container} flex al-i-c`}>
       <div className={`${styles.left} flex column gap20`}>
-        <SectionTitle title={data?.title} />
+        <SectionTitle title={data?.title} className={styles.title} />
         <Aos delay={400} activeClassName={styles.active} className={styles.aos}>
           <p className={styles.description}>{data?.description}</p>
         </Aos>
@@ -17,7 +17,7 @@ const GetInTouch = ({ data = {} }) => {
           activeClassName={styles.active}
           className={`${styles.aos} flex gap10 al-i-c`}
         >
-          <MainLink text="Contact us" href={"/contact-us"} />
+          <MainLink text="Contact us" href={"/contact-us"} className={styles.link} />
         </Aos>
       </div>
       <Aos
