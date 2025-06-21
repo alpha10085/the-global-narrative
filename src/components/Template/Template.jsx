@@ -1,5 +1,7 @@
 import TemplateHero, { colors } from "./TemplateHero/TemplateHero";
 import styles from "./Template.module.css";
+import { ArrowForwardIosIcon } from "../Home/icons";
+import { ButtonArrow } from "./client";
 /**
  * @typedef {keyof typeof colors} ColorKey
  */
@@ -15,8 +17,12 @@ const Template = ({
   color = null,
 }) => {
   return (
-    <>
+    <div className={styles.main}>
+      <div className={styles.herowrapper}>
+
       <TemplateHero color={color} pageTitle={pageTitle} data={data} />
+       <ButtonArrow className={`${styles.icon} flex-c`} />
+      </div>
       <div
         id="active-section"
         data-offset="10"
@@ -30,7 +36,7 @@ const Template = ({
         )}
         {children}
       </div>
-    </>
+    </div>
   );
 };
 

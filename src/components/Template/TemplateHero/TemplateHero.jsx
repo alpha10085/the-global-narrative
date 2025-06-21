@@ -1,3 +1,4 @@
+import { ArrowForwardIosIcon } from "@/components/Home/icons";
 import styles from "./TemplateHero.module.css";
 import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
 
@@ -31,6 +32,7 @@ const TemplateHero = ({ color = null, pageTitle = "..." }) => {
           />
         </div>
         <h1 className={styles.title}>{pageTitle}</h1>
+       
       </div>
     </div>
   );

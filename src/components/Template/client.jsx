@@ -2,7 +2,8 @@
 
 import styles from "./Template.module.css";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { scrollToElement } from "@/utils/document";
+import { scrollByVh, scrollToElement } from "@/utils/document";
+import { ArrowForwardIosIcon } from "../Home/icons";
 export const ButtonSeeMore = ({
   textButton = "see more ",
   className,
@@ -27,3 +28,13 @@ export const ArrowIcon = ({ className }) => (
     <ArrowForwardIcon />
   </div>
 );
+
+export const ButtonArrow = ({ className = "" }) => {
+  return (
+    <div
+    onClick={() => scrollByVh("100vh")}
+    className={`${className} flex-c`}>
+      <ArrowForwardIosIcon />
+    </div>
+  );
+};

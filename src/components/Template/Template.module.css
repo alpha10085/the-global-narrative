@@ -3,7 +3,9 @@
   z-index: 2;
 }
 
-
+.herowrapper {
+  position: relative;
+}
 
 .content {
   height: 50vh;
@@ -29,3 +31,33 @@
 .content p {
   transform: translateY(100px);
 }
+
+.icon {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  background-color: white;
+  z-index: 10;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+
+  transform: translateY(50%);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+  transition: 0.4s;
+  cursor: pointer;
+}
+.icon svg {
+  transform: rotate(91deg);
+}
+.icon:hover  {
+
+  transform: scale(1.1) translateY(20px);
+
+}
+/* 
+.icon:hover svg {
+
+  transform: scale(1.2) rotate(91deg);
+
+} */
