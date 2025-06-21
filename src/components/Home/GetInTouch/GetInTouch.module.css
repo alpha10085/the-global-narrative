@@ -15,7 +15,7 @@
 
 .title {
   display: flex;
-  gap: 5px;
+  gap: 5px !important;
 }
 
 .description {
