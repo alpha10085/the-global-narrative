@@ -4,22 +4,21 @@
   position: relative;
   z-index: 10;
   padding: 80px 0%;
-  background-color: var(--color200);
 
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
   z-index: 1;
 }
 .contentWrapper {
- 
   width: 1200px;
   margin: 0 auto;
 }
 .title {
-  color: var(--color500);
+  color: var(--bg100);
+    color: #012e89;
 
   font-size: clamp(40px, 4vw, 60px);
   font-family: var(--font-Cormorant);
-  font-weight: 500;
+  font-weight: 600;
   font-style: italic;
 }
 
@@ -36,20 +35,20 @@
   align-self: flex-end;
 }
 .description {
-  color: white;
-  line-height: 1.7;
-  font-size: clamp(16px, 2vw, 20px);
+  color: #425466;
+  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 600;
 }
 .link {
   width: max-content;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+
   text-decoration: none;
   transition: transform 0.3s ease;
   animation: intro 0.6s forwards;
   animation-delay: 1s;
   transition: 0.4s;
+
 }
 .aosLink {
   transition: 0.8s;
@@ -63,7 +62,7 @@
   transform: translateY(0px);
 }
 .content {
-  padding: 15px 24px;
+  padding: 15px 0;
   border-radius: 20px;
   background: white;
   color: var(--color200);
@@ -74,21 +73,21 @@
   align-items: center;
   border: 1px solid #fff;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
-    transform 0.4s ease;
+  transition:  0.4s ease;
 }
 
 .arrow {
   display: flex;
+  border: 1px solid transparent;
   justify-content: center;
   align-items: center;
   height: 50px;
-  aspect-ratio: 1;
+  width: 40px;
   background-color: white;
   color: var(--color200);
   border-radius: 20px;
-transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
-    transform 1.2s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.4s,
+    box-shadow 0.3s ease, transform 1.2s ease;
   overflow: hidden;
   position: relative;
 }
@@ -99,23 +98,19 @@ transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease,
   opacity: 1;
   position: relative;
   z-index: 2;
-}
-.link:hover .content {
-  transform: translateY(-8px);
-}
-.link:hover .arrow {
-  transform: translateY(-8px);
-}
-.link:hover .content,
-.link:hover .arrow {
-  background-color: #a1e6ff;
-  color: #012e89;
-  border-color: transparent;
-}
-.link:hover .arrow svg {
-  transform: rotate(44deg);
+  transform: translateY(1px) rotate(44deg);
 }
 
+.link .content,
+.link .arrow {
+  color: #012e89;
+}
+.link:hover .arrow svg {
+  transform: translateY(1px) translateX(2px) rotate(44deg) scale(1.1);
+}
+.link:hover .content {
+  opacity: 0.4;
+}
 @media (max-width: 768px) {
   .bottomBox {
     max-width: 100%;

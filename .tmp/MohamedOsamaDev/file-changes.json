@@ -50,10 +50,10 @@
   {
     "file": "src/components/Shared/Animtions/AnimatedSlideParagraph/AnimatedSlideParagraph.jsx",
     "firstSeenAt": "6/16/2025, 7:25:16 PM",
-    "lastUpdatedAt": "6/17/2025, 4:30:02 AM",
+    "lastUpdatedAt": "6/21/2025, 8:19:23 AM",
     "lastType": "changed",
     "Type": "added",
-    "count": 26
+    "count": 31
   },
   {
     "file": "src/components/Shared/Animtions/AnimatedSlideParagraph/AnimatedSlideParagraph.module.css",

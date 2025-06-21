@@ -30,13 +30,13 @@ const Page = async (props) => {
 
       <OurValues data={ourValues} />
 
-      {/* <QuoteSection
+      <QuoteSection
         link={{
           href: "/services",
           label: "explore our services",
         }}
         data={quoteSection}
-      /> */}
+      />
       {/* <SpaceSection style={{ background: "var(--color200)" }} /> */}
     </Template>
   );
