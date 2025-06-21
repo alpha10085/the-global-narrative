@@ -35,7 +35,7 @@ const ServiceItem = ({ item = {}, index = 0 }) => {
  
         <div className={styles.textOverlay}>
           <h3>{item?.title}</h3>
-          <p>{customText(item?.description, 50)}</p>
+          <p>{customText(item?.description, 90)}</p>
         </div>
       </div>
     </div>
