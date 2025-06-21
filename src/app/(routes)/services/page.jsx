@@ -17,12 +17,12 @@ const Page = async (props) => {
   } = await getPage(pageKey);
 
   return (
-    // <Template
-    //   color="brightNeonBlue"
-    //   pageTitle="services"
-    //   className={styles.main}
-    //   data={hero}
-    // >
+    <Template
+      color="brightNeonBlue"
+      pageTitle="services"
+      className={styles.main}
+      data={hero}
+    >
     <SSRFetcher
       Component={ServicesList}
       options={{
@@ -34,16 +34,16 @@ const Page = async (props) => {
       data={ourValueSection}
       path={`/service/services?ids=${ourValueSection?.cards}`}
     />
-    //   <QuoteSection
-    //     link={{
-    //       href: "/contact-us",
-    //       label: "get in touch",
-    //     }}
-    //     data={quoteSection}
-    //   />
+      <QuoteSection
+        link={{
+          href: "/contact-us",
+          label: "get in touch",
+        }}
+        data={quoteSection}
+      />
 
-    //   <SpaceSection style={{ background: "white" }} />
-    // </Template>
+       <SpaceSection style={{ background: "white" }} />
+     </Template>
   );
 };
 
