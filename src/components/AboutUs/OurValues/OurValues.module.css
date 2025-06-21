@@ -1,7 +1,6 @@
 .container {
   background-color: white;
   width: 100%;
-  min-height: 85vh;
   position: relative;
   z-index: 10;
   padding: 50px 5%;
@@ -9,7 +8,6 @@
 }
 
 .title {
-  /* color: var(--color200); */
   width: auto;
   margin: 0px 20px 50px;
 }
@@ -20,14 +18,13 @@
   min-width: 80%;
 }
 .card {
-  transition: 1s;
   transform: translateY(50px);
-  opacity: 0;
+  opacity: 0 ;
 }
 .list {
   width: 100%;
 }
-.list.active .card {
+.active .card {
   opacity: 1;
   transform: translate(0);
 }

@@ -1,7 +1,6 @@
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./OurValues.module.css";
 import Card from "./Card/Card";
-import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const OurValues = ({ data = [] }) => {
@@ -11,6 +10,7 @@ const OurValues = ({ data = [] }) => {
         <SectionTitle delay={0} title={data?.title} className={styles.title} />
 
         <Aos
+        delay={500}
           activeClassName={styles.active}
           className={`flex gap20 wrap mt-20 ${styles.list}`}
         >

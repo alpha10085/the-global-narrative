@@ -19,16 +19,15 @@ const Card = ({ className = "", index = 0, data = {} }) => {
   return (
     <div
       style={{
-        transitionDelay: `${((index - 1) * 0.5).toFixed(1)}s`,
+        transition: "1s",
+        transitionDelay: `${((index ) * 0.5).toFixed(1)}s`,
       }}
       className={`${styles.container} 
       ${className}
       flex al-i-c w-100 just-sb`}
     >
       <div className={`${styles.left}  flex gap30`}>
-        <h1
-        className={styles.index}
-        >
+        <h1 className={styles.index}>
           {index < 9 ? "0" : ""}
           {index + 1}
         </h1>
