@@ -65,15 +65,20 @@
   cursor: pointer;
   transition: all 0.25s ease;
 }
+.buttons svg {
+  transition: 0.4s;
+}
 .buttons button:nth-child(1) svg {
   transform: translateX(-1px);
 }
 .buttons button:nth-child(2) svg {
   transform: translateX(2px);
 }
-.buttons button:hover {
-  transform: scale(1.05);
+.buttons button:hover svg {
+opacity: 0.4;
 }
+
+
 
 .right {
   flex: 2;

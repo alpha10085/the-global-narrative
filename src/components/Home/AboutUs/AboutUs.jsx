@@ -2,7 +2,6 @@ import styles from "./AboutUs.module.css";
 import { ArrowOutwardIcon } from "../icons";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
-import LinkTransition from "@/components/Shared/LinkTransition/LinkTransition";
 import Threads from "@/components/Threads/Threads";
 
 const AboutUs = ({ data = {} }) => {
@@ -10,9 +9,9 @@ const AboutUs = ({ data = {} }) => {
     <div
       id="active-section"
       data-offset="0"
-      className={`${styles.container} flex  gap20 `}
+      className={`${styles.container}    `}
     >
-      <div className={`${styles.top} flex-c  gap20 column `}>
+      <div className={`${styles.top} column flex  gap20  `}>
         <WordPullUpV2
           duration={0.6}
           delay={200}
@@ -29,7 +28,7 @@ const AboutUs = ({ data = {} }) => {
         </Aos>
       </div>
       <div className={styles.mesh}>
-        <Threads color={"#385cf5"} amplitude={1.2} />
+        <Threads color={"#385cf5"} amplitude={2} />
       </div>
     </div>
   );

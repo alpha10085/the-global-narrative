@@ -40,7 +40,7 @@ const Home = async () => {
           data={servicesSection}
           path={`/service/landing?ids=${servicesSection?.services}`}
         />
-        <Quote data={quoteSection} />
+        {/* <Quote data={quoteSection} /> */}
 
         <div className={styles.wrapper}>
           <SSRFetcher
@@ -63,7 +63,7 @@ const Home = async () => {
             path={`/testimonials/landing?ids=${testimonialSection?.posts}`}
           />
         </div>
-        {/* <GetInTouch data={getInTouchSection} /> */}
+        <GetInTouch data={getInTouchSection} />
         <SpaceSection style={{ background: "white" }} />
       </div>
     </section>

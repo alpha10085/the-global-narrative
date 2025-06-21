@@ -1,6 +1,7 @@
 import Link from "@/components/Shared/Link/Link";
 import styles from "./Quote.module.css";
 import Threads from "@/components/Threads/Threads";
+import { ArrowBackIosNewIcon,ArrowOutwardIcon ,ArrowForwardIosIcon } from "../icons";
 
 const Quote = ({ data = {} }) => {
   return (
@@ -8,7 +9,7 @@ const Quote = ({ data = {} }) => {
       <div className={styles.wrapper}>
         {/* Left animated mesh */}
         <div className={styles.left}>
-          <Threads className={styles.verticalMesh} color={"#385cf5"} amplitude={1.5} />
+          <Threads className={styles.verticalMesh} color={"#385cf5"} amplitude={2} />
         </div>
 
         {/* Right content */}
@@ -18,7 +19,7 @@ const Quote = ({ data = {} }) => {
             Experience the next generation of interactive design and animation.
           </p>
           <Link href="/learn-more" className={styles.link}>
-            Learn about us →
+            Learn about us <ArrowForwardIosIcon />
           </Link>
         </div>
       </div>

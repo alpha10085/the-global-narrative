@@ -134,89 +134,89 @@ const Threads = ({
   const canvasRef = useRef(null);
   const frameId = useRef(null);
 
-  // useEffect(() => {
-  //   const rgbColor = parseColorStringToRGBArray(color);
+  useEffect(() => {
+    const rgbColor = parseColorStringToRGBArray(color);
 
-  //   const canvas = canvasRef.current;
-  //   const gl = canvas.getContext("webgl", { alpha: true });
-  //   if (!gl) return;
+    const canvas = canvasRef.current;
+    const gl = canvas.getContext("webgl", { alpha: true });
+    if (!gl) return;
 
-  //   function compileShader(source, type) {
-  //     const shader = gl.createShader(type);
-  //     gl.shaderSource(shader, source);
-  //     gl.compileShader(shader);
-  //     if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-  //       console.error(gl.getShaderInfoLog(shader));
-  //       gl.deleteShader(shader);
-  //       return null;
-  //     }
-  //     return shader;
-  //   }
+    function compileShader(source, type) {
+      const shader = gl.createShader(type);
+      gl.shaderSource(shader, source);
+      gl.compileShader(shader);
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error(gl.getShaderInfoLog(shader));
+        gl.deleteShader(shader);
+        return null;
+      }
+      return shader;
+    }
 
-  //   const vs = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
-  //   const fs = compileShader(fragmentShaderSource, gl.FRAGMENT_SHADER);
-  //   const program = gl.createProgram();
-  //   gl.attachShader(program, vs);
-  //   gl.attachShader(program, fs);
-  //   gl.linkProgram(program);
-  //   gl.useProgram(program);
+    const vs = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
+    const fs = compileShader(fragmentShaderSource, gl.FRAGMENT_SHADER);
+    const program = gl.createProgram();
+    gl.attachShader(program, vs);
+    gl.attachShader(program, fs);
+    gl.linkProgram(program);
+    gl.useProgram(program);
 
-  //   const buffer = gl.createBuffer();
-  //   gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-  //   gl.bufferData(
-  //     gl.ARRAY_BUFFER,
-  //     new Float32Array([-1, -1, 3, -1, -1, 3]),
-  //     gl.STATIC_DRAW
-  //   );
+    const buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    gl.bufferData(
+      gl.ARRAY_BUFFER,
+      new Float32Array([-1, -1, 3, -1, -1, 3]),
+      gl.STATIC_DRAW
+    );
 
-  //   const posLoc = gl.getAttribLocation(program, "position");
-  //   gl.enableVertexAttribArray(posLoc);
-  //   gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+    const posLoc = gl.getAttribLocation(program, "position");
+    gl.enableVertexAttribArray(posLoc);
+    gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
 
-  //   const timeLoc = gl.getUniformLocation(program, "iTime");
-  //   const resLoc = gl.getUniformLocation(program, "iResolution");
-  //   const colorLoc = gl.getUniformLocation(program, "uColor");
-  //   const ampLoc = gl.getUniformLocation(program, "uAmplitude");
-  //   const distLoc = gl.getUniformLocation(program, "uDistance");
-  //   const mouseLoc = gl.getUniformLocation(program, "uMouse");
-  //   const fadeLoc = gl.getUniformLocation(program, "uFade");
+    const timeLoc = gl.getUniformLocation(program, "iTime");
+    const resLoc = gl.getUniformLocation(program, "iResolution");
+    const colorLoc = gl.getUniformLocation(program, "uColor");
+    const ampLoc = gl.getUniformLocation(program, "uAmplitude");
+    const distLoc = gl.getUniformLocation(program, "uDistance");
+    const mouseLoc = gl.getUniformLocation(program, "uMouse");
+    const fadeLoc = gl.getUniformLocation(program, "uFade");
 
-  //   function resize() {
-  //     canvas.width = canvas.clientWidth;
-  //     canvas.height = canvas.clientHeight;
-  //     gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
-  //   }
-  //   window.addEventListener("resize", resize);
-  //   resize();
+    function resize() {
+      canvas.width = canvas.clientWidth;
+      canvas.height = canvas.clientHeight;
+      gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+    }
+    window.addEventListener("resize", resize);
+    resize();
 
-  //   let start = performance.now();
-  //   function render() {
-  //     const t = (performance.now() - start) * 0.001;
-  //     gl.uniform1f(timeLoc, t);
-  //     gl.uniform3f(
-  //       resLoc,
-  //       gl.drawingBufferWidth,
-  //       gl.drawingBufferHeight,
-  //       gl.drawingBufferWidth / gl.drawingBufferHeight
-  //     );
-  //     gl.uniform3f(colorLoc, ...rgbColor);
-  //     gl.uniform1f(ampLoc, amplitude);
-  //     gl.uniform1f(distLoc, distance);
-  //     gl.uniform2f(mouseLoc, 0.5, 0.5);
-  //     gl.uniform1f(fadeLoc, fade);
+    let start = performance.now();
+    function render() {
+      const t = (performance.now() - start) * 0.001;
+      gl.uniform1f(timeLoc, t);
+      gl.uniform3f(
+        resLoc,
+        gl.drawingBufferWidth,
+        gl.drawingBufferHeight,
+        gl.drawingBufferWidth / gl.drawingBufferHeight
+      );
+      gl.uniform3f(colorLoc, ...rgbColor);
+      gl.uniform1f(ampLoc, amplitude);
+      gl.uniform1f(distLoc, distance);
+      gl.uniform2f(mouseLoc, 0.5, 0.5);
+      gl.uniform1f(fadeLoc, fade);
 
-  //     gl.clear(gl.COLOR_BUFFER_BIT);
-  //     gl.drawArrays(gl.TRIANGLES, 0, 3);
-  //     frameId.current = requestAnimationFrame(render);
-  //   }
-  //   render();
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      frameId.current = requestAnimationFrame(render);
+    }
+    render();
 
-  //   return () => {
-  //     cancelAnimationFrame(frameId.current);
-  //     gl.getExtension("WEBGL_lose_context")?.loseContext();
-  //     window.removeEventListener("resize", resize);
-  //   };
-  // }, [color, amplitude, distance, fade]);
+    return () => {
+      cancelAnimationFrame(frameId.current);
+      gl.getExtension("WEBGL_lose_context")?.loseContext();
+      window.removeEventListener("resize", resize);
+    };
+  }, [color, amplitude, distance, fade]);
 
   return (
     <canvas
