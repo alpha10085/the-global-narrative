@@ -40,7 +40,9 @@ const servicesSection = Joi.object({
 
 // Quote Section
 const quoteSection = Joi.object({
+    title: joiText({ min: 2, max: 1000, required: true }),
   content: joiText({ min: 2, max: 20000, required: true }),
+  poster: fileVal.required(),
   ...CommonsVal,
 });
 

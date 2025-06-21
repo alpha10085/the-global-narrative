@@ -31,10 +31,11 @@ const servicesSection = new Schema({
   services: [{ type: Schema.Types.ObjectId, ref: "service" }],
 });
 
-
 // Quote section
 const quoteSection = new Schema({
+  title: mongtext,
   content: mongeDescription,
+  poster,
 });
 
 // News section
@@ -117,10 +118,9 @@ landingSchema.pre(/^find/, function (next) {
             _id: 1,
             title: 1,
             poster: 1,
-            description: 1
+            description: 1,
           },
         },
-        
       ]
     );
   }
