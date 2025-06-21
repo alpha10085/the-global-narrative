@@ -32,7 +32,8 @@
   transform: translateY(5vw);
 
   font-size: clamp(12px, 2vw, 17px);
-opacity: 0.8;
+
+color: var(--p);
 }
 
 .icon {

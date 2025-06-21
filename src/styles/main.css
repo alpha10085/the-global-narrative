@@ -11,9 +11,10 @@
 :root {
   --main-color: white;
   --overlay-bg: white;
-  --p: #a9a9a9;
+  --p: #425466;
   --fw-m: 500;
   --fw-l: 600;
+
   --main-bg: rgb(255, 255, 255);
   --bg200: rgb(248, 248, 248);
   --bord100: rgb(245, 245, 245);

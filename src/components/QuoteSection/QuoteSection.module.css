@@ -11,6 +11,8 @@
 .contentWrapper {
   width: 1200px;
   margin: 0 auto;
+  max-width: 90%;
+  gap: 5vh;
 }
 .title {
   color: var(--bg100);
@@ -120,5 +122,20 @@
   .container {
     gap: 10px !important;
     padding: 5vh 5%;
+  }
+  .description {
+    font-size: 14px;
+  }
+}
+@media (max-width: 568px) {
+
+  .description {
+    font-size: 12px;
+  }
+  .content {
+    font-size: 14px;
+  }
+  .arrow svg {
+    font-size: 18;
   }
 }

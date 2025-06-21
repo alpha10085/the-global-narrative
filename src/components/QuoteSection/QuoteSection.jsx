@@ -11,7 +11,7 @@ const QuoteSection = ({ link = { href: "/", label: "" }, data = {} }) => {
   const { title = "", description = "" } = data;
   return (
     <div className={`${styles.container} `}>
-      <div className={`${styles.contentWrapper}  gap50 flex column`}>
+      <div className={`${styles.contentWrapper}   flex column`}>
         <SectionTitle delay={600} title={title} className={styles.title} />
         <div className={`flex gap25 column ${styles.bottomBox}`}>
           <AnimatedSlideParagraph
