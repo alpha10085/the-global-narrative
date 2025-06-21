@@ -40,9 +40,12 @@ const Home = async () => {
           data={servicesSection}
           path={`/service/landing?ids=${servicesSection?.services}`}
         />
-        <Quote data={quoteSection} />
 
         <div className={styles.wrapper}>
+          <FloatedSection>
+            <Quote data={quoteSection} />
+          </FloatedSection>
+
           <SSRFetcher
             Component={News}
             options={{

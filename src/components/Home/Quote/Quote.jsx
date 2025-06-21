@@ -1,26 +1,44 @@
 import Link from "@/components/Shared/Link/Link";
+import Img from "@/components/Shared/img/Img";
 import styles from "./Quote.module.css";
-import Threads from "@/components/Threads/Threads";
-import { ArrowBackIosNewIcon,ArrowOutwardIcon ,ArrowForwardIosIcon } from "../icons";
+import { ArrowOutwardIcon } from "../icons";
+import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 
 const Quote = ({ data = {} }) => {
+  const { title, content, poster } = data;
+
   return (
     <section className={styles.section}>
-      <div className={styles.wrapper}>
-        {/* Left animated mesh */}
-        <div className={styles.left}>
-          <Threads className={styles.verticalMesh} color={"#385cf5"} amplitude={2} />
-        </div>
+      <div className={styles.imageWrapper}>
+        <Img
+          url={poster?.url}
+          alt={title}
+          className={styles.imageWrapper}
+          mainClassName=""
+        />
+        <div className={styles.overlay}>
+          <div className={styles.content}>
+            {title && (
+              <WordPullUpV2
+                duration={0.6}
+                delay={200}
+                className={`${styles.title} `}
+                text={title}
+              />
+            )}
+            {content && (
+              <WordPullUpV2
+                duration={0.6}
+                delay={200}
+                className={`${styles.description} `}
+                text={content}
+              />
+            )}
 
-        {/* Right content */}
-        <div className={styles.right}>
-          <h2 className={styles.title}>We manage your reputation, you focus on making an impact.</h2>
-          <p className={styles.description}>
-            Experience the next generation of interactive design and animation.
-          </p>
-          <Link href="/learn-more" className={styles.link}>
-            Learn about us <ArrowForwardIosIcon />
-          </Link>
+            <Link href={"/about-us"} className={styles.linkButton}>
+              Learn More <ArrowOutwardIcon />
+            </Link>
+          </div>
         </div>
       </div>
     </section>

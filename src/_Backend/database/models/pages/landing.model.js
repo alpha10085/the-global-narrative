@@ -85,6 +85,11 @@ landingSchema.pre(/^find/, function (next) {
       ...populateCommons,
       path: "getInTouchSection.poster",
     },
+    {
+      ...populateCommons,
+      path: "quoteSection.poster",
+    },
+
   ];
   if (this?.options?.admin) {
     populatePipeline.push(
