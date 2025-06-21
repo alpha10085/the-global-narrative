@@ -90,15 +90,15 @@
   }
 
   .spacer {
-    display: none;
-  }
+    flex: 0 0 2%;
+   }
 
   .navButtons {
     display: none;
   }
 
   .sliderHeader {
-    padding-inline: 0px; 
+    padding-inline: 5px; 
   }
 
   .title {
