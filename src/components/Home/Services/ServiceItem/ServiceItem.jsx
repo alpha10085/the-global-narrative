@@ -5,6 +5,7 @@ import Img from "@/components/Shared/img/Img";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
 import { customText } from "@/utils/text";
+import LinkTransition from "@/components/Shared/LinkTransition/LinkTransition";
 
 const ServiceItem = ({ item = {}, index = 0 }) => {
   const { ref, inView } = useInView({
@@ -17,7 +18,8 @@ const ServiceItem = ({ item = {}, index = 0 }) => {
   };
 
   return (
-    <div
+    <LinkTransition
+    href="/services"
       id={`id_${item?._id}`}
       ref={ref}
       className={`${styles.valueItem} ${inView ? styles.show : styles.hidden}`}
@@ -38,7 +40,7 @@ const ServiceItem = ({ item = {}, index = 0 }) => {
           <p>{customText(item?.description, 90)}</p>
         </div>
       </div>
-    </div>
+    </LinkTransition>
   );
 };
 
