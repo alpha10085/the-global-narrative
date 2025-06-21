@@ -73,15 +73,20 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: white;
-  color: black;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.3s;
   border-radius: 20px;
   flex-grow: 1;
-  height: 45px;
-  padding: 0 15px;
+
+  color: #000;
+  backdrop-filter: blur(20px);
+  z-index: 1;
+  background-color: #fff;
+  border: 1px solid #0000;
+  height: 50px;
+  padding: 2px 30px;
+  transition: all 0.6s;
+  box-shadow: 0 0 20px #fff0;
 }
 
 .linkButton:hover {
@@ -99,6 +104,12 @@
 }
 
 @media (max-width: 768px) {
+  .linkButton {
+    border-radius: 18px;
+    height: 45px;
+    padding: 0 25px 1px;
+    font-size: 18px;
+  }
   .overlay {
     padding: 50px 32px;
     align-items: flex-start;
