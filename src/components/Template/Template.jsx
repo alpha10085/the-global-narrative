@@ -19,9 +19,8 @@ const Template = ({
   return (
     <div className={styles.main}>
       <div className={styles.herowrapper}>
-
-      <TemplateHero color={color} pageTitle={pageTitle} data={data} />
-       <ButtonArrow className={`${styles.icon} flex-c`} />
+        <TemplateHero color={color} pageTitle={pageTitle} data={data} />
+        <ButtonArrow className={`${styles.icon} flex-c`} />
       </div>
       <div
         id="active-section"
