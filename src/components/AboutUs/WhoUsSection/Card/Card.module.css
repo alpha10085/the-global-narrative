@@ -20,7 +20,6 @@
 .card:nth-child(even) .descriptionBox {
   padding-left: 50px;
   padding-right: 5%;
-  /* width: 100%; */
   width: 50%;
 }
 
@@ -85,10 +84,12 @@
 
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
   transition: 1s;
+  opacity: 0;
   transform: translateY(105%);
 }
 .active .image {
   transform: translateY(0);
+  opacity: 1;
 }
 
 .image img {
