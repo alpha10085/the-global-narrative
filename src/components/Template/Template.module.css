@@ -8,12 +8,10 @@
 }
 
 .content {
-  height: 50vh;
+  min-height: 50vh;
   width: 100%;
   background-color: white;
   z-index: 2;
-}
-.content {
   padding: 80px 0;
   width: 1200px;
   margin: 0 auto;
@@ -63,7 +61,7 @@ opacity: 0.8;
   .content {
     flex-direction: column;
     gap: 10px;
-    padding:  0 ;
+    padding:  20px 0 ;
     justify-content: center;
   }
   .content h1 {
