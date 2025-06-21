@@ -19,11 +19,13 @@
 .subTitle {
   font-size: clamp(24px, 3vw, 40px);
   color: var(--color200);
-  transform: translateY(100%);
+  transform: translateY(20px);
   transition: 1s;
   font-weight: 400;
+  transition-delay: 0.3s;
   color: rgb(16, 51, 126);
   margin: 15px 0;
+  opacity: 0;
 }
 
 .head {
@@ -32,6 +34,7 @@
 
 .container.active .subTitle {
   transform: translateY(0);
+  opacity: 1;
 }
 
 .title {
@@ -40,16 +43,20 @@
   padding: 10px 15px;
   background-color: var(--bg200);
   width: max-content;
-  transition: 1s;
   color: var(--bg100);
   border: 1px solid rgb(236, 236, 236);
 
   font-weight: 400;
   border-radius: 20px;
+  transform: translateY(20px);
+
+  transition: 0.8s;
+  opacity: 0;
 }
 
-.container.active .index {
+.container.active .title {
   transform: translateY(0);
+  opacity: 1;
 }
 
 .description {
@@ -58,13 +65,17 @@
   color: var(--color200);
   opacity: 0;
   transition: 0.8s;
-  transition-delay: 0.8s;
+  transition-delay: 1s;
   font-weight: 400;
   color: #575757;
+
+  transform: translateY(20px);
 }
 
 .container.active .description {
   opacity: 1;
+
+  transform: translateY(0px);
 }
 
 .container:nth-child(odd) {
@@ -77,6 +88,15 @@
   overflow: hidden;
   position: sticky;
   top: 15px;
+  
+  transform: translateY(100%);
+  transition: 1.5s;
+  opacity: 0;
+}
+.container.active .posterWrapper {
+  
+  transform: translateY(0);
+  opacity: 1;
 }
 .subTitlePoster {
   position: absolute;
@@ -86,6 +106,9 @@
   color: white;
   font-weight: 400;
   font-size: clamp(20px, 4vw, 50px);
+
+
+
 }
 .poster {
   width: 100%;
@@ -120,14 +143,28 @@
   padding: 50px 5% 40px;
 }
 .keypoints {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid transparent;
   padding-top: 20px;
+  transition: 0.6s;
+  transition-delay: 1.4s;
+}
+
+.container.active .keypoints {
+  border-color: #0000001a;
 }
 .point {
   border-radius: 15px;
   width: max-content;
   font-size: 16px;
   position: relative;
+  transform: translateX(20px) translateY(20px);
+
+  transition: 0.8s;
+  opacity: 0;
+}
+.container.active .point {
+  opacity: 1;
+
   transform: translateX(20px);
 }
 .point::before {
@@ -170,6 +207,6 @@
     padding: 0 0 20px 0;
   }
   .point {
-    font-size: clamp(12px,2vw,16px);
+    font-size: clamp(12px, 2vw, 16px);
   }
 }

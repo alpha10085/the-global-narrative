@@ -6,10 +6,9 @@ import { lineBreak } from "@/utils/text";
 const Card = ({ className = "", data = {}, index = 1 }) => {
   return (
     <Aos
-      triggerOnce
-      threshold={0.15}
+      threshold={0.5}
       activeClassName={styles.active}
-      className={`${styles.container} ${styles.active}  ${className} `}
+      className={`${styles.container}   ${className} `}
     >
       <div id={`id_${data?._id}`} className={`flex ${styles.wrapper}`}>
         <div className={`${styles.content}  column gap15 flex`}>
@@ -23,11 +22,19 @@ const Card = ({ className = "", data = {}, index = 1 }) => {
             ))}
           </div>
           <div className={`${styles.keypoints} flex column gap20`}>
-            {lineBreak(data?.keyPoints,true)?.slice(0,5).map((val,i) => (
-              <div
-              key={i}
-              className={styles.point}>{val}</div>
-            ))}
+            {lineBreak(data?.keyPoints, true)
+              ?.slice(0, 5)
+              .map((val, i) => (
+                <div
+                  key={i}
+                  style={{
+                    transitionDelay: `${i * 0.4 + 1.5}s`,
+                  }}
+                  className={styles.point}
+                >
+                  {val}
+                </div>
+              ))}
           </div>
         </div>
         <div className={styles.posterWrapper}>

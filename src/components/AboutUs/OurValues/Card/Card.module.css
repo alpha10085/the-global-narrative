@@ -5,7 +5,6 @@
   padding: 10px;
   position: relative;
   max-width: 100%;
-  
 }
 .left {
   font-size: 30px;
@@ -19,7 +18,7 @@
   padding: 40px 0 40px 40px;
   max-width: calc(100% - 260px);
   overflow: hidden;
-width: 750px;
+  width: 750px;
 }
 .left p {
   line-height: 1.7;
@@ -33,7 +32,6 @@ width: 750px;
 .title {
   opacity: 1 !important;
   font-weight: 400;
-
 }
 
 .poster {
@@ -43,8 +41,7 @@ width: 750px;
   overflow: hidden;
 }
 
-
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .container {
     flex-direction: column-reverse;
   }
@@ -53,7 +50,8 @@ width: 750px;
     width: 100%;
     padding: 20px;
   }
-  .right,.poster {
+  .right,
+  .poster {
     width: 100%;
   }
   .poster {
@@ -67,13 +65,11 @@ width: 750px;
     font-size: 35px;
     margin: 10px 0 5px;
   }
-
 }
 
-@media (max-width:550px) {
-    .left p {
+@media (max-width: 550px) {
+  .left p {
     font-size: 12px;
-
   }
   .title {
     font-size: 25px;

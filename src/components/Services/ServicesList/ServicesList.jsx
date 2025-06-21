@@ -1,7 +1,7 @@
-import styles from "./OurValues.module.css";
+import styles from "./ServicesList.module.css";
 import Card from "./Card/Card";
 
-const OurValues = ({ data = {} }) => {
+const ServicesList = ({ data = {} }) => {
   return (
     <div id="templateSection" className={styles.container}>
       <div className={styles.sections}>
@@ -19,4 +19,4 @@ const OurValues = ({ data = {} }) => {
   );
 };
 
-export default OurValues;
+export default ServicesList;
