@@ -28,9 +28,8 @@ const ServicesSection = ({ data = {} }) => {
       className={styles.servicesWrapper}
     >
       <div className={styles.sliderHeader}>
-        <div className={styles.title}>
-          <SectionTitle title={data?.title} />
-        </div>
+      
+          <SectionTitle title={data?.title} className={styles.title} />
         <div className={` flex gap10 ${styles.navButtons} `}>
           <button
             onClick={() => scroll("left")}
