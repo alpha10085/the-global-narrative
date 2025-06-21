@@ -73,8 +73,9 @@
 
   .mesh {
     width: 120vw;
-    height: 100vh;
-    left: -10vw;
+    height: 105vh;
+    left: -20px;
+    transform: rotate(20deg);
   }
   .title{
     gap: 5px;
