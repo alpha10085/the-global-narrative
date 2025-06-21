@@ -6,9 +6,8 @@ const Card = ({ item, isActive }) => {
 
   return (
     <div
-      className={`${styles.card} ${isActive ? styles.active : styles.inactive}`}
+      className={`${styles.card} flex column gap20 just-c ${isActive ? styles.active : styles.inactive}`}
     >
-      <p className={styles.quote}>“{item?.content}”</p>
       <div className={styles.author}>
         <Img
           url={item?.poster?.url}
@@ -20,6 +19,7 @@ const Card = ({ item, isActive }) => {
           <p className={styles.title}>{item?.jobTitle}</p>
         </div>
       </div>
+      <p className={styles.quote}>“{item?.content}”</p>
     </div>
   );
 };

@@ -2,7 +2,9 @@
 import { useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules"; // ⬅️ Add Autoplay
+import "swiper/css";
+import "swiper/css/navigation";
 import styles from "./Testimonials.module.css";
 import Card from "./Card/Card";
 import { ArrowBackIosNewIcon, ArrowForwardIosIcon } from "../icons";
@@ -18,7 +20,7 @@ const Testimonials = ({ data = {} }) => {
 
   const handleChange = (dir) => {
     if (!swiperRef.current) return;
-    const swiper = swiperRef.current.swiper; // access Swiper instance
+    const swiper = swiperRef.current.swiper;
     if (dir === "left") swiper.slidePrev();
     else swiper.slideNext();
   };
@@ -28,10 +30,12 @@ const Testimonials = ({ data = {} }) => {
       <div className={styles.wrapper}>
         {/* LEFT COLUMN */}
         <div className={`${styles.left} ${inView ? styles.animateLeft : ""}`}>
-          <h2>
-            {data?.title || "From our"} <strong>community.</strong>
-          </h2>
-          <p>Here’s what other subscribers had to say about CC Plus.</p>
+          <div className={`${styles.head} flex  column`}>
+            <h2>
+              {data?.title || "From our"} <strong>community.</strong>
+            </h2>
+            <p>Here’s what other subscribers had to say about CC Plus.</p>
+          </div>
           <div className={styles.buttons}>
             <button className="flex-c" onClick={() => handleChange("left")}>
               <ArrowBackIosNewIcon />
@@ -46,9 +50,15 @@ const Testimonials = ({ data = {} }) => {
         <div className={`${styles.right} ${inView ? styles.animateRight : ""}`}>
           <Swiper
             direction="vertical"
-            modules={[Navigation]}
+            modules={[Navigation, Autoplay]}
             ref={swiperRef}
             className={styles.swiper}
+            loop
+            autoplay={{
+              delay: 4000, // 4 seconds between slides
+              disableOnInteraction: false, // keep autoplay after user interaction
+              pauseOnMouseEnter: true, // pause on hover
+            }}
           >
             {testimonials.map((item) => (
               <SwiperSlide key={item?._id}>
