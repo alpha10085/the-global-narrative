@@ -5,7 +5,7 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 const WhoUsSection = ({ data = {} }) => {
   const members = data?.members || [];
   return (
-     <section className={styles.container}>
+    <section className={styles.container}>
       <SectionTitle title={data?.title} className={styles.title} />
       <div className={`${styles.list} flex column `}>
         {members?.map((val) => (
