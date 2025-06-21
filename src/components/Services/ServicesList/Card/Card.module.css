@@ -88,13 +88,12 @@
   overflow: hidden;
   position: sticky;
   top: 15px;
-  
+
   transform: translateY(100%);
   transition: 1.5s;
   opacity: 0;
 }
 .container.active .posterWrapper {
-  
   transform: translateY(0);
   opacity: 1;
 }
@@ -106,9 +105,6 @@
   color: white;
   font-weight: 400;
   font-size: clamp(20px, 4vw, 50px);
-
-
-
 }
 .poster {
   width: 100%;
@@ -209,4 +205,8 @@
   .point {
     font-size: clamp(12px, 2vw, 16px);
   }
+  .posterWrapper {
+  transform: translateY(0);
+}
+
 }
