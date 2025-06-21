@@ -28,15 +28,15 @@ const Page = async (props) => {
         <Cube data={whoUsSectionSection} />
       </FloatedSection>
 
-      <OurValues data={ourValues} />
+      {/* <OurValues data={ourValues} /> */}
 
-      <QuoteSection
+      {/* <QuoteSection
         link={{
           href: "/services",
           label: "explore our services",
         }}
         data={quoteSection}
-      />
+      /> */}
       {/* <SpaceSection style={{ background: "var(--color200)" }} /> */}
     </Template>
   );

@@ -8,7 +8,7 @@ const Cube = ({ data = {} }) => {
   return (
     <section className={styles.container}>
       <SectionTitle title={data?.title} className={styles.title} />
-      <div className={`${styles.list} flex column gap50`}>
+      <div className={`${styles.list} flex column `}>
         {members?.map((val) => (
           <Card key={val?._id} data={val} />
         ))}
