@@ -3,6 +3,7 @@ import Img from "@/components/Shared/img/Img";
 import styles from "./Quote.module.css";
 import { ArrowOutwardIcon } from "../icons";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const Quote = ({ data = {} }) => {
   const { title, content, poster } = data;
@@ -22,7 +23,7 @@ const Quote = ({ data = {} }) => {
               <WordPullUpV2
                 duration={0.6}
                 delay={200}
-                className={`${styles.title} `}
+                className={`${styles.title}`}
                 text={title}
               />
             )}
@@ -30,14 +31,21 @@ const Quote = ({ data = {} }) => {
               <WordPullUpV2
                 duration={0.6}
                 delay={200}
-                className={`${styles.description} `}
+                className={`${styles.description}`}
                 text={content}
               />
             )}
 
-            <Link href={"/about-us"} className={styles.linkButton}>
-              Learn More <ArrowOutwardIcon />
-            </Link>
+
+            <Aos
+              delay={400}
+              className={styles.linkWrapper}
+              activeClassName={styles.fadeUpActive}
+            >
+              <Link href="/about-us" className={styles.linkButton}>
+                Learn More <ArrowOutwardIcon />
+              </Link>
+            </Aos>
           </div>
         </div>
       </div>
