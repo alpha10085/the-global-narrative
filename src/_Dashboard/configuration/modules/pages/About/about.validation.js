@@ -106,6 +106,12 @@ const AboutPageValidationSchema = (locale = "en") => {
           max: 20000,
           required: true,
         }),
+        poster: fileVal.required().messages(
+          messagesHandlers({
+            locale,
+            type: "object",
+          })
+        ),
       },
     }),
     quoteSection: joiObject({
