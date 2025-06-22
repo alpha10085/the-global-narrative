@@ -58,19 +58,20 @@
   background-color: rgb(300, 300, 300);
   padding-bottom: 1px;
   color: #000000;
-  font-size: 20px;
+
   font-weight: bold;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 .buttons svg {
+  font-size: 25px;
   transition: 0.4s;
 }
 .buttons button:nth-child(1) svg {
   transform: translateX(-1px);
 }
 .buttons button:nth-child(2) svg {
-  transform: translateX(2px);
+  transform: translateX(0px);
 }
 .buttons button:hover svg {
   opacity: 0.4;

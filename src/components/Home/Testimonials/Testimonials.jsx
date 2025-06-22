@@ -7,7 +7,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import styles from "./Testimonials.module.css";
 import Card from "./Card/Card";
-import { ArrowBackIosNewIcon, ArrowForwardIosIcon } from "../icons";
+import {
+  KeyboardArrowUp as ArrowUpIcon,
+  KeyboardArrowDown as ArrowDownIcon,
+} from "@mui/icons-material";
 
 const Testimonials = ({ data = {} }) => {
   const swiperRef = useRef(null);
@@ -21,7 +24,7 @@ const Testimonials = ({ data = {} }) => {
   const handleChange = (dir) => {
     if (!swiperRef.current) return;
     const swiper = swiperRef.current.swiper;
-    if (dir === "left") swiper.slidePrev();
+    if (dir === "up") swiper.slidePrev();
     else swiper.slideNext();
   };
 
@@ -37,11 +40,11 @@ const Testimonials = ({ data = {} }) => {
             <p>Here’s what other subscribers had to say about CC Plus.</p>
           </div>
           <div className={styles.buttons}>
-            <button className="flex-c" onClick={() => handleChange("left")}>
-              <ArrowBackIosNewIcon />
+            <button className="flex-c" onClick={() => handleChange("up")}>
+              <ArrowUpIcon />
             </button>
-            <button className="flex-c" onClick={() => handleChange("right")}>
-              <ArrowForwardIosIcon />
+            <button className="flex-c" onClick={() => handleChange("down")}>
+              <ArrowDownIcon />
             </button>
           </div>
         </div>
