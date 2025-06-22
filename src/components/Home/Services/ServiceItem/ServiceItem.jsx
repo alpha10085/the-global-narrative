@@ -10,7 +10,7 @@ import LinkTransition from "@/components/Shared/LinkTransition/LinkTransition";
 const ServiceItem = ({ item = {}, index = 0 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.9,
+    threshold: 0.09,
   });
 
   const delayStyle = {
