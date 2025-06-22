@@ -7,7 +7,7 @@
 
 }
 .top {
-  max-width: 90%;
+  max-width: 60%;
   width: 800px;
 
   padding-top: 80px;
@@ -38,7 +38,6 @@
   top: 0;
   right: 0;
   width: 1000px;
-  max-width: 100vw;
   height: 600px;
   overflow: hidden;
   z-index: -1;
@@ -52,16 +51,23 @@
 .aos.active {
   opacity: 1;
 }
-
+@media (max-width:1245px) {
+  .mesh {
+    width: 80vw;
+    height: 50vw;
+    
+  transform: rotate(-30deg) translateY(150px) translateX(120px);
+  }
+}
 @media (max-width: 768px) {
   .container {
-    margin: 40px auto 20px;
-    padding-inline: 20px;
+    margin: 0px auto;
   }
 
   .top {
-    padding-top: 60px;
+    padding: 60px 0 0;
     width: 100%;
+    max-width: 100%;
   }
 
   .title,
@@ -72,11 +78,17 @@
   }
 
   .mesh {
-    width: 120vw;
-    height: 105vh;
-    left: -20px;
-    transform: rotate(20deg);
-    opacity: 0.5;
+    /* width: 1000px; */
+    /* height: 50vw; */
+    width: 140%;
+    height: 40vh;
+    left: -15%;
+    /* transform: rotate(20deg);
+    opacity: 0.5; */
+    transform: translate(0);
+    bottom: unset;
+    position: relative;
+    margin:  -50px 0;
   }
   .title{
     gap: 5px !important;
