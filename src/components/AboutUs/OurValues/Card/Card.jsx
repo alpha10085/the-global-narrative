@@ -13,8 +13,7 @@ const Card = ({ data = {} }) => {
       style={{ position: "relative" }}
     >
       <div className={styles.descriptionBox}>
-        <h1 className={styles.name}>{data?.name}</h1>
-        <h4>{data?.jobTitle}</h4>
+        <h1 className={styles.name}>{data?.title}</h1>
         <p>{data?.description}</p>
       </div>
 
