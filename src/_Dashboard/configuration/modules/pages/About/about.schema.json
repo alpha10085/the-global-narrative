@@ -119,15 +119,24 @@
       "type": "object",
       "label": "missionVision",
       "fields": [
-        {
-          "name": "title",
-          "type": "text",
-          "label": "title"
-        },
-        {
-          "name": "description",
-          "type": "textarea",
-          "label": "description"
+         {
+          "name": "points",
+          "type": "array",
+          "label": "points",
+          "min": 1,
+           "max": 3,
+          "fields": [
+            {
+              "name": "title",
+              "type": "text",
+              "label": "title"
+            },
+            {
+              "name": "description",
+              "type": "textarea",
+              "label": "description"
+            }
+          ]
         },
         {
           "name": "poster",

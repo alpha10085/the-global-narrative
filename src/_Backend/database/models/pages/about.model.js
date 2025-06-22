@@ -40,17 +40,19 @@ const ourValues = new Schema({
     },
   ],
 });
-// Mission-Vision
-const missionVision = new Schema({
-  title: mongtext,
-  description: mongeDescription,
-  poster,
-});
+
 // quoteSection
 const quoteSection = new Schema({
   title: mongtext,
   description: mongeDescription,
 });
+
+// Mission-Vision
+const missionVision = new Schema({
+  points: [quoteSection],
+  poster,
+});
+
 // Main about us schema
 const aboutUsSchema = new Schema({
   metadata: pageMetadata,
@@ -68,6 +70,10 @@ aboutUsSchema.pre(/^find/, function (next) {
     {
       ...populateCommons,
       path: "hero.poster",
+    },
+    {
+      ...populateCommons,
+      path: "missionVision.poster",
     },
     {
       path: "whoUsSectionSection.members.image",
