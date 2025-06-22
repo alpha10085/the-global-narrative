@@ -32,7 +32,7 @@ const Page = async (props) => {
 
       <OurValues data={ourValues} />
 
-      <AboutUs data={quoteSection}/>
+      {/* <AboutUs data={quoteSection}/> */}
 
       <QuoteSection
         link={{
