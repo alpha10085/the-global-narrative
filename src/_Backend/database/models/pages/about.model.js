@@ -44,6 +44,7 @@ const ourValues = new Schema({
 const missionVision = new Schema({
   title: mongtext,
   description: mongeDescription,
+  poster,
 });
 // quoteSection
 const quoteSection = new Schema({

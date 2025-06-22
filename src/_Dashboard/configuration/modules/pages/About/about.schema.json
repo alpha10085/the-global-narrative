@@ -128,6 +128,15 @@
           "name": "description",
           "type": "textarea",
           "label": "description"
+        },
+        {
+          "name": "poster",
+          "type": "media",
+          "allowedTypes": [
+            "image"
+          ],
+          "single": true,
+          "label": "poster"
         }
       ]
     },

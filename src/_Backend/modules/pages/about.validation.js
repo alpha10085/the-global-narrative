@@ -69,6 +69,7 @@ const ourValues = Joi.object({
 const missionVision = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
+  poster: fileVal.required(),
   ...CommonsVal,
 });
 // ------------------------------
