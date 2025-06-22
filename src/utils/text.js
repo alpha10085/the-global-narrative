@@ -36,17 +36,27 @@ export const textDir = (value = null) => {
   }
 };
 
-export const lineBreak = (text = "", remove = false) => {
-  const lines = text
-    ?.split(/(?<=\.)\s+/) // split after periods + space
+export const lineBreak = (text = "", symbols = ["."], remove = false) => {
+  if (!text) return [];
+
+  // Escape regex special characters
+  const escaped = symbols.map((s) => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'));
+
+  // Build dynamic regex: split after any symbol followed by spaces
+  const splitRegex = new RegExp(`(?<=${escaped.join('|')})\\s+`);
+
+  // Build dynamic removal regex: remove any of the symbols at the end
+  const endSymbolRegex = new RegExp(`(${escaped.join('|')})$`);
+
+  return text
+    .split(splitRegex)
     .map((line) => {
       const trimmed = line.trim();
-      return remove ? trimmed.replace(/\.$/, "") : trimmed;
+      return remove ? trimmed.replace(endSymbolRegex, "") : trimmed;
     })
     .filter((line) => line.length > 0);
-
-  return lines;
 };
+
 
 export const formatTextWithLineBreaks = (text = "") => {
   return text

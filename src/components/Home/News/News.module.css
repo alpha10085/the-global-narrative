@@ -19,7 +19,7 @@
   display: flex;
   /* justify-content: center; */
   padding-inline: clamp(16px, 5vw, 80px);
-  margin: 60px 0;
+  margin: 50px 0  40px;
 }
 
 .card {
