@@ -6,9 +6,7 @@ import styles from "./AboutUs.module.css";
 
 const AboutUs = ({ data = {} }) => {
   const { points = [], poster } = data;
-  console.log("🚀 ~ AboutUs ~ points:", points)
-  console.log("🚀 ~ AboutUs ~ poster:", poster)
-
+  
   return (
     <div id="active-section" data-offset="0" className={styles.container}>
       <div className={`${styles.wrapper} flex gap40`}>
