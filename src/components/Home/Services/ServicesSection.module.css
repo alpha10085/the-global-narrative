@@ -11,6 +11,7 @@
   align-items: center;
   gap: 16px;
   padding-left: 90px; 
+  padding-right: 20px;
   margin: 20px 0 24px;
 }
 
@@ -81,6 +82,7 @@
 
   .sliderHeader {
     padding-inline: 60px; 
+    padding-right: 0;
   }
 }
 
