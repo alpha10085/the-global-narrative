@@ -60,7 +60,7 @@ const Testimonials = ({ data = {} }) => {
               pauseOnMouseEnter: true, // pause on hover
             }}
           >
-            {testimonials.map((item) => (
+            {testimonials?.map((item) => (
               <SwiperSlide key={item?._id}>
                 <Card item={item} isActive={true} />
               </SwiperSlide>

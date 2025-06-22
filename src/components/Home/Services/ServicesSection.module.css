@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   position: relative;
-  margin-bottom: clamp(40px, 6vw, 80px);
+  margin-bottom: 60px; 
 }
 
 .sliderHeader {
@@ -10,17 +10,16 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding-inline: clamp(16px, 6vw, 90px);
+  padding-inline: 68px; 
   margin: 0 0 24px;
 }
 
 .title {
   width: 100%;
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  gap: 10px !important;
   color: rgb(0, 0, 0);
-  margin: 20px 20px 0;
+  margin: 20px 15px 0;
 }
 
 .navButton {
@@ -60,7 +59,6 @@
 .slider {
   display: flex;
   align-items: flex-start;
-
   padding-right: 24px;
   gap: 16px;
 }
@@ -75,11 +73,13 @@
     padding-right: 16px;
     gap: 12px;
   }
+
   .spacer {
     width: 100px;
   }
+
   .sliderHeader {
-    padding-right: 16px;
+    padding-inline: 42px; 
   }
 }
 
@@ -88,16 +88,24 @@
     padding-right: 0px;
     gap: 5px;
   }
+
   .spacer {
-    display: none;
-  }
+    flex: 0 0 2%;
+   }
+
   .navButtons {
     display: none;
   }
+
   .sliderHeader {
-    padding-right: 16px;
+    padding-inline: 5px; 
   }
-  .title{
-    gap: 5px;
+
+  .title {
+    gap: 5px !important;
+  }
+
+  .servicesWrapper {
+    margin-bottom: 40px;
   }
 }

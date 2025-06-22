@@ -64,9 +64,9 @@ const ourValues = Joi.object({
 });
 
 // ------------------------------
-// ✅aboutUs
+// ✅missionVision
 // ------------------------------
-const aboutUs = Joi.object({
+const missionVision = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   ...CommonsVal,
@@ -81,8 +81,8 @@ export const AboutValCreate = Joi.object({
   hero: heroSection.required(),
   whoUsSectionSection: whoUsSectionSection.required(),
   ourValues: ourValues.required(),
-  aboutUs: aboutUs.required(),
-  quoteSection: aboutUs.required(),
+  missionVision: missionVision.required(),
+  quoteSection: missionVision.required(),
 
   ...CommonsVal,
 });
@@ -97,8 +97,8 @@ export const AboutValUpdate = Joi.object({
   hero: heroSection,
   whoUsSectionSection,
   ourValues,
-  aboutUs,
-  quoteSection: aboutUs,
+  missionVision,
+  quoteSection: missionVision,
 
   ...CommonsVal,
 });

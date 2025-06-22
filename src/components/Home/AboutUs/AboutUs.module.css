@@ -20,7 +20,7 @@
   color: #000;
 
   display: flex;
-  gap: 10px;
+  gap: 10px !important;
   max-width: 100%;
 
 }
@@ -73,10 +73,12 @@
 
   .mesh {
     width: 120vw;
-    height: 100vh;
-    left: -10vw;
+    height: 105vh;
+    left: -20px;
+    transform: rotate(20deg);
+    opacity: 0.5;
   }
   .title{
-    gap: 5px;
+    gap: 5px !important;
   }
 }

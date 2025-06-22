@@ -17,8 +17,6 @@
 .title {
   color: var(--bg100);
     color: #012e89;
-
-  font-size: clamp(40px, 4vw, 60px);
   font-family: var(--font-Cormorant);
   font-weight: 600;
   font-style: italic;

@@ -7,6 +7,7 @@ import { pageMetadataHandler } from "@/utils/metadata";
 import Template from "@/components/Template/Template";
 import WhoUsSection from "@/components/AboutUs/WhoUsSection/WhoUsSection";
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
+import AboutUs from "@/components/AboutUs/AboutUs";
 
 const pageKey = "about-us";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
@@ -15,7 +16,7 @@ const Page = async (props) => {
     hero = {},
     ourValues = [],
     whoUsSectionSection = {},
-    aboutUs = {},
+    missionVision = {},
     quoteSection = {},
   } = await getPage("about-us");
   return (
@@ -31,12 +32,14 @@ const Page = async (props) => {
 
       <OurValues data={ourValues} />
 
+      <AboutUs data={quoteSection}/>
+
       <QuoteSection
         link={{
           href: "/services",
           label: "explore our services",
         }}
-        data={quoteSection}
+        data={missionVision}
       />
       <SpaceSection style={{ background: "white" }} />
     </Template>

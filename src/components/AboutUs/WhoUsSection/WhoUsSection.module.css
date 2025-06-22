@@ -9,14 +9,14 @@
 }
 
 .list {
-
   gap: 40px;
 }
 
 .title {
   width: 100%;
   margin: 20px 15px;
-  font-size: clamp(25px,4vw,40px) !important;
+  display: flex;
+  gap: 3px !important;
 
 }
 

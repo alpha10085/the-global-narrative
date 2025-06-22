@@ -40,8 +40,8 @@ const ourValues = new Schema({
     },
   ],
 });
-// aboutUs
-const aboutUs = new Schema({
+// Mission-Vision
+const missionVision = new Schema({
   title: mongtext,
   description: mongeDescription,
 });
@@ -56,7 +56,7 @@ const aboutUsSchema = new Schema({
   hero: heroSection,
   whoUsSectionSection,
   ourValues,
-  aboutUs,
+  missionVision,
   quoteSection,
 });
 
