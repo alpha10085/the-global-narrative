@@ -24,6 +24,10 @@
   display: flex;
   gap: 5px !important;
 }
+.title span {
+  
+  padding: 0 2px 0 0; /* or more */
+}
 
 .line {
   width: 100%;
