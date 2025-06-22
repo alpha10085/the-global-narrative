@@ -5,32 +5,36 @@ import Img from "../Shared/img/Img";
 import styles from "./AboutUs.module.css";
 
 const AboutUs = ({ data = {} }) => {
-  const { title = "", description = "" } = data;
+  const { points = [], poster } = data;
+
   return (
     <div id="active-section" data-offset="0" className={styles.container}>
       <div className={`${styles.wrapper} flex gap40`}>
-        <div className="">
-          <SectionTitle delay={0} title={title} className={styles.title} />
-
-          <AnimatedParagraph
-            text={description}
-            delayPerWord={0.1} // Slower
-            duration={0.75}
-            className={styles.description}
-          />
+        <div style={{ flex: 1 }}>
+          {points?.map((point, index) => (
+            <div key={index} className={styles.pointBlock}>
+              <SectionTitle
+                delay={index * 0.2}
+                title={point.title}
+                className={styles.title}
+              />
+              <AnimatedParagraph
+                text={point.description}
+                delayPerWord={0.1}
+                duration={0.75}
+                className={styles.description}
+              />
+            </div>
+          ))}
         </div>
 
         <Aos
           threshold={0.6}
-          delay={200}
+          delay={200} 
           activeClassName={styles.active}
-          className={`${styles.card}`}
+          className={styles.card}
         >
-          <Img
-            className={styles.image}
-            url={data?.poster?.url}
-            alt={data?.name}
-          />
+          <Img className={styles.image} url={poster?.url} alt={data?.name} />
         </Aos>
       </div>
     </div>
