@@ -75,7 +75,7 @@
   font-size: 14px;
   color: #aaa;
   margin-left: 8px;
-  animation: showAndHide 4s ease forwards;
+  animation: showAndHide 10s ease forwards;
   display: none;
 }
 
