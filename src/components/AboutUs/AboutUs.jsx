@@ -12,7 +12,7 @@ const AboutUs = ({ data = {} }) => {
       <div className={`${styles.wrapper} flex gap40`}>
         <div style={{ flex: 1 }}>
           {points?.map((point, index) => (
-            <div key={index} className={styles.pointBlock}>
+            <div key={point?._id} className={styles.pointBlock}>
               <SectionTitle
                 delay={index * 0.2}
                 title={point?.title}
