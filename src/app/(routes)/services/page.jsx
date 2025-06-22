@@ -6,6 +6,7 @@ import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import Template from "@/components/Template/Template";
+import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 
 const pageKey = "services-page";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
@@ -23,17 +24,20 @@ const Page = async (props) => {
       className={styles.main}
       data={hero}
     >
-    <SSRFetcher
-      Component={ServicesList}
-      options={{
-        next: {
-          revalidate: "1y",
-          tags: ourValueSection?.cards || ["ourValue-service"],
-        },
-      }}
-      data={ourValueSection}
-      path={`/service/services?ids=${ourValueSection?.cards}`}
-    />
+      <FloatedSection>
+        <SSRFetcher
+          Component={ServicesList}
+          options={{
+            next: {
+              revalidate: "1y",
+              tags: ourValueSection?.cards || ["ourValue-service"],
+            },
+          }}
+          data={ourValueSection}
+          path={`/service/services?ids=${ourValueSection?.cards}`}
+        />
+      </FloatedSection>
+
       <QuoteSection
         link={{
           href: "/contact-us",
@@ -42,8 +46,8 @@ const Page = async (props) => {
         data={quoteSection}
       />
 
-       <SpaceSection style={{ background: "white" }} />
-     </Template>
+      <SpaceSection style={{ background: "white" }} />
+    </Template>
   );
 };
 
