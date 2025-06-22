@@ -13,7 +13,9 @@
 .title {
   height: max-content;
   transform: translateY(-25px);
-  min-width: max-content;
+  max-width: 500px;
+  display: flex;
+  gap: 5px !important;
   color: var(--color500);
   font-size: clamp(20px, 2vw, 40px) !important;
 }
@@ -38,13 +40,13 @@
     gap: 20px !important;
   }
   .container {
-    padding: 5vh 0;
+    padding: 10vh 0;
   }
   .description {
     width: 100%;
   }
   .title {
-    font-size: clamp(20px, 8vw, 40px) !important ;
+    font-size: clamp(18px, 8vw, 40px) !important ;
   }
   .description span {
     opacity: 1 !important;
