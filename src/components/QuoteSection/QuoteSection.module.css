@@ -20,6 +20,8 @@
   font-family: var(--font-Cormorant);
   font-weight: 600;
   font-style: italic;
+  display: flex;
+  gap: 5px !important;
 }
 
 .line {
