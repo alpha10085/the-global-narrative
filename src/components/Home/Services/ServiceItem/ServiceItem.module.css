@@ -125,9 +125,9 @@
     padding: 12px;
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 350px) {
   .valueItem {
-    width: 300px;
+    width: 310px;
     height: 330px;
   }
 

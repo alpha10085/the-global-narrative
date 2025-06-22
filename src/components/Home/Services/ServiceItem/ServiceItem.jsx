@@ -10,7 +10,7 @@ import LinkTransition from "@/components/Shared/LinkTransition/LinkTransition";
 const ServiceItem = ({ item = {}, index = 0 }) => {
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.02,
+    threshold: 0.09,
   });
 
   const delayStyle = {
@@ -19,7 +19,7 @@ const ServiceItem = ({ item = {}, index = 0 }) => {
 
   return (
     <LinkTransition
-    href="/services"
+      href="/services"
       id={`id_${item?._id}`}
       ref={ref}
       className={`${styles.valueItem} ${inView ? styles.show : styles.hidden}`}
@@ -34,7 +34,7 @@ const ServiceItem = ({ item = {}, index = 0 }) => {
           url={item?.poster?.url}
           alt={item?.title || ""}
         />
- 
+
         <div className={styles.textOverlay}>
           <h3>{item?.title}</h3>
           <p>{customText(item?.description, 90)}</p>
