@@ -6,7 +6,7 @@ import styles from "./AboutUs.module.css";
 
 const AboutUs = ({ data = {} }) => {
   const { points = [], poster } = data;
-  
+
   return (
     <div id="active-section" data-offset="0" className={styles.container}>
       <div className={`${styles.wrapper} flex gap40`}>
@@ -30,7 +30,7 @@ const AboutUs = ({ data = {} }) => {
 
         <Aos
           threshold={0.6}
-          delay={200} 
+          delay={200}
           activeClassName={styles.active}
           className={styles.card}
         >
