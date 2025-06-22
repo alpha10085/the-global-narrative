@@ -4,7 +4,6 @@ import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import { lineBreak } from "@/utils/text";
 
 const Card = ({ className = "", data = {}, index = 1 }) => {
-  const keys = data?.keyPoints
   return (
     <Aos
       threshold={0.5}
