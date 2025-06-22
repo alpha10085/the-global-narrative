@@ -10,8 +10,8 @@
   justify-content: space-between;
   align-items: center;
   gap: 16px;
-  padding-inline: 68px; 
-  margin: 0 0 24px;
+  padding-left: 90px; 
+  margin: 20px 0 24px;
 }
 
 .title {
@@ -19,7 +19,7 @@
   display: flex;
   gap: 10px !important;
   color: rgb(0, 0, 0);
-  margin: 20px 40px 0;
+  margin: 20px 0px 0;
 
 }
 
@@ -80,7 +80,7 @@
   }
 
   .sliderHeader {
-    padding-inline: 42px; 
+    padding-inline: 60px; 
   }
 }
 
@@ -99,7 +99,7 @@
   }
 
   .sliderHeader {
-    padding-inline: 5px; 
+    padding-left: 30px; 
   }
 
   .title {
