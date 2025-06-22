@@ -66,12 +66,23 @@ const ourValues = Joi.object({
 // ------------------------------
 // ✅missionVision
 // ------------------------------
-const missionVision = Joi.object({
+const quoteSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
+  ...CommonsVal,
+});
+
+const missionVision = Joi.object({
+  points: joiArray({
+    body: quoteSection,
+    min: 1,
+    max: 3,
+    required: true,
+  }),
   poster: fileVal.required(),
   ...CommonsVal,
 });
+
 // ------------------------------
 // ✅ Validation for Creating
 // ------------------------------
@@ -83,7 +94,7 @@ export const AboutValCreate = Joi.object({
   whoUsSectionSection: whoUsSectionSection.required(),
   ourValues: ourValues.required(),
   missionVision: missionVision.required(),
-  quoteSection: missionVision.required(),
+  quoteSection: quoteSection.required(),
 
   ...CommonsVal,
 });
@@ -99,7 +110,7 @@ export const AboutValUpdate = Joi.object({
   whoUsSectionSection,
   ourValues,
   missionVision,
-  quoteSection: missionVision,
+  quoteSection: quoteSection,
 
   ...CommonsVal,
 });

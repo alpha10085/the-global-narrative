@@ -99,12 +99,24 @@ const AboutPageValidationSchema = (locale = "en") => {
       required: true,
       locale,
       body: {
-        title: joiText({ locale, min: 2, max: 20000, required: true }),
-        description: joiText({
-          locale,
-          min: 2,
-          max: 20000,
+        points: joiArray({
+          min: 1,
+          max: 3,
           required: true,
+          locale,
+          body: joiObject({
+            required: true,
+            locale,
+            body: {
+              title: joiText({ locale, min: 2, max: 20000, required: true }),
+              description: joiText({
+                locale,
+                min: 2,
+                max: 20000,
+                required: true,
+              }),
+            },
+          }),
         }),
         poster: fileVal.required().messages(
           messagesHandlers({
