@@ -19,7 +19,6 @@ const Page = async (props) => {
     missionVision = {},
     quoteSection = {},
   } = await getPage("about-us");
-  console.log("🚀 ~ Page ~ missionVision:", missionVision)
   return (
     <Template
       color="classicCyan"
@@ -33,8 +32,9 @@ const Page = async (props) => {
 
       <OurValues data={ourValues} />
 
+      <FloatedSection>
         <AboutUs data={missionVision} />
-
+      </FloatedSection>
 
       <QuoteSection
         link={{
