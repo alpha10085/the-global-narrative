@@ -69,6 +69,35 @@
   pointer-events: none;
 }
 
+.hint {
+  opacity: 0;
+  transform: translateY(-10px);
+  font-size: 14px;
+  color: #aaa;
+  margin-left: 8px;
+  animation: showAndHide 4s ease forwards;
+  display: none;
+}
+
+@keyframes showAndHide {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
 @media (max-width: 1024px) {
   .slider {
     padding-right: 16px;
@@ -100,11 +129,17 @@
 
   .sliderHeader {
     padding-left: 30px;
-    padding-right: 0;
+    padding-right: 10px;
+    align-items: flex-end;
   }
 
   .title {
     gap: 5px !important;
+  }
+
+  .hint {
+     display: inline-block; 
+
   }
 
   .servicesWrapper {

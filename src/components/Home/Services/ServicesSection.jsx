@@ -4,6 +4,7 @@ import styles from "./ServicesSection.module.css";
 import ServiceItem from "./ServiceItem/ServiceItem";
 import { ArrowBackIosNewIcon, ArrowForwardIosIcon } from "../icons";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const ServicesSection = ({ data = {} }) => {
   const sliderRef = useRef();
@@ -28,8 +29,19 @@ const ServicesSection = ({ data = {} }) => {
       className={styles.servicesWrapper}
     >
       <div className={styles.sliderHeader}>
-      
-          <SectionTitle title={data?.title} className={styles.title} />
+        <SectionTitle title={data?.title} className={styles.title} />
+
+        {/* Show "Swipe" hint once on mobile */}
+        <Aos
+          triggerOnce
+          threshold={0.3}
+          className={`${styles.hint}`}
+          activeClassName={styles.hintActive}
+          delay={200}
+        >
+          <span className={styles.swipeHint}>Swipe →</span>
+        </Aos>
+
         <div className={` flex gap10 ${styles.navButtons} `}>
           <button
             onClick={() => scroll("left")}

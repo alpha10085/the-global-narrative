@@ -27,7 +27,7 @@ void main() {
 `;
 
 const fragmentShaderSource = `
-precision highp float;
+precision mediump float;
 uniform float iTime;
 uniform vec3 iResolution;
 uniform vec3 uColor;
@@ -190,7 +190,16 @@ const Threads = ({
     resize();
 
     let start = performance.now();
-    function render() {
+    let lastFrame = 0;
+
+    function render(now) {
+      const elapsed = now - lastFrame;
+      if (elapsed < 33.33) { // ~30 FPS
+        frameId.current = requestAnimationFrame(render);
+        return;
+      }
+      lastFrame = now;
+
       const t = (performance.now() - start) * 0.001;
       gl.uniform1f(timeLoc, t);
       gl.uniform3f(
@@ -209,7 +218,8 @@ const Threads = ({
       gl.drawArrays(gl.TRIANGLES, 0, 3);
       frameId.current = requestAnimationFrame(render);
     }
-    render();
+
+    frameId.current = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(frameId.current);
