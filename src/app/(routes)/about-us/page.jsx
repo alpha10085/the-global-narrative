@@ -32,6 +32,7 @@ const Page = async (props) => {
 
       <OurValues data={ourValues} />
 
+      <AboutUs data={missionVision}/>
 
       <QuoteSection
         link={{
