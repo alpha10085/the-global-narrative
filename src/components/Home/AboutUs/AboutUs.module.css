@@ -76,6 +76,7 @@
     height: 105vh;
     left: -20px;
     transform: rotate(20deg);
+    opacity: 0.5;
   }
   .title{
     gap: 5px !important;
