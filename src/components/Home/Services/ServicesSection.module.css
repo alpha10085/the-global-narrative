@@ -2,15 +2,15 @@
   height: 100%;
   width: 100%;
   position: relative;
-  margin-bottom: 60px; 
+  margin-bottom: 60px;
 }
 
 .sliderHeader {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   gap: 16px;
-  padding-left: 90px; 
+  padding-left: 90px;
   padding-right: 20px;
   margin: 20px 0 24px;
 }
@@ -21,7 +21,6 @@
   gap: 10px !important;
   color: rgb(0, 0, 0);
   margin: 20px 0px 0;
-
 }
 
 .navButton {
@@ -81,8 +80,7 @@
   }
 
   .sliderHeader {
-    padding-inline: 60px; 
-    padding-right: 0;
+    padding-inline: 60px;
   }
 }
 
@@ -94,14 +92,15 @@
 
   .spacer {
     flex: 0 0 2%;
-   }
+  }
 
   .navButtons {
     display: none;
   }
 
   .sliderHeader {
-    padding-left: 30px; 
+    padding-left: 30px;
+    padding-right: 0;
   }
 
   .title {
