@@ -15,11 +15,11 @@ const AboutUs = ({ data = {} }) => {
             <div key={index} className={styles.pointBlock}>
               <SectionTitle
                 delay={index * 0.2}
-                title={point.title}
+                title={point?.title}
                 className={styles.title}
               />
               <AnimatedParagraph
-                text={point.description}
+                text={point?.description}
                 delayPerWord={0.1}
                 duration={0.75}
                 className={styles.description}
