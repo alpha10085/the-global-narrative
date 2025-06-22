@@ -14,9 +14,10 @@
 
 .title {
   width: 100%;
-  margin: 20px 15px;
+  margin: 0px 15px;
   display: flex;
   gap: 3px !important;
+  padding: 40px 0;
 
 }
 
