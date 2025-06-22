@@ -32,14 +32,14 @@ const Page = async (props) => {
 
       <OurValues data={ourValues} />
 
-      {/* <AboutUs data={quoteSection}/> */}
+      <AboutUs data={missionVision}/>
 
       <QuoteSection
         link={{
           href: "/services",
           label: "explore our services",
         }}
-        data={missionVision}
+        data={quoteSection}
       />
       <SpaceSection style={{ background: "white" }} />
     </Template>
