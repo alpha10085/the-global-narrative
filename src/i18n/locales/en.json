@@ -162,7 +162,8 @@
       "services_ph" : "Select services...",
       "serviceCards" : "services cards",
       "keyPoints":"key Points",
-      "keyPoints_ph":"enter key Points"
+      "keyPoints_ph":"enter key Points",
+      "missionVision" : "Mission & Vision"
     },
     "filterSystem": {
       "condtions": {

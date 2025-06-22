@@ -115,9 +115,9 @@
       ]
     },
     {
-      "name": "aboutUs",
+      "name": "missionVision",
       "type": "object",
-      "label": "aboutUs",
+      "label": "missionVision",
       "fields": [
         {
           "name": "title",

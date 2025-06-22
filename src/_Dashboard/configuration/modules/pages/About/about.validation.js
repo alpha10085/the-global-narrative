@@ -95,7 +95,7 @@ const AboutPageValidationSchema = (locale = "en") => {
       },
     }),
 
-    aboutUs: joiObject({
+    missionVision: joiObject({
       required: true,
       locale,
       body: {
