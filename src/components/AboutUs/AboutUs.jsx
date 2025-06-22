@@ -28,14 +28,14 @@ const AboutUs = ({ data = {} }) => {
           ))}
         </div>
 
-        {/* <Aos
+        <Aos
           threshold={0.6}
           delay={200}
           activeClassName={styles.active}
           className={styles.card}
         >
           <Img className={styles.image} url={poster?.url} alt={data?.name} />
-        </Aos> */}
+        </Aos>
       </div>
     </div>
   );

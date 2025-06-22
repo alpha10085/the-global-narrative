@@ -33,8 +33,8 @@ const Page = async (props) => {
 
       <OurValues data={ourValues} />
 
-      <FloatedSection>
         <AboutUs data={missionVision} />
+      <FloatedSection>
       </FloatedSection>
 
       <QuoteSection
