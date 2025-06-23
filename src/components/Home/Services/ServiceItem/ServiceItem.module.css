@@ -10,8 +10,10 @@
   opacity: 0;
   transform: translate(80px, 100px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  width: 400px;
-  height: 440px;
+  width: calc(100vw / 4);
+  height: calc(100vw / 4);
+  min-width: 400px;
+  min-height: 400px;
 }
 
 .imageWrapper {
@@ -113,6 +115,8 @@
     padding: 8px;
     width: 370px;
     height: 385px;
+      min-width: unset;
+  min-height: unset;
   }
   .imageWrapper {
     width: 100%;
@@ -130,5 +134,4 @@
     width: 310px;
     height: 330px;
   }
-
 }

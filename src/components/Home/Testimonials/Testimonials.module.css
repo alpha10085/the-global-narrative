@@ -92,8 +92,9 @@
   word-break: break-word;
 }
 .right {
-  height: 400px; /* Ensure this has a fixed height */
+  height: 60vh; /* Ensure this has a fixed height */
   overflow: hidden;
+  min-height: 400px;
 }
 
 .swiper {

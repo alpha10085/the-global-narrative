@@ -41,15 +41,18 @@ const ourValues = new Schema({
   ],
 });
 
-// quoteSection
-const quoteSection = new Schema({
+// Schema definition object
+const quoteSectionFields = {
   title: mongtext,
   description: mongeDescription,
-});
+};
 
-// Mission-Vision
+// quoteSection schema
+const quoteSection = new Schema(quoteSectionFields);
+
+// missionVision schema
 const missionVision = new Schema({
-  points: [quoteSection],
+  ...quoteSectionFields,
   poster,
 });
 

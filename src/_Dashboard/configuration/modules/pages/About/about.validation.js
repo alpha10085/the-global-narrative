@@ -14,7 +14,6 @@ import Joi from "joi";
 const AboutPageValidationSchema = (locale = "en") => {
   return Joi.object({
     metadata: pageMetadataValClient(locale),
-
     hero: joiObject({
       required: true,
       locale,
@@ -29,7 +28,6 @@ const AboutPageValidationSchema = (locale = "en") => {
         ),
       },
     }),
-
     whoUsSectionSection: joiObject({
       required: true,
       locale,
@@ -62,7 +60,6 @@ const AboutPageValidationSchema = (locale = "en") => {
         }),
       },
     }),
-
     ourValues: joiObject({
       required: true,
       locale,
@@ -94,30 +91,18 @@ const AboutPageValidationSchema = (locale = "en") => {
         }),
       },
     }),
-
     missionVision: joiObject({
       required: true,
       locale,
       body: {
-        points: joiArray({
-          min: 1,
-          max: 3,
-          required: true,
+        title: joiText({ locale, min: 2, max: 20000, required: true }),
+        description: joiText({
           locale,
-          body: joiObject({
-            required: true,
-            locale,
-            body: {
-              title: joiText({ locale, min: 2, max: 20000, required: true }),
-              description: joiText({
-                locale,
-                min: 2,
-                max: 20000,
-                required: true,
-              }),
-            },
-          }),
+          min: 2,
+          max: 20000,
+          required: true,
         }),
+
         poster: fileVal.required().messages(
           messagesHandlers({
             locale,
@@ -126,6 +111,7 @@ const AboutPageValidationSchema = (locale = "en") => {
         ),
       },
     }),
+
     quoteSection: joiObject({
       required: true,
       locale,

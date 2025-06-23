@@ -73,12 +73,8 @@ const quoteSection = Joi.object({
 });
 
 const missionVision = Joi.object({
-  points: joiArray({
-    body: quoteSection,
-    min: 1,
-    max: 3,
-    required: true,
-  }),
+  title: joiText({ min: 2, max: 1000, required: true }),
+  description: joiText({ min: 2, max: 20000, required: true }),
   poster: fileVal.required(),
   ...CommonsVal,
 });
