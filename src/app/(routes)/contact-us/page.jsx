@@ -4,14 +4,21 @@ import Form from "@/components/LetsCollaborate/Form/Form";
 import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
+import { AttachEmailIcon, LocalPhoneIcon, LocationPinIcon } from "@/components/icons";
 
 const pageKey = "contact-us";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
 const page = async () => {
   const {
+    information = {},
     title = "Join Our Journey",
     description = "For inquiries, press inquiries, or to schedule a meeting with our team",
   } = await getPage("contact-us");
+  const {
+    Address = "Building 4/D/6, 5th Floor Nasr Street, New Maadi, Cairo, Egypt",
+    phone = "(+202) 251 745 07",
+    email = "info@globalnarrative.com",
+  } = information;
 
   const siteKey = process.env.RECAPTCHA_SITE_KEY;
   return (
@@ -24,9 +31,8 @@ const page = async () => {
         <div className={styles.bg}>
           <AnimatedBackground
             speed={0.5}
-            color={[0.2, 0.6, 1.0]}
+            color={[0.5, 0.75, 1]}
             mouseReact={false}
-            
           />
         </div>
       </div>
@@ -42,6 +48,27 @@ const page = async () => {
           </Aos>
         </div>
         <Form siteKey={siteKey} />
+        <div className={`${styles.info} flex wrap gap25 just-fs`}>
+          <div className={`${styles.item} flex gap15`}>
+            <div className="flex-c gap15">
+              <LocationPinIcon />
+            </div>
+            <div className={styles.value}>{Address}</div>
+          </div>
+
+          <div className={`${styles.item} flex gap15`}>
+            <div className="flex-c gap15">
+              <LocalPhoneIcon />
+            </div>
+            <div className={styles.value}>{phone}</div>
+          </div>
+          <div className={`${styles.item} flex gap15`}>
+            <div className="flex-c gap15">
+              <AttachEmailIcon />
+            </div>
+            <div className={styles.value}>{email}</div>
+          </div>
+        </div>
       </div>
     </section>
   );

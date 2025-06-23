@@ -5,7 +5,7 @@
 .content {
   width: 50%;
   background-color: white;
-  padding: 80px 30px 0px;
+  padding:84px 30px 0px;
   overflow: hidden;
   margin: auto;
 }
@@ -83,7 +83,26 @@
   position: sticky;
   top: 0;
 }
-
+.info {
+  width: 100%;
+  padding: 0 20px 50px;
+  justify-content: flex-start !important;
+}
+.info .item {
+  width: 300px;
+  max-width: 100%;
+  align-items: flex-start;
+  font-weight: 600;
+}
+.info .value {
+  color: rgb(81, 81, 81);
+  font-size: 14px;
+  line-height: 1.7;
+}
+.info .item svg {
+  color: rgb(11, 136, 246);
+  font-size: 25px;
+}
 @media (max-width: 768px) {
   .content {
     flex-grow: 1;
@@ -111,4 +130,15 @@
   .bg::before {
     opacity: 0;
   }
+
+  .info .value {
+
+  font-size: 12px;
+}
+.info .item svg {
+  font-size: 20px;
+}
+.info {
+  padding: 15px  0 0 ;
+}
 }

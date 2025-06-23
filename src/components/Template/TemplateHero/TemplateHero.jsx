@@ -9,6 +9,7 @@ export const colors = {
   brightNeonBlue: [0, 1, 0.65],
   aquaMint: [0.2, 1.0, 1.0],
   iceBlue: [0.5, 0, 0.9],
+  blue:[0.2, 0.6, 1.0],
   default: [0.7, 1, 1],
 };
 

@@ -19,7 +19,7 @@ const Page = async (props) => {
 
   return (
     <Template
-      color="brightNeonBlue"
+      color="blue"
       pageTitle="services"
       className={styles.main}
       data={hero}
