@@ -8,7 +8,7 @@ export const links = [
     enabled: true,
   },
   {
-    text: "About Us",
+    text: "who we are",
     href: "/about-us",
     enabled: true,
   },
