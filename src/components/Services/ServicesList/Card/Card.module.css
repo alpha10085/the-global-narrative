@@ -210,3 +210,10 @@
 }
 
 }
+
+
+@media (max-width: 432px) {
+ .title{
+  font-size: 9px;
+ }
+}
