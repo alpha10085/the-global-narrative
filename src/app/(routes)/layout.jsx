@@ -7,7 +7,8 @@ import PageAnalytics from "@/components/Shared/PageAnalytics/PageAnalytics";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import Fallback from "@/components/Footer/Fallback";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
-import styles from './page.module.css'
+import styles from "./page.module.css";
+import ClientWrapper from "@/components/ClientWrapper/ClientWrapper";
 export default async function RootLayout({ children }) {
   return (
     <main
@@ -15,18 +16,21 @@ export default async function RootLayout({ children }) {
       className={`ShowSmoothEffectShortDelay ${styles.mainlayout}`}
     >
       <SmoothScroll duration={1} />
-      <NavBar />
-       
-      <div style={{ minHeight: "100vh" }}>{children}</div>
-   
+
+      <ClientWrapper>
+        <NavBar />
+        <div style={{ minHeight: "100vh" }}>{children}</div>
+        <SSRFetcher
+          Component={Footer}
+          path="/components/footer"
+          Fallback={Fallback}
+          props={{ revalidate: "1y" }}
+        />
+      </ClientWrapper>
+
       <Toaster />
       <DashPopup />
-      <SSRFetcher
-        Component={Footer}
-        path="/components/footer"
-        Fallback={Fallback}
-        props={{ revalidate: "1y" }}
-      />
+
       <PageAnalytics />
     </main>
   );

@@ -1,0 +1,61 @@
+.intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(-45deg, #000428, #000, #000428, #000);
+  background-size: 400% 400%;
+  animation: gradientMove 8s ease infinite;
+
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.g {
+  font-size: 200px !important;
+  font-weight: bold;
+  transition: transform 1s ease;
+}
+
+.slide {
+  transform: translateX(-20px);
+}
+
+.text {
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+  white-space: nowrap;
+  margin-left: 0.3rem;
+}
+
+.showText {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
