@@ -12,7 +12,7 @@ const ClientWrapper = ({ children }) => {
     const hasVisited = sessionStorage.getItem("intro-shown");
 
     if (hasVisited) {
-      setShowIntro(true);
+      setShowIntro(false);
     } else {
       setShowIntro(true);
       const timer = setTimeout(() => {
