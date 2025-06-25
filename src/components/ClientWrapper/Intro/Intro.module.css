@@ -15,16 +15,24 @@
   font-family: "Segoe UI", sans-serif;
   z-index: 9999;
   overflow: hidden;
+  flex-direction: column;
 }
 
 .logoContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  font-size: 32px; 
+  text-align: center;
+}
+
+.mainTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .g {
-  font-size: 180px !important;
+  font-size: 150px;
   font-weight: bold;
   transition: transform 1s ease;
 }
@@ -37,13 +45,26 @@
   opacity: 0;
   transform: translateX(10px);
   transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
-  white-space: nowrap;
-  margin-left: 5px; 
+  font-size: 50px;
+  text-align: start;
+  line-height: 1.1;
 }
 
 .showText {
   opacity: 1;
   transform: translateX(0);
+}
+
+.slogan {
+  opacity: 0;
+  transform: translateY(30px);
+  font-size: 24px;
+  transition: opacity 1s ease 1.2s, transform 1s ease 1.2s;
+}
+
+.sloganAppear {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes gradientMove {
