@@ -81,7 +81,7 @@
 
 
 .hide {
-  animation: fadeOut 1s ease forwards;
+  animation: fadeOut 0.8s ease forwards;
 }
 
 @keyframes fadeOut {
