@@ -38,13 +38,12 @@ body {
   min-height: 100vh;
   font-family: var(--font-geist);
   overflow: auto scroll;
-  font-family: "Open Sans" !important;
+  font-family: var(--font-open-sans) !important;
 }
 
 .imageoverlay {
   position: relative;
 }
-
 
 .imageoverlay::before {
   content: "";
@@ -384,7 +383,9 @@ input:-webkit-autofill:active {
   }
 }
 
-
-h1, h2, h3, h4 {
-  font-family: "Obento" !important;
+h1,
+h2,
+h3,
+h4 {
+   font-family: var(--font-Ubuntu) !important;
 }
