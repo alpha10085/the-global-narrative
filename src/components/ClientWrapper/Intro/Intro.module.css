@@ -32,7 +32,7 @@
 }
 
 .g {
-  font-size: 150px;
+  font-size: clamp(64px, 10vw, 150px);
   font-weight: bold;
   transition: transform 1s ease;
 }
@@ -45,7 +45,7 @@
   opacity: 0;
   transform: translateX(10px);
   transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
-  font-size: 50px;
+  font-size: clamp(24px, 5vw, 50px);
   text-align: start;
   line-height: 1.1;
 }
@@ -58,7 +58,7 @@
 .slogan {
   opacity: 0;
   transform: translateY(30px);
-  font-size: 24px;
+  font-size: clamp(16px, 3vw, 24px);
   transition: opacity 1s ease 1s, transform 1s ease 1s;
 }
 
@@ -79,7 +79,6 @@
   }
 }
 
-
 .hide {
   animation: fadeOut 0.8s ease forwards;
 }
@@ -90,4 +89,3 @@
     visibility: hidden;
   }
 }
-
