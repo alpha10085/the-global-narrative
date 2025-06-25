@@ -1,12 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-import React from "react";
 import Intro from "./Intro/Intro";
 
 const ClientWrapper = ({ children }) => {
   const [showIntro, setShowIntro] = useState(null);
+  const [hideIntro, setHideIntro] = useState(false);
 
   useEffect(() => {
     const hasVisited = sessionStorage.getItem("intro-shown");
@@ -16,16 +15,22 @@ const ClientWrapper = ({ children }) => {
     } else {
       setShowIntro(true);
       const timer = setTimeout(() => {
+        setHideIntro(true); // trigger fade out
         sessionStorage.setItem("intro-shown", "true");
-        setShowIntro(false);
-      }, 3000);
+      }, 3000); // after 3s of intro
 
       return () => clearTimeout(timer);
     }
   }, []);
 
+  const handleHideEnd = () => {
+    setShowIntro(false); // remove intro after animation ends
+  };
+
   if (showIntro === null) return children;
-  if (showIntro) return <Intro />;
+  if (showIntro) {
+    return <Intro hide={hideIntro} onHideEnd={handleHideEnd} />;
+  }
 
   return children;
 };

@@ -78,3 +78,16 @@
     background-position: 0% 50%;
   }
 }
+
+
+.hide {
+  animation: fadeOut 1s ease forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
