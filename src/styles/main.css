@@ -38,11 +38,14 @@ body {
   min-height: 100vh;
   font-family: var(--font-geist);
   overflow: auto scroll;
+  font-family: "Open Sans" !important;
 }
 
 .imageoverlay {
   position: relative;
 }
+
+
 .imageoverlay::before {
   content: "";
   position: absolute;
@@ -379,4 +382,9 @@ input:-webkit-autofill:active {
   .coverHeader {
     height: 45px;
   }
+}
+
+
+h1, h2, h3, h4 {
+  font-family: "Obento" !important;
 }
