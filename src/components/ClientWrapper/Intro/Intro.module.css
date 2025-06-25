@@ -17,11 +17,10 @@
   overflow: hidden;
 }
 
-
 .logoContainer {
   display: flex;
   align-items: center;
-  font-size: 2rem;
+  font-size: 32px; 
 }
 
 .g {
@@ -39,14 +38,13 @@
   transform: translateX(10px);
   transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
   white-space: nowrap;
-  margin-left: 0.3rem;
+  margin-left: 5px; 
 }
 
 .showText {
   opacity: 1;
   transform: translateX(0);
 }
-
 
 @keyframes gradientMove {
   0% {
