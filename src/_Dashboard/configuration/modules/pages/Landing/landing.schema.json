@@ -23,21 +23,34 @@
         {
           "name": "media",
           "type": "media",
-          "allowedTypes": [
-            "image",
-            "video"
-          ],
+          "allowedTypes": ["image", "video"],
           "single": true,
           "label": "media"
         },
         {
           "name": "thumbnail",
           "type": "media",
-          "allowedTypes": [
-            "image"
-          ],
+          "allowedTypes": ["image"],
           "single": true,
           "label": "thumbnail"
+        },
+        {
+          "name": "button",
+          "type": "object",
+          "label": "button",
+          "min": 1,
+          "fields": [
+            {
+              "name": "label",
+              "type": "text",
+              "label": "label"
+            },
+            {
+              "name": "link",
+              "type": "test",
+              "label": "link"
+            }
+          ]
         }
       ]
     },
@@ -72,11 +85,7 @@
           "name": "services",
           "type": "relation",
           "ref": "service",
-          "select": [
-            "_id",
-            "title",
-            "poster"
-          ],
+          "select": ["_id", "title", "poster"],
           "imageField": "poster",
           "displayField": "title",
           "single": false,
@@ -104,9 +113,7 @@
         {
           "name": "poster",
           "type": "media",
-          "allowedTypes": [
-            "image"
-          ],
+          "allowedTypes": ["image"],
           "single": true,
           "label": "poster"
         }
@@ -126,11 +133,7 @@
           "name": "posts",
           "type": "relation",
           "ref": "news",
-          "select": [
-            "_id",
-            "title",
-            "poster"
-          ],
+          "select": ["_id", "title", "poster"],
           "imageField": "poster",
           "displayField": "title",
           "single": false,
@@ -153,11 +156,7 @@
           "name": "posts",
           "type": "relation",
           "ref": "testimonials",
-          "select": [
-            "_id",
-            "author",
-            "poster"
-          ],
+          "select": ["_id", "author", "poster"],
           "imageField": "poster",
           "displayField": "author",
           "single": false,
@@ -184,9 +183,7 @@
         {
           "name": "poster",
           "type": "media",
-          "allowedTypes": [
-            "image"
-          ],
+          "allowedTypes": ["image"],
           "single": true,
           "label": "poster"
         }

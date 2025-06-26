@@ -17,6 +17,10 @@ const heroItemSchema = new Schema({
   media: poster,
   thumbnail: poster,
   description: mongeDescription,
+  button: {
+    label: mongtext,
+    link: mongtext,
+  },
 });
 
 // About Us section
@@ -89,7 +93,6 @@ landingSchema.pre(/^find/, function (next) {
       ...populateCommons,
       path: "quoteSection.poster",
     },
-
   ];
   if (this?.options?.admin) {
     populatePipeline.push(

@@ -35,6 +35,14 @@ const LandingPageValidationSchema = (locale = "en") => {
             type: "object",
           })
         ),
+        button: joiObject({
+          required: true,
+          locale,
+          body: {
+            label: joiText({ locale, min: 2, max: 20000, required: true }),
+            link: joiText({ locale, min: 2, max: 20000, required: true }),
+          },
+        }),
       },
     }),
 
