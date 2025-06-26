@@ -36,6 +36,7 @@
   /* text-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
   text-align: center;
   display: flex;
+  gap: 5px !important;
   justify-content: center;
   color: white !important;
 }
@@ -68,9 +69,10 @@
   .titleBox {
     bottom: 18vh;
   }
-  .title {
+ .titleBox .title {
     text-align: center !important;
     display: flex;
+    gap: 2px !important;
     justify-content: center;
   }
 }
