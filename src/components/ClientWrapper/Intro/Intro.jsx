@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./Intro.module.css";
+import MainLogo from "@/components/MainLogo/MainLogo";
 
 const Intro = ({ hide = false, onHideEnd }) => {
   const [start, setStart] = useState(false);
@@ -9,7 +10,8 @@ const Intro = ({ hide = false, onHideEnd }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setStart(true);
-    }, 700);
+    }, 1500); // Delay before logo animates to corner
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -18,18 +20,12 @@ const Intro = ({ hide = false, onHideEnd }) => {
       className={`${styles.intro} ${hide ? styles.hide : ""}`}
       onAnimationEnd={hide ? onHideEnd : undefined}
     >
-      <div className={styles.logoContainer}>
-        <div className={styles.mainTitle}>
-          <span className={`${styles.g} ${start ? styles.slide : ""}`}>G</span>
-          <div className={`${styles.text} ${start ? styles.showText : ""}`}>
-            <div>lobal</div>
-            <div>Narrative</div>
-          </div>
-        </div>
-
-        <div className={`${styles.slogan} ${start ? styles.sloganAppear : ""}`}>
-          PR with purpose
-        </div>
+      <div
+        className={`${styles.animatedLogo} ${
+          start ? styles.logoToCorner : ""
+        }`}
+      >
+        <MainLogo theme="dark" />
       </div>
     </div>
   );

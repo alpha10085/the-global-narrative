@@ -27,10 +27,10 @@ const ClientWrapper = ({ children }) => {
     setShowIntro(false); // remove intro after animation ends
   };
 
-  if (showIntro === null) return children;
   if (showIntro) {
     return <Intro hide={hideIntro} onHideEnd={handleHideEnd} />;
   }
+  if (showIntro === null) return children;
 
   return children;
 };

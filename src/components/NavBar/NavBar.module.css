@@ -55,20 +55,7 @@
 }
 .logo {
   height: 70px;
-  transform: translateY(20px);
-  opacity: 0;
-  animation: intro_logo 0.8s forwards;
   z-index: 100;
-}
-@keyframes intro_logo {
-  from {
-    transform: translateX(-120px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
 }
 
 .rightUl {
