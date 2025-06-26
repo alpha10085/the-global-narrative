@@ -41,23 +41,22 @@ servicesPageSchema.pre(/^find/, function (next) {
       path: "hero.poster",
     },
   ];
-    if (this?.options?.admin) {
-      populatePipeline.push(
-        ...[
-          {
-            path: "ourValueSection.cards.poster",
-            model: "service",
-            select: {
-              _id: 1,
-              title: 1,
-              poster: 1,
-              description: 1
-            },
+  if (this?.options?.admin) {
+    populatePipeline.push(
+      ...[
+        {
+          path: "ourValueSection.cards",
+          model: "service",
+          select: {
+            _id: 1,
+            title: 1,
+            poster: 1,
+            description: 1,
           },
-          
-        ]
-      );
-    }
+        },
+      ]
+    );
+  }
 
   this.populate(populatePipeline);
   next();
