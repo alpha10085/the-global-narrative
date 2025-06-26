@@ -42,9 +42,8 @@ const Home = async () => {
         />
 
         <div className={styles.wrapper}>
-          <FloatedSection>
+          
             <Quote data={quoteSection} />
-          </FloatedSection>
 
           <SSRFetcher
             Component={News}
