@@ -10,7 +10,8 @@
   justify-content: space-between;
   align-items: baseline;
   gap: 16px;
-padding-left: 5%;
+  padding-left: 6%;
+  padding-right: 2%;
   margin: 20px 0 24px;
 }
 
@@ -59,7 +60,7 @@ padding-left: 5%;
 .slider {
   display: flex;
   align-items: flex-start;
-  padding-right:0;
+  padding-right: 0;
   gap: 16px;
 }
 
@@ -105,7 +106,6 @@ padding-left: 5%;
   .spacer {
     width: 100px;
   }
-
 }
 
 @media (max-width: 768px) {
@@ -130,11 +130,11 @@ padding-left: 5%;
 
   .title {
     gap: 5px !important;
+    margin: 20px 0 0px;
   }
 
   .hint {
-     display: inline-block; 
-
+    display: inline-block;
   }
 
   .servicesWrapper {
