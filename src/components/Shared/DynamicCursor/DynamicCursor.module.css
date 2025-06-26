@@ -30,7 +30,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  text-transform: uppercase;
+  text-transform: capitalize;
   transition: transform 0.4s ease, opacity 0.4s ease;
   backdrop-filter: blur(10);
   overflow: hidden;

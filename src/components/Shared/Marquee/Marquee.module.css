@@ -30,7 +30,7 @@
 }
 
 .title {
-  text-transform: uppercase;
+  text-transform: capitalize;
   margin: 50px auto;
   width: max-content;
   color: var(--col-t0);
@@ -132,7 +132,7 @@
 
 @media (max-width: 568px) {
   .title {
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin: 50px auto;
     width: max-content;
     color: var(--col-t0);
@@ -143,7 +143,7 @@
 
 @media (max-width: 468px) {
   .title {
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin: 50px auto;
     width: max-content;
     color: var(--col-t0);

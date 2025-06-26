@@ -42,7 +42,7 @@
   color: black;
   border-radius: 20px;
   border: 1px solid rgba(0, 0, 0, 0.166);
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: bold;
   font-size: 15px;
   letter-spacing: 1px;

@@ -28,7 +28,7 @@
 
 .titleBox .title {
   /* color: white; */
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: clamp(20px, 3vw, 70px);
   width: 850px;
   max-width: 100%;

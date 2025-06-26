@@ -1,6 +1,6 @@
 .link {
   width: max-content;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-weight: 500;
   font-size: 18px;
   z-index: 110;
