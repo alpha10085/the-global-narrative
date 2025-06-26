@@ -1,10 +1,16 @@
+"use client";
 import styles from "./AboutUs.module.css";
 import { ArrowOutwardIcon } from "../icons";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import Threads from "@/components/Threads/Threads";
+import { useInView } from "react-intersection-observer";
 
 const AboutUs = ({ data = {} }) => {
+  const { ref: bgRef, inView } = useInView({
+    threshold: 0.1,
+    triggerOnce: false,
+  });
   return (
     <div
       id="active-section"
@@ -27,8 +33,9 @@ const AboutUs = ({ data = {} }) => {
           <p className={styles.description}> {data?.description}</p>
         </Aos>
       </div>
-      <div className={styles.mesh}>
-        <Threads color={"#385cf5"} amplitude={2} />
+
+      <div className={styles.mesh} ref={bgRef}>
+        {inView && <Threads color={"#385cf5"} amplitude={2} distance={0.2} />}
       </div>
     </div>
   );
