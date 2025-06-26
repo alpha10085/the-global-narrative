@@ -1,15 +1,11 @@
 import mongoose from "mongoose";
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
 import { serviceModel } from "@/_Backend/database/models/service.model";
-import { sortByIdsOrder } from "@/_Backend/utils/sort";
+import { handleArrayOdIds, sortByIdsOrder } from "@/_Backend/utils/sort";
 
 export const GET = AsyncHandler(async (req, res) => {
   const { ids = [] } = req?.query;
-  const arrayOfIds = Array.isArray(ids)
-    ? ids
-    : typeof ids === "string"
-    ? ids.split(",")
-    : [];
+  const arrayOfIds = handleArrayOdIds(ids)
 
   const objectIds = arrayOfIds.map((id) => new mongoose.Types.ObjectId(id));
 
@@ -21,6 +17,6 @@ export const GET = AsyncHandler(async (req, res) => {
     .lean();
 
   return res({
-    serviceRefs: sortByIdsOrder(data, ids),
+    serviceRefs: sortByIdsOrder(data, arrayOfIds),
   });
 });
