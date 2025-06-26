@@ -16,14 +16,14 @@ export const sortByIdsOrder = (arrayofdata = [], orderList = []) => {
   }
 };
 
-export const handleArrayOdIds = (array = "") => {
+export const handleArrayOdIds = (array = []) => {
   try {
-    return Array.isArray(ids)
-      ? ids
-      : typeof ids === "string"
-      ? ids.split(",")
+    return Array.isArray(array)
+      ? array
+      : typeof array === "string"
+      ? array.split(",")
       : [];
   } catch (error) {
-    return array;
+    return [];
   }
 };
