@@ -15,6 +15,7 @@ import Window from "../Window/window";
 import { getfileType } from "@/_Dashboard/utils/fileUploadHelper";
 import { useAuth } from "@/contexts/AuthProvider";
 import useTranslationsDashboard from "@/_Dashboard/hooks/useTranslationsDashboard";
+import { systemLogger } from "@/utils/consoleProxy";
 
 export const FileUploadContext = createContext("FileUploadContext");
 
@@ -165,7 +166,7 @@ const FileUploadCTX = ({ children }) => {
         )
       );
     } catch (error) {
-      console.log(
+      systemLogger(
         "🚀 ~ uploadFile ~ error:",
         error?.response.data?.error?.message
       );

@@ -1,6 +1,4 @@
 export const sortByIdsOrder = (arrayofdata = [], orderList = []) => {
-  console.log("🚀 ~ sortByIdsOrder ~ arrayofdata:", arrayofdata);
-  console.log("🚀 ~ sortByIdsOrder ~ orderList:", orderList);
   try {
     const orderedIds = Array.isArray(orderList) ? orderList : [];
     const data = Array.isArray(arrayofdata) ? arrayofdata : [];
