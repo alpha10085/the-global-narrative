@@ -10,8 +10,7 @@
   justify-content: space-between;
   align-items: baseline;
   gap: 16px;
-  padding-left: 90px;
-  padding-right: 20px;
+padding-left: 5%;
   margin: 20px 0 24px;
 }
 
@@ -20,7 +19,7 @@
   display: flex;
   gap: 10px !important;
   color: rgb(0, 0, 0);
-  margin: 20px 20px 0 30px;
+  margin: 20px 0 30px;
 }
 
 .navButton {
@@ -60,7 +59,7 @@
 .slider {
   display: flex;
   align-items: flex-start;
-  padding-right: 24px;
+  padding-right:0;
   gap: 16px;
 }
 
@@ -100,7 +99,6 @@
 
 @media (max-width: 1024px) {
   .slider {
-    padding-right: 16px;
     gap: 12px;
   }
 
@@ -108,9 +106,6 @@
     width: 100px;
   }
 
-  .sliderHeader {
-    padding-inline: 60px;
-  }
 }
 
 @media (max-width: 768px) {

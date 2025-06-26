@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { testimonialModel } from "@/_Backend/database/models/testimonial.model";
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
+import { sortByIdsOrder } from "@/_Backend/utils/sort";
 
 export const GET = AsyncHandler(async (req, res) => {
   const { ids = [] } = req?.query;
@@ -20,6 +21,6 @@ export const GET = AsyncHandler(async (req, res) => {
     .lean();
 
   return res({
-    testimonials: data,
+    testimonials: sortByIdsOrder(data, ids),
   });
 });

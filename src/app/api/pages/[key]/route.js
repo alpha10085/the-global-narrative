@@ -29,7 +29,7 @@ export const POST = AsyncHandler(
     }
 
     let Model = allModelsConfig?.[key]?.model;
-    
+
     if (!Model) {
       throw new AppError({ message: "pages.notFound", code: 404 });
     }
@@ -101,7 +101,7 @@ export const PUT = AsyncHandler(
       .setOptions({
         language: req?.language,
         removeTranslations: !req.isAdmin,
-                admin: req.isAdmin,
+        admin: req.isAdmin,
       })
       .lean()
       .populate(adminPopulate);

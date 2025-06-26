@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import { newsModel } from "@/_Backend/database/models/news.model";
 import { AsyncHandler } from "@/_Backend/middlewares/globels/AsyncHandler";
+import { sortByIdsOrder } from "@/_Backend/utils/sort";
 
 export const GET = AsyncHandler(async (req, res) => {
   const { ids = [] } = req?.query;
@@ -19,6 +20,6 @@ export const GET = AsyncHandler(async (req, res) => {
 
 
   return res({
-    news: data,
+    news: sortByIdsOrder(data, ids),
   });
 });

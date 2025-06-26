@@ -2,7 +2,7 @@ import { updateEnvFile } from "../app/api/(constant)/tools/server/services.js";
 import { nextCmd, runScript } from "./helpers.js";
 
 // Set env mode to "pro" before starting
-updateEnvFile({ NEXT_PUBLIC_MODE: "dev" });
+// updateEnvFile({ NEXT_PUBLIC_MODE: "dev" });
 
 const next = runScript({
   cmd: nextCmd,
