@@ -5,7 +5,6 @@ import styles from "./FloatedSection.module.css";
 const FloatedSection = ({ children, className = "" }) => {
   const sectionRef = useRef(null);
   const ticking = useRef(false);
-  const lastTransform = useRef(null);
   const isVisible = useRef(false);
 
   useEffect(() => {
@@ -13,13 +12,11 @@ const FloatedSection = ({ children, className = "" }) => {
     if (!el) return;
 
     const update = () => {
-      if (!isVisible.current) {
-        ticking.current = false;
-        return;
-      }
+      if (!isVisible.current) return;
 
       const rect = el.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+      
 
       const start = windowHeight;
       const end = windowHeight * 0.1;
@@ -27,22 +24,14 @@ const FloatedSection = ({ children, className = "" }) => {
       const rawProgress = (start - rect.bottom) / (start - end);
       const clamped = Math.min(1, Math.max(0, rawProgress));
 
-      const y = clamped * (windowHeight / 3);
-      const transform = `translate3d(0px, ${y.toFixed(2)}px, 0)`;
-
-      // Only update if the value actually changed to avoid layout recalculation
-      if (transform !== lastTransform.current) {
-        el.style.transform = transform;
-        lastTransform.current = transform;
-      }
-
+      el.style.transform = `translate3d(0px, ${clamped * (windowHeight / 3)}px, 0)`;
       ticking.current = false;
     };
 
     const onScroll = () => {
       if (!ticking.current) {
-        ticking.current = true;
         requestAnimationFrame(update);
+        ticking.current = true;
       }
     };
 
@@ -52,7 +41,7 @@ const FloatedSection = ({ children, className = "" }) => {
         if (entry.isIntersecting) {
           window.addEventListener("scroll", onScroll, { passive: true });
           window.addEventListener("resize", onScroll);
-          update(); // trigger once on mount
+          update(); // update on entry
         } else {
           window.removeEventListener("scroll", onScroll);
           window.removeEventListener("resize", onScroll);
