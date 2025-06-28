@@ -119,10 +119,10 @@
   {
     "file": "src/_Dashboard/components/Analytics/Charts/InsightsTable/InsightsTable.jsx",
     "firstSeenAt": "6/14/2025, 7:07:23 PM",
-    "lastUpdatedAt": "6/29/2025, 1:19:01 AM",
+    "lastUpdatedAt": "6/29/2025, 1:24:04 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 28
+    "count": 29
   },
   {
     "file": "src/_Dashboard/components/Analytics/FilterBar/FilterBar.jsx",
@@ -419,5 +419,13 @@
     "lastType": "changed",
     "Type": "added",
     "count": 25
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/InsightsTable/TypeRenderer/TypeRenderer.jsx",
+    "firstSeenAt": "6/29/2025, 1:23:04 AM",
+    "lastUpdatedAt": "6/29/2025, 1:24:20 AM",
+    "lastType": "changed",
+    "Type": "added",
+    "count": 5
   }
 ]

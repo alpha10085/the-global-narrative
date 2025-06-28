@@ -2,7 +2,7 @@
 import React from "react";
 import styles from "./InsightsTable.module.css";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import { getBrowserInfo, getCountryCode, getDeviceInfo, getOSInfo } from "../../chartConfig";
+import TypeRenderer from "./TypeRenderer/TypeRenderer";
 
 const InsightsTable = ({
   headerLabels = {
@@ -28,7 +28,7 @@ const InsightsTable = ({
             </tr>
           </thead>
           <tbody>
-            {chartDataArr?.map((val) => {
+            {chartDataArr.map((val) => {
               const id = val?._id || "Unknown";
               const count = val?.count || 0;
 
@@ -40,45 +40,7 @@ const InsightsTable = ({
                   }`}
                 >
                   <td className={styles.countryCell}>
-                    {type === "country" ? (
-                      <span className={styles.flagWrapper}>
-                        {getCountryCode(id) !== "unknown" ? (
-                          <img
-                            src={`https://flagcdn.com/24x18/${getCountryCode(
-                              id
-                            ).toLowerCase()}.png`}
-                            alt={id}
-                            className={styles.flagIcon}
-                          />
-                        ) : (
-                          <span className={styles.flagPlaceholder}>🏳️</span>
-                        )}
-                        <span>{id}</span>
-                      </span>
-                    ) : type === "devices" ? (
-                      <span className={styles.flagWrapper}>
-                        <span className={styles.flagPlaceholder}>
-                          {getDeviceInfo(id).icon}
-                        </span>
-                        <span>{getDeviceInfo(id).label}</span>
-                      </span>
-                    ) : type === "operating-systems" ? (
-                      <span className={styles.flagWrapper}>
-                        <span className={styles.iconWrapper}>
-                          {getOSInfo(id).icon}
-                        </span>
-                        <span>{getOSInfo(id).label}</span>
-                      </span>
-                    ) : type === "browsers" ? (
-                      <span className={styles.flagWrapper}>
-                        <span className={styles.iconWrapper}>
-                          {getBrowserInfo(id).icon}
-                        </span>
-                        <span>{getBrowserInfo(id).label}</span>
-                      </span>
-                    ) : (
-                      <span>{id}</span>
-                    )}
+                    <TypeRenderer id={id} type={type} />
                   </td>
                   <td style={{ textAlign: "center" }}>{count}</td>
                 </tr>
