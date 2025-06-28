@@ -29,8 +29,13 @@ const MetricCard = ({ label, value, change }) => {
           }`}
         >
           {isPositive ? <ArrowUpward /> : <ArrowDownward />}
-          {isPositive ? "+" : ""}
-          {change}%
+
+          {change != null && (
+            <>
+              {isPositive ? "+" : ""}
+              {change}%
+            </>
+          )}
         </span>
       </div>
     </div>
@@ -57,22 +62,29 @@ const MetricsHeader = ({ metadata = {} }) => {
       }}
     >
       {filteredEntries?.map(([label, value]) => {
-        // Look for the change in metadata
         const changeKey = `${label}Change`;
-        const change = metadata[changeKey] ?? 0;
+        const changeValue = metadata[changeKey] ?? 0;
+
+        // Define which labels should hide change
+        const hideChangeLabels = ["returned users", "retention rate"];
+        const formattedLabel = label
+          .replace(/([A-Z])/g, " $1")
+          .replace(/^./, (str) => str.toUpperCase());
+
+        const shouldHideChange = hideChangeLabels.includes(
+          formattedLabel.toLowerCase()
+        );
 
         return (
           <MetricCard
             key={label}
-            label={label
-              .replace(/([A-Z])/g, " $1")
-              .replace(/^./, (str) => str.toUpperCase())}
+            label={formattedLabel}
             value={
               typeof value === "number" && label.toLowerCase().includes("rate")
                 ? `${value}%`
                 : value
             }
-            change={change}
+            change={shouldHideChange ? null : changeValue}
           />
         );
       })}
