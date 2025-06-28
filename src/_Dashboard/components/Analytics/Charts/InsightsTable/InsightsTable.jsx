@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import styles from "./InsightsTable.module.css";
-import FilterBar from "../../FilterBar/FilterBar";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 import { getBrowserInfo, getCountryCode, getDeviceInfo, getOSInfo } from "../../chartConfig";
 

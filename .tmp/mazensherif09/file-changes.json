@@ -119,10 +119,10 @@
   {
     "file": "src/_Dashboard/components/Analytics/Charts/InsightsTable/InsightsTable.jsx",
     "firstSeenAt": "6/14/2025, 7:07:23 PM",
-    "lastUpdatedAt": "6/29/2025, 1:18:50 AM",
+    "lastUpdatedAt": "6/29/2025, 1:19:01 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 27
+    "count": 28
   },
   {
     "file": "src/_Dashboard/components/Analytics/FilterBar/FilterBar.jsx",
