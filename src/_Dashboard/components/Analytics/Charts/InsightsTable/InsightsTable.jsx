@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./InsightsTable.module.css";
 import FilterBar from "../../FilterBar/FilterBar";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import { getCountryCode } from "../../chartConfig";
+import { getCountryCode, getDeviceInfo } from "../../chartConfig";
 
 const InsightsTable = ({
   headerLabels = {
@@ -15,6 +15,7 @@ const InsightsTable = ({
 }) => {
   const { theme } = useTheme();
   const chartDataArr = data?.data || [];
+  console.log("🚀 ~ chartDataArr:", chartDataArr);
 
   return (
     <div
@@ -55,6 +56,13 @@ const InsightsTable = ({
                           <span className={styles.flagPlaceholder}>🏳️</span>
                         )}
                         <span>{id}</span>
+                      </span>
+                    ) : type === "devices" ? (
+                      <span className={styles.flagWrapper}>
+                        <span className={styles.flagPlaceholder}>
+                          {getDeviceInfo(id).icon}
+                        </span>
+                        <span>{getDeviceInfo(id).label}</span>
                       </span>
                     ) : (
                       <span>{id}</span>

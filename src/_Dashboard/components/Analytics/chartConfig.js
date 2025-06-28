@@ -1,3 +1,9 @@
+import SmartphoneIcon from "@mui/icons-material/Smartphone";
+import TabletMacIcon from "@mui/icons-material/TabletMac";
+import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows";
+import DeviceUnknownIcon from "@mui/icons-material/DeviceUnknown";
+
+
 export const chartConfig = {
   dailyTraffic: { title: "Daily Traffic", type: "line" },
   country: { title: "Country-wise Traffic", type: "bar" },
@@ -216,3 +222,17 @@ export const getCountryCode = (country) => {
   // Return mapped value or assume it's already an ISO Alpha-2 code
   return countryMap[normalized] || normalized;
 };
+
+
+
+export const deviceMap = {
+  mobile: { label: "Mobile", icon: <SmartphoneIcon/> },
+  tablet: { label: "Tablet", icon: <TabletMacIcon/> },
+  desktop: { label: "Desktop", icon: <DesktopWindowsIcon/> },
+  unknown: { label: "Unknown", icon: <DeviceUnknownIcon/> },
+};
+
+export const getDeviceInfo = (raw = "") => {
+  const key = raw?.toLowerCase?.() || "unknown";
+  return deviceMap[key] || deviceMap["unknown"];
+}
