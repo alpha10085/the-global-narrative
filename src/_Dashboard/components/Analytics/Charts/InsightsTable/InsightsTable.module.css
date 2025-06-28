@@ -83,3 +83,32 @@ width: 100px;
   transition: 0.2s ease;
   font-size: 14px;
 }
+
+
+
+.flagWrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flagIcon {
+  width: 24px;
+  height: 18px;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+.flagPlaceholder {
+  font-size: 18px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countryCell {
+  display: flex;
+  align-items: center;
+}

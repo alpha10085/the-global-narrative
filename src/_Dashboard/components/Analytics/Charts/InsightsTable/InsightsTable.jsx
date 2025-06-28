@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./InsightsTable.module.css";
 import FilterBar from "../../FilterBar/FilterBar";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import { chartConfig } from "../../chartConfig";
+import { getCountryCode } from "../../chartConfig";
 
 const InsightsTable = ({
   headerLabels = {
@@ -20,7 +20,6 @@ const InsightsTable = ({
     <div
       className={`${styles.tableWrapper} ${theme.scrollBar} ${theme.background} ${theme.color} ${theme.bord20} showSmooth`}
     >
-      {/* Scrollable Table Wrapper */}
       <div className={styles.tableScrollX}>
         <table className={styles.table}>
           <thead>
@@ -30,17 +29,41 @@ const InsightsTable = ({
             </tr>
           </thead>
           <tbody>
-            {chartDataArr?.map((val) => (
-              <tr
-                key={val?._id}
-                className={`${theme.bg200} ${theme.bord20} ${
-                  theme.name === "light" ? styles.light : styles.dark
-                }`}
-              >
-                <td>{val?._id}</td>
-                <td style={{ textAlign: "center" }}>{val?.count}</td>
-              </tr>
-            ))}
+            {chartDataArr?.map((val) => {
+              const id = val?._id || "Unknown";
+              const count = val?.count || 0;
+
+              return (
+                <tr
+                  key={id + count}
+                  className={`${theme.bg200} ${theme.bord20} ${
+                    theme.name === "light" ? styles.light : styles.dark
+                  }`}
+                >
+                  <td className={styles.countryCell}>
+                    {type === "country" ? (
+                      <span className={styles.flagWrapper}>
+                        {getCountryCode(id) !== "unknown" ? (
+                          <img
+                            src={`https://flagcdn.com/24x18/${getCountryCode(
+                              id
+                            ).toLowerCase()}.png`}
+                            alt={id}
+                            className={styles.flagIcon}
+                          />
+                        ) : (
+                          <span className={styles.flagPlaceholder}>🏳️</span>
+                        )}
+                        <span>{id}</span>
+                      </span>
+                    ) : (
+                      <span>{id}</span>
+                    )}
+                  </td>
+                  <td style={{ textAlign: "center" }}>{count}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
