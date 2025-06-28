@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./InsightsTable.module.css";
 import FilterBar from "../../FilterBar/FilterBar";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import { getCountryCode, getDeviceInfo } from "../../chartConfig";
+import { getCountryCode, getDeviceInfo, getOSInfo } from "../../chartConfig";
 
 const InsightsTable = ({
   headerLabels = {
@@ -64,7 +64,15 @@ const InsightsTable = ({
                         </span>
                         <span>{getDeviceInfo(id).label}</span>
                       </span>
+                    ) : type === "operating-systems" ? (
+                      <span className={styles.flagWrapper}>
+                        <span className={styles.iconWrapper}>
+                          {getOSInfo(id).icon}
+                        </span>
+                        <span>{getOSInfo(id).label}</span>
+                      </span>
                     ) : (
+
                       <span>{id}</span>
                     )}
                   </td>

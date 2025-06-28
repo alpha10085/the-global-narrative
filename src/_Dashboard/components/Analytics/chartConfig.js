@@ -1,8 +1,11 @@
+// devices Icons
 import SmartphoneIcon from "@mui/icons-material/Smartphone";
 import TabletMacIcon from "@mui/icons-material/TabletMac";
 import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows";
 import DeviceUnknownIcon from "@mui/icons-material/DeviceUnknown";
 
+// os Icons
+import { AndroidIcon, AppleIcon, LinuxIcon, UnknownIcon, WindowsIcon } from "./icons";
 
 export const chartConfig = {
   dailyTraffic: { title: "Daily Traffic", type: "line" },
@@ -10,7 +13,6 @@ export const chartConfig = {
   pageViews: { title: "Page Views", type: "table" },
   devices: { title: "Devices", type: "pie" },
 };
-
 
 // Maps known country names to ISO Alpha-2 codes for flags
 export const countryMap = {
@@ -210,29 +212,39 @@ export const countryMap = {
   Yemen: "YE",
   Zambia: "ZM",
   Zimbabwe: "ZW",
-  null: "unknown"
+  null: "unknown",
 };
-
-
 export const getCountryCode = (country) => {
   if (!country || typeof country !== "string") return "unknown";
 
   const normalized = country.trim();
-  
+
   // Return mapped value or assume it's already an ISO Alpha-2 code
   return countryMap[normalized] || normalized;
 };
 
-
-
+// devices
 export const deviceMap = {
-  mobile: { label: "Mobile", icon: <SmartphoneIcon/> },
-  tablet: { label: "Tablet", icon: <TabletMacIcon/> },
-  desktop: { label: "Desktop", icon: <DesktopWindowsIcon/> },
-  unknown: { label: "Unknown", icon: <DeviceUnknownIcon/> },
+  mobile: { label: "Mobile", icon: <SmartphoneIcon /> },
+  tablet: { label: "Tablet", icon: <TabletMacIcon /> },
+  desktop: { label: "Desktop", icon: <DesktopWindowsIcon /> },
+  unknown: { label: "Unknown", icon: <DeviceUnknownIcon /> },
 };
-
 export const getDeviceInfo = (raw = "") => {
   const key = raw?.toLowerCase?.() || "unknown";
   return deviceMap[key] || deviceMap["unknown"];
-}
+};
+
+// os
+export const osMap = {
+  windows: { label: "Windows", icon: <WindowsIcon /> },
+  macos: { label: "macOS", icon: <AppleIcon /> },
+  ios: { label: "iOS", icon: <AppleIcon /> },
+  android: { label: "Android", icon: <AndroidIcon /> },
+  linux: { label: "Linux", icon: <LinuxIcon /> },
+  unknown: { label: "Unknown", icon: <UnknownIcon /> },
+};
+export const getOSInfo = (os = "") => {
+  const key = os?.toLowerCase() || "unknown";
+  return osMap[key] || osMap["unknown"];
+};
