@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./InsightsTable.module.css";
 import FilterBar from "../../FilterBar/FilterBar";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
-import { getCountryCode, getDeviceInfo, getOSInfo } from "../../chartConfig";
+import { getBrowserInfo, getCountryCode, getDeviceInfo, getOSInfo } from "../../chartConfig";
 
 const InsightsTable = ({
   headerLabels = {
@@ -15,7 +15,6 @@ const InsightsTable = ({
 }) => {
   const { theme } = useTheme();
   const chartDataArr = data?.data || [];
-  console.log("🚀 ~ chartDataArr:", chartDataArr);
 
   return (
     <div
@@ -71,8 +70,14 @@ const InsightsTable = ({
                         </span>
                         <span>{getOSInfo(id).label}</span>
                       </span>
+                    ) : type === "browsers" ? (
+                      <span className={styles.flagWrapper}>
+                        <span className={styles.iconWrapper}>
+                          {getBrowserInfo(id).icon}
+                        </span>
+                        <span>{getBrowserInfo(id).label}</span>
+                      </span>
                     ) : (
-
                       <span>{id}</span>
                     )}
                   </td>

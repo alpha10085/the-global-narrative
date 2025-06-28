@@ -5,7 +5,7 @@ import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows";
 import DeviceUnknownIcon from "@mui/icons-material/DeviceUnknown";
 
 // os Icons
-import { AndroidIcon, AppleIcon, LinuxIcon, UnknownIcon, WindowsIcon } from "./icons";
+import { AndroidIcon, IosIcon, ChromeIcon, EdgeIcon, FirefoxIcon, LinuxIcon, MobileIcon, SafariIcon, UnknownIcon, WindowsIcon } from "./icons";
 
 export const chartConfig = {
   dailyTraffic: { title: "Daily Traffic", type: "line" },
@@ -238,8 +238,8 @@ export const getDeviceInfo = (raw = "") => {
 // os
 export const osMap = {
   windows: { label: "Windows", icon: <WindowsIcon /> },
-  macos: { label: "macOS", icon: <AppleIcon /> },
-  ios: { label: "iOS", icon: <AppleIcon /> },
+  macos: { label: "macOS", icon: <IosIcon /> },
+  ios: { label: "iOS", icon: <IosIcon /> },
   android: { label: "Android", icon: <AndroidIcon /> },
   linux: { label: "Linux", icon: <LinuxIcon /> },
   unknown: { label: "Unknown", icon: <UnknownIcon /> },
@@ -248,3 +248,21 @@ export const getOSInfo = (os = "") => {
   const key = os?.toLowerCase() || "unknown";
   return osMap[key] || osMap["unknown"];
 };
+
+
+
+// browsers
+export const browserMap = {
+  chrome: { label: "Chrome", icon: <ChromeIcon /> },
+  edge: { label: "Edge", icon: <EdgeIcon /> },
+  "mobile safari": { label: "Mobile Safari", icon: <MobileIcon /> },
+  firefox: { label: "Firefox", icon: <FirefoxIcon /> },
+  safari: { label: "Safari", icon: <SafariIcon /> },
+  "mobile chrome": { label: "Mobile Chrome", icon: <MobileIcon /> },
+  unknown: { label: "Unknown", icon: <MobileIcon /> },
+};
+
+export const getBrowserInfo = (name = "") => {
+  const key = name.toLowerCase();
+  return browserMap[key] || browserMap["unknown"];
+}
