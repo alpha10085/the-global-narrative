@@ -52,7 +52,7 @@ const quoteSection = new Schema(quoteSectionFields);
 
 // missionVision schema
 const missionVision = new Schema({
-  ...quoteSectionFields,
+  points: [quoteSection],
   poster,
 });
 

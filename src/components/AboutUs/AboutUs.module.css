@@ -1,46 +1,62 @@
 .container {
-  padding: 80px 0;
+  padding: 15vh 0;
   overflow: hidden;
   background-color: #f9f9f9;
 }
 
 .wrapper {
+  width: 90%;
   margin: 0 auto;
-  max-width: 100%;
-  width: 1300px;
-  padding: 0 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
 }
 
 .title {
-
-  display: flex;
-  gap: 5px !important;
-  color: #000;
-  font-size: clamp(25px, 4vw, 44px) !important;
-  color: var(--color200);
+  color: #111;
+  font-size: clamp(24px, 3vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
 }
 
 .description {
-  width: 80%;
-  color: #333;
-  font-size: clamp(12px, 2.2vw, 17px);
-  font-weight: 500;
+  width: 100%;
+  max-width: 600px;
+  color: #444;
+  font-size: clamp(18px, 2.2vw, 22px);
+  font-weight: 400;
   line-height: 1.7;
-  margin-top: 5px;
-  width: 800px;
-  margin-top: 10px;
-  max-width: 100%;
+  margin-top: 8px;
 }
 
 .pointBlock {
-  margin: 0;
+  padding: 40px 0;
+  border-bottom: 1px solid #ddd;
+}
+.pointBlock:last-child {
+  border-bottom: none;
+}
+
+.titleWrapper {
+  display: flex;
+  margin-bottom: 12px;
+  align-items: center;
+  gap: 12px;
+}
+
+.accentBar {
+  width: 4px;
+  height: 32px;
+  background-color: var(--color200);
+  border-radius: 2px;
 }
 
 .card {
   width: 100%;
-  height: auto;
-  aspect-ratio: 16/7;
-
+  max-width: 600px;
+  aspect-ratio: 4 / 3.5;
   height: auto;
   display: block;
   overflow: hidden;
@@ -62,16 +78,41 @@
   object-fit: cover;
 }
 
+@media (max-width: 1024px) {
+  .card {
+    max-width: 400px;
+  }
+}
+
 @media (max-width: 768px) {
-
-
-  .container {
-    padding: 50px 0;
+  .wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px !important;
   }
 
+  .container {
+    padding: 10vh 0;
+  }
 
+  .description {
+    width: 100%;
+  }
+
+  .title {
+    font-size: clamp(20px, 8vw, 40px) !important;
+  }
+
+  .card {
+    width: 100%;
+    max-width: none;
+  }
 
   .description span {
     opacity: 1 !important;
+  }
+
+  .accentBar {
+    height: 25px;
   }
 }
