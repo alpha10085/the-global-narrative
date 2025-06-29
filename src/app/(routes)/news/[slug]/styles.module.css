@@ -11,16 +11,15 @@
   flex-grow: 1;
 }
 
-
 .poster {
-  overflow: hidden;
-
+  position: relative;
   width: 100%;
-
-  width: 1200px;
+  max-width: 1200px;
+  aspect-ratio: 2 / 1;
   margin: 20px auto;
   background-color: #4b0aba;
   border-radius: 20px;
+  overflow: hidden;
 }
 
 .poster,
@@ -52,8 +51,8 @@
 }
 .image {
   border-radius: 12px;
-  height: 600px;
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 .image,
@@ -68,6 +67,7 @@
   background-color: white;
   padding: 20px 0% 50px;
   width: 100%;
+  z-index: 10;
 }
 
 .details {
@@ -141,7 +141,7 @@
 
 @media (max-width: 768px) {
   .poster {
-    height: 250px;
+    aspect-ratio: 2 / 1;
   }
 
   .content {
@@ -154,5 +154,11 @@
 
   .content p {
     font-size: 14px;
+  }
+  .details .date {
+    font-size: 14px;
+  }
+  .details {
+    margin: 20px auto 100px;
   }
 }
