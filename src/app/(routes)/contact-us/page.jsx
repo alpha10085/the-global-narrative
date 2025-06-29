@@ -4,7 +4,12 @@ import Form from "@/components/LetsCollaborate/Form/Form";
 import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
-import { AttachEmailIcon, LocalPhoneIcon, LocationPinIcon } from "@/components/icons";
+import {
+  AttachEmailIcon,
+  LocalPhoneIcon,
+  LocationPinIcon,
+} from "@/components/icons";
+import Threads from "@/components/Threads/Threads";
 
 const pageKey = "contact-us";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
@@ -29,10 +34,12 @@ const page = async () => {
     >
       <div className={styles.bgwrapper}>
         <div className={styles.bg}>
-          <AnimatedBackground
-            speed={0.5}
-            color={[0.5, 0.75, 1]}
-            mouseReact={false}
+          <Threads
+            color="#add8e6"
+            amplitude={2}
+            distance={0.3}
+            fade={1}
+             className={styles.canvas}
           />
         </div>
       </div>

@@ -5,12 +5,11 @@
 .content {
   width: 50%;
   background-color: white;
-  padding:84px 30px 0px;
+  padding: 84px 30px 0px;
   overflow: hidden;
   margin: auto;
 }
-.top {
-}
+
 .title {
   font-size: clamp(25px, 5vw, 4vw);
   color: var(--color200);
@@ -47,42 +46,33 @@
   opacity: 1;
 }
 
-.bg {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.bg::before {
-  content: "";
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-
-  background-color: white;
-
-  z-index: 10;
-  position: absolute;
-  transition: 0.8s;
-  animation: intro 0.8s ease forwards 1.5s;
-}
-
-@keyframes intro {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
 .bgwrapper {
   height: 100vh;
   width: 38%;
   position: sticky;
   top: 0;
+  background: linear-gradient(120deg, #001f3f, #003f7f) !important;
 }
+
+.bg {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas {
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: 170%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  transform: rotate(85deg);
+  transform-origin: center center;
+}
+
 .info {
   width: 100%;
   padding: 0 20px 50px;
@@ -103,27 +93,35 @@
   color: rgb(11, 136, 246);
   font-size: 25px;
 }
-@media (max-width: 768px) {
-  .content {
-    flex-grow: 1;
+
+@media (max-width: 1024px) {
+  .canvas {
+    left: -200px;
+    width: 230%;
   }
 }
-@media (max-width: 560px) {
-  .bgwrapper {
-    position: relative;
-    top: unset;
-    width: 100%;
-    height: 30vh;
-  }
-  .section {
-    flex-direction: column;
-  }
+
+@media (max-width: 768px) {
   .content {
     padding: 30px;
     width: 90%;
     transform: translateY(-70px);
     border-radius: 15px;
   }
+  .section {
+    flex-direction: column;
+  }
+  .bgwrapper {
+    position: relative;
+    top: unset;
+    width: 100%;
+    height: 30vh;
+  }
+  .canvas {
+    transform: rotate(0deg);
+  }
+}
+@media (max-width: 560px) {
   .section {
     background-color: rgb(237, 252, 255);
   }
@@ -132,13 +130,12 @@
   }
 
   .info .value {
-
-  font-size: 12px;
-}
-.info .item svg {
-  font-size: 20px;
-}
-.info {
-  padding: 15px  0 0 ;
-}
+    font-size: 12px;
+  }
+  .info .item svg {
+    font-size: 20px;
+  }
+  .info {
+    padding: 15px 0 0;
+  }
 }
