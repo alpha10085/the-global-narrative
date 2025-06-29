@@ -6,6 +6,8 @@ const FloatedSection = ({ children, className = "" }) => {
   const sectionRef = useRef(null);
   const ticking = useRef(false);
   const isVisible = useRef(false);
+  const lastScrollTime = useRef(0);
+  const throttleMs = 100; 
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -16,7 +18,6 @@ const FloatedSection = ({ children, className = "" }) => {
 
       const rect = el.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
 
       const start = windowHeight;
       const end = windowHeight * 0.1;
@@ -25,13 +26,18 @@ const FloatedSection = ({ children, className = "" }) => {
       const clamped = Math.min(1, Math.max(0, rawProgress));
 
       el.style.transform = `translate3d(0px, ${clamped * (windowHeight / 3)}px, 0)`;
+
       ticking.current = false;
     };
 
     const onScroll = () => {
+      const now = Date.now();
+      if (now - lastScrollTime.current < throttleMs) return;
+
       if (!ticking.current) {
         requestAnimationFrame(update);
         ticking.current = true;
+        lastScrollTime.current = now;
       }
     };
 
@@ -41,7 +47,7 @@ const FloatedSection = ({ children, className = "" }) => {
         if (entry.isIntersecting) {
           window.addEventListener("scroll", onScroll, { passive: true });
           window.addEventListener("resize", onScroll);
-          update(); // update on entry
+          update(); // run once on intersect
         } else {
           window.removeEventListener("scroll", onScroll);
           window.removeEventListener("resize", onScroll);

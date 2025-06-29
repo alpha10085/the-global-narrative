@@ -383,10 +383,10 @@
   {
     "file": "src/components/Shared/FloatedSection/FloatedSection.jsx",
     "firstSeenAt": "6/26/2025, 12:20:32 PM",
-    "lastUpdatedAt": "6/26/2025, 12:36:45 PM",
+    "lastUpdatedAt": "6/29/2025, 6:11:46 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 6
+    "count": 7
   },
   {
     "file": "src/components/Shared/DynamicCursor/DynamicCursor.module.css",
