@@ -113,6 +113,11 @@
     width: calc(100% - 20px);
     margin: auto;
     margin-top: 10px;
+
+  
+    transform: none !important;
+    opacity: 0;
+    transition: opacity 0.6s ease;
   }
 
   .image img {
@@ -134,6 +139,25 @@
 
   .descriptionBox p {
     font-size: 14px;
+  }
+
+  .name,
+  .descriptionBox h4,
+  .descriptionBox p {
+    /* Remove translateY */
+    transform: none !important;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+
+  .active .name,
+  .active .descriptionBox h4,
+  .active .descriptionBox p,
+  .active .image {
+    transform: none !important;
+    opacity: 1;
+    transition-delay: 0.3s; 
   }
 }
 
