@@ -18,7 +18,7 @@ const ClientWrapper = ({ children }) => {
       const timer = setTimeout(() => {
         setHideIntro(true); // trigger fade out
         sessionStorage.setItem("intro-shown", "true");
-      }, 3500); // 3.5s intro duration
+      }, 3500); // 3s intro duration
 
       return () => clearTimeout(timer);
     }
