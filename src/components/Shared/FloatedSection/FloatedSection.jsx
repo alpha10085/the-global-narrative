@@ -7,19 +7,17 @@ const FloatedSection = ({ children, className = "" }) => {
   const ticking = useRef(false);
   const isVisible = useRef(false);
 
-  // Cached measurements
-  const elementBottomRef = useRef(0);
-  const elementHeightRef = useRef(0);
-
   useEffect(() => {
+    // Disable effect on small screens (width < 768px)
+    if (window.innerWidth < 768) return;
+
     const el = sectionRef.current;
     if (!el) return;
 
     const updateMeasurements = () => {
       const rect = el.getBoundingClientRect();
-      // element's bottom position relative to the document (viewport top + scrollY)
-      elementBottomRef.current = rect.bottom + window.scrollY;
-      elementHeightRef.current = rect.height;
+      el._bottom = rect.bottom + window.scrollY; // cache bottom position relative to document
+      el._height = rect.height;
     };
 
     const update = () => {
@@ -28,17 +26,13 @@ const FloatedSection = ({ children, className = "" }) => {
       const windowHeight = window.innerHeight;
       const scrollY = window.scrollY || window.pageYOffset;
 
-      // Calculate progress based on scroll and cached element bottom position
-      // Start point: scroll position at which animation begins
-      const start = elementBottomRef.current - windowHeight;
-      // End point: scroll position at which animation ends (10% viewport height above start)
+      const start = el._bottom - windowHeight;
       const end = start + windowHeight * 0.9;
 
-      // Calculate progress clamped between 0 and 1
       const rawProgress = (scrollY - start) / (end - start);
       const clamped = Math.min(1, Math.max(0, rawProgress));
 
-      sectionRef.current.style.transform = `translate3d(0px, ${clamped * (windowHeight / 3)}px, 0)`;
+      el.style.transform = `translate3d(0px, ${clamped * (windowHeight / 3)}px, 0)`;
       ticking.current = false;
     };
 
@@ -65,7 +59,7 @@ const FloatedSection = ({ children, className = "" }) => {
         } else {
           window.removeEventListener("scroll", onScroll);
           window.removeEventListener("resize", onResize);
-          sectionRef.current.style.transform = ""; // reset transform when not visible
+          el.style.transform = ""; // reset transform when not visible
         }
       },
       {
