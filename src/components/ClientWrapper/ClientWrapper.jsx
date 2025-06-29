@@ -4,42 +4,61 @@ import { useEffect, useState } from "react";
 import Intro from "./Intro/Intro";
 
 const ClientWrapper = ({ children }) => {
-  const [hydrated, setHydrated] = useState(false); // block until sessionStorage read
+  const [hasMounted, setHasMounted] = useState(false);
   const [showIntro, setShowIntro] = useState(false);
   const [hideIntro, setHideIntro] = useState(false);
 
   useEffect(() => {
+    setHasMounted(true);
+
     const hasVisited = sessionStorage.getItem("intro-shown");
 
-    if (hasVisited) {
-      setShowIntro(false);
-    } else {
+    if (!hasVisited) {
       setShowIntro(true);
       const timer = setTimeout(() => {
-        setHideIntro(true);
+        setHideIntro(true); // trigger fade out
         sessionStorage.setItem("intro-shown", "true");
-      }, 3000);
+      }, 3500); // 3.5s intro duration
 
       return () => clearTimeout(timer);
     }
-
-    setHydrated(true); // mark hydration after decision
   }, []);
 
   const handleHideEnd = () => {
-    setShowIntro(false);
+    setShowIntro(false); // remove Intro from DOM after fade
   };
 
-  // Don't render anything until hydration check finishes
-  if (!hydrated && !showIntro) return null;
+  // Prevent rendering *anything* until after hydration
+  if (!hasMounted) {
+    return null;
+  }
 
-  //  Intro should appear
+  // Show intro if it's the first visit
   if (showIntro) {
     return <Intro hide={hideIntro} onHideEnd={handleHideEnd} />;
   }
 
-  //  Show children
+  // Show actual page content
   return children;
 };
 
 export default ClientWrapper;
+
+
+
+/*
+<div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          height: "100vh",
+          width: "100vw",
+          background: "linear-gradient(-45deg, #000428, #000, #000428, #000)",
+          backgroundSize: "400% 400%",
+          animation: "gradientMove 8s ease infinite",
+          zIndex: 9999,
+        }}
+      />
+
+*/
