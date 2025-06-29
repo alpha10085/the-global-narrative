@@ -27,11 +27,27 @@ const ClientWrapper = ({ children }) => {
     setShowIntro(false); // remove intro after animation ends
   };
 
+  if (showIntro === null) {
+    return (
+      <div
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          height: "100vh",
+          width: "100vw",
+          background: "linear-gradient(-45deg, #000428, #000, #000428, #000)",
+          backgroundSize: "400% 400%",
+          animation: "gradientMove 8s ease infinite",
+          zIndex: 9999,
+        }}
+      />
+    );
+  } // wait until checked
+  
   if (showIntro) {
     return <Intro hide={hideIntro} onHideEnd={handleHideEnd} />;
   }
-  if (showIntro === null) return children;
-
   return children;
 };
 
