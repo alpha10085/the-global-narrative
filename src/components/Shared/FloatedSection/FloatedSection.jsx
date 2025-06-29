@@ -6,51 +6,66 @@ const FloatedSection = ({ children, className = "" }) => {
   const sectionRef = useRef(null);
   const ticking = useRef(false);
   const isVisible = useRef(false);
-  const lastScrollTime = useRef(0);
-  const throttleMs = 100; 
+
+  // Cached measurements
+  const elementBottomRef = useRef(0);
+  const elementHeightRef = useRef(0);
 
   useEffect(() => {
     const el = sectionRef.current;
     if (!el) return;
 
+    const updateMeasurements = () => {
+      const rect = el.getBoundingClientRect();
+      // element's bottom position relative to the document (viewport top + scrollY)
+      elementBottomRef.current = rect.bottom + window.scrollY;
+      elementHeightRef.current = rect.height;
+    };
+
     const update = () => {
       if (!isVisible.current) return;
 
-      const rect = el.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY || window.pageYOffset;
 
-      const start = windowHeight;
-      const end = windowHeight * 0.1;
+      // Calculate progress based on scroll and cached element bottom position
+      // Start point: scroll position at which animation begins
+      const start = elementBottomRef.current - windowHeight;
+      // End point: scroll position at which animation ends (10% viewport height above start)
+      const end = start + windowHeight * 0.9;
 
-      const rawProgress = (start - rect.bottom) / (start - end);
+      // Calculate progress clamped between 0 and 1
+      const rawProgress = (scrollY - start) / (end - start);
       const clamped = Math.min(1, Math.max(0, rawProgress));
 
-      el.style.transform = `translate3d(0px, ${clamped * (windowHeight / 3)}px, 0)`;
-
+      sectionRef.current.style.transform = `translate3d(0px, ${clamped * (windowHeight / 3)}px, 0)`;
       ticking.current = false;
     };
 
     const onScroll = () => {
-      const now = Date.now();
-      if (now - lastScrollTime.current < throttleMs) return;
-
       if (!ticking.current) {
         requestAnimationFrame(update);
         ticking.current = true;
-        lastScrollTime.current = now;
       }
+    };
+
+    const onResize = () => {
+      updateMeasurements();
+      update();
     };
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible.current = entry.isIntersecting;
         if (entry.isIntersecting) {
+          updateMeasurements();
           window.addEventListener("scroll", onScroll, { passive: true });
-          window.addEventListener("resize", onScroll);
-          update(); // run once on intersect
+          window.addEventListener("resize", onResize);
+          update();
         } else {
           window.removeEventListener("scroll", onScroll);
-          window.removeEventListener("resize", onScroll);
+          window.removeEventListener("resize", onResize);
+          sectionRef.current.style.transform = ""; // reset transform when not visible
         }
       },
       {
@@ -64,7 +79,7 @@ const FloatedSection = ({ children, className = "" }) => {
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
