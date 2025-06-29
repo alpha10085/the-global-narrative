@@ -36,7 +36,6 @@ body {
   width: 100%;
   letter-spacing: 1px;
   min-height: 100vh;
-  font-family: var(--font-geist);
   overflow: auto scroll;
   font-family: var(--font-open-sans) !important;
 }
