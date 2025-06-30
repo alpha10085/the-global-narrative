@@ -33,24 +33,25 @@
 
   animation: intro 1s forwards;
   animation-delay: 0.5s;
+  width: max-content;
+}
+.description {
+  width: calc(100% - 400px);
 }
 .content p {
-  transform: translateY(5vw);
 
-  font-size: clamp(12px, 2vw, 17px);
+  font-size: clamp(12px, 2vw, 15px);
 
-  transform: translateY(100%);
   opacity: 0;
   color: var(--p);
+  transform: translateY(5vw);
   animation: intro2 1s forwards;
-  animation-delay: 1s;
 }
 @keyframes intro2 {
   from {
-    transform: translateY(100%);
+    /* transform: translateY(100%); */
   }
   to {
-    transform: translateY(5vw);
     opacity: 1;
   }
 }

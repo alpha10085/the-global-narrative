@@ -2,6 +2,7 @@ import TemplateHero, { colors } from "./TemplateHero/TemplateHero";
 import styles from "./Template.module.css";
 import { ArrowForwardIosIcon } from "../Home/icons";
 import { ButtonArrow } from "./client";
+import { lineBreak } from "@/utils/text";
 /**
  * @typedef {keyof typeof colors} ColorKey
  */
@@ -28,9 +29,19 @@ const Template = ({
         className={`${className} ${styles.container}`}
       >
         {data && (
-          <div className={`flex  gap40 ${styles.content}`}>
+          <div className={`flex  gap40 just-sb ${styles.content}`}>
             <h1>{data?.title}</h1>
-            <p className={`${styles.iner} `}>{data?.description}</p>
+            <div className={`${styles.description} flex  column gap20`}>
+              {lineBreak(data?.description, ["."]).map((val, i) => (
+                <p 
+                style={{
+                  animationDelay:`${(i*0.4) + 1}s`
+                }}
+                key={i} className={`${styles.iner} `}>
+                  {val}
+                </p>
+              ))}
+            </div>
           </div>
         )}
         {children}
