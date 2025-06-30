@@ -58,7 +58,13 @@ const testimonialSection = new Schema({
 const getInTouchSection = new Schema({
   title: mongtext,
   description: mongeDescription,
-  poster,
+  faqs: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "faq",
+    },
+  ],
+  // poster,
 });
 
 // Main home page schema
@@ -86,8 +92,13 @@ landingSchema.pre(/^find/, function (next) {
       path: "heroSection.thumbnail",
     },
     {
-      ...populateCommons,
-      path: "getInTouchSection.poster",
+      path: "getInTouchSection.faqs",
+      model: "faq",
+      select: {
+        _id: 1,
+        question: 1,
+        answer: 1,
+      },
     },
     {
       ...populateCommons,

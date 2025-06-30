@@ -180,12 +180,16 @@
           "type": "textarea",
           "label": "description"
         },
-        {
-          "name": "poster",
-          "type": "media",
-          "allowedTypes": ["image"],
-          "single": true,
-          "label": "poster"
+         {
+          "name": "faqs",
+          "type": "relation",
+          "ref": "faq",
+          "select": ["_id", "question", "answer"],
+          "displayField": "question",
+          "single": false,
+          "label": "faqs",
+          "min": 3,
+          "max": 5
         }
       ]
     }

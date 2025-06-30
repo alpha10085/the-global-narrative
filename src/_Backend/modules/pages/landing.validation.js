@@ -8,6 +8,7 @@ import Joi from "joi";
 import { newsValidationRelation } from "../news/news.validation";
 import { testimonialValidationRelation } from "../testimonial/testimonial.validation";
 import { serviceValidationRelation } from "../service/service.validation";
+import { faqValidationRelation } from "../faq/faq.validation";
 
 // Hero Section (Array of cards with title & media)
 const heroSection = Joi.object({
@@ -75,7 +76,13 @@ const testimonialSection = Joi.object({
 const getInTouchSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
-  poster: fileVal.required(),
+  faqs: joiArray({
+    body: faqValidationRelation,
+    min: 3,
+    max: 5,
+    required: true,
+  }),
+  //  poster: fileVal.required(),
   ...CommonsVal,
 });
 
