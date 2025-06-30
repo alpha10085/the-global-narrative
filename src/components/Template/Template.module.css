@@ -30,7 +30,7 @@
   line-height: 1.5;
   transform: translateY(100%);
   opacity: 0;
-
+  color: var(--bg100);
   animation: intro 1s forwards;
   animation-delay: 0.5s;
   width: 400px;
@@ -40,7 +40,6 @@
   width: calc(100% - 400px);
 }
 .content p {
-
   font-size: clamp(12px, 2vw, 15px);
 
   opacity: 0;

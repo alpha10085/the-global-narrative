@@ -6,5 +6,13 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 1
+  },
+  {
+    "file": "src/utils/metadata.js",
+    "firstSeenAt": "6/30/2025, 10:52:21 PM",
+    "lastUpdatedAt": "6/30/2025, 10:52:21 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
   }
 ]
