@@ -90,9 +90,14 @@ landingSchema.pre(/^find/, function (next) {
       ...populateCommons,
       path: "heroSection.thumbnail",
     },
-    {
-      ...populateCommons,
-      path: "getInTouchSection.poster",
+ {
+      path: "getInTouchSection.faqs", 
+      model: "faq",
+      select: {
+        _id: 1,
+        question: 1,
+        answer: 1,
+      },
     },
     {
       ...populateCommons,
@@ -133,7 +138,7 @@ landingSchema.pre(/^find/, function (next) {
             poster: 1,
             description: 1,
           },
-        },
+        }
       ]
     );
   }

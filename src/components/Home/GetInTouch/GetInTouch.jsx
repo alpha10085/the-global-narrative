@@ -75,9 +75,9 @@ const GetInTouch = ({ data = {} }) => {
       </Aos> */}
 
       <div className={styles.faqList}>
-        {fakeFAQs?.map((faq, idx) => (
+        {data?.faqs?.map((faq, idx) => (
           <FAQItem
-            key={idx}
+            key={faq?._id}
             question={faq?.question}
             answer={faq?.answer}
             animationDelay={idx * 150}
