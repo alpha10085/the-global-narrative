@@ -9,8 +9,12 @@ import InputText from "@/components/Shared/inputText/inputText";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useRef } from "react";
 import { HandleContactUs } from "@/lib/ContactUs";
-
-const Form = ({ siteKey }) => {
+import {
+  AttachEmailIcon,
+  LocalPhoneIcon,
+  LocationPinIcon,
+} from "@/components/icons";
+const Form = ({ information = {}, siteKey }) => {
   const [loading, setLoading] = useState(false);
   const recaptchaRef = useRef(null);
   const {
@@ -53,7 +57,11 @@ const Form = ({ siteKey }) => {
       toast.error(error.message || "Form failed");
     }
   };
-
+  const {
+    Address = "Building 4/D/6, 5th Floor Nasr Street, New Maadi, Cairo, Egypt",
+    phone = "(+202) 251 745 07",
+    email = "info@globalnarrative.com",
+  } = information;
   return (
     <>
       <form
@@ -146,6 +154,39 @@ const Form = ({ siteKey }) => {
         </div>
         {/* reCAPTCHA (invisible) */}
         <ReCAPTCHA sitekey={siteKey} size="invisible" ref={recaptchaRef} />
+        <div className={`${styles.info} flex wrap gap25 just-fs`}>
+          <div 
+          style={{
+           animationDelay: `${2.6 + 1}s`,
+          }}
+          className={`${styles.item} flex gap15`}>
+            <div className="flex-c gap15">
+              <LocationPinIcon />
+            </div>
+            <div className={styles.value}>{Address}</div>
+          </div>
+
+          <div 
+          style={{
+           animationDelay: `${3 + 1}s`,
+          }}
+          className={`${styles.item} flex gap15`}>
+            <div className="flex-c gap15">
+              <LocalPhoneIcon />
+            </div>
+            <div className={styles.value}>{phone}</div>
+          </div>
+          <div 
+          style={{
+           animationDelay: `${3.2 + 1}s`,
+          }}
+          className={`${styles.item} flex gap15`}>
+            <div className="flex-c gap15">
+              <AttachEmailIcon />
+            </div>
+            <div className={styles.value}>{email}</div>
+          </div>
+        </div>
       </form>
     </>
   );

@@ -4,11 +4,7 @@ import Form from "@/components/LetsCollaborate/Form/Form";
 import AnimatedBackground from "@/components/AnimatedBackground/AnimatedBackground";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
-import {
-  AttachEmailIcon,
-  LocalPhoneIcon,
-  LocationPinIcon,
-} from "@/components/icons";
+
 import Threads from "@/components/Threads/Threads";
 
 const pageKey = "contact-us";
@@ -19,11 +15,7 @@ const page = async () => {
     title = "Join Our Journey",
     description = "For inquiries, press inquiries, or to schedule a meeting with our team",
   } = await getPage("contact-us");
-  const {
-    Address = "Building 4/D/6, 5th Floor Nasr Street, New Maadi, Cairo, Egypt",
-    phone = "(+202) 251 745 07",
-    email = "info@globalnarrative.com",
-  } = information;
+
 
   const siteKey = process.env.RECAPTCHA_SITE_KEY;
   return (
@@ -39,7 +31,7 @@ const page = async () => {
             amplitude={2}
             distance={0.3}
             fade={1}
-            className={styles.canvas}
+             className={styles.canvas}
           />
         </div>
       </div>
@@ -54,43 +46,9 @@ const page = async () => {
             <p className={styles.description}>{description}</p>
           </Aos>
         </div>
-        <Form siteKey={siteKey} />
-        <Aos
-          activeClassName={styles.active}
-          className={`${styles.info} flex wrap gap25 just-fs`}
-        >
-          <div 
-          style={{
-            animationDelay:"1.5s"
-          }}
-          className={`${styles.item} flex gap15`}>
-            <div className="flex-c gap15">
-              <LocationPinIcon />
-            </div>
-            <div className={styles.value}>{Address}</div>
-          </div>
-
-          <div 
-          style={{
-            animationDelay:"1.8s"
-          }}
-          className={`${styles.item} flex gap15`}>
-            <div className="flex-c gap15">
-              <LocalPhoneIcon />
-            </div>
-            <div className={styles.value}>{phone}</div>
-          </div>
-          <div 
-          style={{
-            animationDelay:"2s"
-          }}
-          className={`${styles.item} flex gap15`}>
-            <div className="flex-c gap15">
-              <AttachEmailIcon />
-            </div>
-            <div className={styles.value}>{email}</div>
-          </div>
-        </Aos>
+        <Form 
+        information={information}
+        siteKey={siteKey} />
       </div>
     </section>
   );
