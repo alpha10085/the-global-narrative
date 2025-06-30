@@ -56,7 +56,7 @@
   transform: translateX(-50%);
   z-index: 10;
   font-size: clamp(30px, 4vw, 50px);
-  color: white;
+  color: var(--bg100);
   text-transform: capitalize;
   width: 1200px;
   max-width: 90%;
