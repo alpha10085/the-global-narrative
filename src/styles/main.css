@@ -25,10 +25,11 @@
   --color-tr-400: #ffffffa2;
   --color500: #ffffff;
   --color600: rgb(255, 181, 43);
-  --color-scroll-thumb: #000000;
-  --color-scroll-track: #eef6f7;
+  --color-scroll-thumb: #ffffff;
+  --color-scroll-track: #05004e;
   --headerHeight: 100px;
   --main-layout-width: 1500px;
+  
 }
 
 /* end roots styles */
