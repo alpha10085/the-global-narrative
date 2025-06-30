@@ -15,12 +15,13 @@ const Page = async (props) => {
     hero = {},
     quoteSection = {},
     ourValueSection = {},
+    title= "explore our solutions"
   } = await getPage(pageKey);
 
   return (
     <Template
       color="blue"
-      pageTitle="services"
+      pageTitle={title}
       className={styles.main}
       data={hero}
     >

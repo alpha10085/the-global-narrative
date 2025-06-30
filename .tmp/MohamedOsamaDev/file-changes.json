@@ -194,10 +194,10 @@
   {
     "file": "src/components/Shared/Animtions/WordPullUpV2/WordPullUpV2.module.css",
     "firstSeenAt": "6/19/2025, 5:13:22 PM",
-    "lastUpdatedAt": "6/23/2025, 7:15:08 AM",
+    "lastUpdatedAt": "6/30/2025, 6:14:04 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 33
+    "count": 34
   },
   {
     "file": "src/utils/text.js",
@@ -278,5 +278,13 @@
     "lastType": "changed",
     "Type": "added",
     "count": 11
+  },
+  {
+    "file": "src/config/fonts.js",
+    "firstSeenAt": "6/30/2025, 5:50:49 AM",
+    "lastUpdatedAt": "6/30/2025, 5:58:28 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 3
   }
 ]

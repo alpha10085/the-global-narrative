@@ -20,13 +20,13 @@ const Hero = ({ data = {} }) => {
             speed={8}
             className={`flex-c ${styles.title}`}
           /> */}
-          <WordPullUpV2
+          {/* <WordPullUpV2
             duration={0.5}
             delay={500}
             className={`flex-c ${styles.title}`}
             text={data?.title}
           />
-          <p className={styles.description}>{data?.description}</p>
+          <p className={styles.description}>{data?.description}</p> */}
           <div className={styles.link}>
             <MainButton text="learn more" href="/contact-us" />
           </div>

@@ -33,6 +33,5 @@ export const fonts = {
   en: UbuntuFont,
   ar: tajawal,
   default: UbuntuFont,
-  openSans,
   allFonts: `${allFonts?.map((val) => val?.variable).join(" ")}`,
 };

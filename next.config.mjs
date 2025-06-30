@@ -27,6 +27,7 @@ const nextConfig = {
   experimental: {
     viewTransition: true,
     scrollRestoration: true,
+    turbopack: false,
   },
 };
 

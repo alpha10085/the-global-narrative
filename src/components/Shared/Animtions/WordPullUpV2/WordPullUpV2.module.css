@@ -1,5 +1,5 @@
 .WordPullUpV2 {
-  gap: 0.25%; /* optional spacing between words */
+  gap: 0.50%; /* optional spacing between words */
   flex-grow: 1; 
 }
 
