@@ -166,7 +166,9 @@
       "missionVision": "Mission & Vision",
       "button": "button",
       "label": "label",
-      "label_ph": "label intro..."
+      "label_ph": "label intro...",
+      "faqs" : "faqs",
+      "faqs_ph" : "Select faqs..."
     },
     "filterSystem": {
       "condtions": {

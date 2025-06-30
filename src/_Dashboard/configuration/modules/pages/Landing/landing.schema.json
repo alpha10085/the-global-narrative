@@ -33,24 +33,6 @@
           "allowedTypes": ["image"],
           "single": true,
           "label": "thumbnail"
-        },
-        {
-          "name": "button",
-          "type": "object",
-          "label": "button",
-          "min": 1,
-          "fields": [
-            {
-              "name": "label",
-              "type": "text",
-              "label": "label"
-            },
-            {
-              "name": "link",
-              "type": "test",
-              "label": "link"
-            }
-          ]
         }
       ]
     },
@@ -180,12 +162,16 @@
           "type": "textarea",
           "label": "description"
         },
-        {
-          "name": "poster",
-          "type": "media",
-          "allowedTypes": ["image"],
-          "single": true,
-          "label": "poster"
+         {
+          "name": "faqs",
+          "type": "relation",
+          "ref": "faq",
+          "select": ["_id", "question", "answer"],
+          "displayField": "question",
+          "single": false,
+          "label": "faqs",
+          "min": 3,
+          "max": 5
         }
       ]
     }
