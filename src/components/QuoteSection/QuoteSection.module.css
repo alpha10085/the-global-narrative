@@ -19,7 +19,7 @@
   color: var(--bg100);
   color: #012e89;
   font-weight: 600;
-  font-style: italic;
+ 
   display: flex;
   gap: 5px !important;
 }
