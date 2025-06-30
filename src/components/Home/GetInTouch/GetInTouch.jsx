@@ -66,15 +66,15 @@ const GetInTouch = ({ data = {} }) => {
         </Aos>
       </div>
       
-      {/* <Aos
+      <Aos
         delay={800}
         activeClassName={styles.active}
         className={`${styles.aosPoster} `}
       >
         <Img className={styles.poster} url={data?.poster?.url} />
-      </Aos> */}
+      </Aos>
 
-      <div className={styles.faqList}>
+      {/* <div className={styles.faqList}>
         {data?.faqs?.map((faq, idx) => (
           <FAQItem
             key={faq?._id}
@@ -83,7 +83,7 @@ const GetInTouch = ({ data = {} }) => {
             animationDelay={idx * 150}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };
