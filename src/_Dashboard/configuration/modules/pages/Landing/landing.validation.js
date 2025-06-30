@@ -109,16 +109,12 @@ const LandingPageValidationSchema = (locale = "en") => {
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
         description: joiText({ locale, min: 2, max: 20000, required: true }),
-        faqs: Joi.array()
-          .min(3)
-          .max(5)
-          .items(FaqValidationSchema(locale, true)),
-        //     poster: fileVal.required().messages(
-        //   messagesHandlers({
-        //     locale,
-        //     type: "object",
-        //   })
-        // ),
+        poster: fileVal.required().messages(
+          messagesHandlers({
+            locale,
+            type: "object",
+          })
+        ),
       },
     }),
 

@@ -76,13 +76,7 @@ const testimonialSection = Joi.object({
 const getInTouchSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
-  faqs: joiArray({
-    body: faqValidationRelation,
-    min: 3,
-    max: 5,
-    required: true,
-  }),
-  //  poster: fileVal.required(),
+   poster: fileVal.required(),
   ...CommonsVal,
 });
 

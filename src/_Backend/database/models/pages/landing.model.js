@@ -58,13 +58,7 @@ const testimonialSection = new Schema({
 const getInTouchSection = new Schema({
   title: mongtext,
   description: mongeDescription,
-  faqs: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "faq",
-    },
-  ],
-  // poster,
+  poster,
 });
 
 // Main home page schema
