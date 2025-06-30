@@ -39,7 +39,7 @@ const page = async () => {
             amplitude={2}
             distance={0.3}
             fade={1}
-             className={styles.canvas}
+            className={styles.canvas}
           />
         </div>
       </div>
@@ -55,27 +55,42 @@ const page = async () => {
           </Aos>
         </div>
         <Form siteKey={siteKey} />
-        <div className={`${styles.info} flex wrap gap25 just-fs`}>
-          <div className={`${styles.item} flex gap15`}>
+        <Aos
+          activeClassName={styles.active}
+          className={`${styles.info} flex wrap gap25 just-fs`}
+        >
+          <div 
+          style={{
+            animationDelay:"1.5s"
+          }}
+          className={`${styles.item} flex gap15`}>
             <div className="flex-c gap15">
               <LocationPinIcon />
             </div>
             <div className={styles.value}>{Address}</div>
           </div>
 
-          <div className={`${styles.item} flex gap15`}>
+          <div 
+          style={{
+            animationDelay:"1.8s"
+          }}
+          className={`${styles.item} flex gap15`}>
             <div className="flex-c gap15">
               <LocalPhoneIcon />
             </div>
             <div className={styles.value}>{phone}</div>
           </div>
-          <div className={`${styles.item} flex gap15`}>
+          <div 
+          style={{
+            animationDelay:"2s"
+          }}
+          className={`${styles.item} flex gap15`}>
             <div className="flex-c gap15">
               <AttachEmailIcon />
             </div>
             <div className={styles.value}>{email}</div>
           </div>
-        </div>
+        </Aos>
       </div>
     </section>
   );

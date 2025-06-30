@@ -78,11 +78,19 @@
   padding: 0 20px 50px;
   justify-content: flex-start !important;
 }
+
 .info .item {
   width: 300px;
   max-width: 100%;
   align-items: flex-start;
   font-weight: 600;
+  
+  opacity: 0;
+  transform: translateY(50px);
+}
+.info.active .item {
+
+  animation: introTitle 0.8s forwards 1s;
 }
 .info .value {
   color: rgb(81, 81, 81);
