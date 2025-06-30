@@ -24,6 +24,7 @@
   padding: 8px 20px;
   transition: 0.4s;
   border-radius: 20px;
+  text-transform: capitalize;
 }
 .navList svg {
   font-size: clamp(20px, 6vw, 30px);
