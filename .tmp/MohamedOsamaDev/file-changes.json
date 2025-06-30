@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "file": "src/i18n/locales/en.json",
+    "firstSeenAt": "6/30/2025, 5:46:49 PM",
+    "lastUpdatedAt": "6/30/2025, 5:46:49 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/utils/metadata.js",
+    "firstSeenAt": "6/30/2025, 5:50:39 PM",
+    "lastUpdatedAt": "6/30/2025, 5:50:39 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  }
+]

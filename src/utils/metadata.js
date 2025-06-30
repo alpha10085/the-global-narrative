@@ -7,7 +7,7 @@ const metadataHandler = ({
   keywords = [],
 }) => {
   const defaultPosterUrl =
-    "https://res.cloudinary.com/dprevcavp/image/upload/v1742005210/fazlo9jh354maem3ewaj.png";
+    "https://res.cloudinary.com/dpuygkgve/image/upload/v1751295021/Screenshot_2025-06-30_174942_xxghv9.png";
   const clientUrl = process.env.NEXT_PUBLIC_client || "";
   const url = `${clientUrl}${path}`; // Construct absolute URL
 
