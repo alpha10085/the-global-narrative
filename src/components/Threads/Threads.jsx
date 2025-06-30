@@ -27,6 +27,7 @@ void main() {
 `;
 
 const fragmentShaderSource = `
+// your full fragment shader content here
 precision mediump float;
 uniform float iTime;
 uniform vec3 iResolution;
@@ -181,10 +182,12 @@ const Threads = ({
     const fadeLoc = gl.getUniformLocation(program, "uFade");
 
     function resize() {
-      canvas.width = canvas.clientWidth;
-      canvas.height = canvas.clientHeight;
-      gl.viewport(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight);
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = canvas.clientWidth * dpr;
+      canvas.height = canvas.clientHeight * dpr;
+      gl.viewport(0, 0, canvas.width, canvas.height);
     }
+
     window.addEventListener("resize", resize);
     resize();
 
@@ -193,7 +196,7 @@ const Threads = ({
 
     function render(now) {
       const elapsed = now - lastFrame;
-      if (elapsed < 33.33) { // ~30 FPS
+      if (elapsed < 33.33) {
         frameId.current = requestAnimationFrame(render);
         return;
       }
