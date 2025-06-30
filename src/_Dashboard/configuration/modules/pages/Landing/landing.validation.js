@@ -36,14 +36,14 @@ const LandingPageValidationSchema = (locale = "en") => {
             type: "object",
           })
         ),
-        // button: joiObject({
-        //   required: true,
-        //   locale,
-        //   body: {
-        //     label: joiText({ locale, min: 2, max: 20000, required: true }),
-        //     link: joiText({ locale, min: 2, max: 20000, required: true }),
-        //   },
-        // }),
+        button: joiObject({
+          required: true,
+          locale,
+          body: {
+            label: joiText({ locale, min: 2, max: 20000, required: true }),
+            link: joiText({ locale, min: 2, max: 20000, required: true }),
+          },
+        }),
       },
     }),
 
@@ -110,8 +110,15 @@ const LandingPageValidationSchema = (locale = "en") => {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
         description: joiText({ locale, min: 2, max: 20000, required: true }),
         faqs: Joi.array()
-          .min(3).max(5)
+          .min(3)
+          .max(5)
           .items(FaqValidationSchema(locale, true)),
+        //     poster: fileVal.required().messages(
+        //   messagesHandlers({
+        //     locale,
+        //     type: "object",
+        //   })
+        // ),
       },
     }),
 

@@ -16,10 +16,10 @@ const heroSection = Joi.object({
   description: joiText({ min: 2, max: 1000, required: true }),
   media: fileVal.required(),
   thumbnail: fileVal.allow(null),
-  // button: Joi.object({
-  //   label: joiText({ min: 2, max: 1000, required: true }),
-  //   link: joiText({ min: 2, max: 1000, required: true }),
-  // }),
+  button: Joi.object({
+    label: joiText({ min: 2, max: 1000, required: true }),
+    link: joiText({ min: 2, max: 1000, required: true }),
+  }),
   ...CommonsVal,
 });
 
@@ -82,6 +82,7 @@ const getInTouchSection = Joi.object({
     max: 5,
     required: true,
   }),
+  //  poster: fileVal.required(),
   ...CommonsVal,
 });
 

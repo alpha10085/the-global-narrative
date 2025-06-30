@@ -64,6 +64,7 @@ const getInTouchSection = new Schema({
       ref: "faq",
     },
   ],
+  // poster,
 });
 
 // Main home page schema
@@ -90,8 +91,8 @@ landingSchema.pre(/^find/, function (next) {
       ...populateCommons,
       path: "heroSection.thumbnail",
     },
- {
-      path: "getInTouchSection.faqs", 
+    {
+      path: "getInTouchSection.faqs",
       model: "faq",
       select: {
         _id: 1,
@@ -138,7 +139,7 @@ landingSchema.pre(/^find/, function (next) {
             poster: 1,
             description: 1,
           },
-        }
+        },
       ]
     );
   }

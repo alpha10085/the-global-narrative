@@ -33,6 +33,24 @@
           "allowedTypes": ["image"],
           "single": true,
           "label": "thumbnail"
+        },
+        {
+          "name": "button",
+          "type": "object",
+          "label": "button",
+          "min": 1,
+          "fields": [
+            {
+              "name": "label",
+              "type": "text",
+              "label": "label"
+            },
+            {
+              "name": "link",
+              "type": "test",
+              "label": "link"
+            }
+          ]
         }
       ]
     },
