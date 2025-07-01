@@ -15,7 +15,7 @@ const Page = async (props) => {
     hero = {},
     quoteSection = {},
     ourValueSection = {},
-    title= "explore our solutions"
+    title = "explore our solutions",
   } = await getPage(pageKey);
 
   return (
@@ -42,7 +42,7 @@ const Page = async (props) => {
       <QuoteSection
         link={{
           href: "/contact-us",
-          label: "get in touch",
+          label: `${quoteSection?.button?.label}`,
         }}
         data={quoteSection}
       />
