@@ -34,7 +34,10 @@ const ServicesPageValidationSchema = (locale = "en") => {
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
 
-        cards: Joi.array().min(1).max(20).items(serviceSchemaValidation(locale, true)),
+        cards: Joi.array()
+          .min(1)
+          .max(20)
+          .items(serviceSchemaValidation(locale, true)),
       },
     }),
 
@@ -44,6 +47,13 @@ const ServicesPageValidationSchema = (locale = "en") => {
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
         description: joiText({ locale, min: 2, max: 20000, required: true }),
+        button: joiObject({
+          required: true,
+          locale,
+          body: {
+            label: joiText({ locale, min: 2, max: 10000, required: true }),
+          },
+        }),
       },
     }),
 

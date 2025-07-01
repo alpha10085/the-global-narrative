@@ -25,6 +25,9 @@ const servicesPageSchema = new Schema(
     quoteSection: {
       title: mongtext,
       description: mongeDescription,
+      button: {
+        label: mongtext,
+      },
     },
   },
   {
