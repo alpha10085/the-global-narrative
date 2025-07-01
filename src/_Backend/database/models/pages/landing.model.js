@@ -40,6 +40,10 @@ const quoteSection = new Schema({
   title: mongtext,
   content: mongeDescription,
   poster,
+  button: {
+    label: mongtext,
+    link: mongtext,
+  },
 });
 
 // News section
@@ -59,6 +63,9 @@ const getInTouchSection = new Schema({
   title: mongtext,
   description: mongeDescription,
   poster,
+  button: {
+    label: mongtext,
+  },
 });
 
 // Main home page schema

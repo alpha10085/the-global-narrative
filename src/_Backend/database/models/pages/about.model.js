@@ -48,13 +48,19 @@ const quoteSectionFields = {
 };
 
 // quoteSection schema
-const quoteSection = new Schema(quoteSectionFields);
+const quoteSection = new Schema({
+  ...quoteSectionFields, 
+  button: {
+    label: mongtext,
+  },
+});
 
 // missionVision schema
 const missionVision = new Schema({
   points: [quoteSection],
   poster,
 });
+
 
 // Main about us schema
 const aboutUsSchema = new Schema({

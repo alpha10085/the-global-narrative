@@ -39,7 +39,7 @@ const Page = async (props) => {
       <QuoteSection
         link={{
           href: "/services",
-          label: "explore our services",
+          label: `${quoteSection?.button?.label}`,
         }}
         data={quoteSection}
       />

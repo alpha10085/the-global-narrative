@@ -69,6 +69,9 @@ const ourValues = Joi.object({
 const quoteSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
+  button: Joi.object({
+    label: joiText({ min: 2, max: 10000, required: true }),
+  }),
   ...CommonsVal,
 });
 

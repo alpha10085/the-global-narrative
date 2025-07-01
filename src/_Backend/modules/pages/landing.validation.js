@@ -18,7 +18,7 @@ const heroSection = Joi.object({
   thumbnail: fileVal.allow(null),
   button: Joi.object({
     label: joiText({ min: 2, max: 1000, required: true }),
-    link: joiText({ min: 2, max: 1000, required: true }),
+    // link: joiText({ min: 2, max: 1000, required: true }),
   }),
   ...CommonsVal,
 });
@@ -47,6 +47,10 @@ const quoteSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   content: joiText({ min: 2, max: 20000, required: true }),
   poster: fileVal.required(),
+  button: Joi.object({
+    label: joiText({ min: 2, max: 1000, required: true }),
+    // link: joiText({ min: 2, max: 1000, required: true }),
+  }),
   ...CommonsVal,
 });
 
@@ -76,7 +80,10 @@ const testimonialSection = Joi.object({
 const getInTouchSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
-   poster: fileVal.required(),
+  poster: fileVal.required(),
+  button: Joi.object({
+    label: joiText({ min: 2, max: 1000, required: true }),
+  }),
   ...CommonsVal,
 });
 

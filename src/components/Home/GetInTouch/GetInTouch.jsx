@@ -6,33 +6,6 @@ import MainLink from "@/components/MainLink/MainLink";
 import { lineBreak } from "@/utils/text";
 import FAQItem from "./FAQItem/FAQItem";
 
-const fakeFAQs = [
-  {
-    question: "What services do you offer?",
-    answer:
-      "We offer web design, development, branding, and digital marketing solutions tailored to your business needs.",
-  },
-  {
-    question: "How can I contact your team?",
-    answer:
-      "You can reach us through our contact form on the 'Contact Us' page or by emailing support@example.com.",
-  },
-  {
-    question: "Do you work with international clients?",
-    answer:
-      "Yes, we proudly serve clients worldwide and are experienced in remote collaboration.",
-  },
-  {
-    question: "What is your typical project timeline?",
-    answer:
-      "Project timelines vary based on complexity, but most are completed within 4 to 8 weeks.",
-  },
-  {
-    question: "Do you provide ongoing support after project completion?",
-    answer:
-      "Yes, we offer ongoing support and maintenance packages to ensure your project stays up-to-date and secure.",
-  },
-];
 
 const GetInTouch = ({ data = {} }) => {
   return (
@@ -59,7 +32,7 @@ const GetInTouch = ({ data = {} }) => {
           className={`${styles.aos} flex gap10 al-i-c`}
         >
           <MainLink
-            text="Contact us"
+            text={data?.button?.label}
             href={"/contact-us"}
             className={styles.link}
           />

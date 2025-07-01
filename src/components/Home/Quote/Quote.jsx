@@ -6,7 +6,7 @@ import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const Quote = ({ data = {} }) => {
-  const { title, content, poster } = data;
+  const { title, content, poster, button } = data;
 
   return (
     <section className={styles.section}>
@@ -43,7 +43,7 @@ const Quote = ({ data = {} }) => {
               activeClassName={styles.fadeUpActive}
             >
               <Link href="/about-us" className={styles.linkButton}>
-                Learn More <ArrowOutwardIcon />
+                {button?.label} <ArrowOutwardIcon />
               </Link>
             </Aos>
           </div>

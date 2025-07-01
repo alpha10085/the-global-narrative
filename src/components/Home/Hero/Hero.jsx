@@ -28,7 +28,7 @@ const Hero = ({ data = {} }) => {
           />
           <p className={styles.description}>{data?.description}</p> */}
           <div className={styles.link}>
-            <MainButton text="learn more" href="/contact-us" />
+            <MainButton text={data?.button?.label} href="/contact-us" />
           </div>
         </div>
       </div>
