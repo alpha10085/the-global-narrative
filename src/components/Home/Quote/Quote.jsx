@@ -4,7 +4,7 @@ import styles from "./Quote.module.css";
 import { ArrowOutwardIcon } from "../icons";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
-
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 const Quote = ({ data = {} }) => {
   const { title, content, poster, button } = data;
 
@@ -36,14 +36,13 @@ const Quote = ({ data = {} }) => {
               />
             )}
 
-
             <Aos
               delay={200}
               className={styles.linkWrapper}
               activeClassName={styles.fadeUpActive}
             >
               <Link href="/about-us" className={styles.linkButton}>
-                {button?.label} <ArrowOutwardIcon />
+                {button?.label} <ArrowForwardIcon />
               </Link>
             </Aos>
           </div>
