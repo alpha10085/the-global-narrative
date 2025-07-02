@@ -8,23 +8,23 @@ export const links = [
     enabled: true,
   },
   {
-    text: "who we are",
+    text: "Who we are",
     href: "/about-us",
     enabled: true,
   },
   {
-    text: "services",
+    text: "Our services",
     href: "/services",
     enabled: true,
   },
   {
-    text: "clients",
+    text: "Clients",
     href: "/clients",
     enabled: false,
   },
 
   {
-    text: "media center",
+    text: "Media center",
     href: "/media-center",
     enabled: false,
   },
@@ -34,7 +34,7 @@ export const links = [
     enabled: true,
   },
   {
-    text: "contact us",
+    text: "Contact us",
     href: "/contact-us",
     enabled: true,
   },
