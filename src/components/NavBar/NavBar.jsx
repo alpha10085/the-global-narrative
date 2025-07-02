@@ -47,11 +47,15 @@ const NavBar = () => {
   ];
 
   const isPathInPatterns = useCallback((patterns, path, width) => {
-    return patterns.some(({ path: pattern, minWidth = 0, maxWidth = Infinity }) => {
-      const regexPattern = pattern.replace(/[-/\\^$+?.()|[\]{}]/g, "\\$&").replace(/\*/g, ".*");
-      const regex = new RegExp(`^${regexPattern}$`);
-      return regex.test(path) && width >= minWidth && width <= maxWidth;
-    });
+    return patterns.some(
+      ({ path: pattern, minWidth = 0, maxWidth = Infinity }) => {
+        const regexPattern = pattern
+          .replace(/[-/\\^$+?.()|[\]{}]/g, "\\$&")
+          .replace(/\*/g, ".*");
+        const regex = new RegExp(`^${regexPattern}$`);
+        return regex.test(path) && width >= minWidth && width <= maxWidth;
+      }
+    );
   }, []);
 
   useEffect(() => {
@@ -61,20 +65,40 @@ const NavBar = () => {
       const width = window.innerWidth;
 
       const offset = parseInt(section?.dataset?.offset) || 0;
-      const sectionTop = section?.getBoundingClientRect()?.top + window.scrollY - offset;
+      const sectionTop =
+        section?.getBoundingClientRect()?.top + window.scrollY - offset;
       const navbarHeight = navbar?.offsetHeight || 0;
       const scrollPosition = window.scrollY;
 
       const shouldActivate = scrollPosition + navbarHeight >= sectionTop;
 
-      const isTransparentPath = isPathInPatterns(transparentPathes, pathname, width);
+      const isTransparentPath = isPathInPatterns(
+        transparentPathes,
+        pathname,
+        width
+      );
       const isDarkModePath = isPathInPatterns(darkModePathes, pathname, width);
-      const isDarkLogoPath = isPathInPatterns(transparentDarkLogoPathes, pathname, width);
-      const isDarkModeLightLogoPath = isPathInPatterns(transparentDarkModeLightLogoPathes, pathname, width);
-      const isNonFixedRoute = isPathInPatterns(nonFixedNavRoutes, pathname, width);
+      const isDarkLogoPath = isPathInPatterns(
+        transparentDarkLogoPathes,
+        pathname,
+        width
+      );
+      const isDarkModeLightLogoPath = isPathInPatterns(
+        transparentDarkModeLightLogoPathes,
+        pathname,
+        width
+      );
+      const isNonFixedRoute = isPathInPatterns(
+        nonFixedNavRoutes,
+        pathname,
+        width
+      );
 
       const matched =
-        isTransparentPath || isDarkLogoPath || isDarkModePath || isDarkModeLightLogoPath;
+        isTransparentPath ||
+        isDarkLogoPath ||
+        isDarkModePath ||
+        isDarkModeLightLogoPath;
 
       if (shouldActivate || !matched) {
         setNavMode({
@@ -85,8 +109,12 @@ const NavBar = () => {
         });
       } else {
         setNavMode({
-          transparent: isTransparentPath || isDarkLogoPath || isDarkModeLightLogoPath,
-          darkMode: isDarkModePath || isDarkModeLightLogoPath || (!isTransparentPath && !isDarkLogoPath),
+          transparent:
+            isTransparentPath || isDarkLogoPath || isDarkModeLightLogoPath,
+          darkMode:
+            isDarkModePath ||
+            isDarkModeLightLogoPath ||
+            (!isTransparentPath && !isDarkLogoPath),
           darkLogo: isDarkLogoPath && !isDarkModeLightLogoPath,
           nonFixed: isNonFixedRoute,
         });
@@ -114,21 +142,23 @@ const NavBar = () => {
     setOpenMobile((prev) => !prev);
   }, []);
 
-  const renderedLinks = useMemo(() => (
-    enabledLinks.map((val, index) => (
-      <li key={val.href}>
-        <LinkTransition
-          style={{ animationDelay: `${index * 200 + 500}ms` }}
-          className={`${styles.link} 
+  const renderedLinks = useMemo(
+    () =>
+      enabledLinks.map((val, index) => (
+        <li key={val.href}>
+          <LinkTransition
+            style={{ animationDelay: `${index * 200 + 500}ms` }}
+            className={`${styles.link} 
             ${pathes?.[0] === val?.href ? styles.active : ""}
             flex-c`}
-          href={val?.href}
-        >
-          {val?.text}
-        </LinkTransition>
-      </li>
-    ))
-  ), [enabledLinks, pathes]);
+            href={val?.href}
+          >
+            {val?.text}
+          </LinkTransition>
+        </li>
+      )),
+    [enabledLinks, pathes]
+  );
 
   return (
     <header className={styles.header}>

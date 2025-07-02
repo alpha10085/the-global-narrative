@@ -1,11 +1,22 @@
-const { default: Img } = require("../img/Img");
-const { default: VideoPlayer } = require("../Video/Video");
+import React, { memo } from "react";
+import Img from "../img/Img";
+import VideoPlayer from "../Video/Video";
 
-const Media = (props = {}) => {
-  const { mimetype = "image" } = props;
+const Media = ({ mimetype = "image", ...props }) => {
   if (mimetype === "image") return <Img disableSkeleton {...props} />;
-  if (mimetype === "video") return <VideoPlayer disableSkeleton {...props} />;
+  if (mimetype === "video") return <VideoPlayer
+  autoPlay={false}
+  disableSkeleton {...props} />;
   return null;
 };
 
-export default Media;
+const areEqual = (prevProps, nextProps) => {
+  return (
+    prevProps.mimetype === nextProps.mimetype &&
+    JSON.stringify(prevProps) === JSON.stringify(nextProps)
+  );
+};
+
+Media.displayName = "Media";
+
+export default memo(Media, areEqual);

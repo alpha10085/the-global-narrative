@@ -4,13 +4,17 @@ import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV
 import MainButton from "@/components/MainButton/MainButton";
 import Media from "@/components/Shared/Media/Media";
 import ShinyText from "@/components/Shared/Animtions/ShinyText/ShinyText";
+import { videoKey } from "@/components/NavBar/helpers";
 const Hero = ({ data = {} }) => {
+  const mediaData = { ...data?.media, thumbnail: data?.thumbnail?.url };
+
   return (
     <div className={styles.container}>
       <div className={styles.slide}>
         <Media
-          {...{ ...data?.media, thumbnail: data?.thumbnail?.url }}
+          {...mediaData}
           allowChangeSound
+          videoKey={videoKey}
           className={`${styles.media} imageoverlay`}
         />
         <div className={`${styles.titleBox} flex-c column gap15`}>
