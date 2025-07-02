@@ -13,7 +13,7 @@ export const links = [
     enabled: true,
   },
   {
-    text: "Our services",
+    text: "Our Solutions",
     href: "/services",
     enabled: true,
   },
