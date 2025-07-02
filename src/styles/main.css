@@ -388,6 +388,7 @@ h2,
 h3,
 h4 {
    font-family: var(--font-Ubuntu) !important;
+   text-transform: capitalize !important;
 }
 
 
