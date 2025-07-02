@@ -12,7 +12,7 @@ import DonutSmallIcon from "@mui/icons-material/DonutSmall";
 import DoneIcon from "@mui/icons-material/Done";
 import CloseIcon from "@mui/icons-material/Close";
 import BlurBg from "@/_Dashboard/components/BlurBg/BlurBg";
-import useDisableScroll from "@/hooks/useDisableScroll";
+import useScrollControl from "@/hooks/useScrollControl";
 import { useUploadFile } from "../ContextApi/FileUploadCTX";
 const Window = ({
   open,
@@ -47,7 +47,7 @@ const Window = ({
     setfaseOutEffect(false);
   };
 
-  const {} = useDisableScroll({
+  const {} = useScrollControl({
     default: toggleWindow,
   });
   const isEmpty = !files?.length && swiperSection === 1;

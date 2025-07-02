@@ -4,7 +4,7 @@ import styles from "./SelectedMedia.module.css";
 import List from "./components/List/List";
 import { useUploadFile } from "../../Media/UploadFile/ContextApi/FileUploadCTX";
 import BlurBg from "../../BlurBg/BlurBg";
-import useDisableScroll from "@/hooks/useDisableScroll";
+import useScrollControl from "@/hooks/useScrollControl";
 
 const SelectedMedia = ({
   max,
@@ -17,7 +17,7 @@ const SelectedMedia = ({
 }) => {
   const {
     
-  } = useDisableScroll({
+  } = useScrollControl({
     default:true
 });
   const { theme } = useTheme();

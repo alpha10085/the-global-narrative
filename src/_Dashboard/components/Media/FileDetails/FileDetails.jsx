@@ -10,7 +10,7 @@ import { useState, useTransition } from "react";
 import AsyncButton from "@/components/Shared/AsyncButton/AsyncButton";
 import { delay } from "@/utils/time";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
-import useDisableScroll from "@/hooks/useDisableScroll";
+import useScrollControl from "@/hooks/useScrollControl";
 import { formatFileSize } from "@/utils/data";
 import { useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -38,7 +38,7 @@ const FileDetails = ({
   });
    const {
     
-  } = useDisableScroll(true);
+  } = useScrollControl(true);
   const handleDownload = async () => {
     setState({
       downloadLoading: true,

@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useForm } from "react-hook-form";
 import { joiResolver } from "@hookform/resolvers/joi";
 
-import useDisableScroll from "@/hooks/useDisableScroll";
+import useScrollControl from "@/hooks/useScrollControl";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";
 
 import useTranslations from "@/hooks/useTranslations";
@@ -48,7 +48,7 @@ const PopupAddNewEntry = ({
 
   const {
     
-  } = useDisableScroll({
+  } = useScrollControl({
     default:true
   });
   return (

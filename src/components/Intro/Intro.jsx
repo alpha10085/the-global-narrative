@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import Img from "../Shared/img/Img";
 import styles from "./Intro.module.css";
-import useDisableScroll from "@/hooks/useDisableScroll";
+import useScrollControl from "@/hooks/useScrollControl";
 import eventBus from "@/utils/eventBus";
 import useDynamicState from "@/hooks/useDynamicState";
 import { delay } from "@/utils/delay";
@@ -22,7 +22,7 @@ const Intro = () => {
   const { event, hide, loaded } = state;
     const {
     toggleScroll
-  } = useDisableScroll({
+  } = useScrollControl({
     default:false}
   );
   // Conditionally block the intro

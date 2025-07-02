@@ -1,77 +1,84 @@
 "use client";
 
-import { memo, useEffect, useState } from "react";
+import { memo, useEffect } from "react";
 import styles from "./Intro.module.css";
 import MainLogo from "@/components/MainLogo/MainLogo";
 import { delay } from "@/utils/delay";
 import useDynamicState from "@/hooks/useDynamicState";
-import useDisableScroll from "@/hooks/useDisableScroll";
+import useScrollControl from "@/hooks/useScrollControl";
 import { usePathname } from "@/hooks/useTranslations";
 
 const Intro = ({ theme = "dark", classNameWrapper = "" }) => {
   const { pathname } = usePathname();
-  console.log("pathname");
 
   const [state, setState] = useDynamicState({
     event: false,
-    isfinished: false,
+    isFinished: false,
     hide: false,
   });
 
-  const { disableScroll, enableScroll } = useDisableScroll({
-    default: false,
-  });
-  const { event, isfinished, hide } = state;
+  const { disableScroll, enableScroll } = useScrollControl({ default: false });
+  const { event, isFinished, hide } = state;
 
-  const handleEvent = async () => {
-    disableScroll();
-    await delay(1500);
-    setState({
-      event: true,
-    });
-    await delay(1600);
-    setState({
-      isfinished: true,
-    });
-    await delay(500);
-    setState({
-      hide: true,
-    });
-    enableScroll();
-  };
+  const isHome = pathname === "/" && !hide;
 
   useEffect(() => {
-    handleEvent();
-  }, []);
+    if (!isHome) return;
 
-  const logoClassname = hide
-    ? classNameWrapper
-    : `
-          ${styles.animatedLogo} ${event ? styles.logoToCorner : ""}
-        ${hide ? styles.hide : ""}
+    let canceled = false;
+
+    const runSequence = async () => {
+      disableScroll();
+
+      await delay(1500);
+      if (canceled) return;
+      setState({ event: true });
+
+      await delay(1600);
+      if (canceled) return;
+      setState({ isFinished: true });
+
+      await delay(500);
+      if (canceled) return;
+      setState({ hide: true });
+
+      enableScroll();
+    };
+
+    runSequence();
+
+    return () => {
+      canceled = true;
+      enableScroll();
+    };
+  }, [isHome]);
+
+  const logoClassName =
+    !isHome || hide
+      ? classNameWrapper
+      : `
+          ${styles.animatedLogo}
+          ${event ? styles.logoToCorner : ""}
+          ${hide ? styles.hide : ""}
         `;
 
   return (
     <>
       <MainLogo
-        classNameWrapper={logoClassname}
-        theme={hide ? theme : "dark"}
+        classNameWrapper={logoClassName}
+        theme={!isHome || hide ? theme : "dark"}
       />
-
-      <div className=""></div>
-
+      <div /> {/* Reserved space under logo */}
       <div
         className={`${styles.container} 
-         ${hide ? styles.hide : ""}
-        ${isfinished ? styles.isfinished : ""}`}
-      ></div>
+         ${!isHome || hide ? styles.hide : ""}
+         ${isFinished ? styles.isfinished : ""}`}
+      />
     </>
   );
 };
 
-export default memo(Intro, (prev, next) => {
-  return (
-    prev?.classNameWrapper === next?.classNameWrapper &&
-    prev?.theme === next?.theme
-  );
-});
+export default memo(Intro, (prev, next) =>
+  prev.classNameWrapper === next.classNameWrapper &&
+  prev.theme === next.theme
+);

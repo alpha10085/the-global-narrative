@@ -33,7 +33,7 @@ const Aos = ({
       cancelled = true;
     };
   }, [inView, animationDelay, triggerOnce]);
-console.log("hi");
+
 
   const handleClick = useCallback(onClick || (() => {}), [onClick]);
 

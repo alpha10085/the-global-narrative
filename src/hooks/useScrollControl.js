@@ -20,7 +20,7 @@ const updateScrollLock = (lock) => {
   }
 };
 
-const useDisableScroll = ({ default: disable = true }) => {
+const useScrollControl = ({ default: disable = true }) => {
   const isLockedRef = useRef(false);
 
   useEffect(() => {
@@ -62,4 +62,4 @@ const useDisableScroll = ({ default: disable = true }) => {
   };
 };
 
-export default useDisableScroll;
+export default useScrollControl;

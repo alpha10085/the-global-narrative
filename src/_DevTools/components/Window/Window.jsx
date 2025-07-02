@@ -1,5 +1,5 @@
 "use client";
-import useDisableScroll from "@/hooks/useDisableScroll";
+import useScrollControl from "@/hooks/useScrollControl";
 import styles from "./Window.module.css";
 import {
   ComponentIcon,
@@ -76,7 +76,7 @@ function hasTrueValue(obj) {
 const Window = ({ onClose = () => {}, show }) => {
     const {
     
-  } = useDisableScroll({
+  } = useScrollControl({
     default:true
   });
   const [state, setState] = useDynamicState(

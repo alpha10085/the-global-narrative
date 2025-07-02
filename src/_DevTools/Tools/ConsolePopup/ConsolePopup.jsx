@@ -12,7 +12,7 @@ import DoNotDisturbOnIcon from "@mui/icons-material/DoNotDisturbOn";
 import ObjectID from "bson-objectid";
 import { isEqual } from "lodash";
 import { delay } from "@/utils/delay";
-import useDisableScroll from "@/hooks/useDisableScroll";
+import useScrollControl from "@/hooks/useScrollControl";
 
 function safeClone(args) {
   const handler = (arg) => {
@@ -44,7 +44,7 @@ const ConsolePopup = ({ logStore, onMouned }) => {
     loading: true,
   });
 
-  const { disableScroll, enableScroll } = useDisableScroll({
+  const { disableScroll, enableScroll } = useScrollControl({
     default: false,
     hideScollBar: false,
   });
