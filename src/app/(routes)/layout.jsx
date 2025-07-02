@@ -17,16 +17,14 @@ export default async function RootLayout({ children }) {
     >
       <SmoothScroll duration={1} />
 
-      <ClientWrapper>
-        <NavBar />
-        <div style={{ minHeight: "100vh" }}>{children}</div>
-        <SSRFetcher
-          Component={Footer}
-          path="/components/footer"
-          Fallback={Fallback}
-          props={{ revalidate: "1y" }}
-        />
-      </ClientWrapper>
+      <NavBar />
+      <div style={{ minHeight: "100vh" }}>{children}</div>
+      <SSRFetcher
+        Component={Footer}
+        path="/components/footer"
+        Fallback={Fallback}
+        props={{ revalidate: "1y" }}
+      />
 
       <Toaster />
       <DashPopup />

@@ -11,7 +11,7 @@ const ClientWrapper = ({ children }) => {
   useEffect(() => {
     setHasMounted(true);
 
-    const hasVisited = sessionStorage.getItem("intro-shown");
+    const hasVisited = false && sessionStorage.getItem("intro-shown");
 
     if (!hasVisited) {
       setShowIntro(true);
@@ -46,19 +46,3 @@ export default ClientWrapper;
 
 
 
-/*
-<div
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          height: "100vh",
-          width: "100vw",
-          background: "linear-gradient(-45deg, #000428, #000, #000428, #000)",
-          backgroundSize: "400% 400%",
-          animation: "gradientMove 8s ease infinite",
-          zIndex: 9999,
-        }}
-      />
-
-*/

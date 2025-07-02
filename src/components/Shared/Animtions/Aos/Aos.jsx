@@ -1,8 +1,8 @@
 "use client";
 
-import { delay } from "@/utils/time";
-import { useState } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
+import { delay } from "@/utils/time";
 
 const Aos = ({
   className = "",
@@ -10,32 +10,43 @@ const Aos = ({
   triggerOnce = true,
   threshold = 0.1,
   children,
-  delay: animtionDelay = 0,
-  onClick = () => {},
+  delay: animationDelay = 0,
+  onClick,
 }) => {
   const [event, setEvent] = useState(false);
-  const { ref, inView, entry } = useInView({
-    triggerOnce,
-    threshold,
-    onChange: async (inView) => {
+  const { ref, inView } = useInView({ triggerOnce, threshold });
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const handle = async () => {
       if (inView) {
-        await delay(animtionDelay);
-        setEvent(true);
-      } else {
-        // Add your animation reverse logic here
-        if (!triggerOnce) setEvent(false);
+        if (animationDelay > 0) await delay(animationDelay);
+        if (!cancelled) setEvent(true);
+      } else if (!triggerOnce) {
+        setEvent(false);
       }
-    },
-  });
+    };
+
+    handle();
+    return () => {
+      cancelled = true;
+    };
+  }, [inView, animationDelay, triggerOnce]);
+console.log("hi");
+
+  const handleClick = useCallback(onClick || (() => {}), [onClick]);
+
+  const finalClassName = useMemo(() => {
+    return `${className} ${event ? activeClassName : ""}`.trim();
+  }, [className, activeClassName, event]);
+
   return (
-    <div
-      onClick={onClick}
-      ref={ref}
-      className={`${className} ${event && activeClassName}`}
-    >
+    <div ref={ref} onClick={handleClick} className={finalClassName}>
       {children}
     </div>
   );
 };
 
-export default Aos;
+// ✅ Memoize the component itself to avoid unnecessary re-renders
+export default React.memo(Aos);

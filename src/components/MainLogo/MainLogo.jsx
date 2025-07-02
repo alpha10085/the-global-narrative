@@ -9,9 +9,10 @@ const MainLogo = ({
   classNameImg = "",
 }) => {
   return (
-    <LinkTransition 
-    href={"/"}
-    className={`${classNameWrapper} ${styles.wrapper}`}>
+    <LinkTransition
+      href={"/"}
+      className={`${classNameWrapper} ${styles.wrapper}`}
+    >
       <Img
         disableSkeleton
         className={`${styles.logo} ${

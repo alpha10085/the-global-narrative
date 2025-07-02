@@ -21,9 +21,7 @@ const Intro = ({ hide = false, onHideEnd }) => {
       onAnimationEnd={hide ? onHideEnd : undefined}
     >
       <div
-        className={`${styles.animatedLogo} ${
-          start ? styles.logoToCorner : ""
-        }`}
+        className={`${styles.animatedLogo} ${start ? styles.logoToCorner : ""}`}
       >
         <MainLogo theme="dark" />
       </div>

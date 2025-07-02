@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "file": "src/utils/document.js",
+    "firstSeenAt": "7/2/2025, 7:00:47 PM",
+    "lastUpdatedAt": "7/2/2025, 7:00:52 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 3
+  },
+  {
+    "file": "src/components/Shared/Animtions/Aos/Aos.jsx",
+    "firstSeenAt": "7/2/2025, 7:10:08 PM",
+    "lastUpdatedAt": "7/2/2025, 7:13:57 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 8
+  },
+  {
+    "file": "src/_DevTools/DevTools.jsx",
+    "firstSeenAt": "7/2/2025, 7:22:37 PM",
+    "lastUpdatedAt": "7/2/2025, 7:23:08 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 2
+  }
+]

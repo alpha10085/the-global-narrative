@@ -1,5 +1,5 @@
 "use client";
-import React, { forwardRef, useCallback, useEffect } from "react";
+import React, { forwardRef, memo, useCallback, useEffect } from "react";
 import styles from "./mobilenav.module.css";
 import { useClickOut } from "@/hooks/useClickout";
 import LinkTransition from "@/components/Shared/LinkTransition/LinkTransition";
@@ -39,4 +39,4 @@ const MobileNav = forwardRef(({ isOpen, SetOpen ,pathname }, BtnRemoteRef) => {
   );
 });
 
-export default MobileNav;
+export default memo(MobileNav);

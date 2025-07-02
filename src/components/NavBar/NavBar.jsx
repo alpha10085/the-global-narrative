@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback, useMemo } from "react";
+import { memo } from "react";
 import styles from "./NavBar.module.css";
 import MobileNav from "./mobileNav/MobileNav";
 import { BurgerIcon } from "./Icons/Icons";
@@ -10,11 +11,13 @@ import { enabledLinks } from "./helpers";
 import LinkTransition from "../Shared/LinkTransition/LinkTransition";
 import { delay } from "@/utils/delay";
 import useDynamicState from "@/hooks/useDynamicState";
+import Intro from "./Intro/Intro";
 
 const NavBar = () => {
   const [openMobil, setOpenMobile] = useState(false);
   const BurgerBtnRef = useRef(null);
   const navRef = useRef(null);
+
   const [navMode, setNavMode] = useDynamicState({
     transparent: true,
     darkMode: true,
@@ -39,22 +42,17 @@ const NavBar = () => {
     { path: "/contact-us", minWidth: 768, maxWidth: Infinity },
   ];
 
-  // NEW: Routes where navbar is NOT fixed
   const nonFixedNavRoutes = [
     { path: "/services", minWidth: 0, maxWidth: Infinity },
   ];
 
-  const isPathInPatterns = (patterns, path, width) => {
-    return patterns.some(
-      ({ path: pattern, minWidth = 0, maxWidth = Infinity }) => {
-        const regexPattern = pattern
-          .replace(/[-/\\^$+?.()|[\]{}]/g, "\\$&")
-          .replace(/\*/g, ".*");
-        const regex = new RegExp(`^${regexPattern}$`);
-        return regex.test(path) && width >= minWidth && width <= maxWidth;
-      }
-    );
-  };
+  const isPathInPatterns = useCallback((patterns, path, width) => {
+    return patterns.some(({ path: pattern, minWidth = 0, maxWidth = Infinity }) => {
+      const regexPattern = pattern.replace(/[-/\\^$+?.()|[\]{}]/g, "\\$&").replace(/\*/g, ".*");
+      const regex = new RegExp(`^${regexPattern}$`);
+      return regex.test(path) && width >= minWidth && width <= maxWidth;
+    });
+  }, []);
 
   useEffect(() => {
     const updateNavMode = () => {
@@ -63,40 +61,20 @@ const NavBar = () => {
       const width = window.innerWidth;
 
       const offset = parseInt(section?.dataset?.offset) || 0;
-      const sectionTop =
-        section?.getBoundingClientRect()?.top + window.scrollY - offset;
+      const sectionTop = section?.getBoundingClientRect()?.top + window.scrollY - offset;
       const navbarHeight = navbar?.offsetHeight || 0;
       const scrollPosition = window.scrollY;
 
       const shouldActivate = scrollPosition + navbarHeight >= sectionTop;
 
-      const isTransparentPath = isPathInPatterns(
-        transparentPathes,
-        pathname,
-        width
-      );
+      const isTransparentPath = isPathInPatterns(transparentPathes, pathname, width);
       const isDarkModePath = isPathInPatterns(darkModePathes, pathname, width);
-      const isDarkLogoPath = isPathInPatterns(
-        transparentDarkLogoPathes,
-        pathname,
-        width
-      );
-      const isDarkModeLightLogoPath = isPathInPatterns(
-        transparentDarkModeLightLogoPathes,
-        pathname,
-        width
-      );
-      const isNonFixedRoute = isPathInPatterns(
-        nonFixedNavRoutes,
-        pathname,
-        width
-      );
+      const isDarkLogoPath = isPathInPatterns(transparentDarkLogoPathes, pathname, width);
+      const isDarkModeLightLogoPath = isPathInPatterns(transparentDarkModeLightLogoPathes, pathname, width);
+      const isNonFixedRoute = isPathInPatterns(nonFixedNavRoutes, pathname, width);
 
       const matched =
-        isTransparentPath ||
-        isDarkLogoPath ||
-        isDarkModePath ||
-        isDarkModeLightLogoPath;
+        isTransparentPath || isDarkLogoPath || isDarkModePath || isDarkModeLightLogoPath;
 
       if (shouldActivate || !matched) {
         setNavMode({
@@ -107,22 +85,16 @@ const NavBar = () => {
         });
       } else {
         setNavMode({
-          transparent:
-            isTransparentPath || isDarkLogoPath || isDarkModeLightLogoPath,
-          darkMode:
-            isDarkModePath ||
-            isDarkModeLightLogoPath ||
-            (!isTransparentPath && !isDarkLogoPath),
+          transparent: isTransparentPath || isDarkLogoPath || isDarkModeLightLogoPath,
+          darkMode: isDarkModePath || isDarkModeLightLogoPath || (!isTransparentPath && !isDarkLogoPath),
           darkLogo: isDarkLogoPath && !isDarkModeLightLogoPath,
           nonFixed: isNonFixedRoute,
         });
       }
 
-      delay(250).then(() =>
-        setNavMode({
-          isMounted: true,
-        })
-      );
+      delay(250).then(() => {
+        setNavMode({ isMounted: true });
+      });
     };
 
     const handleResize = () => {
@@ -132,12 +104,31 @@ const NavBar = () => {
     updateNavMode();
     window.addEventListener("scroll", updateNavMode);
     window.addEventListener("resize", handleResize);
-
     return () => {
       window.removeEventListener("scroll", updateNavMode);
       window.removeEventListener("resize", handleResize);
     };
-  }, [pathname]);
+  }, [pathname, isPathInPatterns]);
+
+  const handleBurgerClick = useCallback(() => {
+    setOpenMobile((prev) => !prev);
+  }, []);
+
+  const renderedLinks = useMemo(() => (
+    enabledLinks.map((val, index) => (
+      <li key={val.href}>
+        <LinkTransition
+          style={{ animationDelay: `${index * 200 + 500}ms` }}
+          className={`${styles.link} 
+            ${pathes?.[0] === val?.href ? styles.active : ""}
+            flex-c`}
+          href={val?.href}
+        >
+          {val?.text}
+        </LinkTransition>
+      </li>
+    ))
+  ), [enabledLinks, pathes]);
 
   return (
     <header className={styles.header}>
@@ -147,7 +138,7 @@ const NavBar = () => {
             className={`${styles.bg} ${
               navMode.transparent ? styles.transparent : ""
             }`}
-          ></div>
+          />
         )}
         <nav
           ref={navRef}
@@ -156,11 +147,11 @@ const NavBar = () => {
             ${!navMode.nonFixed ? styles.fixed : ""}
             ${navMode.transparent ? styles.transparent : ""}
             ${navMode.darkMode ? styles.darkMode : ""}
-            flex just-sb gap15
+            flex gap15
           `}
         >
-          <MainLogo
-            theme={navMode.darkLogo ? "light" : "dark"}
+          <Intro
+            theme={navMode?.darkLogo ? "light" : "dark"}
             classNameWrapper={styles.logo}
           />
 
@@ -169,19 +160,7 @@ const NavBar = () => {
               navMode.isMounted ? styles.show : styles.hide
             }`}
           >
-            {enabledLinks?.map((val, index) => (
-              <li key={index}>
-                <LinkTransition
-                  style={{ animationDelay: `${index * 200 + 500}ms` }}
-                  className={`${styles.link} 
-                    ${pathes?.[0] === val?.href ? styles.active : ""}
-                    flex-c`}
-                  href={val?.href}
-                >
-                  {val?.text}
-                </LinkTransition>
-              </li>
-            ))}
+            {renderedLinks}
           </ul>
 
           <BurgerIcon
@@ -189,7 +168,7 @@ const NavBar = () => {
             className={`${navMode.isMounted ? styles.isMounted : styles.hide} ${
               styles.burgerIcon
             }`}
-            onClick={() => setOpenMobile(!openMobil)}
+            onClick={handleBurgerClick}
             isOpen={openMobil}
           />
         </nav>
@@ -205,4 +184,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar;
+export default memo(NavBar);
