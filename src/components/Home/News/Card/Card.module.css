@@ -10,7 +10,7 @@
   width: 100%;
   height: auto;
   aspect-ratio: 4 / 4.5;
-  border-radius: 8px;
+  border-radius: 20px;
   overflow: hidden;
 }
 .cover img {

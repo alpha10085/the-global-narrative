@@ -1,11 +1,16 @@
 .container {
   width: 30%;
   flex-grow: 1;
-  background-color: rgb(244, 244, 244);
+  background-color: rgb(250, 250, 255);
   border-radius: 30px;
   overflow: hidden;
   min-width: 400px;
-
+  transition: 0.6s;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.container:hover {
+   transform: scale(1.05);
 }
 .container:nth-child(2) {
     background-color: rgba(63, 187, 249, 0.153);

@@ -1,3 +1,4 @@
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import Card from "./Card/Card";
 import styles from "./Quote.module.css";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
@@ -19,11 +20,16 @@ const Quote = ({ data = {} }) => {
           {description}
         </div>
       </div>
-      <div className={`${styles.cards} flex just-sb gap20 wrap`}>
-        {cards?.map((val) => (
-          <Card {...val} key={val?._id} />
+      <Aos
+        threshold={0.3}
+        delay={300}
+        activeClassName={styles.active}
+        className={`${styles.cards} flex just-sb gap20 wrap`}
+      >
+        {cards?.map((val, index) => (
+          <Card className={styles.card} index={index} {...val} key={val?._id} />
         ))}
-      </div>
+      </Aos>
     </section>
   );
 };

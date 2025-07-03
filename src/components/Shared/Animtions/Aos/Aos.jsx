@@ -12,6 +12,7 @@ const Aos = ({
   children,
   delay: animationDelay = 0,
   onClick,
+  style = {},
 }) => {
   const [event, setEvent] = useState(false);
   const { ref, inView } = useInView({ triggerOnce, threshold });
@@ -34,7 +35,6 @@ const Aos = ({
     };
   }, [inView, animationDelay, triggerOnce]);
 
-
   const handleClick = useCallback(onClick || (() => {}), [onClick]);
 
   const finalClassName = useMemo(() => {
@@ -42,7 +42,12 @@ const Aos = ({
   }, [className, activeClassName, event]);
 
   return (
-    <div ref={ref} onClick={handleClick} className={finalClassName}>
+    <div
+      style={style}
+      ref={ref}
+      onClick={handleClick}
+      className={finalClassName}
+    >
       {children}
     </div>
   );

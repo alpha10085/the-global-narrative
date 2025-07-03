@@ -1,15 +1,23 @@
 import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
-const Card = ({ title = "", description = "", poster = {} }) => {
+const Card = ({ className = "", index=0,title = "", description = "", poster = {} }) => {
   return (
-    <div className={`flex ${styles.container} al-i-c`}>
-     
-      <div className={`${styles.content} flex column gap15 `}>
+    <Aos
+      activeClassName={styles.active}
+        style={{
+        transitionDelay:`${index * 0.2}s`
+      }}
+      className={`flex ${styles.container} ${className} al-i-c`}
+    >
+      <div 
+
+      className={`${styles.content} flex column gap15 `}>
         <h1>{title}</h1>
         <p>{description}</p>
       </div>
-    </div>
+    </Aos>
   );
 };
 
