@@ -9,9 +9,7 @@
   margin: 0 5px;
   cursor: pointer;
 }
-.container:hover {
-   transform: scale(1.05);
-}
+
 .container:nth-child(2) {
     background-color: rgba(63, 187, 249, 0.153);
     color: var(--color200);
