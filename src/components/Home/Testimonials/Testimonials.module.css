@@ -35,6 +35,7 @@
   line-height: 1.2;
   color: #111;
   margin-bottom: 16px;
+    color: var(--color200);
 }
 
 .left p {

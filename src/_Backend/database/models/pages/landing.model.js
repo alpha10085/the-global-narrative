@@ -38,12 +38,14 @@ const servicesSection = new Schema({
 // Quote section
 const quoteSection = new Schema({
   title: mongtext,
-  content: mongeDescription,
-  poster,
-  button: {
-    label: mongtext,
-    link: mongtext,
-  },
+  description: mongeDescription,
+  cards: [
+    {
+      title: mongtext,
+      description: mongeDescription,
+      poster,
+    },
+  ],
 });
 
 // News section
@@ -98,7 +100,7 @@ landingSchema.pre(/^find/, function (next) {
     },
     {
       ...populateCommons,
-      path: "quoteSection.poster",
+      path: "quoteSection.cards.poster",
     },
   ];
   if (this?.options?.admin) {

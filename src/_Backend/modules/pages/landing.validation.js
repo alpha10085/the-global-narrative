@@ -45,11 +45,17 @@ const servicesSection = Joi.object({
 // Quote Section
 const quoteSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
-  content: joiText({ min: 2, max: 20000, required: true }),
-  poster: fileVal.required(),
-  button: Joi.object({
-    label: joiText({ min: 2, max: 1000, required: true }),
-    // link: joiText({ min: 2, max: 1000, required: true }),
+  description: joiText({ min: 2, max: 20000, required: true }),
+  cards: joiArray({
+    body: Joi.object({
+      title: joiText({ min: 2, max: 1000, required: true }),
+      description: joiText({ min: 2, max: 20000, required: true }),
+      poster: fileVal.required(),
+      ...CommonsVal,
+    }).required(),
+    min: 1,
+    max: 3,
+    required: true,
   }),
   ...CommonsVal,
 });

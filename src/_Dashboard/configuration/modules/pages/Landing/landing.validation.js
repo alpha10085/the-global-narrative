@@ -73,20 +73,31 @@ const LandingPageValidationSchema = (locale = "en") => {
       locale,
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
-        content: joiText({ locale, min: 2, max: 20000, required: true }),
-        poster: fileVal.required().messages(
-          messagesHandlers({
+        description: joiText({ locale, min: 2, max: 20000, required: true }),
+        cards: joiArray({
+          body: joiObject({
+            required: true,
             locale,
-            type: "object",
-          })
-        ),
-        button: joiObject({
-          required: true,
+            body: {
+              title: joiText({ locale, min: 2, max: 20000, required: true }),
+              description: joiText({
+                locale,
+                min: 2,
+                max: 20000,
+                required: true,
+              }),
+              poster: fileVal.required().messages(
+                messagesHandlers({
+                  locale,
+                  type: "object",
+                })
+              ),
+            },
+          }),
           locale,
-          body: {
-            label: joiText({ locale, min: 2, max: 20000, required: true }),
-            // link: joiText({ locale, min: 2, max: 20000, required: true }),
-          },
+          max: 3,
+          min: 1,
+          required: true,
         }),
       },
     }),

@@ -17,9 +17,9 @@
 .title {
   width: 100%;
   display: flex;
-  /* justify-content: center; */
+    color: var(--color200);
   padding-inline: clamp(16px, 5vw, 80px);
-  margin: 60px 0  50px;
+  margin: 60px 0  20px;
 }
 
 .card {

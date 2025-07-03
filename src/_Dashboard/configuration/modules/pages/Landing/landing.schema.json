@@ -23,19 +23,14 @@
         {
           "name": "media",
           "type": "media",
-          "allowedTypes": [
-            "image",
-            "video"
-          ],
+          "allowedTypes": ["image", "video"],
           "single": true,
           "label": "media"
         },
         {
           "name": "thumbnail",
           "type": "media",
-          "allowedTypes": [
-            "image"
-          ],
+          "allowedTypes": ["image"],
           "single": true,
           "label": "thumbnail"
         },
@@ -85,11 +80,7 @@
           "name": "services",
           "type": "relation",
           "ref": "service",
-          "select": [
-            "_id",
-            "title",
-            "poster"
-          ],
+          "select": ["_id", "title", "poster"],
           "imageField": "poster",
           "displayField": "title",
           "single": false,
@@ -110,29 +101,33 @@
           "label": "title"
         },
         {
-          "name": "content",
+          "name": "description",
           "type": "textarea",
-          "label": "content"
+          "label": "description"
         },
         {
-          "name": "poster",
-          "type": "media",
-          "allowedTypes": [
-            "image"
-          ],
-          "single": true,
-          "label": "poster"
-        },
-        {
-          "name": "button",
-          "type": "object",
-          "label": "button",
+          "name": "cards",
+          "type": "array",
+          "label": "cards",
           "min": 1,
+          "max": 3,
           "fields": [
             {
-              "name": "label",
+              "name": "title",
               "type": "text",
-              "label": "label"
+              "label": "title"
+            },
+            {
+              "name": "description",
+              "type": "textarea",
+              "label": "description"
+            },
+            {
+              "name": "poster",
+              "type": "media",
+              "allowedTypes": ["image"],
+              "single": true,
+              "label": "poster"
             }
           ]
         }
@@ -152,11 +147,7 @@
           "name": "posts",
           "type": "relation",
           "ref": "news",
-          "select": [
-            "_id",
-            "title",
-            "poster"
-          ],
+          "select": ["_id", "title", "poster"],
           "imageField": "poster",
           "displayField": "title",
           "single": false,
@@ -179,11 +170,7 @@
           "name": "posts",
           "type": "relation",
           "ref": "testimonials",
-          "select": [
-            "_id",
-            "author",
-            "poster"
-          ],
+          "select": ["_id", "author", "poster"],
           "imageField": "poster",
           "displayField": "author",
           "single": false,
@@ -210,9 +197,7 @@
         {
           "name": "poster",
           "type": "media",
-          "allowedTypes": [
-            "image"
-          ],
+          "allowedTypes": ["image"],
           "single": true,
           "label": "poster"
         },
