@@ -9,12 +9,10 @@
 }
 
 .title {
-  font-size: clamp(20px, 3vw, 40px);
-  font-weight: 400;
+  font-size: clamp(25px, 3vw, 40px);
   line-height: 1.3;
   width: 400px;
   color: var(--color200);
-
   font-weight: 500;
 }
 .content {
@@ -41,5 +39,19 @@
 .cards.active .card {
   transform: translate(0);
   opacity: 1;
+}
+
+@media (max-width:920px) {
+  .content {
+    flex-direction: column;
+    align-items: unset !important;
+    gap: 20px !important;
+    padding: 0 20px;
+  }
+  .title,
+  .description {
+    width: unset;
+    width: 90%;
+  }
 }
 
