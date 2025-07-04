@@ -12,7 +12,7 @@ import { videoKey } from "../helpers";
 
 const Intro = ({ theme = "dark", classNameWrapper = "" }) => {
   const { pathname } = usePathname();
-  const isHome = pathname === "/-";
+  const isHome = pathname === "/";
 
   const [state, setState] = useDynamicState({
     event: false,
