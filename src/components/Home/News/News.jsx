@@ -81,10 +81,10 @@ const News = ({ data = {} }) => {
             delay: 2000,
             disableOnInteraction: false,
           }}
-          speed={1000}
+          speed={2000}
           loop={true}
           slidesPerView={1.2}
-          spaceBetween={20}
+          spaceBetween={40}
           initialSlide={2}
           breakpoints={{
             550: { slidesPerView: 2 },

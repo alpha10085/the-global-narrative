@@ -1,13 +1,12 @@
 .container {
- min-height: 60vh;
+  min-height: 60vh;
   width: 100%;
   margin: 0 auto;
   padding-bottom: clamp(40px, 6vw, 80px);
   overflow: hidden;
   position: relative;
-  z-index: 10;background-color: white;
-
-  
+  z-index: 10;
+  background-color: white;
 }
 
 .list {
@@ -17,9 +16,9 @@
 .title {
   width: 100%;
   display: flex;
-    color: var(--color200);
+  color: var(--color200);
   padding-inline: clamp(16px, 5vw, 80px);
-  margin: 60px 0  20px;
+  margin: 60px 0 20px;
 }
 
 .card {
@@ -48,7 +47,7 @@
 }
 
 @media (max-width: 550px) {
- .container {
+  .container {
     min-height: 40vh;
     padding-top: clamp(30px, 5vw, 50px);
     padding-bottom: clamp(24px, 5vw, 40px);

@@ -21,7 +21,7 @@ const Card = ({ delay = 0, className = "", data = {} }) => {
         </div>
 
         <h1 className={`${styles.title} mt-5 `}>
-          {customText(data?.title, 50)}
+          {customText(data?.title, 40)}
         </h1>
       </div>
     </LinkTransition>

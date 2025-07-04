@@ -8,17 +8,40 @@
   padding: 20px;
 }
 
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  clip-path: url(#bubbleClip);
+
+  padding: 20px 80px;
+  background-color: #f7f7f7;
+  color: black;
+
+  font-size: 1rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .active {
   opacity: 1;
   pointer-events: auto;
 }
 
 .quote {
-  font-size: clamp(16px, 2vw, 20px);
+  font-size: clamp(14px, 1.7vw, 20px);
   line-height: 1.6;
   color: #222;
   margin-bottom: 20px;
- 
+  text-align: start;
 }
 
 .author {
@@ -54,18 +77,20 @@
   color: #888;
 }
 
-@media (max-width: 600px) {
-  .card{
+@media (max-width: 768px) {
+  .card {
     padding: 0 10px;
   }
   .quote {
-    font-size: 16px;
     margin: 0;
+
+    text-align: center;
   }
 
   .author {
-    flex-direction: row;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .name {
@@ -74,5 +99,14 @@
 
   .title {
     font-size: 13px;
+  }
+  .content {
+    padding: 10px 40px;
+  }
+}
+
+@media (max-width:400px) {
+  .content {
+    padding: 10px 30px;
   }
 }

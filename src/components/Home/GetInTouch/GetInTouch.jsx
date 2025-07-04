@@ -10,7 +10,7 @@ import FAQItem from "./FAQItem/FAQItem";
 const GetInTouch = ({ data = {} }) => {
   return (
     <div className={`${styles.container} flex`}>
-      <div className={`${styles.left} flex column gap20`}>
+      <div className={`${styles.left}  flex column gap20`}>
         <SectionTitle title={data?.title} className={styles.title} />
         <Aos
           delay={400}

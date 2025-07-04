@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   position: relative;
-  margin-bottom: 10px;
+  padding: 25px 0 50px;
 }
 
 .sliderHeader {
@@ -16,31 +16,34 @@
 }
 
 .title {
-  width: max-content;
-  display: flex;
+
   gap: 10px !important;
   color: rgb(0, 0, 0);
-  margin: 20px 0 30px;
-    color: var(--color200);
+  margin: 0 0 30px;
+  color: var(--color200);
 }
 
 .navButton {
   width: 55px;
   height: 55px;
   border-radius: 50%;
-  border: 1px solid #666;
+  border: none;
   background-color: white;
   padding-bottom: 1px;
-  color: #666;
+  color: #000000;
   cursor: pointer;
   font-size: 25px;
   font-weight: bold;
   transition: 0.3s;
+  background-color: rgb(230, 230, 230);
+  margin: 0 2.5px;
 }
-
+.navButton:nth-child(2) svg {
+  transform: translateX(2px);
+}
 .navButton:hover {
-  background-color: #333;
-  color: #fff;
+  background-color: rgb(210, 210, 210);
+  transform: scale(1.05);
 }
 
 .sliderWrapper {

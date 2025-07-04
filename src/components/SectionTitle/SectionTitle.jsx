@@ -3,7 +3,7 @@ import styles from "./SectionTitle.module.css";
 
 const SectionTitle = ({ options = {}, delay = 200, className = "", title }) => (
   <WordPullUpV2
-    duration={1}
+    duration={0.6}
     delay={delay}
     className={`${styles.title} ${className}`}
     text={title}

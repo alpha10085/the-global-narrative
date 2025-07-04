@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import styles from "./ServicesSection.module.css";
 import ServiceItem from "./ServiceItem/ServiceItem";
-import { ArrowBackIosNewIcon, ArrowForwardIosIcon } from "../icons";
+import { ArrowBackIosNewIcon, ArrowForwardIosIcon } from "@/components/Home/icons";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
@@ -34,10 +34,10 @@ const ServicesSection = ({ data = {} }) => {
         {/* Show "Swipe" hint once on mobile */}
         <Aos
           triggerOnce
-          threshold={0.3}
+          threshold={0}
           className={`${styles.hint}`}
           activeClassName={styles.hintActive}
-          delay={200}
+          delay={400}
         >
           <span className={styles.swipeHint}>Swipe →</span>
         </Aos>

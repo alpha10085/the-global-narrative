@@ -1,8 +1,15 @@
-
-"use client"
-import LocationPin from '@mui/icons-material/LocationPin';
-import LocalPhone from '@mui/icons-material/LocalPhone';
-import AttachEmail from '@mui/icons-material/AttachEmail';
-export const LocationPinIcon = LocationPin
-export const LocalPhoneIcon = LocalPhone
-export const AttachEmailIcon = AttachEmail
+"use client";
+import LocationPin from "@mui/icons-material/LocationPin";
+import LocalPhone from "@mui/icons-material/LocalPhone";
+import AttachEmail from "@mui/icons-material/AttachEmail";
+import ArrowOutward from "@mui/icons-material/ArrowOutward";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIos from "@mui/icons-material/ArrowForwardIos";
+import ArrowDownward from "@mui/icons-material/ArrowDownward";
+export const LocationPinIcon = LocationPin;
+export const LocalPhoneIcon = LocalPhone;
+export const AttachEmailIcon = AttachEmail;
+export const ArrowOutwardIcon = ArrowOutward;
+export const ArrowForwardIosIcon = ArrowForwardIos;
+export const ArrowBackIosNewIcon = ArrowBackIosIcon;
+export const ArrowDownwardIcon = ArrowDownward;

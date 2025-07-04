@@ -1,11 +1,10 @@
 .container {
-  background-color: #f9f9f9;
   position: relative;
+  background-color: white;
+  padding: 0px 0 50px;
 }
 
 .wrapper {
-  max-width: 1200px;
-  max-width: 90%;
   margin: 0 auto;
   padding: 0;
   display: flex;
@@ -13,6 +12,7 @@
   justify-content: space-between;
   gap: clamp(24px, 5vw, 48px);
   align-items: stretch;
+  width: 90%;
 }
 
 .left {
@@ -26,7 +26,8 @@
   transform: translateX(-50px);
   transition: opacity 0.6s ease, transform 0.6s ease;
   height: max-content;
-  margin: auto 0;
+  margin: auto;
+  max-width: 90%;
 }
 
 .left h2 {
@@ -35,7 +36,7 @@
   line-height: 1.2;
   color: #111;
   margin-bottom: 16px;
-    color: var(--color200);
+  color: var(--color200);
 }
 
 .left p {
@@ -81,7 +82,7 @@
 .right {
   width: 100%;
   overflow: hidden;
-  flex: 2;
+
   position: relative;
   min-height: 240px;
   background: #f9f9f9;
@@ -91,11 +92,10 @@
 
   overflow-wrap: break-word;
   word-break: break-word;
-}
-.right {
-  height: 60vh; /* Ensure this has a fixed height */
+  width: 850px;
   overflow: hidden;
-  min-height: 400px;
+  height: 500px;
+  max-width: 100%;
 }
 
 .swiper {
@@ -103,6 +103,29 @@
   width: 100% !important;
   max-width: 100%;
   overflow: hidden;
+  position: relative;
+  background-color: white;
+}
+.swiper::before {
+  content: "";
+  left: -0%;
+  top: 0;
+  width: 10%;
+  height: 100%;
+  background-color: white;
+  position: absolute;
+  z-index: 20;
+  background: linear-gradient(to right, rgba(255, 255, 255, 1), transparent);
+}
+.swiper::after {
+  content: "";
+  right: -0%;
+  top: 0;
+  width: 8%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(255, 255, 255, 1), transparent);
+  position: absolute;
+  z-index: 20;
 }
 
 .animateLeft {
@@ -116,15 +139,108 @@
   transition-delay: 0.6s;
 }
 .head {
-  gap: 20px;
+  gap: 0px;
 }
 
-@media (max-width: 768px) {
+.bottom {
+  position: relative;
+  max-width: 440px;
+  margin: 10px auto;
+  width: max-content;
+}
+.ArrowForwardIosIcon {
+  position: absolute;
+  right: 0;
+}
+.cards {
+  width: max-content;
+  background-color: #e8e8e8;
+  padding: 10px;
+  border-radius: 50px;
+  max-width: 100%;
+  overflow: hidden;
+
+  overflow-x: scroll;
+
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+.cards::-webkit-scrollbar {
+  height: 2px; /* Only horizontal scrollbar height */
+  display: none;
+}
+
+.cards::-webkit-scrollbar-track {
+  background: #eee;
+  border-radius: 10px;
+}
+
+.cards::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px;
+}
+.avatar {
+  flex: 0 0 auto; /* Prevent cards from shrinking */
+
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.avatar:hover,
+.avatar.active {
+  opacity: 1;
+}
+
+.ArrowForwardIosIcon {
+  position: absolute;
+  right: -20px;
+  background-color: rgb(255, 255, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgb(239, 239, 239);
+  z-index: 10;
+}
+.ArrowBackIosIcon {
+  position: absolute;
+  left: -20px;
+  background-color: rgb(255, 255, 255);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgb(239, 239, 239);
+  z-index: 10;
+}
+.ArrowBackIosIcon svg {
+  font-size: 16px;
+
+  transform: translateX(3.5px);
+}
+.ArrowForwardIosIcon svg {
+  transform: translateX(1px);
+  font-size: 16px;
+}
+
+@media (max-width: 900px) {
+  .avatar {
+  flex: 0 0 auto; /* Prevent cards from shrinking */
+
+  width: 45px;
+  height: 45px;
+  }
+  .bottom {
+margin: 0 auto;
+}
   .wrapper {
     flex-direction: column;
     gap: 20px;
     padding-top: 20px;
     gap: 0;
+    width: 100%;
   }
   .head {
     gap: 0;
@@ -137,7 +253,7 @@
   }
 
   .right {
-    height: 400px;
+    height: 450px;
   }
   .left {
     flex-direction: column;
@@ -148,8 +264,9 @@
     justify-content: flex-start;
   }
 }
-@media (max-width: 428px) {
-  .container {
-    height: 100vh;
+
+@media (max-width: 400px) {
+  .right {
+    height: 480px;
   }
 }

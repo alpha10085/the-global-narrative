@@ -110,5 +110,13 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 9
+  },
+  {
+    "file": "src/_DevTools/components/Window/components/FoldersTreeControl/FoldersTreeControl.jsx",
+    "firstSeenAt": "7/4/2025, 3:01:50 AM",
+    "lastUpdatedAt": "7/4/2025, 3:02:15 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 2
   }
 ]

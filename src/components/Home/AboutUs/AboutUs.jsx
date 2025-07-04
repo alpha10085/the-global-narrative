@@ -13,8 +13,8 @@ const AboutUs = ({ data = {} }) => {
     >
       <div className={`${styles.top} column flex  gap20  `}>
         <WordPullUpV2
-          duration={0.6}
-          delay={200}
+          duration={0.4}
+          delay={500}
           className={`${styles.title} `}
           text={data?.title}
         />
@@ -22,14 +22,19 @@ const AboutUs = ({ data = {} }) => {
           activeClassName={styles.active}
           className={styles.aos}
           triggerOnce
-          delay={800}
+          delay={700}
         >
           <p className={styles.description}> {data?.description}</p>
         </Aos>
       </div>
-      <div className={styles.mesh}>
+      <Aos
+        triggerOnce
+        delay={1000}
+        activeClassName={styles.active}
+        className={`${styles.mesh} ${styles.aos}`}
+      >
         <Threads color={"#385cf5"} amplitude={2} distance={0.2} />
-      </div>
+      </Aos>
     </div>
   );
 };

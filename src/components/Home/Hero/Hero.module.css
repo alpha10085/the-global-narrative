@@ -70,7 +70,7 @@
   .titleBox {
     bottom: 18vh;
   }
- .titleBox .title {
+  .titleBox .title {
     text-align: center !important;
     display: flex;
     gap: 2px !important;
