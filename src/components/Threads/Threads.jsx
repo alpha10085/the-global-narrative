@@ -154,7 +154,26 @@ const Threads = ({
     }
 
     const vs = compileShader(vertexShaderSource, gl.VERTEX_SHADER);
-    const fs = compileShader(fragmentShaderSource, gl.FRAGMENT_SHADER);
+    let finalShaderSource = fragmentShaderSource;
+
+    if (window.innerWidth < 768) {
+      finalShaderSource = fragmentShaderSource
+        .replace(
+          /const int u_line_count = \d+;/,
+          "const int u_line_count = 20;"
+        )
+        .replace(
+          /const float u_line_width = [\d.]+;/,
+          "const float u_line_width = 6.0;"
+        )
+        .replace(
+          /const float u_line_blur = [\d.]+;/,
+          "const float u_line_blur = 5.0;"
+        );
+    }
+
+    const fs = compileShader(finalShaderSource, gl.FRAGMENT_SHADER);
+
     const program = gl.createProgram();
     gl.attachShader(program, vs);
     gl.attachShader(program, fs);
@@ -196,7 +215,10 @@ const Threads = ({
 
     function render(now) {
       const elapsed = now - lastFrame;
-      if (elapsed < 33.33) {
+      const isMobile = window.innerWidth < 768;
+      const targetFrame = isMobile ? 50 : 33.33;
+
+      if (elapsed < targetFrame) {
         frameId.current = requestAnimationFrame(render);
         return;
       }
