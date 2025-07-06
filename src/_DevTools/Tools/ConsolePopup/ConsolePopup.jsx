@@ -13,6 +13,7 @@ import ObjectID from "bson-objectid";
 import { isEqual } from "lodash";
 import { delay } from "@/utils/delay";
 import useScrollControl from "@/hooks/useScrollControl";
+import useKeyboard from "@/hooks/useKeyboard";
 
 function safeClone(args) {
   const handler = (arg) => {
@@ -35,7 +36,11 @@ function safeClone(args) {
 }
 
 const ConsolePopup = ({ logStore, onMouned }) => {
-  const { data, isLoading = {} } = useLocalStorage("dev-tools-console");
+  const {
+    data,
+    isLoading = {},
+    createOrUpdate,
+  } = useLocalStorage("dev-tools-console");
   const [state, updateState, resetState, setState] = useDynamicState({
     logs: [...logStore],
     isMouseEneter: false,
@@ -271,6 +276,26 @@ const ConsolePopup = ({ logStore, onMouned }) => {
       })
     );
   };
+
+  useKeyboard([
+    {
+      key: "o",
+      ctrl: true,
+      callback: () => {
+        updateState({ isHidden: false });
+        createOrUpdate({ ...data, enabled: true });
+      },
+    },
+    {
+      key: "p",
+      ctrl: true,
+      callback: () => {
+        updateState({ isHidden: true });
+        createOrUpdate({ ...data, enabled: false });
+      },
+    },
+  ]);
+
   const hoverTimeout = useRef(null);
 
   const handleMouseEnter = () => {

@@ -5,6 +5,7 @@ import Window from "./components/Window/Window";
 import useLocalStorage from "@/hooks/useLocalStorage";
 import ConsolePopup from "./Tools/ConsolePopup/ConsolePopup";
 import { memo, useEffect } from "react";
+import useKeyboard from "@/hooks/useKeyboard";
 const DevTools = ({ logStore, children }) => {
   const [state, setState] = useDynamicState({
     enable_window: false,
@@ -20,23 +21,27 @@ const DevTools = ({ logStore, children }) => {
   const { createOrUpdate, isLoading, data } =
     useLocalStorage("dev-tools-settings");
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.ctrlKey && event.key.toLowerCase() === "y") {
-        event.preventDefault(); // prevent default Ctrl+Y behavior (redo in some browsers/editors)
-        createOrUpdate({
-          ...data,
-          enabled: true,
-        });
-        setState({
-          enable_window: true,
-        });
-      }
-    };
+  useKeyboard([
+    {
+      key: "y",
+      ctrl: true,
+      callback: () => {
+        createOrUpdate({ ...data, enabled: true });
+        setState({ enable_window: true });
+      },
+    },
+    {
+      key: "U",
+      ctrl: true,
+      callback: () => {
+        setState({ enable_window: false });
+        if (!enable_window) {
+          createOrUpdate({ ...data, enabled: false });
+        }
+      },
+    },
+  ]);
 
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
   if (isLoading) return null;
 
   const displayIcon = data?.enabled || typeof data?.enabled !== "boolean";

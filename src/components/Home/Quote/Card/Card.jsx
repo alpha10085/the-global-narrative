@@ -3,6 +3,7 @@ import styles from "./Card.module.css";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 
 const Card = ({ className = "", index=0,title = "", description = "", poster = {} }) => {
+  console.log("🚀 ~ Card ~ poster:", poster)
   return (
     <Aos
       activeClassName={styles.active}
