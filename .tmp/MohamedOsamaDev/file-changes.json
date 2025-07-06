@@ -18,10 +18,10 @@
   {
     "file": "src/_DevTools/DevTools.jsx",
     "firstSeenAt": "7/2/2025, 7:22:37 PM",
-    "lastUpdatedAt": "7/6/2025, 10:35:58 PM",
+    "lastUpdatedAt": "7/6/2025, 10:45:06 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 16
+    "count": 19
   },
   {
     "file": "src/_DevTools/Tools/ConsolePopup/ConsolePopup.jsx",
@@ -134,5 +134,13 @@
     "lastType": "changed",
     "Type": "added",
     "count": 5
+  },
+  {
+    "file": "src/_DevTools/DevToolsWrapper.jsx",
+    "firstSeenAt": "7/6/2025, 10:45:20 PM",
+    "lastUpdatedAt": "7/6/2025, 10:46:58 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 3
   }
 ]

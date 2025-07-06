@@ -11,7 +11,7 @@ const DevTools = ({ logStore, children }) => {
     enable_window: false,
     isClient: false,
   });
-  const { enable_window } = state;
+  const { enable_window, isClient } = state;
   const closeWindow = () => {
     setState({
       enable_window: false,
@@ -59,7 +59,7 @@ const DevTools = ({ logStore, children }) => {
         onClick={() => setState({ enable_window: !enable_window })}
       />
 
-      {children}
+      {isClient && children}
     </>
   );
 };

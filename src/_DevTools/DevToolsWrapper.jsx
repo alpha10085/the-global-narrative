@@ -13,7 +13,6 @@ const DevToolsWrapper = ({ children }) => {
     );
 
   const logs = interceptor.getLogs();
-
   return <DevToolsClient logStore={logs}>{children}</DevToolsClient>;
 };
 

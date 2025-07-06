@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./Card.module.css";
 import Img from "@/components/Shared/img/Img";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import { lineBreak } from "@/utils/text";
+import DescriptionBox from "./DescriptionBox/DescriptionBox";
 
 const Card = ({ data = {} }) => {
   return (
@@ -9,19 +11,19 @@ const Card = ({ data = {} }) => {
       threshold={0.6}
       delay={200}
       activeClassName={styles.active}
-      className={`flex  ${styles.card} just-sb   al-i-c`}
+      className={`flex  ${styles.card} just-sb   `}
       style={{ position: "relative" }}
     >
-      <div className={`
+      <div
+        className={`
         flex column gap5
-        ${styles.descriptionBox}`}>
+        ${styles.content}`}
+      >
         <h1 className={`${styles.name} title-l`}>{data?.name}</h1>
-        <h4
-        className="title-s"
-        >{data?.jobTitle}</h4>
-        <p
-        className="description-sm"
-        >{data?.description}</p>
+        <h4 className="title-s">{data?.jobTitle}</h4>
+     <DescriptionBox 
+     description={data?.description}
+     />
       </div>
 
       <Img className={styles.image} url={data?.image?.url} alt={data?.name} />

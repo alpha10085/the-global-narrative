@@ -2,7 +2,7 @@
   background: linear-gradient(135deg, #f5f7fa, #ffffff);
 
   border-radius: 20px;
-  overflow: hidden;
+
 }
 
 .card:nth-child(even) {
@@ -10,23 +10,22 @@
   background: linear-gradient(-135deg, #f5f7fa, #ffffff);
 }
 
-.descriptionBox {
+.content {
   width: 50%;
   padding: 30px;
   box-sizing: border-box;
   flex-shrink: 0;
+  margin: auto;
 }
 
-.card:nth-child(even) .descriptionBox {
+.card:nth-child(even) .content {
   padding-left: 50px;
   padding-right: 5%;
   width: 50%;
 }
 
 .name,
-.descriptionBox h4,
-.descriptionBox p {
-  transform: translateY(20px);
+.content h4{
   opacity: 0;
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
@@ -40,33 +39,33 @@
 
 }
 
-.descriptionBox h4 {
+.content h4 {
  
   color: #1c4db6;
   margin-bottom: 10px;
   transition-delay: 0.6s;
 }
 
-.descriptionBox p {
+/* .content p {
   transition-delay: 1s;
-}
+} */
 
 .active .name {
   transform: translateY(0);
   opacity: 1;
 }
 
-.active .descriptionBox h4 {
+.active .content h4 {
   transform: translateY(0);
   opacity: 1;
   transition-delay: 0.3s;
 }
 
-.active .descriptionBox p {
+/* .active .content p {
   transform: translateY(0);
   opacity: 1;
   transition-delay: 0.6s;
-}
+} */
 
 .image {
   aspect-ratio: 4 / 3.5;
@@ -81,6 +80,8 @@
   transition: 1s;
   opacity: 0;
   transform: translateY(105%);
+  position: sticky;
+  top: 120px;
 }
 .active .image {
   transform: translateY(0);
@@ -122,23 +123,23 @@
     object-position: top;
   }
 
-  .card:nth-child(even) .descriptionBox,
-  .descriptionBox {
+  .card:nth-child(even) .content,
+  .content {
     width: 100%;
     padding: 40px 35px;
   }
 
-  .descriptionBox h4 {
+  .content h4 {
     font-size: 16px;
   }
 
-  .descriptionBox p {
+  .content p {
     font-size: 14px;
   }
 
   .name,
-  .descriptionBox h4,
-  .descriptionBox p {
+  .content h4,
+  .content p {
     /* Remove translateY */
     transform: none !important;
     opacity: 0;
@@ -147,8 +148,8 @@
 
 
   .active .name,
-  .active .descriptionBox h4,
-  .active .descriptionBox p,
+  .active .content h4,
+  .active .content p,
   .active .image {
     transform: none !important;
     opacity: 1;
@@ -157,16 +158,16 @@
 }
 
 @media (max-width: 550px) {
-  .card:nth-child(even) .descriptionBox,
-  .descriptionBox {
+  .card:nth-child(even) .content,
+  .content {
     padding: 30px 25px;
   }
 
-  .descriptionBox h4 {
+  .content h4 {
     font-size: 14px;
   }
 
-  .descriptionBox p {
+  .content p {
     font-size: 12px;
   }
 }
