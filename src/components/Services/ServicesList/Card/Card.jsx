@@ -18,7 +18,9 @@ const Card = ({ className = "", data = {}, index = 1 }) => {
           </div>
           <div className={`${styles.description} gap10 flex column`}>
             {lineBreak(data?.description).map((val, i) => (
-              <p key={i}>{val}</p>
+              <p
+              className="description-"
+              key={i}>{val}</p>
             ))}
           </div>
           <div className={`${styles.keypoints} flex column gap20`}>

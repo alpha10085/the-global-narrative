@@ -21,7 +21,7 @@ const GetInTouch = ({ data = {} }) => {
           ${styles.aos}`}
         >
           {lineBreak(data?.description, ["?"])?.map((val, i) => (
-            <p key={i} className={styles.description}>
+            <p key={i} className={`${styles.description} description-sm `}>
               {val}
             </p>
           ))}
@@ -46,17 +46,6 @@ const GetInTouch = ({ data = {} }) => {
       >
         <Img className={styles.poster} url={data?.poster?.url} />
       </Aos>
-
-      {/* <div className={styles.faqList}>
-        {data?.faqs?.map((faq, idx) => (
-          <FAQItem
-            key={faq?._id}
-            question={faq?.question}
-            answer={faq?.answer}
-            animationDelay={idx * 150}
-          />
-        ))}
-      </div> */}
     </div>
   );
 };

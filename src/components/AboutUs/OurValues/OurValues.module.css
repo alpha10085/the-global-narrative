@@ -20,6 +20,7 @@
   width: 1200px;
   margin: 0 auto;
   min-width: 80%;
+  padding-top: 20px;
 }
 .card {
   transform: translateY(50px);

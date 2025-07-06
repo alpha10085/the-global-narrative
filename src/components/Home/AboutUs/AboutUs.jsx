@@ -15,7 +15,7 @@ const AboutUs = ({ data = {} }) => {
         <WordPullUpV2
           duration={0.4}
           delay={500}
-          className={`${styles.title} `}
+          className={`${styles.title} title-xl `}
           text={data?.title}
         />
         <Aos
@@ -24,7 +24,10 @@ const AboutUs = ({ data = {} }) => {
           triggerOnce
           delay={700}
         >
-          <p className={styles.description}> {data?.description}</p>
+          <p className={`description-sm ${styles.description}`}>
+            {" "}
+            {data?.description}
+          </p>
         </Aos>
       </div>
       <Aos

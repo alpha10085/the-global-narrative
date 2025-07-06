@@ -12,16 +12,10 @@
   gap: 16px;
   padding-left: 5%;
   padding-right: 2%;
-  margin: 20px 0 5px;
+  margin: 40px 0 ;
 }
 
-.title {
 
-  gap: 10px !important;
-  color: rgb(0, 0, 0);
-  margin: 0 0 30px;
-  color: var(--color200);
-}
 
 .navButton {
   width: 55px;

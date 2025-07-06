@@ -58,8 +58,9 @@
   font-size: clamp(30px, 4vw, 50px);
   color: white;
   text-transform: capitalize;
-  width: 1200px;
+  width: 1250px;
   max-width: 90%;
+  font-weight: 400;
 }
 
 @media (max-width: 425px) {

@@ -28,22 +28,25 @@ const Template = ({
         data-offset="10"
         className={`${className} ${styles.container}`}
       >
-        {data && (
-          <div className={`flex  gap40 just-sb ${styles.content}`}>
-            <h1>{data?.title}</h1>
+        {data?.title && data?.description ? (
+          <div className={`flex   gap40 just-sb ${styles.content}`}>
+            <h1
+            
+            className="title-l"
+            >{data?.title}</h1>
             <div className={`${styles.description} flex  column gap20`}>
               {lineBreak(data?.description, ["."]).map((val, i) => (
                 <p 
                 style={{
                   animationDelay:`${(i*0.4) + 1}s`
                 }}
-                key={i} className={`${styles.iner} `}>
+                key={i} className={`${styles.iner} description-sm `}>
                   {val}
                 </p>
-              ))}
+              ) )}
             </div>
           </div>
-        )}
+        ): null}
         {children}
       </div>
     </div>

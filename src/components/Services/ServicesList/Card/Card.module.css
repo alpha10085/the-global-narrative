@@ -60,14 +60,10 @@
 }
 
 .description {
-  font-size: clamp(14px, 1.5vw, 17px);
-  line-height: 1.5;
-  color: var(--color200);
+
   opacity: 0;
   transition: 0.8s;
   transition-delay: 1s;
-  font-weight: 400;
-  color: #575757;
 
   transform: translateY(20px);
 }

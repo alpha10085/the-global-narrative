@@ -13,8 +13,12 @@ const Card = ({ data = {} }) => {
       style={{ position: "relative" }}
     >
       <div className={styles.descriptionBox}>
-        <h1 className={styles.name}>{data?.title}</h1>
-        <p>{data?.description}</p>
+        <h1 className={` 
+          title-l
+          ${styles.name}`}>{data?.title}</h1>
+        <p
+        className="description-sm"
+        >{data?.description}</p>
       </div>
 
       <Img className={styles.image} url={data?.poster?.url} alt={data?.name} />

@@ -12,10 +12,16 @@ const Card = ({ data = {} }) => {
       className={`flex  ${styles.card} just-sb   al-i-c`}
       style={{ position: "relative" }}
     >
-      <div className={styles.descriptionBox}>
-        <h1 className={styles.name}>{data?.name}</h1>
-        <h4>{data?.jobTitle}</h4>
-        <p>{data?.description}</p>
+      <div className={`
+        flex column gap5
+        ${styles.descriptionBox}`}>
+        <h1 className={`${styles.name} title-l`}>{data?.name}</h1>
+        <h4
+        className="title-s"
+        >{data?.jobTitle}</h4>
+        <p
+        className="description-sm"
+        >{data?.description}</p>
       </div>
 
       <Img className={styles.image} url={data?.image?.url} alt={data?.name} />

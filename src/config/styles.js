@@ -1,4 +1,5 @@
 import "../styles/main.css";
+import "../styles/text.css";
 import "../styles/framework.css";
 import "../styles/swiper.css";
 import "../styles/animation.css";

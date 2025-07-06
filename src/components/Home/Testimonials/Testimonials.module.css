@@ -31,16 +31,13 @@
 }
 
 .left h2 {
-  font-size: clamp(24px, 5vw, 40px);
   font-weight: 700;
-  line-height: 1.2;
+ 
   color: #111;
   margin-bottom: 16px;
-  color: var(--color200);
 }
 
 .left p {
-  font-size: clamp(16px, 2vw, 20px);
   color: #444;
 }
 .buttons svg {

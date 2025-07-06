@@ -32,27 +32,22 @@
 }
 
 .name {
-  font-size: clamp(24px, 5vw, 48px);
-  font-weight: 800;
   color: #1e3a8a; /* rich modern blue */
   margin-bottom: 12px;
   
   transition-delay: 0.3s;
+
+
 }
 
 .descriptionBox h4 {
-  font-size: 18px;
+ 
   color: #1c4db6;
-  font-weight: 600;
   margin-bottom: 10px;
   transition-delay: 0.6s;
 }
 
 .descriptionBox p {
-  font-size: 16px;
-  color: #374151; /* modern dark grey */
-  line-height: 1.8;
-  font-weight: 600;
   transition-delay: 1s;
 }
 

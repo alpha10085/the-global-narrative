@@ -17,6 +17,7 @@ const Page = async (props) => {
     ourValueSection = {},
     title = "explore our solutions",
   } = await getPage(pageKey);
+console.log(hero);
 
   return (
     <Template
