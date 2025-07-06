@@ -2,8 +2,10 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./DescriptionBox.module.css";
 import { lineBreak } from "@/utils/text";
+import { scrollToElement } from "@/utils/document";
+import { delay } from "@/utils/time";
 
-const DescriptionBox = ({ description = "" }) => {
+const DescriptionBox = ({ CardKey = "", description = "" }) => {
   const [expanded, setExpanded] = useState(false);
   const [showExtra, setShowExtra] = useState(false);
   const [height, setHeight] = useState("auto");
@@ -27,10 +29,18 @@ const DescriptionBox = ({ description = "" }) => {
       setShowExtra(false);
       setTimeout(() => {
         setHeight(previewHeight);
-      }, 600); // match fade duration
+      }, 300); // match fade duration
     }
   }, [expanded, lines]);
 
+
+  const effectHandler = async () => {
+    if (!expanded) {
+      setExpanded(true)
+    } else {
+      setExpanded(false)
+    }
+  }
   return (
     <div className={styles.container}>
       {/* Hidden height refs */}
@@ -76,7 +86,7 @@ const DescriptionBox = ({ description = "" }) => {
       </div>
 
       {lines.length > 2 && (
-        <div className={styles.btn} onClick={() => setExpanded(!expanded)}>
+        <div className={styles.btn} onClick={effectHandler}>
           {expanded ? "show less" : "show more"}
         </div>
       )}

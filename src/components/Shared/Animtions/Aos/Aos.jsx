@@ -13,6 +13,7 @@ const Aos = ({
   delay: animationDelay = 0,
   onClick,
   style = {},
+  id,
 }) => {
   const [event, setEvent] = useState(false);
   const { ref, inView } = useInView({ triggerOnce, threshold });
@@ -40,9 +41,10 @@ const Aos = ({
   const finalClassName = useMemo(() => {
     return `${className} ${event ? activeClassName : ""}`.trim();
   }, [className, activeClassName, event]);
-
+  const conditionalProps = id ? { id } : {};
   return (
     <div
+      {...conditionalProps}
       style={style}
       ref={ref}
       onClick={handleClick}

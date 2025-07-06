@@ -8,8 +8,8 @@ const WhoUsSection = ({ data = {} }) => {
     <section className={styles.container}>
       <SectionTitle title={data?.title} className={styles.title} />
       <div className={`${styles.list} flex column `}>
-        {members?.map((val) => (
-          <Card key={val?._id} data={val} />
+        {members?.map((val,index) => (
+          <Card index={index} key={val?._id} data={val} />
         ))}
       </div>
     </section>
