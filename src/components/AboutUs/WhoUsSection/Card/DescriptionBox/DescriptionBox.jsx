@@ -53,7 +53,7 @@ const DescriptionBox = ({ description = "" }) => {
 
       {/* Animated box */}
       <div className={styles.descriptionBox} style={{ height }}>
-        {lines.map((val, i) => {
+        {lines?.map((val, i) => {
           const alwaysVisible = i < 2;
           const isVisible = alwaysVisible || showExtra;
           const delay = isVisible && i >= 2 ? `${(i - 2) * 0.2}s` : "0s";
@@ -64,10 +64,8 @@ const DescriptionBox = ({ description = "" }) => {
               className="description-sm"
               style={{
                 opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(10px)",
-                transition: `opacity 0.6s ease ${delay}, transform 0.6s ease ${delay}`,
-                // height: isVisible ? "auto" : 0,
-                margin: isVisible ? "10px 0" : 0,
+                transition: `0.6s ease ${delay}`,
+                margin: "10px 0",
                 overflow: "hidden",
               }}
             >
@@ -79,7 +77,7 @@ const DescriptionBox = ({ description = "" }) => {
 
       {lines.length > 2 && (
         <div className={styles.btn} onClick={() => setExpanded(!expanded)}>
-          {expanded ? "show less" : "show more..."}
+          {expanded ? "show less" : "show more"}
         </div>
       )}
     </div>

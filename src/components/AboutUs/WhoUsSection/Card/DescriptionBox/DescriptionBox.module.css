@@ -18,14 +18,21 @@
   z-index: -1;
   width: 100%;
 }
-
-.description-sm {
-  transition: all 0.6s ease;
-  padding: 5px 0;
+.descriptionBox p {
+    transition: 0.4s;
 }
+
+
 
 .btn {
   cursor: pointer;
-  color: blue;
+  color: rgba(0, 0, 255, 0.642);
   margin-top: 10px;
+  text-transform: capitalize;
+  padding: 5px 15px;
+  width: max-content;
+  border-radius:12px ;
+  font-size: 14px;
+
+  border: 1px solid  rgba(0, 0, 255, 0.2);
 }
