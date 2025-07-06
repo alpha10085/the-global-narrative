@@ -13,6 +13,8 @@
   width: 400px;
   color: var(--color200);
   font-weight: 500;
+      gap: 6px !important;
+
 }
 .content {
   margin-bottom: 50px;
@@ -51,6 +53,6 @@
   .title,
   .description {
     width: unset;
-    width: 90%;
+    width: 95%;
   }
 }
