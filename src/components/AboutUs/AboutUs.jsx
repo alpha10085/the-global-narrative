@@ -10,7 +10,7 @@ const AboutUs = ({ data = {} }) => {
   return (
     <div id="active-section" data-offset="0" className={styles.container}>
       <div className={`${styles.wrapper} flex gap40`}>
-        <div style={{ flex: 1 }}>
+        
           {points?.map((point, index) => (
             <div
               className={`flex-c column ${styles.pointBlock}`}
@@ -28,7 +28,7 @@ const AboutUs = ({ data = {} }) => {
               />
             </div>
           ))}
-        </div>
+
         {/* 
         <Aos
           threshold={0.6}
