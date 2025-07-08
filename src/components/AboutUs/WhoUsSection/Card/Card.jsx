@@ -7,10 +7,6 @@ import DescriptionBox from "./DescriptionBox/DescriptionBox";
 import Link from "@/components/Shared/Link/Link";
 
 const Card = ({ index = 0, data = {} }) => {
-  console.log(data?.jobTitle);
-  
-
-  
   const CardKey = `teamcard${index}`;
   return (
     <Aos
@@ -26,10 +22,10 @@ const Card = ({ index = 0, data = {} }) => {
         <h4
           className="title-s"
           dangerouslySetInnerHTML={{
-             __html: formatText(data?.jobTitle, { dotBreak: true }),
+            __html: formatText(data?.jobTitle, { dotBreak: true }),
           }}
         />
-            {/* Social Links */}
+        {/* Social Links */}
         {data?.links?.length > 0 && (
           <div className={styles.socialLinks}>
             {data?.links?.map((item, idx) => (
@@ -42,8 +38,6 @@ const Card = ({ index = 0, data = {} }) => {
           </div>
         )}
         <DescriptionBox CardKey={CardKey} description={data?.description} />
-
-    
       </div>
 
       <Img className={styles.image} url={data?.image?.url} alt={data?.name} />
