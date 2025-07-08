@@ -9,7 +9,7 @@ const Quote = ({ data = {} }) => {
   return (
     <section className={styles.section}>
       <div className={`flex al-i-c gap50 ${styles.content}`}>
-        <SectionTitle title={data?.title} className={styles.title} />
+        <SectionTitle title={data?.title}  />
         <Aos
           delay={500}
           activeClassName={styles.active}
