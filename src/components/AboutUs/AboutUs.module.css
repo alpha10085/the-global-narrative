@@ -1,5 +1,5 @@
 .container {
-  padding-bottom: 15vh;
+  padding: 15vh 0;
   overflow: hidden;
 }
 
@@ -22,11 +22,10 @@
 
 .title {
   color: var(--color200);
-  font-size: clamp(32px, 6vw, 80px);
+  font-size: clamp(32px, 6vw, 60px);
   font-weight: 500;
   letter-spacing: 0.5px;
   line-height: 1.2;
-  opacity: 0.4;
 }
 
 .titleMain {
@@ -38,6 +37,7 @@
   letter-spacing: 6px;
   z-index: -1;
 }
+
 
 /* Quotes & Description */
 .quotesContent {
@@ -67,6 +67,7 @@
   font-weight: 500;
   line-height: 1.6;
   margin-top: 10px;
+  opacity: 0.7;
   letter-spacing: 0.4px;
 }
 

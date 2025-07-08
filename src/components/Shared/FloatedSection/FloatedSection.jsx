@@ -7,76 +7,76 @@ const FloatedSection = ({ children, className = "" }) => {
   const ticking = useRef(false);
   const isVisible = useRef(false);
 
-  useEffect(() => {
-    // Disable effect on small screens (width < 768px)
-    if (window.innerWidth < 768) return;
 
-    const el = sectionRef.current;
-    if (!el) return;
+  // useEffect(() => {
+  //   // Disable effect on small screens (width < 768px)
+  //   if (window.innerWidth < 768) return;
 
-    const updateMeasurements = () => {
-      const rect = el.getBoundingClientRect();
-      el._bottom = rect.bottom + window.scrollY; // cache bottom position relative to document
-      el._height = rect.height;
-    };
+  //   const el = sectionRef.current;
+  //   if (!el) return;
 
-    const update = () => {
-      if (!isVisible.current) return;
+  //   const updateMeasurements = () => {
+  //     const rect = el.getBoundingClientRect();
+  //     el._bottom = rect.bottom + window.scrollY; // cache bottom position relative to document
+  //     el._height = rect.height;
+  //   };
 
-      const windowHeight = window.innerHeight;
-      const scrollY = window.scrollY || window.pageYOffset;
+  //   const update = () => {
+  //     if (!isVisible.current) return;
 
-      const start = el._bottom - windowHeight;
-      const end = start + windowHeight * 0.9;
+  //     const windowHeight = window.innerHeight;
+  //     const scrollY = window.scrollY || window.pageYOffset;
 
-      const rawProgress = (scrollY - start) / (end - start);
-      const clamped = Math.min(1, Math.max(0, rawProgress));
+  //     const start = el._bottom - windowHeight;
+  //     const end = start + windowHeight * 0.9;
 
-      el.style.transform = `translate3d(0px, ${clamped * (windowHeight / 3)}px, 0)`;
-      ticking.current = false;
-    };
+  //     const rawProgress = (scrollY - start) / (end - start);
+  //     const clamped = Math.min(1, Math.max(0, rawProgress));
 
-    const onScroll = () => {
-      if (!ticking.current) {
-        requestAnimationFrame(update);
-        ticking.current = true;
-      }
-    };
+  //     el.style.transform = `translate3d(0px, ${clamped * (windowHeight / 3)}px, 0)`;
+  //     ticking.current = false;
+  //   };
 
-    const onResize = () => {
-      updateMeasurements();
-      update();
-    };
+  //   const onScroll = () => {
+  //     if (!ticking.current) {
+  //       requestAnimationFrame(update);
+  //       ticking.current = true;
+  //     }
+  //   };
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible.current = entry.isIntersecting;
-        if (entry.isIntersecting) {
-          updateMeasurements();
-          window.addEventListener("scroll", onScroll, { passive: true });
-          window.addEventListener("resize", onResize);
-          update();
-        } else {
-          window.removeEventListener("scroll", onScroll);
-          window.removeEventListener("resize", onResize);
-          el.style.transform = ""; // reset transform when not visible
-        }
-      },
-      {
-        root: null,
-        threshold: 0.1,
-      }
-    );
+  //   const onResize = () => {
+  //     updateMeasurements();
+  //     update();
+  //   };
 
-    observer.observe(el);
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       isVisible.current = entry.isIntersecting;
+  //       if (entry.isIntersecting) {
+  //         updateMeasurements();
+  //         window.addEventListener("scroll", onScroll, { passive: true });
+  //         window.addEventListener("resize", onResize);
+  //         update();
+  //       } else {
+  //         window.removeEventListener("scroll", onScroll);
+  //         window.removeEventListener("resize", onResize);
+  //         el.style.transform = ""; // reset transform when not visible
+  //       }
+  //     },
+  //     {
+  //       root: null,
+  //       threshold: 0.1,
+  //     }
+  //   );
 
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
+  //   observer.observe(el);
 
+  //   return () => {
+  //     observer.disconnect();
+  //     window.removeEventListener("scroll", onScroll);
+  //     window.removeEventListener("resize", onResize);
+  //   };
+  // }, []);
   return (
     <section ref={sectionRef} className={`${styles.floated} ${className}`}>
       {children}
