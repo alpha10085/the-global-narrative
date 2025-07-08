@@ -18,10 +18,37 @@
   font-weight: 500;
   letter-spacing: -0.5px;
   line-height: 1.2;
-  opacity: 0.2;
+  opacity: 0.4;
 }
 .titleWrapper {
   position: relative;
+}
+.titleMain {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-30%);
+
+  color: var(--color200);
+  letter-spacing: 6px;
+}
+.qoutescontetn {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: -10%;
+  top: -20px;
+  height: 65px;
+  width: 82px;
+  z-index: -1;
+  opacity: 0.3;
+}
+.pointBlock:nth-child(odd) .icon {
+  left: unset;
+  right: -10%;
+  transform: scaleX(-1);
 }
 
 .description {
@@ -44,7 +71,7 @@
   height: 100px;
   background-color: var(--color200);
   bottom: -100px;
-  opacity: 0.5;
+  opacity: 0.2;
 }
 .pointBlock {
   padding: 40px 0;

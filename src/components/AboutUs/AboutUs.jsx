@@ -18,14 +18,21 @@ const AboutUs = ({ data = {} }) => {
             >
               <div className={styles.titleWrapper}>
                 <h1 className={styles.title}>{point.title}</h1>
+                {/* <h1 className={styles.titleMain}>{point.title}</h1> */}
               </div>
+              <div className={`${styles.qoutescontetn}`}>
+<Img
+className={styles.icon}
+url="/qoute-icon.png"
+/>
               <AnimatedParagraph
                 classNameLine={styles.classNameLine}
                 text={point.description}
                 delayPerWord={0.1}
                 duration={0.75}
                 className={styles.description}
-              />
+                />
+                </div>
             </div>
           ))}
 
