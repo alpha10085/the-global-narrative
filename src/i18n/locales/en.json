@@ -168,7 +168,13 @@
       "label": "label",
       "label_ph": "label intro...",
       "faqs" : "faqs",
-      "faqs_ph" : "Select faqs..."
+      "faqs_ph" : "Select faqs...",
+
+      "platform" : "Platform Name (e.g., LinkedIn)",
+      "platform_ph": "Enter platform...",
+
+      "socialLinks" : "Social Links",
+      "socialLinks_ph" : "Enter social Links.."
     },
     "filterSystem": {
       "condtions": {

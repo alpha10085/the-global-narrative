@@ -24,7 +24,7 @@
 
 @media (max-width:768px) {
   .container {
-    margin: 0px auto;
+    margin: 20px auto;
     padding-bottom: 50px;
   }
   .list {

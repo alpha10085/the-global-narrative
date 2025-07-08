@@ -1,20 +1,24 @@
 export const formatText = (
   text = "",
-  { br = true, bold = true, link = true } = {}
+  { br = true, bold = true, link = true, dotBreak = false } = {}
 ) => {
-  // Replace .with new lines with <br/>
   let formattedText = text;
+
   if (br) {
-    formattedText = text?.replace(/\n/g, "<br/>");
+    formattedText = formattedText.replace(/\n/g, "<br/>");
   }
+
+  if (dotBreak) {
+    // Add <br/> after periods followed by a space (but not if inside abbreviations like "U.S.")
+    formattedText = formattedText.replace(/\. (?=[A-Z])/g, ".<br/><br/>");
+  }
+
   if (bold) {
-    formattedText = formattedText?.replace(/\*(.*?)\*/g, "<strong>$1</strong>");
-    // Replace * * with bold markers with <strong> tags
+    formattedText = formattedText.replace(/\*(.*?)\*/g, "<strong>$1</strong>");
   }
 
   if (link) {
-    // Replace markdown-style links [displayName](url) with <a> tags
-    formattedText = formattedText?.replace(
+    formattedText = formattedText.replace(
       /\[([^\]]+)\]\(([^)]+)\)/g,
       (match, displayName, url) => {
         return `<a href="${url}" target="_blank" style="text-decoration: underline;" rel="noopener noreferrer">${displayName}</a>`;
@@ -24,6 +28,7 @@ export const formatText = (
 
   return formattedText;
 };
+
 
 export const textDir = (value = null) => {
   try {

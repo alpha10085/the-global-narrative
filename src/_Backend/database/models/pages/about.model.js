@@ -22,6 +22,12 @@ const whoUsMember = new Schema({
   jobTitle: mongtext,
   description: mongeDescription,
   image: poster,
+  links: [
+    {
+      name: mongtext,
+      link: mongeDescription,
+    }
+  ]
 });
 // whoUsSectionSection
 const whoUsSectionSection = new Schema({
