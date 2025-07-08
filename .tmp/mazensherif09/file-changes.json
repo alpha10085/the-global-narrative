@@ -14,5 +14,13 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 2
+  },
+  {
+    "file": "src/components/Shared/Animtions/AnimatedParagraph/AnimatedParagraph.jsx",
+    "firstSeenAt": "7/8/2025, 3:35:50 PM",
+    "lastUpdatedAt": "7/8/2025, 3:35:50 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
   }
 ]

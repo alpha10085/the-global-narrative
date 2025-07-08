@@ -29,9 +29,7 @@ const Card = ({ index = 0, data = {} }) => {
              __html: formatText(data?.jobTitle, { dotBreak: true }),
           }}
         />
-        <DescriptionBox CardKey={CardKey} description={data?.description} />
-
-        {/* Social Links */}
+            {/* Social Links */}
         {data?.links?.length > 0 && (
           <div className={styles.socialLinks}>
             {data?.links?.map((item, idx) => (
@@ -43,6 +41,9 @@ const Card = ({ index = 0, data = {} }) => {
             ))}
           </div>
         )}
+        <DescriptionBox CardKey={CardKey} description={data?.description} />
+
+    
       </div>
 
       <Img className={styles.image} url={data?.image?.url} alt={data?.name} />
