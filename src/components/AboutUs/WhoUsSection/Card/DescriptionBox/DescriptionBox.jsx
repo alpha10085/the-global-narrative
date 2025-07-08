@@ -33,14 +33,13 @@ const DescriptionBox = ({ CardKey = "", description = "" }) => {
     }
   }, [expanded, lines]);
 
-
   const effectHandler = async () => {
     if (!expanded) {
-      setExpanded(true)
+      setExpanded(true);
     } else {
-      setExpanded(false)
+      setExpanded(false);
     }
-  }
+  };
   return (
     <div className={styles.container}>
       {/* Hidden height refs */}
@@ -75,7 +74,7 @@ const DescriptionBox = ({ CardKey = "", description = "" }) => {
               style={{
                 opacity: isVisible ? 1 : 0,
                 transition: `0.6s ease ${delay}`,
-                margin: "10px 0",
+                // margin: "10px 0",
                 overflow: "hidden",
               }}
             >
