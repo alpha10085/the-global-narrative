@@ -174,5 +174,157 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 1
+  },
+  {
+    "file": "src/_Backend/services/emails/forgetPassword/template.js",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/ChartBar/ChartBar.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/ChartLine/ChartLine.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/ChartPie/ChartPie.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/DeviceChart/DeviceChart.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Analytics/Charts/StackedChart/StackedChart.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Inputs/ArrayWrapper/components/Card/Card.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Inputs/NumberInput/NumberInput.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Inputs/TextArea/TextArea.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Inputs/TranslateField/TranslateField.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Inputs/booleanInput/Booleaninput.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Inputs/textInput/textinput.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/boxs/InFormationBox/InFormationBox.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/layouts/DynamicForm/Header/Header.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/layouts/TableLayout/TableLayOut.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_DevTools/components/Window/components/KeysControls/KeysControls.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_DevTools/components/Window/components/ListControl/ListControl.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_DevTools/components/Window/components/SectionLabel/SectionLabel.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/components/Shared/inputText/inputText.module.css",
+    "firstSeenAt": "7/8/2025, 4:44:48 PM",
+    "lastUpdatedAt": "7/8/2025, 4:44:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
   }
 ]

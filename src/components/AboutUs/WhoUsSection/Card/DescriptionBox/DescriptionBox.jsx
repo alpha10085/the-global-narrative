@@ -2,56 +2,72 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./DescriptionBox.module.css";
 import { lineBreak } from "@/utils/text";
-import { scrollToElement } from "@/utils/document";
-import { delay } from "@/utils/time";
 
-const DescriptionBox = ({ CardKey = "", description = "" }) => {
+const DescriptionBox = ({ description = "" }) => {
   const [expanded, setExpanded] = useState(false);
+  const [height, setHeight] = useState(0);
   const [showExtra, setShowExtra] = useState(false);
-  const [height, setHeight] = useState("auto");
 
+  const boxRef = useRef(null);
   const fullRef = useRef(null);
   const previewRef = useRef(null);
 
   const lines = lineBreak(description, ["."]);
 
+  const getHeightFromRef = (ref) => {
+    if (!ref.current) return 0;
+    const children = Array.from(ref.current.children);
+    if (children.length === 0) return 0;
+
+    const first = children[0];
+    const last = children[children.length - 1];
+
+    const top = first.offsetTop;
+    const bottom = last.offsetTop + last.offsetHeight;
+
+    return bottom - top;
+  };
+
+  const updateHeight = () => {
+    const fullHeight = getHeightFromRef(fullRef);
+    const previewHeight = getHeightFromRef(previewRef);
+    setHeight(expanded ? fullHeight : previewHeight);
+  };
+
   useEffect(() => {
-    if (!lines.length || !fullRef.current || !previewRef.current) return;
-
-    const fullHeight = fullRef.current.scrollHeight;
-    const previewHeight = previewRef.current.scrollHeight;
-
-    if (expanded) {
-      setHeight(fullHeight);
-      setShowExtra(true);
-    } else {
-      // fade out first, then collapse
-      setShowExtra(false);
-      setTimeout(() => {
-        setHeight(previewHeight);
-      }, 300); // match fade duration
-    }
+    updateHeight();
   }, [expanded, lines]);
 
-  const effectHandler = async () => {
-    if (!expanded) {
-      setExpanded(true);
-    } else {
-      setExpanded(false);
-    }
+  useEffect(() => {
+    const el = boxRef.current;
+    if (!el) return;
+
+    const handleTransitionEnd = () => {
+      if (expanded) setShowExtra(true);
+      else setShowExtra(false);
+    };
+
+    el.addEventListener("transitionend", handleTransitionEnd);
+    return () => el.removeEventListener("transitionend", handleTransitionEnd);
+  }, [expanded]);
+
+  const toggleExpand = () => {
+    if (expanded) setShowExtra(false);
+    setExpanded((prev) => !prev);
   };
+
   return (
     <div className={styles.container}>
-      {/* Hidden height refs */}
+      {/* Hidden refs */}
       <div className={styles.hiddenHeights}>
-        <div ref={fullRef}>
+        <div ref={fullRef} className={styles.heightsInner}>
           {lines.map((val, i) => (
             <p key={i} className="description-sm">
               {val}
             </p>
           ))}
         </div>
-        <div ref={previewRef}>
+        <div ref={previewRef} className={styles.heightsInner}>
           {lines.slice(0, 2).map((val, i) => (
             <p key={i} className="description-sm">
               {val}
@@ -60,22 +76,19 @@ const DescriptionBox = ({ CardKey = "", description = "" }) => {
         </div>
       </div>
 
-      {/* Animated box */}
-      <div className={styles.descriptionBox} style={{ height }}>
-        {lines?.map((val, i) => {
+      {/* Visible Description */}
+      <div ref={boxRef} className={styles.descriptionBox} style={{ height }}>
+        {lines.map((val, i) => {
           const alwaysVisible = i < 2;
           const isVisible = alwaysVisible || showExtra;
           const delay = isVisible && i >= 2 ? `${(i - 2) * 0.2}s` : "0s";
-
           return (
             <p
               key={i}
               className="description-sm"
               style={{
                 opacity: isVisible ? 1 : 0,
-                transition: `0.6s ease ${delay}`,
-                margin: "30px 0",
-                overflow: "hidden",
+                transition: `opacity 0.6s ease ${delay}`,
               }}
             >
               {val}
@@ -85,7 +98,7 @@ const DescriptionBox = ({ CardKey = "", description = "" }) => {
       </div>
 
       {lines.length > 2 && (
-        <div className={styles.btn} onClick={effectHandler}>
+        <div className={styles.btn} onClick={toggleExpand}>
           {expanded ? "show less" : "show more"}
         </div>
       )}

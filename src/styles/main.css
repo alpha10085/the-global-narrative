@@ -5,6 +5,7 @@
   margin: 0;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   /* user-select: none; */
+  font-weight: 400;
 }
 
 /* start roots styles */
