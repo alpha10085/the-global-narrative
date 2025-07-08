@@ -24,6 +24,18 @@ const whoUsMember = Joi.object({
   jobTitle: joiText({ min: 2, max: 1000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   image: fileVal.required(),
+
+  links: joiArray({
+    body: Joi.object({
+      name: joiText({ min: 2, max: 1000, required: true }),
+      link: joiText({ min: 6, max: 2000, required: true }),
+      ...CommonsVal,
+    }),
+    min: 1,
+    max: 3,
+    required: true,
+  }),
+
   ...CommonsVal,
 });
 

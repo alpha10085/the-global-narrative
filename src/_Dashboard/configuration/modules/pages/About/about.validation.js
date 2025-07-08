@@ -55,6 +55,30 @@ const AboutPageValidationSchema = (locale = "en") => {
                   type: "object",
                 })
               ),
+              links: joiArray({
+                required: true,
+                min: 1,
+                max: 3,
+                locale,
+                body: joiObject({
+                  required: false,
+                  locale,
+                  body: {
+                    name: joiText({
+                      locale,
+                      min: 2,
+                      max: 1000,
+                      required: true,
+                    }),
+                    link: joiText({
+                      locale,
+                      min: 6,
+                      max: 2000,
+                      required: true,
+                    }),
+                  },
+                }),
+              }),
             },
           }),
         }),
