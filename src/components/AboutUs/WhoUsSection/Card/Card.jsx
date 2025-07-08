@@ -10,6 +10,8 @@ import { InstagramLogo, LinkedinLogo } from "../icons";
 
 const Card = ({ index = 0, data = {} }) => {
   const CardKey = `teamcard${index}`;
+  console.log(data);
+
   return (
     <Aos
       threshold={0.6}
@@ -27,20 +29,26 @@ const Card = ({ index = 0, data = {} }) => {
             __html: formatText(data?.jobTitle, { dotBreak: true }),
           }}
         />
+
         {/* Social Links */}
-        {data?.links?.length > 0 && (
+
+        <DescriptionBox CardKey={CardKey} description={data?.description} />
+                {data?.links?.length > 0 && (
           <div className={styles.socialLinks}>
             {data?.links?.map((item) => (
               <div key={item?._id} className={styles.socialLinkItem}>
                 <Link href={item?.link} className={styles.socialAnchor}>
-                  {item?.name === "Instagram" && <InstagramLogo />}
-                  {item?.name === "LinkedIn" && <LinkedinLogo />}
+                  {item?.name?.toLocaleLowerCase() === "instagram" && (
+                    <InstagramLogo />
+                  )}
+                  {item?.name?.toLocaleLowerCase() === "linkedin" && (
+                    <LinkedinLogo />
+                  )}
                 </Link>
               </div>
             ))}
           </div>
         )}
-        <DescriptionBox CardKey={CardKey} description={data?.description} />
       </div>
 
       <Img className={styles.image} url={data?.image?.url} alt={data?.name} />

@@ -77,16 +77,13 @@ const Testimonials = ({ data = {} }) => {
         {/* LEFT COLUMN */}
         <div className={`${styles.left} ${inView ? styles.animateLeft : ""}`}>
           <div className={`${styles.head} flex column`}>
-            <h2
-            className="title-l"
-            >
-              {data?.title || "From our"} <strong>community.</strong>
+            <h2 className="title-l">
+              {data?.title || "From our"}
             </h2>
-            <p
-            className="description-sm"
-            >Here’s what other subscribers had to say about CC Plus.</p>
+            <p className="description-sm">
+             Real stories from our community around the world.
+            </p>
           </div>
-
         </div>
 
         {/* RIGHT COLUMN */}

@@ -1,9 +1,17 @@
 .card {
   border-radius: 20px;
+  
+}
+
+.card {
+  background: linear-gradient(135deg, #f5f7fa, #ffffff);
+
+  border-radius: 20px;
 }
 
 .card:nth-child(even) {
   flex-direction: row-reverse;
+  background: linear-gradient(-135deg, #f5f7fa, #ffffff);
 }
 
 .content {
@@ -31,19 +39,16 @@
   margin-bottom: 12px;
 
   transition-delay: 0.3s;
+  text-transform: capitalize !important;
 }
 
 .content h4 {
   color: #1c4db6;
   margin-bottom: 10px;
   transition-delay: 0.6s;
-  letter-spacing: 0.6px; 
-  line-height: 1.5; 
+  letter-spacing: 0.6px;
+  line-height: 1.5;
 }
-
-/* .content p {
-  transition-delay: 1s;
-} */
 
 .active .name {
   transform: translateY(0);
@@ -55,12 +60,6 @@
   opacity: 1;
   transition-delay: 0.3s;
 }
-
-/* .active .content p {
-  transform: translateY(0);
-  opacity: 1;
-  transition-delay: 0.6s;
-} */
 
 .image {
   aspect-ratio: 4 / 3.5;
@@ -94,12 +93,13 @@
 .socialLinks {
   display: flex;
   gap: 16px;
-  margin-top: 20px;
+  margin-top:10px ;
 }
 
 .socialAnchor {
   font-size: clamp(14px, 1.2vw, 20px);
-  color: #1e3a8a;
+
+  color: rgb(0, 0, 0);
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
@@ -108,7 +108,7 @@
   transform: scale(1.1);
 }
 
-.socialIcon{
+.socialIcon {
   width: 24px;
   height: 24px;
 }

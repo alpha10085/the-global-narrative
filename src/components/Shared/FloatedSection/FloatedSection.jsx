@@ -6,33 +6,31 @@ const FloatedSection = ({ children, className = "" }) => {
   const sectionRef = useRef(null);
   const ticking = useRef(false);
   const isVisible = useRef(false);
+  const measurements = useRef({ bottom: 0, height: 0 });
 
   useEffect(() => {
-    // Disable effect on small screens (width < 768px)
-    if (window.innerWidth < 768) return;
-
     const el = sectionRef.current;
-    if (!el) return;
+    if (!el || window.innerWidth < 768) return;
 
     const updateMeasurements = () => {
       const rect = el.getBoundingClientRect();
-      el._bottom = rect.bottom + window.scrollY; // cache bottom position relative to document
-      el._height = rect.height;
+      measurements.current.bottom = rect.bottom + window.scrollY;
+      measurements.current.height = rect.height;
     };
 
     const update = () => {
-      if (!isVisible.current) return;
+      if (!isVisible.current || !el) return;
 
       const windowHeight = window.innerHeight;
-      const scrollY = window.scrollY || window.pageYOffset;
+      const scrollY = window.scrollY;
 
-      const start = el._bottom - windowHeight;
+      const start = measurements.current.bottom - windowHeight;
       const end = start + windowHeight * 0.9;
 
       const rawProgress = (scrollY - start) / (end - start);
       const clamped = Math.min(1, Math.max(0, rawProgress));
 
-      el.style.transform = `translate3d(0px, ${clamped * (windowHeight / 3)}px, 0)`;
+      el.style.transform = `translate3d(0, ${clamped * (windowHeight / 3)}px, 0)`;
       ticking.current = false;
     };
 
@@ -51,6 +49,7 @@ const FloatedSection = ({ children, className = "" }) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible.current = entry.isIntersecting;
+
         if (entry.isIntersecting) {
           updateMeasurements();
           window.addEventListener("scroll", onScroll, { passive: true });
@@ -59,13 +58,10 @@ const FloatedSection = ({ children, className = "" }) => {
         } else {
           window.removeEventListener("scroll", onScroll);
           window.removeEventListener("resize", onResize);
-          el.style.transform = ""; // reset transform when not visible
+          if (el) el.style.transform = "";
         }
       },
-      {
-        root: null,
-        threshold: 0.1,
-      }
+      { threshold: 0.1 }
     );
 
     observer.observe(el);

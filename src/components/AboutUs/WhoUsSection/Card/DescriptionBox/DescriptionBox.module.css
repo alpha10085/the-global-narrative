@@ -5,10 +5,12 @@
 
 .descriptionBox {
   overflow: hidden;
-  transition:  0.6s ease; /* slowed down */
+  transition: height 0.6s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-/* Hidden refs */
 .hiddenHeights {
   visibility: hidden;
   position: absolute;
@@ -18,11 +20,16 @@
   z-index: -1;
   width: 100%;
 }
-.descriptionBox p {
-    transition: 0.4s;
+
+.heightsInner {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-
+.descriptionBox p {
+  transition: 0.4s;
+}
 
 .btn {
   cursor: pointer;
@@ -31,8 +38,7 @@
   text-transform: capitalize;
   padding: 5px 15px;
   width: max-content;
-  border-radius:12px ;
+  border-radius: 12px;
   font-size: 14px;
-
-  border: 1px solid  rgba(0, 0, 98, 0.1);
+  border: 1px solid rgba(0, 0, 98, 0.1);
 }
