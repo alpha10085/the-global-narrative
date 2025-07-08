@@ -108,6 +108,11 @@
   transform: scale(1.1);
 }
 
+.socialIcon{
+  width: 24px;
+  height: 24px;
+}
+
 @media (max-width: 768px) {
   .card:nth-child(even),
   .card {

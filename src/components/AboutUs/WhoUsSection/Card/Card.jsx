@@ -6,6 +6,8 @@ import { formatText, lineBreak } from "@/utils/text";
 import DescriptionBox from "./DescriptionBox/DescriptionBox";
 import Link from "@/components/Shared/Link/Link";
 
+import { InstagramLogo, LinkedinLogo } from "../icons";
+
 const Card = ({ index = 0, data = {} }) => {
   const CardKey = `teamcard${index}`;
   return (
@@ -28,10 +30,11 @@ const Card = ({ index = 0, data = {} }) => {
         {/* Social Links */}
         {data?.links?.length > 0 && (
           <div className={styles.socialLinks}>
-            {data?.links?.map((item, idx) => (
+            {data?.links?.map((item) => (
               <div key={item?._id} className={styles.socialLinkItem}>
                 <Link href={item?.link} className={styles.socialAnchor}>
-                  {item.name}
+                  {item?.name === "Instagram" && <InstagramLogo />}
+                  {item?.name === "LinkedIn" && <LinkedinLogo />}
                 </Link>
               </div>
             ))}
