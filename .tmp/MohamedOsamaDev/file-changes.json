@@ -330,7 +330,15 @@
   {
     "file": "src/components/Shared/FloatedSection/FloatedSection.jsx",
     "firstSeenAt": "7/8/2025, 5:21:17 PM",
-    "lastUpdatedAt": "7/8/2025, 5:21:17 PM",
+    "lastUpdatedAt": "7/8/2025, 5:38:48 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 3
+  },
+  {
+    "file": "src/components/Shared/FloatedSection/FloatedSection.module.css",
+    "firstSeenAt": "7/8/2025, 5:38:55 PM",
+    "lastUpdatedAt": "7/8/2025, 5:38:55 PM",
     "lastType": "changed",
     "Type": "changed",
     "count": 1
