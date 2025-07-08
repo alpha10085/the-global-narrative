@@ -10,27 +10,33 @@ const AboutUs = ({ data = {} }) => {
   return (
     <div id="active-section" data-offset="0" className={styles.container}>
       <div className={`${styles.wrapper} flex gap40`}>
-        <div style={{ flex: 1 }}>
+        
           {points?.map((point, index) => (
-            <div className={styles.pointBlock} key={point?._id}>
+            <div
+              className={`flex-c column ${styles.pointBlock}`}
+              key={point?._id}
+            >
               <div className={styles.titleWrapper}>
-                <div className={styles.accentBar}></div>
-                <SectionTitle
-                  delay={index * 0.2}
-                  title={point.title}
-                  className={styles.title}
-                />
+                <h1 className={styles.title}>{point.title}</h1>
+                {/* <h1 className={styles.titleMain}>{point.title}</h1> */}
               </div>
+              <div className={`${styles.qoutescontetn}`}>
+<Img
+className={styles.icon}
+url="/qoute-icon.png"
+/>
               <AnimatedParagraph
+                classNameLine={styles.classNameLine}
                 text={point.description}
                 delayPerWord={0.1}
                 duration={0.75}
                 className={styles.description}
-              />
+                />
+                </div>
             </div>
           ))}
-        </div>
 
+        {/* 
         <Aos
           threshold={0.6}
           delay={200}
@@ -38,7 +44,7 @@ const AboutUs = ({ data = {} }) => {
           className={styles.card}
         >
           <Img className={styles.image} url={poster?.url} alt={data?.name} />
-        </Aos>
+        </Aos> */}
       </div>
     </div>
   );

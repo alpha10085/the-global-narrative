@@ -1,7 +1,6 @@
 .container {
-  padding: 15vh 0;
+  padding: 0 0 15vh;
   overflow: hidden;
-  background-color: #f9f9f9;
 }
 
 .wrapper {
@@ -14,26 +13,72 @@
 }
 
 .title {
-  color: #111;
-  font-size: clamp(24px, 3vw, 40px);
-  font-weight: 700;
+  color: var(--color200);
+  font-size: clamp(35px, 6vw, 100px);
+  font-weight: 500;
   letter-spacing: -0.5px;
   line-height: 1.2;
+  opacity: 0.4;
+}
+.titleWrapper {
+  position: relative;
+}
+.titleMain {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-30%);
+
+  color: var(--color200);
+  letter-spacing: 6px;
+}
+.qoutescontetn {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  left: -10%;
+  top: -20px;
+  height: 65px;
+  width: 82px;
+  z-index: -1;
+  opacity: 0.3;
+}
+.pointBlock:nth-child(odd) .icon {
+  left: unset;
+  right: -10%;
+  transform: scaleX(-1);
 }
 
 .description {
-  width: 100%;
-  max-width: 600px;
   color: #444;
-  font-size: clamp(16px, 2.2vw, 18px);
-  font-weight: 400;
+  font-size: clamp(16px, 2.5vw, 25px);
+  font-weight: 500;
   line-height: 1.7;
   margin-top: 8px;
+  color: var(--color200);
 }
-
+.classNameLine {
+}
+.pointBlock:nth-child(1) {
+  margin-bottom: 75px;
+}
+.pointBlock:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  width: 1.8px;
+  height: 100px;
+  background-color: var(--color200);
+  bottom: -100px;
+  opacity: 0.2;
+}
 .pointBlock {
   padding: 40px 0;
-  border-bottom: 1px solid #ddd;
+  position: relative;
+  width: 800px;
+  max-width: 95%;
+  margin: auto;
 }
 .pointBlock:last-child {
   border-bottom: none;
@@ -44,15 +89,6 @@
   margin-bottom: 12px;
   align-items: center;
   gap: 12px;
-}
-
-.accentBar {
-  width: 10px;
-  height: 10px;
-  background-color: var(--color200);
-  border-radius: 2px;
-  border-radius: 50%;
-
 }
 
 .card {
@@ -78,43 +114,4 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-@media (max-width: 1024px) {
-  .card {
-    max-width: 400px;
-  }
-}
-
-@media (max-width: 768px) {
-  .wrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px !important;
-  }
-
-  .container {
-    padding: 10vh 0;
-  }
-
-  .description {
-    width: 100%;
-  }
-
-  .title {
-    font-size: clamp(20px, 8vw, 40px) !important;
-  }
-
-  .card {
-    width: 100%;
-    max-width: none;
-  }
-
-  .description span {
-    opacity: 1 !important;
-  }
-
-  .accentBar {
-    height: 10px;
-  }
 }
