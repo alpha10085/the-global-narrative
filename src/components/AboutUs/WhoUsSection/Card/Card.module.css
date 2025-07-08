@@ -93,6 +93,7 @@
 .socialLinks {
   display: flex;
   gap: 16px;
+  margin-top:10px ;
 }
 
 .socialAnchor {

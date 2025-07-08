@@ -4,6 +4,7 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 
 const WhoUsSection = ({ data = {} }) => {
   const members = data?.members || [];
+  console.log("🚀 ~ WhoUsSection ~ members:", members)
   return (
     <section className={styles.container}>
       <SectionTitle title={data?.title} className={styles.title} />
