@@ -7,6 +7,7 @@ import styles from "./AnimatedParagraph.module.css";
 const AnimatedParagraph = ({
   options = {},
   className = "",
+  classNameLine="",
   text = "",
   delayPerWord = 0.1,
   duration = 0.5,
@@ -38,7 +39,9 @@ const AnimatedParagraph = ({
         wordCountBefore += words.length;
 
         return (
-          <div key={lineIndex} style={{ display: "flex", flexWrap: "wrap" }}>
+          <div
+          className={` ${classNameLine}`}
+          key={lineIndex} >
             {words.map((word, wordIndex) => (
               <motion.span
                 key={wordIndex}

@@ -142,5 +142,21 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 3
+  },
+  {
+    "file": "src/components/Shared/Animtions/AnimatedParagraph/AnimatedParagraph.module.css",
+    "firstSeenAt": "7/8/2025, 2:56:21 PM",
+    "lastUpdatedAt": "7/8/2025, 2:56:23 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 2
+  },
+  {
+    "file": "src/components/Shared/Animtions/AnimatedParagraph/AnimatedParagraph.jsx",
+    "firstSeenAt": "7/8/2025, 2:57:16 PM",
+    "lastUpdatedAt": "7/8/2025, 2:59:44 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 7
   }
 ]
