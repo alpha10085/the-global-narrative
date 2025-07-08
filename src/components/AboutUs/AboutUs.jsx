@@ -10,41 +10,29 @@ const AboutUs = ({ data = {} }) => {
   return (
     <div id="active-section" data-offset="0" className={styles.container}>
       <div className={`${styles.wrapper} flex gap40`}>
-        
-          {points?.map((point, index) => (
-            <div
-              className={`flex-c column ${styles.pointBlock}`}
-              key={point?._id}
-            >
-              <div className={styles.titleWrapper}>
-                <h1 className={styles.title}>{point.title}</h1>
-                {/* <h1 className={styles.titleMain}>{point.title}</h1> */}
-              </div>
-              <div className={`${styles.qoutescontetn}`}>
-<Img
-className={styles.icon}
-url="/qoute-icon.png"
-/>
+        {points?.map((point, index) => (
+          <Aos
+            key={point?._id}
+            className={`flex-c column ${styles.pointBlock}`}
+            activeClassName={styles.active}
+            delay={index * 100}
+          >
+            <div className={styles.titleWrapper}>
+              <h1 className={styles.title}>{point.title}</h1>
+              {/* <h1 className={styles.titleMain}>{point.title}</h1> */}
+            </div>
+            <div className={`${styles.qoutescontetn}`}>
+              <Img className={styles.icon} url="/qoute-icon.png" />
               <AnimatedParagraph
                 classNameLine={styles.classNameLine}
                 text={point.description}
                 delayPerWord={0.1}
                 duration={0.75}
                 className={styles.description}
-                />
-                </div>
+              />
             </div>
-          ))}
-
-        {/* 
-        <Aos
-          threshold={0.6}
-          delay={200}
-          activeClassName={styles.active}
-          className={styles.card}
-        >
-          <Img className={styles.image} url={poster?.url} alt={data?.name} />
-        </Aos> */}
+          </Aos>
+        ))}
       </div>
     </div>
   );
