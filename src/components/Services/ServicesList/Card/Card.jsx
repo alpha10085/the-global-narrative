@@ -38,34 +38,36 @@ const Card = ({ className = "", data = {}, index = 1 }) => {
               </div>
             ))}
           </div>
-          <div
-            style={{
-              transitionDelay: `${0.2 + 1.2 + lines?.length * 0.2}s`,
-            }}
-            className={`flex column gap10 ${styles.projects}`}
-          >
-            <h1
+          {data?.projects?.length > 0 ? (
+            <div
               style={{
-                transitionDelay: `${0.2 + 1.2 + lines?.length * 0.4}s`,
+                transitionDelay: `${0.2 + 1.2 + lines?.length * 0.2}s`,
               }}
-              className={styles.projectstitle}
+              className={`flex column gap10 ${styles.projects}`}
             >
-              projects
-            </h1>
-            {data?.projects?.map((val, i) => (
-              <Link
-                target="_blank"
-                key={val?._id}
+              <h1
                 style={{
-                  transitionDelay: `${i * 0.2 + 2 + lines?.length * 0.4}s`,
+                  transitionDelay: `${0.2 + 1.2 + lines?.length * 0.2}s`,
                 }}
-                href={val?.link}
-                className={`${styles.project}`}
+                className={styles.projectstitle}
               >
-                <Img className={styles.posterImg} url={val?.poster?.url} />
-              </Link>
-            ))}
-          </div>
+                projects
+              </h1>
+              {data?.projects?.map((val, i) => (
+                <Link
+                  target="_blank"
+                  key={val?._id}
+                  style={{
+                    transitionDelay: `${i * 0.2 + 2 + lines?.length * 0.2}s`,
+                  }}
+                  href={val?.link}
+                  className={`${styles.project}`}
+                >
+                  <Img className={styles.posterImg} url={val?.poster?.url} />
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </div>
         <div className={styles.posterWrapper}>
           <Img url={data?.poster?.url} className={styles.poster} />
