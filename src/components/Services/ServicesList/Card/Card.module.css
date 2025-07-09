@@ -170,7 +170,46 @@
   top: 50%;
   transform: translateY(-50%);
 }
+.projects {
+    border-top: 1px solid transparent;
+    padding-top: 20px;
+    transition: 0.4s;
+}
+.container.active .projects {
+  border-color: #0000001a;
+}
+.projectstitle {
+  font-size: 20px;
+}
+.posterImg {
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  overflow: hidden;
+}
 
+.project {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.8s;
+}
+
+.container.active .project {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.projectstitle {
+  font-size: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.8s;
+}
+
+.container.active .projectstitle {
+  opacity: 1;
+  transform: translateY(0);
+}
 @media (max-width: 950px) {
   .subTitle {
     margin: 10px 0;

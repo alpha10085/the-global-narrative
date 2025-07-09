@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { joiText } from "@/_Backend/utils/JoiHandlers";
+import { joiArray, joiText } from "@/_Backend/utils/JoiHandlers";
 import { CommonsVal, fileVal } from "@/_Backend/commons/validation";
 
 // ------------------------------
@@ -11,6 +11,13 @@ const serviceValidationCreate = Joi.object({
   keyPoints: joiText({ min: 2, max: 1000 }),
   poster: fileVal.required(),
   description: joiText({ min: 5, max: 20000, required: true }),
+    projects: joiArray({
+    body: Joi.object({
+      link: joiText({ min: 2, max: 1000, required: true }),
+      poster: fileVal.required(),
+      ...CommonsVal
+    }).required(),
+  }),
   ...CommonsVal,
 }).required();
 
@@ -24,6 +31,14 @@ const serviceValidationUpdate = Joi.object({
   keyPoints: joiText({ min: 2, max: 1000 }),
   poster: fileVal,
   description: joiText({ min: 5, max: 20000 }),
+    projects: joiArray({
+    body: Joi.object({
+      link: joiText({ min: 2, max: 1000, required: true }),
+      poster: fileVal.required(),
+      ...CommonsVal
+
+    }).required(),
+  }),
   ...CommonsVal,
 });
 
@@ -36,6 +51,13 @@ const serviceValidationRelation = Joi.object({
   keyPoints: joiText({ min: 2, max: 1000 }),
   poster: fileVal,
   description: joiText({ min: 5, max: 20000 }),
+  projects: joiArray({
+    body: Joi.object({
+      link: joiText({ min: 2, max: 1000, required: true }),
+      poster: fileVal.required(),
+      ...CommonsVal
+    }).required(),
+  }),
   ...CommonsVal,
 });
 

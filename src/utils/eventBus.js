@@ -8,7 +8,6 @@
  *
  * // Listen to an event
  * eventBus.on("user:login", (user) => {
- *   console.log("User logged in:", user);
  * });
  */
 

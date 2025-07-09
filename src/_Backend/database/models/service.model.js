@@ -14,6 +14,12 @@ const serviceSchema = new Schema(
     subTitle: mongtext,
     description: mongeDescription,
     keyPoints: mongtext,
+    projects: [
+      {
+        link:mongtext,
+        poster,
+      },
+    ],
     ...schemaCommens,
   },
   {
@@ -26,6 +32,10 @@ serviceSchema.pre(/^find/, function (next) {
     {
       ...populateCommons,
       path: "poster",
+    },
+    {
+      ...populateCommons,
+      path: "projects.poster",
     },
   ];
   this.populate(populatePipeline);

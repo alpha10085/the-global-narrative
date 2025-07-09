@@ -9,7 +9,6 @@ const Card = ({
   description = "",
   poster = {},
 }) => {
-  console.log("🚀 ~ Card ~ poster:", poster);
   return (
     <Aos
       activeClassName={styles.active}

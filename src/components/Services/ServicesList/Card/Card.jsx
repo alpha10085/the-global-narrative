@@ -2,8 +2,11 @@ import Img from "@/components/Shared/img/Img";
 import styles from "./Card.module.css";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import { lineBreak } from "@/utils/text";
+import Link from "@/components/Shared/Link/Link";
 
 const Card = ({ className = "", data = {}, index = 1 }) => {
+  console.log("🚀 ~ Card ~ data:", data);
+  const lines = lineBreak(data?.keyPoints, ["."], true)?.slice(0, 8);
   return (
     <Aos
       threshold={0.5}
@@ -18,25 +21,51 @@ const Card = ({ className = "", data = {}, index = 1 }) => {
           </div>
           <div className={`${styles.description} gap10 flex column`}>
             {lineBreak(data?.description).map((val, i) => (
-              <p
-              className="description-"
-              key={i}>{val}</p>
+              <p className="description-m" key={i}>
+                {val}
+              </p>
             ))}
           </div>
           <div className={`${styles.keypoints} flex column gap20`}>
-            {lineBreak(data?.keyPoints, ["."], true)
-              ?.slice(0, 8)
-              .map((val, i) => (
-                <div
-                  key={i}
-                  style={{
-                    transitionDelay: `${i * 0.4 + 1.5}s`,
-                  }}
-                  className={styles.point}
-                >
-                  {val}
-                </div>
-              ))}
+            {lines.map((val, i) => (
+              <div
+                key={i}
+                style={{
+                  transitionDelay: `${i * 0.2 + 1.5}s`,
+                }}
+                className={styles.point}
+              >
+                {val}
+              </div>
+            ))}
+          </div>
+          <div
+            style={{
+              transitionDelay: `${0.2 + 1 + lines?.length * 0.2}s`,
+            }}
+            className={`flex column gap10 ${styles.projects}`}
+          >
+            <h1
+              style={{
+                transitionDelay: `${0.2 + 1.2 + lines?.length * 0.4}s`,
+              }}
+              className={styles.projectstitle}
+            >
+              projects
+            </h1>
+            {data?.projects?.map((val, i) => (
+              <Link
+                target="_blank"
+                key={val?._id}
+                style={{
+                  transitionDelay: `${i * 0.2 + 2 + lines?.length * 0.4}s`,
+                }}
+                href={val?.link}
+                className={`${styles.project}`}
+              >
+                <Img className={styles.posterImg} url={val?.poster?.url} />
+              </Link>
+            ))}
           </div>
         </div>
         <div className={styles.posterWrapper}>

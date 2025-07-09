@@ -1,66 +1,77 @@
 {
-    "fields": [
-        {
-            "name": "title",
-            "type": "text",
-            "label": "title"
-        },
-              {
-            "name": "subTitle",
-            "type": "text",
-            "label": "subTitle"
-        },
-                      {
-            "name": "keyPoints",
-            "type": "textarea",
-            "label": "keyPoints"
-        },
-        {
-            "name": "publish",
-            "type": "boolean",
-            "readOnly": false,
-            "label": "publish",
-            "default": false
-        },
-        {
-            "name": "description",
-            "type": "textarea",
-            "label": "description"
-        }
-        ,
-        {
-            "name": "poster",
-            "type": "media",
-            "allowedTypes": [
-                "image"
-            ],
-            "single": true,
-            "label": "poster"
-        }
-    ],
-    "options": {
-        "translation": false,
-        "roles": {
-            "view": true,
-            "create": true,
-            "update": true,
-            "delete": true,
-            "filter": true,
-            "sort": true,
-            "search": true,
-            "table": true
-        },
-        "cache": {
-            "duration": "10m",
-            "tags": [
-                "landing"
-            ]
-        }
+  "fields": [
+    {
+      "name": "title",
+      "type": "text",
+      "label": "title"
     },
-    "view": [
-        "poster",
-        "title",
-        "description",
-        "createdAt"
-    ]
+    {
+      "name": "subTitle",
+      "type": "text",
+      "label": "subTitle"
+    },
+    {
+      "name": "keyPoints",
+      "type": "textarea",
+      "label": "keyPoints"
+    },
+    {
+      "name": "publish",
+      "type": "boolean",
+      "readOnly": false,
+      "label": "publish",
+      "default": false
+    },
+    {
+      "name": "description",
+      "type": "textarea",
+      "label": "description"
+    },
+    {
+      "name": "poster",
+      "type": "media",
+      "allowedTypes": ["image"],
+      "single": true,
+      "label": "poster"
+    },
+    {
+      "name": "projects",
+      "type": "array",
+      "label": "projects",
+      "min": 0,
+      "max": 50,
+      "fields": [
+        {
+          "name": "link",
+          "type": "text",
+          "label": "link"
+        },
+        {
+          "name": "poster",
+          "type": "media",
+          "allowedTypes": ["image"],
+          "single": true,
+          "label": "poster"
+        }
+      ]
+    }
+  ],
+  "options": {
+    "translation": false,
+    "roles": {
+      "view": true,
+      "create": true,
+      "update": true,
+      "delete": true,
+      "filter": true,
+      "sort": true,
+      "search": true,
+      "table": true
+    },
+    "cache": {
+      "duration": "10m",
+      "tags": ["landing"]
+    }
+  },
+  "view": ["poster", "title", "description", "createdAt"]
 }

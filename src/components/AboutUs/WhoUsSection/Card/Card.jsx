@@ -10,7 +10,7 @@ import { InstagramLogo, LinkedinLogo } from "../icons";
 
 const Card = ({ index = 0, data = {} }) => {
   const CardKey = `teamcard${index}`;
-  console.log(data);
+
 
   return (
     <Aos
