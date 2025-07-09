@@ -51,15 +51,28 @@
   transform: translate(0, 0) scale(1);
 }
 
-@media (max-width: 480px) {
+
+@media (max-width: 768px) {
   .animatedLogo {
-    width: clamp(70px, 40vw, 120px);
     transform: translate(-45%, -50%) scale(1.2);
   }
 
   .logoToCorner {
-    top: 12px;
-    left: 5%;
+    top: 15px;
+    left: 2%;
+    transform: translate(0, 0) scale(0.65);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .animatedLogo {
+    transform: translate(-45%, -50%) scale(1.2);
+  }
+
+  .logoToCorner {
+    top: 15px;
+    left: -0.5%;
     transform: translate(0, 0) scale(0.65);
   }
 }
