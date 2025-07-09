@@ -34,7 +34,7 @@ export const allModelsConfig = {
       update: LandingValUpdate,
     },
   },
-  "who-we-are": {
+  "about-us": {
     model: aboutUsPageModel,
     validation: {
       create: AboutValCreate,

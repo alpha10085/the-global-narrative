@@ -9,7 +9,7 @@ export const links = [
   },
   {
     text: "Who we are",
-    href: "/who-we-are",
+    href: "/about-us",
     enabled: true,
   },
   {

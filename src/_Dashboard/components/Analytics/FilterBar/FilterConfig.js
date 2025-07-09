@@ -14,7 +14,7 @@ export const filterConfigs = [
     options: [
       { value: "", label: "All" },
       { value: "/", label: "Home" },
-      { value: "/who-we-are", label: "about us" },
+      { value: "/about-us", label: "about us" },
       { value: "/contact-us", label: "contact us" },
       { value: "/clients", label: "clients" },
       { value: "/media-center", label: "media center" },
