@@ -91,7 +91,7 @@ export const joiObject = ({ required = false, body = null, locale = "en" }) => {
     messagesHandlers({ type: "object", locale })
   );
 
-  return required ? schema.required() : schema.optional();
+  return required ? schema.required() : schema.optional().allow(null);
 };
 
 export const getNestedValue = (obj = {}, key = "") => {

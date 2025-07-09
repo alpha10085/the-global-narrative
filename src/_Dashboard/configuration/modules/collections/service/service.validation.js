@@ -45,17 +45,19 @@ const serviceSchemaValidation = (locale = "en", relation = false) => {
       max: 100000,
       required: !relation,
     }),
-    projects: joiArray({
-      body: joiObject({
-        body: {
-          link: joiText({ min: 2, max: 1000, required: true }),
-          poster: fileVal.required(),
-        },
-        locale,
-        required: true,
-      }),
-      locale,
-    }),
+    projects: Joi.array()
+      .items(
+        joiObject({
+          body: {
+            link: joiText({ min: 2, max: 1000, required: !relation }),
+            poster: relation ? fileVal : fileVal.required(),
+          },
+          required: !relation,
+          locale,
+        })
+      )
+      .allow(null)
+      .optional(),
 
     ...commonVal,
   });

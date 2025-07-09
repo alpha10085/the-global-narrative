@@ -15,7 +15,6 @@
   --p: #425466;
   --fw-m: 500;
   --fw-l: 600;
-
   --main-bg: rgb(255, 255, 255);
   --bg200: rgb(248, 248, 248);
   --bord100: rgb(245, 245, 245);
@@ -30,7 +29,6 @@
   --color-scroll-thumb: #05004e;
   --headerHeight: 100px;
   --main-layout-width: 1500px;
-  
 }
 
 /* end roots styles */
@@ -388,10 +386,9 @@ h1,
 h2,
 h3,
 h4 {
-   font-family: var(--font-Ubuntu) !important;
-   text-transform: capitalize !important;
+  font-family: var(--font-Ubuntu) !important;
+  text-transform: capitalize !important;
 }
-
 
 @keyframes gradientMove {
   0% {
