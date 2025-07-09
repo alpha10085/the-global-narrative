@@ -338,10 +338,10 @@
   {
     "file": "src/components/Shared/FloatedSection/FloatedSection.module.css",
     "firstSeenAt": "7/8/2025, 5:38:55 PM",
-    "lastUpdatedAt": "7/9/2025, 4:32:25 AM",
+    "lastUpdatedAt": "7/9/2025, 4:32:53 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 5
+    "count": 6
   },
   {
     "file": "src/components/Shared/Link/Link.jsx",
