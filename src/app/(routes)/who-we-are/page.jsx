@@ -9,7 +9,7 @@ import WhoUsSection from "@/components/AboutUs/WhoUsSection/WhoUsSection";
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
 import AboutUs from "@/components/AboutUs/AboutUs";
 
-const pageKey = "about-us";
+const pageKey = "who-we-are";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
 const Page = async (props) => {
   const {
@@ -18,7 +18,7 @@ const Page = async (props) => {
     whoUsSectionSection = {},
     missionVision = {},
     quoteSection = {},
-  } = await getPage("about-us");
+  } = await getPage("who-we-are");
   return (
     <Template
       color="classicCyan"

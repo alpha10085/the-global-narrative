@@ -32,7 +32,7 @@ const NavBar = () => {
     { path: "/", minWidth: 0, maxWidth: Infinity },
     { path: "/news/*", minWidth: 0, maxWidth: Infinity },
     { path: "/contact-us", minWidth: 0, maxWidth: 768 },
-    { path: "/about-us", minWidth: 0, maxWidth: Infinity },
+    { path: "/who-we-are", minWidth: 0, maxWidth: Infinity },
     { path: "/services", minWidth: 0, maxWidth: Infinity },
   ];
 
