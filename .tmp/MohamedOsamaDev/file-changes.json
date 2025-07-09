@@ -330,18 +330,18 @@
   {
     "file": "src/components/Shared/FloatedSection/FloatedSection.jsx",
     "firstSeenAt": "7/8/2025, 5:21:17 PM",
-    "lastUpdatedAt": "7/8/2025, 5:38:48 PM",
+    "lastUpdatedAt": "7/9/2025, 4:31:37 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 3
+    "count": 6
   },
   {
     "file": "src/components/Shared/FloatedSection/FloatedSection.module.css",
     "firstSeenAt": "7/8/2025, 5:38:55 PM",
-    "lastUpdatedAt": "7/8/2025, 5:39:19 PM",
+    "lastUpdatedAt": "7/9/2025, 4:32:25 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 2
+    "count": 5
   },
   {
     "file": "src/components/Shared/Link/Link.jsx",

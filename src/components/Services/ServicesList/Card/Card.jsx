@@ -5,7 +5,6 @@ import { lineBreak } from "@/utils/text";
 import Link from "@/components/Shared/Link/Link";
 
 const Card = ({ className = "", data = {}, index = 1 }) => {
-  console.log("🚀 ~ Card ~ data:", data);
   const lines = lineBreak(data?.keyPoints, ["."], true)?.slice(0, 8);
   return (
     <Aos
@@ -41,7 +40,7 @@ const Card = ({ className = "", data = {}, index = 1 }) => {
           </div>
           <div
             style={{
-              transitionDelay: `${0.2 + 1 + lines?.length * 0.2}s`,
+              transitionDelay: `${0.2 + 1.2 + lines?.length * 0.2}s`,
             }}
             className={`flex column gap10 ${styles.projects}`}
           >

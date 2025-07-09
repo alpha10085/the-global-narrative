@@ -6,31 +6,25 @@ const FloatedSection = ({ children, className = "" }) => {
   const sectionRef = useRef(null);
   const ticking = useRef(false);
   const isVisible = useRef(false);
-  const measurements = useRef({ bottom: 0, height: 0 });
 
   useEffect(() => {
     const el = sectionRef.current;
-    if (!el || window.innerWidth < 768) return;
-
-    const updateMeasurements = () => {
-      const rect = el.getBoundingClientRect();
-      measurements.current.bottom = rect.bottom + window.scrollY;
-      measurements.current.height = rect.height;
-    };
+    if (!el) return;
 
     const update = () => {
-      if (!isVisible.current || !el) return;
+      if (!isVisible.current) return;
 
+      const rect = el.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const scrollY = window.scrollY;
+      
 
-      const start = measurements.current.bottom - windowHeight;
-      const end = start + windowHeight * 0.9;
+      const start = windowHeight;
+      const end = windowHeight * 0.1;
 
-      const rawProgress = (scrollY - start) / (end - start);
+      const rawProgress = (start - rect.bottom) / (start - end);
       const clamped = Math.min(1, Math.max(0, rawProgress));
 
-      el.style.transform = `translate3d(0, ${clamped * (windowHeight / 3)}px, 0)`;
+      el.style.transform = `translate3d(0px, ${clamped * (windowHeight / 3)}px, 0)`;
       ticking.current = false;
     };
 
@@ -41,27 +35,22 @@ const FloatedSection = ({ children, className = "" }) => {
       }
     };
 
-    const onResize = () => {
-      updateMeasurements();
-      update();
-    };
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         isVisible.current = entry.isIntersecting;
-
         if (entry.isIntersecting) {
-          updateMeasurements();
           window.addEventListener("scroll", onScroll, { passive: true });
-          window.addEventListener("resize", onResize);
-          update();
+          window.addEventListener("resize", onScroll);
+          update(); // update on entry
         } else {
           window.removeEventListener("scroll", onScroll);
-          window.removeEventListener("resize", onResize);
-          if (el) el.style.transform = "";
+          window.removeEventListener("resize", onScroll);
         }
       },
-      { threshold: 0.1 }
+      {
+        root: null,
+        threshold: 0.1,
+      }
     );
 
     observer.observe(el);
@@ -69,7 +58,7 @@ const FloatedSection = ({ children, className = "" }) => {
     return () => {
       observer.disconnect();
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
+      window.removeEventListener("resize", onScroll);
     };
   }, []);
 
