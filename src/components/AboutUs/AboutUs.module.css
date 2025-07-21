@@ -62,7 +62,7 @@
 }
 
 .description {
-  color: var(--color200);
+  color: black;
   font-size: clamp(16px, 2.5vw, 24px);
   font-weight: 500;
   line-height: 1.6;

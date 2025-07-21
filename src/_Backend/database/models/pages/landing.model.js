@@ -136,6 +136,10 @@ landingSchema.pre(/^find/, function (next) {
             title: 1,
             poster: 1,
             description: 1,
+            projects:{
+              link:1,
+              poster:1
+            }
           },
         },
       ]

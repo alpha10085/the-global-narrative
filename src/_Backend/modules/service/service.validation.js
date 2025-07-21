@@ -11,11 +11,11 @@ const serviceValidationCreate = Joi.object({
   keyPoints: joiText({ min: 2, max: 1000 }),
   poster: fileVal.required(),
   description: joiText({ min: 5, max: 20000, required: true }),
-    projects: joiArray({
+  projects: joiArray({
     body: Joi.object({
       link: joiText({ min: 2, max: 1000, required: true }),
       poster: fileVal.required(),
-      ...CommonsVal
+      ...CommonsVal,
     }).required(),
   }),
   ...CommonsVal,
@@ -31,12 +31,11 @@ const serviceValidationUpdate = Joi.object({
   keyPoints: joiText({ min: 2, max: 1000 }),
   poster: fileVal,
   description: joiText({ min: 5, max: 20000 }),
-    projects: joiArray({
+  projects: joiArray({
     body: Joi.object({
       link: joiText({ min: 2, max: 1000, required: true }),
       poster: fileVal.required(),
-      ...CommonsVal
-
+      ...CommonsVal,
     }).required(),
   }),
   ...CommonsVal,
@@ -55,7 +54,7 @@ const serviceValidationRelation = Joi.object({
     body: Joi.object({
       link: joiText({ min: 2, max: 1000, required: true }),
       poster: fileVal.required(),
-      ...CommonsVal
+      ...CommonsVal,
     }).required(),
   }),
   ...CommonsVal,
