@@ -22,5 +22,21 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 1
+  },
+  {
+    "file": "src/components/Shared/FloatedSection/FloatedSection.jsx",
+    "firstSeenAt": "7/8/2025, 6:10:58 PM",
+    "lastUpdatedAt": "7/8/2025, 6:10:58 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/components/Shared/FloatedSection/FloatedSection.module.css",
+    "firstSeenAt": "7/8/2025, 6:10:58 PM",
+    "lastUpdatedAt": "7/8/2025, 6:10:58 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
   }
 ]
