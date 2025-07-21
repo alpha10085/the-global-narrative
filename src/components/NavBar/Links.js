@@ -20,7 +20,7 @@ export const links = [
   {
     text: "Clients",
     href: "/clients",
-    enabled: false,
+    enabled: true,
   },
 
   {

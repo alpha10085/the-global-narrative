@@ -44,10 +44,10 @@ const schemas = [
   servicesConfig,
   newsPageConfig,
   contactConfig,
-  // clientConfig,
+  clientConfig,
   
   // collections
-  // clientsConfig,
+  clientsConfig,
   serviceConfig,
   newsConfig,
   newsCategoryConfig,

@@ -8,6 +8,15 @@
   transition: 0.6s;
   opacity: 0;
 }
+
+.title {
+  color: var(--color200);
+  font-weight: 500;
+  gap: 3px !important;
+  max-width: 100%;
+  text-align: center;
+}
+
 .Aos.active {
   transform: translate(0);
   opacity: 1;
