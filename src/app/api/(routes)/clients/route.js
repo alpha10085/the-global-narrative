@@ -20,4 +20,5 @@ export const POST = insertOne({
   schemaValidation: clientsValidationCreate,
   allowedTo: enumRoles.adminRoles,
   ...config,
+  uniqueFields:["title"]
 });
