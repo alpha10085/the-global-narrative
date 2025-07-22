@@ -29,12 +29,6 @@ const Testimonials = ({ data = {} }) => {
     threshold: 0.2,
   });
 
-  const handleChange = (dir) => {
-    if (!swiperRef.current) return;
-    const swiper = swiperRef.current.swiper;
-    if (dir === "up") swiper.slidePrev();
-    else swiper.slideNext();
-  };
 
   const slideTo = (i = 0) => {
     swiperRef.current.swiper.slideTo(i);
@@ -69,6 +63,7 @@ const Testimonials = ({ data = {} }) => {
   }, []);
 
   const cards = testimonials;
+  if (cards?.length === 0) return null
 
   return (
     <div className={styles.container} ref={ref}>
