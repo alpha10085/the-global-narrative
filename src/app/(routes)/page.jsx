@@ -11,6 +11,7 @@ import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import { pageMetadataHandler } from "@/utils/metadata";
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
 import ServicesSection from "@/components/Home/Services/ServicesSection";
+import Clients from "@/components/Home/Clients/Clients";
 
 export const generateMetadata = pageMetadataHandler(getPage, "landing");
 const Home = async () => {
@@ -22,6 +23,7 @@ const Home = async () => {
     newsSection = {},
     testimonialSection = {},
     getInTouchSection = {},
+    clientsSection = []
   } = await getPage("landing");
 
   return (
@@ -29,6 +31,15 @@ const Home = async () => {
       <Hero data={heroSection} />
       <div className={styles.staticWrapper}>
         <AboutUs data={aboutUsSection} />
+        <SSRFetcher
+          Component={Clients}
+          options={{
+            next: { revalidate: "1y", tags: clientsSection || ["news"] },
+          }}
+          data={[]}
+         
+          path={`/clients/landing?ids=${clientsSection}`}
+        />
         <SSRFetcher
           Component={ServicesSection}
           options={{
