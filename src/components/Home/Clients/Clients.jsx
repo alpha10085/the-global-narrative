@@ -1,4 +1,4 @@
-import Img from "@/components/shared/img/Img";
+import Img from "@/components/Shared/img/Img";
 import styles from "./Clients.module.css";
 
 const Clients = ({ data: { logos = [] } = {} }) => {
