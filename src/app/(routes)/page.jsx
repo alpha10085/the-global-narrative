@@ -31,15 +31,15 @@ const Home = async () => {
       <Hero data={heroSection} />
       <div className={styles.staticWrapper}>
         <AboutUs data={aboutUsSection} />
-        <SSRFetcher
+        {/* <SSRFetcher
           Component={Clients}
           options={{
             next: { revalidate: "1y", tags: clientsSection || ["news"] },
           }}
-          data={[]}
+          data={{}}
          
           path={`/clients/landing?ids=${clientsSection}`}
-        />
+        /> */}
         <SSRFetcher
           Component={ServicesSection}
           options={{

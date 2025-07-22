@@ -7,7 +7,7 @@ const Clients = ({ data: { logos = [] } = {} }) => {
   const allLogos = [...logos];
 
   // Repeat logos if there are fewer than requiredLogos
-  if (allLogos.length < 5) return null;
+  if (allLogos.length < 4) return null;
   while (allLogos.length < requiredLogos) {
     allLogos.push(...logos);
   }
