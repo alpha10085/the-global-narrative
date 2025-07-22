@@ -9,6 +9,8 @@ import { newsValidationRelation } from "../news/news.validation";
 import { testimonialValidationRelation } from "../testimonial/testimonial.validation";
 import { serviceValidationRelation } from "../service/service.validation";
 import { faqValidationRelation } from "../faq/faq.validation";
+import { clientsPageValUpdate } from "./clients.validation";
+import { clientsValidationUpdate } from "../clients/clients.validation";
 
 // Hero Section (Array of cards with title & media)
 const heroSection = Joi.object({
@@ -76,8 +78,8 @@ const testimonialSection = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
   posts: joiArray({
     body: testimonialValidationRelation,
-    min: 1,
-    required: true,
+    max: 20,
+    required: false,
   }),
   ...CommonsVal,
 });
@@ -92,7 +94,12 @@ const getInTouchSection = Joi.object({
   }),
   ...CommonsVal,
 });
-
+// clients section
+const clientsSection = Joi.array()
+  .items(clientsValidationUpdate)
+  .max(20)
+  .optional()
+  .allow(null);
 // ------------------------------
 // Validation for Creating
 // ------------------------------
@@ -107,7 +114,7 @@ export const LandingValCreate = Joi.object({
   newsSection: newsSection.required(),
   testimonialSection: testimonialSection.required(),
   getInTouchSection: getInTouchSection.required(),
-
+  clientsSection,
   ...CommonsVal,
 });
 
@@ -117,7 +124,6 @@ export const LandingValCreate = Joi.object({
 export const LandingValUpdate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
-
   heroSection: heroSection,
   aboutUsSection,
   servicesSection,
@@ -125,6 +131,7 @@ export const LandingValUpdate = Joi.object({
   newsSection,
   testimonialSection,
   getInTouchSection,
+  clientsSection,
 
   ...CommonsVal,
 });

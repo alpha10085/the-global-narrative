@@ -91,6 +91,18 @@
       ]
     },
     {
+      "name": "clientsSection",
+      "type": "relation",
+      "ref": "clients",
+      "select": ["_id", "title", "logo"],
+      "imageField": "logo",
+      "displayField": "title",
+      "single": false,
+      "label": "clientsSection",
+      "min": 1,
+      "max": 20
+    },
+    {
       "name": "quoteSection",
       "type": "object",
       "label": "quoteSection",

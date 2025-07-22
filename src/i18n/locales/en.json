@@ -172,8 +172,8 @@
 
       "platform" : "Platform Name (e.g., LinkedIn)",
       "platform_ph": "Enter platform...",
-
-      "socialLinks" : "Social Links",
+"clientsSection":"clients Section",
+"clientsSection_ph":"select clients",
       "socialLinks_ph" : "Enter social Links.."
     },
     "filterSystem": {

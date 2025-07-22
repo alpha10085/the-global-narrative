@@ -13,7 +13,11 @@ export const GET = AsyncHandler(
       });
     }
 
-    const clients = await clientModel.find().lean();
+    const clients = await clientModel
+      .find({
+        publish: true,
+      })
+      .lean();
 
     return res(
       {

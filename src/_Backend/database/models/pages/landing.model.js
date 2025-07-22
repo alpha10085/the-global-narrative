@@ -3,13 +3,13 @@ import { SingleTypeModel } from "../constant/singleType";
 import {
   mongeDescription,
   mongtext,
+  ObjectId,
   pageMetadata,
   pageMetadataPopulate,
   populateCommons,
   poster,
 } from "../constant/Commons";
-import { newsModel } from "../news.model";
-import { testimonialModel } from "../testimonial.model";
+import { clientModel } from "../clients.model";
 
 // Hero section schema
 const heroItemSchema = new Schema({
@@ -32,7 +32,7 @@ const aboutUsSection = new Schema({
 // services section
 const servicesSection = new Schema({
   title: mongtext,
-  services: [{ type: Schema.Types.ObjectId, ref: "service" }],
+  services: [{ type: ObjectId, ref: "service" }],
 });
 
 // Quote section
@@ -51,13 +51,13 @@ const quoteSection = new Schema({
 // News section
 const newsSection = new Schema({
   title: mongtext,
-  posts: [{ type: Schema.Types.ObjectId, ref: "news" }],
+  posts: [{ type: ObjectId, ref: "news" }],
 });
 
 // Testimonial section
 const testimonialSection = new Schema({
   title: mongtext,
-  posts: [{ type: Schema.Types.ObjectId, ref: "testimonial" }],
+  posts: [{ type: ObjectId, ref: "testimonial" }],
 });
 
 // Get In Touch section
@@ -69,6 +69,12 @@ const getInTouchSection = new Schema({
     label: mongtext,
   },
 });
+const clientsSection = [
+  {
+    type: ObjectId,
+    ref: clientModel,
+  },
+];
 
 // Main home page schema
 const landingSchema = new Schema({
@@ -80,6 +86,7 @@ const landingSchema = new Schema({
   newsSection,
   testimonialSection,
   getInTouchSection,
+  clientsSection,
 });
 
 // Auto-populate
@@ -136,10 +143,19 @@ landingSchema.pre(/^find/, function (next) {
             title: 1,
             poster: 1,
             description: 1,
-            projects:{
-              link:1,
-              poster:1
-            }
+            projects: {
+              link: 1,
+              poster: 1,
+            },
+          },
+        },
+        {
+          path: "clientsSection",
+          model: "client",
+          select: {
+            _id: 1,
+            title: 1,
+            logo: 1,
           },
         },
       ]
