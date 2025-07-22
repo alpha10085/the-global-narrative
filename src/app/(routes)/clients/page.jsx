@@ -8,6 +8,7 @@ import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import { metadataHandler } from "@/utils/metadata";
 import { getPage } from "@/lib/pages";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
+import Template from "@/components/Template/Template";
 
 export const generateMetadata = metadataHandler(getPage, `clients`);
 const Page = async (props) => {
@@ -19,20 +20,9 @@ const Page = async (props) => {
 
   const sectionTitle = `${searchAndReplace(title, " ", "-")}-main`;
   return (
-    <main className={`${styles.layout} ShowSmoothEffect`}>
-      <div className={`${styles.head} flex-c column gap15`}>
-        <WordPullUpV2
-          duration={0.4}
-          delay={500}
-          className={`${styles.title} title-xl `}
-          text={title}
-        />
-        <Aos delay={400} activeClassName={styles.active} className={styles.Aos}>
-          <p>{description}</p>
-        </Aos>
-      </div>
+    <Template color="blue" pageTitle={title} className={styles.main}>
       <Clients sectionTitle={sectionTitle} data={clients || []} />
-    </main>
+    </Template>
   );
 };
 

@@ -5,7 +5,7 @@ import Card from "./Card/Card";
 import styles from "./News.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useMemo } from "react";
 
 const News = ({ data = {} }) => {
   const swiperRef = useRef(null);
@@ -15,7 +15,6 @@ const News = ({ data = {} }) => {
     const swiperInstance = swiperRef.current?.swiper;
     if (!swiperInstance || !swiperInstance.autoplay) return;
 
-    // Initially stop autoplay
     swiperInstance.autoplay.stop();
 
     const isInViewport = (el) => {
@@ -35,7 +34,6 @@ const News = ({ data = {} }) => {
       }
     };
 
-    // IntersectionObserver to trigger autoplay when visible
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -49,7 +47,6 @@ const News = ({ data = {} }) => {
       observer.observe(containerRef.current);
     }
 
-    // Resize listener
     window.addEventListener("resize", startAutoplayIfNeeded);
 
     return () => {
@@ -57,6 +54,19 @@ const News = ({ data = {} }) => {
       observer.disconnect();
     };
   }, []);
+
+  if (!data?.news?.length) return null;
+
+  const cards = useMemo(() => {
+    const original = data.news || [];
+    const repeated = [...original];
+
+    while (repeated.length < 20) {
+      repeated.push(...original);
+    }
+
+    return repeated.slice(0, 20); // limit to 20 for performance
+  }, [data?.news]);
 
   return (
     <div
@@ -68,6 +78,7 @@ const News = ({ data = {} }) => {
       <div className={styles.title}>
         <SectionTitle title={data?.title} />
       </div>
+
       <Aos
         delay={200}
         threshold={0.2}
@@ -95,7 +106,7 @@ const News = ({ data = {} }) => {
           }}
           modules={[Autoplay]}
         >
-          {[...data?.news, ...data?.news, ...data?.news]?.map((item, index) => (
+          {cards.map((item, index) => (
             <SwiperSlide key={index} className={styles.swiperSlide}>
               <Card
                 className={styles.card}
