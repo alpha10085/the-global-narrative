@@ -30,6 +30,10 @@
     opacity: 0;
     transform: translateY(50px);
   }
+  .list.active   .logo {
+    opacity: 1;
+    transform: translateY(0);
+  }
   .logo img {
     
     border-radius: 10%;

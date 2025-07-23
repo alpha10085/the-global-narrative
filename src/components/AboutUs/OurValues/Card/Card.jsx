@@ -14,7 +14,7 @@ const Card = ({ data = {} }) => {
     >
       <div className={styles.descriptionBox}>
         <h1 className={` 
-          title-l
+          title-m
           ${styles.name}`}>{data?.title}</h1>
         <p
         className="description-sm"

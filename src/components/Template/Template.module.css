@@ -41,7 +41,7 @@
 }
 .description {
   width: calc(100% - 400px);
-  transform: translateY(25px);
+  transform: translateY(10px);
 }
 .content p {
 

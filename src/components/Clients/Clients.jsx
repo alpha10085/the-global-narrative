@@ -2,6 +2,7 @@
 import { useInView } from "react-intersection-observer";
 import styles from "./Clients.module.css";
 import Img from "@/components/Shared/img/Img";
+import Aos from "../Shared/Animtions/Aos/Aos";
 
 const Clients = ({ data, sectionTitle }) => {
   return (
@@ -9,31 +10,34 @@ const Clients = ({ data, sectionTitle }) => {
       id={sectionTitle}
       className={`${styles.section} ShowSmoothEffect `}
     >
-      <div className={`${styles.list} flex al-i-c wrap`}>
+      <Aos
+        activeClassName={styles.active}
+        className={`${styles.list} flex al-i-c wrap`}
+      >
         {data?.map((val, ind) => (
           <Logo key={ind} item={val} ind={ind} />
         ))}
-      </div>
+      </Aos>
     </section>
   );
 };
 
 const Logo = ({ item, ind }) => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-    delay: 300,
-  });
   return (
-    <a target="_blank" href={item?.link} ref={ref}>
+    <div
+      style={{
+        transitionDelay: `${ind * 0.4 + 0.5}s`,
+      }}
+      className={styles.logo}
+    >
       <Img
         url={item?.logo?.url}
         alt={item?.title}
         withEffect
         disableSkeleton
-        className={`${styles.logo} ${inView ? styles.event : ""}`}
+        className={`${styles.logo} `}
       />
-    </a>
+    </div>
   );
 };
 

@@ -23,6 +23,7 @@ const Img = (
     classNameOnload = "",
     unoptimized = false,
     disableSkeleton = false,
+    style = {}
   },
   ref
 ) => {
@@ -81,6 +82,7 @@ const Img = (
       <div
         ref={ref}
         onClick={onClick}
+        style={style}
         className={`${className} p-relative ${!loading && classNameOnload} p-relative`}
       >
         {!AsyncLoading && (
