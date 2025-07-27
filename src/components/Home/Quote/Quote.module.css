@@ -13,21 +13,18 @@
   width: 400px;
   color: var(--color200);
   font-weight: 500;
-      gap: 6px !important;
-
+ 
 }
 .content {
   margin-bottom: 50px;
 }
 .description {
-
   width: calc(100% - 450px);
   opacity: 0;
   transition: 0.8s;
 }
 .description.active {
   opacity: 1;
-
 }
 
 .cards {
