@@ -129,15 +129,24 @@ const NavBar = () => {
     const handleResize = () => {
       window.requestAnimationFrame(updateNavMode);
     };
+    window.addEventListener("resize", handleResize);
 
+    if (openMobil) {
+      setNavMode({
+        darkLogo:true,
+        darkMode:true
+      })
+      
+      return
+    }
+    
     updateNavMode();
     window.addEventListener("scroll", updateNavMode);
-    window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("scroll", updateNavMode);
       window.removeEventListener("resize", handleResize);
     };
-  }, [pathname, isPathInPatterns]);
+  }, [pathname, openMobil]);
 
   const handleBurgerClick = useCallback(() => {
     setOpenMobile((prev) => !prev);
