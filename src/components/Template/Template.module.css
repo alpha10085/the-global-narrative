@@ -44,6 +44,7 @@
   transform: translateY(10px);
 }
 .content p {
+  text-align: justify;
 
   animation: intro2 1s forwards;
 }
