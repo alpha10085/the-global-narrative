@@ -1,0 +1,43 @@
+.layout {
+  margin-top: 100px;
+}
+.header {
+  margin: auto;
+  width: 90%;
+  padding: 40px 0 0;
+
+  max-width: 95%;
+  text-align: start;
+  align-items: flex-start;
+}
+
+.headerInterviews {
+  margin: auto;
+  width: 90%;
+  padding: 0 0 0;
+
+  max-width: 95%;
+  text-align: start;
+  align-items: flex-start;
+}
+.subTitle {
+  font-weight: 200;
+}
+
+.title {
+  color: var(--color200);
+  width: 800px;
+  max-width: 90%;
+  font-weight: 500 !important;
+  font-size: clamp(20px, 6vw, 60px);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 20px;
+    width: 95%;
+  }
+  .layout {
+    margin-top: 80px;
+  }
+}

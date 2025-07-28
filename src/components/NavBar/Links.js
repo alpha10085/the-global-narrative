@@ -3,11 +3,6 @@ import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 export const links = [
   {
-    text: "Home",
-    href: "/",
-    enabled: true,
-  },
-  {
     text: "Who we are",
     href: "/who-we-are",
     enabled: true,
@@ -29,8 +24,13 @@ export const links = [
     enabled: false,
   },
   {
-    text: "News",
-    href: "/news",
+  text: "News",
+  href: "/news",
+  enabled: true,
+},
+  {
+    text: "Interviews",
+    href: "/interviews",
     enabled: true,
   },
   {

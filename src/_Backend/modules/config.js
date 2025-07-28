@@ -2,10 +2,14 @@ import { footerComponentModel } from "../database/models/components/footer.model
 import { aboutUsPageModel } from "../database/models/pages/about.model";
 import { clientsPageModel } from "../database/models/pages/clientsPage.model";
 import { contactUsPageModel } from "../database/models/pages/contactUs.model";
+import { interviewsModel } from "../database/models/pages/interviews.model";
 import { landingModel } from "../database/models/pages/landing.model";
 import { newsPageModel } from "../database/models/pages/newsPage.model";
 import { servicesPageModel } from "../database/models/pages/services.model";
-import { footerValCreate, footerValUpdate } from "./components/footer/footer.validation";
+import {
+  footerValCreate,
+  footerValUpdate,
+} from "./components/footer/footer.validation";
 import { AboutValCreate, AboutValUpdate } from "./pages/about.validation";
 import {
   clientsPageValCreate,
@@ -15,6 +19,10 @@ import {
   ContactPageValCreate,
   ContactPageValUpdate,
 } from "./pages/contactUs.validation";
+import {
+  interviewsValCreate,
+  interviewsValUpdate,
+} from "./pages/interviews.validation";
 import { LandingValCreate, LandingValUpdate } from "./pages/landing.validation";
 import {
   NewsPageValCreate,
@@ -46,6 +54,13 @@ export const allModelsConfig = {
     validation: {
       create: NewsPageValCreate,
       update: NewsPageValUpdate,
+    },
+  },
+  interviews: {
+    model: interviewsModel,
+    validation: {
+      create: interviewsValCreate,
+      update: interviewsValUpdate,
     },
   },
   "contact-us": {

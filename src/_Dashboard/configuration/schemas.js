@@ -27,6 +27,7 @@ import { serviceConfig } from "./modules/collections/service/service.config";
 
 // componenet 
 import { footerConfig } from "./modules/components/footer/footer.config";
+import { interviewsPageConfig } from "./modules/pages/interviews/interviews.config";
 
 
 // import { userConfig } from "./modules/collections/user/user.config";
@@ -43,6 +44,7 @@ const schemas = [
   aboutConfig,
   servicesConfig,
   newsPageConfig,
+  interviewsPageConfig,
   contactConfig,
   clientConfig,
   

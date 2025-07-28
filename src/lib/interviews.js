@@ -22,27 +22,7 @@ export const getInterviewsData = async ({
   return data;
 };
 
-// export const getRefInterviewsData = async ({
-//   pageParam = 1,
-//   queryKey: [slug = "", query = {}] = [],
-// }) => {
-//   let copy_query = { ...query };
-//   let search = copy_query?.search;
-//   delete query["search"];
-//   query = {
-//     ...objectToUrl({ ...query }, "filters"),
-//     ...(search ? { search } : {}),
-//   };
 
-//   const formatQuery = new URLSearchParams({
-//     page: pageParam,
-//     ...query,
-//   }).toString();
-
-   
-//   const data = await csrApi.get(`/interviews?${formatQuery}`);
-//   return data;
-// };
 
 
 export const getOneInterviewsData = AsyncHandler(
