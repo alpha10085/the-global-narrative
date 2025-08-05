@@ -61,6 +61,7 @@
   transition-delay: 0.3s;
 }
 .descriptionBox {
+
   opacity: 0 !important;
 }
 .active .descriptionBox {

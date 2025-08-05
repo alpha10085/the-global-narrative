@@ -29,9 +29,7 @@ const Page = async (props) => {
       <FloatedSection>
         <WhoUsSection data={whoUsSectionSection} />
       </FloatedSection>
-
       <OurValues data={ourValues} />
-
       <FloatedSection>
         <AboutUs data={missionVision} />
       </FloatedSection>

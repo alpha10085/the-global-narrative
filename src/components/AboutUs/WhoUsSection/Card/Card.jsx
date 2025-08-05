@@ -32,6 +32,7 @@ const Card = ({ index = 0, data = {} }) => {
         {/* Social Links */}
 
         <DescriptionBox
+        animationDelay={0.4}
         className={styles.descriptionBox}
         CardKey={CardKey} description={data?.description} />
         {data?.links?.length > 0 && (

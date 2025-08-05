@@ -11,7 +11,7 @@ const TemplateHero = ({ pageTitle = "..." }) => {
 
   return (
     <div className={styles.staticWrapper}>
-      <div className={`${styles.container} flex gap50`}>
+      <div className={`${styles.container} showSmooth flex gap50`}>
         <div className={styles.bg} ref={bgRef}>
           {inView && (
             <Threads
@@ -19,14 +19,14 @@ const TemplateHero = ({ pageTitle = "..." }) => {
               amplitude={2.5}
               distance={0.2}
               fade={1.2}
-              className={styles.canvas}
+              className={`${styles.canvas} showSmooth`}
             />
           )}
         </div>
 
         <WordPullUpV2
           duration={0.4}
-          delay={100}
+          delay={400}
           text={pageTitle}
           className={styles.title}
         />

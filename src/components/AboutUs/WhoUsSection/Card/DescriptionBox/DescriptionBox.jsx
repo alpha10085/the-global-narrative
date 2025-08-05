@@ -3,7 +3,11 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./DescriptionBox.module.css";
 import { lineBreak } from "@/utils/text";
 
-const DescriptionBox = ({ description = "", className = "" }) => {
+const DescriptionBox = ({
+  description = "",
+  animationDelay = 0,
+  className = "",
+}) => {
   const [expanded, setExpanded] = useState(false);
   const [height, setHeight] = useState(0);
   const [showExtra, setShowExtra] = useState(false);
@@ -78,7 +82,7 @@ const DescriptionBox = ({ description = "", className = "" }) => {
 
       {/* Visible Description */}
       <div ref={boxRef} className={styles.descriptionBox} style={{ height }}>
-        {lines.map((val, i) => {
+        {lines?.map((val, i) => {
           const alwaysVisible = i < 2;
           const isVisible = alwaysVisible || showExtra;
           const delay = isVisible && i >= 2 ? `${(i - 2) * 0.2}s` : "0s";
@@ -88,8 +92,12 @@ const DescriptionBox = ({ description = "", className = "" }) => {
               className={`${className} description-sm`}
               style={{
                 opacity: isVisible ? 1 : 0,
-                transition: `opacity 0.6s ease ${delay}`,
-                animationDelay:`${(i * 0.2 )+  0.2}s`
+                transitionProperty: "opacity",
+                transitionDuration: "0.6s",
+                transitionTimingFunction: "ease",
+                transitionDelay: `${
+                  i * 0.2 + 0.2 + (alwaysVisible ? animationDelay : 0)
+                }s`,
               }}
             >
               {val}
