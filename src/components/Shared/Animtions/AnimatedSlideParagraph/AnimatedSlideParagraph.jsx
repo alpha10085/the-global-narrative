@@ -37,7 +37,7 @@ const AnimatedSlideParagraph = ({
           key={i}
           className={styles.line}
           style={{
-            animationDelay: `${i * (delay + 0.15)}s`,
+            animationDelay: `${(i * (0.2 + 0.15) + (delay / 1000) )}s`,
             animationDuration: `${duration}s`,
           }}
         >

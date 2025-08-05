@@ -3,6 +3,9 @@ import styles from "./Template.module.css";
 import { ArrowForwardIosIcon } from "../Home/icons";
 import { ButtonArrow } from "./client";
 import { lineBreak } from "@/utils/text";
+import SmoothTextRise from "../Shared/Animtions/SmoothTextRise/SmoothTextRise";
+import AnimatedParagraph from "../Shared/Animtions/AnimatedParagraph/AnimatedParagraph";
+import AnimatedSlideParagraph from "../Shared/Animtions/AnimatedSlideParagraph/AnimatedSlideParagraph";
 /**
  * @typedef {keyof typeof colors} ColorKey
  */
@@ -30,23 +33,19 @@ const Template = ({
       >
         {data?.title && data?.description ? (
           <div className={`flex   gap40 just-sb ${styles.content}`}>
-            <h1
-            
-            className="title-l"
-            >{data?.title}</h1>
+            <h1 className="title-l">{data?.title}</h1>
             <div className={`${styles.description} flex  column gap20`}>
-              {lineBreak(data?.description, ["."]).map((val, i) => (
-                <p 
-                style={{
-                  animationDelay:`${(i*0.4) + 1}s`
-                }}
-                key={i} className={`${styles.iner} description-sm `}>
-                  {val}
-                </p>
-              ) )}
+              {lineBreak(data?.description, ["."])?.map((val, i) => (
+                <AnimatedSlideParagraph
+                  delay={i * 400 + 400}
+                  text={val}
+                  key={i}
+                  className={`${styles.iner} description-sm `}
+                />
+              ))}
             </div>
           </div>
-        ): null}
+        ) : null}
         {children}
       </div>
     </div>

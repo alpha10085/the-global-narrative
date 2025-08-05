@@ -542,5 +542,29 @@
     "lastType": "changed",
     "Type": "added",
     "count": 4
+  },
+  {
+    "file": "src/components/Shared/Animtions/SmoothTextRise/SmoothTextRise.jsx",
+    "firstSeenAt": "8/5/2025, 6:13:39 AM",
+    "lastUpdatedAt": "8/5/2025, 6:17:16 AM",
+    "lastType": "changed",
+    "Type": "added",
+    "count": 12
+  },
+  {
+    "file": "src/components/Shared/Animtions/SmoothTextRise/SmoothTextRise.module.css",
+    "firstSeenAt": "8/5/2025, 6:13:45 AM",
+    "lastUpdatedAt": "8/5/2025, 6:14:11 AM",
+    "lastType": "changed",
+    "Type": "added",
+    "count": 2
+  },
+  {
+    "file": "src/components/Shared/Animtions/AnimatedSlideParagraph/AnimatedSlideParagraph.jsx",
+    "firstSeenAt": "8/5/2025, 6:20:25 AM",
+    "lastUpdatedAt": "8/5/2025, 6:20:25 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
   }
 ]

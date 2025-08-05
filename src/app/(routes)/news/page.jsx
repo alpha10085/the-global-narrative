@@ -21,7 +21,6 @@ const page = async () => {
       <div className={styles.headerInterviews}>
         <SectionTitle className={styles.title} title={"Interviews"} />
       </div>
-      <ListInterviews />
     </section>
   );
 };

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import styles from "./DescriptionBox.module.css";
 import { lineBreak } from "@/utils/text";
 
-const DescriptionBox = ({ description = "" }) => {
+const DescriptionBox = ({ description = "", className = "" }) => {
   const [expanded, setExpanded] = useState(false);
   const [height, setHeight] = useState(0);
   const [showExtra, setShowExtra] = useState(false);
@@ -85,10 +85,11 @@ const DescriptionBox = ({ description = "" }) => {
           return (
             <p
               key={i}
-              className="description-sm"
+              className={`${className} description-sm`}
               style={{
                 opacity: isVisible ? 1 : 0,
                 transition: `opacity 0.6s ease ${delay}`,
+                animationDelay:`${(i * 0.2 )+  0.2}s`
               }}
             >
               {val}

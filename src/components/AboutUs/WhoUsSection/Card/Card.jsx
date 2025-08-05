@@ -11,7 +11,6 @@ import { InstagramLogo, LinkedinLogo } from "../icons";
 const Card = ({ index = 0, data = {} }) => {
   const CardKey = `teamcard${index}`;
 
-
   return (
     <Aos
       threshold={0.6}
@@ -32,8 +31,10 @@ const Card = ({ index = 0, data = {} }) => {
 
         {/* Social Links */}
 
-        <DescriptionBox CardKey={CardKey} description={data?.description} />
-                {data?.links?.length > 0 && (
+        <DescriptionBox
+        className={styles.descriptionBox}
+        CardKey={CardKey} description={data?.description} />
+        {data?.links?.length > 0 && (
           <div className={styles.socialLinks}>
             {data?.links?.map((item) => (
               <div key={item?._id} className={styles.socialLinkItem}>
