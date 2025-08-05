@@ -3,7 +3,7 @@ import fileModel from "@/_Backend/database/models/constant/file.model";
 
 // 1. Setup MongoDB connections
 const localDB = mongoose.createConnection(process.env.LOCAL_DB_URI);
-const proDB = mongoose.createConnection(process.env.PRO_DB_URI);
+const proDB = mongoose.createConnection(process.env.DB_URL);
 
 const localFileModel = localDB.model("file", fileModel.schema);
 const proFileModel = proDB.model("file", fileModel.schema);

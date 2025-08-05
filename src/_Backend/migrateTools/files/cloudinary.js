@@ -1,29 +1,17 @@
-import { v2 as cloudinary } from "cloudinary";
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-import fileModel from "@/_Backend/database/models/constant/file.model";
 
-dotenv.config();
+import mongoose from "mongoose";
+import fileModel from "@/_Backend/database/models/constant/file.model";
+import { cloudinary } from "@/_Backend/utils/cloudinary";
+
 
 // Setup Cloudinary accounts
-const testCloud = cloudinary;
-testCloud.config({
-  cloud_name: process.env.TEST_CLOUD_NAME,
-  api_key: process.env.TEST_API_KEY,
-  api_secret: process.env.TEST_API_SECRET,
-});
 
-const prodCloud = cloudinary;
-prodCloud.config({
-  cloud_name: process.env.PRO_CLOUD_NAME,
-  api_key: process.env.PRO_API_KEY,
-  api_secret: process.env.PRO_API_SECRET,
-});
+const prodCloud = cloudinary
 
 export async function migrateCloudinaryFiles() {
   try {
     // Connect to MongoDB
-    await mongoose.connect(process.env.PRO_DB_URI);
+    await mongoose.connect(process.env.DB_URL);
 
     const records = await fileModel.find();
     console.log(`Found ${records.length} files to migrate.`);
