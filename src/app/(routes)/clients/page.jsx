@@ -10,7 +10,7 @@ import { getPage } from "@/lib/pages";
 import WordPullUpV2 from "@/components/Shared/Animtions/WordPullUpV2/WordPullUpV2";
 import Template from "@/components/Template/Template";
 
-export const generateMetadata = metadataHandler(getPage, `clients`);
+export const generateMetadata = metadataHandler(getPage, `clients-logos`);
 const Page = async (props) => {
   const {
     title = "",
