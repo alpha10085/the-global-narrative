@@ -13,6 +13,7 @@ const config = {
 export const GET = FindAll({
   ...config,
   allowedTo: [...enumRoles.adminRoles, "public"],
+  publishMode:true
 });
 export const POST = insertOne({
   schemaValidation: InterviewValCreate,

@@ -5,7 +5,7 @@ import React from "react";
 
 const Page = () => {
   const slug = "admins";
-  const { displayName = "", schema = {} } = useSchema(slug);
+  const { displayName = "", schema = {} } = useSchema(slug,true,"private");
   return (
     <TableLayOut
       customFilters={{ "filters[role]": ["admin"] }}

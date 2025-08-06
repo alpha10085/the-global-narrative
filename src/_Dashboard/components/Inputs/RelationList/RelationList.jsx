@@ -153,7 +153,7 @@ const RelationList = ({
     setPopupAddNew(true);
     setOpen(false);
   };
-  const { schema, validation, displayName = "" } = useSchema(entryRef, false);
+  const { schema, validation, displayName = "" } = useSchema(entryRef, false , "collections");
   const popupProps = useMemo(() => {
     return { ...handleDynamicFields(schema), schema, validation, displayName };
   }, [schema]);

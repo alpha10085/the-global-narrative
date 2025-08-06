@@ -14,7 +14,7 @@ const Page = (props) => {
   
       const locale = useLocale()
   const searchParams = use(props.searchParams);
-  const { displayName, schema, validation, type } = useSchema(slug);
+  const { displayName, schema, validation, type } = useSchema(slug , true, "collections");
   const language = schema.options.translation
     ? searchParams?.language || locale
     : null;

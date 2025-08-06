@@ -6,7 +6,7 @@ import LoaderLayout from "@/_Dashboard/components/LoaderLayout/LoaderLayout";
 import { notFound } from "next/navigation";
 
 const Page = () => {
-  const { schema } = useSchema("media");
+  const { schema } = useSchema("media" , true,"private");
   if (!schema) return notFound();
   return <Media roles={schema?.options?.roles} />;
 };

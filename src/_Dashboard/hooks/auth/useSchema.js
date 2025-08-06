@@ -19,12 +19,18 @@ import { notFound } from "next/navigation";
  *   The schema configuration and authentication session data?.
  *   Includes any fields from the SchemaItem type along with loading and session state.
  */
-const useSchema = (key, throwNotFound = true) => {
+const useSchema = (key, throwNotFound = true, category = null) => {
   const { session } = useAuth();
   const role = session?.role || null;
   const schema = useMemo(() => {
     if (!role || !key) return {}; // Return an empty object if role or key is missing
-    const schemaItem = schemas?.find((item) => item?.key === key) || {};
+    const schemaItem =
+      schemas?.find((item) => {
+        if (item?.key === key && (category ? category === item?.type : true))
+          return true;
+
+        return false;
+      }) || {};
     const getSchemaItem = getSchemaConfigByRole(schemaItem, role);
     if (getSchemaItem) {
       return getSchemaItem;

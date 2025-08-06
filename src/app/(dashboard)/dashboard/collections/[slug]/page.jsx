@@ -6,7 +6,7 @@ import LoaderLayout from "@/_Dashboard/components/LoaderLayout/LoaderLayout";
 
 const Page = (props) => {
   const { slug } = use(props.params);
-  const { displayName = "", schema = {} } = useSchema(slug);
+  const { displayName = "", schema = {} } = useSchema(slug ,true, "collections");
 
   return (
     <TableLayOut

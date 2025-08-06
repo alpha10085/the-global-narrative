@@ -20,7 +20,7 @@ const Page = (props) => {
     schema,
     validation,
     displayName,
-  } = useSchema("admins");
+  } = useSchema("admins",true,"private");
   const enabled = !!schema?.options?.roles?.view;
   const queryKey = [id, { slug }];
   const {

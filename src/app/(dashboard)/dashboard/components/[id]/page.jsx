@@ -13,7 +13,7 @@ const Page = (props) => {
   const { id } = use(props.params);
   const searchParams = use(props.searchParams);
   let slug = "components";
-  const { schema, validation, displayName, type } = useSchema(id);
+  const { schema, validation, displayName, type } = useSchema(id,true, "components");
   const locale = useLocale();
   const language = schema.options.translation
     ? searchParams?.language || locale

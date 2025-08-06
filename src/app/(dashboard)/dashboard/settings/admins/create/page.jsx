@@ -9,14 +9,10 @@ const Page = (props = {}) => {
   const { locale = "en" } = use(props.params);
 
   const slug = "admins";
-  const {
-    displayName,
-    schema,
-    validation,
-  } = useSchema(slug);
+  const { displayName, schema, validation } = useSchema(slug, true, "private");
 
   // not found conditions
-  const notFoundConditions = !schema 
+  const notFoundConditions = !schema;
   if (notFoundConditions) return notFound();
 
   return (

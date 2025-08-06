@@ -35,10 +35,5 @@
       "tags": []
     }
   },
-  "view": [
-    "_id",
-    "title",
-    "link",
-    "createdAt"
-  ]
+  "view": ["_id", "title", "link", "createdAt"]
 }
