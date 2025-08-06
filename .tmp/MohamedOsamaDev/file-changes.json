@@ -582,5 +582,21 @@
     "lastType": "removed",
     "Type": "added",
     "count": 2
+  },
+  {
+    "file": "src/_Backend/utils/handlers.js",
+    "firstSeenAt": "8/6/2025, 5:18:18 AM",
+    "lastUpdatedAt": "8/6/2025, 5:27:54 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 6
+  },
+  {
+    "file": "src/utils/api.js",
+    "firstSeenAt": "8/6/2025, 5:21:56 AM",
+    "lastUpdatedAt": "8/6/2025, 5:26:50 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 10
   }
 ]

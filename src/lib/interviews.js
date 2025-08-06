@@ -18,9 +18,15 @@ export const getInterviewsData = async ({
     page: pageParam,
     ...query,
   }).toString();
-  const data = await csrApi.get(`/interviews?${formatQuery}`, {
-    withCredentials: false, // Do NOT send cookies
-  });
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/api/interviews?${formatQuery}`,
+    {
+      method: "GET",
+      credentials: "omit", // Ensures cookies are not sent
+    }
+  );
+  const data = await res.json();
   return data;
 };
 

@@ -19,9 +19,14 @@ export const getNewsData = async ({
     ...query,
   }).toString();
 
-  const data = await csrApi.get(`/news?${formatQuery}`, {
-    withCredentials: false, // Do NOT send cookies
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API}/api/news?${formatQuery}`,
+    {
+      method: "GET",
+      credentials: "omit", // Ensures cookies are not sent
+    }
+  );
+  const data = await res.json();
   return data;
 };
 

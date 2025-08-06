@@ -339,6 +339,7 @@ export const FindAll = ({
   return AsyncHandler(
     async (req, res) => {
       const user = req.user;
+      console.log("🚀 ~ FindAll ~ user:", user)
       let pipeline = handleFilterwithLookUp(customQuery, req.query).concat(
         pushToPipeLine
       );
@@ -355,6 +356,7 @@ export const FindAll = ({
             ],
           },
         });
+        
       }
       options = {
         ...options,
