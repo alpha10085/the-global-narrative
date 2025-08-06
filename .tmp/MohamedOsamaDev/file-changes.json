@@ -378,18 +378,18 @@
   {
     "file": "src/app/(dashboard)/dashboard/analytics/page.jsx",
     "firstSeenAt": "7/15/2025, 6:22:51 PM",
-    "lastUpdatedAt": "8/6/2025, 4:49:18 AM",
-    "lastType": "removed",
+    "lastUpdatedAt": "8/6/2025, 4:49:25 AM",
+    "lastType": "added",
     "Type": "added",
-    "count": 2
+    "count": 3
   },
   {
     "file": "src/app/(dashboard)/dashboard/analytics/page.module.css",
     "firstSeenAt": "7/15/2025, 6:22:51 PM",
-    "lastUpdatedAt": "8/6/2025, 4:49:18 AM",
-    "lastType": "removed",
+    "lastUpdatedAt": "8/6/2025, 4:49:25 AM",
+    "lastType": "added",
     "Type": "added",
-    "count": 2
+    "count": 3
   },
   {
     "file": "src/app/api/pages/(custom)/clients-logos/route.js",
@@ -570,17 +570,17 @@
   {
     "file": "src/app/(dashboard)/dashboard/analytics_/page.jsx",
     "firstSeenAt": "8/6/2025, 4:49:18 AM",
-    "lastUpdatedAt": "8/6/2025, 4:49:18 AM",
-    "lastType": "added",
+    "lastUpdatedAt": "8/6/2025, 4:49:25 AM",
+    "lastType": "removed",
     "Type": "added",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/app/(dashboard)/dashboard/analytics_/page.module.css",
     "firstSeenAt": "8/6/2025, 4:49:18 AM",
-    "lastUpdatedAt": "8/6/2025, 4:49:18 AM",
-    "lastType": "added",
+    "lastUpdatedAt": "8/6/2025, 4:49:25 AM",
+    "lastType": "removed",
     "Type": "added",
-    "count": 1
+    "count": 2
   }
 ]
