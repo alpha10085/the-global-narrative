@@ -29,7 +29,7 @@ export const GET = AsyncHandler(
   },
   {
     cache: {
-      stdTTL: "1y",
+      stdTTL: "0s",
     },
   }
 );
