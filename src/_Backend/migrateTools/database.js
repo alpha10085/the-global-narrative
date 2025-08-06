@@ -1,3 +1,4 @@
+import { systemLogger } from "@/utils/consoleProxy";
 import mongoose from "mongoose";
 
 /**
@@ -39,7 +40,7 @@ export const migrateModelsToProd = async (
 
     for (const model of models) {
       const { modelName, schema } = model;
-      console.log(`🚀 Migrating model: ${modelName}`);
+      systemLogger(`🚀 Migrating model: ${modelName}`);
 
       const LocalModel =
         localConn.models[modelName] || localConn.model(modelName, schema);
@@ -49,13 +50,13 @@ export const migrateModelsToProd = async (
       const localDocs = await LocalModel.find().lean();
 
       if (!localDocs.length) {
-        console.log(`⚠️ No documents found in local for model: ${modelName}`);
+        systemLogger(`⚠️ No documents found in local for model: ${modelName}`);
         continue;
       }
 
       if (clearPro) {
         await ProModel.deleteMany({});
-        console.log(`🗑 Cleared production data for ${modelName}`);
+        systemLogger(`🗑 Cleared production data for ${modelName}`);
       }
 
       // Use upsert to prevent duplicates
@@ -68,7 +69,7 @@ export const migrateModelsToProd = async (
       }));
 
       const result = await ProModel.bulkWrite(bulkOps);
-      console.log(
+      systemLogger(
         `✅ ${modelName} - Inserted: ${result.upsertedCount}, Modified: ${result.modifiedCount}`
       );
     }
@@ -77,6 +78,6 @@ export const migrateModelsToProd = async (
   } finally {
     await localConn.close();
     await proConn.close();
-    console.log("🔒 Connections closed");
+    systemLogger("🔒 Connections closed");
   }
 };

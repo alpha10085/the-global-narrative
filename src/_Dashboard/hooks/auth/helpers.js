@@ -29,7 +29,6 @@ export const getSchemaConfigByRole = (item, role) => {
     },
   };
   delete newItem.schema.authorization;
-  console.log(newItem?.schema?.options?.roles);
   
   if (!newItem?.schema?.options?.roles?.view) return null;
   return newItem;

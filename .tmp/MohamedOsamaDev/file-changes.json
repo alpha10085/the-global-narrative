@@ -394,10 +394,10 @@
   {
     "file": "src/app/api/pages/(custom)/clients-logos/route.js",
     "firstSeenAt": "7/22/2025, 4:26:46 AM",
-    "lastUpdatedAt": "8/6/2025, 6:01:34 AM",
+    "lastUpdatedAt": "8/6/2025, 6:07:37 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 5
+    "count": 6
   },
   {
     "file": "src/i18n/locales/ar.json",
@@ -586,10 +586,10 @@
   {
     "file": "src/_Backend/utils/handlers.js",
     "firstSeenAt": "8/6/2025, 5:18:18 AM",
-    "lastUpdatedAt": "8/6/2025, 5:27:54 AM",
+    "lastUpdatedAt": "8/6/2025, 6:07:28 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 6
+    "count": 7
   },
   {
     "file": "src/utils/api.js",
@@ -610,10 +610,10 @@
   {
     "file": "src/_Dashboard/hooks/auth/helpers.js",
     "firstSeenAt": "8/6/2025, 5:43:14 AM",
-    "lastUpdatedAt": "8/6/2025, 5:43:14 AM",
+    "lastUpdatedAt": "8/6/2025, 6:07:31 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/app/(dashboard)/dashboard/collections/[slug]/page.jsx",
@@ -698,10 +698,10 @@
   {
     "file": "src/utils/revalidate.js",
     "firstSeenAt": "8/6/2025, 6:00:38 AM",
-    "lastUpdatedAt": "8/6/2025, 6:00:38 AM",
+    "lastUpdatedAt": "8/6/2025, 6:07:34 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/app/api/pages/(custom)/custom-news/route.js",

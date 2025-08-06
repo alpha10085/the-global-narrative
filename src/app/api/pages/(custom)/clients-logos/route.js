@@ -18,7 +18,6 @@ export const GET = AsyncHandler(
         publish: true,
       })
       .lean();
-      console.log("clients" , clients);
       
 
     return res(
