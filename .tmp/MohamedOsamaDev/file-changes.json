@@ -394,10 +394,10 @@
   {
     "file": "src/app/api/pages/(custom)/clients-logos/route.js",
     "firstSeenAt": "7/22/2025, 4:26:46 AM",
-    "lastUpdatedAt": "7/22/2025, 4:27:13 AM",
+    "lastUpdatedAt": "8/6/2025, 6:01:34 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 2
+    "count": 5
   },
   {
     "file": "src/i18n/locales/ar.json",
@@ -694,5 +694,21 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 2
+  },
+  {
+    "file": "src/utils/revalidate.js",
+    "firstSeenAt": "8/6/2025, 6:00:38 AM",
+    "lastUpdatedAt": "8/6/2025, 6:00:38 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/api/pages/(custom)/custom-news/route.js",
+    "firstSeenAt": "8/6/2025, 6:02:15 AM",
+    "lastUpdatedAt": "8/6/2025, 6:02:15 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
   }
 ]

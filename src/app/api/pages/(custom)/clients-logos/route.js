@@ -18,6 +18,8 @@ export const GET = AsyncHandler(
         publish: true,
       })
       .lean();
+      console.log("clients" , clients);
+      
 
     return res(
       {
@@ -29,7 +31,7 @@ export const GET = AsyncHandler(
   },
   {
     cache: {
-      stdTTL: "1y",
+   stdTTL:"0s"
     },
   }
 );
