@@ -133,7 +133,8 @@
   .logo {
     height: 90px;
   }
-  .bg {
+  .bg,
+  .nav {
     height: 120px;
   }
 }
