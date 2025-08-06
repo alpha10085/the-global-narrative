@@ -18,9 +18,6 @@ const page = async () => {
         <SectionTitle className={styles.title} title={data?.title} />
       </div>
       <List page={data} categories={data?.categories} />
-      <div className={styles.headerInterviews}>
-        <SectionTitle className={styles.title} title={"Interviews"} />
-      </div>
     </section>
   );
 };

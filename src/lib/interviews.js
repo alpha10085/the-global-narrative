@@ -18,12 +18,11 @@ export const getInterviewsData = async ({
     page: pageParam,
     ...query,
   }).toString();
-  const data = await csrApi.get(`/interviews?${formatQuery}`);
+  const data = await csrApi.get(`/interviews?${formatQuery}`, {
+    withCredentials: false, // Do NOT send cookies
+  });
   return data;
 };
-
-
-
 
 export const getOneInterviewsData = AsyncHandler(
   async (slug) => {
@@ -36,7 +35,6 @@ export const getOneInterviewsData = AsyncHandler(
     onError: notFound,
   }
 );
-
 
 export const getSearchInterviews = async ({
   pageParam = 1,

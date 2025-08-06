@@ -59,7 +59,8 @@
         "cache": {
             "duration": "10m",
             "tags": [
-                "landing"
+                "landing",
+                "custom-news"
             ]
         }
     },

@@ -19,11 +19,11 @@ export const getNewsData = async ({
     ...query,
   }).toString();
 
-   
-  const data = await csrApi.get(`/news?${formatQuery}`);
+  const data = await csrApi.get(`/news?${formatQuery}`, {
+    withCredentials: false, // Do NOT send cookies
+  });
   return data;
 };
-
 
 export const getOneNewsData = AsyncHandler(
   async (slug) => {
@@ -36,7 +36,6 @@ export const getOneNewsData = AsyncHandler(
     onError: notFound,
   }
 );
-
 
 export const getSearchNews = async ({
   pageParam = 1,

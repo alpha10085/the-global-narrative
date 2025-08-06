@@ -21,6 +21,7 @@ export const GET = FindAll({
   ...config,
   allowedTo: [...enumRoles.adminRoles, "public"],
   pushToPipeLine: imageLookup("poster"),
+  publishMode:true
 });
 export const POST = insertOne({
   schemaValidation: newsValidationCreate,
