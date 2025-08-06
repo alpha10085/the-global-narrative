@@ -17,6 +17,6 @@ export const GET = AsyncHandler(async (req, res) => {
     .lean();
 
   return res({
-    logos:sortByIdsOrder(data, arrayOfIds)
+    logos: sortByIdsOrder(data, arrayOfIds),
   });
 });

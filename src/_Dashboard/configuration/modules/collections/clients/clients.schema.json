@@ -15,9 +15,7 @@
     {
       "name": "logo",
       "type": "media",
-      "allowedTypes": [
-        "image"
-      ],
+      "allowedTypes": ["image"],
       "single": true,
       "label": "logo"
     }
@@ -39,9 +37,5 @@
       "tags": ["clients-logos"]
     }
   },
-  "view": [
-    "logo",
-    "title",
-    "createdAt"
-  ]
+  "view": ["logo", "title", "createdAt"]
 }
