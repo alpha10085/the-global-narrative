@@ -22,7 +22,7 @@ const useKeyboard = (bindings = []) => {
         } = binding;
 
         const match =
-          event.key.toLowerCase() === key.toLowerCase() &&
+          event?.key?.toLowerCase() === key?.toLowerCase() &&
           event.ctrlKey === ctrl &&
           event.shiftKey === shift &&
           event.altKey === alt &&
