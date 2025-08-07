@@ -22,7 +22,6 @@ const Home = async () => {
     newsSection = {},
     testimonialSection = {},
     getInTouchSection = {},
-    clientsSection = [],
   } = await getPage("landing");
 
   const testMode = await isUnderTest();
