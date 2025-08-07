@@ -348,7 +348,7 @@ export const FindAll = ({
 
 
       
-      if (publishMode && !req.isAdmin || ["true",true].includes(req?.query?.filters?.publish)) {
+      if ((publishMode && !req.isAdmin) || ["true",true].includes(req?.query?.filters?.publish)) {
         pipeline.push({
           $match: {
             $or: [
