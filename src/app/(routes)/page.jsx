@@ -5,13 +5,11 @@ import AboutUs from "@/components/Home/AboutUs/AboutUs";
 import News from "@/components/Home/News/News";
 import Testimonials from "@/components/Home/Testimonials/Testimonials";
 import GetInTouch from "@/components/Home/GetInTouch/GetInTouch";
-import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import { getPage } from "@/lib/pages";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import { pageMetadataHandler } from "@/utils/metadata";
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
 import ServicesSection from "@/components/Home/Services/ServicesSection";
-import Clients from "@/components/Home/Clients/Clients";
 import { isUnderTest } from "@/utils/isUnderTest";
 
 export const generateMetadata = pageMetadataHandler(getPage, "landing");
@@ -27,7 +25,7 @@ const Home = async () => {
     clientsSection = [],
   } = await getPage("landing");
 
-  const isUnderTest = await isUnderTest();
+  const testMode = await isUnderTest();
   return (
     <section className={styles.layout}>
       <Hero data={heroSection} />
