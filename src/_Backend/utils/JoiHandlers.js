@@ -8,7 +8,7 @@ export const joiText = ({
   date = false,
   email = false,
   url = false,
-}) => {
+} = {} = {}) => {
   let joiSchema = Joi.string().trim();
 
   if (date) joiSchema =  joiSchema.pattern(/^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/)
@@ -31,7 +31,7 @@ export const joiNumber = ({
   positive = false,
   negative = false,
   float = false,
-}) => {
+} = {}) => {
   let joiSchema = Joi.number().options({ convert: false });
 
   if (integer) joiSchema = joiSchema.integer();
@@ -51,17 +51,17 @@ export const joiArray = ({
   required = false,
   body = null,
   length = null,
-}) => {
+} = {}) => {
   let joiSchema = Joi.array().items(body);
 
   if (length) joiSchema = joiSchema.length(length);
   else joiSchema = joiSchema.min(min).max(max);
 
-  return required ? joiSchema.required() : joiSchema.allow(null);
+  return required ? joiSchema.required() : joiSchema.allow(null).allow("").optional();
 };
 
 // Validation Handlers
-export const CreateTranslationValidation = (fields = {}) => {
+export const CreateTranslationValidation = (fields = {} = {}) => {
   return Joi.object({
     ...fields,
     language: joiText({ min: 1, max: 255 }),

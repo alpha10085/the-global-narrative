@@ -52,10 +52,11 @@ const serviceValidationRelation = Joi.object({
   description: joiText({ min: 5, max: 20000 }),
   projects: joiArray({
     body: Joi.object({
-      link: joiText({ min: 2, max: 1000, required: true }),
       poster: fileVal.required(),
+      link: joiText(),
       ...CommonsVal,
-    }).required(),
+    }).optional(),
+    required: false,
   }),
   ...CommonsVal,
 });
