@@ -6,13 +6,10 @@ import SmoothScroll from "@/components/Shared/SmoothScroll/SmoothScroll";
 import PageAnalytics from "@/components/Shared/PageAnalytics/PageAnalytics";
 import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import Fallback from "@/components/Footer/Fallback";
-import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import styles from "./page.module.css";
-import ClientWrapper from "@/components/ClientWrapper/ClientWrapper";
 import { isUnderTest } from "@/utils/isUnderTest";
 export default async function RootLayout({ children }) {
-  
-  const isUnderTest = await isUnderTest();
+  const testMode = await isUnderTest();
   return (
     <main
       style={{ fontFamily: "var(--font-inter)" }}
