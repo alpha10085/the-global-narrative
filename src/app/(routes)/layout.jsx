@@ -9,7 +9,10 @@ import Fallback from "@/components/Footer/Fallback";
 import FloatedSection from "@/components/Shared/FloatedSection/FloatedSection";
 import styles from "./page.module.css";
 import ClientWrapper from "@/components/ClientWrapper/ClientWrapper";
+import { isUnderTest } from "@/utils/isUnderTest";
 export default async function RootLayout({ children }) {
+  
+  const isUnderTest = await isUnderTest();
   return (
     <main
       style={{ fontFamily: "var(--font-inter)" }}
@@ -19,17 +22,20 @@ export default async function RootLayout({ children }) {
 
       <NavBar />
       <div style={{ minHeight: "100vh" }}>{children}</div>
-      <SSRFetcher
-        Component={Footer}
-        path="/components/footer"
-        Fallback={Fallback}
-        props={{ revalidate: "1y" }}
-      />
+      {!testMode && (
+        <>
+          <SSRFetcher
+            Component={Footer}
+            path="/components/footer"
+            Fallback={Fallback}
+            props={{ revalidate: "1y" }}
+          />
 
-      <Toaster />
-      <DashPopup />
-
-      <PageAnalytics />
+          <Toaster />
+          <DashPopup />
+          <PageAnalytics />
+        </>
+      )}
     </main>
   );
 }

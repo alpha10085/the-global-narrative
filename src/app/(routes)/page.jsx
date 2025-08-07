@@ -12,6 +12,7 @@ import { pageMetadataHandler } from "@/utils/metadata";
 import SpaceSection from "@/components/SpaceSection/SpaceSection";
 import ServicesSection from "@/components/Home/Services/ServicesSection";
 import Clients from "@/components/Home/Clients/Clients";
+import { isUnderTest } from "@/utils/isUnderTest";
 
 export const generateMetadata = pageMetadataHandler(getPage, "landing");
 const Home = async () => {
@@ -23,61 +24,59 @@ const Home = async () => {
     newsSection = {},
     testimonialSection = {},
     getInTouchSection = {},
-    clientsSection = []
+    clientsSection = [],
   } = await getPage("landing");
 
+  const isUnderTest = await isUnderTest();
   return (
     <section className={styles.layout}>
       <Hero data={heroSection} />
-      <div className={styles.staticWrapper}>
-        <AboutUs data={aboutUsSection} />
-        {/* <SSRFetcher
-          Component={Clients}
-          options={{
-            next: { revalidate: "1y", tags: clientsSection || ["news"] },
-          }}
-          data={{}}
-         
-          path={`/clients/landing?ids=${clientsSection}`}
-        /> */}
-        <SSRFetcher
-          Component={ServicesSection}
-          options={{
-            next: {
-              revalidate: "1y",
-              tags: servicesSection?.services || ["service"],
-            },
-          }}
-          data={servicesSection}
-          path={`/service/landing?ids=${servicesSection?.services}`}
-        />
+      {!testMode && (
+        <div className={styles.staticWrapper}>
+          <AboutUs data={aboutUsSection} />
 
-        <Quote data={quoteSection} />
-
-        <div className={styles.wrapper}>
           <SSRFetcher
-            Component={News}
-            options={{
-              next: { revalidate: "1y", tags: newsSection?.posts || ["news"] },
-            }}
-            data={newsSection}
-            path={`/news/landing?ids=${newsSection?.posts}`}
-          />
-          <SSRFetcher
-            Component={Testimonials}
-            data={testimonialSection}
+            Component={ServicesSection}
             options={{
               next: {
                 revalidate: "1y",
-                tags: testimonialSection?.posts || ["testimonials"],
+                tags: servicesSection?.services || ["service"],
               },
             }}
-            path={`/testimonials/landing?ids=${testimonialSection?.posts}`}
+            data={servicesSection}
+            path={`/service/landing?ids=${servicesSection?.services}`}
           />
+
+          <Quote data={quoteSection} />
+
+          <div className={styles.wrapper}>
+            <SSRFetcher
+              Component={News}
+              options={{
+                next: {
+                  revalidate: "1y",
+                  tags: newsSection?.posts || ["news"],
+                },
+              }}
+              data={newsSection}
+              path={`/news/landing?ids=${newsSection?.posts}`}
+            />
+            <SSRFetcher
+              Component={Testimonials}
+              data={testimonialSection}
+              options={{
+                next: {
+                  revalidate: "1y",
+                  tags: testimonialSection?.posts || ["testimonials"],
+                },
+              }}
+              path={`/testimonials/landing?ids=${testimonialSection?.posts}`}
+            />
+          </div>
+          <GetInTouch data={getInTouchSection} />
+          <SpaceSection style={{ background: "white" }} />
         </div>
-        <GetInTouch data={getInTouchSection} />
-        <SpaceSection style={{ background: "white" }} />
-      </div>
+      )}
     </section>
   );
 };
