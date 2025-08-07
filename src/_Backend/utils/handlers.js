@@ -363,7 +363,6 @@ export const FindAll = ({
         }
       }
 
-      console.log(req?.query?.filters);
       
       options = {
         ...options,
