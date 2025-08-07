@@ -41,7 +41,9 @@ const Footer = ({ data = {} }) => {
                 <Img
                   url={item?.url}
                   alt={`social-icon-${i}`}
+                  disableSkeleton
                   className={styles.icon}
+                
                 />
               </a>
             ))}
