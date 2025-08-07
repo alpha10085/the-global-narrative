@@ -17,9 +17,9 @@ const InterviewsValidationSchema = (locale = "en", relation = false) => {
       min: 2,
       required: !relation,
     }),
-    // category: relation
-    //   ? interviewsCategoryValidationSchema(locale, true)
-    //   : interviewsCategoryValidationSchema(locale, true).required(),
+    category: relation
+      ? interviewsCategoryValidationSchema(locale, true)
+      : interviewsCategoryValidationSchema(locale, true).required(),
 
     publish: Joi.boolean().default(false),
     ...commonVal,
@@ -29,19 +29,3 @@ const InterviewsValidationSchema = (locale = "en", relation = false) => {
 export default InterviewsValidationSchema;
 
 
-/*
-
- {
-      "name": "category",
-      "type": "relation",
-      "ref": "interviews-categories",
-      "select": [
-        "_id",
-        "title"
-      ],
-      "displayField": "title",
-      "single": true,
-      "label": "category"
-    }
-
-*/

@@ -14,11 +14,7 @@ const interviewsCategoryValidationUpdate = Joi.object({
   ...CommonsVal,
 });
 
-// Relation Validation
-const interviewsCategoryValidationRelation = Joi.object({
-  title: joiText({ min: 2, max: 1000 }),
-  ...CommonsVal,
-});
+const interviewsCategoryValidationRelation = interviewsCategoryValidationUpdate;
 
 export {
   interviewsCategoryValidationCreate,

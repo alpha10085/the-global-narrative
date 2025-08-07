@@ -69,6 +69,7 @@ const RelationList = ({
       acc[`filters[${key}]`] = allFilters[key];
       return acc;
     }, {}),
+    "filters[publish]":true,
     ...handleDynamicFilters(filtersArray, getValues),
   };
 

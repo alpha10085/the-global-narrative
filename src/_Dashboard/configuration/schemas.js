@@ -57,7 +57,7 @@ const schemas = [
   interviewsConfig,
   faqConfig,
   contactUsConfig,
-  //newsCategoryConfig,
+  interviewsCategoryConfig,
 
   // components
   footerConfig

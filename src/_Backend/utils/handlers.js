@@ -346,7 +346,9 @@ export const FindAll = ({
         req.query = { ...req.query, ...queryMiddleware(req.query, user) };
       if (piplineMiddleware) piplineMiddleware(pipeline, req.query, user);
 
-      if (publishMode && !req.isAdmin) {
+
+      
+      if (publishMode && !req.isAdmin || ["true",true].includes(req?.query?.filters?.publish)) {
         pipeline.push({
           $match: {
             $or: [
@@ -355,8 +357,14 @@ export const FindAll = ({
             ],
           },
         });
-        
+        if (req?.query?.filters?.publish) {
+         delete req?.query?.filters?.publish
+
+        }
       }
+
+      console.log(req?.query?.filters);
+      
       options = {
         ...options,
         admin: req?.isAdmin,
