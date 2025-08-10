@@ -60,6 +60,7 @@ export const decodeUserAgent = async (req) => {
     ...userAgentString,
   }); // ex. (country & region & city & timezone)
   return {
+    
     ...ua,
     ...geo,
     ip,
