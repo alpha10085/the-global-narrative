@@ -38,11 +38,10 @@ export const getIpAddress = async () => {
   const ip = (headersList.get("x-forwarded-for") ?? "127.0.0.1")
     .split(",")[0]
     .trim();
-  console.log(ip);
-  console.log(headersList.get("x-forwarded-for"));
-
   const isLocal =
     ip === "127.0.0.1" || ip === "::1" || ip.startsWith("::ffff:127.");
+
+  console.log(isLocal);
 
   return isLocal ? "8.8.8.8" : ip;
 };
@@ -56,7 +55,6 @@ export const decodeUserAgent = async () => {
 
   const parser = new UAParser(userAgentString);
   const ua = parser.getResult();
-
   const ip = await getIpAddress();
   const geo = await getGeoData(ip, {
     ...ua,
