@@ -35,10 +35,10 @@ export const getIpAddress = async (req) => {
     ? forwarded.split(",")[0].trim()
     : req.socket?.remoteAddress || "127.0.0.1";
   console.log(ip);
-  console.log(isLocal);
   const isLocal =
-    ip === "127.0.0.1" || ip === "::1" || ip.startsWith("::ffff:127.");
-
+  ip === "127.0.0.1" || ip === "::1" || ip.startsWith("::ffff:127.");
+  
+  console.log(isLocal);
   // Return real IP or fallback fake IP for local testing
   return isLocal ? "8.8.8.8" : ip;
 
