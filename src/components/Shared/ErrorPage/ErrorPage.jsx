@@ -12,7 +12,7 @@ export const DefualtScreen = () => {
     location.reload();
   };
   return (
-    <div className={`${styles.container} flex-c column`}>
+    <div className={`${styles.container} showSmooth flex-c column`}>
       <div className={styles.icon}>
         <RunningWithErrorsIcon />
       </div>

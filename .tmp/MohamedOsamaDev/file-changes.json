@@ -738,17 +738,17 @@
   {
     "file": "src/components/Shared/ErrorPage/ErrorPage.jsx",
     "firstSeenAt": "8/10/2025, 10:53:49 PM",
-    "lastUpdatedAt": "8/10/2025, 11:01:04 PM",
+    "lastUpdatedAt": "8/10/2025, 11:01:50 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 7
+    "count": 10
   },
   {
     "file": "src/components/Shared/ErrorPage/ErrorPage.module.css",
     "firstSeenAt": "8/10/2025, 10:58:20 PM",
-    "lastUpdatedAt": "8/10/2025, 11:00:10 PM",
+    "lastUpdatedAt": "8/10/2025, 11:02:41 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 19
+    "count": 24
   }
 ]
