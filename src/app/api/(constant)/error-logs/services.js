@@ -32,6 +32,7 @@ export const reportError = async ({ userAgent, deteils }) => {
       message: deteils?.message,
       createdAt: { $gte: startOfToday, $lte: endOfToday },
     });
+    console.log("🚀 ~ reportError ~ isExitstBefore:", isExitstBefore)
 
     if (!isExitstBefore) {
       console.log("error is is Exitsts Before");
