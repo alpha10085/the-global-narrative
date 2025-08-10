@@ -36,8 +36,8 @@ export const getIpAddress = async (req) => {
     : req.socket?.remoteAddress || "127.0.0.1";
   console.log(ip);
   const isLocal =
-  ip === "127.0.0.1" || ip === "::1" || ip.startsWith("::ffff:127.");
-  
+    ip === "127.0.0.1" || ip === "::1" || ip.startsWith("::ffff:127.");
+
   console.log(isLocal);
   // Return real IP or fallback fake IP for local testing
   return isLocal ? "8.8.8.8" : ip;
@@ -51,6 +51,7 @@ export const getIpAddress = async (req) => {
   */
 };
 export const decodeUserAgent = async (req) => {
+  req.headers = await headers();
   const userAgentString = req.headers.get("user-agent");
   const parser = new UAParser(userAgentString);
   const ua = parser.getResult(); // ex. (browser name & os name & device type )
