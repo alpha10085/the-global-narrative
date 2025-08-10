@@ -35,7 +35,10 @@ export const getGeoData = async (ip, uaData) => {
  */
 export const getIpAddress = async () => {
   const headersList = await headers(); // لازم await في Next.js 15
- const ip = (headersList.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0].trim();
+  console.log("🚀 ~ getIpAddress ~ headersList:", headersList);
+  const ip = (headersList.get("x-forwarded-for") ?? "127.0.0.1")
+    .split(",")[0]
+    .trim();
   const isLocal =
     ip === "127.0.0.1" || ip === "::1" || ip.startsWith("::ffff:127.");
 
