@@ -30,6 +30,7 @@ const Hero = ({ data = {} }) => {
             className={`flex-c ${styles.title}`}
             text={data?.title}
           />
+          
           <p className={styles.description}>{data?.description}</p> */}
           <div className={styles.link}>
             <MainButton text={data?.button?.label} href="/contact-us" />
