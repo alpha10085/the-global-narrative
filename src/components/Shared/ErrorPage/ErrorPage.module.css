@@ -23,3 +23,16 @@
     text-transform: capitalize;
     font-size: clamp(12px,2vw,30px);
 }
+
+.btntryagain {
+    margin: 15px 0;
+    padding: 10px 35px 9px; 
+    color: black;
+    font-size: 16px;
+    text-transform: capitalize;
+    background-color: rgba(128, 128, 128, 0.264);
+    border: 0;
+    border-radius: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}

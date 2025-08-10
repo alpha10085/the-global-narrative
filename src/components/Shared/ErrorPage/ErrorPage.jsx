@@ -8,30 +8,27 @@ import { UAParser } from "ua-parser-js";
 import { isProductionMode } from "@/config/main";
 import { usePathname } from "next/navigation";
 export const DefualtScreen = () => {
+  const onRefresh = () => {
+    location.reload();
+  };
   return (
     <div className={`${styles.container} flex-c column`}>
       <div className={styles.icon}>
         <RunningWithErrorsIcon />
       </div>
       <h1 className={styles.title}>something went wrong !</h1>
+      <button onClick={onRefresh} className={styles.btntryagain}>
+        try again
+      </button>
     </div>
   );
 };
 
 const ErrorPage = ({ error, reset = () => {}, Component = DefualtScreen }) => {
   const errorMSg = decodestringtoObject(error?.message);
-
-  const location = usePathname();
-
-  // Trigger error boundary if the condition is met
   useEffect(() => {
     sendErrorToServer(error);
   }, [errorMSg]);
-
-  // // If the error boundary is triggered, avoid rendering
-  // if (errorMSg?.errorBoundary) {
-  //   return null;
-  // }
 
   return <Component error={error} reset={reset} />;
 };
