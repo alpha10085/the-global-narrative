@@ -41,7 +41,9 @@ export const sendErrorToServer = async (err) => {
       stack: err?.stack?.slice(0, 2000),
       route: location?.href,
     });
-  } catch (error) {}
+  } catch (error) {
+    
+  }
 };
 
 export default ErrorPage;

@@ -738,10 +738,10 @@
   {
     "file": "src/components/Shared/ErrorPage/ErrorPage.jsx",
     "firstSeenAt": "8/10/2025, 10:53:49 PM",
-    "lastUpdatedAt": "8/10/2025, 11:01:50 PM",
+    "lastUpdatedAt": "8/11/2025, 1:25:18 AM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 10
+    "count": 11
   },
   {
     "file": "src/components/Shared/ErrorPage/ErrorPage.module.css",
@@ -750,5 +750,21 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 24
+  },
+  {
+    "file": "src/app/api/(constant)/error-logs/services.js",
+    "firstSeenAt": "8/11/2025, 1:22:57 AM",
+    "lastUpdatedAt": "8/11/2025, 1:25:18 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 2
+  },
+  {
+    "file": "src/app/api/(constant)/error-logs/route.js",
+    "firstSeenAt": "8/11/2025, 1:25:17 AM",
+    "lastUpdatedAt": "8/11/2025, 1:25:17 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
   }
 ]

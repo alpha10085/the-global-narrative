@@ -16,7 +16,10 @@ export const sendEmailToTeam = async (data) => {
       subject: `⚠️ Monitoring Alert – ${process.env.NEXT_PUBLIC_project_name}`,
       to: "alpha10085@gmail.com",
     });
-  } catch (error) {}
+    
+  } catch (error) {
+    
+  }
 };
 
 export const reportError = async ({ userAgent, deteils }) => {
