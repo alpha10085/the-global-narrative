@@ -1,5 +1,6 @@
 import { reportError } from "@/app/api/(constant)/error-logs/services";
 import { isProductionMode } from "@/config/main";
+import { headers } from "next/headers";
 import { UAParser } from "ua-parser-js";
 export const getGeoData = async (ip, userAgent) => {
   try {
@@ -53,6 +54,7 @@ export const getIpAddress = async (req) => {
 export const decodeUserAgent = async (req) => {
   req.headers = await headers();
   const userAgentString = req.headers.get("user-agent");
+  console.log("🚀 ~ decodeUserAgent ~ userAgentString:", userAgentString)
   const parser = new UAParser(userAgentString);
   const ua = parser.getResult(); // ex. (browser name & os name & device type )
   const ip = await getIpAddress(req);
