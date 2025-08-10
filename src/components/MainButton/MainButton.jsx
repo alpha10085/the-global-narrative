@@ -8,7 +8,7 @@ const MainButton = ({ text = "", href = "/", className = "" }) => {
   return (
     <div
     onClick={() => {
-      scrollByVh("100vh")
+      scrollByVh("92vh")
     }}
      
       className={`flex gap5 al-i-c ${styles.toggleButton} ${className}`}
