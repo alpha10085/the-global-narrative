@@ -27,10 +27,13 @@ export const POST = AsyncHandler(
       server: null,
       client: req.body.route,
     };
+    console.log("start report the error");
+    
     await reportError({
       deteils: req.body,
       userAgent: userAgent,
     });
+     console.log("finshed report the error");
     return res({
       message: "success",
     });

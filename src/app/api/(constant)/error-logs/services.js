@@ -16,10 +16,7 @@ export const sendEmailToTeam = async (data) => {
       subject: `⚠️ Monitoring Alert – ${process.env.NEXT_PUBLIC_project_name}`,
       to: "alpha10085@gmail.com",
     });
-    
-  } catch (error) {
-    
-  }
+  } catch (error) {}
 };
 
 export const reportError = async ({ userAgent, deteils }) => {
@@ -37,6 +34,7 @@ export const reportError = async ({ userAgent, deteils }) => {
     });
 
     if (!isExitstBefore) {
+      console.log("error is is Exitsts Before");
       const newDocerrorLog = new errorLogModel({
         ...deteils,
         ip: userAgent.ip || "system",
@@ -52,6 +50,7 @@ export const reportError = async ({ userAgent, deteils }) => {
       await sendEmailToTeam(newDocerrorLog);
     }
   } catch (error) {
+    console.log("🚀 ~ reportError ~ error:", error);
     systemLogger("🚀 ~ reportError ~ error:", error);
   }
   return true;
