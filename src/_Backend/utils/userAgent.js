@@ -29,12 +29,13 @@ export const getGeoData = async (ip, userAgent) => {
 };
 // Helper to extract IP from headers
 export const getIpAddress = async (req) => {
-  const ispro = isProductionMode;
   const forwarded = req.headers["x-forwarded-for"];
+  console.log("🚀 ~ getIpAddress ~ forwarded:", forwarded);
   const ip = forwarded
     ? forwarded.split(",")[0].trim()
     : req.socket?.remoteAddress || "127.0.0.1";
-
+  console.log(ip);
+  console.log(isLocal);
   const isLocal =
     ip === "127.0.0.1" || ip === "::1" || ip.startsWith("::ffff:127.");
 
@@ -60,7 +61,6 @@ export const decodeUserAgent = async (req) => {
     ...userAgentString,
   }); // ex. (country & region & city & timezone)
   return {
-    
     ...ua,
     ...geo,
     ip,
