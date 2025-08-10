@@ -1,13 +1,18 @@
-import { reportError } from "@/app/api/(constant)/error-logs/services";
-import { isProductionMode } from "@/config/main";
+// utils/userInfo.js
 import { headers } from "next/headers";
 import { UAParser } from "ua-parser-js";
-export const getGeoData = async (ip, userAgent) => {
+import { reportError } from "@/app/api/(constant)/error-logs/services";
+
+/**
+ * Get IP geo data
+ */
+export const getGeoData = async (ip, uaData) => {
   try {
     const response = await fetch(
       `https://ipinfo.io/${ip}?token=${process.env.TOKEN_IPINFO}`
     );
     if (!response.ok) throw new Error("Geo lookup failed");
+
     const data = await response.json();
     return {
       country: data?.country || "Unknown",
@@ -17,55 +22,42 @@ export const getGeoData = async (ip, userAgent) => {
     };
   } catch (error) {
     await reportError({
-      deteils: {
-        message: error?.message,
-        stack: error?.stack,
-      },
-      userAgent,
+      deteils: { message: error?.message, stack: error?.stack },
+      userAgent: uaData,
     });
-
     console.error("IP Geolocation error:", error.message);
     return {};
   }
 };
-// Helper to extract IP from headers
-export const getIpAddress = async (req) => {
-  const forwarded = req.headers["x-forwarded-for"];
-  console.log("🚀 ~ getIpAddress ~ forwarded:", forwarded);
-  const ip = forwarded
-    ? forwarded.split(",")[0].trim()
-    : req.socket?.remoteAddress || "127.0.0.1";
-  console.log(ip);
+
+/**
+ * Get IP Address from request headers
+ */
+export const getIpAddress = async () => {
+  const headersList = await headers(); // لازم await في Next.js 15
+ const ip = (headersList.get('x-forwarded-for') ?? '127.0.0.1').split(',')[0].trim();
   const isLocal =
     ip === "127.0.0.1" || ip === "::1" || ip.startsWith("::ffff:127.");
 
-  console.log(isLocal);
-  // Return real IP or fallback fake IP for local testing
   return isLocal ? "8.8.8.8" : ip;
-
-  /* list of real ips:
-  8.8.8.8	Mountain View, CA (Google)
-  
-  1.1.1.1	Australia (Cloudflare)
-  
-  128.101.101.101	Minneapolis, MN (University of Minnesota)
-  */
 };
-export const decodeUserAgent = async (req) => {
-  req.headers = await headers();
-  const userAgentString = req.headers.get("user-agent");
-  console.log("🚀 ~ decodeUserAgent ~ userAgentString:", userAgentString)
+
+/**
+ * Decode user agent and merge with IP + geo data
+ */
+export const decodeUserAgent = async () => {
+  const headersList = await headers(); // لازم await
+  const userAgentString = headersList.get("user-agent") || "Unknown";
+
   const parser = new UAParser(userAgentString);
-  const ua = parser.getResult(); // ex. (browser name & os name & device type )
-  const ip = await getIpAddress(req);
+  const ua = parser.getResult();
+
+  const ip = await getIpAddress();
   const geo = await getGeoData(ip, {
     ...ua,
     ip,
-    ...userAgentString,
-  }); // ex. (country & region & city & timezone)
-  return {
-    ...ua,
-    ...geo,
-    ip,
-  };
+    userAgent: userAgentString,
+  });
+
+  return { ...ua, ...geo, ip };
 };
