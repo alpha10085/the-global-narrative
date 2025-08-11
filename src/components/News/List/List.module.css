@@ -82,15 +82,19 @@
   margin: 0 auto;
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(calc((90vw / 4) - 40px), 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(calc((90vw / 4) - 40px), 1fr)
+  );
 }
 
 .skeletonGrid {
-  padding-bottom: 40px;
+  padding: 40px 0;
 }
 
 .skeletonCard {
-  height: 400px;
+  height: auto;
+  aspect-ratio: 4/5;
 }
 
 .gridItem {
@@ -187,7 +191,10 @@
   .gridList,
   .skeletonGrid,
   .latestCards {
-    grid-template-columns: repeat(auto-fill, minmax(calc((90vw / 3) - 40px), 1fr));
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(calc((90vw / 3) - 40px), 1fr)
+    );
   }
 }
 
@@ -208,18 +215,19 @@
     justify-content: flex-start;
   }
   .gridList,
+  .skeletonGrid,
   .latestCards {
     padding: 0;
-    grid-template-columns: repeat(auto-fill, minmax(calc((90vw / 2) - 40px), 1fr));
-  }
-  .skeletonCard {
-    height: 300px;
-    width: 100%;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(calc((90vw / 2) - 40px), 1fr)
+    );
   }
 }
 
 @media (max-width: 600px) {
   .gridList,
+  .skeletonGrid,
   .latestCards {
     padding: 0;
     grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
