@@ -21,7 +21,13 @@ export const GET = FindAll({
   ...config,
   allowedTo: [...enumRoles.adminRoles, "public"],
   pushToPipeLine: imageLookup("poster"),
-  publishMode:true
+  publishMode:true,
+  queryMiddleware:(query,user) => {
+    return {
+      sort:"date:desc"
+    }
+  } 
+  
 });
 export const POST = insertOne({
   schemaValidation: newsValidationCreate,

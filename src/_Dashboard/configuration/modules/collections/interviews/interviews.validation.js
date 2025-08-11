@@ -17,6 +17,12 @@ const InterviewsValidationSchema = (locale = "en", relation = false) => {
       min: 2,
       required: !relation,
     }),
+        date: joiText({
+      locale,
+      max: 100000,
+      min: 2,
+      required: !relation,
+    }),
     category: relation
       ? interviewsCategoryValidationSchema(locale, true)
       : interviewsCategoryValidationSchema(locale, true).required(),

@@ -14,6 +14,8 @@ const interviewSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "interviewCategory",
     },
+    
+    date: Date,
     ...schemaCommens,
   },
   {
