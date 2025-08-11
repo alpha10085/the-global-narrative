@@ -52,7 +52,7 @@ const serviceSchemaValidation = (locale = "en", relation = false) => {
             link: joiText({ min: 2, max: 1000, required: !relation }),
             poster: relation ? fileVal : fileVal.required(),
           },
-          required: !relation,
+          required: false,
           locale,
         })
       )
