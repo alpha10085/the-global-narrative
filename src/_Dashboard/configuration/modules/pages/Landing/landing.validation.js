@@ -123,7 +123,7 @@ const LandingPageValidationSchema = (locale = "en") => {
       body: {
         title: joiText({ locale, min: 2, max: 20000, required: true }),
         posts: Joi.array()
-          .min(1)
+          .min(0)
           .items(TestimonialValidationSchema(locale, true)),
       },
     }),
