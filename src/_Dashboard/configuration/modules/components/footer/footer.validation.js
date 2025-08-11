@@ -22,7 +22,6 @@ const mainCard = (locale = "en") =>
         locale,
         required: true,
         body: {
-          ...commonVal,
           url: joiText({
             locale,
             required: true,

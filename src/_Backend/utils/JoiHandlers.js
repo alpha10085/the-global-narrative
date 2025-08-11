@@ -11,7 +11,7 @@ export const joiText = ({
 } = {} = {}) => {
   let joiSchema = Joi.string().trim();
 
-  if (date) joiSchema =  joiSchema.pattern(/^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/)
+  //if (date) joiSchema =  joiSchema.pattern(/^(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/\d{4}$/)
   if (email)
     joiSchema = joiSchema.email({ tlds: { allow: ["com", "net", "org"] } });
   if (url) joiSchema = joiSchema.uri({ scheme: ["http", "https"] });
