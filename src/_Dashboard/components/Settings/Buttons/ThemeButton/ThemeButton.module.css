@@ -15,7 +15,7 @@
   text-transform: capitalize;
   position: relative;
   max-width: 100%;
-  transition: 0.2s border;
+  transition: 0.2s border !important;
   border-width: 1px;
 }
 
@@ -40,7 +40,7 @@
   height: 80%;
   background-color: rgb(255, 255, 255);
   mix-blend-mode: difference;
-  transition: 0.4s;
+  transition: 0.4s !important;
 }
 
 /* LTR direction */
