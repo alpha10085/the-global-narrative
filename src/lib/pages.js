@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { cache } from "react";
 
 export const getPage = AsyncHandler(
-  cache(async (key, language = null) => {
+  cache(async (key, language = null) => {    
     const data = await ssrApi(
       `/pages/${key}${
         config.route ? `?language=${language || config?.defaultLocale}` : ""

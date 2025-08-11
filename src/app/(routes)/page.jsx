@@ -23,8 +23,10 @@ const Home = async () => {
     testimonialSection = {},
     getInTouchSection = {},
   } = await getPage("landing");
-
   const testMode = await isUnderTest();
+
+
+  
   return (
     <section className={styles.layout}>
       <Hero data={heroSection} />

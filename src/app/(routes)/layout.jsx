@@ -8,8 +8,10 @@ import SSRFetcher from "@/components/Shared/SSRFetcher/SSRFetcher";
 import Fallback from "@/components/Footer/Fallback";
 import styles from "./page.module.css";
 import { isUnderTest } from "@/utils/isUnderTest";
+import { warmPagesInBackground } from "./test";
 export default async function RootLayout({ children }) {
   const testMode = await isUnderTest();
+  warmPagesInBackground()
   return (
     <main
       style={{ fontFamily: "var(--font-inter)" }}
