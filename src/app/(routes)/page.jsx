@@ -25,8 +25,6 @@ const Home = async () => {
   } = await getPage("landing");
   const testMode = await isUnderTest();
 
-
-  
   return (
     <section className={styles.layout}>
       <Hero data={heroSection} />
@@ -60,17 +58,21 @@ const Home = async () => {
               data={newsSection}
               path={`/news/landing?ids=${newsSection?.posts}`}
             />
-            <SSRFetcher
-              Component={Testimonials}
-              data={testimonialSection}
-              options={{
-                next: {
-                  revalidate: "1y",
-                  tags: testimonialSection?.posts || ["testimonials"],
-                },
-              }}
-              path={`/testimonials/landing?ids=${testimonialSection?.posts}`}
-            />
+            {testimonialSection?.posts?.length > 0 && (
+              <SSRFetcher
+                Component={Testimonials}
+                data={testimonialSection}
+                options={{
+                  next: {
+                    revalidate: "1y",
+                    tags: testimonialSection?.posts || ["testimonials"],
+                  },
+                }}
+                path={`/testimonials/landing?ids=${testimonialSection.posts.join(
+                  ","
+                )}`}
+              />
+            )}
           </div>
           <GetInTouch data={getInTouchSection} />
           <SpaceSection style={{ background: "white" }} />

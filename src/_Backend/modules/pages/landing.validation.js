@@ -75,14 +75,17 @@ const newsSection = Joi.object({
 
 // Testimonial Section
 const testimonialSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   posts: joiArray({
     body: testimonialValidationRelation,
     max: 20,
+    min: 1,
     required: false,
   }),
   ...CommonsVal,
-});
+})
+.optional()
+.allow(null);
 
 // Get In Touch Section
 const getInTouchSection = Joi.object({

@@ -118,12 +118,11 @@ const LandingPageValidationSchema = (locale = "en") => {
     }),
 
     testimonialSection: joiObject({
-      required: true,
+      required: false,
       locale,
       body: {
-        title: joiText({ locale, min: 2, max: 20000, required: true }),
+        title: joiText({ locale, min: 2, max: 20000, required: false }),
         posts: Joi.array()
-          .min(1)
           .items(TestimonialValidationSchema(locale, true)),
       },
     }),
