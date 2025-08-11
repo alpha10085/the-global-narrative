@@ -58,7 +58,7 @@ const Home = async () => {
               data={newsSection}
               path={`/news/landing?ids=${newsSection?.posts}`}
             />
-            {testimonialSection?.posts?.length > 0 && (
+            {testimonialSection?.posts && testimonialSection?.posts?.length ? (
               <SSRFetcher
                 Component={Testimonials}
                 data={testimonialSection}
@@ -68,11 +68,9 @@ const Home = async () => {
                     tags: testimonialSection?.posts || ["testimonials"],
                   },
                 }}
-                path={`/testimonials/landing?ids=${testimonialSection.posts.join(
-                  ","
-                )}`}
+                path={`/testimonials/landing?ids=${testimonialSection?.posts}`}
               />
-            )}
+            ) : null}
           </div>
           <GetInTouch data={getInTouchSection} />
           <SpaceSection style={{ background: "white" }} />

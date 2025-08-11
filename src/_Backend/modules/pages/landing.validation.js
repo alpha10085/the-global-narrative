@@ -79,7 +79,7 @@ const testimonialSection = Joi.object({
   posts: joiArray({
     body: testimonialValidationRelation,
     max: 20,
-    min: 1,
+    min:0,
     required: false,
   }),
   ...CommonsVal,
