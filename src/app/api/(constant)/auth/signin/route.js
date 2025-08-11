@@ -12,48 +12,44 @@ import { creatJwt } from "@/_Backend/modules/_constant/auth/auth.services";
 import { rateLimitMiddleware } from "@/_Backend/middlewares/security/rateLimitMiddleware";
 import { timeToMillis } from "@/utils/time";
 
-export const POST = AsyncHandler(async (req, res, next) => {
-  
-  await rateLimitMiddleware({ limit: 5, windowMs: 15 * 60 * 1000 })(
-    req,
-    res,
-    next
-  );
+export const POST = AsyncHandler(
+  async (req, res, next) => {
+    const { email, password } = req.body;
 
-  const { email, password } = req.body;
+    validation(signinSchemaVal)(req.body);
 
-  validation(signinSchemaVal)(req.body);
+    let user = await UserModel.findOne({ email });
 
-  let user = await UserModel.findOne({ email });
+    if (user && bcrypt.compareSync(password, user.password)) {
+      if (user.isblocked) throw new AppError(httpStatus.Forbidden);
 
-  if (user && bcrypt.compareSync(password, user.password)) {
-    if (user.isblocked) throw new AppError(httpStatus.Forbidden);
+      const cookiesInstance = await cookies();
+      const token = creatJwt({ _id: user._id, role: user.role });
+      cookiesInstance.set("token", token, SetCookie());
 
-    const cookiesInstance = await cookies();
-    const token = creatJwt({ _id: user._id, role: user.role });
-    cookiesInstance.set("token", token, SetCookie());
-
-    return {
-      message: `Welcome ${user.fullName}`,
-      profile: {
-        _id: user._id,
-        fullName: user.fullName,
-        email: user.email,
-        role: user.role,
-        phone: user.phone,
-      },
-    };
-  } else {
-    throw new AppError({
-      message: "incorrect-password",
-      code: httpStatus.badRequest.code,
-    });
+      return {
+        message: `Welcome ${user.fullName}`,
+        profile: {
+          _id: user._id,
+          fullName: user.fullName,
+          email: user.email,
+          role: user.role,
+          phone: user.phone,
+        },
+      };
+    } else {
+      throw new AppError({
+        message: "incorrect-password",
+        code: httpStatus.badRequest.code,
+      });
+    }
+  },
+  {
+    middlewares: [
+      rateLimitMiddleware({
+        limit: 5,
+        windowMs: 15 * 60 * 1000,
+      }),
+    ],
   }
-});
-
-// middlewares: [
-//   rateLimitMiddleware({
-//     limit: 5, // 5 attempts
-//     windowMs: timeToMillis("1h"), // per hour
-//   }),
-// ],
+);
