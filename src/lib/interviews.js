@@ -18,7 +18,6 @@ export const getInterviewsData = async ({
     page: pageParam,
     ...query,
   }).toString();
-  console.log("🚀 ~ getInterviewsData ~ formatQuery:", formatQuery)
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API}/api/interviews?${formatQuery}`,

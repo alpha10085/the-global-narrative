@@ -40,7 +40,6 @@ const Page = (props) => {
   const notFoundConditions = !schema || !enabled || error?.status === 404
   if (notFoundConditions) return notFound();
   // need error ui
-  console.log(error);
   
   if (error) return <ErrorLayOut />;
 

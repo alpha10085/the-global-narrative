@@ -32,10 +32,8 @@ export const reportError = async ({ userAgent, deteils }) => {
       message: deteils?.message,
       createdAt: { $gte: startOfToday, $lte: endOfToday },
     });
-    console.log("🚀 ~ reportError ~ isExitstBefore:", isExitstBefore)
 
     if (!isExitstBefore) {
-      console.log("error is is Exitsts Before");
       const newDocerrorLog = new errorLogModel({
         ...deteils,
         ip: userAgent.ip || "system",
@@ -51,7 +49,6 @@ export const reportError = async ({ userAgent, deteils }) => {
       await sendEmailToTeam(newDocerrorLog);
     }
   } catch (error) {
-    console.log("🚀 ~ reportError ~ error:", error);
     systemLogger("🚀 ~ reportError ~ error:", error);
   }
   return true;

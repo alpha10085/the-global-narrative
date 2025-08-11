@@ -371,7 +371,6 @@ export const FindAll = ({
         isTranslated: model.translationConfig,
       };
 
-      console.log(pipeline);
       
       const apiFetcher = new ApiFetcher(pipeline, req.query, options)
         .filter()
