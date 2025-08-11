@@ -7,8 +7,8 @@ export const interviewsValCreate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
 
-  title: joiText({ min: 2, max: 1000, required: true }),
-  subTitle: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
+  subTitle: joiText({ min: 2, max: 20000, required: true }),
   
   ...CommonsVal,
 });
@@ -18,8 +18,8 @@ export const interviewsValUpdate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
 
-  title: joiText({ min: 2, max: 1000 }),
-  subTitle: joiText({ min: 2, max: 1000 }),
+  title: joiText({ min: 2, max: 20000 }),
+  subTitle: joiText({ min: 2, max: 20000 }),
 
   ...CommonsVal,
 });

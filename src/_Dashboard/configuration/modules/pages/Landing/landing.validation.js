@@ -144,7 +144,7 @@ const LandingPageValidationSchema = (locale = "en") => {
           required: true,
           locale,
           body: {
-            label: joiText({ locale, min: 2, max: 20000, required: true }),
+            label: joiText({ locale, min: 2, max: 1000, required: true }),
           },
         }),
       },

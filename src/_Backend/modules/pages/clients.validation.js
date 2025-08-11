@@ -10,7 +10,7 @@ import Joi from "joi";
 export const clientsPageValCreate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   ...CommonsVal,
 });
@@ -18,7 +18,7 @@ export const clientsPageValCreate = Joi.object({
 export const clientsPageValUpdate = Joi.object({
   metadata: pageMetadataVal,
   key: Joi.string(),
-  title: joiText({ min: 2, max: 1000 }),
+  title: joiText({ min: 2, max: 20000 }),
   description: joiText({ min: 2, max: 20000 }),
   ...CommonsVal,
 });

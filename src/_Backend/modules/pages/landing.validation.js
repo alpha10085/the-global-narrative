@@ -14,12 +14,12 @@ import { clientsValidationUpdate } from "../clients/clients.validation";
 
 // Hero Section (Array of cards with title & media)
 const heroSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
-  description: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
+  description: joiText({ min: 2, max: 20000, required: true }),
   media: fileVal.required(),
   thumbnail: fileVal.allow(null),
   button: Joi.object({
-    label: joiText({ min: 2, max: 1000, required: true }),
+    label: joiText({ min: 2, max: 20000, required: true }),
     // link: joiText({ min: 2, max: 1000, required: true }),
   }),
   ...CommonsVal,
@@ -27,14 +27,14 @@ const heroSection = Joi.object({
 
 // About Us Section
 const aboutUsSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   ...CommonsVal,
 });
 
 // services Section
 const servicesSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   services: joiArray({
     body: serviceValidationRelation,
     min: 1,
@@ -46,11 +46,11 @@ const servicesSection = Joi.object({
 
 // Quote Section
 const quoteSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   cards: joiArray({
     body: Joi.object({
-      title: joiText({ min: 2, max: 1000, required: true }),
+      title: joiText({ min: 2, max: 20000, required: true }),
       description: joiText({ min: 2, max: 20000, required: true }),
       poster: fileVal.required(),
       ...CommonsVal,
@@ -64,7 +64,7 @@ const quoteSection = Joi.object({
 
 // News Section
 const newsSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   posts: joiArray({
     body: newsValidationRelation,
     min: 1,
@@ -89,7 +89,7 @@ const testimonialSection = Joi.object({
 
 // Get In Touch Section
 const getInTouchSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   poster: fileVal.required(),
   button: Joi.object({

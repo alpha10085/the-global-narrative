@@ -9,7 +9,7 @@ import { serviceValidationRelation } from "../service/service.validation";
 
 // Hero Section
 const heroSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   poster: fileVal.required(),
   ...CommonsVal,
@@ -17,7 +17,7 @@ const heroSection = Joi.object({
 
 // Our Value Section
 const ourValueSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   cards: joiArray({
     body: serviceValidationRelation,
     min: 1,
@@ -29,7 +29,7 @@ const ourValueSection = Joi.object({
 
 // Quote Section
 const quoteSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   button: Joi.object({
     label: joiText({ min: 2, max: 10000, required: true }),

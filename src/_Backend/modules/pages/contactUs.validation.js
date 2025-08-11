@@ -4,7 +4,7 @@ import Joi from "joi";
 
 export const ContactPageValCreate = Joi.object({
   metadata: pageMetadataVal,
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
 
   information: Joi.object({

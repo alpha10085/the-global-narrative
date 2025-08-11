@@ -4,9 +4,9 @@ import Joi from "joi";
 
 // Footer component validation schema
 const socialLinkSchema = Joi.object({
-  url: joiText({    required: true }),
-  link: joiText({    required: true }), 
-  ...CommonsVal,    
+  url: joiText({ required: true }),
+  link: joiText({ required: true }),
+  ...CommonsVal,
 });
 
 export const footerValCreate = Joi.object({
@@ -15,8 +15,8 @@ export const footerValCreate = Joi.object({
     min: 1,
     max: 6,
     required: true,
-    body: socialLinkSchema
-  })
+    body: socialLinkSchema,
+  }),
 });
 
 export const footerValUpdate = Joi.object({
@@ -24,6 +24,6 @@ export const footerValUpdate = Joi.object({
   socialLinks: joiArray({
     min: 1,
     max: 6,
-    body: socialLinkSchema
-  })
+    body: socialLinkSchema,
+  }),
 });

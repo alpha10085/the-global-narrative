@@ -10,7 +10,7 @@ import Joi from "joi";
 // ✅ Hero Section
 // ------------------------------
 const heroSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   poster: fileVal.required(),
   ...CommonsVal,
@@ -20,8 +20,8 @@ const heroSection = Joi.object({
 // ✅ Who Us Member
 // ------------------------------
 const whoUsMember = Joi.object({
-  name: joiText({ min: 2, max: 1000, required: true }),
-  jobTitle: joiText({ min: 2, max: 1000, required: true }),
+  name: joiText({ min: 2, max: 20000, required: true }),
+  jobTitle: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   image: fileVal.required(),
 
@@ -43,7 +43,7 @@ const whoUsMember = Joi.object({
 // ✅ Who Us Section
 // ------------------------------
 const whoUsSectionSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   members: joiArray({
     body: whoUsMember,
     min: 1,
@@ -56,7 +56,7 @@ const whoUsSectionSection = Joi.object({
 // ✅ Our Value Card
 // ------------------------------
 const ourValueCard = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   poster: fileVal.required(),
   ...CommonsVal,
@@ -66,7 +66,7 @@ const ourValueCard = Joi.object({
 // ✅ Our Value Section
 // ------------------------------
 const ourValues = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   cards: joiArray({
     body: ourValueCard,
     min: 1,
@@ -79,7 +79,7 @@ const ourValues = Joi.object({
 // ✅missionVision
 // ------------------------------
 const quoteSection = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   description: joiText({ min: 2, max: 20000, required: true }),
   button: Joi.object({
     label: joiText({ min: 2, max: 10000, required: true }),
