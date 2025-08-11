@@ -40,9 +40,6 @@ export const getIpAddress = async () => {
     .trim();
   const isLocal =
     ip === "127.0.0.1" || ip === "::1" || ip.startsWith("::ffff:127.");
-
-  console.log(isLocal);
-
   return isLocal ? "8.8.8.8" : ip;
 };
 
@@ -52,7 +49,6 @@ export const getIpAddress = async () => {
 export const decodeUserAgent = async () => {
   const headersList = await headers(); // لازم await
   const userAgentString = headersList.get("user-agent") || "Unknown";
-
   const parser = new UAParser(userAgentString);
   const ua = parser.getResult();
   const ip = await getIpAddress();
