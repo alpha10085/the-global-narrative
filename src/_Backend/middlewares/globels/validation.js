@@ -1,20 +1,30 @@
 import { allModelsConfig } from "@/_Backend/modules/config";
 import { AppError } from "@/_Backend/utils/AppError";
+import { sendEmailToTeam } from "@/app/api/(constant)/error-logs/services";
+import { isProductionMode } from "@/config/main";
 import { systemLogger } from "@/utils/consoleProxy";
 import i18next from "i18next";
 
 /**
  * Utility function to handle validation errors
  */
-const handleValidationError = (body ,error) => {
+const handleValidationError = async (body, error) => {
   systemLogger(error.details);
-  systemLogger("request body: ",body);
+  systemLogger("request body: ", body);
 
   const details = error.details.reduce((prev, curr, i) => {
     const key = curr?.path?.join(".");
     prev[key] = curr?.message?.replace(`"${key}" `, "");
     return prev;
   }, {});
+
+  if (isProductionMode) {
+    await sendEmailToTeam({
+      createdAt: new Date().toLocaleDateString(),
+      message:"Validation Error",
+      stack:error.details,
+    });
+  }
   throw new AppError({
     message: `validation-error`,
     // translated: true,
@@ -36,7 +46,7 @@ export const pageValidation = (Request = {}, body, params) => {
     });
   const { error } = schema.validate({ ...body }, { abortEarly: false });
 
-  if (error) handleValidationError(body , error);
+  if (error) handleValidationError(body, error);
 };
 
 /**
@@ -50,6 +60,6 @@ export const validation =
       { abortEarly: false } // Ensure all errors are captured
     );
     if (error) {
-      handleValidationError(body,error);
+      handleValidationError(body, error);
     }
   };
