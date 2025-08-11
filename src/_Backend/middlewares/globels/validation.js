@@ -21,9 +21,9 @@ const handleValidationError = async (body, error) => {
   if (isProductionMode) {
     await sendEmailToTeam({
       createdAt: new Date().toLocaleDateString(),
-      message:"Validation Error",
-      stack:error.details,
-    });
+      message: "Validation Error",
+      stack: error.details,
+    }).catch((err) => {});
   }
   throw new AppError({
     message: `validation-error`,
