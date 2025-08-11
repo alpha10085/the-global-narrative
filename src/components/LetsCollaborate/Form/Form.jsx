@@ -58,9 +58,9 @@ const Form = ({ information = {}, siteKey }) => {
     }
   };
   const {
-    Address = "Building 4/D/6, 5th Floor Nasr Street, New Maadi, Cairo, Egypt",
-    phone = "(+202) 251 745 07",
-    email = "info@globalnarrative.com",
+    address = "",
+    phone = "",
+    email = "",
   } = information;
   return (
     <>
@@ -163,7 +163,7 @@ const Form = ({ information = {}, siteKey }) => {
             <div className="flex-c gap15">
               <LocationPinIcon />
             </div>
-            <div className={styles.value}>{Address}</div>
+            <div className={styles.value}>{address}</div>
           </div>
 
           <div 

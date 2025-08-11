@@ -167,14 +167,21 @@
       "button": "button",
       "label": "label",
       "label_ph": "label intro...",
-      "faqs" : "faqs",
-      "faqs_ph" : "Select faqs...",
-
-      "platform" : "Platform Name (e.g., LinkedIn)",
+      "faqs": "faqs",
+      "faqs_ph": "Select faqs...",
+      "platform": "Platform Name (e.g., LinkedIn)",
       "platform_ph": "Enter platform...",
-"clientsSection":"clients Section",
-"clientsSection_ph":"select clients",
-      "socialLinks_ph" : "Enter social Links.."
+      "clientsSection": "clients Section",
+      "clientsSection_ph": "select clients",
+      "socialLinks_ph": "Enter social Links..",
+
+      "Information": "Information",
+      "Address": "Address",
+      "Address_ph": "Enter address... ",
+      "Phone": "Phone",
+      "Phone_ph": "Enter phone... ",
+      "Email": "Email",
+      "Email_ph": "Enter email address ..."
     },
     "filterSystem": {
       "condtions": {
