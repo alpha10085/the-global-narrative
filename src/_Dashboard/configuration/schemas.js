@@ -45,20 +45,18 @@ const schemas = [
   servicesConfig,
   newsPageConfig,
   interviewsPageConfig,
-  contactConfig,
   clientConfig,
+  contactConfig,
   
   // collections
-  clientsConfig,
   serviceConfig,
+  clientsConfig,
   newsConfig,
   newsCategoryConfig,
-  testimonialConfig,
   interviewsConfig,
-  faqConfig,
-  contactUsConfig,
   interviewsCategoryConfig,
-
+  testimonialConfig,
+  contactUsConfig,
   // components
   footerConfig
 ]; // empty array for now, you can add your schemas here.
