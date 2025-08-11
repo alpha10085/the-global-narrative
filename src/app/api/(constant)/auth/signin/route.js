@@ -10,35 +10,38 @@ import httpStatus from "@/_Backend/assets/messages/httpStatus";
 import { signinSchemaVal } from "@/_Backend/modules/_constant/auth/auth.validation";
 import { creatJwt } from "@/_Backend/modules/_constant/auth/auth.services";
 import { rateLimitMiddleware } from "@/_Backend/middlewares/security/rateLimitMiddleware";
-import { timeToMillis } from "@/utils/time";
-
 export const POST = AsyncHandler(
   async (req, res, next) => {
-    const { email, password } = req.body;
+    const { email, password } = req?.body;
 
-    validation(signinSchemaVal)(req.body);
-
+    // Validate user data using the imported schema
+    validation(signinSchemaVal)(req?.body);
+    // Find user by email
     let user = await UserModel.findOne({ email });
-
+    // Identify user
     if (user && bcrypt.compareSync(password, user.password)) {
-      if (user.isblocked) throw new AppError(httpStatus.Forbidden);
-
+      // Check if user is blocked
+      if (user?.isblocked) throw new AppError(httpStatus.Forbidden);
+      // Set JWT token in cookies
       const cookiesInstance = await cookies();
-      const token = creatJwt({ _id: user._id, role: user.role });
+      const token = creatJwt({ _id: user?._id, role: user?.role });
       cookiesInstance.set("token", token, SetCookie());
-
-      return {
-        message: `Welcome ${user.fullName}`,
-        profile: {
-          _id: user._id,
-          fullName: user.fullName,
-          email: user.email,
-          role: user.role,
-          phone: user.phone,
+      // Send response
+      return res(
+        {
+          message: `Welcome ${user.fullName}`,
+          profile: {
+            _id: user?._id,
+            fullName: user.fullName,
+            email: user.email,
+            role: user?.role,
+            phone: user.phone,
+          },
         },
-      };
+        200
+      );
     } else {
-      throw new AppError({
+      next({
         message: "incorrect-password",
         code: httpStatus.badRequest.code,
       });
@@ -48,7 +51,7 @@ export const POST = AsyncHandler(
     middlewares: [
       rateLimitMiddleware({
         limit: 5,
-        windowMs: 15 * 60 * 1000,
+        windowMs: 15 * 10 * 1000,
       }),
     ],
   }
