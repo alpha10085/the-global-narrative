@@ -22,8 +22,8 @@ export const rateLimitMiddleware = ({
     let record = await RateLimitModel.findOne({ identifier });
 
     if (record) {
-      if (record.windowStart > windowStart) {
-        if (record.count >= limit) {
+      if (record?.windowStart > windowStart) {
+        if (record?.count >= limit) {
           return next(
             new AppError({
               message: `Too many requests`,
