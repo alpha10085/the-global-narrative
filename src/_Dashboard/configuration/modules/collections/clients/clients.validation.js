@@ -6,7 +6,7 @@ const clientsValidationSchema = (locale = "en", relation = false) => {
   return Joi.object({
     title: joiText({
       locale,
-      max: 20000,
+      max: 1000,
       min: 2,
       required: !relation,
     }),

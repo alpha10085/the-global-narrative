@@ -4,9 +4,9 @@ import Joi from "joi";
 import { newsCategoryValidationRelation } from "../newsCategory/newsCategory.validation";
 
 const newsValidationCreate = Joi.object({
-  title: joiText({ min: 2, max: 1000, required: true }),
+  title: joiText({ min: 2, max: 20000, required: true }),
   poster: fileVal.required(),
-  content: joiText({ min: 2, max: 10000, required: true }),
+  content: joiText({ min: 2, max: 100000, required: true }),
   category: newsCategoryValidationRelation.required(),
   date: Joi.date(),
   ...CommonsVal,
@@ -14,9 +14,9 @@ const newsValidationCreate = Joi.object({
 
 // Update Validation
 const newsValidationUpdate = Joi.object({
-  title: joiText({ min: 2, max: 1000 }),
+  title: joiText({ min: 2, max: 20000 }),
   poster: fileVal,
-  content: joiText({ min: 2, max: 10000 }),
+  content: joiText({ min: 2, max: 100000 }),
   category: newsCategoryValidationRelation,
   date: Joi.date(),
   ...CommonsVal,
@@ -24,9 +24,9 @@ const newsValidationUpdate = Joi.object({
 
 // Relation Validation
 const newsValidationRelation = Joi.object({
-  title: joiText({ min: 2, max: 1000 }),
+  title: joiText({ min: 2, max: 20000 }),
   poster: fileVal.allow(null),
-  content: joiText({ min: 2, max: 10000 }),
+  content: joiText({ min: 2, max: 100000 }),
   category: newsCategoryValidationRelation.allow(null),
   date: Joi.date(),
   ...CommonsVal,
