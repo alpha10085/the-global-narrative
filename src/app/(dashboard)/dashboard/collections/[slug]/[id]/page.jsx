@@ -38,7 +38,7 @@ const Page = (props) => {
   // loading conditions
   if (isLoading) return <LoaderLayout />;
   // not found conditions
-  const notFoundConditions = type !== "collections" || error.status === 404;
+  const notFoundConditions = type !== "collections" || error === 404;
   if (notFoundConditions) return notFound();
   // need error ui
   if (error) return <ErrorLayOut />;

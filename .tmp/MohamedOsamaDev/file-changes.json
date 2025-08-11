@@ -26,10 +26,10 @@
   {
     "file": "src/app/(dashboard)/dashboard/collections/[slug]/[id]/page.jsx",
     "firstSeenAt": "8/11/2025, 5:15:02 AM",
-    "lastUpdatedAt": "8/11/2025, 5:15:23 AM",
+    "lastUpdatedAt": "8/11/2025, 1:58:09 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 3
+    "count": 4
   },
   {
     "file": "src/app/api/(constant)/users/route.js",
