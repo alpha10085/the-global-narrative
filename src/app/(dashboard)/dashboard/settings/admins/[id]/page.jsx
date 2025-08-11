@@ -37,9 +37,11 @@ const Page = (props) => {
   // loading conditions
   if (isLoading) return <LoaderLayout />;
   // not found conditions
-  const notFoundConditions = !schema || !enabled;
+  const notFoundConditions = !schema || !enabled || error.status === 404
   if (notFoundConditions) return notFound();
   // need error ui
+  console.log(error);
+  
   if (error) return <ErrorLayOut />;
 
   return (

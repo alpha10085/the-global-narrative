@@ -11,10 +11,14 @@ import ErrorLayOut from "@/_Dashboard/components/ErrorLayOut/ErrorLayOut";
 import { useLocale } from "next-intl";
 const Page = (props) => {
   const { id, slug = "" } = use(props.params);
-  
-      const locale = useLocale()
+
+  const locale = useLocale();
   const searchParams = use(props.searchParams);
-  const { displayName, schema, validation, type } = useSchema(slug , true, "collections");
+  const { displayName, schema, validation, type } = useSchema(
+    slug,
+    true,
+    "collections"
+  );
   const language = schema.options.translation
     ? searchParams?.language || locale
     : null;
@@ -34,7 +38,7 @@ const Page = (props) => {
   // loading conditions
   if (isLoading) return <LoaderLayout />;
   // not found conditions
-  const notFoundConditions = type !== "collections";
+  const notFoundConditions = type !== "collections" || error.status === 404;
   if (notFoundConditions) return notFound();
   // need error ui
   if (error) return <ErrorLayOut />;
