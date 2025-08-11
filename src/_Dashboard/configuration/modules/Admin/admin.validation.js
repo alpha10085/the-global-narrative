@@ -18,6 +18,7 @@ export const adminVal = (locale = "en") => {
     }),
     password: joiText({
       max: 100,
+      min:5,
       locale,
     }),
     passwordChangedAt: joiText({

@@ -16,17 +16,7 @@
       "type": "password",
       "label": "password"
     },
-    {
-      "name": "passwordChangedAt",
-      "type": "text",
-      "label": "passwordChangedAt",
-      "readOnly": true
-    },
-    {
-      "name": "phone",
-      "type": "text",
-      "label": "phone"
-    },
+
     {
       "name": "role",
       "type": "enum",
@@ -38,17 +28,7 @@
       ],
       "label": "role"
     },
-    {
-      "name": "confirmEmail",
-      "type": "boolean",
-      "label": "confirmEmail"
-    },
-    {
-      "name": "isActive",
-      "type": "boolean",
-      "readOnly": true,
-      "label": "isActive"
-    },
+
     {
       "name": "isblocked",
       "type": "boolean",

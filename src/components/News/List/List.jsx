@@ -52,9 +52,7 @@ const List = ({ page = {}, categories = [] }) => {
     [singleValue]
   );
 
-  const latestNews = data?.pages?.sort(
-    (a, b) => new Date(b?.createdAt) - new Date(a?.createdAt)
-  );
+
 
 
 

@@ -6,7 +6,7 @@ export const objectIdVal = Joi.string().length(24).hex();
 export const joititle = Joi.string().trim().max(500);
 export const joidesc = Joi.string().trim().max(20000);
 
-export const passwordVal = Joi.string().min(8).max(100).messages({
+export const passwordVal = Joi.string().min(4).max(100).messages({
   "string.min": "Password must be at least 8 characters long.",
   "string.max": "Password must not exceed 100 characters long.",
   "string.empty": "Enter password",

@@ -63,9 +63,9 @@ export const PUT = AsyncHandler(
     // Verify token and get user
     const user = req.user;
     req.body.updatedBy = user?._id;
-    if (req?.body?.password) {
-      req.body.password = bcrypt.hashSync(req?.body?.password, 8);
-    }
+    // if (req?.body?.password) {
+    //   req.body.password = bcrypt.hashSync(req?.body?.password, 8);
+    // }
     const data = await UserModel.findByIdAndUpdate(req?.params?.id, req?.body, {
       new: true,
     })

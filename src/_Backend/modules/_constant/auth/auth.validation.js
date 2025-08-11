@@ -30,15 +30,6 @@ export const authResetPasswordVal = Joi.object({
 export const updateVal = Joi.object({
   fullName: Joi.string().min(1).max(30),
   email: Joi.string().email(),
-  age: Joi.number().integer().min(10).max(80),
-  phone: Joi.string().max(14).optional(),
-  
-  address: Joi.object({
-    street: Joi.string().optional(),
-    gevoremnt: Joi.string().optional(),
-    phone: Joi.string().max(14).optional(),
-    city: Joi.string().optional(),
-  }).optional(),
 });
 export const updatePasswordVal = Joi.object({
   newpassword: Joi.string()
