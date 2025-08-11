@@ -31,7 +31,7 @@ export const GET = FindAll({
     return pipeline;
   },
   cache: {
-    stdTTL: "1y",
+    stdTTL: "0s",
     allowedTo: [enumRoles.admin],
   },
 });
