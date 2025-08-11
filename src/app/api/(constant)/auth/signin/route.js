@@ -46,11 +46,11 @@ export const POST = AsyncHandler(
     }
   },
   {
-    middlewares: [
-      rateLimitMiddleware({
-        limit: 5, // 5 attempts
-        windowMs: timeToMillis("1h"), // per hour
-      }),
-    ],
+    // middlewares: [
+    //   rateLimitMiddleware({
+    //     limit: 5, // 5 attempts
+    //     windowMs: timeToMillis("1h"), // per hour
+    //   }),
+    // ],
   }
 );

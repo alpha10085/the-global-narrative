@@ -4,7 +4,7 @@ import crypto from "crypto";
 
 export const rateLimitMiddleware = ({
   limit = 5,
-  windowMs = 15 * 60 * 1000,
+  windowMs = 15 * 60 * 1000, // 15 minutes
 } = {}) => {
   return async (req, res, next) => {
     const ip = req.userAgent?.ip || req.headers["x-forwarded-for"] || "unknown";
@@ -21,19 +21,22 @@ export const rateLimitMiddleware = ({
 
     let record = await RateLimitModel.findOne({ identifier });
 
-    if (record && record.windowStart > windowStart) {
-      if (record.count >= limit) {
-        return next(
-          new AppError({
-            message: `Too many requests`,
-            code: 429,
-          })
-        );
+    if (record) {
+      if (record.windowStart > windowStart) {
+        if (record.count >= limit) {
+          return next(
+            new AppError({
+              message: `Too many requests`,
+              code: 429,
+            })
+          );
+        }
+        record.count += 1;
+      } else {
+        record.count = 1;
+        record.windowStart = new Date();
       }
-      record.count += 1;
-    } else if (record) {
-      record.count = 1;
-      record.windowStart = new Date();
+      await record.save();
     } else {
       await RateLimitModel.create({
         identifier,
@@ -41,8 +44,6 @@ export const rateLimitMiddleware = ({
         windowStart: new Date(),
       });
     }
-
-    if (record) await record.save();
 
     next();
   };
