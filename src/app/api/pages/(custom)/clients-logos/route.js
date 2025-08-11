@@ -18,7 +18,6 @@ export const GET = AsyncHandler(
         publish: true,
       })
       .lean();
-      
 
     return res(
       {
@@ -30,7 +29,7 @@ export const GET = AsyncHandler(
   },
   {
     cache: {
-   stdTTL:"0s"
+      stdTTL: "0s",
     },
   }
 );
