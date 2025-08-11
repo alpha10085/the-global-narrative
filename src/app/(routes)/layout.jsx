@@ -11,7 +11,7 @@ import { isUnderTest } from "@/utils/isUnderTest";
 import { warmPagesInBackground } from "./test";
 export default async function RootLayout({ children }) {
   const testMode = await isUnderTest();
-  warmPagesInBackground()
+  // warmPagesInBackground()
   return (
     <main
       style={{ fontFamily: "var(--font-inter)" }}
