@@ -1,5 +1,6 @@
 "use client";
-import { createContext, useContext, useState, useEffect } from "react";
+
+import { createContext, useContext, useState, useEffect, useRef } from "react";
 import themes from "../services/themes/themes";
 import CookiesClient from "js-cookie";
 
@@ -7,9 +8,10 @@ const ThemeContext = createContext();
 
 const ThemeCTX = ({ children, initValue = "light" }) => {
   const [theme, setTheme] = useState(initValue);
+  const styleTagRef = useRef(null);
 
   useEffect(() => {
-    // دي هتشتغل بس على العميل
+    // This will run only on the client
     const savedTheme =
       CookiesClient.get("theme") ||
       (typeof window !== "undefined" && localStorage.getItem("theme")) ||
@@ -21,12 +23,23 @@ const ThemeCTX = ({ children, initValue = "light" }) => {
   const { light, dark } = themes;
 
   const toggleTheme = () => {
+    const styleTag = document.createElement("style");
+    styleTag.innerHTML = `* { transition: none !important; }`;
+    document.head.appendChild(styleTag);
+    styleTagRef.current = styleTag;
+
     const selectedTheme = theme === "light" ? "dark" : "light";
     setTheme(selectedTheme);
     CookiesClient.set("theme", selectedTheme, { expires: 730 });
+
     if (typeof window !== "undefined") {
       localStorage.setItem("theme", selectedTheme);
     }
+
+    setTimeout(() => {
+      styleTag.remove();
+      styleTagRef.current = null;
+    }, 500);
   };
 
   const currentTheme = theme === "light" ? light : dark;
@@ -38,9 +51,7 @@ const ThemeCTX = ({ children, initValue = "light" }) => {
       }
     };
     window.addEventListener("storage", handleStorageChange);
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
+    return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
   const ctxProps = {
