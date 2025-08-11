@@ -9,12 +9,18 @@ const config = {
   options: {
     searchFeilds: ["title", "category.title"],
   },
+  
   customQuery,
 };
 export const GET = FindAll({
   ...config,
   allowedTo: [...enumRoles.adminRoles, "public"],
-  publishMode:true
+  publishMode:true,
+    queryMiddleware:(query,user) => {
+    return {
+      sort:"date:desc"
+    }
+  } 
 });
 export const POST = insertOne({
   schemaValidation: InterviewValCreate,

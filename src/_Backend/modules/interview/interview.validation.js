@@ -6,14 +6,16 @@ import { interviewsCategoryValidationRelation } from "../interviewsCategory/inte
 // Validation schema for Interview
 export const InterviewValCreate = Joi.object({
   title: joiText({ min: 2, max: 1000, required: true }),
-  link: joiText({ min: 2, max: 20000, required: true }), 
-   category: interviewsCategoryValidationRelation.required(),
+  link: joiText({ min: 2, max: 20000, required: true }),
+  category: interviewsCategoryValidationRelation.required(),
+  date: Joi.date(),
   ...CommonsVal,
 });
 
 export const InterviewValUpdate = Joi.object({
   title: joiText({ min: 2, max: 1000 }),
   link: joiText({ min: 2, max: 20000 }),
-   category: interviewsCategoryValidationRelation,
+  date: Joi.date(),
+  category: interviewsCategoryValidationRelation,
   ...CommonsVal,
 });
