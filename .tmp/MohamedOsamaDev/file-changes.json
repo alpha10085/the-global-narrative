@@ -1,0 +1,42 @@
+[
+  {
+    "file": "src/components/Shared/StringEditor/StringEditor.jsx",
+    "firstSeenAt": "8/12/2025, 10:50:18 PM",
+    "lastUpdatedAt": "8/13/2025, 4:43:56 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 93
+  },
+  {
+    "file": "src/config/routes.js",
+    "firstSeenAt": "8/12/2025, 11:22:09 PM",
+    "lastUpdatedAt": "8/12/2025, 11:22:09 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/middlewares/auth.js",
+    "firstSeenAt": "8/12/2025, 11:35:59 PM",
+    "lastUpdatedAt": "8/13/2025, 3:45:54 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 4
+  },
+  {
+    "file": "src/components/Shared/StringEditor/StringEditor.module.css",
+    "firstSeenAt": "8/13/2025, 3:46:52 AM",
+    "lastUpdatedAt": "8/13/2025, 4:06:06 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 7
+  },
+  {
+    "file": "src/config/metadata.js",
+    "firstSeenAt": "8/13/2025, 3:48:28 AM",
+    "lastUpdatedAt": "8/13/2025, 4:26:46 AM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 4
+  }
+]

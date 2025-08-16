@@ -8,22 +8,22 @@ import i18next from "i18next";
 /**
  * Utility function to handle validation errors
  */
-const handleValidationError = async (body, error) => {
-  systemLogger(error.details);
-  systemLogger("request body: ", body);
-
+const handleValidationError =  (body, error) => {
+  
   const details = error.details.reduce((prev, curr, i) => {
     const key = curr?.path?.join(".");
     prev[key] = curr?.message?.replace(`"${key}" `, "");
     return prev;
   }, {});
-
+  
   if (isProductionMode) {
-    await sendEmailToTeam({
+     sendEmailToTeam({
       createdAt: new Date().toLocaleDateString(),
       message: "Validation Error",
       stack: error.details,
     }).catch((err) => {});
+    systemLogger(error.details);
+    systemLogger("request body: ", body);
   }
   throw new AppError({
     message: `validation-error`,

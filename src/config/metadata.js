@@ -2,7 +2,7 @@ const metadata = {
   title: process.env.NEXT_PUBLIC_project_name,
   description: "Welcome",
   other: {
-    "color-scheme": "light dark",
+    "color-scheme": "light ",
     "supported-color-schemes": "light",
   },
 };
@@ -18,3 +18,6 @@ const main = {
   viewport,
 };
 export default main;
+
+
+

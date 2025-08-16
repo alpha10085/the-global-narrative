@@ -1,0 +1,110 @@
+/* WordLikeEditor.module.css */
+
+.container {
+  width: 100%;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.button {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #ccc;
+  background-color: white;
+  cursor: pointer;
+  color: black;
+}
+
+.button:hover {
+  background-color: #f9f9f9;
+}
+
+.buttonPrimary {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.buttonPrimary:hover {
+  background-color: #1d4ed8;
+}
+
+.linkForm {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+  background-color: white;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.input {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid #ccc;
+}
+
+.inputFull {
+  flex: 1;
+}
+
+.inputUrl {
+  width: 14rem;
+}
+
+/* NEW: replaces .textarea */
+.editorArea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #ccc;
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  white-space: pre-wrap;
+  background-color: white;
+  min-height: 120px;
+  outline: none;
+  cursor: text;
+}
+
+/* Keep formatting visible */
+.editorArea strong {
+  font-size: 20px;
+  font-weight: bold;
+}
+.editorArea h2 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+.editorArea a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.codeBox {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.375rem;
+  background-color: #f9fafb;
+  white-space: pre-wrap;
+}
+
+.hint {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
