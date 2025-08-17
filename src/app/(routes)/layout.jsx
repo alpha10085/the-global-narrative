@@ -27,7 +27,7 @@ export default async function RootLayout({ children }) {
             Component={Footer}
             path="/components/footer"
             Fallback={Fallback}
-            props={{ revalidate: "1y" }}
+            options={{ revalidate: "1y"  }}
           />
 
           <Toaster />
