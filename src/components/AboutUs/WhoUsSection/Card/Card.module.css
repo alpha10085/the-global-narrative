@@ -137,6 +137,9 @@
     transform: none !important;
     opacity: 0;
     transition: opacity 0.6s ease;
+    position: relative;
+    top: unset;
+    
   }
 
   .image img {
