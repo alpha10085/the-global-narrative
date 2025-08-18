@@ -5,26 +5,26 @@ import styles from "./ErrorBoundary.module.css";
 import Spinner from "../Spinner/Spinner";
 
 const ErrorBoundaryPage = ({ isLoading = false,handleCheckServer }) => {
-  useEffect(() => {
-    let interval;
+  // useEffect(() => {
+  //   let interval;
 
-    const pollServer = async () => {
-      try {
-        const isLive = await handleCheckServer();
-        if (isLive) {
-          clearInterval(interval);
+  //   const pollServer = async () => {
+  //     try {
+  //       const isLive = await handleCheckServer();
+  //       if (isLive) {
+  //         clearInterval(interval);
           
-        }
-      } catch {
-        // still down → do nothing
-      }
-    };
+  //       }
+  //     } catch {
+  //       // still down → do nothing
+  //     }
+  //   };
 
-    interval = setInterval(pollServer, 2000); // check every 2s
-    pollServer(); // run immediately on mount
+  //   interval = setInterval(pollServer, 5000); // check every 2s
+  //   pollServer(); // run immediately on mount
 
-    return () => clearInterval(interval);
-  }, [handleCheckServer]);
+  //   return () => clearInterval(interval);
+  // }, [handleCheckServer]);
 
   return (
     <section className={`${styles.container} showSmooth`}>

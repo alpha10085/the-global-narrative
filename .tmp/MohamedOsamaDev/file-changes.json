@@ -42,10 +42,10 @@
   {
     "file": "src/contexts/ErrorBoundryCTX/ErrorBoundryCTX.js",
     "firstSeenAt": "8/18/2025, 3:51:03 PM",
-    "lastUpdatedAt": "8/18/2025, 4:23:59 PM",
+    "lastUpdatedAt": "8/18/2025, 4:49:49 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 17
+    "count": 25
   },
   {
     "file": "src/utils/api.js",
@@ -66,7 +66,15 @@
   {
     "file": "src/components/Shared/ErrorBoundary/ErrorBoundary.jsx",
     "firstSeenAt": "8/18/2025, 4:22:41 PM",
-    "lastUpdatedAt": "8/18/2025, 4:23:29 PM",
+    "lastUpdatedAt": "8/18/2025, 4:47:44 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 4
+  },
+  {
+    "file": "src/config/main.js",
+    "firstSeenAt": "8/18/2025, 4:46:37 PM",
+    "lastUpdatedAt": "8/18/2025, 4:50:05 PM",
     "lastType": "changed",
     "Type": "changed",
     "count": 2

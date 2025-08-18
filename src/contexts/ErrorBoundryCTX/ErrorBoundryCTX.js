@@ -45,6 +45,7 @@ export const ErrorBoundary = ({ children, boundary }) => {
       CookiesClient.set("boundary", "true", { expires: 10 });
       setState({ error: true, isLoading: false });
     }
+    return showOfflineBanner()
   };
 
   const hideBoundary = () => {
