@@ -36,9 +36,8 @@ export const ErrorBoundary = ({ children, boundary }) => {
   }
   const showBoundary = async () => {
     if (isOffline) return null;
-    console.log(await checkSpeed());
 
-    if (!(await checkSpeed())?.error) {
+    if ((await checkSpeed())?.error) {
       showOfflineBanner();
     }
 
