@@ -15,8 +15,33 @@ export const ErrorBoundary = ({ children, boundary }) => {
     error: boundary,
     isOffline: false,
   });
-  const showBoundary = () => {
+
+  async function checkSpeed() {
+    const start = Date.now();
+    try {
+      await fetch("/api", { cache: "no-store" }); // يشتغل من نفس الدومين
+      const duration = Date.now() - start;
+      return {
+        conntection: duration > 2000 ? "slow" : "fast", // >2s → slow
+        error: false,
+      };
+    } catch (err) {
+      console.log(err);
+
+      return {
+        conntection: "none",
+        error: true,
+      };
+    }
+  }
+  const showBoundary = async () => {
     if (isOffline) return null;
+    console.log(await checkSpeed());
+
+    if (!(await checkSpeed())?.error) {
+      showOfflineBanner();
+    }
+
     CookiesClient.set("boundary", "true", { expires: 10 });
     setState({
       error: true,

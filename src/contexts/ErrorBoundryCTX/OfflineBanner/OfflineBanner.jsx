@@ -21,16 +21,18 @@ const OfflineBanner = ({ children, enabled = false }) => {
           {children}
         </div>
       ) : (
-        <div className={`${styles.offlineBanner} ${!enabled ? styles.hide : ""} flex-c column gap10`}>
-          <span className={`${styles.icon} flex-c`}>
-            <WifiTetheringOffIcon />
-          </span>
-          <h1>You're Offline !</h1>
-          <p>
-            It looks like your internet connection was lost, Some features may
-            not be available until you're back online.
-          </p>
-        </div>
+<div
+  className={`${styles.offlineBanner} ${!enabled ? styles.hide : ""} flex-c column gap10`}
+>
+  <span className={`${styles.icon} flex-c`}>
+    <WifiTetheringOffIcon />
+  </span>
+  <h1>Connection Issue</h1>
+  <p>
+    Your internet connection seems slow or offline. Some features might not work 
+    properly until your connection improves.
+  </p>
+</div>
       )}
     </section>
   );

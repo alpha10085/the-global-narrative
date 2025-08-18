@@ -37,12 +37,7 @@ const sharedModels = [
 ];
 export const GET = AsyncHandler(
   async (req, res, next) => {
-    // const result = await migrateModelsToProd(
-    //   models,
-    //   process.env.LOCAL_DB_URI,
-    //   process.env.DB_URL,
-    //   sharedModels
-    // );
+
     return res({
       message: "live",
     });

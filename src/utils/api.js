@@ -78,7 +78,7 @@ csrApi.interceptors.response.use(
       const isOffline = typeof navigator !== "undefined" && !navigator.onLine;
       if (isOffline) {
         eventBus.emit("offline-mode", true);
-      } else {
+      } else { 
         eventBus.emit("server-down", true);
       }
       return Promise.reject({
