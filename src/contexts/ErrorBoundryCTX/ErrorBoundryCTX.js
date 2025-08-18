@@ -55,8 +55,12 @@ export const ErrorBoundary = ({ children, boundary }) => {
   const handleCheckServer = async () => {
     setState({ isLoading: true });
     const isLive = await checkApi();
-    if (isLive) return hideBoundary();
+    if (isLive) {
+      hideBoundary();
+      return true;
+    }
     showBoundary();
+    return false
   };
 
   const showOfflineBanner = () => {
@@ -94,7 +98,14 @@ export const ErrorBoundary = ({ children, boundary }) => {
 
   return (
     <OfflineBanner enabled={isOffline}>
-      {error ? <ErrorBoundaryPage isLoading={isLoading} /> : children}
+      {error ? (
+        <ErrorBoundaryPage
+          handleCheckServer={handleCheckServer}
+          isLoading={isLoading}
+        />
+      ) : (
+        children
+      )}
     </OfflineBanner>
   );
 };
