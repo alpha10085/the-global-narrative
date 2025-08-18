@@ -42,10 +42,10 @@ export const ErrorBoundary = ({ children, boundary }) => {
 
     const { error } = await checkSpeed();
     if (error) {
-      CookiesClient.set("boundary", "true", { expires: 10 });
-      setState({ error: true, isLoading: false });
+      return showOfflineBanner()
     }
-    return showOfflineBanner()
+    CookiesClient.set("boundary", "true", { expires: 10 });
+    setState({ error: true, isLoading: false });
   };
 
   const hideBoundary = () => {
@@ -56,6 +56,7 @@ export const ErrorBoundary = ({ children, boundary }) => {
   const handleCheckServer = async () => {
     setState({ isLoading: true });
     const isLive = await checkApi();
+        setState({ isLoading: false });
     if (isLive) {
       hideBoundary();
       return true;
