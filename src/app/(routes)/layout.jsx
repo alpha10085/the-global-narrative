@@ -19,7 +19,7 @@ export default async function RootLayout({ children }) {
     >
       <SmoothScroll duration={1} />
 
-      <NavBar />
+      <NavBar isUnderTest={testMode} />
       <div style={{ minHeight: "100vh" }}>{children}</div>
       {!testMode && (
         <>

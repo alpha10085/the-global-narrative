@@ -13,7 +13,9 @@ import { delay } from "@/utils/delay";
 import useDynamicState from "@/hooks/useDynamicState";
 import Intro from "./Intro/Intro";
 
-const NavBar = () => {
+const NavBar = ({
+  isUnderTest = false
+}) => {
   const [openMobil, setOpenMobile] = useState(false);
   const BurgerBtnRef = useRef(null);
   const navRef = useRef(null);
@@ -193,6 +195,7 @@ const NavBar = () => {
           <Intro
             theme={navMode?.darkLogo ? "light" : "dark"}
             classNameWrapper={styles.logo}
+            isUnderTest={isUnderTest}
           />
 
           <ul
