@@ -101,6 +101,7 @@ const List = ({ page = {}, categories = [] }) => {
           </Aos>
         </div>
       </div>
+      
       <Aos
         delay={1500}
         activeClassName={styles.active}
