@@ -106,10 +106,25 @@ const DashboardTester = () => {
             {/* Validation results */}
             {log.validation && (
               <details className={styles.detail} open>
-                <summary className=" mb-15 ">Validation</summary>
-                <p>- Create {log.validation.create.success ? "✅" : "❌"}</p>
-                <p>- Update {log.validation.update.success ? "✅" : "❌"}</p>
-                <pre>{JSON.stringify(log.validation, null, 2)}</pre>
+                <summary className=" mb-10">Validation Results</summary>
+
+                {Object.entries(log.validation).map(([stage, val]) => (
+                  <div key={stage} className={styles.validationStage}>
+                    <strong>
+                      {stage.charAt(0).toUpperCase() + stage.slice(1)}:
+                    </strong>{" "}
+                    {val.success
+                      ? "✅ All fields valid"
+                      : "❌ Some fields failed"}
+                    {!val.success && (
+                      <ul className={styles.validationList}>
+                        {val.errors.map((err, i) => (
+                          <li key={i}>❌ {err}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
               </details>
             )}
 

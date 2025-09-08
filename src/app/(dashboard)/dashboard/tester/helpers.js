@@ -60,21 +60,22 @@ export const cleanOriginalData = (data, commonVal) => {
  */
 export const validateFakeData = (validationFn, data, locale = "en") => {
   if (typeof validationFn !== "function") {
-    return { success: true, data }; // no validation, just pass through
+    return { success: true, data, errors: [] };
   }
 
-  const schema = validationFn(locale, false);
+  const schema = validationFn(locale, false); // build Joi schema
   const { error, value } = schema.validate(data, {
     abortEarly: false,
-    stripUnknown: true,
+    stripUnknown: true, // remove extra props not in validation
   });
 
   if (error) {
     return {
       success: false,
+      data: value,
       errors: error.details.map((d) => `${d.path.join(".")}: ${d.message}`),
     };
   }
 
-  return { success: true, data: value };
+  return { success: true, data: value, errors: [] };
 };

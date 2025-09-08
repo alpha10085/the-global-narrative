@@ -30,19 +30,15 @@ const testPageOrComponents = async (schema) => {
   };
 
   try {
-    // 1️⃣ Fetch original
-    const originalRes = await GetSingleEntry({
-      queryKey: [schema.key, { slug }],
-    });
+    const originalRes = await GetSingleEntry({ queryKey: [schema.key, { slug }] });
     const originalData = originalRes?.data || originalRes;
     result.originalData = originalData;
 
-    // 2️⃣ Generate + validate fake update
+    // --- Generate fake update + validate
     let fakeUpdate = await generateFakeData(schema.schema.fields);
     const validationUpdate = validateFakeData(schema.validation, fakeUpdate);
 
     result.validation.update = validationUpdate;
-
     if (!validationUpdate.success) {
       result.error = "Update validation failed";
       return result;
@@ -51,7 +47,7 @@ const testPageOrComponents = async (schema) => {
     fakeUpdate = validationUpdate.data;
     result.updatedData = fakeUpdate;
 
-    // 3️⃣ Update with fake data
+    // --- Update entry
     await handleDynamicFormApi({
       slug,
       id: originalData.key,
@@ -61,7 +57,7 @@ const testPageOrComponents = async (schema) => {
     });
     result.update = true;
 
-    // 4️⃣ Restore original (validate first)
+    // --- Restore original
     const cleanedOriginal = cleanOriginalData(originalData, commonVal);
     const validationRestore = validateFakeData(schema.validation, cleanedOriginal);
     result.validation.restore = validationRestore;
@@ -84,6 +80,7 @@ const testPageOrComponents = async (schema) => {
 
   return result;
 };
+
 
 
 /**

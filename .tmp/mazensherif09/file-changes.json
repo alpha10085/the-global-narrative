@@ -2,42 +2,42 @@
   {
     "file": "src/app/(dashboard)/dashboard/tester/utils.js",
     "firstSeenAt": "9/7/2025, 3:50:29 AM",
-    "lastUpdatedAt": "9/7/2025, 6:32:20 PM",
-    "lastType": "changed",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
+    "lastType": "added",
     "Type": "added",
-    "count": 38
+    "count": 39
   },
   {
     "file": "src/app/(dashboard)/dashboard/tester/page.jsx",
     "firstSeenAt": "9/7/2025, 3:52:00 AM",
-    "lastUpdatedAt": "9/8/2025, 10:43:14 PM",
+    "lastUpdatedAt": "9/8/2025, 11:01:28 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 60
+    "count": 69
   },
   {
     "file": "src/app/(dashboard)/dashboard/tester/servies.js",
     "firstSeenAt": "9/7/2025, 3:53:16 AM",
-    "lastUpdatedAt": "9/8/2025, 10:37:51 PM",
+    "lastUpdatedAt": "9/8/2025, 10:58:29 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 136
+    "count": 138
   },
   {
     "file": "src/app/(dashboard)/dashboard/tester/helpers.js",
     "firstSeenAt": "9/7/2025, 5:01:40 AM",
-    "lastUpdatedAt": "9/8/2025, 10:38:14 PM",
+    "lastUpdatedAt": "9/8/2025, 10:58:20 PM",
     "lastType": "changed",
     "Type": "added",
-    "count": 19
+    "count": 22
   },
   {
     "file": "src/app/(dashboard)/dashboard/tester/page.module.css",
     "firstSeenAt": "9/7/2025, 5:54:05 AM",
-    "lastUpdatedAt": "9/8/2025, 6:21:43 PM",
-    "lastType": "changed",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
+    "lastType": "added",
     "Type": "added",
-    "count": 19
+    "count": 20
   },
   {
     "file": "src/_Dashboard/lib/dashboard.js",
@@ -82,10 +82,10 @@
   {
     "file": "src/config/main.js",
     "firstSeenAt": "9/8/2025, 7:26:19 PM",
-    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 1
+    "count": 2
   },
   {
     "file": "src/contexts/ErrorBoundryCTX/ErrorBoundryCTX.js",
@@ -139,6 +139,78 @@
     "file": "src/_Dashboard/services/themes/light.theme.css",
     "firstSeenAt": "9/8/2025, 7:26:19 PM",
     "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "removed",
+    "Type": "removed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Sidebar/Sidebar.jsx",
+    "firstSeenAt": "9/8/2025, 10:43:52 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/components/Sidebar/sidebar.module.css",
+    "firstSeenAt": "9/8/2025, 10:43:52 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/i18n/locales/en.json",
+    "firstSeenAt": "9/8/2025, 10:43:52 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/config/routes.js",
+    "firstSeenAt": "9/8/2025, 10:43:52 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/(dashboard)/dashboard/dashboard-tester/helpers.js",
+    "firstSeenAt": "9/8/2025, 10:43:52 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
+    "lastType": "removed",
+    "Type": "removed",
+    "count": 1
+  },
+  {
+    "file": "src/app/(dashboard)/dashboard/dashboard-tester/page.jsx",
+    "firstSeenAt": "9/8/2025, 10:43:52 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
+    "lastType": "removed",
+    "Type": "removed",
+    "count": 1
+  },
+  {
+    "file": "src/app/(dashboard)/dashboard/dashboard-tester/page.module.css",
+    "firstSeenAt": "9/8/2025, 10:43:52 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
+    "lastType": "removed",
+    "Type": "removed",
+    "count": 1
+  },
+  {
+    "file": "src/app/(dashboard)/dashboard/dashboard-tester/servies.js",
+    "firstSeenAt": "9/8/2025, 10:43:52 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
+    "lastType": "removed",
+    "Type": "removed",
+    "count": 1
+  },
+  {
+    "file": "src/app/(dashboard)/dashboard/dashboard-tester/utils.js",
+    "firstSeenAt": "9/8/2025, 10:43:52 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:52 PM",
     "lastType": "removed",
     "Type": "removed",
     "count": 1
