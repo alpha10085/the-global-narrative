@@ -103,6 +103,16 @@ const DashboardTester = () => {
               </li>
             </ul>
 
+            {/* Validation results */}
+            {log.validation && (
+              <details className={styles.detail} open>
+                <summary className=" mb-15 ">Validation</summary>
+                <p>- Create {log.validation.create.success ? "✅" : "❌"}</p>
+                <p>- Update {log.validation.update.success ? "✅" : "❌"}</p>
+                <pre>{JSON.stringify(log.validation, null, 2)}</pre>
+              </details>
+            )}
+
             {/* Extra debug info */}
             {log.createData && (
               <details className={styles.detail}>

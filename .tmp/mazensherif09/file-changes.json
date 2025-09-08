@@ -10,26 +10,26 @@
   {
     "file": "src/app/(dashboard)/dashboard/dashboard-tester/page.jsx",
     "firstSeenAt": "9/7/2025, 3:52:00 AM",
-    "lastUpdatedAt": "9/8/2025, 6:22:22 PM",
+    "lastUpdatedAt": "9/8/2025, 10:43:14 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 46
+    "count": 60
   },
   {
     "file": "src/app/(dashboard)/dashboard/dashboard-tester/servies.js",
     "firstSeenAt": "9/7/2025, 3:53:16 AM",
-    "lastUpdatedAt": "9/8/2025, 7:24:22 PM",
+    "lastUpdatedAt": "9/8/2025, 10:37:51 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 134
+    "count": 136
   },
   {
     "file": "src/app/(dashboard)/dashboard/dashboard-tester/helpers.js",
     "firstSeenAt": "9/7/2025, 5:01:40 AM",
-    "lastUpdatedAt": "9/8/2025, 7:19:43 PM",
+    "lastUpdatedAt": "9/8/2025, 10:38:14 PM",
     "lastType": "changed",
     "Type": "added",
-    "count": 16
+    "count": 19
   },
   {
     "file": "src/app/(dashboard)/dashboard/dashboard-tester/page.module.css",
@@ -42,9 +42,105 @@
   {
     "file": "src/_Dashboard/lib/dashboard.js",
     "firstSeenAt": "9/7/2025, 6:23:11 AM",
-    "lastUpdatedAt": "9/8/2025, 7:20:56 PM",
+    "lastUpdatedAt": "9/8/2025, 10:24:01 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 3
+    "count": 4
+  },
+  {
+    "file": "src/_Dashboard/components/Media/DisplayMedia/Pdf/Pdf.jsx",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/layouts/DynamicForm/DynamicForm.jsx",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/app/(dashboard)/layout.jsx",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/components/Shared/ErrorBoundary/ErrorBoundary.jsx",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/config/main.js",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/contexts/ErrorBoundryCTX/ErrorBoundryCTX.js",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/contexts/ErrorBoundryCTX/OfflineBanner/OfflineBanner.jsx",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/utils/api.js",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/services/themes/dark.css",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "added",
+    "Type": "added",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/services/themes/light.css",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "added",
+    "Type": "added",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/services/themes/dark.theme.css",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "removed",
+    "Type": "removed",
+    "count": 1
+  },
+  {
+    "file": "src/_Dashboard/services/themes/light.theme.css",
+    "firstSeenAt": "9/8/2025, 7:26:19 PM",
+    "lastUpdatedAt": "9/8/2025, 7:26:19 PM",
+    "lastType": "removed",
+    "Type": "removed",
+    "count": 1
   }
 ]
