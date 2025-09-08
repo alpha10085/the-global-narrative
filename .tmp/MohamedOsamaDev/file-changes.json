@@ -74,10 +74,10 @@
   {
     "file": "src/config/main.js",
     "firstSeenAt": "8/18/2025, 4:46:37 PM",
-    "lastUpdatedAt": "9/8/2025, 7:52:32 PM",
+    "lastUpdatedAt": "9/8/2025, 7:59:18 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 5
+    "count": 10
   },
   {
     "file": "src/utils/isUnderTest.js",
@@ -90,10 +90,10 @@
   {
     "file": "src/app/(dashboard)/dashboard/tester/page.jsx",
     "firstSeenAt": "9/8/2025, 7:41:54 PM",
-    "lastUpdatedAt": "9/8/2025, 7:45:33 PM",
-    "lastType": "added",
+    "lastUpdatedAt": "9/8/2025, 7:58:52 PM",
+    "lastType": "changed",
     "Type": "changed",
-    "count": 2
+    "count": 3
   },
   {
     "file": "src/_Dashboard/components/Sidebar/Sidebar.jsx",
