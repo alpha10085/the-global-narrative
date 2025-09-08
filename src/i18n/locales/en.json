@@ -20,7 +20,8 @@
       "media": "Media",
       "components": "components",
       "settings": "Settings",
-      "Analytics": "Analytics"
+      "Analytics": "Analytics",
+      "tester": "Tester"
     },
     "inputs": {
       "thumbnail": "thumbnail",

@@ -20,6 +20,8 @@ import Loader from "./Loader/Loader";
 import RouteList from "./RoutesList/RouteList";
 import BubbleChartIcon from "@mui/icons-material/BubbleChart";
 import { usePathname } from "@/hooks/useTranslations";
+import BugReportIcon from '@mui/icons-material/BugReport';
+import { isProductionMode } from "@/config/main";
 function extractLastPathSegment(url = "") {
   // Split the URL into parts by "/"
   return url.replace("/dashboard", "")?.split("/").filter(Boolean);
@@ -57,6 +59,7 @@ const Sidebar = () => {
       "Sidebar.settings",
       "Sidebar.workspace",
       "Sidebar.Analytics",
+      "Sidebar.tester",
       ...[...collections, ...pages, ...components].map(
         (val) => `displaynames.${val?.displayName}`
       ),
@@ -179,6 +182,20 @@ const Sidebar = () => {
                       {translations?.Sidebar?.settings}
                     </Link>
                   </div>
+             {!isProductionMode &&     <div
+                    className={`${style.title}  ${
+                      pathname?.pathname?.includes("tester") &&
+                      `${style?.active} `
+                    } flex al-i-c gap5 pb-10`}
+                  >
+                    <BugReportIcon />
+                    <Link
+                      className={`${style.linkeffect}`}
+                      href={"/dashboard/tester"}
+                    >
+                      {translations?.Sidebar?.tester}
+                    </Link>
+                  </div>}
                 </div>
               </div>
 
