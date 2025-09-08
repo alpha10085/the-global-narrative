@@ -6,7 +6,7 @@ import { NextMiddleware } from "./middlewares/_helpers";
 
 export const middleware = NextMiddleware([
   localeMiddleware,
-   AuthRoutesMiddleware,
+  AuthRoutesMiddleware,
 ]);
 
 export const config = {
@@ -15,5 +15,3 @@ export const config = {
     "/((?!api|_next/static|_next/image|favicon.ico|media).*)", // Excludes api, _next/static, _next/image, favicon.ico, and /media],
   ],
 };
-
-
