@@ -10,7 +10,7 @@ import { usePathname } from "@/hooks/useTranslations";
 import eventBus from "@/utils/eventBus";
 import { videoKey } from "../helpers";
 
-const Intro = ({ theme = "dark", classNameWrapper = "" }) => {
+const Intro = ({ theme = "dark",isUnderTest=false, classNameWrapper = "" }) => {
   const { pathname } = usePathname();
   const isHome = pathname === "/";
 
@@ -23,7 +23,7 @@ const Intro = ({ theme = "dark", classNameWrapper = "" }) => {
   const { disableScroll, enableScroll } = useScrollControl({ default: false });
   const { event, isFinished, hide } = state;
 
-  const showIntro = isHome && !hide;
+  const showIntro = isHome && !hide && !isUnderTest
 
   const runSequence = useCallback(async () => {
     disableScroll();

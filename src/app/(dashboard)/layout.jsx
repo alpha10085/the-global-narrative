@@ -1,7 +1,7 @@
 import Sidebar from "@/_Dashboard/components/Sidebar/Sidebar";
 import Wrapper from "@/_Dashboard/components/boxs/Wrapper/wrapper";
-import "@/_Dashboard/services/themes/dark.theme.css";
-import "@/_Dashboard/services/themes/light.theme.css";
+import "@/_Dashboard/services/themes/dark.css";
+import "@/_Dashboard/services/themes/light.css";
 import "@/_Dashboard/configuration/styles/main.css";
 import FileUploadCTX from "@/_Dashboard/components/Media/UploadFile/ContextApi/FileUploadCTX";
 import ToasterComponent from "@/_Dashboard/components/Toaster/Toster";

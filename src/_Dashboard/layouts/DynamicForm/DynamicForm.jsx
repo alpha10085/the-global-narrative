@@ -2,7 +2,7 @@
 import styles from "./DynamicForm.module.css";
 import { memo } from "react";
 import InFormationBox from "@/_Dashboard/components/boxs/InFormationBox/InFormationBox";
-import FieldManager from "@/_Dashboard/components/FieldManger/FieldManger.jsx";
+import FieldManager from "@/_Dashboard/components/FieldManger/FieldManger";
 import useHelpers from "./useHelpers";
 import Header from "./Header/Header";
 import LoaderLayout from "@/_Dashboard/components/LoaderLayout/LoaderLayout";

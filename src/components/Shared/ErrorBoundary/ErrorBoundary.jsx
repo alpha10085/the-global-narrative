@@ -1,9 +1,31 @@
 "use client";
+import { useEffect } from "react";
 import SyncIcon from "@mui/icons-material/Sync";
 import styles from "./ErrorBoundary.module.css";
 import Spinner from "../Spinner/Spinner";
 
-const ErrorBoundaryPage = ({ isLoading = false }) => {
+const ErrorBoundaryPage = ({ isLoading = false,handleCheckServer }) => {
+  // useEffect(() => {
+  //   let interval;
+
+  //   const pollServer = async () => {
+  //     try {
+  //       const isLive = await handleCheckServer();
+  //       if (isLive) {
+  //         clearInterval(interval);
+          
+  //       }
+  //     } catch {
+  //       // still down → do nothing
+  //     }
+  //   };
+
+  //   interval = setInterval(pollServer, 5000); // check every 2s
+  //   pollServer(); // run immediately on mount
+
+  //   return () => clearInterval(interval);
+  // }, [handleCheckServer]);
+
   return (
     <section className={`${styles.container} showSmooth`}>
       {isLoading ? (
@@ -11,8 +33,7 @@ const ErrorBoundaryPage = ({ isLoading = false }) => {
       ) : (
         <div className={`${styles.content} showSmooth`}>
           <div className={styles.iconContainer}>
-            <SyncIcon className={styles.icon} />{" "}
-            {/* Rotating icon for visual effect */}
+            <SyncIcon className={styles.icon} />
           </div>
           <h1 className={styles.heading}>Attention</h1>
           <p className={styles.message}>
