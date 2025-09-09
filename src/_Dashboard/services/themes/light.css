@@ -66,18 +66,21 @@
 .light-btn30 {
   background-color: #f0f0f0;
   color: #000000;
-  border-color: #b0b0b0;
-  border-style: solid;
-  transition: 0.4s;
+  border: 1px solid #b0b0b0;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
-
 .light-btn30:hover {
   background-color: #e0e0e0;
-  color: #000000;
   border-color: #d0d0d0;
-  border-style: solid;
 }
+.light-btn30.active {
+  background-color: #cccccc;
+  border-color: #999999;
+  color: #000000;
+}
+
+
 
 .light-btn40 {
   color: black;
