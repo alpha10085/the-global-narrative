@@ -12,6 +12,7 @@ import {
 const interviewsSchema = new Schema({
   metadata: pageMetadata,
   title: mongtext,
+  subTitle: mongtext,
 });
 
 // Pre-hook to populate metadata fields

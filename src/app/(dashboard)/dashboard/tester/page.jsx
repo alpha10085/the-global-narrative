@@ -106,17 +106,19 @@ const DashboardTester = () => {
             {/* Validation results */}
             {log.validation && (
               <details className={styles.detail} open>
-                <summary className=" mb-10">Validation Results</summary>
+                <summary className="mb-10">Validation Results</summary>
 
                 {Object.entries(log.validation).map(([stage, val]) => (
                   <div key={stage} className={styles.validationStage}>
                     <strong>
                       {stage.charAt(0).toUpperCase() + stage.slice(1)}:
                     </strong>{" "}
-                    {val.success
+                    {val?.success === true
                       ? "✅ All fields valid"
-                      : "❌ Some fields failed"}
-                    {!val.success && (
+                      : val?.success === false
+                      ? "❌ Some fields failed"
+                      : "⚠ Validation not run"}
+                    {!val?.success && val?.errors?.length > 0 && (
                       <ul className={styles.validationList}>
                         {val.errors.map((err, i) => (
                           <li key={i}>❌ {err}</li>
@@ -141,10 +143,14 @@ const DashboardTester = () => {
                 <pre>{JSON.stringify(log.updatedData, null, 2)}</pre>
               </details>
             )}
-            {log.error && (
+            {log.errors && (
               <details className={styles.detail} open>
-                <summary>Error</summary>
-                <pre>{JSON.stringify(log.error, null, 2)}</pre>
+                <summary>Error Case Results</summary>
+                <ul>
+                  {log.errors.map((err, i) => (
+                    <li key={i}>{err}</li>
+                  ))}
+                </ul>
               </details>
             )}
           </div>
@@ -155,3 +161,28 @@ const DashboardTester = () => {
 };
 
 export default DashboardTester;
+
+/*
+  const [testMode, setTestMode] = useState("clean");
+
+      // <div className={styles.testMode}>
+      //   <button
+      //     className={`${styles.modeBtn} ${
+      //       testMode === "clean" ? styles.active : ""
+      //     }`}
+      //     onClick={() => setTestMode("clean")}
+      //   >
+      //     Clean Test
+      //   </button>
+      //   <button
+      //     className={`${styles.modeBtn} ${
+      //       testMode === "errors" ? styles.active : ""
+      //     }`}
+      //     onClick={() => setTestMode("errors")}
+      //   >
+      //     Error Test
+      //   </button>
+      // </div>
+
+
+ */

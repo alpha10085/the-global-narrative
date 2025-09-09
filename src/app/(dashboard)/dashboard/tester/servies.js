@@ -24,7 +24,10 @@ const testPageOrComponents = async (schema) => {
     update: false,
     delete: null,
     error: null,
-    validation: { update: null, restore: null },
+    validation: {
+      update: { success: null, errors: [] },
+      restore: { success: null, errors: [] },
+    },
     originalData: null,
     updatedData: null,
   };
@@ -38,7 +41,8 @@ const testPageOrComponents = async (schema) => {
     let fakeUpdate = await generateFakeData(schema.schema.fields);
     const validationUpdate = validateFakeData(schema.validation, fakeUpdate);
 
-    result.validation.update = validationUpdate;
+    // Safe assignment
+    result.validation.update = validationUpdate || { success: null, errors: [] };
     if (!validationUpdate.success) {
       result.error = "Update validation failed";
       return result;
@@ -60,8 +64,8 @@ const testPageOrComponents = async (schema) => {
     // --- Restore original
     const cleanedOriginal = cleanOriginalData(originalData, commonVal);
     const validationRestore = validateFakeData(schema.validation, cleanedOriginal);
-    result.validation.restore = validationRestore;
 
+    result.validation.restore = validationRestore || { success: null, errors: [] };
     if (!validationRestore.success) {
       result.error = "Restore validation failed";
       return result;
@@ -80,8 +84,6 @@ const testPageOrComponents = async (schema) => {
 
   return result;
 };
-
-
 
 /**
  * Full CRUD test for generic collections
@@ -155,10 +157,15 @@ const testGenericCollection = async (schema) => {
   return result;
 };
 
+
 /**
  * Main function: decides which flow to run based on schema type
  */
 export const runCrudTest = async (schema) => {
+  // if (mode === "errors") {
+  //   return await testCollectionErrors(schema);
+  // }
+
   if (schema.type === "pages" || schema.type === "components") {
     return await testPageOrComponents(schema);
   } else if (schema.type === "collections") {
@@ -167,3 +174,94 @@ export const runCrudTest = async (schema) => {
     return await testGenericCollection(schema);
   }
 };
+
+
+
+
+/*
+const testCollectionErrors = async (schema) => {
+  const result = {
+    schema: schema.key,
+    errors: [],
+  };
+
+  try {
+    // --- Base valid data ---
+    let baseData = await generateFakeData(schema.schema.fields);
+    const validBase = validateFakeData(schema.validation, baseData);
+
+    if (!validBase.success) {
+      result.errors.push(
+        `✅ Base fake data failed validation: ${validBase.errors.join(", ")}`
+      );
+      return result;
+    }
+    baseData = validBase.data;
+
+    // --- Create one clean record first ---
+    const firstRes = await handleDynamicFormApi({
+      slug: schema.key,
+      formdata: baseData,
+      mode: "create",
+    });
+    const recordId = firstRes?.data?._id || firstRes?.id;
+
+    // --- Prepare all error cases ---
+    const errorCases = [
+      {
+        label: "Duplicate title",
+        mode: "create",
+        data: { ...baseData },
+      },
+      {
+        label: "Case-insensitive duplicate",
+        mode: "update",
+        id: recordId,
+        data: { ...baseData, title: baseData.title.toUpperCase() },
+      },
+      {
+        label: "Min length",
+        mode: "create",
+        data: { ...baseData, title: "a" },
+      },
+      {
+        label: "Max length",
+        mode: "create",
+        data: { ...baseData, title: "a".repeat(30000) },
+      },
+    ];
+
+    // --- Run all cases (validate first, then optionally send once) ---
+    for (const test of errorCases) {
+      const validation = validateFakeData(schema.validation, test.data);
+      if (!validation.success) {
+        result.errors.push(`✅ ${test.label} rejected by validation`);
+        continue;
+      }
+
+      try {
+        await handleDynamicFormApi({
+          slug: schema.key,
+          id: test.id,
+          formdata: validation.data,
+          mode: test.mode,
+        });
+        result.errors.push(`❌ ${test.label} was allowed`);
+      } catch (err) {
+        result.errors.push(`✅ ${test.label} rejected by backend`);
+      }
+    }
+
+    // --- Cleanup ---
+    if (recordId) {
+      await deleteOneEntry(schema.key, recordId);
+    }
+  } catch (err) {
+    result.errors.push(`Error running error tests: ${err?.message || err}`);
+  }
+
+  return result;
+};
+
+
+*/
