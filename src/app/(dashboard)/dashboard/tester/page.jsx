@@ -93,29 +93,39 @@ const DashboardTester = () => {
       </button>
 
       {/* Logs */}
-      <div className={styles.logsContainer}>
+      <div
+        className={`${styles.logsContainer} ${
+          !state.running && state.logs.length > 0 ? styles.show : ""
+        }`}
+      >
         {state.logs.map((log, i) => (
           <div
             key={i}
             className={`${styles.logItem} ${theme.background} ${theme.bord10}`}
           >
-            <h1 className={`${theme.color}`}>{log.schema}</h1>
-            <ul className={styles.list}>
-              <li className={`${theme.color}`}>
-                Create: {log.create === null ? "—" : log.create ? "✅" : "❌"}
-              </li>
-              <li className={`${theme.color}`}>
-                Update: {log.update === null ? "—" : log.update ? "✅" : "❌"}
-              </li>
-              <li className={`${theme.color}`}>
-                Delete: {log.delete === null ? "—" : log.delete ? "✅" : "❌"}
-              </li>
-            </ul>
+            <div className={styles.logHeader}>
+              <h1 className={`${theme.color} ${styles.schemaName}`}>
+                {log.schema}
+              </h1>
+              <div className={styles.statusGroup}>
+                <span className={`${theme.color} ${styles.status}`}>
+                  Create: {log.create === null ? "—" : log.create ? "✅" : "❌"}
+                </span>
+                <span className={`${theme.color} ${styles.status}`}>
+                  Update: {log.update === null ? "—" : log.update ? "✅" : "❌"}
+                </span>
+                <span className={`${theme.color} ${styles.status}`}>
+                  Delete: {log.delete === null ? "—" : log.delete ? "✅" : "❌"}
+                </span>
+              </div>
+            </div>
 
             {/* Validation results */}
             {log.validation && (
               <details className={styles.detail} open>
-                <summary className="mb-10">Validation Dashboard Results</summary>
+                <summary className="mb-10">
+                  Validation Dashboard Results
+                </summary>
 
                 {Object.entries(log.validation).map(([stage, val]) => (
                   <div key={stage} className={styles.validationStage}>
@@ -138,12 +148,15 @@ const DashboardTester = () => {
                 ))}
               </details>
             )}
-
             {/* Extra debug info */}
             {log.createData && (
               <details className={styles.detail}>
                 <summary>Create Data</summary>
-                <pre className={`${theme.name == "light" ? styles.lightPre : styles.darkPre }  `}>
+                <pre
+                  className={`${
+                    theme.name == "light" ? styles.lightPre : styles.darkPre
+                  }  `}
+                >
                   {JSON.stringify(log.createData, null, 2)}
                 </pre>
               </details>
@@ -151,7 +164,11 @@ const DashboardTester = () => {
             {log.updatedData && (
               <details className={styles.detail}>
                 <summary>Updated Data</summary>
-                <pre className={`${theme.name == "light" ? styles.lightPre : styles.darkPre } `}>
+                <pre
+                  className={`${
+                    theme.name == "light" ? styles.lightPre : styles.darkPre
+                  } `}
+                >
                   {JSON.stringify(log.updatedData, null, 2)}
                 </pre>
               </details>
