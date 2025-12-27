@@ -32,7 +32,6 @@ export const generateFakeData = async (fields) => {
   return data;
 };
 
-
 /**
  * Remove common/system fields from data before sending to API
  * @param {Object} data
@@ -52,3 +51,31 @@ export const cleanOriginalData = (data, commonVal) => {
   return cleaned;
 };
 
+/**
+ * Validate data against schema's Joi validation before sending
+ * @param {Function} validationFn - Joi schema generator function (schema.validation)
+ * @param {Object} data - Fake data generated
+ * @param {String} locale - optional, defaults to 'en'
+ * @returns {{ success: boolean, data?: Object, errors?: string[] }}
+ */
+export const validateFakeData = (validationFn, data, locale = "en") => {
+  if (typeof validationFn !== "function") {
+    return { success: true, data, errors: [] };
+  }
+
+  const schema = validationFn(locale, false); // build Joi schema
+  const { error, value } = schema.validate(data, {
+    abortEarly: false,
+    stripUnknown: true, // remove extra props not in validation
+  });
+
+  if (error) {
+    return {
+      success: false,
+      data: value,
+      errors: error.details.map((d) => `${d.path.join(".")}: ${d.message}`),
+    };
+  }
+
+  return { success: true, data: value, errors: [] };
+};

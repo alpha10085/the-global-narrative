@@ -6,7 +6,7 @@ const interviewsValidationSchema = (locale = "en") => {
   return Joi.object({
     metadata: pageMetadataValClient(locale),
     title: joiText({ locale, min: 2, max: 20000, required: true }),
-    subTitle: joiText({ locale, min: 2, max: 20000, required: true }),
+    subTitle: joiText({ locale, min: 2, max: 20000 }),
     ...commonVal,
   });
 };

@@ -8,7 +8,7 @@ export const interviewsValCreate = Joi.object({
   key: Joi.string(),
 
   title: joiText({ min: 2, max: 20000, required: true }),
-  subTitle: joiText({ min: 2, max: 20000, required: true }),
+  subTitle: joiText({ min: 2, max: 20000 }),
   
   ...CommonsVal,
 });

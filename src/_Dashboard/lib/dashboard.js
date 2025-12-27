@@ -37,7 +37,6 @@ const handleDynamicFormApi = AsyncHandler(
     const isUpdateMode = mode === "update";
     const path =
     isUpdateMode || type !== "collections" ? `${slug}/${id}` : slug;
-    console.log("🚀 ~ formdata:", formdata)
     const requestMethod = isUpdateMode ? csrApi.put : csrApi.post;
     const data = await requestMethod(path, formdata);
     await revalidateTags([data?.data?.slug, id, slug, ...tags]);
