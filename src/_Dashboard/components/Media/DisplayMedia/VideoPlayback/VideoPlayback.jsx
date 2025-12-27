@@ -2,7 +2,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import styles from "./VideoPlayback.module.css";
 
-import { delay } from "@/utils/time";
 import Img from "@/components/Shared/img/Img";
 import { useClickOut } from "@/hooks/useClickout";
 import { useTheme } from "@/_Dashboard/context/ThemeCTX";

@@ -1,13 +1,9 @@
-"use client";
-
-import React, { useRef, useState, useEffect } from "react";
-import styles from "./styles.module.css";
-import Skeleton from "../Skeleton/Skeleton";
-import Img from "../img/Img";
-import DynamicVolume from "./icons";
+"use client"
 import { useInView } from "react-intersection-observer";
-import eventBus from "@/utils/eventBus";
-
+import Img from "../Img/Img";
+import Skeleton from "../Skeleton/Skeleton";
+import { useState, useRef } from "react";
+import DynamicVolume from "./icons";
 const VideoPlayer = ({
   url = "",
   urlForMobil = null,
@@ -27,6 +23,7 @@ const VideoPlayer = ({
   const [error, setError] = useState(false);
   const [videourl, setVideourl] = useState("");
   const [isMuted, setIsMuted] = useState(muted);
+  const [pendingPlay, setPendingPlay] = useState(false); // ✅ new state
 
   const { ref } = useInView({
     threshold: 0.2,
@@ -37,15 +34,20 @@ const VideoPlayer = ({
   });
 
   const handleCanPlayThrough = () => {
+    setLoading(false);
     if (autoPlay && videoRef.current) {
       videoRef.current.play().catch(() => {});
     }
-    setLoading(false);
+    if (pendingPlay && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+      setPendingPlay(false); // ✅ clear pending
+    }
   };
 
   const handleVideoError = () => {
     setLoading(false);
     setError(true);
+    setPendingPlay(false);
   };
 
   useEffect(() => {
@@ -62,9 +64,18 @@ const VideoPlayer = ({
 
   useEffect(() => {
     const handleEvent = (value) => {
-      if (videoRef.current) {
-        if (value === "play") videoRef.current.play();
-        else if (value === "pause") videoRef.current.pause();
+      if (!videoRef.current) return;
+
+      if (value === "play") {
+        if (loading) {
+          // ✅ remember play request
+          setPendingPlay(true);
+        } else {
+          videoRef.current.play().catch(() => {});
+        }
+      } else if (value === "pause") {
+        videoRef.current.pause();
+        setPendingPlay(false); // cancel pending play if pause requested
       }
     };
 
@@ -72,9 +83,8 @@ const VideoPlayer = ({
     return () => {
       eventBus.off(videoKey, handleEvent);
     };
-  }, [videoKey]);
+  }, [videoKey, loading]);
 
-  // ✅ Skip rendering if no valid video URL
   if (!videourl) return null;
 
   return (
@@ -120,4 +130,5 @@ const VideoPlayer = ({
   );
 };
 
-export default VideoPlayer;
+
+export default VideoPlayer 
