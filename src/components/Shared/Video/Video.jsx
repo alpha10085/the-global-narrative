@@ -1,6 +1,6 @@
 "use client"
 import { useInView } from "react-intersection-observer";
-import Img from "../Img/Img";
+import Img from "../img/Img";
 import Skeleton from "../Skeleton/Skeleton";
 import { useState, useRef, useEffect } from "react";
 import DynamicVolume from "./icons";
