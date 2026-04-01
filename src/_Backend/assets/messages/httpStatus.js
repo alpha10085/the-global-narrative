@@ -35,6 +35,10 @@ const httpStatus = {
     code: 500,
     message: "httpStatus.InternalServerError",
   },
+    internalDatabaseError: {
+    code: 505,
+    message: "httpStatus.internalDatabaseError",
+  },
   sessionExpired: {
     code: 403,
     message: "httpStatus.Sessionexpired",

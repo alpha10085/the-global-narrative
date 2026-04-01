@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import SyncIcon from "@mui/icons-material/Sync";
 import styles from "./ErrorBoundary.module.css";
 import Spinner from "../Spinner/Spinner";
+import MainLogo from "@/components/MainLogo/MainLogo";
 
 const ErrorBoundaryPage = ({ isLoading = false,handleCheckServer }) => {
   // useEffect(() => {
@@ -28,6 +29,13 @@ const ErrorBoundaryPage = ({ isLoading = false,handleCheckServer }) => {
 
   return (
     <section className={`${styles.container} showSmooth`}>
+      <div  className={styles.MainLogo}>
+    <MainLogo
+        classNameWrapper={styles.MainLogoInner}
+        theme={"light"}
+      />
+
+      </div>
       {isLoading ? (
         <Spinner color="black" />
       ) : (

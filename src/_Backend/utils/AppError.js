@@ -9,6 +9,7 @@ export class AppError extends Error {
   }) {
     super(message);
     this.code = code;
+    this.status = code;
     this.details = details;
     this.translated = translated;
     this.key = key;

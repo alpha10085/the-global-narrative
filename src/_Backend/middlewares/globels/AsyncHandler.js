@@ -63,7 +63,10 @@ export const AsyncHandler = (
   };
 
   return async (request, context) => {
-    const req = await decodeReq(request, context);
+    let  req= request
+    
+    try {
+     req = await decodeReq(request, context);
     req.notCached = false;
     const method = req.method?.toUpperCase();
     const isGet = method === "GET";
@@ -93,7 +96,6 @@ export const AsyncHandler = (
       relationCacheTags,
     };
 
-    try {
       // Run built-in and auth middlewares
       const preMiddlewares = [i18nextMiddleware];
       if (shouldAuth) {

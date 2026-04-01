@@ -50,6 +50,16 @@
   line-height: 1.8;
 }
 
+.MainLogo {
+  position: fixed;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+}
+.MainLogoInner {
+  
+  height: 60px;
+}
 /* Infinite spin animation */
 @keyframes spin {
   0% {

@@ -26,6 +26,8 @@ import { contactUsPageModel } from "./models/pages/contactUs.model";
 import { landingModel } from "./models/pages/landing.model";
 import { newsPageModel } from "./models/pages/newsPage.model";
 import { servicesPageModel } from "./models/pages/services.model";
+import { AppError } from "../utils/AppError";
+import httpStatus from "../assets/messages/httpStatus";
 
 // componants
 if (!process.env.DB_URL) {
@@ -57,7 +59,7 @@ const connectDB = async () => {
     return cached.conn;
   } catch (error) {
     console.error("Database connection failed", error.message);
-    throw new Error("Failed to connect to the database");
+    throw new AppError(httpStatus.internalDatabaseError)
   }
 };
 

@@ -2,6 +2,7 @@ import axios from "axios";
 import { SessionExpire } from "@/lib/actions";
 import eventBus from "./eventBus";
 import { timeToSeconds } from "./time";
+import Cookies from "js-cookie";
 
 const baseURL = `${process.env.NEXT_PUBLIC_API}/api`;
 const defaultTimeout = 10 * 60 * 1000; // 10 minutes
@@ -35,6 +36,7 @@ csrApi.interceptors.response.use(
     const config = error.config;
 
     if (error.response) {
+      console.log("🚀 ~ error.response.status:", error.response.status)
       switch (error.response.status) {
         case 400:
           return Promise.reject({
@@ -65,6 +67,14 @@ csrApi.interceptors.response.use(
             message: "Something went wrong",
             ...error.response.data,
           });
+        case 505:
+        console.log("down");
+          eventBus.emit("server-down", true);
+                console.log("down 2 ");
+          return Promise.reject({
+            message: "Something went wrong",
+            ...error.response.data,
+          });
         default:
           return Promise.reject({
             message: "An Error Occurred",
@@ -78,7 +88,7 @@ csrApi.interceptors.response.use(
       const isOffline = typeof navigator !== "undefined" && !navigator.onLine;
       if (isOffline) {
         eventBus.emit("offline-mode", true);
-      } else { 
+      } else {
         eventBus.emit("server-down", true);
       }
       return Promise.reject({
@@ -92,7 +102,7 @@ csrApi.interceptors.response.use(
         details: error.message,
       });
     }
-  }
+  },
 );
 
 /**
@@ -158,7 +168,7 @@ export const ssrApi = async (url, options = {}) => {
       const isAbort = error?.name === "AbortError";
       const isRetriable = !isAbort && attempt < retry;
 
-      if (!isRetriable) {
+      if (!isRetriable || error?.code === 505) {
         throw isAbort
           ? { message: "Request Timeout", errorBoundary: true }
           : { message: "Request Error", details: error.message };

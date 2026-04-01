@@ -15,6 +15,7 @@ export const ErrorBoundary = ({ children, boundary }) => {
     error: boundary,
     isOffline: false,
   });
+  console.log("🚀 ~ ErrorBoundary ~ error:", error)
 
   async function checkSpeed() {
     const start = Date.now();
@@ -38,12 +39,14 @@ export const ErrorBoundary = ({ children, boundary }) => {
   }
 
   const showBoundary = async () => {
+    
     if (isOffline) return;
 
     const { error } = await checkSpeed();
-    if (error) {
+    if (!error) {
       return showOfflineBanner()
     }
+    console.log("🚀 ~ showBoundary ~ error:", error)
     CookiesClient.set("boundary", "true", { expires: 10 });
     setState({ error: true, isLoading: false });
   };
@@ -98,6 +101,7 @@ export const ErrorBoundary = ({ children, boundary }) => {
     };
   }, []);
 
+    console.log("🚀 ~ ErrorBoundary ~ isOffline:", isOffline)
   return (
     <OfflineBanner enabled={isOffline}>
       {error ? (

@@ -2,8 +2,10 @@
 import { useInView } from "react-intersection-observer";
 import Img from "../Img/Img";
 import Skeleton from "../Skeleton/Skeleton";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import DynamicVolume from "./icons";
+import eventBus from "@/utils/eventBus";
+import styles  from "./styles.module.css"
 const VideoPlayer = ({
   url = "",
   urlForMobil = null,
