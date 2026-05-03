@@ -9,7 +9,10 @@
     "build": "next build",
     "start": "next start",
     "vercel-build": "npm install --legacy-peer-deps && next build",
-    "preinstall": "npm config set legacy-peer-deps true"
+    "preinstall": "npm config set legacy-peer-deps true",
+    "sync:cloudinary": "node src/scripts/sync-cloudinary-to-mongo.js",
+    "sync:thumb": "node src/scripts/handle-thumb.js",
+    "init:admin": "node src/scripts/initAdmin.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -31,6 +34,8 @@
     "cobe": "^0.6.3",
     "crypto": "^1.0.1",
     "date-fns": "^4.1.0",
+    "dotenv": "^17.4.2",
+    "dotnet": "^1.1.4",
     "framer-motion": "^12.16.0",
     "fs-extra": "^11.3.0",
     "html2canvas": "^1.4.1",

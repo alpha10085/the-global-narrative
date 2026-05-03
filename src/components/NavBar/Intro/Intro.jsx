@@ -28,12 +28,12 @@ const Intro = ({ theme = "dark",isUnderTest=false, classNameWrapper = "" }) => {
   const runSequence = useCallback(async () => {
     disableScroll();
  
-    // await delay(1600);
-    // setState({ isFinished: true });
-    // await delay(500);
-    // eventBus.emit(videoKey, "play");
-    // setState({ hide: true });
-    // enableScroll();
+    await delay(1600);
+    setState({ isFinished: true });
+    await delay(500);
+    eventBus.emit(videoKey, "play");
+    setState({ hide: true });
+    enableScroll();
   }, [disableScroll, enableScroll, setState]);
 
   useEffect(() => {

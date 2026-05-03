@@ -7,7 +7,7 @@ const fetchData = async (path, options) => {
   try {
     return await ssrApi(path, options);
   } catch (error) {
-    console.error("Fetcher error:", error);
+    console.error("Fetcher error:",path, error);
     return null;
   }
 };

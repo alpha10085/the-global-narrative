@@ -32,32 +32,35 @@ const Home = async () => {
         <div className={styles.staticWrapper}>
           <AboutUs data={aboutUsSection} />
 
-          <SSRFetcher
-            Component={ServicesSection}
-            options={{
-              next: {
-                revalidate: "1y",
-                tags: servicesSection?.services || ["service"],
-              },
-            }}
-            data={servicesSection}
-            path={`/service/landing?ids=${servicesSection?.services}`}
-          />
-
-          <Quote data={quoteSection} />
-
-          <div className={styles.wrapper}>
+          {servicesSection?.services && servicesSection?.services?.length ? (
             <SSRFetcher
-              Component={News}
+              Component={ServicesSection}
               options={{
                 next: {
                   revalidate: "1y",
-                  tags: newsSection?.posts || ["news"],
+                  tags: servicesSection?.services || ["service"],
                 },
               }}
-              data={newsSection}
-              path={`/news/landing?ids=${newsSection?.posts}`}
+              data={servicesSection}
+              path={`/service/landing?ids=${servicesSection?.services}`}
             />
+          ):null}
+          <Quote data={quoteSection} />
+
+          <div className={styles.wrapper}>
+            {newsSection?.posts && newsSection?.posts?.length ? (
+              <SSRFetcher
+                Component={News}
+                options={{
+                  next: {
+                    revalidate: "1y",
+                    tags: newsSection?.posts || ["news"],
+                  },
+                }}
+                data={newsSection}
+                path={`/news/landing?ids=${newsSection?.posts}`}
+              />
+            ):null}
             {testimonialSection?.posts && testimonialSection?.posts?.length ? (
               <SSRFetcher
                 Component={Testimonials}

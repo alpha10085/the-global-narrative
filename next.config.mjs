@@ -22,6 +22,8 @@ const nextConfig = {
     ],
   },
   reactStrictMode: false,
+  allowedDevOrigins: ["127.0.0.1", "localhost"],
+
 devIndicators: false,
   experimental: {
     viewTransition: true,

@@ -15,7 +15,6 @@ export const ErrorBoundary = ({ children, boundary }) => {
     error: boundary,
     isOffline: false,
   });
-  console.log("🚀 ~ ErrorBoundary ~ error:", error)
 
   async function checkSpeed() {
     const start = Date.now();
@@ -101,7 +100,6 @@ export const ErrorBoundary = ({ children, boundary }) => {
     };
   }, []);
 
-    console.log("🚀 ~ ErrorBoundary ~ isOffline:", isOffline)
   return (
     <OfflineBanner enabled={isOffline}>
       {error ? (

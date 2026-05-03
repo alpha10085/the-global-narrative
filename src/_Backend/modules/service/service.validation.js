@@ -16,7 +16,7 @@ const serviceValidationCreate = Joi.object({
       link: joiText({ min: 2, max: 1000, required: true }),
       poster: fileVal.required(),
       ...CommonsVal,
-    }).required(),
+    }),
   }),
   ...CommonsVal,
 }).required();

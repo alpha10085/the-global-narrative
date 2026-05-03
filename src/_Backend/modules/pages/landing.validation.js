@@ -37,9 +37,8 @@ const servicesSection = Joi.object({
   title: joiText({ min: 2, max: 20000, required: true }),
   services: joiArray({
     body: serviceValidationRelation,
-    min: 1,
-    max: 4,
-    required: true,
+    min: 0,
+    max: 4
   }),
   ...CommonsVal,
 });
@@ -67,8 +66,8 @@ const newsSection = Joi.object({
   title: joiText({ min: 2, max: 20000, required: true }),
   posts: joiArray({
     body: newsValidationRelation,
-    min: 1,
-    required: true,
+    min: 0,
+    required: false,
   }),
   ...CommonsVal,
 });
@@ -112,7 +111,7 @@ export const LandingValCreate = Joi.object({
 
   heroSection: heroSection.required(),
   aboutUsSection: aboutUsSection.required(),
-  servicesSection: servicesSection.required(),
+  servicesSection: servicesSection,
   quoteSection: quoteSection.required(),
   newsSection: newsSection.required(),
   testimonialSection: testimonialSection.required(),
