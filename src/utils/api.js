@@ -36,7 +36,6 @@ csrApi.interceptors.response.use(
     const config = error.config;
 
     if (error.response) {
-      console.log("🚀 ~ error.response.status:", error.response.status)
       switch (error.response.status) {
         case 400:
           return Promise.reject({
@@ -68,9 +67,8 @@ csrApi.interceptors.response.use(
             ...error.response.data,
           });
         case 505:
-        console.log("down");
           eventBus.emit("server-down", true);
-                console.log("down 2 ");
+                
           return Promise.reject({
             message: "Something went wrong",
             ...error.response.data,

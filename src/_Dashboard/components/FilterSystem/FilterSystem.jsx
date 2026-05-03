@@ -62,7 +62,6 @@ const FilterSystem = ({
   };
   const handleSubmit = (remove = null) => {
     let values = remove || query;
-    console.log("🚀 ~ handleSubmit ~ values:", values)
     try {
       // Check if values are defined and if value is neither undefined nor null
       if (
@@ -71,7 +70,6 @@ const FilterSystem = ({
         values?.value &&
         typeof values?.value === "string"
       ) {
-        console.log("hi");
         
         setOpen(false);
         setQuery({});

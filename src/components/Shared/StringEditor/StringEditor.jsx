@@ -75,7 +75,6 @@ export default function WordLikeEditor({ initialValue = "", onSave } = {}) {
     // Detect heading at start of current line
     const lineStart = value.lastIndexOf("\n", Math.max(0, start - 1)) + 1;
     let headingOffset = 0;
-    console.log(value);
 
     if (value.startsWith("# ", lineStart)) {
       headingOffset = 2; // skip "# "
