@@ -6,6 +6,7 @@ import { redirect, RedirectType } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { ValidateLocale } from "@/i18n/request";
 import translation from "@/i18n/config";
+import config from "@/i18n/config";
 // Method to revalidate the cache for a specific path
 export const revalidateHomePage = async (path) => {
   revalidatePath("/"); // Revalidate the cache for the homepage "/"
@@ -23,11 +24,10 @@ export const redirectAfterSign = async (isAdmin) => {
   route = isAdmin
     ? "/dashboard"
     : isIncludes(route, AuthRoutes)
-    ? route
-    : "/profile";
+      ? route
+      : "/profile";
   // delete next from cookies
   getcookies.delete("next");
-  
 
   // redirect to new route
   redirect(`${locale}${route}`, RedirectType.replace);
@@ -41,7 +41,7 @@ export const deleteItemfromCookies = async (key) => {
 export const SessionExpire = async () => {
   // get cookies
   const getcookies = await cookies();
-  const locale = getcookies.get("locale")?.value;
+  const locale = config.locales ? getcookies.get("locale")?.value : "";
   getcookies.set({
     name: "token",
     value: "",

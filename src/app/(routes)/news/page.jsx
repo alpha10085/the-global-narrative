@@ -6,17 +6,20 @@ import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import ListInterviews from "@/components/MediaCenter/List/List";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
+import Aos from "@/components/Shared/Animtions/Aos/Aos";
 const pageKey = "custom-news";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
 const page = async () => {
   const data = await getPage(pageKey);
   return (
     <section className={`${styles.layout} showSmooth`}>
-      <div className={styles.header}>
+      <Aos 
+      activeClassName={`${styles.active}`}
+      className={styles.header}>
+        <SectionTitle className={styles.title} title={data?.title} />
         <p className={`${styles.subTitle} `}>{data?.subTitle}</p>
 
-        <SectionTitle className={styles.title} title={data?.title} />
-      </div>
+      </Aos>
       <List page={data} categories={data?.categories} />
     </section>
   );

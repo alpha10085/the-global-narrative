@@ -32,7 +32,10 @@ const Template = ({
         className={`${className} ${styles.container}`}
       >
         {data?.title && data?.description ? (
-          <div className={`flex   gap40 just-sb ${styles.content}`}>
+          <div className={`flex   gap40
+          
+          al-i-c
+          just-sb ${styles.content}`}>
             <h1 className="title-l">{data?.title}</h1>
             <div className={`${styles.description} flex  column gap20`}>
               {lineBreak(data?.description, ["."])?.map((val, i) => (

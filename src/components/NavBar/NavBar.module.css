@@ -38,14 +38,14 @@
   transition: 0.8s;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.04);
 }
-.bg.transparent {
+.wrapperHeader.transparent .bg {
   transform: translateY(-100%);
 }
 .nav .rightUl {
   z-index: 100;
   position: relative;
 }
-.nav.transparent {
+.wrapperHeader.transparent .bg  {
   background-color: rgba(255, 255, 255, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0);
 }
@@ -55,14 +55,30 @@
   display: none !important;
 }
 .logo {
-  height: 70px;
+  height: 65px;
   z-index: 100;
+    /* background-color: rgba(34, 34, 34, 0.159);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.164);
+  padding: 10px; */
+
 }
 
 .rightUl {
   color: rgb(255, 255, 255);
   align-self: flex-end;
   margin: auto 0;
+  padding: 0 30px ;
+  border-radius: 20px;
+
+  transition: 0.2s;
+  background-color: transparent;
+  border:1px solid transparent;
+}
+.wrapperHeader.transparent .rightUl {
+  background-color: rgba(34, 34, 34, 0.1);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .link {
   font-size: 18px;

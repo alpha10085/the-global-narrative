@@ -174,12 +174,14 @@ const NavBar = ({
 
   return (
     <header className={styles.header}>
-      <div className={styles.wrapperHeader}>
+      <div className={`${styles.wrapperHeader}
+      ${
+              navMode.transparent ? styles.transparent : ""
+            }
+      `}>
         {!navMode.nonFixed && (
           <div
-            className={`${styles.bg} ${
-              navMode.transparent ? styles.transparent : ""
-            }`}
+            className={`${styles.bg} `}
           />
         )}
         <nav

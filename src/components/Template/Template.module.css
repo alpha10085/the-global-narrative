@@ -34,17 +34,18 @@
   color: var(--color200);
   animation: intro 1s forwards;
   animation-delay: 0.5s;
-  width: 400px;
+  width: 600px;
   
   font-weight: 400;
   max-width: 90%;
+
+  /* font-size: 45px; */
 }
 .description {
-  width: calc(100% - 400px);
+  width: calc(100% - 500px);
   transform: translateY(10px);
 }
 .content p {
-  text-align: justify;
 
   animation: intro2 1s forwards;
 }

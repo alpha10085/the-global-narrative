@@ -27,9 +27,10 @@
 
   color: var(--color200);
 font-weight: 500;
-  gap: 10px !important;
+  gap: 1% !important;
   max-width: 100%;
   width: 600px;
+  font-size: 45px !important;
 }
 
 .description {
