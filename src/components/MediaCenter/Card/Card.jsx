@@ -19,7 +19,7 @@ const Card = ({ val, index }) => {
       <div className={styles.cardTop}>
         <YouTubeEmbed
           channelPicture={channelPicture}
-          title={val?.title}
+          // title={val?.title}
           className={styles.YouTubeEmbed}
           link={val?.link}
         />
