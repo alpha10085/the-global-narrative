@@ -115,6 +115,7 @@
   border: 1px solid white;
   text-transform: uppercase;
   background-color: black;
+  color: white ;
 }
 
 @media (max-width:674px) {}
