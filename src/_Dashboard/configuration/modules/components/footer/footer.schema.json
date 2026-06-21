@@ -10,11 +10,6 @@
           "name": "url",
           "type": "text",
           "label": "url"
-        },
-        {
-          "name": "link",
-          "type": "textarea",
-          "label": "link"
         }
       ]
     }

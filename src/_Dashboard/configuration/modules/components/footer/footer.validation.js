@@ -28,8 +28,8 @@ const mainCard = (locale = "en") =>
           }),
           link: joiText({
             locale,
-            required: true,
-          }),
+            // required: true,
+          }).allow("", null),
         },
       }),
     }),

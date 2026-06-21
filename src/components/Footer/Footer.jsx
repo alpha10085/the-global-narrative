@@ -7,7 +7,10 @@ import Link from "../Shared/Link/Link";
 import LinkTransition from "../Shared/LinkTransition/LinkTransition";
 import styles from "./footer.module.css";
 import { usePathname } from "@/hooks/useTranslations";
-
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import XIcon from "@mui/icons-material/X";
 const hiddenPaths = ["/contact-us"];
 
 const Footer = ({ data = {} }) => {
@@ -16,6 +19,33 @@ const Footer = ({ data = {} }) => {
 
   // Check if data is available
   const { socialLinks = [] } = data || {};
+
+  const allIcons = [
+    {
+      key: "facebook",
+      component: FacebookIcon,
+    },
+    {
+      key: "instagram",
+      component: InstagramIcon,
+    },
+    {
+      key: "x.com",
+      component: XIcon,
+    },
+    {
+      key: "linkedin",
+      component: LinkedInIcon,
+    },
+  ];
+
+  const handleGetCorrectIcon = (link = "") => {
+    const icon = allIcons.find(({ key }) =>
+      link.toLowerCase().includes(key.toLowerCase()),
+    );
+
+    return icon?.component || null;
+  };
 
   return (
     <footer
@@ -30,23 +60,21 @@ const Footer = ({ data = {} }) => {
           <div
             className={`${styles.ScoialLinks} flex gap40 wrap just-c al-i-c`}
           >
-            {socialLinks?.map((item, i) => (
-              <a
-                key={item?._id}
-                href={item?.link}
-                className={styles.ScoialLinks}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {/* <Img
-                  url={item?.url}
-                  alt={`social-icon-${i}`}
-                  disableSkeleton
-                  className={styles.icon}
-                
-                /> */}
-              </a>
-            ))}
+            {socialLinks?.map((item, i) => {
+              const Icon = handleGetCorrectIcon(item?.url);
+
+              return (
+                <a
+                  key={item?._id}
+                  href={item?.url}
+                  className={styles.ScoialLinks}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Icon />
+                </a>
+              );
+            })}
           </div>
         </div>
         <div className={styles.right}>

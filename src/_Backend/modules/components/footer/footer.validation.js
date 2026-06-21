@@ -5,7 +5,7 @@ import Joi from "joi";
 // Footer component validation schema
 const socialLinkSchema = Joi.object({
   url: joiText({ required: true }),
-  link: joiText({ required: true }),
+  link: joiText({ required: false }).allow("",null),
   ...CommonsVal,
 });
 

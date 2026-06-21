@@ -24,12 +24,12 @@ export default async function RootLayout({ children }) {
       <div style={{ minHeight: "100vh" }}>{children}</div>
       {!testMode && (
         <>
-          {/* <SSRFetcher
+          <SSRFetcher
             Component={Footer}
             path="/components/footer"
             Fallback={Fallback}
             options={{ revalidate: "1y" }}
-          /> */}
+          />
 
           <Toaster />
           <DashPopup />
