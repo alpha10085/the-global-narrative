@@ -50,11 +50,9 @@
 
 /* Button Styling */
 .volumeToggle {
-  background: transparent;
-  border: none;
   cursor: pointer;
   border-radius: 50%;
-  border: 0px solid rgba(255, 255, 255, 0.5);
+  border: 0px solid rgba(0, 0, 0, 0.9);
   padding: 14px 10px 8px;
   width: auto;
   aspect-ratio: 1;
@@ -63,7 +61,7 @@
   min-width: 40px;
   max-width: 60px;
   max-height: 60px;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
 }
 
@@ -74,6 +72,7 @@
 .iconWrapper {
   display: inline-block;
   transition: opacity 0.3s ease, transform 0.3s ease;
+
 }
 
 .icon {
@@ -82,13 +81,15 @@
   width: 70%;
   height: auto;
   aspect-ratio: 1;
+  color: white;
+  mix-blend-mode: difference;
 }
-.icon {
+.icon svg {
 }
 
 .sounedState {
   position: absolute;
-  right: 5vw;
-  bottom: 5vh;
+  right: 5%;
+  bottom: 5%;
   z-index: 10;
 }

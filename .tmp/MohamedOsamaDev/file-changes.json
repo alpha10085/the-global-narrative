@@ -202,10 +202,10 @@
   {
     "file": "src/components/Shared/Video/Video.jsx",
     "firstSeenAt": "10/8/2025, 2:37:38 AM",
-    "lastUpdatedAt": "4/1/2026, 11:24:48 AM",
+    "lastUpdatedAt": "6/24/2026, 6:18:27 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 8
+    "count": 10
   },
   {
     "file": "src/_Dashboard/components/Media/DisplayMedia/VideoPlayback/VideoPlayback.jsx",
@@ -382,5 +382,13 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 2
+  },
+  {
+    "file": "src/components/Shared/Video/styles.module.css",
+    "firstSeenAt": "6/24/2026, 6:15:08 PM",
+    "lastUpdatedAt": "6/24/2026, 6:16:58 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 20
   }
 ]

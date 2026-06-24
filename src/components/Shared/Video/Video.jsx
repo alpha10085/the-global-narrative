@@ -1,11 +1,13 @@
-"use client"
+"use client";
+
 import { useInView } from "react-intersection-observer";
 import Img from "../img/Img";
 import Skeleton from "../Skeleton/Skeleton";
 import { useState, useRef, useEffect } from "react";
 import DynamicVolume from "./icons";
 import eventBus from "@/utils/eventBus";
-import styles  from "./styles.module.css"
+import styles from "./styles.module.css";
+
 const VideoPlayer = ({
   url = "",
   urlForMobil = null,
@@ -19,13 +21,18 @@ const VideoPlayer = ({
   allowChangeSound = false,
   muted = true,
   videoKey = Date.now(),
+
+  // New feature — does not affect old usages
+  playOnHover = false,
+  resetOnMouseLeave = true,
 }) => {
   const videoRef = useRef(null);
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [videourl, setVideourl] = useState("");
   const [isMuted, setIsMuted] = useState(muted);
-  const [pendingPlay, setPendingPlay] = useState(false); // ✅ new state
+  const [pendingPlay, setPendingPlay] = useState(false);
 
   const { ref } = useInView({
     threshold: 0.2,
@@ -35,14 +42,51 @@ const VideoPlayer = ({
     },
   });
 
+  const playVideo = () => {
+    if (!videoRef.current) return;
+
+    if (loading) {
+      setPendingPlay(true);
+      return;
+    }
+
+    videoRef.current.play().catch(() => {});
+  };
+
+  const pauseVideo = () => {
+    if (!videoRef.current) return;
+
+    videoRef.current.pause();
+    setPendingPlay(false);
+  };
+
+  const handleMouseEnter = () => {
+    if (!playOnHover) return;
+
+    playVideo();
+  };
+
+  const handleMouseLeave = () => {
+    if (!playOnHover) return;
+
+    pauseVideo();
+
+    if (resetOnMouseLeave && videoRef.current) {
+      videoRef.current.currentTime = 0;
+    }
+  };
+
   const handleCanPlayThrough = () => {
     setLoading(false);
-    if (autoPlay && videoRef.current) {
-      videoRef.current.play().catch(() => {});
+
+    // Normal old behavior only
+    if (autoPlay && !playOnHover) {
+      videoRef.current?.play().catch(() => {});
     }
-    if (pendingPlay && videoRef.current) {
-      videoRef.current.play().catch(() => {});
-      setPendingPlay(false); // ✅ clear pending
+
+    if (pendingPlay) {
+      videoRef.current?.play().catch(() => {});
+      setPendingPlay(false);
     }
   };
 
@@ -55,33 +99,24 @@ const VideoPlayer = ({
   useEffect(() => {
     const updateVideourl = () => {
       const isMobile = window.innerWidth < 768;
-      const selectedUrl = isMobile ? urlForMobil || url : url;
-      setVideourl(selectedUrl);
+      setVideourl(isMobile ? urlForMobil || url : url);
     };
 
     updateVideourl();
+
     window.addEventListener("resize", updateVideourl);
+
     return () => window.removeEventListener("resize", updateVideourl);
   }, [url, urlForMobil]);
 
   useEffect(() => {
     const handleEvent = (value) => {
-      if (!videoRef.current) return;
-
-      if (value === "play") {
-        if (loading) {
-          // ✅ remember play request
-          setPendingPlay(true);
-        } else {
-          videoRef.current.play().catch(() => {});
-        }
-      } else if (value === "pause") {
-        videoRef.current.pause();
-        setPendingPlay(false); // cancel pending play if pause requested
-      }
+      if (value === "play") playVideo();
+      if (value === "pause") pauseVideo();
     };
 
     eventBus.on(videoKey, handleEvent);
+
     return () => {
       eventBus.off(videoKey, handleEvent);
     };
@@ -90,7 +125,12 @@ const VideoPlayer = ({
   if (!videourl) return null;
 
   return (
-    <div ref={ref} className={`${styles.wrapper} p-relative ${className}`}>
+    <div
+      ref={ref}
+      className={`${styles.wrapper} p-relative ${className}`}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {loading && !error ? (
         thumbnail ? (
           <Img
@@ -105,7 +145,7 @@ const VideoPlayer = ({
 
       {error ? (
         <Skeleton theme={theme} className={styles.skImage} type="image" />
-      ) : videourl ? (
+      ) : (
         <video
           ref={videoRef}
           src={videourl}
@@ -113,7 +153,7 @@ const VideoPlayer = ({
           loop={loop}
           muted={isMuted}
           playsInline
-          autoPlay={autoPlay}
+          autoPlay={autoPlay && !playOnHover}
           onLoadedData={() => setLoading(false)}
           onCanPlayThrough={handleCanPlayThrough}
           onError={handleVideoError}
@@ -121,7 +161,7 @@ const VideoPlayer = ({
           preload="auto"
           className={`${withEffect ? styles.blurring : ""} ${styles.video}`}
         />
-      ) : null}
+      )}
 
       {allowChangeSound && (
         <div className={styles.sounedState}>
@@ -132,5 +172,4 @@ const VideoPlayer = ({
   );
 };
 
-
-export default VideoPlayer 
+export default VideoPlayer;

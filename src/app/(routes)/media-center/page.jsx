@@ -11,12 +11,9 @@ const page = async () => {
   const data = await getPage(pageKey);
   return (
     <section className={`${styles.layout} showSmooth`}>
-          <Aos 
-      activeClassName={`${styles.active}`}
-      className={styles.header}>
+      <Aos activeClassName={`${styles.active}`} className={styles.header}>
         <SectionTitle className={styles.title} title={data?.title} />
         <p className={`${styles.subTitle} `}>{data?.subTitle}</p>
-
       </Aos>
       <List page={data} categories={data?.categories} />
     </section>
