@@ -13,9 +13,7 @@ import { delay } from "@/utils/delay";
 import useDynamicState from "@/hooks/useDynamicState";
 import Intro from "./Intro/Intro";
 
-const NavBar = ({
-  isUnderTest = false
-}) => {
+const NavBar = ({ isUnderTest = false }) => {
   const [openMobil, setOpenMobile] = useState(false);
   const BurgerBtnRef = useRef(null);
   const navRef = useRef(null);
@@ -57,7 +55,7 @@ const NavBar = ({
           .replace(/\*/g, ".*");
         const regex = new RegExp(`^${regexPattern}$`);
         return regex.test(path) && width >= minWidth && width <= maxWidth;
-      }
+      },
     );
   }, []);
 
@@ -78,23 +76,23 @@ const NavBar = ({
       const isTransparentPath = isPathInPatterns(
         transparentPathes,
         pathname,
-        width
+        width,
       );
       const isDarkModePath = isPathInPatterns(darkModePathes, pathname, width);
       const isDarkLogoPath = isPathInPatterns(
         transparentDarkLogoPathes,
         pathname,
-        width
+        width,
       );
       const isDarkModeLightLogoPath = isPathInPatterns(
         transparentDarkModeLightLogoPathes,
         pathname,
-        width
+        width,
       );
       const isNonFixedRoute = isPathInPatterns(
         nonFixedNavRoutes,
         pathname,
-        width
+        width,
       );
 
       const matched =
@@ -133,22 +131,13 @@ const NavBar = ({
     };
     window.addEventListener("resize", handleResize);
 
-    if (openMobil) {
-      setNavMode({
-        darkLogo:true,
-        darkMode:true
-      })
-      
-      return
-    }
-    
     updateNavMode();
     window.addEventListener("scroll", updateNavMode);
     return () => {
       window.removeEventListener("scroll", updateNavMode);
       window.removeEventListener("resize", handleResize);
     };
-  }, [pathname, openMobil]);
+  }, [pathname]);
 
   const handleBurgerClick = useCallback(() => {
     setOpenMobile((prev) => !prev);
@@ -169,28 +158,24 @@ const NavBar = ({
           </LinkTransition>
         </li>
       )),
-    [enabledLinks, pathes]
+    [enabledLinks, pathes],
   );
 
   return (
     <header className={styles.header}>
-      <div className={`${styles.wrapperHeader}
-      ${
-              navMode.transparent ? styles.transparent : ""
-            }
-      `}>
-        {!navMode.nonFixed && (
-          <div
-            className={`${styles.bg} `}
-          />
-        )}
+      <div
+        className={`${styles.wrapperHeader}
+      ${navMode.transparent ? styles.transparent : ""}
+      `}
+      >
+        {!navMode.nonFixed && <div className={`${styles.bg} `} />}
         <nav
           ref={navRef}
           className={`
             ${styles.nav}
             ${!navMode.nonFixed ? styles.fixed : ""}
             ${navMode.transparent ? styles.transparent : ""}
-            ${navMode.darkMode ? styles.darkMode : ""}
+            ${navMode.darkMode || openMobil ? styles.darkMode : ""}
             flex gap15
           `}
         >
@@ -200,13 +185,13 @@ const NavBar = ({
             isUnderTest={isUnderTest}
           />
 
-          <ul
+          {/* <ul
             className={`flex al-i-c gap40 ${styles.rightUl} ${
               navMode.isMounted ? styles.show : styles.hide
             }`}
           >
             {renderedLinks}
-          </ul>
+          </ul> */}
 
           <BurgerIcon
             ref={BurgerBtnRef}

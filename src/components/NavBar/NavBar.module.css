@@ -52,7 +52,7 @@
 
 .burgerIcon {
   transition: 0.4s;
-  display: none !important;
+  /* display: none !important; */
 }
 .logo {
   height: 65px;

@@ -21,13 +21,13 @@ export const links = [
   {
     text: "Media center",
     href: "/media-center",
-    enabled: false,
+    enabled: true,
   },
   {
-  text: "News",
-  href: "/news",
-  enabled: true,
-},
+    text: "News",
+    href: "/news",
+    enabled: true,
+  },
   {
     text: "Interviews",
     href: "/interviews",
@@ -38,5 +38,5 @@ export const links = [
     href: "/contact-us",
     enabled: true,
   },
+  
 ];
-

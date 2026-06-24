@@ -19,21 +19,22 @@ const MobileNav = forwardRef(({ isOpen, SetOpen, pathname }, BtnRemoteRef) => {
 
   return (
     <div
+    id="modal"
       className={`${styles.wrapperMobile} ${isOpen ? styles.activeMobile : ""}`}
       ref={ref}
     >
       <div className={styles.MobileNav}>
-        <ul onClick={close} className={`${styles.navList} flex column gap10`}>
+        <ul onClick={close} className={`${styles.navList} flex column `}>
           {enabledLinks?.map((val, i) => (
             <li key={i}>
               <LinkTransition
-                className={`flex-c gap5  ${
+                className={`flex   ${
                   val.href === pathname && styles.active
                 }`}
                 href={val.href}
                 key={i}
               >
-                {val?.text}
+                <span>{val?.text}</span>
                 {val?.icon && val?.icon}
               </LinkTransition>
             </li>
