@@ -4,6 +4,7 @@ import { clientsPageModel } from "../database/models/pages/clientsPage.model";
 import { contactUsPageModel } from "../database/models/pages/contactUs.model";
 import { interviewsModel } from "../database/models/pages/interviews.model";
 import { landingModel } from "../database/models/pages/landing.model";
+import { mediaCenterModel } from "../database/models/pages/mediaCenter.model";
 import { newsPageModel } from "../database/models/pages/newsPage.model";
 import { servicesPageModel } from "../database/models/pages/services.model";
 import {
@@ -58,6 +59,13 @@ export const allModelsConfig = {
   },
   interviews: {
     model: interviewsModel,
+    validation: {
+      create: interviewsValCreate,
+      update: interviewsValUpdate,
+    },
+  },
+  "media-center": {
+    model: mediaCenterModel,
     validation: {
       create: interviewsValCreate,
       update: interviewsValUpdate,

@@ -4,7 +4,7 @@ import { NextMiddleware } from "./middlewares/_helpers";
 
 // Middleware handler to execute middleware functions in sequence
 
-export const middleware = NextMiddleware([
+export const proxy = NextMiddleware([
   localeMiddleware,
   AuthRoutesMiddleware,
 ]);
