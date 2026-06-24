@@ -101,6 +101,16 @@
   display: flex;
   gap: 16px;
   margin-top:10px ;
+
+}
+.socialLinks .socialAnchor {
+  opacity: 0;
+  transition: 0.4s;
+  transition-delay: 1s;
+
+}
+.card.active  .socialLinks .socialAnchor { 
+  opacity: 1;
 }
 
 .socialAnchor {
