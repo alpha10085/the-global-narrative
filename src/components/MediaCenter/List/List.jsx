@@ -7,7 +7,7 @@ import Skeleton from "@/components/Shared/Skeleton/Skeleton";
 
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
 import useInfinityQuery from "@/hooks/useInfinityQuery";
-import { getInterviewsData } from "@/lib/interviews";
+import { getvideosReelsData } from "@/lib/videosReels";
 
 const List = ({}) => {
   const {
@@ -16,8 +16,8 @@ const List = ({}) => {
     fetchNextPage,
     hasNextPage,
   } = useInfinityQuery({
-    Key: ["interviews"],
-    next: getInterviewsData,
+    Key: ["video-reels"],
+    next: getvideosReelsData,
   });
 
   return (
@@ -44,7 +44,7 @@ const List = ({}) => {
       />
       {!isLoading && !data?.pages?.length && (
         <div className={`${styles.emptydata} ShowSmoothEffect flex-c`}>
-          No interviews found
+          No reels found
         </div>
       )}
       {isLoading && (

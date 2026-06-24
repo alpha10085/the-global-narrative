@@ -1,10 +1,10 @@
 export const dynamic = "auto";
-import List from "@/components/mediaCenter/List/List";
 import styles from "./styles.module.css";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import { getPage } from "@/lib/pages";
 import { pageMetadataHandler } from "@/utils/metadata";
 import Aos from "@/components/Shared/Animtions/Aos/Aos";
+import List from "@/components/MediaCenter/List/List";
 const pageKey = "media-center";
 export const generateMetadata = pageMetadataHandler(getPage, pageKey);
 const page = async () => {
