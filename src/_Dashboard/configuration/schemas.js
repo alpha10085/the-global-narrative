@@ -28,6 +28,8 @@ import { serviceConfig } from "./modules/collections/service/service.config";
 // componenet 
 import { footerConfig } from "./modules/components/footer/footer.config";
 import { interviewsPageConfig } from "./modules/pages/interviews/interviews.config";
+import { mediaCenterPageConfig } from "./modules/pages/media-center/media-center.config";
+import { videosReelsConfig } from "./modules/collections/videos-reels/videos-reels.config";
 
 
 // import { userConfig } from "./modules/collections/user/user.config";
@@ -57,6 +59,8 @@ const schemas = [
   interviewsCategoryConfig,
   testimonialConfig,
   contactUsConfig,
+  mediaCenterPageConfig,
+  videosReelsConfig,
   // components
   footerConfig
 ]; // empty array for now, you can add your schemas here.

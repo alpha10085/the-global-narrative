@@ -20,7 +20,7 @@ export const getvideosReelsData = async ({
   }).toString();
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/api/videos-reels?${formatQuery}`,
+    `${process.env.NEXT_PUBLIC_API}/api/video-reels?${formatQuery}`,
     {
       method: "GET",
       credentials: "omit", // Ensures cookies are not sent
@@ -32,7 +32,7 @@ export const getvideosReelsData = async ({
 
 export const getOnevideosReelsData = AsyncHandler(
   async (slug) => {
-    return await ssrApi(`/videos-reels/${slug}`, {
+    return await ssrApi(`/video-reels/${slug}`, {
       next: { revalidate: "30d", tags: ["videosReels"] }, // Revalidate every 30 days
     });
   },
@@ -50,7 +50,7 @@ export const getSearchvideosReels = async ({
     page: pageParam,
   }).toString();
   try {
-    const response = await csrApi.get(`/videos-reels?${formatQuery}`, {
+    const response = await csrApi.get(`/video-reels?${formatQuery}`, {
       params: { "index[title]": term },
     });
 
