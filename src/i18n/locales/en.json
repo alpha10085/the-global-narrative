@@ -212,7 +212,9 @@
       "interviewsCategory": "Interviews category",
       "newsCategories": "News categories",
       "testimonials": "testimonials",
-      "footer": "footer"
+      "footer": "footer",
+      "video-reels":"video reels",
+      "mediaCenter":"media Center"
     },
     "profile": {
       "displayName": "profile"

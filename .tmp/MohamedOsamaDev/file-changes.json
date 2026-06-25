@@ -106,10 +106,10 @@
   {
     "file": "src/i18n/locales/en.json",
     "firstSeenAt": "9/8/2025, 7:44:36 PM",
-    "lastUpdatedAt": "9/8/2025, 7:44:43 PM",
+    "lastUpdatedAt": "6/25/2026, 5:10:02 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 2
+    "count": 4
   },
   {
     "file": "src/app/(dashboard)/dashboard/tester/helpers.js",
