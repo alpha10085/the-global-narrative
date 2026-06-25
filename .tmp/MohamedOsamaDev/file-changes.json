@@ -398,5 +398,13 @@
     "lastType": "changed",
     "Type": "changed",
     "count": 2
+  },
+  {
+    "file": "src/i18n/locales/ar.json",
+    "firstSeenAt": "6/25/2026, 5:10:43 PM",
+    "lastUpdatedAt": "6/25/2026, 5:11:11 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 3
   }
 ]

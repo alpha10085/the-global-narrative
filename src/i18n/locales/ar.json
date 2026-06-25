@@ -203,7 +203,10 @@
       "interviewsCategory": "فئة المقابلات",
       "newsCategories": "فئات الأخبار",
       "testimonials": "الشهادات",
-      "footer": "تذييل"
+      "footer": "تذييل",
+
+      "video-reels": "ريلز الفيديو",
+      "mediaCenter": "المركز الإعلامي"
     },
     "profile": {
       "displayName": "الملف الشخصي"
