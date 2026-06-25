@@ -202,10 +202,10 @@
   {
     "file": "src/components/Shared/Video/Video.jsx",
     "firstSeenAt": "10/8/2025, 2:37:38 AM",
-    "lastUpdatedAt": "6/24/2026, 6:18:27 PM",
+    "lastUpdatedAt": "6/25/2026, 5:02:24 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 10
+    "count": 111
   },
   {
     "file": "src/_Dashboard/components/Media/DisplayMedia/VideoPlayback/VideoPlayback.jsx",
@@ -386,9 +386,17 @@
   {
     "file": "src/components/Shared/Video/styles.module.css",
     "firstSeenAt": "6/24/2026, 6:15:08 PM",
-    "lastUpdatedAt": "6/24/2026, 6:16:58 PM",
+    "lastUpdatedAt": "6/25/2026, 4:56:46 PM",
     "lastType": "changed",
     "Type": "changed",
-    "count": 20
+    "count": 34
+  },
+  {
+    "file": "src/components/Shared/Video/icons.js",
+    "firstSeenAt": "6/25/2026, 4:29:09 PM",
+    "lastUpdatedAt": "6/25/2026, 4:29:15 PM",
+    "lastType": "changed",
+    "Type": "changed",
+    "count": 2
   }
 ]

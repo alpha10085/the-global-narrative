@@ -6,33 +6,32 @@ import { customText } from "@/utils/text";
 import VideoPlayer from "@/components/Shared/Video/Video";
 
 const Card = ({ val, index }) => {
-  console.log("🚀 ~ Card ~ val:", val)
+  console.log("🚀 ~ Card ~ val:", val);
   const [show, setShow] = useState(false);
   useEffect(() => {
     setTimeout(() => setShow(true), index * 150); // Change 5000 to your desired delay in milliseconds.
   }, []);
-  const channelPicture =
-    "https://yt3.ggpht.com/7JjfCHjHReIEZXW8ksufTYjKXChdx-Gp_iQJIWOD72xqF3YdyJsWqAPtCPfacWrMgabWpBvODBw=s88-c-k-c0x00ffffff-no-rj";
-
   return (
     <div
       className={`${styles.card} ${show && styles?.active} flex column gap15 `}
     >
-        <VideoPlayer
-          allowChangeSound={true}
-          thumbnail={val?.thumbnail?.url}
-          muted={true}
-          autoPlay={false}
-          playOnHover
-          url={val?.video?.url}
-  
-          className={styles.Video}
-          link={val?.link}
-        />
+      <VideoPlayer
+        allowChangeSound={true}
+        thumbnail={val?.thumbnail?.url}
+        muted={true}
+        autoPlay={false}
+        //canPlayAndPause
+        playOnHover
+        url={val?.video?.url}
+        hideThumbnailOnClick
+        resetOnMouseLeave={true}
+        hideThumbnailOnLoaded={false}
+        className={styles.Video}
+        link={val?.link}
+      />
 
       <div className={`${styles.cardBottom} just-sb flex `}>
         <h1 className={styles.title}>{customText(val?.title, 40)}</h1>
-
       </div>
     </div>
   );
